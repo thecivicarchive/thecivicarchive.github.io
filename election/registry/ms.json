@@ -1,0 +1,98 @@
+{
+ "v": 1,
+ "code": "MS",
+ "name": "Mississippi",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "link",
+ "status_why": "The results frame answered 503 to a script and in a browser on 2026-10-09; recheck once in the week before Nov 3.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Mississippi Secretary of State",
+ "system": "State-built: the Secretary of State's election results pages (www.sos.ms.gov/elections-voting/election-results/<year>/<slug>), each showing an ASPX results page in a frame from sos.ms.gov/elections/electionresults_aspx/; the official results are posted later as PDF recapitulations.",
+ "family": null,
+ "reader_agent": "N12",
+ "results_page": {
+  "url": "https://www.sos.ms.gov/elections-voting/election-results",
+  "label": "Mississippi Secretary of State: results",
+  "checked": "2026-10-10",
+  "source": "answered one request with the kit's User-Agent (N4, 2026-10-10)"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": null,
+  "posted": false,
+  "how_to_find": "Recheck the frame host once in late October."
+ },
+ "cadence": null,
+ "hand": null,
+ "feeds": [
+  {
+   "id": "ms-1",
+   "what": "statewide",
+   "format": "html",
+   "address": "https://sos.ms.gov/elections/electionresults_aspx/elections_results_<year>_<election>.aspx[?party=...] (e.g. elections_results_2026_march_primary.aspx?party=republican, elections_results_2024_general.aspx), framed by https://www.sos.ms.gov/elections-voting/election-results/<year>/<slug>",
+   "hosts": [
+    "sos.ms.gov",
+    "www.sos.ms.gov"
+   ],
+   "updates": "Unofficial figures are typed in as circuit clerks report; frequency not stated.",
+   "script_ok": false,
+   "checked": "2026-10-09",
+   "note": "On 2026-10-09 the frame host sos.ms.gov/elections/electionresults_aspx/elections_results_2024_general.aspx answered 503 with an Akamai 'errors.edgesuite.net' error page to a script AND in the Browser pane, so it may be retired or down rather than walled. The listing page www.sos.ms.gov/elections-voting/election-results answered scripts 200 (185 KB; links to every election back to 2003)."
+  },
+  {
+   "id": "ms-2",
+   "what": "congress",
+   "format": "html",
+   "address": "Same pages; certified totals later as PDFs (the 2026 primaries: www.sos.ms.gov/content/documents/elections/2026/Recap%20report%20Democratic%20Primary%202026.pdf and .../republican%20primary%202026.pdf)",
+   "hosts": [],
+   "updates": "after certification",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "The PDFs are what ms.py reads."
+  }
+ ],
+ "units": "county",
+ "precinct_level": false,
+ "races_in_feed": "Statewide feed: federal, statewide, judicial, legislative specials. County and municipal races are reported by circuit and municipal clerks; Mississippi's county offices were elected in 2023, so Nov 3 2026 is mainly Senate, House, judges and specials.",
+ "local": "Some circuit clerks post their own returns (Hinds, Harrison, DeSoto, Rankin); addresses not checked today.",
+ "how_counted": "Circuit clerks report to the Secretary of State; the certified recapitulations follow.",
+ "count_order": "Absentee ballots are counted at the precincts in most counties.",
+ "vote_types": "No split by ballot type in the state pages (absentee ballots are counted at the precincts in most counties).",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Mississippi Secretary of State",
+  "rule": "Within 30 days after the election (Miss. Code 23-15-605); state officers are canvassed by the Legislature.",
+  "date": "2026-12-03",
+  "date_kind": "by",
+  "local_rule": "Counties within 10 days (Miss. Code 23-15-603).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": null,
+ "terms": "None stated.",
+ "scout_blocked": "sos.ms.gov (the frame host, without www) returned an Akamai error 503 to a script and to the Browser pane on 2026-10-09. www.sos.ms.gov answered scripts.",
+ "scout_plan": "Mississippi has no machine-readable election-night feed that answered today. Recheck the frame host in the week before Nov 3 (one request); if it answers, read its HTML tables every 10 minutes for the Senate, the four House seats and the judicial races, labelled unofficial. If it still fails, Election Night shows Mississippi as a link out to the Secretary's results page (no figures) and fills in the certified recapitulation PDFs when they post. No local level beyond what those pages carry.",
+ "notes": [
+  "Runoff rules for any special election to be confirmed by the phase 3 reader."
+ ],
+ "to_do": [
+  "One request to sos.ms.gov's frame host in late October (N12)."
+ ],
+ "sources": [
+  "election/scout/results_la.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

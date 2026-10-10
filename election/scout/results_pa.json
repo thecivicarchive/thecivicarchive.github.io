@@ -1,0 +1,179 @@
+{
+  "_about": {
+    "scout": "results-feed scout for PA, NJ, NY, CT, RI, MA, VT, NH, ME",
+    "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+    "network_note": "This machine's router drops some DNS lookups (getaddrinfo 11001 on the first try for electionreturns.pa.gov, ctemspublic.pcctg.net, static.electionresults.vermont.gov); every one answered on a retry. The live updater must retry lookups (net.patient_lookups) before treating a site as down.",
+    "privacy": "No contact details were stored. NJ's 2026 page links 'Unofficial ... Candidates Email' PDFs and Philadelphia's results page prints commissioners' office phones and e-mails; neither was read into anything here, and an updater must never read them."
+  },
+  "PA": {
+    "system": "State-built: Pennsylvania Department of State 'Election Returns' (ASP.NET site with a JSON data service); counties run their own ENR for local offices (Allegheny on Clarity/Scytl ENR; Philadelphia on its own City Commissioners results page)",
+    "site": "https://www.electionreturns.pa.gov/",
+    "feeds": [
+      {"what": "statewide", "format": "json", "address_pattern": "https://www.electionreturns.pa.gov/api/Reports/GetElectionList (all elections: Electionid, ElectionType G/P/S, ElectionStatus O = official, ISActive 1 = the current one); then https://www.electionreturns.pa.gov/api/ElectionReturn/GetOfficeData?officeId=<office>&methodName=GetOfficeDetails&electionid=<id>&electiontype=<G|P|S>&isactive=<0|1> (office 3 Governor, 4 Lieutenant Governor, 11 Representative in Congress, 12 State Senate, 13 State House; the response is a JSON string that holds JSON, keyed 'District name$$id$$')", "updates": "the Department refreshes as counties upload through the night (minutes apart; no stated interval). The list call answered with Cache-Control no-cache", "script_ok": true, "notes": "GetElectionList answered 200 JSON (45 KB) on 2026-10-09. The host sits on an Imperva address range (45.60.233.41) but served scripts normally; keep requests few and spaced."},
+      {"what": "congress", "format": "json", "address_pattern": "same GetOfficeData call with officeId=11; county by county: https://www.electionreturns.pa.gov/api/ElectionReturn/GetCountyBreak?officeId=<o>&districtId=<d>&methodName=GetCountyBreak&electionid=<id>&electiontype=<t>&isactive=<0|1>", "updates": "as above", "script_ok": true, "notes": "The kit already reads it for the May 19 primary (election 117)."},
+      {"what": "legislature", "format": "json", "address_pattern": "GetOfficeData with officeId 12 (Senate, even districts in 2026) and 13 (House, 203 seats)", "updates": "as above", "script_ok": true, "notes": ""},
+      {"what": "county", "format": "csv", "address_pattern": "the Reporting Center export (https://www.electionreturns.pa.gov/ReportCenter/Reports): one row per county, office, district, party, candidate with Votes, Election Day Votes, Mail Votes, Provisional Votes", "updates": "on request; the kit keeps one copy (ballot_cache/pa/pa_primary_2026_congress_by_county.csv)", "script_ok": true, "notes": "Use as the control on the night, not the main poll."},
+      {"what": "local", "format": "html", "address_pattern": "county sites: Allegheny https://results.enr.clarityelections.com/PA/Allegheny/ (Clarity's new Angular ENR; the root answered 200 to a script, 4 KB shell, election ids not yet found); Philadelphia https://vote.phila.gov/results/ (linked as 'Current Election Results' from vote.phila.gov; checked in the Browser pane)", "updates": "county by county", "script_ok": "untested", "notes": "Pennsylvania elects almost no regular local office in even years (CLAUDE.md), so local results on Nov 3 are a handful of specials."}
+    ],
+    "races": "statewide (Governor and Lieutenant Governor), Congress, State Senate and House, ballot questions; not local offices",
+    "precinct_level": false,
+    "vote_types": "yes: every candidate's Election Day, Mail and Provisional votes, by county (the Reporting Center CSV columns 'Election Day Votes', 'Mail Votes', 'Provisional Votes'). Pennsylvania may not start processing mail ballots until 7 a.m. on Election Day, so mail counts arrive on a county-by-county schedule: valuable for the count-order predictor.",
+    "counties_separate": "yes, for county-level detail and precincts: Allegheny (Clarity, https://results.enr.clarityelections.com/PA/Allegheny/), Philadelphia (https://vote.phila.gov/results/); Montgomery, Bucks and Delaware counties run their own results pages (not checked)",
+    "past_test": "2024 Presidential Election, Electionid 105, ElectionType G (GetOfficeData ...&electionid=105&electiontype=G&isactive=0); also the 2026 General Primary, 117, P",
+    "nov3_id": "not posted yet on 2026-10-09 (the newest entry is 119, the Aug 18 special in the 12th Legislative District); watch GetElectionList for a 2026 General entry with ISActive 1",
+    "terms": "none stated on the API; the site is the Department's public returns",
+    "blocked": "nothing refused scripts on 2026-10-09",
+    "kit_already_reads": "ballot/lists/pa.py: GetElectionList, GetOfficeData (office 11, election 117) and the Reporting Center CSV as a check; ballot/state_local_pa.py: GetOfficeData for offices 3, 4, 12, 13 and GetCountyBreak. Candidates from pavoterservices.pa.gov ElectionInfo (dataJson).",
+    "plan": "Live-readable. On the night, read GetElectionList once to find the 2026 General's id, then poll GetOfficeData for offices 3, 11, 12 and 13 every few minutes (four calls a round), and GetCountyBreak only for the races on the map that are open, to fill the county shading. Pull the Reporting Center CSV once an hour for the Election Day/Mail/Provisional split that feeds count order. Rehearse on election 105 (2024) in October. Local results are a handful of specials: take them from the county sites only where one is on the ballot, otherwise say Pennsylvania holds its local elections in odd years."
+  },
+  "NJ": {
+    "system": "No statewide live results: the Division of Elections publishes official (certified) results as PDFs weeks later; on election night each of the 21 county clerks posts unofficial results on its own site (vendors vary by county)",
+    "site": "https://www.nj.gov/state/elections/election-information-2026.shtml",
+    "feeds": [
+      {"what": "statewide", "format": "html", "address_pattern": "no state live feed. After certification: https://www.nj.gov/state/elections/assets/pdf/election-results/2026/2026-official-general-results-us-senate.pdf, ...-us-house.pdf, and per county ...-official-general-results-us-senate-<county>.pdf, ...-official-general-result-ballotscast-<county>.pdf (already linked on the 2026 page)", "updates": "once, after the counties certify (late November)", "script_ok": true, "notes": "The 2026 page answered 200 to a script (86 KB). The Division also posts county 'periodic reports' of ballots on election night as PDFs (seen for 2024: assets/pdf/periodic-report/2024/2024-1105-bergen-periodic-report-election-night.pdf, via a web search); these appear to count ballots, not votes for candidates (not opened)."},
+      {"what": "county", "format": "html", "address_pattern": "each county clerk's election results page; Bergen posts 'Unofficial Election Results' after 8 p.m. as its 70 municipalities report (per a Teaneck notice, teanecknj.gov, 2025)", "updates": "as each county receives municipal returns", "script_ok": "untested", "notes": "bergencountyclerk.org was not on the Browser pane's allowed list; no county page was opened."}
+    ],
+    "races": "the state publishes Congress and Senate only (no state legislature or governor on the 2026 ballot; odd-year offices). County sites carry county commissioners, clerks, sheriffs, surrogates, municipal councils, school boards and questions",
+    "precinct_level": false,
+    "vote_types": "not on any state feed; some county sites split vote-by-mail, election day and provisional (unverified)",
+    "counties_separate": "yes, all 21: Bergen County Clerk (bergencountyclerk.org), Middlesex, Essex, Monmouth, Hudson, Ocean (addresses not yet confirmed)",
+    "past_test": "no state live feed to replay; county sites' 2025 general (Nov 4, 2025) pages may still be up",
+    "nov3_id": "n/a",
+    "terms": "none seen",
+    "blocked": "nj.gov answered scripts (200). elec.nj.gov (campaign finance) is behind Incapsula (CLAUDE.md), not the results.",
+    "kit_already_reads": "ballot/lists/nj.py: the 2026 page's candidate lists, certifications and official primary results PDFs; ballot/state_local_nj.py: the same page (no state races in 2026). No county site is read yet.",
+    "plan": "Readable with care, county by county. New Jersey has no statewide election-night feed, so the U.S. Senate and twelve House races must be summed from the 21 county clerks' unofficial pages; a scout pass in October should find each county's results address and vendor (some are likely Clarity, which has a JSON feed) and write one small reader per layout, largest counties first. Where a county cannot be read, the page shows that county as 'not reporting here' rather than a partial sum. Official totals come from the Division's PDFs after certification. Local races ride on the same county pages."
+  },
+  "NY": {
+    "system": "State-built ASP.NET WebForms 'Unofficial Election Night Results' (NYS Board of Elections, counties upload); New York City's Board runs its own ENR",
+    "site": "https://nyenr.elections.ny.gov/",
+    "feeds": [
+      {"what": "statewide", "format": "html", "address_pattern": "one page with postback drop-downs (ctl00_HomePage_ddPrimaryParty, ddContest: Comptroller, U.S. Congress, State Senate, State Assembly, judicial delegates; ddDistrict; ddCountyBreakDown Yes/No); no JSON or CSV call seen in the page's network requests (only the page, CSS, TrackContest.js, WebResource.axd)", "updates": "the page has an 'Auto Refresh' switch; counties upload after polls close at 9 p.m.", "script_ok": false, "notes": "A script got HTTP 403 with Cloudflare's 'Just a moment...' challenge on 2026-10-09; the Browser pane opened it normally (still showing the June 23 primary, 11,862 of 12,853 election districts reporting)."},
+      {"what": "congress", "format": "html", "address_pattern": "same page, contest 'U.S. Congress', district picker, county breakdown Yes", "updates": "as above", "script_ok": false, "notes": "Cloudflare challenge to scripts"},
+      {"what": "local", "format": "html", "address_pattern": "New York City: https://enr.boenyc.gov/ (between elections it redirects to https://vote.nyc/page/election-results-summary; RCV results at https://enr.boenyc.gov/rcv/); certified recaps as PDF and CSV per contest and per election district at https://vote.nyc/sites/default/files/pdf/election_results/<year>/<yyyymmdd><Election>/<code><contest> Recap.csv and ... EDLevel.csv; a cast-vote-record zip per election", "updates": "enr.boenyc.gov during the count; recaps after certification", "script_ok": true, "notes": "enr.boenyc.gov answered a script 200 (a 436-byte redirect page) on 2026-10-09; vote.nyc read in the Browser pane."}
+    ],
+    "races": "statewide (Governor/Lt. Governor, Comptroller, Attorney General), Congress, State Senate and Assembly, Supreme Court justices by judicial district; write-ins only as a total. Local results: 'contact the county board of elections' (the page's own words)",
+    "precinct_level": false,
+    "vote_types": "no on the state page. New York counts early voting and Election Day first and mail/absentee later (the page cites Election Law 9-200, 9-208; certification within 25 days for a general). NYC's ED-level recaps list lines by election district only.",
+    "counties_separate": "yes: NYC Board (enr.boenyc.gov), Suffolk, Nassau, Westchester, Erie, Monroe county boards (addresses not checked); county board list at http://www.elections.ny.gov/CountyBoards.html",
+    "past_test": "the state page shows only the current election (no archive selector); the June 23, 2026 primary is on it now. NYC's 2026 primary recaps (CSV) are a static replay source.",
+    "nov3_id": "n/a (the page switches to the current election)",
+    "terms": "the page's 'Statement on the Unofficial Nature of Election Night Results'; no terms of use for reuse",
+    "blocked": "nyenr.elections.ny.gov and elections.ny.gov answer scripts with a Cloudflare challenge (403); must not be worked around. The Browser pane passes it like any browser.",
+    "kit_already_reads": "ballot/lists/ny.py and ballot/state_local_ny.py: the Board's general certification PDF and the certified June primary workbook (fetched patiently through the Cloudflare check, which sometimes lets a plain request through). No results page is read.",
+    "plan": "Blocked to scripts on the night. Options, in order: (1) John keeps the state ENR page open in his own browser and saves it (Save as, HTML) into a watched folder every few minutes, or the Browser pane on his computer saves it, and the updater parses the saved copy; this works the same way as Minnesota's hand-saved files; (2) read New York City's enr.boenyc.gov directly (it answered scripts) for the city's congressional and legislative districts; (3) final figures from the Board's certified workbook weeks later. Ask John whether reading the state page through the Browser pane on election night is acceptable; it is a public page a browser opens normally."
+  },
+  "CT": {
+    "system": "CT Election Management System public reporting (CTEMS, built by PCC Technology Group; an Angular app reading static JSON), behind Cloudflare but serving scripts",
+    "site": "https://ctemspublic.pcctg.net/",
+    "feeds": [
+      {"what": "statewide", "format": "json", "address_pattern": "https://ctemspublic.pcctg.net/ng-app/data/Elections.json (ID, Name, DefaultElection); https://ctemspublic.pcctg.net/ng-app/data/election/<id>/Version.json ({\"Version\": n}); then that version's files: Lookupdata (offices, candidates' printed names and parties, towns; it also holds an address field 'AD' that must never be read), stateVotes, townVotes, townStatus, officePrecincts", "updates": "Version.json changes whenever towns upload (Last-Modified on Elections.json showed same-day updates); poll Version.json, fetch the rest only when it changes", "script_ok": true, "notes": "Elections.json 200 (5.9 KB, server cloudflare) and election/108/Version.json 200 ({\"Version\":43630}) on 2026-10-09."},
+      {"what": "congress", "format": "json", "address_pattern": "same files; Representative in Congress contests", "updates": "as above", "script_ok": true, "notes": ""},
+      {"what": "legislature", "format": "json", "address_pattern": "same files; State Senator and State Representative contests", "updates": "as above", "script_ok": true, "notes": ""},
+      {"what": "local", "format": "json", "address_pattern": "same files; Judge of Probate and Registrar of Voters (the only local offices on the November ballot)", "updates": "as above", "script_ok": true, "notes": "Municipal offices are elected in odd years."}
+    ],
+    "races": "statewide (Governor/Lt. Governor, Secretary of the State, Treasurer, Comptroller, Attorney General), Congress, State Senate and House, judges of probate, registrars of voters, questions",
+    "precinct_level": false,
+    "vote_types": "no split by ballot type seen; results are by town, with each town's status '( Official Results )' and precincts reported",
+    "counties_separate": "no (Connecticut has no county government; towns report into CTEMS)",
+    "past_test": "Elections.json ID 91 '11/05/2024 -- Presidential Election 2024'; also 111 and 112 (Aug 11, 2026 primaries)",
+    "nov3_id": "108 '11/03/2026 -- November 2026 State Election' (DefaultElection Y), already posted, Version 43630 on 2026-10-09",
+    "terms": "none seen",
+    "blocked": "nothing refused scripts (Cloudflare front, no challenge)",
+    "kit_already_reads": "ballot/lists/ct.py and ballot/state_local_ct.py: Elections.json, Version.json and the version's files for the Aug 11 primaries (only names, parties, votes and town statuses kept; the AD and CO fields never read)",
+    "plan": "Live-readable. Poll election/108/Version.json every two to three minutes; when the number changes, fetch stateVotes, townVotes and townStatus for that version (Lookupdata once, keeping only names and parties). Town figures give the map below the state. Rehearse on election 91 (2024) in October. Probate and registrar races come from the same files, so Connecticut's local level is covered the same night."
+  },
+  "RI": {
+    "system": "Enhanced Voting (results/public/api JSON service) for the Board of Elections",
+    "site": "https://electionresults.ri.gov/",
+    "feeds": [
+      {"what": "statewide", "format": "json", "address_pattern": "https://electionresults.ri.gov/results/public/api/jurisdictions/RhodeIsland (towns with percentReporting, and 'elections' with publicElectionId); https://electionresults.ri.gov/results/public/api/elections/RhodeIsland/<publicElectionId> (isOfficialResults); .../data (every contest, each candidate's votes and count groups); .../data/ballot-item/<id> (one contest town by town)", "updates": "Cache-Control public, max-age=60: roughly a minute", "script_ok": true, "notes": "jurisdictions/RhodeIsland answered 200 JSON (32 KB) on 2026-10-09; .../api/elections/RhodeIsland answered 404 (not an endpoint)."},
+      {"what": "congress", "format": "json", "address_pattern": "same .../data", "updates": "as above", "script_ok": true, "notes": ""},
+      {"what": "legislature", "format": "json", "address_pattern": "same .../data", "updates": "as above", "script_ok": true, "notes": ""},
+      {"what": "local", "format": "json", "address_pattern": "same .../data: city and town contests (mayors, councils, school committees) are on the Board's results", "updates": "as above", "script_ok": true, "notes": "local specials appear as their own elections (decspec25, febspec26)"}
+    ],
+    "races": "statewide (five general officers), Congress, Senate (U.S.), General Assembly, city and town offices, questions",
+    "precinct_level": false,
+    "vote_types": "yes: count groups 'Election Day', 'Early Voting' and 'Mail Ballots' for every candidate (the kit checks them for the primary)",
+    "counties_separate": "no (towns report to the Board; no county government)",
+    "past_test": "RI2026StatewidePrimary (Sept 9, 2026); the 2024 general is not in the site's election list (historicalElectionsUrl is null), so the primary is the replay",
+    "nov3_id": "not posted yet on 2026-10-09; watch the jurisdiction's 'elections' list for a Nov 3 publicElectionId (the primary's pattern suggests something like RI2026General..., not guessed)",
+    "terms": "none seen",
+    "blocked": "elections.ri.gov (the Board's own site) and vote.sos.ri.gov answer scripts with a Cloudflare challenge (403, checked 2026-10-09 on elections.ri.gov/elections/previous-election-results); electionresults.ri.gov does not",
+    "kit_already_reads": "ballot/lists/ri.py and ballot/state_local_ri.py: the RI2026StatewidePrimary election, .../data and .../data/ballot-item/<id>, checked against Prim26_Summary.pdf",
+    "plan": "Live-readable. Read the jurisdiction file once an hour until the Nov 3 election appears, then poll .../elections/RhodeIsland/<id>/data every two minutes; take town figures from ballot-item for the races open on the map. The Election Day / Early Voting / Mail split feeds count order directly. Local city and town races come from the same feed. Rehearse on RI2026StatewidePrimary."
+  },
+  "MA": {
+    "system": "No statewide live results. Cities and towns post their own unofficial results on the night (Boston: boston.gov); the Secretary's PD43+ (ElectionStats) holds certified results only, weeks later",
+    "site": "https://electionstats.state.ma.us/",
+    "feeds": [
+      {"what": "statewide", "format": "csv", "address_pattern": "certified only: https://electionstats.state.ma.us/elections/search/year_from:<y>/year_to:<y>/office_id:<o>/stage:General (office 5 U.S. House, 6 U.S. Senate, 3 Governor ...), each election with a CSV download of city and town totals", "updates": "after certification (late November)", "script_ok": true, "notes": "The 2024 search page answered 200 (340 KB, server 'ElStats V') on 2026-10-09; its newest date is Sep 1, 2026."},
+      {"what": "local", "format": "html", "address_pattern": "Boston: https://boston.gov/departments/elections/unofficial-election-results (precinct returns uploaded as they come in, per the city's page); other towns post on their own sites", "updates": "as precincts return", "script_ok": "untested", "notes": "found by web search, not opened"}
+    ],
+    "races": "certified: everything (statewide, Congress, legislature, Governor's Council, county offices, questions); on the night: only what each town posts",
+    "precinct_level": true,
+    "vote_types": "no",
+    "counties_separate": "no county results sites; 351 cities and towns post their own (Boston, Worcester, Springfield, Cambridge largest)",
+    "past_test": "ElectionStats 2024 general (Nov 5, 2024) for the certified layout; no live system to replay",
+    "nov3_id": "n/a",
+    "terms": "none seen",
+    "blocked": "www.sec.state.ma.us is behind Incapsula (CLAUDE.md, 2026-09-30); electionstats.state.ma.us is not",
+    "kit_already_reads": "ballot/lists/ma.py and ballot/state_local_ma.py: ElectionStats search pages and CSVs for the Sept 1 primary; the candidate list waits on John's save (Incapsula)",
+    "plan": "No live source for the whole state. The Associated Press gathers Massachusetts returns from the town clerks under a long-standing arrangement and resells them; that is not open. On the night Election Night can show Boston's own unofficial precinct results (one reader) and say plainly that Massachusetts publishes no statewide count until certification; the statewide and congressional map fills from ElectionStats when it is certified. Ask John whether to read a handful of the largest cities' pages."
+  },
+  "VT": {
+    "system": "Vermont Election Management System public results (PCC Technology Group, the same family as Connecticut's; static JSON on static.electionresults.vermont.gov)",
+    "site": "https://electionresults.vermont.gov/",
+    "feeds": [
+      {"what": "statewide", "format": "json", "address_pattern": "https://static.electionresults.vermont.gov/elections/elections.json (electionGuid, date, isOfficial, isStateWideElection); https://static.electionresults.vermont.gov/elections/<guid>.json (electionDetails, townDistricts, townsReporting, lastUpdatedDate, and a path per part); each part's file is elections/<guid>-<part>-<yyyymmddhhmmss>.json with parts f (federal), s (statewide), sn (senate), h (house), cty (county), t (town), turnout; an RSS summary at elections/rss/<guid>/election-summary.xml", "updates": "Cache-Control max-age=60; each publish writes new time-stamped part files and the index points at them", "script_ok": true, "notes": "elections.json 200 (70 KB) and the Nov 3 index 200 (120 KB) on 2026-10-09; server 'volt-adc'."},
+      {"what": "congress", "format": "json", "address_pattern": "part f (federal)", "updates": "as above", "script_ok": true, "notes": "one at-large seat"},
+      {"what": "legislature", "format": "json", "address_pattern": "parts sn and h", "updates": "as above", "script_ok": true, "notes": ""},
+      {"what": "county", "format": "json", "address_pattern": "part cty (sheriffs, state's attorneys, judges of probate, assistant judges, high bailiffs)", "updates": "as above", "script_ok": true, "notes": ""},
+      {"what": "local", "format": "json", "address_pattern": "part t (justices of the peace per town)", "updates": "as above", "script_ok": true, "notes": "town meeting elections are separate entries in elections.json"}
+    ],
+    "races": "Congress (at large), statewide (six offices), State Senate and House, county offices, justices of the peace",
+    "precinct_level": false,
+    "vote_types": "no split by ballot type; results by town",
+    "counties_separate": "no",
+    "past_test": "67a35c79-05a2-4ae3-a77d-97812256188b '11/05/2024 -- GENERAL ELECTION'; also a18f77e0-89f8-4a01-8d97-61a7c75ba200 (Aug 11, 2026 primary)",
+    "nov3_id": "68d61e96-1d28-4210-8c1d-8e90512ae105 '11/03/2026 -- 2026 GENERAL ELECTION' (electionId 7100, isOfficial false), already posted with parts dated 20261009231618",
+    "terms": "none seen",
+    "blocked": "nothing refused scripts",
+    "kit_already_reads": "ballot/state_local_vt.py: elections.json, the election index and its statewide, senate, house and town files (the Aug primary, marked official); ballot/lists/vt.py: the Secretary's workbooks and canvass PDF",
+    "plan": "Live-readable. Poll the Nov 3 index (<guid>.json) every two minutes; when its part paths change, fetch the changed parts (f, s, sn, h, cty, t). Town figures shade the map; the town part covers justices of the peace, so Vermont's local level comes with it. Rehearse on the 2024 general guid."
+  },
+  "NH": {
+    "system": "No live results site. The Secretary of State posts results as Excel workbooks per office and party, town by town, after the clerks' returns arrive (days after the election), on www.sos.nh.gov",
+    "site": "https://www.sos.nh.gov/2026-state-primary-election-results",
+    "feeds": [
+      {"what": "statewide", "format": "html", "address_pattern": "a results page per election (sos.nh.gov/2026-state-primary-election-results lists 'Ballots Cast - Excel', 'Names on Checklist - Excel', and a page per party primary with one Excel workbook per office)", "updates": "posted in the days after the election, not live", "script_ok": false, "notes": "Akamai 'Access Denied' to scripts (CLAUDE.md, three tries on 2026-09-30; not retried). The Browser pane opened the 2026 primary results page on 2026-10-09; sos.nh.gov/elections/elections/election-results answered 'Forbidden' in the pane too."}
+    ],
+    "races": "Governor, Congress, U.S. Senate, Executive Council, State Senate, State House (400 seats), county offices",
+    "precinct_level": false,
+    "vote_types": "no",
+    "counties_separate": "no county results sites; towns report to the Secretary (some towns post their own tallies)",
+    "past_test": "the 2026 state primary workbooks (already in the kit's ballot_cache/nh/ layout); 2024 general workbooks on sos.nh.gov",
+    "nov3_id": "n/a",
+    "terms": "none seen",
+    "blocked": "www.sos.nh.gov and app.sos.nh.gov: Akamai 403 to scripts",
+    "kit_already_reads": "ballot/lists/nh.py and ballot/state_local_nh.py read only files John saves into ballot_cache/nh/ (the results workbooks and the November list)",
+    "plan": "Blocked, and there is nothing live to read anyway. On the night New Hampshire shows 'no official count tonight: the Secretary of State posts town returns in the following days'. As the workbooks appear, John saves them into ballot_cache/nh/ (as he does now) and the updater reads them. AP collects NH returns from towns, but that is not open."
+  },
+  "ME": {
+    "system": "No live statewide results. The Secretary of State (Division of Elections) posts unofficial and then final tabulations as Excel workbooks on its results page in the days after the election; ranked-choice races are tabulated centrally the following week. Media (AP, Bangor Daily News) collect town returns on the night",
+    "site": "https://www.maine.gov/sos/elections-voting/election-results-data",
+    "feeds": [
+      {"what": "statewide", "format": "html", "address_pattern": "the results page links one workbook per office and party (files under https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/<name>.xlsx), plus RCV round reports", "updates": "days after; towns have two days to report to the Secretary", "script_ok": true, "notes": "the page answered 200 (102 KB, Apache, max-age=300) on 2026-10-09; it lists the June 9, 2026 primary's workbooks and the SR 29 and SR 94 special election results"}
+    ],
+    "races": "Governor, U.S. Senate, Congress (two districts, ranked-choice), State Senate and House, county offices, district attorneys, questions",
+    "precinct_level": false,
+    "vote_types": "no",
+    "counties_separate": "no county sites (the state prints county offices); cities post their own on the night: Portland (https://www.portlandmaine.gov), Bangor, Lewiston, South Portland (the kit's state_local_me.py names their pages)",
+    "past_test": "the June 9, 2026 primary workbooks and RCV tabulations on the same page; 'Previous Election Year Results' (https://www.maine.gov/sos/elections-voting/election-results-data/previous-election-results) for 2024",
+    "nov3_id": "n/a",
+    "terms": "none seen",
+    "blocked": "nothing refused scripts",
+    "kit_already_reads": "ballot/lists/me.py and ballot/state_local_me.py: the candidate list, withdrawals, write-ins and the primary tabulation workbooks from maine.gov/sos",
+    "plan": "Readable with care, but not live. On the night Maine shows 'the Secretary of State posts results in the days after; ranked-choice races are tabulated the next week', with the largest cities' own postings where they can be read. Poll the results page hourly from Nov 4 and read each new workbook (the kit already reads this layout); RCV rounds when posted."
+  }
+}

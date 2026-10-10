@@ -89,6 +89,19 @@ def jload(s, default):
         return default
 
 
+def outcome_code(outcome):
+    """What became of a bill, in the word a member's vote filters use (law, failed, adopted, moving), so each roll call
+    carries a word rather than the whole outcome sentence; the page's billStatus() reads either."""
+    o = outcome or ""
+    if "became law" in o.lower():
+        return "law"
+    if re.match(r"(vetoed|failed)", o, re.I):
+        return "failed"
+    if re.match(r"adopted", o, re.I):
+        return "adopted"
+    return "moving" if o else ""
+
+
 def display_title(title, short):
     """A readable card title: the official short title when the pipeline found one, else a plain rewrite."""
     if short:
@@ -746,7 +759,7 @@ def collect(db_path):
             per.setdefault(vid, []).append((mk, party or "", pos or ""))
         vrows = [fv for fv in con.execute(
             "SELECT f.vote_id, f.bill_key, f.chamber, f.vote_date, f.category, f.result, f.yeas, f.nays, f.roll_number, "
-            "f.roll_call_url, f.party_split, b.display_id, b.short_title, b.title FROM floor_votes f JOIN bills b "
+            "f.roll_call_url, f.party_split, b.display_id, b.short_title, b.title, b.policy_area, b.outcome FROM floor_votes f JOIN bills b "
             "ON b.bill_key = f.bill_key") if fv["vote_id"] in per]
         ch = lambda fv: "S" if fv["chamber"] == "Senate" else "H"
         for c in mv:
@@ -765,7 +778,9 @@ def collect(db_path):
             meta = {"vote_id": vid, "bill_key": fv["bill_key"], "chamber": fv["chamber"], "date": fv["vote_date"],
                     "category": fv["category"], "result": fv["result"], "yeas": fv["yeas"], "nays": fv["nays"], "roll": fv["roll_number"],
                     "url": fv["roll_call_url"] or "", "split": fv["party_split"] or "", "bill": fv["display_id"],
-                    "title": display_title(fv["title"] or "", fv["short_title"] or "")}
+                    "title": display_title(fv["title"] or "", fv["short_title"] or ""),
+                    # what the bill is about and what became of it, for a member's vote filters (its topic; became law, still moving, failed)
+                    "pa": fv["policy_area"] or "", "oc": outcome_code(fv["outcome"])}
             if po:
                 meta["po"] = po
             vote_meta.append(meta)
@@ -810,6 +825,8 @@ def collect(db_path):
         fb = by_key.get(m["bill_key"])
         if fb:
             m["title"] = (fb["nick"]["name"] if (fb.get("nick") or {}).get("lead") else fb["short_title"]) or m["title"]
+            if (fb.get("nick") or {}).get("lead") and fb["short_title"]:
+                m["st"] = fb["short_title"]                                 # the record's own title, for a member's download of their votes
     print(f"    Lead names from the record: {led['popular']:,} popular title(s), {led['rewritten']:,} rewritten by the other chamber, "
           f"{led['short']:,} earlier short title(s); "
           f"{len(nicks):,} approved nickname(s) from nicknames.json")
@@ -2193,6 +2210,244 @@ html.motion .avw.kb .av{animation:kburns var(--kbd,13s) ease-in-out infinite alt
 .mv-bill{font-size:12.5px;color:var(--muted);text-decoration:underline;text-underline-offset:2px;white-space:nowrap}.mv-bill:hover{color:var(--ink)}
 @media (max-width:560px){.mvrow{grid-template-columns:1fr}.mv-side{justify-content:flex-start}}
 .know-breaks{margin:10px 0 2px;height:32px}
+/* ---------- member file tabs ---------- */
+/* A member's page below its header is a desk: a rack of folders on the left (the tabs) and one sheet of paper open
+   beside it (the panel). Below 900px the rack is a strip under the link row. The tokens sit on #pg-member so the
+   state pages, which borrow this whole stylesheet, get them on their own member page. The chrome is parchment,
+   verdigris and brass; party colours stay inside the cards. */
+#pg-member{--tab-brass:#C8963A;--tab-brass-ink:#8C6420;--tab-brass-soft:#F3E8D3;--tab-verd:#2F6B5E;--tab-verd-ink:#255A4E;--tab-verd-soft:#E2EDE8;--rack-bg:#F7F2E8;--rack-line:#E6DECB;--pocket-bg:#E4D8BE;--pocket-shadow:inset 0 1px 2px rgba(60,40,10,.12);--tab-bar:#8C6420;--folder-hover:color-mix(in srgb,#C8963A 10%,#F7F2E8);--folder-sel-bg:var(--surface);--folder-sel-border:var(--line-strong);--folder-sel-shadow:var(--shadow-2);--folder-out:translateX(16px);--folder-dip:translateX(12px) translateY(3px);--folder-nudge:translateX(2px);--bar-on:scaleY(1);--bar-off:scaleY(0);--sheet-bg:var(--surface);--sheet-line:var(--line);--sheet-shadow-rest:var(--shadow-1);--sheet-shadow-lift:0 24px 48px -20px rgba(21,23,27,.38),0 2px 6px rgba(21,23,27,.08);--tab-focus:#2F6B5E;--top-h:62px}
+:root[data-theme="dark"] #pg-member{--tab-brass:#C9944A;--tab-brass-ink:#DDB06A;--tab-brass-soft:#2F2618;--tab-verd:#6DBBA8;--tab-verd-ink:#9FE3D6;--tab-verd-soft:#1B302B;--rack-bg:#1C1A17;--rack-line:#2E2A24;--pocket-bg:#26211A;--pocket-shadow:inset 0 1px 2px rgba(0,0,0,.4);--tab-bar:#C9944A;--folder-hover:color-mix(in srgb,#C9944A 14%,#1C1A17);--folder-sel-bg:#262219;--sheet-shadow-rest:none;--sheet-shadow-lift:0 24px 48px -16px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.04);--tab-focus:#7FD0BC}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) #pg-member{--tab-brass:#C9944A;--tab-brass-ink:#DDB06A;--tab-brass-soft:#2F2618;--tab-verd:#6DBBA8;--tab-verd-ink:#9FE3D6;--tab-verd-soft:#1B302B;--rack-bg:#1C1A17;--rack-line:#2E2A24;--pocket-bg:#26211A;--pocket-shadow:inset 0 1px 2px rgba(0,0,0,.4);--tab-bar:#C9944A;--folder-hover:color-mix(in srgb,#C9944A 14%,#1C1A17);--folder-sel-bg:#262219;--sheet-shadow-rest:none;--sheet-shadow-lift:0 24px 48px -16px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.04);--tab-focus:#7FD0BC}}
+#pg-member .wrap{max-width:1420px}
+/* the desk: a crumb line on its own row (state pages), then the rack beside the header and the sheets; the rack starts level
+   with the portrait and stands in the margin John drew */
+.mp-desk{--rail-w:212px;--desk-gap:36px;display:grid;grid-template-columns:var(--rail-w) minmax(0,1fr);grid-template-rows:auto auto 1fr;column-gap:var(--desk-gap);row-gap:0;align-items:start}
+.mp-desk>.crumbs{grid-column:1/-1;grid-row:1;align-self:start;margin:14px 0 4px}
+.mp-desk>.mp-top{grid-column:2;grid-row:2;min-width:0}
+.mp-desk>.rack{grid-column:1;grid-row:2/4;margin-top:14px}
+.mp-desk>.sheets{grid-column:2;grid-row:3;min-width:0}
+/* one folder only (a statewide official with nothing but the office on file): no rack, and the sheet takes the whole desk */
+.mp-desk.single{grid-template-columns:minmax(0,1fr)}
+.mp-desk.single>.crumbs,.mp-desk.single>.mp-top,.mp-desk.single>.sheets{grid-column:1}
+/* the rack: a letter sorter standing on the desk, one pigeonhole per folder; it scrolls inside only when a short window
+   cannot hold it whole (.scrolls, set by the page), so that the pulled-out folder may break its edge */
+.rack{position:sticky;top:calc(var(--top-h) + 16px);align-self:start;z-index:2;background:var(--rack-bg);border:1px solid var(--rack-line);border-radius:18px;padding:12px 10px 14px}
+.rack.scrolls{max-height:calc(100vh - var(--top-h) - 32px);overflow:auto;scrollbar-width:thin}
+.rack-rule{height:3px;background:var(--tab-brass);border-radius:2px;margin:0 2px 10px}
+.rack-kick{margin:0 0 8px 4px;font-size:11px;font-weight:750;letter-spacing:.12em;text-transform:uppercase;color:var(--tab-brass-ink)}
+.rack .tablist{display:flex;flex-direction:column;gap:2px;position:relative}
+.folder{position:relative;display:grid;grid-template-columns:44px minmax(0,1fr);grid-template-rows:auto auto;column-gap:10px;align-items:center;align-content:center;min-height:68px;width:100%;padding:6px 10px 6px 8px;border:1px solid transparent;border-radius:12px;background:transparent;color:var(--ink);text-align:left;font:inherit;cursor:pointer;transition:transform .18s var(--ease),background .18s var(--ease),box-shadow .18s var(--ease),border-color .18s}
+.folder+.folder::after{content:"";position:absolute;left:10px;right:10px;top:-2px;height:1px;background:var(--rack-line);pointer-events:none}
+.folder .bar{position:absolute;left:0;top:10px;bottom:10px;width:3px;border-radius:2px;background:var(--tab-bar);transform:scaleY(0);transform-origin:50% 0;transition:transform .18s var(--ease);pointer-events:none}
+.folder .slot{width:44px;height:44px;border-radius:10px;background:var(--pocket-bg);box-shadow:var(--pocket-shadow);display:grid;place-items:center;grid-row:1/3;position:relative;transition:background .18s,box-shadow .18s}
+.folder .slot svg{width:26px;height:26px;fill:none;stroke:var(--tab-verd);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:opacity .3s}
+.folder .slot svg .b{stroke:var(--tab-brass)}
+.tablist.icons3d .slot svg{opacity:0}
+.folder .lab{grid-column:2;align-self:end;font-size:13.5px;line-height:1.2;font-weight:600;opacity:.88;overflow-wrap:anywhere}
+.folder .sub{grid-column:2;align-self:start;font-size:11.5px;line-height:1.3;font-weight:500;color:var(--muted);margin-top:2px}
+.folder:hover{background:var(--folder-hover);transform:var(--folder-nudge)}
+.folder[aria-selected="true"]{background:var(--folder-sel-bg);border-color:var(--folder-sel-border);transform:var(--folder-out);box-shadow:var(--folder-sel-shadow)}
+.folder[aria-selected="true"]:hover{transform:var(--folder-out)}
+.folder[aria-selected="true"] .bar{transform:var(--bar-on)}
+.folder[aria-selected="true"] .slot{background:var(--tab-brass-soft);box-shadow:none}
+.folder[aria-selected="true"] .lab{opacity:1}
+.folder:focus-visible{outline:3px solid var(--tab-focus);outline-offset:2px}
+.rack-foot{margin-top:14px}
+.speed{border:0;margin:0;padding:0;min-width:0}
+.speed legend{font-size:12.5px;font-weight:600;padding:0;margin:0 0 6px 2px;color:var(--ink)}
+.speed .opts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;border:1px solid var(--line);border-radius:12px;padding:2px;background:var(--bg)}
+.speed label{position:relative;display:block;min-width:0}
+.speed input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer}
+.speed label span{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:44px;border-radius:10px;font-size:13px;font-weight:600;line-height:1.1;cursor:pointer;color:var(--ink);text-align:center;transition:background .18s,color .18s}
+.speed label small{font-size:10.5px;font-weight:500;color:var(--muted);margin-top:2px}
+.speed input:checked+span{background:var(--ink);color:var(--bg)}
+.speed input:checked+span small{color:inherit;opacity:.75}
+.speed input:focus-visible+span{outline:3px solid var(--tab-focus);outline-offset:2px}
+.speed-off{margin:8px 2px 0;font-size:11.5px;line-height:1.4;color:var(--muted)}
+.speed-off[hidden]{display:none}
+.rack-note{margin:10px 2px 0;font-size:11.5px;line-height:1.4;color:var(--muted)}
+.rack-note .rack-access{display:inline-block;padding:15px 6px;margin:-15px -6px;font-weight:600}
+/* the sheets: every panel in the same grid cell, so a move changes transforms only; while a move runs the area is clipped
+   at the header's edge (and free to the left, where the rack covers a sheet going in, and below) */
+.sheets{position:relative;z-index:0;isolation:isolate;display:grid;grid-template-columns:minmax(0,1fr);align-items:start}
+.sheets.moving{perspective:1800px;perspective-origin:-12% 38%;clip-path:inset(-20px -32px -200vh -300px)}
+.sheet{grid-area:1/1;min-width:0;width:100%;min-height:440px;background:var(--sheet-bg);border:1px solid var(--sheet-line);border-radius:18px;padding:20px 24px 24px;box-shadow:var(--sheet-shadow-rest);transform-origin:0 0}
+.sheet[hidden]{display:none}
+.sheet .sheet-h{font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.1;letter-spacing:-.01em;color:var(--ink);margin:0 0 10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;width:max-content;max-width:100%}
+.sheet .sheet-h:focus{outline:none}
+.sheet .sheet-h:focus-visible{outline:2px solid var(--tab-focus);outline-offset:8px;border-radius:6px}
+.sheet-rule{display:block;height:1px;background:var(--sheet-line);margin:0 0 16px;transform-origin:0 50%}
+#pg-member .sheet .know-b{background:var(--bg);border:1px solid var(--line)}
+#pg-member .sheet .know-wiki{background:transparent;border-style:dashed}
+.sheet .know-b h3{margin:0 0 8px;font-size:13px;color:var(--muted);font-weight:600;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.sheet .know-b:last-child{margin-bottom:0}
+.sheet .mny-page{margin-top:18px;background:transparent;border:0;border-top:1px solid var(--line);border-radius:0;padding:20px 0 0}
+#mpmore[hidden]{display:none!important}
+.folder .lab-s{display:none}
+@media (max-width:1179px){
+  #pg-member{--folder-out:translateX(12px);--folder-dip:translateX(9px) translateY(3px)}
+  .mp-desk{--rail-w:148px;--desk-gap:28px}
+  .rack{padding:10px 8px 12px}
+  .sheet{min-height:0}
+  .folder{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;justify-items:center;align-content:center;text-align:center;gap:4px;min-height:72px;padding:8px 6px 9px}
+  .folder .slot{width:36px;height:36px;grid-row:auto}
+  .folder .slot svg{width:22px;height:22px}
+  .folder .sub{display:none}
+  .folder .lab,.folder .lab-s{grid-column:1;align-self:auto;font-size:12px;line-height:1.15;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;opacity:.88}
+  .folder .lab-s+.lab{display:none}
+  .folder[aria-selected="true"] .lab-s{opacity:1}
+  .speed .opts{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:899px){
+  #pg-member{--folder-sel-bg:var(--tab-brass-soft);--folder-sel-border:transparent;--folder-sel-shadow:none;--folder-out:translateY(-3px);--folder-dip:translateY(2px);--folder-nudge:translateY(-1px);--bar-on:scaleX(1);--bar-off:scaleX(0)}
+  .mp-desk{display:flex;flex-direction:column;align-items:stretch}
+  .mp-desk>.rack{display:contents}
+  .rack-rule,.rack-kick{display:none}
+  .rack .tablist{position:sticky;top:var(--top-h);z-index:25;flex-direction:row;gap:4px;overflow-x:auto;scroll-snap-type:x proximity;scroll-padding-inline:20px;-webkit-overflow-scrolling:touch;padding:6px 20px;margin:0 -20px;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line);scrollbar-width:thin}
+  .rack .tablist.more-r{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 44px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 44px),transparent)}
+  .rack .tablist.more-l{-webkit-mask-image:linear-gradient(90deg,transparent,#000 44px);mask-image:linear-gradient(90deg,transparent,#000 44px)}
+  .rack .tablist.more-l.more-r{-webkit-mask-image:linear-gradient(90deg,transparent,#000 44px,#000 calc(100% - 44px),transparent);mask-image:linear-gradient(90deg,transparent,#000 44px,#000 calc(100% - 44px),transparent)}
+  .folder{flex:none;width:88px;min-height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:5px 4px;border-radius:10px;scroll-snap-align:start;scroll-margin-inline:20px}
+  .folder+.folder::after{display:none}
+  .folder .bar{left:8px;right:8px;top:auto;bottom:0;width:auto;height:3px;transform:scaleX(0);transform-origin:50% 50%}
+  .folder .slot{width:30px;height:30px;border-radius:8px;background:transparent;box-shadow:none}
+  .folder .slot svg{width:24px;height:24px}
+  .folder .lab,.folder .lab-s{font-size:11.5px;line-height:1.15;font-weight:600;text-align:center;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;opacity:.88}
+  .folder .lab-s+.lab{display:none}
+  .folder[aria-selected="true"] .lab-s{opacity:1}
+  .folder .sub{display:none}
+  .folder:hover{transform:none}
+  .folder[aria-selected="true"] .slot{background:transparent}
+  .rack-foot{order:10;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:flex-start;margin:16px 0 0;padding:0 0 12px}
+  .speed{flex:1 1 250px;max-width:340px}
+  .speed .opts{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .rack-note{margin:0;flex:1 1 200px}
+  .sheets.moving{perspective:1400px;perspective-origin:50% -10%;clip-path:none}
+  .sheet{min-height:0}
+}
+@media (max-width:899px) and (max-height:560px){.rack .tablist{position:static}}
+@media (max-width:600px){.sheet{padding:16px 16px 18px;border-radius:14px}body[data-page="member"] .cl{display:none}}
+@media (forced-colors: active){.folder{border:1px solid ButtonText}.folder[aria-selected="true"]{outline:2px solid Highlight;outline-offset:-2px}.folder .slot svg,.folder .slot svg .b{stroke:currentColor}.rack-rule,.folder .bar{background:ButtonText}}
+@media print{.rack,.rack-foot{display:none!important}.mp-desk{display:block}.sheets{display:block;clip-path:none}.sheet{display:block!important;transform:none!important;translate:none!important;scale:none!important;box-shadow:none!important;min-height:0;border:0;border-radius:0;padding:0 0 18px;margin:0 0 18px;border-bottom:1px solid #999}.sheet .know-b{break-inside:avoid}.sheet-rule{transform:none!important}}
+/* ---------- end of member file tabs css ---------- */
+/* ---------- member filters css ---------- */
+/* The filter bar over a member's lists (every recorded vote; their own bills): the chips and a search box, a row of
+   fold-out groups of checkboxes with live counts, the filters in use, a summary with sorting and a download. Parchment,
+   ink, verdigris and brass (party colours stay in the rows); every control at least 44px tall; below 640px the groups fold
+   into one Filters button, whose drawer ends in a button that shows the list. The tab tokens it reads sit on #pg-member,
+   with plain fallbacks elsewhere. */
+.mf{--mf-acc:var(--tab-verd,#2F6B5E);--mf-acc-soft:var(--tab-verd-soft,#E2EDE8);--mf-acc-ink:var(--tab-verd-ink,#255A4E);--mf-brass:var(--tab-brass,#C8963A);--mf-brass-soft:var(--tab-brass-soft,#F3E8D3);--mf-brass-ink:var(--tab-brass-ink,#8C6420);--mf-ring:var(--tab-focus,#2F6B5E);--mf-edge:color-mix(in srgb,var(--ink) 50%,transparent);margin-top:12px}
+.mf-bar{display:flex;flex-direction:column;gap:10px;margin:0 0 6px}
+.mf-top{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+.mf .mf-quick{margin:0;flex:0 1 auto;gap:6px}
+.mf .chip{height:auto;min-height:44px;padding:6px 15px;line-height:1.2;max-width:100%;text-align:left}
+.mf .chip .mf-cn{margin-left:5px;font-weight:500;opacity:.7;font-variant-numeric:tabular-nums}
+.mf .chip .mf-cn:empty{display:none}
+.mf-search{flex:1 1 260px;height:44px;min-width:min(100%,220px);background:var(--surface);border-color:var(--mf-edge)}
+.mf-search input{font-size:15px}
+.mf-search input::placeholder{color:var(--muted);opacity:1}
+.mf-groups{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.mf-gbtn,.mf-fold{order:0;position:relative;min-height:44px;padding:0 10px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);font-size:13.5px;font-weight:600;display:inline-flex;align-items:center;gap:5px;cursor:pointer;text-align:left}
+.mf-gbtn:hover,.mf-fold:hover,.mf-gbtn[aria-expanded="true"],.mf-fold[aria-expanded="true"]{border-color:var(--ink)}
+.mf-gbtn::after{content:"";flex:none;width:7px;height:7px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg) translateY(-2px);margin:0 1px;opacity:.6}
+.mf-gbtn[aria-expanded="true"]::after{transform:rotate(-135deg) translateY(-2px)}
+.mf-gn{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 6px;border-radius:999px;background:var(--mf-brass-soft);box-shadow:inset 0 0 0 1px var(--mf-brass);color:var(--ink);font-size:12px;font-weight:700;font-variant-numeric:tabular-nums}
+.mf-gn[hidden]{display:none}
+.mf-panel{order:1;flex:1 1 100%;min-width:0;margin-top:4px;padding:12px 16px 14px;border:1px solid var(--line-strong);border-radius:14px;background:var(--surface)}
+.mf-top .mf-panel{margin-top:2px}
+.mf-panel[hidden]{display:none}
+.mf-sets{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px 22px;align-items:start}
+.mf-set{border:0;margin:0;padding:0;min-width:0}
+.mf-set legend{float:left;width:100%;padding:0;margin:0 0 4px;font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--mf-brass-ink)}
+.mf-set legend+*{clear:left}
+.mf-help{margin:8px 0 0;max-width:62ch;font-size:12.5px;line-height:1.45;color:var(--muted)}
+.mf-set.mf-tree{grid-column:1/-1}
+.mf-set.mf-tree.mf-col{grid-column:auto}
+.mf-tgs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:6px 22px;align-items:start}
+.mf-col .mf-tgs{display:flex;flex-direction:column;align-items:stretch;gap:0}
+.mf-tg[hidden]{display:none}
+.mf-tree>.mf-opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,210px),1fr));column-gap:22px;margin-top:2px}
+.mf-opts{display:flex;flex-direction:column}
+.mf-many>.mf-opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr));column-gap:22px}
+.mf-when>.mf-opts{flex-direction:row;flex-wrap:wrap;column-gap:6px;margin:0 -8px}
+.mf-when>.mf-opts>.mf-opt{margin:0}
+.mf-opt{display:flex;align-items:center;gap:10px;min-height:44px;padding:0 8px;margin:0 -8px;border-radius:10px;font-size:14px;line-height:1.25;cursor:pointer;color:var(--ink)}
+.mf-opt:hover{background:var(--hair)}
+.mf-opt[hidden]{display:none}
+.mf-opt input{flex:none;width:18px;height:18px;margin:0;accent-color:var(--mf-acc);cursor:pointer}
+.mf-opt input:focus-visible{outline:3px solid var(--mf-ring);outline-offset:2px}
+.mf-opt .mf-l{flex:1;min-width:0;overflow-wrap:anywhere}
+.mf-opt .mf-n{flex:none;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.mf-opt.zero .mf-l{color:var(--muted)}
+.mf-tga{font-weight:600}
+.mf-kids{display:flex;flex-direction:column;margin:0 0 4px 8px;padding-left:12px;border-left:1px solid var(--line)}
+.mf-dates{display:flex;flex-wrap:wrap;gap:8px 12px;margin-top:6px;max-width:440px}
+.mf-dates label{display:flex;flex-direction:column;gap:3px;flex:1 1 140px;min-width:0;font-size:12.5px;font-weight:600;color:var(--muted)}
+.mf-dates input{min-height:44px;width:100%;min-width:0;padding:0 10px;border:1px solid var(--mf-edge);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit;font-size:14px}
+.mf-dates input:focus-visible{outline:3px solid var(--mf-ring);outline-offset:1px}
+.mf-fold{display:none}
+.mf-fold svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+.mf-done{display:none}
+.mf-active{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px}
+.mf-active[hidden]{display:none}
+.mf-al{font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-right:2px}
+.mf-chips{display:flex;flex-wrap:wrap;align-items:center;gap:6px;list-style:none;margin:0;padding:0;min-width:0}
+.mf-chip{display:inline-flex;align-items:center;gap:6px;min-height:44px;max-width:100%;padding:4px 10px 4px 14px;border-radius:999px;border:1px solid var(--mf-acc);background:var(--mf-acc-soft);color:var(--mf-acc-ink);font-size:13.5px;font-weight:600;line-height:1.2;text-align:left;cursor:pointer}
+.mf-chip .mf-cw{font-weight:500}
+.mf-chip svg{flex:none;width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round}
+.mf-chip:hover{background:color-mix(in srgb,var(--mf-acc) 18%,var(--mf-acc-soft))}
+.mf-clear{min-height:44px;padding:0 10px;border:0;background:transparent;color:var(--ink);font-size:13.5px;font-weight:600;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.mf-sum{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 14px;padding-top:10px;border-top:1px solid var(--line)}
+.mf-count{margin:0;font-size:14px;font-weight:600;color:var(--ink);min-width:0}
+.mf-count:focus{outline:none}
+.mf-count:focus-visible{outline:3px solid var(--mf-ring);outline-offset:4px;border-radius:4px}
+.mf-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;min-width:0}
+.mf .mf-sort{height:44px;max-width:100%}
+.mf .mf-sort select{align-self:stretch;min-height:42px;min-width:0;text-overflow:ellipsis;margin-right:-30px;padding-right:30px;border-radius:0 999px 999px 0}
+.mf .mf-csv{display:inline-flex;gap:8px;flex:0 1 auto}
+.mf .mf-csv svg{flex:none;width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.mf .mf-csvs{display:none}
+.mf .mf-csv:disabled{opacity:.5;cursor:default}
+#mpbills{gap:8px}
+#mpbills svg{flex:none;width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.mf .mf-tools #mpbills{flex:0 1 auto}
+.mf-subhead{margin:18px 0 0;padding:0 0 6px;font-family:var(--sans);font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--mf-brass-ink);border-bottom:1px solid var(--line)}
+.mf-list>.mf-subhead:first-child{margin-top:4px}
+.mf .mf-more{margin-top:10px}
+.mf .mf-more[hidden]{display:none}
+.mf-empty{margin:12px 0 4px}
+@media (min-width:641px){
+  /* a list with one group of filters keeps its button beside the search box */
+  .mf-top>.mf-groups{display:contents}
+  .mf-dates{flex-wrap:nowrap}
+  /* the open group's button and its panel read as one: a notch from the button into the panel's edge */
+  .mf-gbtn[aria-expanded="true"]::before{content:"";position:absolute;left:50%;bottom:-17px;width:11px;height:11px;margin-left:-6px;box-sizing:border-box;background:var(--surface);border:solid var(--line-strong);border-width:1px 0 0 1px;transform:rotate(45deg);z-index:2;pointer-events:none}
+}
+@media (max-width:640px){
+  .mf-fold{display:flex;width:100%;justify-content:flex-start;border-radius:12px}
+  .mf-fold .mf-gl{flex:1}
+  .mf-groups{display:none;flex-direction:column;align-items:stretch;gap:6px;width:100%}
+  .mf-groups.open{display:flex}
+  .mf-gbtn{width:100%;border-radius:12px;justify-content:flex-start}
+  .mf-gbtn .mf-gl{flex:1}
+  .mf-panel{order:0;margin-top:0;padding:10px 12px 12px}
+  .mf-search{flex-basis:100%}
+  .mf .mf-quick .chip{padding:6px 12px}
+  .mf-sum{flex-direction:column;align-items:stretch}
+  /* Sort and Download share a row (each on its own row below about 300px); the Bills page button takes a row of its own */
+  .mf .mf-tools>*{flex:1 1 120px;min-width:0}
+  .mf .mf-tools>.mf-csv{flex:1 0 auto;white-space:nowrap;padding:6px 12px;gap:6px}
+  .mf .mf-tools>#mpbills{flex:1 1 100%}
+  .mf .mf-sort>span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .mf .mf-csv,.mf .mf-tools #mpbills{justify-content:center}
+  .mf .mf-csvl{display:none}
+  .mf .mf-csvs{display:inline}
+  /* the foot of the open drawer: shows the list, and stays above the tab bar while the drawer is long */
+  .mf .mf-done{display:flex;justify-content:center;width:100%;position:sticky;bottom:calc(74px + env(safe-area-inset-bottom));z-index:3;margin-top:4px;background:var(--mf-acc);border-color:var(--mf-acc);color:var(--bg);font-weight:700;box-shadow:0 8px 20px -8px rgba(21,23,27,.45)}
+}
+@media (forced-colors: active){.mf-gbtn,.mf-fold,.mf-chip,.mf-gn{border:1px solid ButtonText}.mf-opt.zero .mf-l{color:GrayText}.mf .chip[aria-pressed="true"]{forced-color-adjust:none;background:Highlight;color:HighlightText;border-color:Highlight}.mf-gbtn[aria-expanded="true"]::before{display:none}}
+@media print{.mf-top,.mf-groups,.mf-fold,.mf-active .mf-clear,.mf-tools,.mf .mf-more,.mf-done{display:none!important}.mf-chip{border:1px solid #999;min-height:0}}
+/* ---------- end of member filters css ---------- */
 /* a table a reader can sort: click a column, shift-click another to sort within it */
 .gt-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface)}
 .gt{width:100%;border-collapse:collapse;font-size:13.5px;line-height:1.35}
@@ -2981,6 +3236,8 @@ function needMember(id){
 const $ = (s, r=document) => r.querySelector(s);
 const $$ = (s, r=document) => [...r.querySelectorAll(s)];
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+/* the family name a sentence uses ("How Arrington votes"): the last word of the name once a suffix (Jr., III) is set aside */
+const lastOf = n => { const t = String(n || "").replace(/,?\s+(Jr\.|Sr\.|II|III|IV)$/, "").trim().split(" "); return t[t.length - 1]; };
 const fmtDate = d => d ? new Date(d + "T12:00:00").toLocaleDateString("en-US", {year:"numeric", month:"short", day:"numeric"}) : "";
 const signed = n => (n == null ? "n/a" : (n > 0 ? "+" : "") + Math.round(n));
 const pct = v => ((Math.max(-100, Math.min(100, v)) + 100) / 2) + "%";
@@ -3389,7 +3646,7 @@ function personPop(el){
     const seat = L ? seatWords(L) : (M.chamber || "Member");
     return `<div class="pc"><div class="pc-head">${avatar(id, party, "md")}<div><b>${esc(name)}</b><span class="muted">${esc(seat)} \u00b7 ${esc(PARTY_NAME[party] || party)}${L && L.cur === 0 ? " \u00b7 former member" : ""}</span></div></div>
       ${factsHTML(rows)}${wikiHTML(pf.wiki)}
-      <p class="pop-links"><a href="#member=${esc(id)}">Open ${esc(name.split(" ").slice(-1)[0])}'s page</a>${pf.money ? `<a href="#member=${esc(id)}/money">Who funds the campaign</a>` : ""}</p></div>`;
+      <p class="pop-links"><a href="#member=${esc(id)}">Open ${esc(lastOf(name))}'s page</a>${pf.money ? `<a href="#member=${esc(id)}/money">Who funds the campaign</a>` : ""}</p></div>`;
   });
 }
 
@@ -3586,7 +3843,7 @@ pop.add(PERSON_SEL, personPop);
 const rvIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in", "live"); rvIO.unobserve(e.target); } }), {threshold: .12, rootMargin: "0px 0px -6% 0px"});
 const reveal = root => { $$(".rv:not(.obs)", root).forEach(el => { el.classList.add("obs"); rvIO.observe(el); }); watchTracks(root); };
 const roleOf = m => m.name.startsWith("Sen.") ? "Senator" : (m.chamber === "Senate" ? "Senator" : "Representative");
-const daysBack = n => { const d = new Date((BOOT.newest || new Date().toISOString().slice(0, 10)) + "T12:00:00"); d.setDate(d.getDate() - n); return d.toISOString().slice(0, 10); };
+const daysBack = n => { const d = new Date((BOOT.newest || new Date().toISOString().slice(0, 10)) + "T00:00:00Z"); d.setUTCDate(d.getUTCDate() - n); return d.toISOString().slice(0, 10); };      // calendar days, the same wherever the reader is
 function browseOK(b){
   if (state.topic) {
     const t = topicOf(b);
@@ -4378,30 +4635,32 @@ ICO.user = '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>';
 const contactRow = (L, cg, shareLabel, pre, profileId) => `<div class="rep-top">${profileId ? `<button class="ract" type="button" data-profile="${esc(profileId)}">${ico("user")}<span>Full profile</span></button>` : ""}${L.u ? ract("web", "Website", L.u) : ""}${L.ph ? ract("phone", L.ph, "tel:" + L.ph, true) : ""}${L.cf ? ract("mail", "Contact form", L.cf) : ""}${ract("gov", "Congress.gov", cg)}<span class="rep-social" id="${pre}social"></span><button class="ract sharebtn" id="share${pre}" type="button">${ico("share")}<span>${esc(shareLabel)}</span></button></div>`;
 const socialRow = S => !S ? "" : (S.twitter ? ract("x", "@" + S.twitter, "https://x.com/" + S.twitter) : "") + (S.facebook ? ract("fb", "Facebook", "https://www.facebook.com/" + S.facebook) : "")
   + (S.youtube ? ract("yt", "YouTube", "https://www.youtube.com/" + S.youtube) : "") + (S.instagram ? ract("ig", "Instagram", "https://www.instagram.com/" + S.instagram) : "");
-function knowHTML(P, L, party, id){
-  const S = P.service, C = P.committees || [], V = P.votes, F = P.focus, W = P.wiki, last = L.n.split(" ").slice(-1)[0];
+/* The "Get to know" sections. The map's member card takes them joined, as one string; the member page asks for
+   them apart (opt.parts) and files each behind its own folder. The words of every section are the same either way. */
+function knowHTML(P, L, party, id, opt){
+  const S = P.service, C = P.committees || [], V = P.votes, F = P.focus, W = P.wiki, last = lastOf(L.n);
   const fact = `<span class="tag fact">Fact</span>`, ana = `<span class="tag analysis">Analysis</span>`;
   const mon = d => d ? new Date(d + "T12:00:00").toLocaleDateString("en-US", {month: "long", year: "numeric"}) : "";
   const years = d => d ? Math.max(0, Math.floor((Date.now() - new Date(d + "T12:00:00")) / 3.15576e10)) : null;
   const pctOf = (a, b) => b ? Math.round(100 * a / b) : 0, plural = (n, w) => `${n.toLocaleString()} ${w}${n === 1 ? "" : "s"}`;
-  let h = "";
+  const h = {office: "", committees: "", howvotes: "", work: "", money: "", wiki: ""};
   if (S) {
     const y = years(S.since);
-    h += `<div class="know-b"><h4>${fact} In office</h4><p>In the ${esc(S.chamber)} since <b>${esc(mon(S.since))}</b>${S.appointed ? " (first appointed to the seat)" : ""}: term ${S.terms}${y != null ? `, ${plural(y, "year")}` : ""}.${S.other ? ` Before that, in the ${esc(S.other.chamber)} from ${esc(S.other.from)} to ${esc(S.other.to)}.` : ""}${S.parties && S.parties.length > 1 ? ` Party over time: ${S.parties.map(esc).join(", then ")}.` : ""}${S.next ? ` The seat is next on the ballot in <b>November ${esc(String(S.next))}</b>.` : ""}</p>${L.of ? `<p class="know-line">${ico("pin")}<span>${esc(L.of)}, Washington, DC</span></p>` : ""}</div>`;
+    h.office = `<div class="know-b"><h4>${fact} In office</h4><p>In the ${esc(S.chamber)} since <b>${esc(mon(S.since))}</b>${S.appointed ? " (first appointed to the seat)" : ""}: term ${S.terms}${y != null ? `, ${plural(y, "year")}` : ""}.${S.other ? ` Before that, in the ${esc(S.other.chamber)} from ${esc(S.other.from)} to ${esc(S.other.to)}.` : ""}${S.parties && S.parties.length > 1 ? ` Party over time: ${S.parties.map(esc).join(", then ")}.` : ""}${S.next ? ` The seat is next on the ballot in <b>November ${esc(String(S.next))}</b>.` : ""}</p>${L.of ? `<p class="know-line">${ico("pin")}<span>${esc(L.of)}, Washington, DC</span></p>` : ""}</div>`;
   }
-  if (C.length) h += `<div class="know-b"><h4>${fact} Committees</h4><ul class="know-list">${C.map(c => `<li><b>${esc(c.name)}</b>${c.title ? `<span class="role">${esc(c.title)}</span>` : ""}${c.subs && c.subs.length ? `<details><summary>${plural(c.subs.length, "subcommittee")}</summary><ul>${c.subs.map(s => `<li>${esc(s.name)}${s.title ? `<span class="role">${esc(s.title)}</span>` : ""}</li>`).join("")}</ul></details>` : ""}</li>`).join("")}</ul></div>`;
-  if (V && !V.n && V.eligible) h += `<div class="know-b"><h4>${ana} How ${esc(last)} votes</h4><p>${esc(last)} sits as an independent, so there is no party line to measure against. Cast a yes or a no on ${plural(V.cast || 0, "recorded vote")} and missed ${V.missed.toLocaleString()} of ${plural(V.eligible, "roll call")} (${pctOf(V.missed, V.eligible)}%).</p><p class="know-rule">Counted from this Congress's recorded votes, as far as this site holds them member by member. Party is the one recorded on each roll call.</p></div>`;
+  if (C.length) h.committees = `<div class="know-b"><h4>${fact} Committees</h4><ul class="know-list">${C.map(c => `<li><b>${esc(c.name)}</b>${c.title ? `<span class="role">${esc(c.title)}</span>` : ""}${c.subs && c.subs.length ? `<details><summary>${plural(c.subs.length, "subcommittee")}</summary><ul>${c.subs.map(s => `<li>${esc(s.name)}${s.title ? `<span class="role">${esc(s.title)}</span>` : ""}</li>`).join("")}</ul></details>` : ""}</li>`).join("")}</ul></div>`;
+  if (V && !V.n && V.eligible) h.howvotes = `<div class="know-b"><h4>${ana} How ${esc(last)} votes</h4><p>${esc(last)} sits as an independent, so there is no party line to measure against. Cast a yes or a no on ${plural(V.cast || 0, "recorded vote")} and missed ${V.missed.toLocaleString()} of ${plural(V.eligible, "roll call")} (${pctOf(V.missed, V.eligible)}%).</p><p class="know-rule">Counted from this Congress's recorded votes, as far as this site holds them member by member. Party is the one recorded on each roll call.</p></div>`;
   if (V && V.n) {
     const side = V.party === "R" ? "Republicans" : "Democrats", tone = V.party === "R" ? "rep" : "dem";
     const head = V.split_n ? `<div class="know-big"><b>${pctOf(V.split_with, V.split_n)}%</b><span>of the ${plural(V.split_n, "vote")} where the two parties split, ${esc(last)} sided with ${side}</span></div><div class="know-bar" style="--pc:var(--${tone})"><i style="width:${pctOf(V.split_with, V.split_n)}%"></i></div>` : "";
     const breaks = V.split_n ? (V.breaks && V.breaks.length ? `<p class="know-sub">${V.breaks_n > V.breaks.length ? `The ${V.breaks.length} most recent of ${V.breaks_n} breaks with the party` : (V.breaks_n === 1 ? "The one break with the party" : `All ${V.breaks_n} breaks with the party`)}</p><ul class="know-list">${V.breaks.map(b => `<li><a class="replink" href="#vote=${esc(voteSlug(b.vote_id))}" data-vote="${esc(b.vote_id)}"><b>${esc(b.bill)}</b> ${esc(b.title)}</a> <span class="muted">${esc(String(b.category).toLowerCase())}, ${esc(fmtDate(b.date))}: voted ${b.pos === "Y" ? "yes" : "no"}</span></li>`).join("")}</ul>` : `<p class="muted">No break with the party on a split vote in this record.</p>`) : "";
     const allBreaks = (id && V.breaks_n) ? `<a class="chip know-breaks" href="#member=${esc(id)}/breaks" data-profile="${esc(id)}" data-show="breaks">See ${V.breaks_n === 1 ? "that vote" : "all " + V.breaks_n.toLocaleString() + " of those votes"}, and how everyone else voted</a>` : "";
-    h += `<div class="know-b"><h4>${ana} How ${esc(last)} votes</h4>${head}<p>Across all ${plural(V.n, "recorded vote")} cast, voted the way most ${side} did ${pctOf(V.with, V.n)}% of the time.${V.eligible ? ` Missed ${V.missed.toLocaleString()} of ${plural(V.eligible, "roll call")} (${pctOf(V.missed, V.eligible)}%).` : ""}</p>${breaks}${allBreaks}<p class="know-rule">How this is worked out: a vote counts as a party split when most Democrats voted one way and most Republicans the other. Party is the one recorded on each roll call. Only this Congress's recorded votes are counted, and only those this site holds member by member.</p></div>`;
+    h.howvotes = `<div class="know-b"><h4>${ana} How ${esc(last)} votes</h4>${head}<p>Across all ${plural(V.n, "recorded vote")} cast, voted the way most ${side} did ${pctOf(V.with, V.n)}% of the time.${V.eligible ? ` Missed ${V.missed.toLocaleString()} of ${plural(V.eligible, "roll call")} (${pctOf(V.missed, V.eligible)}%).` : ""}</p>${breaks}${allBreaks}<p class="know-rule">How this is worked out: a vote counts as a party split when most Democrats voted one way and most Republicans the other. Party is the one recorded on each roll call. Only this Congress's recorded votes are counted, and only those this site holds member by member.</p></div>`;
   }
-  if (F && (F.sponsored || F.cosponsored)) h += `<div class="know-b"><h4>${ana} What ${esc(last)} works on</h4><p>Sponsored <b>${plural(F.sponsored, "bill")}</b> this Congress${F.laws ? `; ${F.laws === 1 ? "one became law" : F.laws + " became law"}` : ""}.${F.cosponsored ? ` Cosponsored ${F.cosponsored.toLocaleString()}.` : ""}</p>${F.areas && F.areas.length ? `<div class="know-chips">${F.areas.map(a => `<span class="pill">${esc(a[0])} <b>${a[1]}</b></span>`).join("")}</div><p class="know-rule">The subjects are the Library of Congress policy areas of the bills ${esc(last)} sponsored, most frequent first.</p>` : ""}</div>`;
-  if (P.money && id && P.money.cycles && P.money.cycles.length) { MONEY[id] = {M: P.money}; h += moneyCard(id); }
-  if (W && W.extract) h += `<div class="know-b know-wiki"><h4><span class="tag wiki">From Wikipedia</span> Before Congress, and beyond it</h4><p>${esc(W.extract)}</p><p class="know-rule">This is the opening of the Wikipedia article <a href="${esc(W.url)}" target="_blank" rel="noopener">${esc(W.title)}</a>. It is <b>not an official record</b>, and anyone can edit it. Text under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</p></div>`;
-  return h;
+  if (F && (F.sponsored || F.cosponsored)) h.work = `<div class="know-b"><h4>${ana} What ${esc(last)} works on</h4><p>Sponsored <b>${plural(F.sponsored, "bill")}</b> this Congress${F.laws ? `; ${F.laws === 1 ? "one became law" : F.laws + " became law"}` : ""}.${F.cosponsored ? ` Cosponsored ${F.cosponsored.toLocaleString()}.` : ""}</p>${F.areas && F.areas.length ? `<div class="know-chips">${F.areas.map(a => `<span class="pill">${esc(a[0])} <b>${a[1]}</b></span>`).join("")}</div><p class="know-rule">The subjects are the Library of Congress policy areas of the bills ${esc(last)} sponsored, most frequent first.</p>` : ""}</div>`;
+  if (P.money && id && P.money.cycles && P.money.cycles.length) { MONEY[id] = {M: P.money}; h.money = moneyCard(id); }
+  if (W && W.extract) h.wiki = `<div class="know-b know-wiki"><h4><span class="tag wiki">From Wikipedia</span> Before Congress, and beyond it</h4><p>${esc(W.extract)}</p><p class="know-rule">This is the opening of the Wikipedia article <a href="${esc(W.url)}" target="_blank" rel="noopener">${esc(W.title)}</a>. It is <b>not an official record</b>, and anyone can edit it. Text under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</p></div>`;
+  return opt && opt.parts ? h : h.office + h.committees + h.howvotes + h.work + h.money + h.wiki;
 }
 
 /* ---------- a bill's own vote maps ----------
@@ -4556,7 +4815,7 @@ function initMap(){
     chamber.show(current.chamber === "Senate", all);
     const mine = all.filter(m => m.mine), own = (d != null && current.chamber !== "Senate") ? mine.find(m => (m.L.d || 0) === d) : null;
     if (own && chamber.selectId(own.id) >= 0) { onSeat(own, 0, 0, false); chInfo.insertAdjacentHTML("afterbegin", `<span class="ch-yours">Your representative</span>`); return; }
-    const said = m => `${esc(m.L.n.split(" ").slice(-1)[0])} ${(POSW[m.pos] || m.pos).toLowerCase()}`;
+    const said = m => `${esc(lastOf(m.L.n))} ${(POSW[m.pos] || m.pos).toLowerCase()}`;
     chInfo.innerHTML = CHHINT + (mine.length ? `<span class="ch-mine"><i aria-hidden="true"></i>${esc(name)}'s ${mine.length <= 3 ? "members: " + mine.map(said).join(", ") : mine.length + " members are ringed in gold"}</span>`
       : (st ? "" : `<span class="ch-mine"><a href="#yours">Pick your state</a>&nbsp;and its seats are ringed in gold here.</span>`));
   }
@@ -4755,7 +5014,7 @@ function initMap(){
     const recordHtml = record.length ? `<div class="rep-votes">${record.slice(0, 12).map(({v, pos}) => `<div><span><b>${esc(v.bill)}</b> <span class="muted">${esc(v.category.toLowerCase())}, ${esc(fmtDate(v.date))}</span><br><span class="muted">${esc(v.title)}</span></span><span class="vtag ${esc(pos)}">${POSW[pos] || pos}</span></div>`).join("")}${record.length > 12 ? `<div class="muted">and ${record.length - 12} more</div>` : ""}</div>` : `<p class="muted">No other roll calls on record here.</p>`;
     const mem = MEMBER[m.id];
     const bills = mem && mem.bills.length ? `<b>${mem.bills.length}</b> bill${mem.bills.length === 1 ? "" : "s"} in this catalog${mem.sponsored ? `, ${mem.sponsored} sponsored` : ""}${mem.cosponsored ? `, ${mem.cosponsored} cosponsored` : ""}.` : `No bills sponsored or cosponsored in this catalog.`;
-    $("#repbody").innerHTML = `${contactRow(L, cg, "Share how " + L.n.split(" ").slice(-1)[0] + " voted", "rep", m.id)}<div class="rep-head">${avatar(m.id, m.p, "xl")}<div><h2>${esc(L.n)}</h2><div class="seat"><b>${esc(PARTY[m.p] || m.p)}</b>, ${esc(seat)}${L.cur ? "" : " (no longer serving)"}${since ? `<br>In Congress since ${since}${tenure != null ? ` (${Math.floor(tenure)} years)` : ""}` : ""}${age != null ? `, age ${Math.floor(age)}` : ""}</div></div></div>
+    $("#repbody").innerHTML = `${contactRow(L, cg, "Share how " + lastOf(L.n) + " voted", "rep", m.id)}<div class="rep-head">${avatar(m.id, m.p, "xl")}<div><h2>${esc(L.n)}</h2><div class="seat"><b>${esc(PARTY[m.p] || m.p)}</b>, ${esc(seat)}${L.cur ? "" : " (no longer serving)"}${since ? `<br>In Congress since ${since}${tenure != null ? ` (${Math.floor(tenure)} years)` : ""}` : ""}${age != null ? `, age ${Math.floor(age)}` : ""}</div></div></div>
       <div class="know" id="know"><h3>Get to know ${esc(L.n)}</h3><p class="muted loading">Loading\u2026</p></div>
       <div class="rep-grid">
         <div class="rep-block"><h4>This vote</h4><div class="rec"><span class="vtag ${esc(m.pos)}">${POSW[m.pos] || m.pos}</span><span>on <b>${esc(current.bill)}</b></span></div><div class="muted" style="margin-top:6px">${esc(current.title)}. ${esc(current.chamber)} ${esc(current.category.toLowerCase())}, ${esc(fmtDate(current.date))}: ${current.yeas ?? "?"} to ${current.nays ?? "?"}, ${esc((current.result || "").toLowerCase())}.</div></div>
@@ -5299,7 +5558,7 @@ function squarify(items, W, H){
 /* the member page's money section: a picture of the money that talks to a table of it */
 function renderMoney(id, M, L, show){
   const box = $("#mpmoney"); if (!box || !M) return;
-  const last = L.n.split(" ").slice(-1)[0], views = ["all"].concat(M.cycles.map(String)).filter(v => !M.lite || (M.top || {})[v]);
+  const last = lastOf(L.n), views = ["all"].concat(M.cycles.map(String)).filter(v => !M.lite || (M.top || {})[v]);
   let view = "all", layout = "top", D = null, table = null, tFor = null, tAgainst = null, curRows = []; const off = new Set();
   try { layout = localStorage.getItem("moneyLayout") === "side" ? "side" : "top"; } catch (e) {}
   box.hidden = false;
@@ -5644,22 +5903,667 @@ function renderPartyLine(){
     $("#plq").addEventListener("input", e => { f.q = e.target.value; partyTable.setRows(rowsNow()); }); }
 }
 
+/* ---------- member file tabs: the rack, the sheets and the move ----------
+   A member's page below its header is a desk: a rack of folders (the tabs) and one open sheet (the tab panel).
+   fileTabs(host, {id, name, tabs, start, detail, inline}) draws the rack and the sheets into host (the .mp-desk
+   element that already holds .mp-top, the header and the link row) and returns {select, finish, current, speed, run,
+   destroy}. Each tab is {id, label, short, sub, html, onOpen(detail), onLand(detail), query()}: short is the label the phone
+   strip shows when the full one would not fit in two lines; onOpen runs when its sheet is made visible for a move (a
+   chart inside can measure itself), onLand when the move has ended; query, where a sheet has one, is the view it keeps in
+   the address after "?" (a list's filters), added when its folder is chosen. Choosing a folder puts the
+   open sheet away into its own folder and draws the chosen one out: five seconds (Full), one (Quick) or none
+   (Instant), the choice kept on this device in tca.a11y.v1.sheets; any click, tap or key finishes a move; Motion off
+   and a device asking for less motion make every move instant. The state pages borrow this block; each page provides
+   its own list of tabs, a router rule that opens a tab without rebuilding the page (renderMemberPage's first line),
+   and, over http, shell/tabicons.js for the live 3D icons. window.__sheets is the test hook; __sheets.run(a, b,
+   {paused: true}).seek(ms) holds a move at any moment. */
+const SHEETS_KEY = "tca.a11y.v1", SHEET_MS = {full: 5000, quick: 1000, instant: 0}, TAB_OF = {money: "money", breaks: "votes", missed: "votes", votes: "votes"};
+const tabFor = show => { const w = String(show || "").split("?")[0]; return !w ? "office" : (TAB_OF[w] || w); };      // "votes?pos=N" is the votes sheet with its filters
+const a11yGet = () => { try { const s = JSON.parse(localStorage.getItem(SHEETS_KEY) || "null"); return s && typeof s === "object" ? s : {}; } catch (e) { return {}; } };
+const a11ySet = (k, v) => { try { const s = a11yGet(); s[k] = v; localStorage.setItem(SHEETS_KEY, JSON.stringify(s)); } catch (e) {} };
+const sheetSpeed = () => { const v = a11yGet().sheets; return v === "quick" || v === "instant" ? v : "full"; };
+const reducedMotion = () => { const a = a11yGet(); return document.documentElement.classList.contains("calm") || a.motion === "reduced" || a.calm === "on" || matchMedia("(prefers-reduced-motion: reduce)").matches; };
+const sheetsInstant = () => reducedMotion() || sheetSpeed() === "instant";
+/* a part of the open sheet (the money view, after #member=<id>/money) brought under the top bar, and under the folders where
+   they stand in a strip, a little after the address has finished routing: a followed link fires popstate and then
+   hashchange, and each puts the page back at its top first, which would cancel a scroll begun at once */
+let revealT = 0;
+const revealPart = sel => {
+  clearTimeout(revealT);
+  revealT = setTimeout(() => {
+    const el = $(sel); if (!el || el.hidden || !el.isConnected) return;
+    const bar = $(".top"), strip = matchMedia("(max-width: 899px)").matches ? $("#mprack .tablist") : null;
+    scrollTo({top: Math.max(0, scrollY + el.getBoundingClientRect().top - (bar ? bar.offsetHeight : 62) - (strip ? strip.offsetHeight : 0) - 12), behavior: calm() ? "instant" : "smooth"});
+  }, 80);
+};
+/* the plain icons, one per folder: the same desk things the 3D module sculpts, in the site's line style (verdigris, brass parts in .b) */
+const TAB_ICONS = {
+  office: '<path d="M3.5 18h17v2.5h-17z"/><path class="b" d="M6 9.5l12-1.5v7L6 16.5z"/><path class="b" d="M8.5 12.3l7-.9M8.5 14.5l4.5-.6"/>',
+  committees: '<rect x="8" y="6" width="8" height="12" rx="1" transform="rotate(-14 12 20)"/><rect x="8" y="6" width="8" height="12" rx="1" transform="rotate(14 12 20)"/><rect x="8" y="5" width="8" height="12" rx="1"/><path class="b" d="M10 7.5v-3a2 2 0 0 1 4 0v3"/>',
+  howvotes: '<path class="b" d="M4 16a8 8 0 0 1 16 0"/><path d="M6.3 10.3l.9.9M12 8v1.3M17.7 10.3l-.9.9"/><path d="M12 16l4.2-5.2"/><circle class="b" cx="12" cy="16" r="1.3"/><path d="M4 19.5h16"/>',
+  work: '<path d="M6.5 13.5h9v4.5a2.5 2.5 0 0 1-2.5 2.5h-4A2.5 2.5 0 0 1 6.5 18z"/><path class="b" d="M5.5 13.5h11"/><path d="M11 13.5c.5-5 3.5-8.5 9-10.5-1.2 5.5-4 8.5-9 10.5z"/><path class="b" d="M11 13.5l-1.5 3"/>',
+  money: '<ellipse class="b" cx="11" cy="7.5" rx="6.5" ry="2.4"/><path class="b" d="M4.5 7.5V11c0 1.3 2.9 2.4 6.5 2.4S17.5 12.3 17.5 11V7.5"/><path class="b" d="M4.5 11v3.5c0 1.3 2.9 2.4 6.5 2.4s6.5-1.1 6.5-2.4V11"/><path class="b" d="M4.5 14.5V18c0 1.3 2.9 2.4 6.5 2.4s6.5-1.1 6.5-2.4v-3.5"/>',
+  votes: '<path d="M4 11.5h16V20H4z"/><path d="M4 11.5l2.2-3h11.6l2.2 3"/><path class="b" d="M9 8.5h6"/><path d="M10 8.5V3.8h5v4.7" transform="rotate(8 12.5 6)"/>',
+  wiki: '<path d="M3.5 5.5c3-1 6-.8 8.5 1 2.5-1.8 5.5-2 8.5-1v13c-3-1-6-.8-8.5 1-2.5-1.8-5.5-2-8.5-1z"/><path d="M12 6.5v13"/><path d="M6.5 9.5c1.5-.3 3-.2 4 .2M6.5 12.5c1.5-.3 3-.2 4 .2M13.5 9.7c1-.4 2.5-.5 4-.2M13.5 12.7c1-.4 2.5-.5 4-.2" opacity=".55"/>'
+};
+function fileTabs(host, o){
+  const tabs = o.tabs.filter(Boolean), byId = Object.fromEntries(tabs.map(t => [t.id, t])), front = tabs[0].id, many = tabs.length > 1;
+  const strip = () => matchMedia("(max-width: 899px)").matches, mq = matchMedia("(max-width: 899px)"), rmq = matchMedia("(prefers-reduced-motion: reduce)");
+  const topEl = $(".top"), topH = () => topEl ? topEl.offsetHeight : 62, barEl = $(".tabbar"), barH = () => barEl && getComputedStyle(barEl).display !== "none" ? barEl.offsetHeight : 0;
+  const icon = id => `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${TAB_ICONS[id] || TAB_ICONS.office}</svg>`;
+  const SPEEDS = [["full", "Full", "5 s", "Full, 5 seconds"], ["quick", "Quick", "1 s", "Quick, 1 second"], ["instant", "Instant", "now", "Instant"]];
+  host.classList.toggle("single", !many);
+  host.insertAdjacentHTML("beforeend", (many ? `<div class="rack" id="mprack"><div class="rack-rule" aria-hidden="true"></div><p class="rack-kick" aria-hidden="true">On file</p>
+    <div class="tablist" role="tablist" aria-orientation="vertical" aria-label="Sections of ${esc(o.name)}'s page">${tabs.map(t => `<button class="folder" type="button" role="tab" id="tab-${t.id}" data-tab="${t.id}" aria-selected="false" aria-controls="sheet-${t.id}" tabindex="-1"${t.sub ? ` aria-describedby="tab-${t.id}-sub"` : ""}><i class="bar" aria-hidden="true"></i><span class="slot" aria-hidden="true">${icon(t.id)}</span>${t.short && t.short !== t.label ? `<span class="lab-s">${esc(t.short)}</span>` : ""}<span class="lab">${esc(t.label)}</span>${t.sub ? `<span class="sub" id="tab-${t.id}-sub" aria-hidden="true">${esc(t.sub)}</span>` : ""}</button>`).join("")}</div>
+    <div class="rack-foot"><fieldset class="tca-seg speed" data-setting="sheets"><legend>Sheet speed</legend><div class="opts">${SPEEDS.map(([v, l, s, a]) => `<label><input type="radio" name="sheets" value="${v}" aria-label="${a}"><span>${l}<small>${s}</small></span></label>`).join("")}</div><p class="speed-off" id="speed-off" hidden>Motion is off, so every change is instant. This choice is kept for when Motion is on.</p></fieldset>
+    <p class="rack-note">Any click, tap or key skips the move. Motion off, or reduced motion on your device, makes it instant.${o.inline ? "" : ` <a class="rack-access" href="../access/#settings">Access</a>`}</p></div></div>` : "")
+    + `<div class="sheets" id="mpsheets">${tabs.map(t => `<section class="sheet"${many ? ` role="tabpanel" aria-labelledby="tab-${t.id}"` : ""} id="sheet-${t.id}" data-tab="${t.id}" hidden>${t.html}</section>`).join("")}</div>`);
+  const rack = $(".rack", host), list = rack ? $(".tablist", rack) : null, area = $(".sheets", host), view = host.closest(".page");
+  const sheetOf = id => $("#sheet-" + CSS.escape(id), area), tabOf = id => list ? $("#tab-" + CSS.escape(id), list) : null, headOf = id => $("#sheet-" + CSS.escape(id) + "-h", area);
+  const retag = (el, tag) => { const n = document.createElement(tag); for (const a of el.attributes) n.setAttribute(a.name, a.value); n.innerHTML = el.innerHTML; el.replaceWith(n); return n; };
+  // every sheet starts with its heading (an h2: the page's name is the h1): the front sheet's own, or the first card's promoted to
+  // the sheet; the cards' own headings become h3 so the levels run in order; a heading's tag (Fact, Analysis, From Wikipedia)
+  // is read after the words; the hairline under the heading draws itself as the sheet lands
+  $$(".sheet", area).forEach(s => {
+    let h = $(":scope > .sheet-h", s);
+    if (!h) { const h4 = $(":scope > .know-b:first-child > h4", s); if (h4) { h = document.createElement("h2"); h.className = "sheet-h"; h.innerHTML = h4.innerHTML; h4.remove(); s.prepend(h); } }
+    if (h && h.tagName !== "H2") h = retag(h, "h2");
+    $$(":scope > .know-b > h4", s).forEach(h4 => retag(h4, "h3"));
+    if (!h) return;
+    h.id = s.id + "-h"; h.tabIndex = -1;
+    const tag = $(".tag", h); if (tag) { tag.setAttribute("aria-hidden", "true"); const sr = document.createElement("span"); sr.className = "sr-only"; sr.textContent = ", " + tag.textContent.trim(); h.appendChild(sr); }
+    const r = document.createElement("i"); r.className = "sheet-rule"; r.setAttribute("aria-hidden", "true"); h.after(r);
+  });
+  let cur = null, move = null, icons = null, dead = false;
+  const headText = id => { const h = headOf(id); if (!h) return byId[id].label; const c = h.cloneNode(true), tag = $(".tag", c), tt = tag ? tag.textContent.trim() : ""; $$(".tag, .sr-only", c).forEach(t => t.remove()); const w = c.textContent.trim().replace(/\s+/g, " "); return tt ? tt + ": " + w : w; };
+  let sayEl = $("#mpsay"); if (!sayEl) { sayEl = document.createElement("div"); sayEl.id = "mpsay"; sayEl.className = "sr-only"; sayEl.setAttribute("role", "status"); sayEl.setAttribute("aria-live", "polite"); document.body.appendChild(sayEl); }
+  const say = text => { sayEl.textContent = ""; setTimeout(() => { sayEl.textContent = text; }, 60); };
+  const hidden = () => !!(view && view.hidden);
+  // the bars' heights, for the page (--top-h) and for the browser's own scrolling: a link brought into view by Tab lands
+  // under the sticky top bar and the strip otherwise (scroll-padding), and above the phone tab bar and whatever sits fixed
+  // in the bottom right corner (the What's new tab, the back-to-top button), so a control reached by Tab is never under them
+  const cornerH = () => { let h = 0; $$(".cl:not([hidden]) .cl-tab, .totop").forEach(el => { if (!el.getClientRects().length) return; const r = el.getBoundingClientRect(), t = getComputedStyle(el).transform, ty = t && t !== "none" ? new DOMMatrixReadOnly(t).m42 : 0; if (r.height && r.right > innerWidth - 280) h = Math.max(h, innerHeight - (r.top - ty)); }); return Math.min(Math.ceil(h), Math.round(innerHeight * 0.4)); };      // where each rests when shown (the back-to-top button rises into place)
+  const setTop = () => {
+    host.style.setProperty("--top-h", topH() + "px");
+    const de = document.documentElement.style;
+    if (hidden() || !host.isConnected) { de.scrollPaddingTop = ""; de.scrollPaddingBottom = ""; return; }
+    de.scrollPaddingTop = (topH() + (strip() && list ? list.offsetHeight : 0) + 12) + "px"; de.scrollPaddingBottom = (Math.max(barH(), cornerH()) + 12) + "px";
+    fitRack(); edges();
+  };
+  // the rack scrolls inside only when the window cannot hold it whole, so that the pulled-out folder may break its edge
+  const fitRack = () => { if (!rack || strip()) { if (rack) rack.classList.remove("scrolls"); return; } rack.classList.toggle("scrolls", rack.scrollHeight > innerHeight - topH() - 32); };
+  // the strip fades at an edge that hides more folders
+  const edges = () => { if (!list) return; const on = strip(); list.classList.toggle("more-l", on && list.scrollLeft > 2); list.classList.toggle("more-r", on && list.scrollLeft + list.clientWidth < list.scrollWidth - 2); };
+  const mark = id => { tabs.forEach(t => { const b = tabOf(t.id); if (b) { b.setAttribute("aria-selected", t.id === id ? "true" : "false"); b.tabIndex = t.id === id ? 0 : -1; } }); cur = id; };
+  const place = id => { tabs.forEach(t => { const s = sheetOf(t.id); if (s) s.hidden = t.id !== id; }); mark(id); };
+  const open = (id, opts) => { const t = byId[id]; if (t.onOpen) { try { t.onOpen(opts.detail, {first: !t._opened}); } catch (e) { console.error(e); } } t._opened = true; };
+  const focusHead = id => { const h = headOf(id); if (!h) return false; h.focus({preventScroll: true}); const r = h.getBoundingClientRect(), top = topH() + (strip() && list ? list.offsetHeight : 0); if (r.top < top || r.bottom > innerHeight - barH()) h.scrollIntoView({block: "nearest", behavior: "auto"}); return true; };
+  // the end of a change: focus to the new sheet's heading (unless a key in the rack ended the move, when focus stays on the
+  // folder), the sheet's own landing, and one announcement; nothing is said from a page that is no longer showing
+  const land = (id, opts, user) => {
+    const t = byId[id];
+    if (user && !opts.keepFocus) focusHead(id);
+    if (t.onLand) { try { t.onLand(opts.detail); } catch (e) { console.error(e); } }
+    if (user) say("Now showing: " + headText(id) + ".");
+  };
+  // a sheet that keeps a view of its own (a list's filters) gives query(), and its address carries it after "?"
+  const pushAddr = (id, detail) => { const t = byId[id], q = !detail && t.query ? t.query() : "", part = detail && TAB_OF[detail] === id ? detail : id, h = (o.route || "#member=") + o.id + (part === front ? "" : "/" + part) + (q ? "?" + q : ""); if (location.hash !== h) history.pushState({page: "member", tab: id}, "", h); };
+  const showTab = (b, smooth) => { if (b && strip()) b.scrollIntoView({inline: "nearest", block: "nearest", behavior: smooth && !calm() ? "smooth" : "instant"}); };
+  function instant(from, id, opts){
+    const A = sheetOf(from), B = sheetOf(id);
+    if (B) B.hidden = false; open(id, opts);
+    if (A && A !== B) A.hidden = true;
+    place(id); showTab(tabOf(id), true);
+    land(id, opts, opts.focus !== false && !hidden());
+  }
+  const cssVar = name => (getComputedStyle(area).getPropertyValue(name) || "").trim() || "none";
+  /* The move, as percentages of one storyboard (5000 ms at Full, 1000 at Quick). The open sheet lifts (0 to 6%), travels into
+     the old folder's pigeonhole behind the rack (6 to 34%, the paper staying readable until a third of the way), the old
+     folder dips as it takes it (30 to 38%) and gives up its fill, and the chosen folder, whose brass bar lit at once, pulls
+     out with the fill (34 to 42%); the new sheet emerges from behind the rack (40 to 88%) and settles flat (88 to 100%),
+     its heading's hairline drawing last. Translation, rotation and scale are three animations each, so the scale can keep
+     its own curve; nothing changes layout while it runs. */
+  function start(from, id, opts, paused){
+    const A = sheetOf(from), B = sheetOf(id), FA = tabOf(from), FB = tabOf(id), isStrip = strip(), D = SHEET_MS[sheetSpeed()] || 5000;
+    // the desk's top comes into view first (one plain scroll), so the poses are measured where the reader will look
+    scrollTo({top: scrollY, left: scrollX, behavior: "instant"});                                             // ends any smooth scroll still running (showPage's scroll to the top), so the poses measured next hold
+    const th = topH(), want = th + (isStrip && list ? list.offsetHeight + 12 : 24), r0 = area.getBoundingClientRect();
+    if (r0.top < want - 2) scrollTo({top: Math.max(0, scrollY + r0.top - want), behavior: "instant"});      // "instant", not "auto": the page's own scroll-behavior is smooth, and the poses are measured next
+    showTab(FB, false);
+    B.hidden = false; open(id, opts);
+    const S = area.getBoundingClientRect(), W = S.width || 1;
+    // a folder's slot: where the sheet goes, folder-wide, turned away; beside the header it never rises above the desk's top,
+    // and under the strip it stays behind the strip
+    const slot = F => { if (!F) return {t: "0px -48px", k: ".2"}; const r = F.getBoundingClientRect(), k = Math.min(isStrip ? .2 : .3, Math.max(.06, r.width / W)), y = r.top - S.top + (isStrip ? -2 : 8);
+      return {t: `${(r.left - S.left + 10).toFixed(1)}px ${(isStrip ? y : Math.max(0, y)).toFixed(1)}px`, k: k.toFixed(3)}; };
+    const sA = slot(FA), sB = slot(FB), ROT = isStrip ? "rotateY(-10deg)" : "rotateY(-18deg) rotateZ(-1.5deg)", LIFT_T = "0px -12px", LIFT_R = "rotateX(1.5deg)";
+    const shRest = cssVar("--sheet-shadow-rest"), shLift = cssVar("--sheet-shadow-lift");
+    const selBg = cssVar("--folder-sel-bg"), selBd = cssVar("--folder-sel-border"), selSh = cssVar("--folder-sel-shadow"), out = cssVar("--folder-out"), dip = cssVar("--folder-dip"), nudge = cssVar("--folder-nudge"), barOn = cssVar("--bar-on"), barOff = cssVar("--bar-off");
+    const EASE = "cubic-bezier(.2,.8,.2,1)", HEAVY = "cubic-bezier(.5,0,.25,1)", T = {duration: D, fill: "forwards"}, anims = [];
+    // the folders first, so that the change of aria-selected finds their look already held and starts no transition of its own
+    if (FA) {                                                     // the old folder keeps its fill and its pulled-out pose until it takes the sheet, then dips and sits back flush
+      const rest = {transform: "none", backgroundColor: "transparent", borderColor: "transparent", boxShadow: "none"}, held = {transform: out, backgroundColor: selBg, borderColor: selBd, boxShadow: selSh};
+      anims.push(FA.animate([Object.assign({offset: 0}, held), Object.assign({offset: .30, easing: "ease-out"}, held), Object.assign({offset: .34, easing: "ease-out"}, held, {transform: dip}), Object.assign({offset: .38}, rest), Object.assign({offset: 1}, rest)], T));
+      const bar = $(".bar", FA); if (bar) anims.push(bar.animate([{offset: 0, transform: barOn}, {offset: .30, transform: barOn, easing: EASE}, {offset: .38, transform: barOff}, {offset: 1, transform: barOff}], T));
+    }
+    if (FB) {                                                     // the chosen folder: its brass bar lights and it nudges at once; at the beat it pulls out and takes the fill
+      const rest = {backgroundColor: "transparent", borderColor: "transparent", boxShadow: "none"}, held = {transform: out, backgroundColor: selBg, borderColor: selBd, boxShadow: selSh};
+      anims.push(FB.animate([Object.assign({offset: 0, transform: "none", easing: "ease-out"}, rest), Object.assign({offset: .06, transform: nudge}, rest), Object.assign({offset: .34, transform: nudge, easing: EASE}, rest), Object.assign({offset: .42}, held), Object.assign({offset: 1}, held)], T));
+      const bar = $(".bar", FB); if (bar) anims.push(bar.animate([{offset: 0, transform: barOff, easing: EASE}, {offset: .08, transform: barOn}, {offset: 1, transform: barOn}], T));
+    }
+    mark(id);                                                    // aria-selected flips at once: the choice is made, the paper follows
+    // while it moves, a sheet is the page the reader can see (the part of it below the fold would trail out of a folder)
+    const V = Math.max(320, Math.round(innerHeight - S.top)), clip = el => { el.style.clipPath = `inset(0 0 max(0px, calc(100% - ${V}px)) 0)`; };
+    clip(A); clip(B); A.style.willChange = B.style.willChange = "transform, translate, scale, opacity";
+    A.inert = true;                                              // the sheet going away leaves the reading order at once; the new one is there from the start
+    area.classList.add("moving"); area.setAttribute("aria-busy", "true");
+    const LIFT_E = "cubic-bezier(.3,.7,.3,1)", EMERGE = "cubic-bezier(.4,0,.2,1)";
+    anims.push(A.animate([{offset: 0, translate: "0px 0px", easing: LIFT_E}, {offset: .06, translate: LIFT_T, easing: HEAVY}, {offset: .34, translate: sA.t}, {offset: 1, translate: sA.t}], T));
+    anims.push(A.animate([{offset: 0, transform: "none", easing: LIFT_E}, {offset: .06, transform: LIFT_R, easing: HEAVY}, {offset: .34, transform: ROT}, {offset: 1, transform: ROT}], T));
+    anims.push(A.animate([{offset: 0, scale: "1", easing: LIFT_E}, {offset: .06, scale: "1.01", easing: "cubic-bezier(.4,0,.6,1)"}, {offset: .22, scale: ".55", easing: EMERGE}, {offset: .34, scale: sA.k}, {offset: 1, scale: sA.k}], T));
+    anims.push(A.animate([{offset: 0, boxShadow: shRest, opacity: 1, easing: LIFT_E}, {offset: .06, boxShadow: shLift, opacity: 1}, {offset: .32, boxShadow: shLift, opacity: 1, easing: "linear"}, {offset: .34, boxShadow: shLift, opacity: 0}, {offset: 1, boxShadow: "none", opacity: 0}], T));
+    anims.push(B.animate([{offset: 0, translate: sB.t}, {offset: .40, translate: sB.t, easing: EMERGE}, {offset: .88, translate: LIFT_T, easing: EASE}, {offset: 1, translate: "0px 0px"}], T));
+    anims.push(B.animate([{offset: 0, transform: ROT}, {offset: .40, transform: ROT, easing: EMERGE}, {offset: .88, transform: LIFT_R, easing: EASE}, {offset: 1, transform: "none"}], T));
+    anims.push(B.animate([{offset: 0, scale: sB.k}, {offset: .40, scale: sB.k, easing: "cubic-bezier(.3,0,.3,1)"}, {offset: .62, scale: ".6", easing: EMERGE}, {offset: .88, scale: "1.01", easing: EASE}, {offset: 1, scale: "1"}], T));
+    anims.push(B.animate([{offset: 0, boxShadow: "none", opacity: 0}, {offset: .40, boxShadow: "none", opacity: 0}, {offset: .41, boxShadow: shLift, opacity: 1}, {offset: .88, boxShadow: shLift, opacity: 1, easing: EASE}, {offset: 1, boxShadow: shRest, opacity: 1}], T));
+    const rule = $(".sheet-rule", B);
+    if (rule) anims.push(rule.animate([{offset: 0, transform: "scaleX(0)"}, {offset: .9, transform: "scaleX(0)", easing: EASE}, {offset: .98, transform: "scaleX(1)"}, {offset: 1, transform: "scaleX(1)"}], T));
+    const m = move = {from, to: id, opts, t0: performance.now(), anims, done: false, timer: 0};
+    const cleanup = () => {
+      if (m.done) return; m.done = true; if (move === m) move = null;
+      clearTimeout(m.timer); document.removeEventListener("pointerdown", onSkip, true); document.removeEventListener("keydown", onSkip, true);
+      if (A !== B) A.hidden = true; A.inert = false;
+      m.anims.forEach(a => { try { a.cancel(); } catch (e) {} });
+      A.style.clipPath = B.style.clipPath = ""; A.style.willChange = B.style.willChange = "";
+      area.classList.remove("moving"); area.removeAttribute("aria-busy");
+      place(id); land(id, opts, opts.focus !== false && !hidden());
+    };
+    const onSkip = e => {
+      if (m.done || performance.now() - m.t0 < 150) return;
+      if (e.type === "keydown") {
+        const k = e.key, tag = (e.target && e.target.tagName || "").toLowerCase(); if (["Shift", "Control", "Alt", "Meta", "CapsLock", "NumLock", "ScrollLock", "Dead", "OS", "Fn"].includes(k) || tag === "input" || tag === "textarea" || tag === "select" || (e.target && e.target.isContentEditable)) return;
+        if (list && list.contains(e.target)) m.opts.keepFocus = true;      // a key in the rack ends the move and then does its own work: focus stays on the folder
+      }
+      finish();
+    };
+    m.cleanup = cleanup;
+    if (paused) { anims.forEach(a => a.pause()); return; }
+    anims[0].onfinish = () => { if (move === m) cleanup(); };
+    m.timer = setTimeout(() => { if (move === m) finish(); }, D + 250);
+    document.addEventListener("pointerdown", onSkip, true); document.addEventListener("keydown", onSkip, true);
+  }
+  function finish(){ const m = move; if (!m || m.done) return; m.anims.forEach(a => { try { a.finish(); } catch (e) {} }); m.cleanup(); }
+  function select(id, opts = {}){
+    if (dead) return; if (!byId[id]) id = front;
+    if (move && move.to === id) { if (opts.detail) move.opts.detail = opts.detail; return; }      // the same move asked for twice (a followed link fires popstate and then hashchange): let it run
+    if (move) finish();
+    const from = cur;
+    if (opts.push !== false) pushAddr(id, opts.detail);
+    if (id === from) { if (opts.detail) { open(id, opts); land(id, opts, false); } return; }
+    if (icons) { try { icons.select(id); } catch (e) {} }
+    if (opts.animate === false || sheetsInstant()) instant(from, id, opts); else start(from, id, opts, false);
+  }
+  function run(from, to, opts = {}){
+    if (move) finish();
+    if (!byId[from] || !byId[to] || from === to) return null;
+    if (cur !== from) instant(cur, from, {push: false, focus: false});
+    if (icons) { try { icons.select(to); } catch (e) {} }
+    start(from, to, {push: false, focus: opts.focus === true}, opts.paused !== false);
+    const m = move;
+    return {seek: ms => { if (m && !m.done) m.anims.forEach(a => { a.currentTime = ms; }); return m.anims[0].currentTime; }, play: () => { if (m && !m.done) m.anims.forEach(a => a.play()); },
+      pause: () => { if (m && !m.done) m.anims.forEach(a => a.pause()); }, finish: () => { if (move === m) finish(); }, cancel: () => { if (move === m) finish(); },
+      state: () => ({from, to, done: m.done, ms: m.done ? null : m.anims[0].currentTime, duration: SHEET_MS[sheetSpeed()] || 5000})};
+  }
+  // the rack: arrows, Home and End move focus (both axes, whatever the orientation); Enter and Space choose (a button's own
+  // click); Tab goes on into the open sheet, at its heading. A click that no pointer or key preceded is assistive
+  // technology choosing a folder: that change is made at once, since no key of theirs could cut the move short.
+  let lastInput = 0;
+  if (list) {
+    const touched = () => { lastInput = performance.now(); };
+    list.addEventListener("pointerdown", touched, true); list.addEventListener("keydown", touched, true); list.addEventListener("keyup", touched, true);
+    list.addEventListener("keydown", e => {
+      const bs = $$(".folder", list), i = bs.indexOf(document.activeElement); if (i < 0) return; let j = null;
+      if (e.key === "Tab" && !e.shiftKey && !e.altKey && !e.ctrlKey && !e.metaKey) { if (focusHead(cur)) e.preventDefault(); return; }
+      if (e.key === "ArrowDown" || e.key === "ArrowRight") j = (i + 1) % bs.length; else if (e.key === "ArrowUp" || e.key === "ArrowLeft") j = (i - 1 + bs.length) % bs.length; else if (e.key === "Home") j = 0; else if (e.key === "End") j = bs.length - 1;
+      if (j == null) return;
+      e.preventDefault(); bs.forEach((b, k) => { b.tabIndex = k === j ? 0 : -1; }); bs[j].focus(); showTab(bs[j], false);
+    });
+    list.addEventListener("click", e => { const b = e.target.closest(".folder"); if (b) select(b.dataset.tab, performance.now() - lastInput < 600 ? {push: true} : {push: true, animate: false}); });
+    list.addEventListener("pointerover", e => { const b = e.target.closest(".folder"); if (icons && b && e.pointerType === "mouse") { try { icons.hover(b.dataset.tab); } catch (x) {} } });
+    list.addEventListener("pointerleave", () => { if (icons) { try { icons.hover(null); } catch (x) {} } });
+    list.addEventListener("focusin", e => { const b = e.target.closest(".folder"); if (icons && b) { try { icons.focus(b.dataset.tab); } catch (x) {} } });
+    list.addEventListener("focusout", () => { if (icons) { try { icons.focus(null); } catch (x) {} } });
+    list.addEventListener("scroll", edges, {passive: true});
+  }
+  // the speed control shows the saved choice; with motion off it says so in a line of its own, and the choice is kept
+  const speedUI = () => {
+    if (!rack) return; const v = sheetSpeed(), off = reducedMotion(), fs = $(".speed", rack), note = $("#speed-off", rack);
+    $$('input[name="sheets"]', rack).forEach(i => { i.checked = i.value === v; });
+    fs.classList.toggle("off", off); if (note) note.hidden = !off; if (off) fs.setAttribute("aria-describedby", "speed-off"); else fs.removeAttribute("aria-describedby");
+    fitRack();
+  };
+  const stillSync = () => { if (icons) { try { icons.setStill(reducedMotion() || hidden() || document.hidden); } catch (e) {} } };
+  const onChange = e => { const i = e.target.closest('input[name="sheets"]'); if (!i) return; a11ySet("sheets", i.value); speedUI(); };
+  const onStorage = e => { if (!e.key || e.key === SHEETS_KEY || e.key === "motion") { speedUI(); stillSync(); } };
+  const onMedia = () => { speedUI(); stillSync(); };
+  const orient = () => { if (list) list.setAttribute("aria-orientation", strip() ? "horizontal" : "vertical"); setTop(); };
+  const onSameLink = e => {                                        // a link to this member's own page (the money chip, "See all N of those votes") opens the sheet in place
+    if (dead || !host.isConnected || hidden()) return;             // only while this desk is the page showing: another page's link to this member must route as any link does
+    const pre = o.route || "#member=", a = e.target.closest(`a[href^="${pre}"]`); if (!a || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const mt = (a.getAttribute("href") || "").slice(pre.length).match(/^([^/?#]+)(?:\/([^/?#]+))?$/); if (!mt || decodeURIComponent(mt[1]) !== String(o.id)) return;
+    e.preventDefault(); select(tabFor(mt[2]), {push: true, detail: mt[2]});
+  };
+  if (rack) rack.addEventListener("change", onChange);
+  addEventListener("storage", onStorage); addEventListener("resize", setTop); document.addEventListener("click", onSameLink);
+  mq.addEventListener("change", orient); rmq.addEventListener("change", onMedia); document.addEventListener("visibilitychange", stillSync);
+  const htmlMO = new MutationObserver(onMedia); htmlMO.observe(document.documentElement, {attributes: true, attributeFilter: ["class"]});
+  const viewMO = view ? new MutationObserver(() => { if (view.hidden && move) finish(); stillSync(); setTop(); }) : null; if (viewMO) viewMO.observe(view, {attributes: true, attributeFilter: ["hidden"]});
+  setTop(); orient(); speedUI();
+  // the live 3D icons, over http only, after the rack exists; the plain icons stay whenever the module is missing or says no
+  if (list && !o.inline && /^https?:$/.test(location.protocol) && !matchMedia("(forced-colors: active)").matches) {
+    import(new URL("../shell/tabicons.js", location.href).href).then(mod => mod.mount(list, tabs.map(t => ({id: t.id, slot: $(".slot", tabOf(t.id))})), {still: reducedMotion()}))
+      .then(c => { if (!c) return; if (dead) { try { c.destroy(); } catch (e) {} return; } icons = c; window.__tabicons = c; list.classList.add("icons3d"); try { c.select(cur); } catch (e) {} stillSync(); })
+      .catch(() => {});
+  }
+  const startId = byId[o.start] ? o.start : front;
+  place(startId); open(startId, {detail: o.detail}); land(startId, {detail: o.detail}, false); showTab(tabOf(startId), false);
+  function destroy(){
+    if (dead) return; dead = true; if (move) finish();
+    document.documentElement.style.scrollPaddingTop = ""; document.documentElement.style.scrollPaddingBottom = "";
+    if (rack) rack.removeEventListener("change", onChange);
+    removeEventListener("storage", onStorage); removeEventListener("resize", setTop); document.removeEventListener("click", onSameLink);
+    mq.removeEventListener("change", orient); rmq.removeEventListener("change", onMedia); document.removeEventListener("visibilitychange", stillSync);
+    htmlMO.disconnect(); if (viewMO) viewMO.disconnect();
+    if (icons) { try { icons.destroy(); } catch (e) {} icons = null; if (window.__tabicons) window.__tabicons = null; }
+    if (window.__sheets === api) window.__sheets = null;
+  }
+  const api = {select, finish, destroy, run, current: () => cur, speed: sheetSpeed, tabs: () => tabs.map(t => t.id), moving: () => !!move,
+    state: () => move ? {from: move.from, to: move.to, ms: move.anims[0].currentTime, done: move.done} : null};
+  window.__sheets = api;
+  return api;
+}
+/* ---------- end of member file tabs ---------- */
+
+/* ---------- member filters ----------
+   A list on a member's page (every recorded vote; the bills they sponsored or cosponsored) with a filter bar above it: the
+   quick chips, a search box and a row of fold-out groups of real checkboxes (radio buttons for a time), each choice with a
+   live count of what it would show beside everything else in use; then the filters in use as chips that remove themselves,
+   each named with its group, with Clear all; a summary line; sorting; and a download of the list as it stands. Within one
+   group of choices any of them will do; the groups, the chips, the dates and the search all apply together. The view is
+   kept in the page's address after the sheet (#member=<id>/votes?pos=N&topic=health): a link opens it, Back steps back
+   through the changes (the first word typed in the search box is a step; the edits after it replace the address), and the
+   older #member=<id>/breaks and /missed still open their chips. memberFilters(host, o) draws it all into host and returns
+   {route(query), query(), rows()}; nothing is drawn until the first route. o: {key, noun: [one, many], rows (each row's
+   facts worked out once, by the page), quick: {label, choices: [{v, label, test(row)}]}, search: {label, hint, short (the
+   hint on a phone), hay(row), bill(row)}, groups: [{id, label, sets: [{key, legend, chip (the group's name on a chip in
+   use), help, note, choices: [{v, label, title, opt}], tree: [{v, label, kids: [{v, label}]} or a single {v, label}], col
+   (a tree in one column), hideEmpty, when, of(row)}]}], sorts: [{v, label, cmp, head(row)}], row(row, sort),
+   summary(rows, total, narrowed), empty(narrowed, onlyChip), csv: {file, head, row(row)}, newest, page, subhead,
+   addr(query, replace), ids: {list, more, quick}}. A choice marked opt, and every choice of a set marked hideEmpty, is
+   left off while the record has none of it (an address can still ask for it). A set's help follows its choices and is tied
+   to its fieldset, so a screen reader says it on the way in. A row carries its date (YYYY-MM-DD) for a when set, which
+   counts back from `newest`, the newest action on record, in calendar days. On a phone the groups fold into one Filters
+   button whose drawer ends in "Show N votes". The state pages can borrow this block as it stands once their recorded votes
+   are loaded. */
+const MF_BILL = /^(hr|s|hjres|sjres|hconres|sconres|hres|sres)\d+$/;
+const mfBillNo = s => String(s || "").toLowerCase().replace(/[^a-z0-9]/g, "");      // "H.R. 1234" -> "hr1234", so "HR 1234" finds it
+const mfCell = v => { let s = v == null ? "" : String(v); if (/^[=+\-@\t\r]/.test(s)) s = "'" + s; return /[",\r\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; };
+function mfDownload(file, head, rows){
+  const text = "\ufeff" + [head].concat(rows).map(r => r.map(mfCell).join(",")).join("\r\n") + "\r\n";      // a byte-order mark, so a spreadsheet reads the dashes and accents
+  const url = URL.createObjectURL(new Blob([text], {type: "text/csv;charset=utf-8"})), a = document.createElement("a");
+  a.href = url; a.download = file; a.style.display = "none"; document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 10000);
+}
+function memberFilters(host, o){
+  const ID = "mf-" + o.key, PAGE = o.page || 25, rows = o.rows, total = rows.length, HX = o.subhead || "h3", ids = o.ids || {};
+  const quick = o.quick && o.quick.choices.length ? o.quick : null, [one, many] = o.noun, nounOf = n => n === 1 ? one : many, nf = n => n.toLocaleString();
+  const sets = []; (o.groups || []).forEach(g => g.sets.forEach(s => { s.g = g.id; sets.push(s); }));
+  const setOf = Object.fromEntries(sets.map(s => [s.key, s])), tot = {}, kidsOf = g => g.kids || [g];      // a tree holds groups of choices, and may hold single choices among them
+  for (const s of sets) { if (s.when) continue; s.opts = (s.tree ? s.tree.flatMap(kidsOf) : []).concat(s.choices || []); s.known = new Set(s.opts.map(c => c.v)); tot[s.key] = {}; }
+  // every row's value in every set, read once, and how often each value occurs in the whole list
+  rows.forEach((r, i) => {
+    r._i = i; r._mf = {};
+    for (const s of sets) { if (s.when) continue; const v = s.of(r), vs = v == null || v === "" ? [] : (Array.isArray(v) ? v : [v]); r._mf[s.key] = vs; for (const x of vs) tot[s.key][x] = (tot[s.key][x] || 0) + 1; }
+  });
+  const dates = rows.map(r => r.date).filter(Boolean).sort(), dMin = dates[0] || "", dMax = dates[dates.length - 1] || "";
+  const newest = o.newest || dMax, year = newest.slice(0, 4);
+  const back = n => { const d = new Date(newest + "T00:00:00Z"); d.setUTCDate(d.getUTCDate() - n); return d.toISOString().slice(0, 10); };      // calendar days, the same wherever the reader is
+  const WINS = newest ? {"30": [back(30), ""], "90": [back(90), ""], year: [year + "-01-01", year + "-12-31"]} : {};
+  const S = {f: "", q: "", sel: {}, when: "", from: "", to: "", sort: o.sorts[0].v};
+  sets.forEach(s => { if (!s.when) S.sel[s.key] = new Set(); });
+  const span = w => w === "range" ? (S.from && S.to && S.from > S.to ? [S.to, S.from] : [S.from, S.to]) : (WINS[w] || ["", ""]);
+  const within = (d, ab) => !!d && (!ab[0] || d >= ab[0]) && (!ab[1] || d <= ab[1]);
+  // a time narrows the list once it can: "Between two dates" chosen with neither date given is not a filter yet
+  const whenOn = () => !!S.when && (S.when !== "range" || !!(S.from || S.to));
+  const present = (s, c) => !(s.hideEmpty || c.opt) || tot[s.key][c.v] > 0 || S.sel[s.key].has(c.v);
+  const liveKids = (s, g) => { const ks = g.kids.filter(k => tot[s.key][k.v] > 0); return ks.length ? ks : g.kids; };
+  // the search: a bill number finds that bill alone; anything else finds rows holding every word typed
+  function finder(){
+    const q = S.q.trim().toLowerCase(); if (!q) return null;
+    const n = mfBillNo(q);
+    if (o.search.bill && MF_BILL.test(n)) return r => (r._bn ?? (r._bn = o.search.bill(r))) === n;
+    const words = q.split(/\s+/);
+    return r => { const h = r._hay ?? (r._hay = String(o.search.hay(r)).toLowerCase()); return words.every(w => h.includes(w)); };
+  }
+  // one pass: the rows every filter lets through, and for each group of choices the rows every other filter lets through,
+  // which is what that group's counts are counted over
+  let res = [], cnt = {}, qcnt = {};
+  function recount(){
+    const find = finder(), qc = quick && S.f ? quick.choices.find(c => c.v === S.f) : null;
+    const act = sets.filter(s => s.when ? whenOn() : S.sel[s.key].size > 0), W = whenOn() ? span(S.when) : null, pool = {"": []};
+    act.forEach(s => { pool[s.key] = []; });
+    res = [];
+    for (const r of rows) {
+      if (find && !find(r)) continue;
+      let miss = null, n = 0;
+      if (qc && !qc.test(r)) { miss = ""; n = 1; }
+      for (const s of act) {
+        if (s.when ? within(r.date, W) : r._mf[s.key].some(v => S.sel[s.key].has(v))) continue;
+        miss = s.key; if (++n > 1) break;
+      }
+      if (!n) res.push(r); else if (n === 1) pool[miss].push(r);
+    }
+    cnt = {};
+    for (const s of sets) {
+      const list = pool[s.key] && pool[s.key].length ? res.concat(pool[s.key]) : res, c = cnt[s.key] = {};
+      if (s.when) {
+        c[""] = list.length; for (const w in WINS) { const ab = WINS[w]; c[w] = list.reduce((a, r) => a + (within(r.date, ab) ? 1 : 0), 0); }
+        if (S.from || S.to) { const ab = span("range"); c.range = list.reduce((a, r) => a + (within(r.date, ab) ? 1 : 0), 0); }      // two dates given: their count too
+        continue;
+      }
+      for (const r of list) for (const v of r._mf[s.key]) c[v] = (c[v] || 0) + 1;
+      if (s.tree) for (const g of s.tree) if (g.kids) c["g:" + g.v] = g.kids.reduce((a, k) => a + (c[k.v] || 0), 0);
+    }
+    if (quick) { const list = pool[""].length ? res.concat(pool[""]) : res; qcnt = {"": list.length}; for (const c of quick.choices) qcnt[c.v] = list.reduce((a, r) => a + (c.test(r) ? 1 : 0), 0); }
+    const so = o.sorts.find(x => x.v === S.sort) || o.sorts[0];
+    res.sort((a, b) => (so.cmp ? so.cmp(a, b) : 0) || a._i - b._i);
+  }
+  // the bar
+  const opt = (s, c) => `<label class="mf-opt" data-mfo="${esc(s.key)}|${esc(c.v)}"${c.title ? ` title="${esc(c.title)}"` : ""}><input type="checkbox" name="${ID}-${esc(s.key)}" value="${esc(c.v)}" data-mfk="${esc(s.key)}"><span class="mf-l">${esc(c.label)}</span><span class="mf-n"></span></label>`;
+  const setHTML = s => {
+    const words = s.help || s.note || "", hid = `${ID}-h-${esc(s.key)}`, help = words ? `<p class="mf-help" id="${hid}">${esc(words)}</p>` : "";
+    const open = cls => `<fieldset class="mf-set${cls}"${words ? ` aria-describedby="${hid}"` : ""}><legend>${esc(s.legend)}</legend>`;
+    if (s.when) {
+      const ws = [["", "Any time"], ["30", "Last 30 days"], ["90", "Last 90 days"], ["year", `This year, ${year}`]].filter(([v]) => !v || WINS[v]), mm = `${dMin ? ` min="${dMin}"` : ""}${dMax ? ` max="${dMax}"` : ""}`;
+      return open(" mf-when") + `<div class="mf-opts">${ws.map(([v, l]) => `<label class="mf-opt" data-mfo="${esc(s.key)}|${v}"><input type="radio" name="${ID}-when" value="${v}" data-mfw=""><span class="mf-l">${esc(l)}</span><span class="mf-n"></span></label>`).join("")}<label class="mf-opt" data-mfo="${esc(s.key)}|range"><input type="radio" name="${ID}-when" value="range" data-mfw=""><span class="mf-l">Between two dates</span><span class="mf-n"></span></label></div>`
+        + `<div class="mf-dates"><label><span>From</span><input type="date" data-mfd="from"${mm}></label><label><span>To</span><input type="date" data-mfd="to"${mm}></label></div>${help}</fieldset>`;
+    }
+    if (!s.opts.length) return open("") + `${help}</fieldset>`;
+    const tree = s.tree ? `<div class="mf-tgs">${s.tree.map(g => g.kids
+      ? `<div class="mf-tg" data-mft="${esc(s.key)}|${esc(g.v)}"><label class="mf-opt mf-tga" data-mfo="${esc(s.key)}|g:${esc(g.v)}"><input type="checkbox" value="${esc(g.v)}" data-mfg="${esc(s.key)}"><span class="mf-l"><span class="sr-only">All of </span>${esc(g.label)}</span><span class="mf-n"></span></label><div class="mf-kids" role="group" aria-label="${esc(g.label)}">${g.kids.map(k => opt(s, k)).join("")}</div></div>`
+      : `<div class="mf-tg" data-mft="${esc(s.key)}|${esc(g.v)}">${opt(s, g)}</div>`).join("")}</div>` : "";
+    const ch = s.choices || [];
+    return open(`${s.tree ? " mf-tree" : ""}${s.col ? " mf-col" : ""}${!s.tree && ch.length >= 5 ? " mf-many" : ""}`) + `${tree}${ch.length ? `<div class="mf-opts">${ch.map(c => opt(s, c)).join("")}</div>` : ""}${help}</fieldset>`;
+  };
+  const quickHTML = quick ? `<div class="mp-filters mf-quick"${ids.quick ? ` id="${esc(ids.quick)}"` : ""} role="group" aria-label="${esc(quick.label)}">${[{v: "", label: quick.all || "All"}].concat(quick.choices).map(c => `<button type="button" class="chip" data-f="${esc(c.v || "all")}" aria-pressed="false">${esc(c.label)} <span class="mf-cn"></span></button>`).join("")}</div>` : "";
+  const groupsHTML = (o.groups || []).map(g => `<button type="button" class="mf-gbtn" data-mfb="${esc(g.id)}" aria-expanded="false" aria-controls="${ID}-p-${esc(g.id)}"><span class="mf-gl">${esc(g.label)}</span><span class="mf-gn" hidden></span></button><div class="mf-panel" id="${ID}-p-${esc(g.id)}" data-mfp="${esc(g.id)}" hidden><div class="mf-sets">${g.sets.map(setHTML).join("")}</div></div>`).join("");
+  // on a phone the groups fold into one Filters button; its drawer ends in a button that closes it and shows the list
+  const foldHTML = groupsHTML ? `<button type="button" class="mf-fold" aria-expanded="false" aria-controls="${ID}-groups"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M7 12h10M10 17h4"/></svg><span class="mf-gl">Filters</span><span class="mf-gn" hidden></span></button><div class="mf-groups" id="${ID}-groups">${groupsHTML}<button type="button" class="chip mf-done"></button></div>` : "";
+  const one1 = (o.groups || []).length === 1;      // a single group of filters sits beside the search box, not on a row of its own
+  host.classList.add("mf");
+  host.innerHTML = `<div class="mf-bar"><div class="mf-top">${quickHTML}<label class="search mf-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span class="sr-only">${esc(o.search.label)}</span><input type="search" class="mf-q" placeholder="${esc(o.search.hint)}" autocomplete="off" spellcheck="false" enterkeyhint="search"></label>${one1 ? foldHTML : ""}</div>`
+    + (one1 ? "" : foldHTML)
+    + `<div class="mf-active" hidden><span class="mf-al" id="${ID}-al">Filters in use</span><ul class="mf-chips" aria-labelledby="${ID}-al"></ul></div>`
+    + `<div class="mf-sum"><p class="mf-count" tabindex="-1"></p><div class="mf-tools"><label class="selwrap compact mf-sort"><span>Sort</span><select>${o.sorts.map(x => `<option value="${esc(x.v)}">${esc(x.label)}</option>`).join("")}</select><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></label>`
+    + `${o.csv ? `<button type="button" class="chip mf-csv"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7.5 10.5L12 15l4.5-4.5M5 20h14"/></svg><span class="mf-csvl"></span><span class="mf-csvs">Download CSV</span></button>` : ""}</div></div>`
+    + `<div class="sr-only mf-say" role="status" aria-live="polite" aria-atomic="true"></div></div>`
+    + `<div class="mf-list"${ids.list ? ` id="${esc(ids.list)}"` : ""}></div><button class="chip mf-more" type="button"${ids.more ? ` id="${esc(ids.more)}"` : ""} hidden></button>`;
+  const q$ = s => $(s, host), $q = q$(".mf-q"), $list = q$(".mf-list"), $more = q$(".mf-more"), $count = q$(".mf-count"), $say = q$(".mf-say");
+  const $act = q$(".mf-active"), $chips = q$(".mf-chips"), $sort = q$(".mf-sort select"), $csv = q$(".mf-csv"), $fold = q$(".mf-fold"), $groups = q$(".mf-groups"), $done = q$(".mf-done");
+  // the search box's hint: a shorter one on a phone, where the long one is cut off
+  const mq = window.matchMedia ? matchMedia("(max-width: 640px)") : null;
+  const hint = () => { if (!$q.isConnected) { if (mq && mq.removeEventListener) mq.removeEventListener("change", hint); return; } $q.placeholder = mq && mq.matches && o.search.short ? o.search.short : o.search.hint; };
+  hint(); if (mq && mq.addEventListener) mq.addEventListener("change", hint);
+  const optEl = {}; $$("[data-mfo]", host).forEach(l => { optEl[l.dataset.mfo] = {l, i: $("input", l), n: $(".mf-n", l)}; });
+  const setN = (el, n) => { if (el) el.innerHTML = `${nf(n)}<span class="sr-only"> ${esc(nounOf(n))}</span>`; };
+  const mark = (el, n) => { if (!el) return; el.hidden = !n; el.innerHTML = n ? `${n}<span class="sr-only"> in use</span>` : ""; };
+  // the choices: checked or not, a live count each (dimmed at none), and the ones the record never shows left off
+  function paintChoices(){
+    // the chips: a count each, except a pressed All beside other filters in use, whose count is the summary's own
+    const nar = narrowed();
+    if (quick) $$(".mf-quick [data-f]", host).forEach(b => { const v = b.dataset.f === "all" ? "" : b.dataset.f, on = v === S.f, n = $(".mf-cn", b); b.setAttribute("aria-pressed", String(on)); if (!v && on && nar) n.textContent = ""; else setN(n, qcnt[v] || 0); });
+    for (const s of sets) {
+      const c = cnt[s.key] || {};
+      if (s.when) {
+        for (const v of ["", ...Object.keys(WINS), "range"]) {
+          const e = optEl[s.key + "|" + v]; if (!e) continue; e.i.checked = v === S.when;
+          if (v === "range" && c.range == null) { e.n.textContent = ""; e.l.classList.remove("zero"); } else { setN(e.n, c[v] || 0); e.l.classList.toggle("zero", !c[v]); }
+        }
+        $$("[data-mfd]", host).forEach(i => { const v = S[i.dataset.mfd] || ""; if (i.value !== v) i.value = v; });
+        continue;
+      }
+      const sel = S.sel[s.key];
+      for (const ch of s.opts) { const e = optEl[s.key + "|" + ch.v]; if (!e) continue; e.l.hidden = !present(s, ch); e.i.checked = sel.has(ch.v); setN(e.n, c[ch.v] || 0); e.l.classList.toggle("zero", !c[ch.v]); }
+      if (s.tree) for (const g of s.tree) {
+        const box = q$(`[data-mft="${CSS.escape(s.key + "|" + g.v)}"]`);
+        if (!g.kids) { if (box) box.hidden = !present(s, g); continue; }      // a single choice in a tree: drawn with the others above
+        const e = optEl[s.key + "|g:" + g.v], ks = g.kids.filter(k => present(s, k)), on = ks.filter(k => sel.has(k.v)).length;
+        if (box) box.hidden = !ks.length;
+        if (e) { e.i.checked = ks.length > 0 && on === ks.length; e.i.indeterminate = on > 0 && on < ks.length; setN(e.n, c["g:" + g.v] || 0); e.l.classList.toggle("zero", !c["g:" + g.v]); }
+      }
+    }
+    // each group's button says how many of its filters are in use (a whole group of topics is one); on a phone the Filters button says how many in all
+    let all = 0;
+    $$(".mf-gbtn", host).forEach(b => { const n = chipList.filter(c => setOf[c.k] && setOf[c.k].g === b.dataset.mfb).length; all += n; mark($(".mf-gn", b), n); });
+    if ($fold) mark($(".mf-gn", $fold), all);
+  }
+  // the filters in use, each a chip that removes itself; a whole group of topics is one chip
+  let chipList = [];
+  const whenWords = () => { if (S.when !== "range") return ({"30": "Last 30 days", "90": "Last 90 days", year: `This year, ${year}`})[S.when] || ""; const [a, b] = span("range"); return a && b ? `${fmtDate(a)} to ${fmtDate(b)}` : (a ? `From ${fmtDate(a)}` : (b ? `Up to ${fmtDate(b)}` : "")); };
+  function inUse(){
+    const out = [];
+    if (quick && S.f) out.push({k: "f", what: "", label: (quick.choices.find(c => c.v === S.f) || {}).label || S.f});
+    if (S.q.trim()) out.push({k: "q", what: "Search", label: `“${S.q.trim()}”`});
+    for (const s of sets) {
+      const what = s.chip || s.legend;
+      if (s.when) { if (whenOn()) out.push({k: s.key, what, label: whenWords()}); continue; }
+      const sel = S.sel[s.key]; if (!sel.size) continue;
+      if (s.tree) for (const g of s.tree) {
+        if (!g.kids) { if (sel.has(g.v)) out.push({k: s.key, v: g.v, what, label: g.label}); continue; }
+        const ks = g.kids.filter(k => present(s, k));
+        if (ks.length > 1 && ks.every(k => sel.has(k.v))) out.push({k: s.key, g: g.v, what, label: g.label});
+        else g.kids.forEach(k => { if (sel.has(k.v)) out.push({k: s.key, v: k.v, what, label: k.label}); });
+      }
+      (s.choices || []).forEach(c => { if (sel.has(c.v)) out.push({k: s.key, v: c.v, what, label: c.label}); });
+    }
+    return out;
+  }
+  // each chip in use names its group ("Their vote: Yes"), but for the quick chip and the search; Clear all ends the row
+  function paintActive(){
+    $act.hidden = !chipList.length;
+    $chips.innerHTML = chipList.map((c, i) => { const w = c.k !== "f" && c.k !== "q" ? c.what : ""; return `<li><button type="button" class="mf-chip" data-mfi="${i}" aria-label="${c.k === "q" ? `Clear the search ${esc(c.label)}` : `Remove ${c.what ? esc(c.what) + ": " : ""}${esc(c.label)}`}">${w ? `<span class="mf-cw">${esc(w)}:</span>` : ""}<span>${esc(c.label)}</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></button></li>`; }).join("")
+      + (chipList.length ? `<li><button type="button" class="mf-clear">Clear all</button></li>` : "");
+  }
+  const narrowed = () => !!(S.f || S.q.trim() || whenOn() || sets.some(s => !s.when && S.sel[s.key].size));
+  const onlyChip = () => S.f && !S.q.trim() && !whenOn() && !sets.some(s => !s.when && S.sel[s.key].size) ? S.f : "";
+  let shown = PAGE, sayT = 0, painted = false;
+  const rowEls = () => [...$list.children].filter(e => !e.classList.contains("mf-subhead") && !e.classList.contains("mf-empty"));
+  function paintList(){
+    const so = o.sorts.find(x => x.v === S.sort) || o.sorts[0], upto = Math.min(shown, res.length);
+    let prev = null, html = "";
+    for (let i = 0; i < upto; i++) { const r = res[i]; if (so.head) { const h = so.head(r); if (h !== prev) { html += `<${HX} class="mf-subhead">${esc(h)}</${HX}>`; prev = h; } } html += o.row(r, S.sort); }
+    $list.innerHTML = html || `<p class="muted mf-empty">${o.empty(narrowed(), onlyChip())}</p>`;
+    const left = res.length - upto; $more.hidden = left <= 0; if (left > 0) $more.textContent = `Show ${Math.min(PAGE, left)} more (${nf(left)} left)`;
+  }
+  function paintSummary(){
+    const n = res.length;
+    $count.textContent = o.summary(res, total, narrowed());
+    if ($csv) { $(".mf-csvl", $csv).textContent = `Download ${n === total || !n ? "the list" : (n === 1 ? "this " + one : `these ${nf(n)} ${many}`)} (CSV)`; $csv.disabled = !n; }
+    if ($done) $done.textContent = `Show ${nf(n)} ${nounOf(n)}`;
+    if ($sort.value !== S.sort) $sort.value = S.sort;
+  }
+  function paint(){ recount(); chipList = inUse(); paintChoices(); paintActive(); paintSummary(); paintList(); painted = true; }
+  // a change by the reader: draw, keep the view in the address, and say the new count once the changes stop
+  function say(pre){ clearTimeout(sayT); sayT = setTimeout(() => { if (!host.offsetParent) return; $say.textContent = ""; setTimeout(() => { $say.textContent = (pre || "") + o.summary(res, total, narrowed()) + "."; }, 60); }, 700); }
+  function change(replace){
+    shown = PAGE; paint();
+    if (o.addr) o.addr(query(), !!replace);
+    say();
+  }
+  function query(){
+    const p = [], add = (k, v) => p.push(k + "=" + encodeURIComponent(v).replace(/%2C/gi, ","));
+    if (S.f) add("f", S.f);
+    if (S.q.trim()) add("q", S.q.trim());
+    for (const s of sets) {
+      if (s.when) { if (whenOn()) { add("when", S.when); if (S.when === "range") { if (S.from) add("from", S.from); if (S.to) add("to", S.to); } } continue; }
+      const sel = S.sel[s.key]; if (!sel.size) continue;
+      let vals = s.opts.map(c => c.v).filter(v => sel.has(v));
+      if (s.tree) for (const g of s.tree) { if (!g.kids) continue; const ks = liveKids(s, g); if (ks.length > 1 && ks.every(k => sel.has(k.v))) { const kin = new Set(g.kids.map(k => k.v)); vals = vals.filter(v => !kin.has(v)).concat(g.v); } }      // a whole group is written as the group
+      add(s.key, vals.join(","));
+    }
+    if (S.sort !== o.sorts[0].v) add("sort", S.sort);
+    return p.join("&");
+  }
+  // an address read: exactly what it names, nothing else; the same view again keeps the list as far as it was opened
+  function route(qs){
+    const p = new URLSearchParams(qs || ""), N = {f: "", q: (p.get("q") || "").slice(0, 120), sel: {}, when: "", from: "", to: "", sort: o.sorts[0].v};
+    const f = p.get("f") || "", day = x => /^\d{4}-\d{2}-\d{2}$/.test(x || "") ? x : "";
+    if (quick && quick.choices.some(c => c.v === f)) N.f = f;
+    for (const s of sets) {
+      if (s.when) { const w = p.get("when") || ""; if (w === "range") { N.from = day(p.get("from")); N.to = day(p.get("to")); if (N.from || N.to) N.when = "range"; } else if (WINS[w]) N.when = w; continue; }
+      const sel = N.sel[s.key] = new Set();
+      for (const v of (p.get(s.key) || "").split(",")) { if (s.known.has(v)) sel.add(v); else if (s.tree) { const g = s.tree.find(x => x.v === v); if (g && g.kids) liveKids(s, g).forEach(k => sel.add(k.v)); } }
+    }
+    const so = p.get("sort"); if (so && o.sorts.some(x => x.v === so)) N.sort = so;
+    const before = query(), again = painted, was = Object.assign({}, S); Object.assign(S, N);
+    if (painted && query() === before) { Object.assign(S, was); return; }      // the same view: nothing changes, not even a time half chosen
+    shown = PAGE; $q.value = S.q; paint();
+    if (again) say();      // Back or Forward through the views: the new count is said, as for a change made here
+  }
+  function openGroup(id){
+    $$(".mf-gbtn", host).forEach(b => { const on = b.dataset.mfb === id; b.setAttribute("aria-expanded", String(on)); const p = document.getElementById(b.getAttribute("aria-controls")); if (p) p.hidden = !on; });
+  }
+  function drop(i){
+    const c = chipList[i]; if (!c) return;
+    if (c.k === "f") S.f = ""; else if (c.k === "q") { S.q = ""; $q.value = ""; }
+    else if (setOf[c.k] && setOf[c.k].when) { S.when = ""; S.from = S.to = ""; }
+    else if (c.g) setOf[c.k].tree.find(x => x.v === c.g).kids.forEach(k => S.sel[c.k].delete(k.v));
+    else S.sel[c.k].delete(c.v);
+    change();
+    const bs = $$(".mf-chip", host); (bs[Math.min(i, bs.length - 1)] || $q).focus();      // focus stays among the chips, or goes back to the search box
+  }
+  function clearAll(){ Object.assign(S, {f: "", q: "", when: "", from: "", to: ""}); $q.value = ""; sets.forEach(s => { if (!s.when) S.sel[s.key].clear(); }); change(); }
+  const foldOpen = on => { if (!$fold) return; $fold.setAttribute("aria-expanded", String(on)); $groups.classList.toggle("open", on); };
+  // the search: the first word typed is a step Back can undo, and so is emptying the box; the edits between replace the address
+  let qT = 0;
+  const typed = () => { const was = S.q.trim(); S.q = $q.value; change(!!was && !!S.q.trim()); };
+  $q.addEventListener("input", () => { clearTimeout(qT); qT = setTimeout(() => { if (S.q !== $q.value) typed(); }, 160); });
+  $q.addEventListener("keydown", e => { if (e.key === "Enter") { clearTimeout(qT); if (S.q !== $q.value) typed(); } });
+  host.addEventListener("click", e => {
+    const t = e.target, f = t.closest(".mf-quick [data-f]");
+    if (f) { const v = f.dataset.f === "all" ? "" : f.dataset.f; if (v !== S.f) { S.f = v; change(); } return; }
+    const gb = t.closest(".mf-gbtn"); if (gb) { openGroup(gb.getAttribute("aria-expanded") === "true" ? null : gb.dataset.mfb); return; }
+    if (t.closest(".mf-fold")) { foldOpen($fold.getAttribute("aria-expanded") !== "true"); return; }
+    if (t.closest(".mf-done")) { openGroup(null); foldOpen(false); $count.focus(); return; }      // the drawer folds away and the reader lands on the count above the list
+    const ch = t.closest(".mf-chip"); if (ch) { drop(+ch.dataset.mfi); return; }
+    if (t.closest(".mf-clear")) { clearAll(); $q.focus(); return; }
+    if (t.closest(".mf-csv")) { if (o.csv && res.length) mfDownload(o.csv.file, o.csv.head, res.map(o.csv.row)); return; }
+    if (t.closest(".mf-more")) {      // more of the list: focus moves to the first new line, so it is never left on a button that has gone
+      const had = rowEls().length; shown += PAGE; paintList();
+      const nx = rowEls()[had], a = nx && (nx.matches("a[href], button") ? nx : $("a[href], button", nx));
+      (a || ($more.hidden ? $q : $more)).focus();
+    }
+  });
+  host.addEventListener("change", e => {
+    const i = e.target, d = i.dataset || {};
+    if (d.mfk) { const sel = S.sel[d.mfk]; if (i.checked) sel.add(i.value); else sel.delete(i.value); change(); return; }
+    if (d.mfg) { const s = setOf[d.mfg], g = s.tree.find(x => x.v === i.value), sel = S.sel[s.key]; g.kids.filter(k => present(s, k)).forEach(k => { if (i.checked) sel.add(k.v); else sel.delete(k.v); }); change(); return; }
+    if (d.mfw != null) { S.when = i.value; if (i.value !== "range") S.from = S.to = ""; change(); return; }      // a time window clears the dates; "Between two dates" waits for them
+    if (d.mfd) { S[d.mfd] = i.value; if (S.from || S.to) S.when = "range"; change(); return; }
+    if (i === $sort) { S.sort = i.value; shown = PAGE; paint(); if (o.addr) o.addr(query(), true); say(`Sorted: ${($sort.selectedOptions[0] || {}).text || ""}. `); }
+  });
+  host.addEventListener("keydown", e => {      // Escape folds the open group away and returns to its button; on a phone, once more folds the filters away
+    if (e.key !== "Escape" || !e.target.closest) return;
+    const p = e.target.closest(".mf-panel"), b = p ? document.querySelector(`[aria-controls="${CSS.escape(p.id)}"]`) : e.target.closest('.mf-gbtn[aria-expanded="true"]');
+    if (b && b.getAttribute("aria-expanded") === "true") { e.preventDefault(); openGroup(null); b.focus(); return; }
+    if ($fold && $fold.offsetParent && $fold.getAttribute("aria-expanded") === "true" && e.target.closest(".mf-groups, .mf-fold")) { e.preventDefault(); foldOpen(false); $fold.focus(); }
+  });
+  return {route, query, rows: () => res.slice(), state: () => ({f: S.f, q: S.q, when: S.when, from: S.from, to: S.to, sort: S.sort, sel: Object.fromEntries(Object.entries(S.sel).map(([k, v]) => [k, [...v]]))})};
+}
+/* ---------- end of member filters ---------- */
+
+/* What a member's two lists hand the member filters. For a roll call, worked out once and kept on it: the vote's
+   character by the Bills page's own tests (both parties for it, party-line, close: 10 points or less), the bill's topic
+   (its Library of Congress policy area, in the Bills page's 22 topics) and what became of it, the kind of vote and
+   whether it carried, from the roll call's own record. */
+const VOTE_KIND = {"Passage": "passage", "Amendment": "amend", "Cloture": "cloture", "Resolve differences": "resolve", "Veto override": "veto",
+  "Motion to (re)commit": "proc", "Motion to proceed": "proc", "Motion to table": "proc", "Motion to waive": "proc", "Point of order": "proc"};
+const billStatus = o => !o ? "" : (STATUS_W[o] ? o : (/became law/i.test(o) ? "law" : (/^(vetoed|failed)/i.test(o) ? "failed" : (/^adopted/i.test(o) ? "adopted" : "moving"))));      // a roll call carries the word already; a bill, its outcome sentence
+const STATUS_W = {law: "Became law", moving: "Still moving", failed: "Failed or vetoed", adopted: "Adopted"};
+/* where one of their bills stands, in the words of the label on its row (statusPill): one of the steps of "still moving",
+   or how it ended */
+const STEP_W = {intro: "Introduced", committee: "In committee", reported: "Reported by committee", house: "Passed the House", senate: "Passed the Senate",
+  both: "Passed both, not final", president: "Waiting on the President"};
+const billStep = b => {
+  const o = b.outcome || "", st = b.status || "";
+  if (o.includes("became law")) return "law";
+  if (o.startsWith("Vetoed") || o.startsWith("Failed")) return "failed";
+  if (o.startsWith("Adopted")) return "adopted";
+  if (o.includes("passed one chamber")) return st.includes("House") ? "house" : "senate";
+  if (o.includes("passed both")) return "both";
+  if (o.includes("awaiting")) return "president";
+  if (o === "Pending") return st.startsWith("Reported") ? "reported" : (st === "In committee" ? "committee" : "intro");
+  return "intro";
+};
+const stepWords = r => r.step === "failed" ? ((r.b.outcome || "").startsWith("Vetoed") ? "Vetoed" : "Failed a floor vote") : (STEP_W[r.step] || STATUS_W[r.step] || "");
+const carried = r => /^(passed|agreed|invoked|sustained|adopted)/i.test(r || "") ? "passed" : (/^(failed|rejected|not )/i.test(r || "") ? "failed" : "");
+function voteFacts(v){
+  if (v._vf) return v._vf;
+  const y = v.yeas, n = v.nays, pv = {m: y != null && n != null ? "r" : "", y: y || 0, n: n || 0, split: v.split}, vk = [];
+  if (isBothFor(pv)) vk.push("both"); if (isPartyLine(pv)) vk.push("party"); if (isClose(pv)) vk.push("close");
+  return v._vf = {vk, tp: v.pa ? (TOPIC_OF[v.pa] || "other") : "none", bs: billStatus(v.oc), kind: VOTE_KIND[v.category] || "other", out: carried(v.result),
+    date: v.date || "", mg: pv.m && (y + n) ? Math.abs(y - n) / (y + n) : null, bn: mfBillNo(v.bill)};
+}
+// the margin a roll call was decided by, in points between the yes and no shares, for the lists sorted by margin
+const marginWords = r => {
+  if (r.mg == null) return "";
+  if (r.v.yeas === r.v.nays) return "tied";
+  const x = r.mg * 100, p = x < 10 ? String(+x.toFixed(1)) : String(Math.round(x));
+  return `decided by ${p} point${p === "1" ? "" : "s"}`;
+};
+const TOPIC_ORDER = (() => { const o = {}; let k = 0; TOPICS.forEach(t => t.subs.forEach(([id]) => { o[id] = k++; })); o.other = k++; o.none = k; return o; })();
+const topicName = t => SUB_NAME[t] || (t === "none" ? "Not labelled yet" : "Other subjects");
+const topicWords = t => SUB_NAME[t] ? `${(TOPICS.find(g => g.id === SUB_PARENT[t]) || {}).name} · ${SUB_NAME[t]}` : topicName(t);
+const billPage = key => { const k = String(key || "").match(/^([a-z]+)(\d+)-(\d+)$/), T = k && PC_TYPES[k[1]]; return T ? `https://www.congress.gov/bill/${pcOrdinal(Number(k[3]))}-congress/${T[1]}/${k[2]}` : ""; };
+const topicSet = () => ({key: "topic", legend: "Topic", chip: "Topic", help: "Every bill carries one subject the Library of Congress assigns. Choose a group, or topics inside it.",
+  tree: TOPICS.map(t => ({v: t.id, label: t.name, kids: t.subs.map(([v, label]) => ({v, label}))})),
+  choices: [{v: "other", label: "Other subjects"}, {v: "none", label: "Not labelled yet", title: "New bills the Library of Congress has not given a subject yet"}], hideEmpty: true, of: r => r.tp});
+// what became of the bill a vote was on (a roll call carries the bill's outcome, not its steps)
+const statusSet = () => ({key: "status", legend: "What became of the bill", chip: "Bill", hideEmpty: true, help: "Still moving: not law yet, and not failed or vetoed.",
+  choices: [{v: "law", label: "Became law"}, {v: "moving", label: "Still moving", title: "In committee, reported, passed one chamber or both, or waiting on the President"},
+    {v: "failed", label: "Failed or vetoed", title: "Failed a floor vote, or vetoed"}, {v: "adopted", label: "Adopted", title: "A resolution that was agreed to"}], of: r => r.bs});
+// where each of their own bills stands: how it ended, or the step it has reached, in the words of its label
+const stepSet = () => ({key: "status", legend: "What became of it", chip: "Status", col: true, hideEmpty: true, help: "Still moving: not law yet, and not failed or vetoed. Its steps are the ones each bill's label shows.",
+  tree: [{v: "law", label: "Became law"}, {v: "moving", label: "Still moving", kids: Object.keys(STEP_W).map(v => ({v, label: STEP_W[v]}))},
+    {v: "failed", label: "Failed or vetoed", title: "Failed a floor vote, or vetoed"}, {v: "adopted", label: "Adopted", title: "A resolution that was agreed to"}], of: r => r.step});
+/* a sheet's part of an address: "breaks" and "missed" are the votes sheet's two chips; "votes?pos=N" is the votes sheet with
+   those filters; no part at all (a folder chosen) leaves a sheet's filters as they were */
+const viewOf = detail => {
+  if (!detail) return null;
+  const s = String(detail), i = s.indexOf("?"), w = i < 0 ? s : s.slice(0, i), q = i < 0 ? "" : s.slice(i + 1), chip = {breaks: "f=broke", missed: "f=missed"}[w];
+  return chip ? chip + (q ? "&" + q : "") : q;
+};
+
 /* ---------- a member's own page ----------
    The card on the map answers "how did they vote on this"; the page answers "who is this". It carries the
    same Get to know sections, then every recorded vote the member took part in, newest first, which can be
-   narrowed to the votes where they broke with their party or did not vote. Its address (#member=C001119)
-   has a share page of its own, so a link to someone's record shows a proper preview. */
+   searched, narrowed (the votes where they broke with their party or did not vote, and the member filters' four
+   groups), sorted and downloaded; their own bills the same way. Its address (#member=C001119) has a share page of
+   its own, so a link to someone's record shows a proper preview. */
 function openMember(id, show){ history.pushState({page: "member"}, "", "#member=" + id + (show ? "/" + show : "")); routeFromHash(false); }
 let mpSeq = 0;
 function renderMemberPage(id, show){
   const token = ++mpSeq, box = $("#mpage"); if (!box) return;
+  if (box.dataset.member === id && box._sheets) { if (box._title) document.title = box._title; box._sheets.select(tabFor(show), {push: false, detail: show}); return; }      // the page already shows this member: open the sheet the address names, never rebuild
+  if (box._sheets) { box._sheets.destroy(); box._sheets = null; }
+  delete box.dataset.member;
   box.innerHTML = `<p class="muted loading">Loading\u2026</p>`;
   Promise.all([membersReady(), needMember(id), votesReady()]).then(([, P]) => {
     if (token !== mpSeq) return;
     const L = DATA.legislators[id];
     if (!L) { box.innerHTML = `<div class="empty">That member isn't in this catalog. <a href="#members">See all members</a></div>`; return; }
     const PARTYW = {R: "Republican", D: "Democrat", I: "Independent", ID: "Independent", L: "Libertarian"}, POSW = {Y: "Yes", N: "No", P: "Present", X: "Not voting"};
-    const stName = (BOOT.state_names || {})[L.st] || L.st, house = L.ch !== "Senate", last = L.n.split(" ").slice(-1)[0], mem = MEMBER[id];
+    const stName = (BOOT.state_names || {})[L.st] || L.st, house = L.ch !== "Senate", last = lastOf(L.n), mem = MEMBER[id];
     const seat = house ? (L.d ? `${stName}'s ${pcOrdinal(L.d)} district` : `${stName}'s at-large district`) : `Senator from ${stName}`;
     const cg = `https://www.congress.gov/member/${encodeURIComponent(L.n.toLowerCase().replace(/[^a-z0-9]+/g, "-"))}/${id}`;
     pageview("/member/" + id, L.n); document.title = `${L.n}: The Civic Archive`;
@@ -5675,39 +6579,113 @@ function renderMemberPage(id, show){
     for (const v of DATA.vote_meta) {
       const c = v.chamber === "Senate" ? "S" : "H", i = at[c]; if (i < 0) continue;
       const pos = ((DATA.mv[c].votes[v.vote_id] || "")[i]) || "."; if (pos === ".") continue;
-      const p = (v.po || {})[i] || L.p, ln = lean(v), mine = ln[p], other = ln[p === "D" ? "R" : "D"];
-      rec.push({v, pos, broke: !!(mine && other && mine !== other && (pos === "Y" || pos === "N") && pos !== mine)});
+      const p = (v.po || {})[i] || L.p, ln = lean(v), mine = ln[p], other = ln[p === "D" ? "R" : "D"], cast = pos === "Y" || pos === "N";
+      // with or against their party: a yes or a no beside how most of their own party voted; a break with the party is that, on a vote the two parties split
+      rec.push(Object.assign({v, pos, broke: !!(mine && other && mine !== other && cast && pos !== mine), side: cast && mine ? (pos === mine ? "with" : "against") : ""}, voteFacts(v)));
     }
-    const counts = {all: rec.length, broke: rec.filter(r => r.broke).length, missed: rec.filter(r => r.pos === "X").length};
-    let filter = show === "breaks" ? "broke" : (show === "missed" ? "missed" : "all"), shown = 25;
-    const rowsFor = () => rec.filter(r => filter === "all" || (filter === "broke" ? r.broke : r.pos === "X"));
-    const drawVotes = () => {
-      const rows = rowsFor(), list = $("#mpvotes");
-      list.innerHTML = rows.slice(0, shown).map(r => `<div class="mvrow"><a class="mv-main" href="#vote=${esc(voteSlug(r.v.vote_id))}" title="How everyone voted"><b>${esc(r.v.bill)}</b> ${esc(r.v.title)}<span class="muted">${esc(r.v.chamber)} ${esc(String(r.v.category).toLowerCase())}, ${esc(fmtDate(r.v.date))}: ${r.v.yeas ?? "?"}\u2013${r.v.nays ?? "?"}, ${esc(String(r.v.result || "").toLowerCase())}</span></a><span class="mv-side">${r.broke ? `<span class="mv-flag">broke with party</span>` : ""}<span class="vtag ${esc(r.pos)}">${POSW[r.pos] || r.pos}</span>${r.v.bill_key ? `<a class="mv-bill" href="#bill=${esc(r.v.bill_key)}">The bill</a>` : ""}</span></div>`).join("")
-        || `<p class="muted">${filter === "broke" ? "No breaks with the party on a split vote in this record." : (filter === "missed" ? "No missed roll calls in this record." : "No recorded votes here yet.")}</p>`;
-      const more = $("#mpmore"); more.hidden = rows.length <= shown; more.textContent = `Show ${Math.min(25, rows.length - shown)} more (${(rows.length - shown).toLocaleString()} left)`;
-      $$("#mpfilters .chip").forEach(c => c.setAttribute("aria-pressed", c.dataset.f === filter));
-    };
     const bills = mem && mem.bills.length ? `<b>${mem.bills.length.toLocaleString()}</b> bill${mem.bills.length === 1 ? "" : "s"} in this catalog${mem.sponsored ? `, ${mem.sponsored} sponsored` : ""}${mem.cosponsored ? `, ${mem.cosponsored} cosponsored` : ""}.` : "No bills sponsored or cosponsored in this catalog.";
-    box.innerHTML = `<div class="mp-head">${avatar(id, L.p, "xxl")}<div><h1 class="mp-name">${esc(L.n)}</h1><div class="seat"><b>${esc(PARTYW[L.p] || L.p)}</b>, ${esc(seat)}${L.cur ? "" : " (no longer serving)"}</div></div></div>
-      ${contactRow(L, cg, "Share this profile", "mp", null)}
-      <div class="mp-grid">
-        <div class="know" id="mpknow"><h3>Get to know ${esc(L.n)}</h3>${knowHTML(P, L, L.p, id) || `<p class="muted">Nothing more on record for this member yet.</p>`}</div>
-        <div class="mp-side">
-          <div class="know-b"><h4><span class="tag fact">Fact</span> Every recorded vote</h4>
-            <div class="mp-filters" id="mpfilters" role="group" aria-label="Narrow the votes"><button class="chip" data-f="all" aria-pressed="true">All ${counts.all.toLocaleString()}</button><button class="chip" data-f="broke">Broke with party ${counts.broke.toLocaleString()}</button><button class="chip" data-f="missed">Did not vote ${counts.missed.toLocaleString()}</button></div>
-            <div id="mpvotes"></div><button class="chip" id="mpmore" type="button" hidden></button>
-            <p class="know-rule">Each line opens that vote, where you can see how everyone else voted; "The bill" opens the bill itself. "Broke with party" means most of ${esc(last)}'s party voted the other way while most of the other party did not; party is the one recorded on each roll call.</p></div>
-          <div class="know-b"><h4><span class="tag fact">Fact</span> Their bills</h4><p>${bills}</p>${mem && mem.bills.length ? `<button class="chip" id="mpbills" type="button">Show ${esc(last)}'s bills</button>` : ""}</div>
-        </div>
-      </div>
-      <div class="mny-page" id="mpmoney" hidden></div>`;
+    // the desk: the header and the link row stay as they were; every section is a sheet behind a folder (the front sheet is "Get to know", the In office card)
+    const parts = knowHTML(P, L, L.p, id, {parts: true}), fact = `<span class="tag fact">Fact</span>`, C = P.committees || [], F = P.focus || {}, Mt = ((P.money || {}).totals || {}).all;
+    const plural = (n, w) => `${n.toLocaleString()} ${w}${n === 1 ? "" : "s"}`;
+    const votesHTML = rec.length ? `<div class="know-b"><h4>${fact} Every recorded vote</h4><div id="mfv"></div>
+            <p class="know-rule">Each line opens that vote, where you can see how everyone else voted; "The bill" opens the bill itself. "Broke with party" means most of ${esc(last)}'s party voted the other way while most of the other party did not; party is the one recorded on each roll call.</p></div>` : "";
+    // once their list is drawn, its own summary carries these counts, and the Bills page button joins the list's tools
+    const billsHTML = `<div class="know-b"><h4>${fact} Their bills</h4><p class="mf-pre">${bills}</p>${mem && mem.bills.length ? `<button class="chip" id="mpbills" type="button">Show ${esc(last)}'s bills on the Bills page<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><div id="mfb"><p class="muted loading">Loading the bills\u2026</p></div>` : ""}</div>`;
+    // the two lists and their filters: the votes are drawn with the page; the bills need the catalog, which loads when their sheet first opens
+    const newest = BOOT.newest || (DATA.vote_meta[0] || {}).date || "";
+    const fileName = what => `${L.n.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "")}-${what}.csv`;
+    const addrFor = tab => (qs, replace) => {      // a change of filters, kept in the address while this sheet is the one open (never written over another page's)
+      if (page !== "member" || box.dataset.member !== id || !box._sheets || box._sheets.current() !== tab || String((location.hash.match(/^#member=([^/?#]+)/) || [])[1] || "").toUpperCase() !== id) return;
+      const h = `#member=${id}/${tab}${qs ? "?" + qs : ""}`; if (location.hash !== h) history[replace ? "replaceState" : "pushState"]({page: "member", tab}, "", h);
+    };
+    let vf = null, vfWant = null, bf = null, bfWant = null, bfAsked = false;
+    const indep = (L.p === "I" || L.p === "ID") && !rec.some(r => r.side);
+    const voteFilters = () => ({key: "v", noun: ["vote", "votes"], rows: rec, newest, ids: {list: "mpvotes", more: "mpmore", quick: "mpfilters"},
+      quick: {label: "Narrow the votes", choices: [{v: "broke", label: "Broke with party", test: r => r.broke}, {v: "missed", label: "Did not vote", test: r => r.pos === "X"}]},
+      search: {label: `Search ${last}'s votes`, hint: "Search by bill number, title or word", short: "Bill number or word", hay: r => [r.v.bill, r.bn, r.v.title, r.v.category, r.v.result, r.v.chamber, topicName(r.tp), r.v.pa].join(" "), bill: r => r.bn},
+      // a choice the record never holds is left off (a House member has no cloture votes); one at none only because of other filters stays, dimmed
+      groups: [
+        {id: "how", label: "How they voted", sets: [
+          {key: "pos", legend: "Their vote", chip: "Their vote", hideEmpty: true, choices: [{v: "Y", label: "Yes"}, {v: "N", label: "No"}, {v: "X", label: "Not voting"}, {v: "P", label: "Present"}], of: r => r.pos},
+          indep ? {key: "party", legend: "Their party", chip: "Party", note: `${last} sits as an independent, so there is no party line to measure against.`, choices: [], of: r => r.side}
+            : {key: "party", legend: "Their party", chip: "Party", help: `With: a yes or a no the way most of ${last}'s party voted. Against: the other way. "Broke with party" counts only the votes where the two parties split.`,
+              choices: [{v: "with", label: "With most of their party", title: "Any vote, split or not"}, {v: "against", label: "Against most of their party", title: "Any vote, split or not"}], of: r => r.side},
+          {key: "vk", legend: "The vote", chip: "The vote", help: "As on the Bills page. Both parties for it: most Democrats and most Republicans voted yes. Party-line: most Democrats voted one way and most Republicans the other. Close: decided by 10 points or less.",
+            choices: [{v: "both", label: "Both parties for it", title: "Most Democrats and most Republicans voted yes"}, {v: "party", label: "Party-line", title: "Most Democrats voted one way and most Republicans the other"},
+              {v: "close", label: "Close: 10 points or less", title: "Decided by 10 points or less"}], of: r => r.vk}]},
+        {id: "about", label: "What it was about", sets: [topicSet(), statusSet()]},
+        {id: "kind", label: "Kind of vote and outcome", sets: [
+          {key: "kind", legend: "Kind of vote", chip: "Kind", hideEmpty: true, help: "From each roll call's own record. Procedural motions: to proceed, recommit, table or waive, and points of order. Cloture: a Senate vote to end debate.", choices: [{v: "passage", label: "Final passage", title: "The vote to pass the bill in that chamber"}, {v: "amend", label: "Amendments"},
+            {v: "proc", label: "Procedural motions", title: "Motions to proceed, recommit, table or waive, and points of order"}, {v: "cloture", label: "Cloture", title: "A Senate vote to end debate"},
+            {v: "resolve", label: "Resolving the other chamber's changes"}, {v: "veto", label: "Veto override"}, {v: "other", label: "Other"}], of: r => r.kind},
+          {key: "out", legend: "Outcome", chip: "Outcome", help: "Passed counts every roll call that carried: passed, agreed to, or cloture invoked.", choices: [{v: "passed", label: "Passed"}, {v: "failed", label: "Failed"}], of: r => r.out}]},
+        {id: "when", label: "When", sets: [{key: "when", legend: "When the vote was taken", chip: "When", help: `Counted back from ${fmtDate(newest)}, the newest action on record.`, when: true}]}],
+      sorts: [{v: "newest", label: "Newest first"}, {v: "oldest", label: "Oldest first", cmp: (a, b) => b._i - a._i},
+        {v: "closest", label: "Closest margin", cmp: (a, b) => (a.mg == null) - (b.mg == null) || (a.mg ?? 0) - (b.mg ?? 0)},
+        {v: "widest", label: "Biggest margin", cmp: (a, b) => (a.mg == null) - (b.mg == null) || (b.mg ?? 0) - (a.mg ?? 0)},
+        {v: "topic", label: "By topic", cmp: (a, b) => TOPIC_ORDER[a.tp] - TOPIC_ORDER[b.tp], head: r => topicWords(r.tp)}],
+      row: (r, sort) => `<div class="mvrow"><a class="mv-main" href="#vote=${esc(voteSlug(r.v.vote_id))}" title="How everyone voted"><b>${esc(r.v.bill)}</b> ${esc(r.v.title)}<span class="muted">${esc(r.v.chamber)} ${esc(String(r.v.category).toLowerCase())}, ${esc(fmtDate(r.v.date))}: ${r.v.yeas ?? "?"}\u2013${r.v.nays ?? "?"}, ${esc(String(r.v.result || "").toLowerCase())}${(sort === "closest" || sort === "widest") && r.mg != null ? ` \u00b7 ${esc(marginWords(r))}` : ""}</span></a><span class="mv-side">${r.broke ? `<span class="mv-flag">broke with party</span>` : ""}<span class="vtag ${esc(r.pos)}">${POSW[r.pos] || r.pos}</span>${r.v.bill_key ? `<a class="mv-bill" href="#bill=${esc(r.v.bill_key)}">The bill</a>` : ""}</span></div>`,
+      summary: (rs, n, narrowed) => {
+        if (!rs.length) return `0 of ${plural(n, "vote")}`;
+        const c = {Y: 0, N: 0, X: 0, P: 0}; rs.forEach(r => { c[r.pos] = (c[r.pos] || 0) + 1; });
+        return `${narrowed ? `${rs.length.toLocaleString()} of ${plural(n, "vote")}` : plural(n, "vote")}: ${[[c.Y, "yes"], [c.N, "no"], [c.X, "not voting"], [c.P, "present"]].filter(x => x[0]).map(([k, w]) => `${k.toLocaleString()} ${w}`).join(", ")}`;
+      },
+      empty: (narrowed, chip) => chip === "broke" ? "No breaks with the party on a split vote in this record." : (chip === "missed" ? "No missed roll calls in this record." : (narrowed ? "No votes match these filters. Remove one above, or Clear all." : "No recorded votes here yet.")),
+      // the download carries the record's own titles (never a nickname), shortened where the catalog shortens them
+      csv: {file: fileName("votes"), head: ["Bill", "Title (shortened where it ends in …)", "Date", "Chamber", "Kind of vote", "Result", "Tally: yes", "Tally: no", `${L.n}'s vote`, "With or against their party", "Broke with party", "Topic", "Policy area (Library of Congress)", "What became of the bill", "Roll call (official record)", "The bill on Congress.gov"],
+        row: r => [r.v.bill, r.v.st || r.v.title, r.v.date, r.v.chamber, r.v.category, r.v.result, r.v.yeas ?? "", r.v.nays ?? "", POSW[r.pos] || r.pos, r.side === "with" ? "With" : (r.side === "against" ? "Against" : ""), r.broke ? "Yes" : "", topicName(r.tp), r.v.pa || "", STATUS_W[r.bs] || "", r.v.url || "", billPage(r.v.bill_key)]},
+      addr: addrFor("votes")});
+    const billFilters = () => ({key: "b", noun: ["bill", "bills"], newest, subhead: parts.work ? "h4" : "h3",
+      rows: mem.bills.map(i => DATA.bills[i]).filter(Boolean).map(b => ({b, role: b.sponsor && b.sponsor.id === id ? "sponsor" : "cosponsor", tp: topicOf(b), bs: billStatus(b.outcome) || "moving", step: billStep(b), date: b.introduced || "", act: b.latest_action_date || "", bn: mfBillNo(b.id)})),
+      quick: {label: "Narrow the bills", choices: [{v: "sponsor", label: "Sponsored", test: r => r.role === "sponsor"}, {v: "cosponsor", label: "Cosponsored", test: r => r.role === "cosponsor"}]},
+      search: {label: `Search ${last}'s bills`, hint: "Search by bill number, title or word", short: "Bill number or word", hay: r => hay(r.b) + " " + r.bn, bill: r => r.bn},
+      groups: [{id: "about", label: "What it is about", sets: [topicSet(), stepSet()]}],
+      sorts: [{v: "newest", label: "Newest first", cmp: (a, b) => b.date.localeCompare(a.date)}, {v: "oldest", label: "Oldest first", cmp: (a, b) => a.date.localeCompare(b.date)},
+        {v: "action", label: "Latest action", cmp: (a, b) => b.act.localeCompare(a.act)},
+        {v: "topic", label: "By topic", cmp: (a, b) => TOPIC_ORDER[a.tp] - TOPIC_ORDER[b.tp] || b.date.localeCompare(a.date), head: r => topicWords(r.tp)},
+        {v: "number", label: "Bill number", cmp: (a, b) => { const x = keyParts(a.b.key), y = keyParts(b.b.key); return y[0] - x[0] || x[1] - y[1] || x[2] - y[2]; }}],
+      row: r => `<div class="mvrow"><a class="mv-main" href="#bill=${esc(r.b.key)}" title="Open the bill"><b>${esc(r.b.id)}</b> ${esc(leadTitle(r.b))}<span class="muted">${r.role === "sponsor" ? "Sponsored" : "Cosponsored"}, introduced ${esc(fmtDate(r.b.introduced))}${SUB_NAME[r.tp] ? ` \u00b7 ${esc(SUB_NAME[r.tp])}` : ""}</span></a><span class="mv-side">${statusPill(r.b)}</span></div>`,
+      summary: (rs, n, narrowed) => {
+        if (!rs.length) return `0 of ${plural(n, "bill")}`;
+        const sp = rs.filter(r => r.role === "sponsor").length, lw = rs.filter(r => r.bs === "law").length;
+        return `${narrowed ? `${rs.length.toLocaleString()} of ${plural(n, "bill")}` : `${plural(n, "bill")} in this catalog`}: ${[sp ? `${sp.toLocaleString()} sponsored` : "", rs.length - sp ? `${(rs.length - sp).toLocaleString()} cosponsored` : ""].filter(Boolean).join(", ")}${lw ? `; ${lw.toLocaleString()} became law` : ""}`;
+      },
+      empty: narrowed => narrowed ? "No bills match these filters. Remove one above, or Clear all." : "No bills sponsored or cosponsored in this catalog.",
+      csv: {file: fileName("bills"), head: ["Bill", "Title (shortened where it ends in …)", `${L.n}'s part`, "Introduced", "Latest action date", "Latest action", "What became of it", "Topic", "Policy area (Library of Congress)", "The bill on Congress.gov"],
+        row: r => [r.b.id, r.b.short_title || r.b.title, r.role === "sponsor" ? "Sponsor" : "Cosponsor", r.b.introduced || "", r.b.latest_action_date || "", r.b.latest_action || "", stepWords(r), topicName(r.tp), r.b.policy_area || "", (r.b.links || {}).page || billPage(r.b.key)]},
+      addr: addrFor("work")});
+    const wantBills = () => {
+      const host = $("#mfb"); if (bfAsked || !host) return; bfAsked = true;
+      catalogReady().then(() => {
+        if (!host.isConnected || bf) return; bf = memberFilters(host, billFilters()); bf.route(bfWant || "");
+        const pre = $(".mf-pre", host.parentNode), mb = $("#mpbills"), tl = $(".mf-tools", host);
+        if (pre) pre.hidden = true;      // the list's summary line says the same counts
+        if (mb && tl) tl.appendChild(mb);      // "on the Bills page" sits with the list's other tools
+      },
+        () => { bfAsked = false; if (host.isConnected) host.innerHTML = `<p class="muted">Couldn't load the bills. Check your connection and open this sheet again.</p>`; });
+    };
+    let moneyOn = false;
+    const tabs = [
+      {id: "office", label: "Get to know", sub: "Fact", html: `<h2 class="sheet-h">Get to know ${esc(L.n)}</h2>${parts.office || `<p class="muted">Nothing more on record for this member yet.</p>`}`},
+      parts.committees ? {id: "committees", label: "Committees", sub: `Fact · ${plural(C.length, "seat")}`, html: parts.committees} : null,
+      parts.howvotes ? {id: "howvotes", label: `How ${last} votes`, short: "How they vote", sub: "Analysis", html: parts.howvotes} : null,
+      (parts.work || (mem && mem.bills.length)) ? {id: "work", label: `What ${last} works on`, short: "What they work on", sub: parts.work ? `Analysis${F.sponsored ? ` · ${plural(F.sponsored, "bill")}` : ""}` : "Fact", html: parts.work + billsHTML,
+        onOpen: detail => { const q = viewOf(detail); if (q != null) { bfWant = q; if (bf) bf.route(q); } if (!bf) wantBills(); },      // their bills: the catalog loads when this sheet first opens
+        onLand: detail => { const q = viewOf(detail); if (q != null && bf) bf.route(q); }, query: () => bf ? bf.query() : ""} : null,
+      parts.money ? {id: "money", label: "Who funds the campaign", short: "Campaign money", sub: `Fact${Mt && Mt.receipts ? ` · ${usdShort(Mt.receipts)}` : ""}`, html: parts.money + `<div class="mny-page" id="mpmoney" hidden></div>`,
+        onOpen: () => { if (!moneyOn) { moneyOn = true; renderMoney(id, P.money, L, null); } else dispatchEvent(new Event("resize")); },      // the treemap measures its box, so it is drawn only on a visible sheet
+        onLand: detail => { if (detail === "money") revealPart("#mpmoney"); }} : null,                                         // opened by #member=<id>/money, the view itself is brought into sight
+      votesHTML ? {id: "votes", label: "Every recorded vote", short: "Every vote", sub: `Fact · ${plural(rec.length, "vote")}`, html: votesHTML,
+        onOpen: detail => { const q = viewOf(detail); if (q == null) return; if (vf) vf.route(q); else vfWant = q; },      // an address names the view exactly; a folder chosen keeps the filters as they were
+        onLand: detail => { const q = viewOf(detail); if (q != null && vf) vf.route(q); }, query: () => vf ? vf.query() : ""} : null,
+      parts.wiki ? {id: "wiki", label: "From Wikipedia", sub: "Not an official record", html: parts.wiki} : null];
+    box.innerHTML = `<div class="mp-desk"><div class="mp-top"><div class="mp-head">${avatar(id, L.p, "xxl")}<div><h1 class="mp-name">${esc(L.n)}</h1><div class="seat"><b>${esc(PARTYW[L.p] || L.p)}</b>, ${esc(seat)}${L.cur ? "" : " (no longer serving)"}</div></div></div>
+      ${contactRow(L, cg, "Share this profile", "mp", null)}</div></div>`;
     $("#mpsocial").innerHTML = socialRow(P.social);
-    drawVotes();
-    if (show && show !== "money") setTimeout(() => { const t = $("#mpfilters"); if (t) t.scrollIntoView({block: "start", behavior: "auto"}); scrollBy(0, -80); }, 60);
-    if (P.money && P.money.cycles && P.money.cycles.length) renderMoney(id, P.money, L, show);
-    $("#mpfilters").addEventListener("click", e => { const c = e.target.closest(".chip"); if (!c) return; filter = c.dataset.f; shown = 25; drawVotes(); });
-    $("#mpmore").addEventListener("click", () => { shown += 25; drawVotes(); });
+    box._sheets = fileTabs($(".mp-desk", box), {id, name: L.n, tabs, start: tabFor(show), detail: show, inline: !!BOOT.inline});
+    box.dataset.member = id; box._title = document.title;
+    const vh = $("#mfv"); if (vh) { vf = memberFilters(vh, voteFilters()); vf.route(vfWant || ""); }
+    box._filters = () => ({votes: vf, bills: bf});      // for checking the page by hand
     const mb = $("#mpbills"); if (mb) mb.addEventListener("click", () => pickMember(id));
     const V = P.votes || {}, side = V.party === "R" ? "Republicans" : "Democrats";
     const text = V.split_n ? `${L.n} sided with ${side} on ${Math.round(100 * V.split_with / V.split_n)}% of the ${V.split_n} votes where the two parties split. Every recorded vote, from the public record:` : `How ${L.n} votes and what ${last} works on, from the public record:`;
@@ -5715,6 +6693,13 @@ function renderMemberPage(id, show){
     watchTracks(box);
   }, () => { if (token === mpSeq) box.innerHTML = `<div class="empty">Couldn't load this member. Check your connection and try again.</div>`; });
 }
+/* leaving a member's page by one of its own links (a vote, a bill), the reader's place is kept with the address they leave,
+   so that Back brings them to the same row of the same filtered list */
+document.addEventListener("click", e => {
+  const a = e.target.closest && e.target.closest('#mpage a[href^="#"]');
+  if (!a || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || /^#member=/.test(a.getAttribute("href") || "")) return;
+  try { history.replaceState(Object.assign({}, history.state, {y: Math.round(scrollY)}), ""); } catch (x) {}
+}, true);
 
 /* ---------- command palette, shortcuts, deep links ---------- */
 (function(){
@@ -5748,7 +6733,7 @@ function renderMemberPage(id, show){
     const tag = (e.target.tagName || "").toLowerCase(), typing = tag === "input" || tag === "select" || tag === "textarea";
     if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") { e.preventDefault(); if (pal.hidden) open(); else close(); return; }
     if (e.key === "Escape" && !pal.hidden) { close(); return; }
-    if (e.key === "/" && !typing) { e.preventDefault(); $("#q").focus(); }
+    if (e.key === "/" && !typing) { e.preventDefault(); const mq = page === "member" ? $("#mpage .sheet:not([hidden]) .mf-q") : null; (mq || $("#q")).focus(); }      // on a member's page, the open list's own search
   });
   if (!/Mac|iPhone|iPad/.test(navigator.platform || "")) $$(".kbtn kbd").forEach(k => k.textContent = "Ctrl K");
 })();
@@ -5797,8 +6782,18 @@ function routeFromHash(push){
   if (pls) { showPage("people", false); peoplePage({state: pls[1]}); return; }
   const plp = h.match(/^people=([A-Z]{2}-(?:\d{1,2}|AL))$/);
   if (plp) { showPage("people", false); peoplePage(plp[1]); return; }
-  const mem = h.match(/^member=([A-Za-z]\d{6})(?:\/(breaks|missed|money))?$/);
-  if (mem) { showPage("member", false); renderMemberPage(mem[1].toUpperCase(), mem[2]); return; }
+  const mem = h.match(/^member=([A-Za-z]\d{6})(?:\/(office|committees|howvotes|work|money|votes|wiki|breaks|missed)(?:\?([^#]*))?)?$/);      // after "?", a list's filters (#member=<id>/votes?pos=N&topic=health)
+  if (mem) {
+    const id = mem[1].toUpperCase(), show = mem[2] && mem[3] != null ? mem[2] + "?" + mem[3] : mem[2], box = $("#mpage");
+    // a change of view inside the sheet already open (a filter, or Back through filters) keeps the reader's place on the page;
+    // Back from a vote or a bill opened from the page returns to where the reader left it (the place kept as they left)
+    const same = page === "member" && box && box.dataset.member === id && box._sheets && box._sheets.current() === tabFor(show);
+    const y = !same && box && box.dataset.member === id && history.state && typeof history.state.y === "number" ? history.state.y : null;
+    if (!same) showPage("member", false);
+    renderMemberPage(id, show);
+    if (y != null) requestAnimationFrame(() => scrollTo({top: y, behavior: "instant"}));
+    return;
+  }
   if (h === "nowmoving" || h === "yours" || h === "top" || h === "") { showPage("home", false); if (h === "yours") { const t = $("#yours"); if (t) setTimeout(() => t.scrollIntoView({behavior: "auto"}), 30); } return; }
   showPage(PAGES.includes(h) ? h : "home", false);
 }
@@ -5991,7 +6986,7 @@ if (!BOOT.inline && !(navigator.connection && navigator.connection.saveData)) se
     if (mem) { showPage("map", true); mapReady().then(() => { if (window.mapFocus) mapFocus(v.vote_id, current, mem.dataset.id); }); return; }
     const sb = e.target.closest(".sharebtn"); if (!sb) return;
     const name = NAMES[current] || current, ms = positionsFor(v, current).sort(byRow), mine = mineFor(v, ms);
-    const one = m => `${m.L.n.split(" ").slice(-1)[0]} ${(POS[m.pos] || m.pos).toLowerCase()}`;
+    const one = m => `${lastOf(m.L.n)} ${(POS[m.pos] || m.pos).toLowerCase()}`;
     const text = mine ? `My representative, ${mine.L.n}, voted ${(POS[mine.pos] || mine.pos).toLowerCase()} on ${v.bill}, ${v.title}. The whole ${v.chamber}, state by state:`
       : `How ${name}'s members voted on ${v.bill}, ${v.title}: ${ms.slice(0, 6).map(one).join(", ")}${ms.length > 6 ? `, and ${ms.length - 6} more` : ""}. The whole ${v.chamber}, state by state:`;
     share({title: `${v.bill}: how ${name} voted`, text, url: shareUrlVote(v), kind: "state", key: current}, sb);

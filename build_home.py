@@ -349,7 +349,7 @@ def home_body(F, places, root="./"):
         door("access", "access/", "Access", "Read it your way.",
              "Type, size, spacing, contrast, motion and chart colours, set once and kept on this device. And a plain list of what is done and what is not.",
              "Make the text bigger, the colours stronger, or the page calmer. See what still needs work.",
-             [("8", "presets"), ("11", "settings")], "See access"),
+             [("8", "presets"), ("12", "settings")], "See access"),
     ])
     minor = f"""<div class="tca-pair lvl-extra">
 <article class="tca-door minor">{RING}<div><h3><a href="rooms.html">All levels</a></h3><p>The ring of cards: Congress, the states and the local level, one card each.</p></div></article>
@@ -609,7 +609,7 @@ def access_body(F, version, generated):
         "Every button, menu item and link on its own is at least 44 by 44 pixels. A link inside a sentence is the size of its words.",
         "Nothing works by hovering alone. The menus open with a click, a tap or the keyboard, and Esc closes them.",
         "No single-key shortcuts, so voice control cannot set one off by accident.",
-        "Eleven settings and eight presets, which combine. They are kept on this device and nowhere else.",
+        "Twelve settings and eight presets, which combine. They are kept on this device and nowhere else.",
         "A device set to reduce motion is honoured on the first visit, before anything is touched.",
         "The fade at the edges of the screen is off under high contrast and reduced motion, replays the same way scrolling up as down, and never dims a section parked in the middle of the screen.",
         "The five icons are fully drawn even when no script runs, and every one of their moves ends at rest.",
@@ -684,7 +684,7 @@ def build(dev_root, version=None, draft=False, look=None, say=print, test=False,
         "method": ("How every page is made", "Where each fact comes from, and what this site will not do.",
                    "Official records first. Facts and judgments kept apart. Bills are rated; people are not."),
         "access": ("Read it your way", "Type, size, spacing, contrast and motion, set once.",
-                   "Eight presets and eleven settings, kept on your device. What is done for readers with disabilities, and what is not yet."),
+                   "Eight presets and twelve settings, kept on your device. What is done for readers with disabilities, and what is not yet."),
     }
     for name, (t, lead, line) in cards.items():
         brand.save_card(brand.site_card(t, lead, line), os.path.join(dev_root, "og", f"{name}.png"))

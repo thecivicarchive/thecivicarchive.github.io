@@ -1,0 +1,106 @@
+{
+ "v": 1,
+ "code": "MA",
+ "name": "Massachusetts",
+ "written": "2026-10-10",
+ "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+ "status": "link",
+ "status_why": "Massachusetts publishes no statewide count on the night; cities and towns post their own, and the state posts certified results weeks later.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Massachusetts Secretary of the Commonwealth",
+ "system": "No statewide live results. Cities and towns post their own unofficial results on the night (Boston: boston.gov); the Secretary's PD43+ (ElectionStats) holds certified results only, weeks later",
+ "family": null,
+ "reader_agent": "N12",
+ "results_page": {
+  "url": "https://electionstats.state.ma.us/",
+  "label": "Massachusetts election statistics (certified results)",
+  "checked": "2026-10-10",
+  "source": "answered one request with the kit's User-Agent (N4, 2026-10-10)"
+ },
+ "other_pages": [
+  {
+   "url": "https://boston.gov/departments/elections/unofficial-election-results",
+   "label": "Boston's unofficial results"
+  }
+ ],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": null,
+  "posted": false,
+  "how_to_find": "ElectionStats after certification."
+ },
+ "cadence": null,
+ "hand": null,
+ "feeds": [
+  {
+   "id": "ma-1",
+   "what": "statewide",
+   "format": "csv",
+   "address": "certified only: https://electionstats.state.ma.us/elections/search/year_from:<y>/year_to:<y>/office_id:<o>/stage:General (office 5 U.S. House, 6 U.S. Senate, 3 Governor ...), each election with a CSV download of city and town totals",
+   "hosts": [
+    "electionstats.state.ma.us"
+   ],
+   "updates": "after certification (late November)",
+   "script_ok": true,
+   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+   "note": "The 2024 search page answered 200 (340 KB, server 'ElStats V') on 2026-10-09; its newest date is Sep 1, 2026."
+  },
+  {
+   "id": "ma-2",
+   "what": "local",
+   "format": "html",
+   "address": "Boston: https://boston.gov/departments/elections/unofficial-election-results (precinct returns uploaded as they come in, per the city's page); other towns post on their own sites",
+   "hosts": [
+    "boston.gov"
+   ],
+   "updates": "as precincts return",
+   "script_ok": "untested",
+   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+   "note": "found by web search, not opened"
+  }
+ ],
+ "units": "town",
+ "precinct_level": true,
+ "races_in_feed": "certified: everything (statewide, Congress, legislature, Governor's Council, county offices, questions); on the night: only what each town posts",
+ "local": "no county results sites; 351 cities and towns post their own (Boston, Worcester, Springfield, Cambridge largest)",
+ "how_counted": "Each city and town counts and posts its own results; the state publishes totals after certification.",
+ "count_order": "No split.",
+ "vote_types": "no",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Governor of Massachusetts",
+  "rule": "Members of Congress, state officers and legislators: not before 5 p.m. on the 15th day after the election (Mass. Gen. Laws ch. 54, 116).",
+  "date": "2026-11-18",
+  "date_kind": "from",
+  "local_rule": "Cities and towns send certified copies within 15 days (ch. 54, 112).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [
+  "*.sec.state.ma.us",
+  "sec.state.ma.us"
+ ],
+ "never_why": {
+  "sec.state.ma.us": "Incapsula bot wall (CLAUDE.md)",
+  "*.sec.state.ma.us": "Incapsula bot wall (CLAUDE.md)"
+ },
+ "partial_sources": [],
+ "rehearsal": null,
+ "terms": "none seen",
+ "scout_blocked": "www.sec.state.ma.us is behind Incapsula (CLAUDE.md, 2026-09-30); electionstats.state.ma.us is not",
+ "scout_plan": "No live source for the whole state. The Associated Press gathers Massachusetts returns from the town clerks under a long-standing arrangement and resells them; that is not open. On the night Election Night can show Boston's own unofficial precinct results (one reader) and say plainly that Massachusetts publishes no statewide count until certification; the statewide and congressional map fills from ElectionStats when it is certified. Ask John whether to read a handful of the largest cities' pages.",
+ "notes": [],
+ "to_do": [],
+ "sources": [
+  "election/scout/results_pa.json (checked 2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts))",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

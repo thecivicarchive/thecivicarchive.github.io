@@ -1,0 +1,132 @@
+{
+ "v": 1,
+ "code": "MI",
+ "name": "Michigan",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "link",
+ "status_why": "No statewide count on the night: each county and town reports its own, and the state's results site shows scripts a challenge. Oakland County's Clarity results may be read later, labelled partial.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Michigan Department of State",
+ "system": "No statewide election-night reporting (the Department of State says local clerks post unofficial results on their own sites; official results later on the Michigan Voter Information Center). Counties use Clarity ENR (Oakland) or PDF reports (Wayne).",
+ "family": null,
+ "reader_agent": "N12",
+ "results_page": {
+  "url": "https://mvic.sos.state.mi.us/votehistory/",
+  "label": "Michigan Voter Information Center: official results",
+  "checked": "2026-10-09",
+  "source": "results_mn.json"
+ },
+ "other_pages": [
+  {
+   "url": "https://results.enr.clarityelections.com/MI/Oakland/",
+   "label": "Oakland County's results"
+  },
+  {
+   "url": "https://www.waynecountymi.gov/Government/Elected-Officials/Clerk/Elections/Election-Results-Candidates/November-3rd-2026-General-Election",
+   "label": "Wayne County's results"
+  }
+ ],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": null,
+  "posted": false,
+  "how_to_find": "Official results after the state canvass."
+ },
+ "cadence": null,
+ "hand": null,
+ "feeds": [
+  {
+   "id": "mi-1",
+   "what": "statewide",
+   "format": "zip",
+   "address": "MVIC VoteHistory/GetPrecinctResultsFile?electionId=<id> (<year>GEN.zip, tab-delimited) and VoteHistory/GetElectionResultFile?electionId=<id> (county file); 2024 = 699",
+   "hosts": [],
+   "updates": "Not live: after the state canvass",
+   "script_ok": false,
+   "checked": "2026-10-09",
+   "note": "403 Cloudflare 'Just a moment' to the script on 2026-10-09; readable in the Browser pane (kit carried files out as base64)."
+  },
+  {
+   "id": "mi-2",
+   "what": "county",
+   "format": "json",
+   "address": "Oakland County Clarity: https://results.enr.clarityelections.com/MI/Oakland/<EID>/current_ver.txt -> /<EID>/<ver>/json/en/summary.json, electionsettings.json; EIDs are linked from elections.oaklandcountymi.gov (127074 and 126183 linked on 2026-10-09)",
+   "hosts": [
+    "results.enr.clarityelections.com"
+   ],
+   "updates": "Clarity versions on election night",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "200 on 2026-10-09; EID 127074 version 379092, 145 contests from Governor down; settings show filterbyvotetype and showvotetypedetails. Oakland's own elections.json list is empty, so EIDs come from the county's page."
+  },
+  {
+   "id": "mi-3",
+   "what": "county",
+   "format": "html",
+   "address": "Wayne County: https://www.waynecountymi.gov/Government/Elected-Officials/Clerk/Elections/Election-Results-Candidates/November-3rd-2026-General-Election (PDF summary, precinct-by-precinct PDF, county and local race PDFs)",
+   "hosts": [
+    "www.waynecountymi.gov"
+   ],
+   "updates": "election night (unofficial PDFs), then official PDFs",
+   "script_ok": "untested",
+   "checked": "2026-10-09",
+   "note": "Read in the Browser pane 2026-10-09; the Aug 4 page lists 'Official Summary Report' and 'Official Precinct by Precinct' PDFs."
+  }
+ ],
+ "units": "county",
+ "precinct_level": true,
+ "races_in_feed": "Statewide (Governor, AG, SOS, Supreme Court, education boards, university boards), Congress, Legislature, county, city, township, school, judges: each county reports its own share.",
+ "local": "Yes, all 83: Oakland (Clarity, address above), Wayne (PDFs, address above), Macomb, Kent, Washtenaw, Ottawa (not checked live; candidate-list addresses in state_local_mi.py).",
+ "how_counted": "Each county and town reports its own count; absentee counting boards report as their own precincts.",
+ "count_order": "Absentee counting boards (AVCB) reported as their own precincts.",
+ "vote_types": "Clarity counties can split absentee counting boards (AVCB) from precincts; Michigan reports absentee counting boards as their own 'precincts' (Oakland's Absent Voter Counting Board schedule was posted for the primary). Useful for count order.",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Michigan Board of State Canvassers",
+  "rule": "Completes the canvass no later than the 20th day after the election (Mich. Comp. Laws 168.842).",
+  "date": "2026-11-23",
+  "date_kind": "by",
+  "local_rule": "County canvass within 14 days (Mich. Comp. Laws 168.822).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [
+  "*.michigan.gov",
+  "miboecfr.nictusa.com",
+  "michigan.gov",
+  "mvic.sos.state.mi.us"
+ ],
+ "never_why": {
+  "mvic.sos.state.mi.us": "Cloudflare challenge (scout, 2026-10-09)",
+  "michigan.gov": "answers scripts 403 (CLAUDE.md)",
+  "*.michigan.gov": "answers scripts 403 (CLAUDE.md)",
+  "miboecfr.nictusa.com": "now a people-search site (CLAUDE.md)"
+ },
+ "partial_sources": [
+  {
+   "what": "Oakland County (Clarity), labelled partial",
+   "host": "results.enr.clarityelections.com",
+   "status": "later",
+   "note": "EIDs from elections.oaklandcountymi.gov"
+  }
+ ],
+ "rehearsal": null,
+ "terms": "None found.",
+ "scout_blocked": "mvic.sos.state.mi.us (Cloudflare JS challenge, 403, 2026-10-09); the rest of michigan.gov answers scripts 403 (CLAUDE.md).",
+ "scout_plan": "Readable with care, county by county. Statewide and congressional totals on the night must be summed from counties: start with the counties on Clarity (Oakland confirmed; check the other large counties' results pages for Clarity EIDs in late October) and read Wayne's PDFs if John agrees (or link out). Show each race's 'counties reporting' honestly; until most counties are machine-readable, a statewide total will be partial, so the page should say which counties are in. Official numbers come from MVIC after the canvass (Browser-pane carry-out).",
+ "notes": [],
+ "to_do": [],
+ "sources": [
+  "election/scout/results_mn.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

@@ -1,0 +1,127 @@
+{
+ "v": 1,
+ "code": "WI",
+ "name": "Wisconsin",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "link",
+ "status_why": "No statewide count on the night: the Commission publishes only the canvass, and its site and the largest counties' sites show scripts a challenge.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Wisconsin Elections Commission",
+ "system": "No statewide election-night reporting: the Wisconsin Elections Commission publishes only canvassed results (county-by-county workbooks) weeks later; 72 county clerks post their own unofficial results (PDF summaries, some vendor ENR sites).",
+ "family": null,
+ "reader_agent": "N12",
+ "results_page": {
+  "url": "https://elections.wi.gov/elections/election-results",
+  "label": "Wisconsin Elections Commission: election results",
+  "checked": "2026-10-09",
+  "source": "results_mn.json"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": null,
+  "posted": false,
+  "how_to_find": "The canvass in late November."
+ },
+ "cadence": null,
+ "hand": null,
+ "feeds": [
+  {
+   "id": "wi-1",
+   "what": "statewide",
+   "format": "xlsx",
+   "address": "Canvass 'County by County Report' workbooks on elections.wi.gov (one sheet per office), linked from the election's results page",
+   "hosts": [],
+   "updates": "Not live: posted after the state canvass (late November)",
+   "script_ok": false,
+   "checked": "2026-10-09",
+   "note": "403 Cloudflare 'Just a moment' to the script on 2026-10-09; readable in the Browser pane (kit carries files out as base64)."
+  },
+  {
+   "id": "wi-2",
+   "what": "county",
+   "format": "html",
+   "address": "Milwaukee County Election Commission: https://county.milwaukee.gov/files/county/county-clerk/Election-Commission/ElectionResultsCopy-1/<year>/<mm-dd-yy>-...-Summary--Unofficial-Results.pdf (and a 'Canvass' PDF)",
+   "hosts": [
+    "county.milwaukee.gov"
+   ],
+   "updates": "Re-posted through the night (county media advisory says 'regularly updated')",
+   "script_ok": false,
+   "checked": "2026-10-09",
+   "note": "403 Cloudflare 'Just a moment' to the script on 2026-10-09. The format is a PDF summary report, not data."
+  },
+  {
+   "id": "wi-3",
+   "what": "county",
+   "format": "html",
+   "address": "Dane County: https://elections.danecounty.gov/Election-Results",
+   "hosts": [
+    "elections.danecounty.gov"
+   ],
+   "updates": "unknown",
+   "script_ok": false,
+   "checked": "2026-10-09",
+   "note": "403 Cloudflare managed challenge (captcha) to the script on 2026-10-09."
+  },
+  {
+   "id": "wi-4",
+   "what": "local",
+   "format": "html",
+   "address": "City of Milwaukee Election Commission PDFs: https://city.milwaukee.gov/ImageLibrary/Groups/electionAuthors/Election-Results/<year>/...pdf",
+   "hosts": [
+    "city.milwaukee.gov"
+   ],
+   "updates": "election night",
+   "script_ok": "untested",
+   "checked": "2026-10-09",
+   "note": "Found by web search only."
+  }
+ ],
+ "units": "county",
+ "precinct_level": false,
+ "races_in_feed": "On Nov 3, 2026: statewide (Governor and the other constitutional offices), Congress, Legislature, and only three county offices (sheriff, clerk of circuit court, coroner) per CLAUDE.md. City and school offices are elected in April.",
+ "local": "Yes, entirely: Milwaukee County (county.milwaukee.gov, Cloudflare), Dane (elections.danecounty.gov, Cloudflare captcha), Waukesha, Brown, Racine (not checked).",
+ "how_counted": "County clerks post unofficial results on the night; the state publishes results only after its canvass.",
+ "count_order": "Not split in a form a program can read.",
+ "vote_types": "Unknown live. Milwaukee's central count of absentee ballots reports late and in large batches (well known; not checked here); county summaries do not split it out in a machine-readable way.",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Wisconsin Elections Commission's chair",
+  "rule": "No later than December 1 (Wis. Stat. 7.70(3)).",
+  "date": "2026-12-01",
+  "date_kind": "by",
+  "local_rule": "County clerks within 14 days (Wis. Stat. 7.60(5)).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [
+  "county.milwaukee.gov",
+  "elections.danecounty.gov",
+  "elections.wi.gov"
+ ],
+ "never_why": {
+  "elections.wi.gov": "Cloudflare challenge (scout, 2026-10-09)",
+  "county.milwaukee.gov": "Cloudflare challenge (scout, 2026-10-09)",
+  "elections.danecounty.gov": "Cloudflare CAPTCHA (scout, 2026-10-09)"
+ },
+ "partial_sources": [],
+ "rehearsal": null,
+ "terms": "Not found.",
+ "scout_blocked": "elections.wi.gov (Cloudflare JS challenge, 403); county.milwaukee.gov files (Cloudflare JS challenge, 403); elections.danecounty.gov (Cloudflare captcha, 403). All checked 2026-10-09.",
+ "scout_plan": "Wisconsin has no official live feed a script can read: the state publishes nothing until the canvass, and the big counties sit behind Cloudflare. Election Night should show Wisconsin as 'official count arrives with the canvass' and, on the night, either (a) John saves the Milwaukee and Dane summary PDFs by hand a few times (both are PDF reports, so a reader per county), or (b) the page links out to each county clerk's results page without numbers. Final results come from the WEC canvass workbook (Browser-pane carry-out, as the kit already does). Local races on Nov 3 are only three county offices, so the county PDFs cover them.",
+ "notes": [],
+ "to_do": [],
+ "sources": [
+  "election/scout/results_mn.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

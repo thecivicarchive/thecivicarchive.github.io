@@ -1,0 +1,152 @@
+{
+ "v": 1,
+ "code": "NE",
+ "name": "Nebraska",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "live",
+ "status_why": "The CSV exports answered scripts; Nov 3 is loaded with zero votes.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Nebraska Secretary of State",
+ "system": "Secretary of State's own ASP.NET results site on Azure Government (resultsSW.aspx, resultsCSV.aspx, ResultsExport.aspx; data service neresultswebservice.azurewebsites.us). Same platform family as New Mexico's.",
+ "family": "resultssw",
+ "reader_agent": "N9",
+ "results_page": {
+  "url": "https://electionresults.nebraska.gov/",
+  "label": "Nebraska Secretary of State: election results",
+  "checked": "2026-10-09",
+  "source": "results_ne.json"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": "the current election (no id)",
+  "posted": true,
+  "how_to_find": "Loaded: 'Unofficial Results, General Election November 3, 2026'."
+ },
+ "cadence": {
+  "check_every_s": 180,
+  "signal": "https://electionresults.nebraska.gov/resultsCSV.aspx?text=All&type=CG&map=DIST (CurrentDateTime)",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "electionresults.nebraska.gov"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "ne-1",
+   "what": "congress",
+   "format": "csv",
+   "address": "https://electionresults.nebraska.gov/resultsCSV.aspx?text=All&type=CG&map=DIST (type codes from the home page: SW statewide, CG Congress, LD Legislature, PS Public Service Commission, SE State Board of Education, RG Regents, JD judicial retention, CC community college, LC Learning Community, NR natural resources districts, UT Metropolitan Utilities District, PP public power districts, RD reclamation districts, ED educational service units, PA statewide ballot measures)",
+   "hosts": [
+    "electionresults.nebraska.gov"
+   ],
+   "updates": "as counties upload on election night; each row carries CurrentDateTime; results began posting at 8 p.m. CT in 2024",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "HTTP 200 application/text on 2026-10-09. Columns: RaceID, RaceName, PartyCode, AreaType, AreaNum, OfficeSeqNo, BallotOrder, CandidateID, CandidateName, CurrentDateTime, VoteFor, CandidateVotes, CandidatePercentage, PrecinctsReporting (e.g. ='0/438'). Already set up for the Nov 3 general with zero votes."
+  },
+  {
+   "id": "ne-2",
+   "what": "statewide",
+   "format": "csv",
+   "address": "https://electionresults.nebraska.gov/resultsCSV.aspx?text=All&type=SW&map=CTY",
+   "hosts": [
+    "electionresults.nebraska.gov"
+   ],
+   "updates": "as above",
+   "script_ok": "untested",
+   "checked": "2026-10-09",
+   "note": "Same export pattern as Congress; not requested separately."
+  },
+  {
+   "id": "ne-3",
+   "what": "legislature",
+   "format": "csv",
+   "address": "https://electionresults.nebraska.gov/resultsCSV.aspx?text=All&type=LD&map=DIST",
+   "hosts": [
+    "electionresults.nebraska.gov"
+   ],
+   "updates": "as above",
+   "script_ok": "untested",
+   "checked": "2026-10-09",
+   "note": "Nebraska's one-house, nonpartisan Legislature."
+  },
+  {
+   "id": "ne-4",
+   "what": "county",
+   "format": "csv",
+   "address": "https://electionresults.nebraska.gov/ResultsExport.aspx?cat=SWALL: 'Statewide Export', 'Legislative Export' and one export per county, each an ASP.NET postback (__doPostBack with __VIEWSTATE)",
+   "hosts": [
+    "electionresults.nebraska.gov"
+   ],
+   "updates": "as above",
+   "script_ok": "untested",
+   "checked": "2026-10-09",
+   "note": "Page answered 200; the postback itself was not tried. Header fields show 1,322 precincts and 1,259,447 registered voters."
+  },
+  {
+   "id": "ne-5",
+   "what": "county",
+   "format": "json",
+   "address": "https://neresultswebservice.azurewebsites.us/ (the map service the page calls; New Mexico's twin has GetMapDataArchive?type=..&category=CTY)",
+   "hosts": [
+    "neresultswebservice.azurewebsites.us"
+   ],
+   "updates": "as above",
+   "script_ok": "untested",
+   "checked": "2026-10-09",
+   "note": "County-by-county figures for the map. The method name for the live election has not been confirmed."
+  }
+ ],
+ "units": "county",
+ "precinct_level": false,
+ "races_in_feed": [
+  "statewide",
+  "Congress",
+  "legislature",
+  "judges (retention)",
+  "State Board of Education, Regents, PSC",
+  "special districts (NRD, MUD, public power, ESU, community college, Learning Community)",
+  "statewide ballot measures"
+ ],
+ "local": "Yes, for county, city and school races. The state hosts county files at countyelectionresults.nebraska.gov/election_files/<County>/ (for example .../Hall/2026_Primary_unofficial_results.pdf). Douglas County: votedouglascounty-ne.gov. Lancaster: lancaster.ne.gov (Election Commissioner). Sarpy: sarpy.gov. These sites were not requested.",
+ "how_counted": "Counties upload their counts from 8 p.m. Central.",
+ "count_order": "No vote-type columns in the CSV.",
+ "vote_types": "Not in the CSV seen (no early/absentee/election-day columns). The canvass book gives totals only. Count order would need county sources.",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Nebraska Board of State Canvassers",
+  "rule": "Meets on the fourth Monday after the election (Neb. Rev. Stat. 32-1037).",
+  "date": "2026-11-30",
+  "date_kind": "meets_on",
+  "local_rule": "Counties send abstracts after their canvass (32-1034).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": "The posted zero-vote pages; New Mexico's twin system for past elections",
+ "terms": "None stated on the pages read.",
+ "scout_blocked": "Nothing refused scripts (IIS, HTTP 200).",
+ "scout_plan": "Nebraska is one of the easiest. On election night the updater can read the CSV exports for SW, CG, LD and the other type codes every few minutes (a handful of small files) and match RaceID and CandidateID to the ballot rows already loaded. County-by-county numbers for the map come from the per-county exports (a form postback) or the map service. Local city and school results are county by county: start with the state-hosted county files and Douglas and Lancaster's own sites.",
+ "notes": [
+  "Nov 3 already loaded with zeros: a zero report is not a result."
+ ],
+ "to_do": [],
+ "sources": [
+  "election/scout/results_ne.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

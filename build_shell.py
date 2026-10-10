@@ -6,9 +6,11 @@ build_shell.py - the shell every page of The Civic Archive shares (John's Shell 
 
 Copies the shell's sources from shell_src/ into <root>/shell/, each file named by a hash of its contents so a browser
 never keeps an old copy: the stylesheet, the script, the icon registry, the companion's dock, the companions themselves
-(shell_src/companions/<id>.js, listed in shell_src/companions/registry.json) and the type (fonts/: Instrument Sans and
-Serif, Lexend, Atkinson Hyperlegible, each with its Open Font License). The companion's dock draws with the site's own
-copy of three.js, which sits at <root>/vendor/three.module.min.js; it is copied there too if it is missing.
+(shell_src/companions/<id>.js, listed in shell_src/companions/registry.json), the live 3D icons of a member page's tabs
+(shell_src/tabicons.js, hashed, with a stable shell/tabicons.js beside it that the record pages import) and the type
+(fonts/: Instrument Sans and Serif, Lexend, Atkinson Hyperlegible, each with its Open Font License). The companion's dock
+and the tab icons draw with the site's own copy of three.js, which sits at <root>/vendor/three.module.min.js; it is copied
+there too if it is missing.
 
 A page builder then takes its shared pieces from here, so every page carries the same top bar, menus, panels and tab
 bar, drawn from one place:
@@ -52,7 +54,7 @@ COMPANIONS = [
     {"id": "chipmunk", "name": "Eastern chipmunk", "latin": "Tamias striatus", "rests": "floor"},
     {"id": "snail", "name": "Garden snail", "latin": "Cornu aspersum", "rests": "floor"},
 ]
-HASHED = re.compile(r"^(shell|icons|dock|guide|rider)\.[0-9a-f]{10}\.(js|css)$")
+HASHED = re.compile(r"^(shell|icons|dock|guide|rider|tabicons)\.[0-9a-f]{10}\.(js|css)$")
 # The pages that keep their own top bar get the companion and the page guide through shell/rider.js (John, 2026-10-04).
 # Paths from the draft's root; the home, Method and Access pages carry the whole shell, and the cabin, the share pages
 # and the test pages carry nothing.
@@ -195,7 +197,22 @@ def lab_page(dev_root, public, kit_name, on, say=print):
         say("Shell: removed the companions' lab page")
 
 
-def build(dev_root, say=print, test=False, lab=False):
+def tabicons_lab(dev_root, on, say=print):
+    """The tab icons' still-frame lab (shell_src/tabicons_lab.html -> <root>/_tabicons_lab.html): a mock rail with every
+    icon at rest, hovered, focused, chosen and still, light and dark, a PNG of any of it, and the cost of a frame. Written
+    only with --tabicons-lab; every other build removes it, and the publish scripts leave it out besides."""
+    page = os.path.join(dev_root, "_tabicons_lab.html")
+    if on:
+        with open(os.path.join(SRC, "tabicons_lab.html"), "rb") as fh:
+            _write(page, fh.read())
+        say("Shell: the tab icons' lab is written (_tabicons_lab.html); it is not linked and the publish scripts leave it out")
+        return
+    if os.path.exists(page):
+        os.remove(page)
+        say("Shell: removed the tab icons' lab page")
+
+
+def build(dev_root, say=print, test=False, lab=False, tablab=False):
     """Copies the shell into <dev_root>/shell/ and returns what the pages need: the stylesheet's and the script's
     names (relative to dev_root), the boot script to put inline in each head, and the companions."""
     dev_root = os.path.abspath(dev_root)
@@ -264,6 +281,22 @@ def build(dev_root, say=print, test=False, lab=False):
         keep.add(name)
     wrote += _write(os.path.join(out_dir, "rider.js"), "/* The companion and the page guide, on pages that keep their own top bar. Written by the build: "
                     f"it names the current copy. */\nimport \"./{rider_name}\";\n")
+    # the live 3D icons of a member page's tabs (John, 2026-10-09): hashed like the rider, with a stable stub the record
+    # pages import (shell/tabicons.js); it finds three.js one folder up, at vendor/
+    tab_js = _read("tabicons.js")
+    tab_name = f"tabicons.{_h(tab_js)}.js"
+    wrote += _write(os.path.join(out_dir, tab_name), tab_js)
+    keep.add(tab_name)
+    wrote += _write(os.path.join(out_dir, "tabicons.js"), "/* The live 3D icons of a member page's tabs. Written by the build: it names the current copy. */\n"
+                    f"export * from \"./{tab_name}\";\n")
+    # the room those icons are lit by: three.js's own RoomEnvironment, vendored with the cabin's add-ons (vendor/jsm/); copied
+    # beside the site's three.js here too, so a shell build alone leaves the icons their light (without it the module
+    # falls back to a studio gradient of its own)
+    room_src = os.path.join(HERE, "vendor", "jsm", "environments", "RoomEnvironment.js")
+    room_out = os.path.join(dev_root, "vendor", "jsm", "environments", "RoomEnvironment.js")
+    if os.path.exists(room_src) and os.path.exists(os.path.join(dev_root, "vendor", "three.module.min.js")):
+        with open(room_src, "rb") as fh:
+            wrote += _write(room_out, fh.read())
     # the type, with its licences, served from the site itself
     missing = []
     for f in FONTS:
@@ -298,6 +331,7 @@ def build(dev_root, say=print, test=False, lab=False):
             removed += 1
     test_page(dev_root, comps, test, say, kit_name)
     lab_page(dev_root, public, kit_name, lab, say)
+    tabicons_lab(dev_root, tablab, say)
     ride(dev_root, say)
     icons = brand.icon_files(dev_root)      # the tab, bookmark and app icons at the site's root, one drawing for every page
     say(f"Shell: the emblem drawn as {len(icons)} icon files at the root ({', '.join(icons)})")
@@ -305,10 +339,10 @@ def build(dev_root, say=print, test=False, lab=False):
     boot = re.sub(r"/\*.*?\*/", "", _read("boot.js").replace("__PERCH__", json.dumps(perch)), flags=re.S)      # its comments stay in the source
     boot = "\n".join(line.rstrip() for line in boot.splitlines() if line.strip())
     ready = [c["name"] for c in public if c["file"]]
-    say(f"Shell: {shell_name}, {css_name}, {icons_name}, {dock_name}, {kit_name or 'no kit'}; {len(ready)} of {len(public)} companions ready"
+    say(f"Shell: {shell_name}, {css_name}, {icons_name}, {dock_name}, {kit_name or 'no kit'}, {tab_name}; {len(ready)} of {len(public)} companions ready"
         + (f" ({', '.join(ready)})" if ready else "") + f"; {len(FONTS) - len(missing)} type files" + (f" (missing: {', '.join(missing)})" if missing else "")
         + f"; {wrote} file(s) written, {removed} old copies removed")
-    return {"css": f"shell/{css_name}", "js": f"shell/{shell_name}", "boot": boot, "companions": public, "kit": kit_name}
+    return {"css": f"shell/{css_name}", "js": f"shell/{shell_name}", "boot": boot, "companions": public, "kit": kit_name, "tabicons": f"shell/{tab_name}"}
 
 
 # ============================== the shared pieces of every page ==============================
@@ -461,6 +495,8 @@ AXIS_UI = [      # the order the settings are listed in, the words for each, and
     ("depth", "Detail", [("standard", "Standard"), ("detailed", "More structure"), ("focus", "Focus")],
      "More structure adds section labels, reading times and a progress line. Focus puts the extras away."),
     ("motion", "Motion", [("full", "On"), ("reduced", "Reduced")], ""),
+    ("sheets", "Sheet speed", [("full", "Full (5 seconds)"), ("quick", "Quick (1 second)"), ("instant", "Instant")],
+     "How a member's page changes sheets. Any click, tap or key skips the move. Motion off makes every change instant."),
     ("reveal", "Scroll fade", [("full", "Full"), ("subtle", "Subtle"), ("off", "Off")], "How text fades in and out at the edges of the screen."),
     ("calm", "Calm", [("off", "Off"), ("on", "On")], "No countdowns and no motion. Chart bars get patterns."),
     ("palette", "Chart colours", [("standard", "Standard"), ("deut", "Red-green (deuteranopia)"), ("prot", "Red-green (protanopia)"),
@@ -574,12 +610,13 @@ def main():
     ap.add_argument("--root", default=os.path.join(HERE, "site", "dev"), help="the draft's root folder (default site/dev)")
     ap.add_argument("--test", action="store_true", help="also write the companions' side-by-side test page (never publish it)")
     ap.add_argument("--lab", action="store_true", help="also write the companions' still-frame lab, _companion_lab.html (never publish it)")
+    ap.add_argument("--tabicons-lab", action="store_true", help="also write the tab icons' still-frame lab, _tabicons_lab.html (never publish it)")
     ap.add_argument("--ride", action="store_true", help="only put the companion and guide tag on the pages that keep their own top bar")
     a = ap.parse_args()
     if a.ride:
         ride(a.root)
         return
-    build(a.root, test=a.test, lab=a.lab)
+    build(a.root, test=a.test, lab=a.lab, tablab=a.tabicons_lab)
 
 
 if __name__ == "__main__":

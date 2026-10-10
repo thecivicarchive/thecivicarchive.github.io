@@ -1,0 +1,104 @@
+{
+ "v": 1,
+ "code": "NC",
+ "name": "North Carolina",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "live",
+ "status_why": "The Board's plain JSON text files answered scripts; Nov 3 is registered.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the North Carolina State Board of Elections",
+ "system": "State-built: the State Board of Elections' results site er.ncsbe.gov, with plain JSON text files and precinct zips on dl.ncsbe.gov (Cloudflare and S3).",
+ "family": "nc_sbe",
+ "reader_agent": "N11",
+ "results_page": {
+  "url": "https://er.ncsbe.gov/",
+  "label": "North Carolina State Board of Elections: election results",
+  "checked": "2026-10-09",
+  "source": "results_la.json"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": "20261103 (listed in elections.txt)",
+  "posted": true,
+  "how_to_find": "Listed."
+ },
+ "cadence": {
+  "check_every_s": 180,
+  "signal": "https://er.ncsbe.gov/enr/20261103/data/county.txt",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "er.ncsbe.gov",
+   "dl.ncsbe.gov"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "nc-1",
+   "what": "statewide",
+   "format": "json",
+   "address": "https://er.ncsbe.gov/enr/elections.txt (list: edt date, con, vtm, pct, arc flags); https://er.ncsbe.gov/enr/<yyyymmdd>/data/county.txt (each county's precincts reporting, ballots cast, title 'UNOFFICIAL/OFFICIAL ...'); https://er.ncsbe.gov/enr/<yyyymmdd>/data/results_<n>.txt (contest results by group)",
+   "hosts": [
+    "er.ncsbe.gov"
+   ],
+   "updates": "Every few minutes on election night as counties upload.",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "elections.txt answered 200 on 2026-10-09 and already lists 11/03/2026 (con 1, vtm 1, pct 1, arc 0). 20241105/data/county.txt answered 200 (title '11/05/2024 OFFICIAL GENERAL ELECTION RESULTS - STATEWIDE', 2658 precincts). Server cloudflare, no challenge."
+  },
+  {
+   "id": "nc-2",
+   "what": "precinct",
+   "format": "zip",
+   "address": "https://dl.ncsbe.gov/ENRS/<yyyy_mm_dd>/results_pct_<yyyymmdd>.zip (tab-separated: County, Election Date, Precinct, Contest Group ID, Contest Type, Choice, Choice Party, Vote For, Election Day, Early Voting, Absentee by Mail, Provisional, Total Votes)",
+   "hosts": [
+    "dl.ncsbe.gov"
+   ],
+   "updates": "Election night and after",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "nc.py reads the March 3 file; the 2024 one is at ENRS/2024_11_05/."
+  }
+ ],
+ "units": "county",
+ "precinct_level": true,
+ "races_in_feed": "Every contest the Board and county boards run: federal, statewide, legislature, judges (partisan), county commission, school boards, soil and water, and municipal contests on the November ballot.",
+ "local": "No need: all 100 counties report into er.ncsbe.gov; Wake and Mecklenburg also post their own pages (not checked).",
+ "how_counted": "North Carolina reports Election Day, early voting, mail and provisional ballots separately.",
+ "count_order": "Election Day, Early Voting, Absentee by Mail and Provisional per precinct (precinct zip).",
+ "vote_types": "Yes: Election Day, Early Voting, Absentee by Mail and Provisional columns per precinct (the vtm flag in elections.txt marks vote-type data).",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the North Carolina State Board of Elections",
+  "rule": "Meets not more than 10 days after the Tuesday three weeks after the election (N.C. Gen. Stat. 163-182.5(c)).",
+  "date": "2026-12-04",
+  "date_kind": "meets_by",
+  "local_rule": "County canvass at 11 a.m. on the 10th day (163-182.5(b)).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": "20241105 (county.txt and results files; precinct zip at dl.ncsbe.gov/ENRS/2024_11_05/)",
+ "terms": "None stated.",
+ "scout_blocked": "Nothing refused scripts.",
+ "scout_plan": "Live-readable, one of the best feeds anywhere: the Nov 3 election is already registered. On election night read county.txt and the results files every 3 minutes, and the precinct zip every 15 minutes for vote types and roll-off. Local contests are in the same files.",
+ "notes": [],
+ "to_do": [],
+ "sources": [
+  "election/scout/results_la.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

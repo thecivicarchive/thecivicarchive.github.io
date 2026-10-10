@@ -1,0 +1,125 @@
+{
+ "v": 1,
+ "code": "CT",
+ "name": "Connecticut",
+ "written": "2026-10-10",
+ "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+ "status": "live",
+ "status_why": "CTEMS static JSON answered scripts; election 108 (Nov 3) is posted.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Connecticut Secretary of the State",
+ "system": "CT Election Management System public reporting (CTEMS, built by PCC Technology Group; an Angular app reading static JSON), behind Cloudflare but serving scripts",
+ "family": "pcc_ems",
+ "reader_agent": "N10",
+ "results_page": {
+  "url": "https://ctemspublic.pcctg.net/",
+  "label": "Connecticut Secretary of the State: election results",
+  "checked": "2026-10-10",
+  "source": "answered one request with the kit's User-Agent (N4, 2026-10-10)"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": "108",
+  "posted": true,
+  "how_to_find": "Posted: 108 '11/03/2026 -- November 2026 State Election'."
+ },
+ "cadence": {
+  "check_every_s": 150,
+  "signal": "https://ctemspublic.pcctg.net/ng-app/data/election/108/Version.json",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "ctemspublic.pcctg.net"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "ct-1",
+   "what": "statewide",
+   "format": "json",
+   "address": "https://ctemspublic.pcctg.net/ng-app/data/Elections.json (ID, Name, DefaultElection); https://ctemspublic.pcctg.net/ng-app/data/election/<id>/Version.json ({\"Version\": n}); then that version's files: Lookupdata (offices, candidates' printed names and parties, towns; it also holds an address field 'AD' that must never be read), stateVotes, townVotes, townStatus, officePrecincts",
+   "hosts": [
+    "ctemspublic.pcctg.net"
+   ],
+   "updates": "Version.json changes whenever towns upload (Last-Modified on Elections.json showed same-day updates); poll Version.json, fetch the rest only when it changes",
+   "script_ok": true,
+   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+   "note": "Elections.json 200 (5.9 KB, server cloudflare) and election/108/Version.json 200 ({\"Version\":43630}) on 2026-10-09."
+  },
+  {
+   "id": "ct-2",
+   "what": "congress",
+   "format": "json",
+   "address": "same files; Representative in Congress contests",
+   "hosts": [],
+   "updates": "as above",
+   "script_ok": true,
+   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+   "note": ""
+  },
+  {
+   "id": "ct-3",
+   "what": "legislature",
+   "format": "json",
+   "address": "same files; State Senator and State Representative contests",
+   "hosts": [],
+   "updates": "as above",
+   "script_ok": true,
+   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+   "note": ""
+  },
+  {
+   "id": "ct-4",
+   "what": "local",
+   "format": "json",
+   "address": "same files; Judge of Probate and Registrar of Voters (the only local offices on the November ballot)",
+   "hosts": [],
+   "updates": "as above",
+   "script_ok": true,
+   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+   "note": "Municipal offices are elected in odd years."
+  }
+ ],
+ "units": "town",
+ "precinct_level": false,
+ "races_in_feed": "statewide (Governor/Lt. Governor, Secretary of the State, Treasurer, Comptroller, Attorney General), Congress, State Senate and House, judges of probate, registrars of voters, questions",
+ "local": "no (Connecticut has no county government; towns report into CTEMS)",
+ "how_counted": "Each town reports its own count as it finishes.",
+ "count_order": "No ballot-type split; results by town with each town's status.",
+ "vote_types": "no split by ballot type seen; results are by town, with each town's status '( Official Results )' and precincts reported",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "Connecticut's state canvass",
+  "rule": "Votes for members of Congress are counted on the last Wednesday of November (Conn. Gen. Stat. 9-315); state officers are declared by the General Assembly on the first day of its session (9-318); the Legislature's results are declared in November (9-319).",
+  "date": "2026-11-25",
+  "date_kind": "meets_on",
+  "local_rule": "Towns report within 48 hours of the polls closing (Conn. Gen. Stat. 9-314).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": "Election 91 (2024 presidential); 111 and 112 (Aug 11, 2026 primaries)",
+ "terms": "none seen",
+ "scout_blocked": "nothing refused scripts (Cloudflare front, no challenge)",
+ "scout_plan": "Live-readable. Poll election/108/Version.json every two to three minutes; when the number changes, fetch stateVotes, townVotes and townStatus for that version (Lookupdata once, keeping only names and parties). Town figures give the map below the state. Rehearse on election 91 (2024) in October. Probate and registrar races come from the same files, so Connecticut's local level is covered the same night.",
+ "notes": [
+  "Lookupdata carries an address field 'AD': never read it."
+ ],
+ "to_do": [],
+ "sources": [
+  "election/scout/results_pa.json (checked 2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts))",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

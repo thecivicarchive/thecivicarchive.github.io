@@ -1,0 +1,112 @@
+{
+ "v": 1,
+ "code": "AL",
+ "name": "Alabama",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "care",
+ "status_why": "The election-night pages answered a script but hold no election between elections; whether they need form postbacks is not known yet.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Alabama Secretary of State",
+ "system": "State-built: the Secretary of State's 'Election Night Reporting' (ASP.NET WebForms) on www2.alabamavotes.gov, fed by the 67 probate judges; certified precinct files later on sos.alabama.gov.",
+ "family": "al_enr",
+ "reader_agent": "N12",
+ "results_page": {
+  "url": "https://www2.alabamavotes.gov/electionNight/",
+  "label": "Alabama Secretary of State: election night reporting",
+  "checked": "2026-10-09",
+  "source": "results_la.json"
+ },
+ "other_pages": [
+  {
+   "url": "https://www.sos.alabama.gov/alabama-votes/voter/election-data",
+   "label": "Certified precinct files"
+  }
+ ],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": null,
+  "posted": false,
+  "how_to_find": "Load the election-night page once in the last week of October for its page names and election code."
+ },
+ "cadence": {
+  "check_every_s": 600,
+  "signal": "https://www2.alabamavotes.gov/electionNight/",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "www2.alabamavotes.gov"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "al-1",
+   "what": "statewide",
+   "format": "html",
+   "address": "https://www2.alabamavotes.gov/electionNight/ (page shows the current election only; earlier years used statewideResultsByContest.aspx?ecode=<election code>)",
+   "hosts": [
+    "www2.alabamavotes.gov"
+   ],
+   "updates": "As counties upload on election night; interval not stated.",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "200 to a script on 2026-10-09 (after one lost DNS lookup), but the page is an empty WebForms shell between elections: no election is loaded now. Whether the night's pages need ViewState postbacks is untested; plan for HTML scraping."
+  },
+  {
+   "id": "al-2",
+   "what": "precinct",
+   "format": "zip",
+   "address": "https://www.sos.alabama.gov/sites/default/files/election-data/<yyyy-mm>/<name>.zip (e.g. 2024-12/2024-General%20Precinct%20Level%20Results.zip; 2026-07/2026_Primary_Election.zip)",
+   "hosts": [
+    "www.sos.alabama.gov"
+   ],
+   "updates": "Weeks after the election (certified).",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "The Elections Data Downloads page (https://www.sos.alabama.gov/alabama-votes/voter/election-data) answered 200 to a script on 2026-10-09 and lists the 2024 general precinct zip. Columns: Contest Title, Party, Candidate, a column per precinct, then ABSENTEE and PROVISIONAL (al.py)."
+  }
+ ],
+ "units": "county",
+ "precinct_level": false,
+ "races_in_feed": "Election night: federal, statewide, legislature specials, judges, county offices, county school boards (all partisan in Alabama). Cities vote at their own municipal elections, not Nov 3.",
+ "local": "Some probate offices publish their own election-night results (Jefferson, Madison, Mobile, Montgomery are the largest); addresses not checked today.",
+ "how_counted": "Each county's probate judge reports its count on election night. Alabama has no early in-person voting.",
+ "count_order": "Absentee and provisional counts appear only in the certified precinct files, after the night.",
+ "vote_types": "Only in the certified precinct files: an ABSENTEE column and a PROVISIONAL column beside the precincts. Alabama has no early in-person voting, so absentee vs. election day is the whole split, and it arrives after the night.",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Alabama State Canvassing Board",
+  "rule": "Members of Congress and the Legislature receive certificates within 10 days of the Secretary of State receiving each county's returns (Ala. Code 17-12-21); county returns are stated at noon on the second Friday after the election (Ala. Code 17-12-15).",
+  "date": null,
+  "date_kind": null,
+  "local_rule": "Second Friday after the election (Ala. Code 17-12-15).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "confirm": "The body's name is not in the source read; to confirm before it is printed on a page."
+ },
+ "condition": "The election-night pages are empty between elections; whether they need form postbacks is untested.",
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": "No replayable past night; the 2024 general certified precinct zip for the model.",
+ "terms": "None stated.",
+ "scout_blocked": "Nothing refused scripts on 2026-10-09.",
+ "scout_plan": "Readable with care. In the last week of October, load the ENR page once to learn its page names and election code; on election night scrape the statewide contest pages every 10 minutes (federal, statewide, county offices), labelled unofficial. Use the certified precinct zip (with its absentee column) for the count-order and roll-off predictors afterwards. If the ENR pages need form postbacks, write the reader to replay the page's own form, never anything more.",
+ "notes": [],
+ "to_do": [
+  "Learn the page names and election code in the last week of October.",
+  "If the pages need form postbacks, replay only the page's own form."
+ ],
+ "sources": [
+  "election/scout/results_la.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

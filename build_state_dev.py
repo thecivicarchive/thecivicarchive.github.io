@@ -13,7 +13,8 @@ photos/<id>.webp. It downloads nothing and never touches the federal database.
 
 One look, one code path where it can be shared: the styles and the shared parts of the page (theme, motion,
 portraits, sharing, the sortable table, the treemap, the map arithmetic behind "use my location", the changelog
-badge and the help window) are taken from the federal page at build time, by the landmarks named in BORROWED.
+badge, the help window, and a member's page as a rack of folders beside one open sheet) are taken from the federal
+page at build time, by the landmarks named in BORROWED (with the few changes named in TWEAKS).
 If the federal page changes so that a landmark can no longer be found, this build stops and says which one;
 nothing is guessed. After a change to the federal page's shared parts, look at a state page too.
 
@@ -56,6 +57,16 @@ BORROWED = {
     "CHANGELOG": ("/* Changelog badge.", "/* Welcome-screen pick lists."),
     "HELP": ("/* Help modal:", "routeFromHash(false);"),
     "LENS": ("/* ---------- the districting lenses: the words every level shares ----------", "/* ---------- the districting lenses, first of four"),
+    # a member's page as a rack of folders and one open sheet: the engine, and (already inside CSS, so it has no
+    # placeholder of its own) its styles, listed so the build stops if either goes missing from the federal page
+    "TABS": ("/* ---------- member file tabs: the rack, the sheets and the move ----------", "/* ---------- end of member file tabs ---------- */"),
+    "TABSCSS": ("/* ---------- member file tabs ---------- */", "/* ---------- end of member file tabs css ---------- */"),
+}
+
+# What a borrowed part has to say differently here, each change required to match exactly once, so that a change on
+# the federal side stops this build and names it rather than being guessed at. (old, new, why)
+TWEAKS = {
+    # none at present: the engine takes a page's address prefix as an option (route: "#official=" for a statewide official)
 }
 
 
@@ -68,7 +79,13 @@ def borrow(name):
     j = FEDERAL.find(end, i + len(start))
     if j < 0:
         raise SystemExit(f"build_state_dev: could not find where the federal page's {name} part ends ('{end}'). Update BORROWED in build_state_dev.py.")
-    return FEDERAL[i + (len(start) if name == "CSS" else 0):j]
+    part = FEDERAL[i + (len(start) if name == "CSS" else 0):j]
+    for old, new, why in TWEAKS.get(name, []):
+        if part.count(old) != 1:
+            raise SystemExit(f"build_state_dev: the federal page's {name} part no longer has exactly one '{old}' (it has {part.count(old)}). "
+                             f"The state pages change it there because {why}; update TWEAKS in build_state_dev.py to match.")
+        part = part.replace(old, new)
+    return part
 
 
 def natural(d):
@@ -552,7 +569,7 @@ def render(P, data, version, base_url, analytics):
             'When __NAME__\'s is in, it follows the same rule as everywhere here: organizations are named, people are only ever totals, and outside spending is kept apart. '
             '<a href="../mn/">See how it looks for Minnesota</a></div>'),
         "__MONEY_SOURCE_CARD__": (
-            '<div class="labelcard rv" style="--i:2"><span class="tag fact">Fact</span><h3>Campaign money</h3><p><a href="__AGENCY_URL__" target="_blank" rel="noopener">__AGENCY__</a>__AGENCY_POSS__ public downloads: gifts tocandidates\' committees, '
+            '<div class="labelcard rv" style="--i:2"><span class="tag fact">Fact</span><h3>Campaign money</h3><p><a href="__AGENCY_URL__" target="_blank" rel="noopener">__AGENCY__</a>__AGENCY_POSS__ public downloads: gifts to candidates\' committees, '
             'and independent spending for or against candidates. Organizations are named; people who gave, lobbyists included, are only ever counted in totals. Outside spending is always shown apart from donations, '
             'because the campaign never received it.' + ((" " + html_attr(P["money_credit"])) if P.get("money_credit") else "") + '</p></div>' if money else
             '<div class="labelcard rv" style="--i:2"><span class="tag analysis">Coming</span><h3>Campaign money</h3><p>Not loaded for __NAME__ yet. Every state keeps its own campaign-finance records, so they are added one state at a time, '
@@ -715,7 +732,8 @@ svg.dmap #dlabels text{vector-effect:none}
 .mapside .rep-top{justify-content:flex-start;padding-right:0;margin:10px 0 4px}
 .mapside .inside{font-size:13.5px;color:var(--muted);margin:12px 0 0;line-height:1.5}
 .mapside .inside button{all:unset;cursor:pointer;color:var(--ink);text-decoration:underline;text-underline-offset:2px}
-#mpage .rep-top{justify-content:flex-start;padding-right:0;margin:0 0 18px}
+@media (max-width:899px){.mp-desk>.crumbs{margin:0 0 2px}}
+.sheet>.sheet-coming{margin:14px 2px 0;line-height:1.55}.sheet-coming b{color:var(--ink);font-weight:600}
 .offices{padding:8px 0 26px}
 .offgrid{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));margin-top:22px}
 .offgrid .ymem{background:var(--surface);padding:12px 14px;width:100%}
@@ -1135,6 +1153,7 @@ __MONEYFMT__
 __SQUARIFY__
 __GEO__
 __LENS__
+__TABS__
 /* ===== end of the shared parts ===== */
 
 /* ---------- who someone is, in brief: the card a name opens (this state's own records) ---------- */
@@ -1162,6 +1181,9 @@ const natural = d => { const m = String(d || "").match(/^(\d+)(.*)$/); return m 
 const byDistrict = (a, b) => { const x = natural(a), y = natural(b); return x[0] - y[0] || x[1].localeCompare(y[1], undefined, {numeric: true}); };
 const tone = p => p === "D" ? "var(--dem)" : (p === "R" ? "var(--rep)" : "var(--plum)");
 const chName = ch => (CH[ch] || {}).name || ch;
+/* a chamber and a district in one phrase ("Senate District 5", "House 12A"): the chamber's name is not written twice where the
+   district's own label already begins with it */
+const chDist = (ch, d) => { const n = chName(ch), l = dLabel(KEYOF[ch], d); return l.startsWith(n + " ") ? l : `${n} ${l}`; };
 const seatOf = L => `${(CH[L.ch] || {}).title || "Member"}, ${dLabel(KEYOF[L.ch], L.d)}${L.seat ? ", Seat " + L.seat : ""}`;
 /* which upper-chamber district a lower-chamber district sits inside: worked out from the lines when the page was built */
 const upperOf = l => (DATA.nest || {})[l] || null;
@@ -1201,29 +1223,31 @@ function renderOfficials(){
   }, () => {});
 }
 function openOfficial(id){ history.pushState({page: "member"}, "", "#official=" + id); routeFromHash(false); }
-function renderOfficialPage(id){
+/* A statewide official's page: the same desk as a legislator's, at its own address (#official=<id>, #official=<id>/wiki).
+   The front sheet is the office and the other statewide offices; the Wikipedia paragraph, where there is one, is the
+   only other folder (one folder alone draws no rack). */
+function renderOfficialPage(id, show){
   const token = ++mpSeq, box = $("#mpage"); if (!box) return;
+  if (samePage(box, "official:" + id, show)) return;
   box.innerHTML = `<p class="muted loading">Loading…</p>`;
   Promise.all([membersReady(), needMember(id)]).then(([, Pf]) => {
     if (token !== mpSeq) return;
     const O = (DATA.officials || []).find(o => o.id === id);
     if (!O) { box.innerHTML = `<div class="empty">That office isn't in this record. <a href="#officials">See the statewide offices</a></div>`; return; }
     const mon = d => d ? new Date(d + "T12:00:00").toLocaleDateString("en-US", {month: "long", year: "numeric"}) : "", W = Pf.wiki;
-    const earlier = (O.earlier || []).map(s => `${chName(s.ch)} ${dLabel(KEYOF[s.ch], s.d)}${s.to ? ", until " + s.to : ""}`).join("; ");
+    const earlier = (O.earlier || []).map(s => `${chDist(s.ch, s.d)}${s.to ? ", until " + s.to : ""}`).join("; ");
     const others = (DATA.officials || []).filter(o => o.id !== id);
     pageview("/official/" + id, O.n); document.title = `${O.n}: The Civic Archive`;
-    box.innerHTML = `<p class="crumbs"><a href="#officials">← Statewide offices</a></p><div class="mp-head">${avatar(id, O.p, "xxl")}<div><h1 class="mp-name">${esc(O.n)}</h1><div class="seat"><b>${esc(O.pn)}</b>, ${esc(O.office)} of ${esc(P.name)}</div></div></div>
-      <div class="rep-top">${O.u ? ract("web", "Website", O.u) : ""}${O.ph ? ract("phone", O.ph, "tel:" + O.ph, true) : ""}${O.em ? ract("mail", "Email", "mailto:" + O.em, true) : ""}<button class="ract sharebtn" id="sharemp" type="button">${ico("share")}<span>Share this profile</span></button></div>
-      <div class="mp-grid">
-        <div class="know" id="mpknow"><h3>Get to know ${esc(O.n)}</h3>
-          <div class="know-b"><h4><span class="tag fact">Fact</span> In office</h4><p>${O.since ? `${esc(O.office)} since <b>${esc(mon(O.since))}</b>.` : `Holds the office of ${esc(O.office)}; the roster this page draws on does not record since when.`}${O.until ? ` The term runs to ${esc(mon(O.until))}${O.next ? `, and the office is next on the ballot in <b>November ${esc(String(O.next))}</b>` : ""}.` : ""}${earlier ? ` Earlier, in the legislature: ${esc(earlier)}.` : ""}</p>${O.of ? `<p class="know-line">${ico("pin")}<span>${esc(O.of)}</span></p>` : ""}</div>
-          ${W && W.extract ? `<div class="know-b know-wiki"><h4><span class="tag wiki">From Wikipedia</span> Before this office, and beyond it</h4><p>${esc(W.extract)}</p><p class="know-rule">This is the opening of the Wikipedia article <a href="${esc(W.url)}" target="_blank" rel="noopener">${esc(W.title)}</a>. It is <b>not an official record</b>, and anyone can edit it. Text under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</p></div>` : ""}
-        </div>
-        <div class="mp-side">
-          <div class="know-b"><h4><span class="tag fact">Fact</span> Who funds the campaign</h4><p class="muted">Coming. Campaign money for statewide offices is not loaded yet; it will follow the same rule as everywhere here: organizations are named, people are only ever totals.</p></div>
-          ${others.length ? `<div class="know-b"><h4><span class="tag fact">Fact</span> The other statewide offices</h4>${others.map(offBtn).join("")}</div>` : ""}
-        </div>
-      </div>`;
+    const office = `<div class="know-b"><h4><span class="tag fact">Fact</span> In office</h4><p>${O.since ? `${esc(O.office)} since <b>${esc(mon(O.since))}</b>.` : `Holds the office of ${esc(O.office)}; the roster this page draws on does not record since when.`}${O.until ? ` The term runs to ${esc(mon(O.until))}${O.next ? `, and the office is next on the ballot in <b>November ${esc(String(O.next))}</b>` : ""}.` : ""}${earlier ? ` Earlier, in the legislature: ${esc(earlier)}.` : ""}</p>${O.of ? `<p class="know-line">${ico("pin")}<span>${esc(O.of)}</span></p>` : ""}</div>`;
+    const othersHTML = others.length ? `<div class="know-b"><h4><span class="tag fact">Fact</span> The other statewide offices</h4>${others.map(offBtn).join("")}</div>` : "";
+    const coming = comingRule([["Who funds the campaign", "Coming. Campaign money for statewide offices is not loaded yet; it will follow the same rule as everywhere here: organizations are named, people are only ever totals."]]);
+    const tabs = [
+      {id: "office", label: "Get to know", sub: "Fact", html: `<h2 class="sheet-h">Get to know ${esc(O.n)}</h2>${office}${othersHTML}${coming}`},
+      W && W.extract ? {id: "wiki", label: "From Wikipedia", sub: "Not an official record", html: wikiCard(W, "Before this office, and beyond it")} : null];
+    box.innerHTML = `<div class="mp-desk"><p class="crumbs"><a href="#officials">← Statewide offices</a></p><div class="mp-top"><div class="mp-head">${avatar(id, O.p, "xxl")}<div><h1 class="mp-name">${esc(O.n)}</h1><div class="seat"><b>${esc(O.pn)}</b>, ${esc(O.office)} of ${esc(P.name)}</div></div></div>
+      <div class="rep-top">${O.u ? ract("web", "Website", O.u) : ""}${O.ph ? ract("phone", O.ph, "tel:" + O.ph, true) : ""}${O.em ? ract("mail", "Email", "mailto:" + O.em, true) : ""}<button class="ract sharebtn" id="sharemp" type="button">${ico("share")}<span>Share this profile</span></button></div></div></div>`;
+    box._sheets = fileTabs($(".mp-desk", box), {id, name: O.n, tabs, start: tabFor(show), detail: show, inline: !!BOOT.inline, route: "#official="});
+    box.dataset.member = "official:" + id; box._title = document.title;
     $("#sharemp").addEventListener("click", e => share({title: `${O.n}, ${O.office} of ${P.name}`, text: `${O.n}, ${O.office} of ${P.name}: in office, and the record, from public sources:`, url: `${SHARE_BASE}/m/${id}.html`, kind: "official", key: id}, e.currentTarget));
   }, () => { if (token === mpSeq) box.innerHTML = `<div class="empty">Couldn't load this page. Check your connection and try again.</div>`; });
 }
@@ -1652,31 +1676,57 @@ function renderMoney(id, M, L, show){
 /* ---------- a member's own page ----------
    Who the member is, without characterising anyone: facts from the roster, the committees they sit on, the
    organizations that fund their campaigns, and one fenced paragraph from Wikipedia. Recorded votes join it when
-   the state's bills and roll calls are loaded. */
-function knowHTML(Pf, L, id){
+   the state's bills and roll calls are loaded. The page files each section behind its own folder, as the federal
+   page does (the rack, the sheets and the move are borrowed from it): knowHTML gives the sections apart when asked
+   (opt.parts), and joined, word for word the same, when not. */
+function knowHTML(Pf, L, id, opt){
   const S = Pf.service, C = Pf.committees || [], W = Pf.wiki, last = L.ln || L.n.split(" ").slice(-1)[0];
   const fact = `<span class="tag fact">Fact</span>`;
   const mon = d => d ? new Date(d + "T12:00:00").toLocaleDateString("en-US", {month: "long", year: "numeric"}) : "";
   const years = d => d ? Math.max(0, Math.floor((Date.now() - new Date(d + "T12:00:00")) / 3.15576e10)) : null;
   const plural = (n, w) => `${n.toLocaleString()} ${w}${n === 1 ? "" : "s"}`;
-  let h = "";
+  const h = {office: "", committees: "", money: "", wiki: ""};
   if (S) {
     const span = s => s.from ? `${esc(s.from)} to ${s.to ? esc(s.to) : "now"}` : (s.to ? `until ${esc(s.to)}` : "dates not on file");
     const y = years(S.since), seats = (S.seats || []).map(s => `${esc(dLabel(KEYOF[L.ch], s.d))} (${span(s)})`).join(", then ");
-    const earlier = (S.earlier || []).map(s => `${esc(chName(s.ch))} ${esc(dLabel(KEYOF[s.ch], s.d))}, ${span(s)}`).join("; ");
+    const earlier = (S.earlier || []).map(s => `${esc(chDist(s.ch, s.d))}, ${span(s)}`).join("; ");
     const began = S.since ? `In the ${esc(chName(S.chamber))} since <b>${esc(S.year_only ? S.since.slice(0, 4) : mon(S.since))}</b>${y != null ? `: ${plural(y, "year")}` : ""}.`
       : (S.vague ? `In the ${esc(chName(S.chamber))} since <b>${esc(S.vague)}</b>. The roster this page draws on does not record when this service began.` : `Sits in the ${esc(chName(S.chamber))}. The roster this page draws on does not record when this service began.`);
-    h += `<div class="know-b"><h4>${fact} In office</h4><p>${began}${seats ? ` The district's number changed along the way: ${seats}.` : ""}${earlier ? ` Earlier seats on file: ${earlier}.` : ""}${S.next ? ` The seat is next on the ballot in <b>November ${esc(String(S.next))}</b>.` : ""}</p>${L.of ? `<p class="know-line">${ico("pin")}<span>${esc(L.of)}</span></p>` : ""}</div>`;
+    h.office = `<div class="know-b"><h4>${fact} In office</h4><p>${began}${seats ? ` The district's number changed along the way: ${seats}.` : ""}${earlier ? ` Earlier seats on file: ${earlier}.` : ""}${S.next ? ` The seat is next on the ballot in <b>November ${esc(String(S.next))}</b>.` : ""}</p>${L.of ? `<p class="know-line">${ico("pin")}<span>${esc(L.of)}</span></p>` : ""}</div>`;
   }
-  if (C.length) h += `<div class="know-b"><h4>${fact} Committees</h4><ul class="know-list">${C.map(c => `<li><b>${esc(c.name)}</b>${c.title ? `<span class="role">${esc(c.title)}</span>` : ""}${c.ch && c.ch !== L.ch ? ` <span class="muted">(${esc(chName(c.ch))})</span>` : ""}</li>`).join("")}</ul></div>`;
-  if (Pf.money && Pf.money.cycles && Pf.money.cycles.length) { MONEY[id] = {M: Pf.money}; h += moneyCard(id); }
-  if (W && W.extract) h += `<div class="know-b know-wiki"><h4><span class="tag wiki">From Wikipedia</span> Before the legislature, and beyond it</h4><p>${esc(W.extract)}</p><p class="know-rule">This is the opening of the Wikipedia article <a href="${esc(W.url)}" target="_blank" rel="noopener">${esc(W.title)}</a>. It is <b>not an official record</b>, and anyone can edit it. Text under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</p></div>`;
-  return h;
+  if (C.length) h.committees = `<div class="know-b"><h4>${fact} Committees</h4><ul class="know-list">${C.map(c => `<li><b>${esc(c.name)}</b>${c.title ? `<span class="role">${esc(c.title)}</span>` : ""}${c.ch && c.ch !== L.ch ? ` <span class="muted">(${esc(chName(c.ch))})</span>` : ""}</li>`).join("")}</ul></div>`;
+  if (Pf.money && Pf.money.cycles && Pf.money.cycles.length) { MONEY[id] = {M: Pf.money}; h.money = moneyCard(id); }
+  if (W && W.extract) h.wiki = wikiCard(W, "Before the legislature, and beyond it");
+  return opt && opt.parts ? h : h.office + h.committees + h.money + h.wiki;
+}
+/* the fenced Wikipedia paragraph, for a legislator or a statewide official: the same fence, credit and link everywhere */
+const wikiCard = (W, head) => `<div class="know-b know-wiki"><h4><span class="tag wiki">From Wikipedia</span> ${esc(head)}</h4><p>${esc(W.extract)}</p><p class="know-rule">This is the opening of the Wikipedia article <a href="${esc(W.url)}" target="_blank" rel="noopener">${esc(W.title)}</a>. It is <b>not an official record</b>, and anyone can edit it. Text under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</p></div>`;
+/* Where the record has nothing to file yet (no votes loaded, no campaign money for this state or this office), the
+   section is not a folder: its words stay on the front sheet, one after another, each led by the section's name. */
+const comingRule = notes => notes.length ? `<p class="know-rule sheet-coming">${notes.map(([name, words]) => `<b>${esc(name)}.</b> ${words}`).join(" ")}</p>` : "";
+/* The money sheet: the card, then the whole "Money: who gave, and who spent" view under it, drawn the first time the
+   sheet is opened (the picture measures its box, so it is drawn only on a sheet that is showing) and re-measured on
+   every later opening. Opened by the address #member=<id>/money, the view itself is brought into sight. */
+function moneyTab(id, Pf, L, card){
+  const Mt = ((Pf.money || {}).totals || {}).all; let drawn = false;
+  return {id: "money", label: "Who funds the campaign", short: "Campaign money", sub: `Fact${Mt && Mt.receipts ? ` · ${usdShort(Mt.receipts)}` : ""}`,
+    html: card + `<div class="mny-page" id="mpmoney" hidden></div>`,
+    onOpen: () => { if (!drawn) { drawn = true; renderMoney(id, Pf.money, L, null); } else dispatchEvent(new Event("resize")); },
+    onLand: detail => { if (detail === "money") revealPart("#mpmoney"); }};      // the engine's own: under the top bar, and under the folders where they stand in a strip
 }
 function openMember(id, show){ history.pushState({page: "member"}, "", "#member=" + id + (show ? "/" + show : "")); routeFromHash(false); }
 let mpSeq = 0;
+/* The page already showing this person: open the sheet the address names and never rebuild (a link to the same page,
+   the Back button, a pop-out card's links). Anyone else: put the old desk away first. */
+function samePage(box, key, show){
+  if (box.dataset.member === key && box._sheets) { if (box._title) document.title = box._title; box._sheets.select(tabFor(show), {push: false, detail: show}); return true; }
+  if (box._sheets) { box._sheets.destroy(); box._sheets = null; }
+  delete box.dataset.member;
+  return false;
+}
 function renderMemberPage(id, show){
   const token = ++mpSeq, box = $("#mpage"); if (!box) return;
+  if (samePage(box, id, show)) return;
   box.innerHTML = `<p class="muted loading">Loading…</p>`;
   Promise.all([membersReady(), needMember(id)]).then(([, Pf]) => {
     if (token !== mpSeq) return;
@@ -1686,18 +1736,22 @@ function renderMemberPage(id, show){
     const mates = membersAt(key, L.d).filter(m => m.id !== id), others = mates.concat(other ? [other] : [], insiders), want = seatsIn(key, L.d);
     const why = [want > 1 ? `${dLabel(key, L.d)} elects ${numWord(want)} ${P[key].title.toLowerCase()}s.` : "", other ? `It sits inside ${dLabel("upper", up)}.` : "", insiders.length ? `${P.lower.name} district${lowersOf(L.d).length === 1 ? "" : "s"} ${listWords(lowersOf(L.d))} ${lowersOf(L.d).length === 1 ? "sits" : "sit"} inside ${dLabel("upper", L.d)}.` : ""].filter(Boolean).join(" ");
     pageview("/member/" + id, L.n); document.title = `${L.n}: The Civic Archive`;
-    box.innerHTML = `<p class="crumbs"><a href="#members">← All ${BOOT.stats.members.toLocaleString()} legislators</a></p><div class="mp-head">${avatar(id, L.p, "xxl")}<div><h1 class="mp-name">${esc(L.n)}</h1><div class="seat"><b>${esc(L.pn)}</b>, ${esc((CH[L.ch] || {}).title || "Member")} for ${esc(dLabel(key, L.d))}${L.seat ? " (Seat " + esc(L.seat) + ")" : ""}, ${esc(P.name)}</div></div></div>
-      <div class="rep-top">${L.u ? ract("web", "Website", L.u) : ""}${L.ph ? ract("phone", L.ph, "tel:" + L.ph, true) : ""}${L.em ? ract("mail", "Email", "mailto:" + L.em, true) : ""}${onMap(key, L.d) ? ract("map", dLabel(key, L.d) + " on the map", districtHash(key, L.d), true) : ""}<button class="ract sharebtn" id="sharemp" type="button">${ico("share")}<span>Share this profile</span></button></div>
-      <div class="mp-grid">
-        <div class="know" id="mpknow"><h3>Get to know ${esc(L.n)}</h3>${knowHTML(Pf, L, id) || `<p class="muted">Nothing more on record for this member yet.</p>`}</div>
-        <div class="mp-side">
-          <div class="know-b"><h4><span class="tag fact">Fact</span> Every recorded vote</h4><p class="muted">Coming next. ${esc(P.name)}'s bills and recorded floor votes are the next part to be added; when they arrive, every vote ${esc(L.n)} cast will be listed here, as on the federal side.</p></div>
-          ${BOOT.has_money ? "" : `<div class="know-b"><h4><span class="tag fact">Fact</span> Who funds the campaign</h4><p class="muted">Coming. Every state keeps its own campaign-finance records, so they are added one state at a time; ${esc(P.name)}'s are not loaded yet. <a href="../mn/">See how it looks for Minnesota</a></p></div>`}
-          ${others.length ? `<div class="know-b"><h4><span class="tag fact">Fact</span> The same voters' other legislator${others.length > 1 ? "s" : ""}</h4><p class="muted" style="margin-bottom:6px">${esc(why)}</p>${others.map(m => memBtn(m)).join("")}</div>` : ""}
-        </div>
-      </div>
-      <div class="mny-page" id="mpmoney" hidden></div>`;
-    if (Pf.money && Pf.money.cycles && Pf.money.cycles.length) renderMoney(id, Pf.money, L, show);
+    // the desk: the header and the link row as they were; the front sheet is "Get to know" (In office, and the seat's
+    // other legislators), and every other section is a sheet behind its own folder
+    const parts = knowHTML(Pf, L, id, {parts: true}), C = Pf.committees || [], plural = (n, w) => `${n.toLocaleString()} ${w}${n === 1 ? "" : "s"}`;
+    const nothing = parts.office || parts.committees || parts.money || parts.wiki ? "" : `<p class="muted">Nothing more on record for this member yet.</p>`;
+    const othersHTML = others.length ? `<div class="know-b"><h4><span class="tag fact">Fact</span> The same voters' other legislator${others.length > 1 ? "s" : ""}</h4><p class="muted" style="margin-bottom:6px">${esc(why)}</p>${others.map(m => memBtn(m)).join("")}</div>` : "";
+    const coming = comingRule([["Every recorded vote", `Coming next. ${esc(P.name)}'s bills and recorded floor votes are the next part to be added; when they arrive, every vote ${esc(L.n)} cast will be listed here, as on the federal side.`]]
+      .concat(BOOT.has_money ? [] : [["Who funds the campaign", `Coming. Every state keeps its own campaign-finance records, so they are added one state at a time; ${esc(P.name)}'s are not loaded yet. <a href="../mn/">See how it looks for Minnesota</a>`]]));
+    const tabs = [
+      {id: "office", label: "Get to know", sub: "Fact", html: `<h2 class="sheet-h">Get to know ${esc(L.n)}</h2>${parts.office}${nothing}${othersHTML}${coming}`},
+      parts.committees ? {id: "committees", label: "Committees", sub: `Fact · ${plural(C.length, "seat")}`, html: parts.committees} : null,
+      parts.money ? moneyTab(id, Pf, L, parts.money) : null,
+      parts.wiki ? {id: "wiki", label: "From Wikipedia", sub: "Not an official record", html: parts.wiki} : null];
+    box.innerHTML = `<div class="mp-desk"><p class="crumbs"><a href="#members">← All ${BOOT.stats.members.toLocaleString()} legislators</a></p><div class="mp-top"><div class="mp-head">${avatar(id, L.p, "xxl")}<div><h1 class="mp-name">${esc(L.n)}</h1><div class="seat"><b>${esc(L.pn)}</b>, ${esc((CH[L.ch] || {}).title || "Member")} for ${esc(dLabel(key, L.d))}${L.seat ? " (Seat " + esc(L.seat) + ")" : ""}, ${esc(P.name)}</div></div></div>
+      <div class="rep-top">${L.u ? ract("web", "Website", L.u) : ""}${L.ph ? ract("phone", L.ph, "tel:" + L.ph, true) : ""}${L.em ? ract("mail", "Email", "mailto:" + L.em, true) : ""}${onMap(key, L.d) ? ract("map", dLabel(key, L.d) + " on the map", districtHash(key, L.d), true) : ""}<button class="ract sharebtn" id="sharemp" type="button">${ico("share")}<span>Share this profile</span></button></div></div></div>`;
+    box._sheets = fileTabs($(".mp-desk", box), {id, name: L.n, tabs, start: tabFor(show), detail: show, inline: !!BOOT.inline});
+    box.dataset.member = id; box._title = document.title;
     $("#sharemp").addEventListener("click", e => share({title: `Get to know ${L.n}`, text: `${L.n}, ${seatOf(L)} in the ${P.legislature}: service${BOOT.has_money ? ", committees and who funds the campaign" : " and committees"}, from the public record:`, url: `${SHARE_BASE}/m/${id}.html`, kind: "member", key: id}, e.currentTarget));
   }, () => { if (token === mpSeq) box.innerHTML = `<div class="empty">Couldn't load this member. Check your connection and try again.</div>`; });
 }
@@ -1938,14 +1992,14 @@ function showPage(name, push){
 }
 function routeFromHash(push){
   const h = (location.hash || "").replace(/^#/, "");
-  const mem = h.match(/^member=([A-Za-z0-9_-]+)(?:\/(money))?$/);
+  const mem = h.match(/^member=([A-Za-z0-9_-]+)(?:\/(office|committees|howvotes|work|money|votes|wiki|breaks|missed))?$/);      // a folder this page does not have opens the front sheet
   if (mem) { showPage("member", false); renderMemberPage(mem[1], mem[2]); return; }
   const shp = h.match(/^shape=([SH])-(.+)$/);
   if (shp) { showPage("shapes", false); shapesPage([shp[1] === "S" ? "upper" : "lower", decodeURIComponent(shp[2])]); return; }
   const plp = h.match(/^people=([SH])-(.+)$/);
   if (plp) { showPage("people", false); peoplePage([plp[1] === "S" ? "upper" : "lower", decodeURIComponent(plp[2])]); return; }
-  const off = h.match(/^official=([A-Za-z0-9_-]+)$/);
-  if (off) { showPage("member", false); renderOfficialPage(off[1]); return; }
+  const off = h.match(/^official=([A-Za-z0-9_-]+)(?:\/(office|committees|howvotes|work|money|votes|wiki|breaks|missed))?$/);
+  if (off) { showPage("member", false); renderOfficialPage(off[1], off[2]); return; }
   const dis = h.match(/^district=([SH])-(.+)$/);
   if (dis) { showPage("map", false); mapReady().then(() => { if (window.mapSelect) mapSelect(dis[1] === "S" ? "upper" : "lower", decodeURIComponent(dis[2])); }, () => {}); return; }
   if (h === "yours" || h === "officials" || h === "chambers" || h === "coming" || h === "top" || h === "") { showPage("home", false); if (h && h !== "top") { const t = $("#" + h); if (t) setTimeout(() => t.scrollIntoView({behavior: "auto"}), 30); } return; }

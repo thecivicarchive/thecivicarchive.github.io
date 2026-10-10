@@ -1,0 +1,123 @@
+{
+ "v": 1,
+ "code": "UT",
+ "name": "Utah",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "live",
+ "status_why": "Enhanced Voting answered scripts.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Utah Lieutenant Governor's Office",
+ "system": "Enhanced Voting (electionresults.utah.gov/results/public/...), with each county as a child jurisdiction on the same system.",
+ "family": "enhanced_voting",
+ "reader_agent": "N10",
+ "results_page": {
+  "url": "https://electionresults.utah.gov/",
+  "label": "Utah election results",
+  "checked": "2026-10-10",
+  "source": "answered one request with the kit's User-Agent (N4, 2026-10-10)"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": "general11032026 (likely, by the pattern)",
+  "posted": false,
+  "how_to_find": "results/public/api/jurisdictions/Utah until the 2026 general appears."
+ },
+ "cadence": {
+  "check_every_s": 180,
+  "signal": "https://electionresults.utah.gov/results/public/api/elections/Utah/<publicElectionId> (lastUpdated)",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "electionresults.utah.gov"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "ut-1",
+   "what": "statewide",
+   "format": "json",
+   "address": "https://electionresults.utah.gov/results/public/api/jurisdictions/Utah (list: publicElectionId and date; childLocalities = 29 counties such as salt-lake-county-ut); https://electionresults.utah.gov/results/public/api/elections/Utah/<publicElectionId> (election record: lastUpdated, isOfficialResults, contestGroups, precinctsReporting, publicReportCategories, nextUpdateAt); report files under https://electionresults.utah.gov/cdn/results/<jurisdictionId>/<blobName>",
+   "hosts": [
+    "electionresults.utah.gov"
+   ],
+   "updates": "nextUpdateAt and lastUpdated in the record; counties upload through the night (all-mail state)",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "HTTP 200 on 2026-10-09. The contest-results endpoint itself (beyond the election record and report files) was not identified."
+  },
+  {
+   "id": "ut-2",
+   "what": "county",
+   "format": "json",
+   "address": "https://electionresults.utah.gov/results/public/api/elections/<county-slug>/<publicElectionId>",
+   "hosts": [
+    "electionresults.utah.gov"
+   ],
+   "updates": "as above",
+   "script_ok": "untested",
+   "checked": "2026-10-09",
+   "note": "County summaries are listed as 'Summary Results' reports on the state record."
+  },
+  {
+   "id": "ut-3",
+   "what": "precinct",
+   "format": "zip",
+   "address": "'All Results Excel' report (Summary Results and Precinct Results sheets) from the record's publicReportCategories",
+   "hosts": [],
+   "updates": "as published",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "The kit reads it for the primary."
+  }
+ ],
+ "units": "county",
+ "precinct_level": true,
+ "races_in_feed": [
+  "statewide",
+  "Congress",
+  "legislature",
+  "judges (retention, including justice courts)",
+  "county and local (on county child jurisdictions)"
+ ],
+ "local": "On the same system as child jurisdictions (salt-lake-county-ut, utah-county-ut, davis-county-ut, weber-county-ut, washington-county-ut).",
+ "how_counted": "Utah votes by mail; counties add ballots in batches through the night and for days after.",
+ "count_order": "All mail; upload order.",
+ "vote_types": "Not seen (Utah votes by mail; count order is upload order).",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Utah State Board of Canvassers",
+  "rule": "Convenes at noon on the fourth Monday of November (Utah Code 20A-4-306).",
+  "date": "2026-11-23",
+  "date_kind": "meets_on",
+  "local_rule": "County canvass between the 7th and 14th day (20A-4-301).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": "general11052024; Primary06232026",
+ "terms": "None seen.",
+ "scout_blocked": "Nothing refused.",
+ "scout_plan": "Find the contest-results call the public page makes (one look in the Browser pane on the 2024 general) and rehearse on general11052024. On election night poll the Utah election record for lastUpdated and fetch contest data when it changes, then each large county's child record for local races. Enhanced Voting also runs Idaho and Georgia, so one reader serves three states.",
+ "notes": [],
+ "to_do": [
+  "Find the contest-results call the public page makes.",
+  "Confirm the publicElectionId."
+ ],
+ "sources": [
+  "election/scout/results_ne.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

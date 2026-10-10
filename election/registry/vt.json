@@ -1,0 +1,140 @@
+{
+ "v": 1,
+ "code": "VT",
+ "name": "Vermont",
+ "written": "2026-10-10",
+ "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+ "status": "live",
+ "status_why": "The Election Management System's static JSON answered scripts; Nov 3 is posted.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Vermont Secretary of State",
+ "system": "Vermont Election Management System public results (PCC Technology Group, the same family as Connecticut's; static JSON on static.electionresults.vermont.gov)",
+ "family": "pcc_ems",
+ "reader_agent": "N10",
+ "results_page": {
+  "url": "https://electionresults.vermont.gov/",
+  "label": "Vermont Secretary of State: election results",
+  "checked": "2026-10-10",
+  "source": "answered one request with the kit's User-Agent (N4, 2026-10-10)"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": "68d61e96-1d28-4210-8c1d-8e90512ae105 (electionId 7100)",
+  "posted": true,
+  "how_to_find": "Posted."
+ },
+ "cadence": {
+  "check_every_s": 120,
+  "signal": "https://static.electionresults.vermont.gov/elections/68d61e96-1d28-4210-8c1d-8e90512ae105.json",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "static.electionresults.vermont.gov"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "vt-1",
+   "what": "statewide",
+   "format": "json",
+   "address": "https://static.electionresults.vermont.gov/elections/elections.json (electionGuid, date, isOfficial, isStateWideElection); https://static.electionresults.vermont.gov/elections/<guid>.json (electionDetails, townDistricts, townsReporting, lastUpdatedDate, and a path per part); each part's file is elections/<guid>-<part>-<yyyymmddhhmmss>.json with parts f (federal), s (statewide), sn (senate), h (house), cty (county), t (town), turnout; an RSS summary at elections/rss/<guid>/election-summary.xml",
+   "hosts": [
+    "static.electionresults.vermont.gov"
+   ],
+   "updates": "Cache-Control max-age=60; each publish writes new time-stamped part files and the index points at them",
+   "script_ok": true,
+   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+   "note": "elections.json 200 (70 KB) and the Nov 3 index 200 (120 KB) on 2026-10-09; server 'volt-adc'."
+  },
+  {
+   "id": "vt-2",
+   "what": "congress",
+   "format": "json",
+   "address": "part f (federal)",
+   "hosts": [],
+   "updates": "as above",
+   "script_ok": true,
+   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+   "note": "one at-large seat"
+  },
+  {
+   "id": "vt-3",
+   "what": "legislature",
+   "format": "json",
+   "address": "parts sn and h",
+   "hosts": [],
+   "updates": "as above",
+   "script_ok": true,
+   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+   "note": ""
+  },
+  {
+   "id": "vt-4",
+   "what": "county",
+   "format": "json",
+   "address": "part cty (sheriffs, state's attorneys, judges of probate, assistant judges, high bailiffs)",
+   "hosts": [],
+   "updates": "as above",
+   "script_ok": true,
+   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+   "note": ""
+  },
+  {
+   "id": "vt-5",
+   "what": "local",
+   "format": "json",
+   "address": "part t (justices of the peace per town)",
+   "hosts": [],
+   "updates": "as above",
+   "script_ok": true,
+   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+   "note": "town meeting elections are separate entries in elections.json"
+  }
+ ],
+ "units": "town",
+ "precinct_level": false,
+ "races_in_feed": "Congress (at large), statewide (six offices), State Senate and House, county offices, justices of the peace",
+ "local": "no",
+ "how_counted": "Each town reports its own count.",
+ "count_order": "No split; results by town.",
+ "vote_types": "no split by ballot type; results by town",
+ "decision": {
+  "default": "plurality",
+  "rules": [
+   {
+    "applies": "Governor, Lieutenant Governor and the other statewide offices",
+    "rule": "majority_or_legislature",
+    "note": "Without a majority the General Assembly elects (Vt. Const. ch. II, 47)."
+   }
+  ]
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "Vermont's canvassing committee",
+  "rule": "Meets at 10 a.m. one week after the election (Vt. Stat. tit. 17, 2592(g)).",
+  "date": "2026-11-10",
+  "date_kind": "meets_on",
+  "local_rule": "Towns within 48 hours (tit. 17, 2588).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": "67a35c79-05a2-4ae3-a77d-97812256188b (2024 general); a18f77e0-89f8-4a01-8d97-61a7c75ba200 (2026 primary)",
+ "terms": "none seen",
+ "scout_blocked": "nothing refused scripts",
+ "scout_plan": "Live-readable. Poll the Nov 3 index (<guid>.json) every two minutes; when its part paths change, fetch the changed parts (f, s, sn, h, cty, t). Town figures shade the map; the town part covers justices of the peace, so Vermont's local level comes with it. Rehearse on the 2024 general guid.",
+ "notes": [],
+ "to_do": [],
+ "sources": [
+  "election/scout/results_pa.json (checked 2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts))",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

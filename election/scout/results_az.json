@@ -1,0 +1,331 @@
+{
+  "_about": {
+    "scout": "results-feed scout, AZ NV CA OR WA AK HI KY TN AR",
+    "checked": "2026-10-09",
+    "method": "What CLAUDE.md and ballot/lists/<code>.py, ballot/state_local_<code>.py and ballot/local_scout.json already record, then one or two requests per host with the kit's honest User-Agent (congress-catalog/1.0, personal legislative research), 1.5 s apart, with patient address lookups (the router dropped every first lookup); the Browser pane only for results.arizona.vote and silverstateelection.nv.gov, which refuse scripts. No file over a few hundred KB was fetched; nothing with contact details was printed or kept.",
+    "verdicts": {
+      "AZ": "readable with care (front page Cloudflare; its data CDN answers scripts; ask John before using it)",
+      "NV": "blocked (Incapsula on state hosts, in the Browser pane too); counties untested",
+      "CA": "live-readable (api.sos.ca.gov JSON, already serving Nov 3 test data)",
+      "OR": "unknown (state site dormant between elections; counties post files)",
+      "WA": "live-readable (Enhanced Voting API; Nov 3 election already posted)",
+      "AK": "readable with care (static files; needs the kit's issuer-certificate repair)",
+      "HI": "live-readable (text files, mail and in-person split)",
+      "KY": "blocked (State Board firewall's acceptable-use block on the live results host)",
+      "TN": "blocked (CloudFront 403)",
+      "AR": "live-readable (Tally JSON API, already read by the kit)"
+    }
+  },
+  "AZ": {
+    "system": "Arizona Secretary of State's own election-night results site (AngularJS app, results.arizona.vote) fed by static JSON on a data CDN (cdn1.arizona.vote); counties upload, each upload numbered",
+    "site": "https://results.arizona.vote/",
+    "feeds": [
+      {
+        "what": "statewide",
+        "format": "json",
+        "address_pattern": "https://cdn1.arizona.vote/data/<electionId>/0/election_<electionId>_0.json gives {uploadId, electionId, timeStamp}; then .../featured_races_<eid>_0_en_<uploadId>.json, .../all_county_races_<eid>_0_en_<uploadId>.json, .../voter_turnout_<eid>_0_<uploadId>.json, .../tabs_<eid>_0_en_<uploadId>.json (the page's own requests, seen in the Browser pane for election 47, the 2024 general)",
+        "updates": "each county upload makes a new uploadId; poll the small election_<eid>_0.json (125 bytes) and fetch the rest only when uploadId changes",
+        "script_ok": true,
+        "notes": "cdn1.arizona.vote/data/47/0/election_47_0.json answered the honest User-Agent with 200 (X-Cache TCP_REMOTE_HIT), while results.arizona.vote itself answered 403 with a Cloudflare challenge (Cf-Mitigated: challenge). The CDN is the address the page itself reads, not a way past the challenge, but John should approve this route before it is used (as with Ohio's Internet Archive route). Covers federal, state, legislative, judicial, ballot measures; county view per race."
+      },
+      {
+        "what": "congress",
+        "format": "json",
+        "address_pattern": "same files as statewide; Federal tab",
+        "updates": "as above",
+        "script_ok": true,
+        "notes": "AZ has nine House seats and no Senate race in 2026."
+      },
+      {
+        "what": "county",
+        "format": "csv",
+        "address_pattern": "Maricopa: https://elections.maricopa.gov/results-and-data/election-results.html links a tab-delimited results file per election, already posted for Nov 3, 2026 as a zero report: https://elections.maricopa.gov/asset/jcr:bd0ce4f7-2378-408e-a205-800cd7cf6983/Zero%20for%20Web%20-%20Gen%202026.txt (and a PDF twin), with 'Results File Descriptions.pdf' (https://elections.maricopa.gov/asset/jcr:e59cc3f8-d16f-468d-811b-115eee664082/Results%20File%20Descriptions.pdf)",
+        "updates": "Maricopa: 'posted at 8pm on Election Day and are updated daily until all ballots have been tabulated' (its page)",
+        "script_ok": true,
+        "notes": "The Maricopa page answered 200 to the script (served through Cloudflare, no challenge). The asset address carries a content id (jcr:...), so the file name must be re-read from the page at each update. The kit's scouting found elections.maricopa.gov candidate PDFs behind a Cloudflare 403 on 2026-09-30, so access may vary by path."
+      }
+    ],
+    "races": "statewide, Congress, legislature, judges (retention), ballot measures on the state site; county, city, school and special-district contests only on each county's site",
+    "precinct_level": false,
+    "vote_types": "Not on the state site. The state links a ballot progress page (apps.arizona.vote/electioninfo/BPS/<eid>/0) with ballots left to count by county, which is useful for count order. Maricopa's results file description should be checked for early vs Election Day columns.",
+    "counties_separate": "Yes, 15 counties. Maricopa (elections.maricopa.gov/results-and-data/election-results.html, tab-delimited file); Pima (pima.gov, not opened: the address tried returned an unrelated page); Pinal and Yavapai not checked.",
+    "past_test": "https://cdn1.arizona.vote/data/47/0/ (2024 General, Nov 5, 2024, final uploadId 12036); the July 21, 2026 primary is election 68 (https://results.arizona.vote/#/featured/68/0)",
+    "nov3_id": "not posted: the site lists '2026 General Election - November 3, 2026' without a results link (2026-10-09). Ids so far run 68 (2026 primary), 71 and 72 (2025 specials), so the general will likely be a new number near 73; read it from the front page's link on Nov 3.",
+    "terms": "none seen",
+    "blocked": "results.arizona.vote: 403 Cloudflare challenge to scripts (passes in the Browser pane); azsos.gov, apps.azsos.gov and my.arizona.vote also challenge scripts (CLAUDE.md, 2026-09-30)",
+    "kit_already_reads": "ballot/lists/az.py downloads nothing; it reads the candidate listing, write-in/withdrawn list and the official primary canvass that John saves into ballot_cache/az/. ballot/state_local_az.py reads constitution text only; the county-by-county local plan is in ballot/local_scout.json.",
+    "plan": "With John's approval, poll cdn1.arizona.vote's election_<id>_0.json every few minutes and, when the uploadId changes, fetch the featured and all-county race files for the statewide and nine House contests; take the election id from the front page link John or the Browser pane reads on Nov 3. If John says no, Arizona waits for him to save the official canvass. Local results come from Maricopa's tab-delimited file (about six in ten Arizonans) and then Pima and Pinal one at a time."
+  },
+  "NV": {
+    "system": "Nevada Secretary of State's results pages (ASP.NET under www.nvsos.gov/SOSelectionPages/results/ and silverstateelection.nv.gov), behind Imperva Incapsula",
+    "site": "https://silverstateelection.nv.gov/",
+    "feeds": [
+      {
+        "what": "statewide",
+        "format": "html",
+        "address_pattern": "https://www.nvsos.gov/SOSelectionPages/results/<year><Type>/ElectionSummary.aspx (2026StateWidePrimary for the June primary, per ballot/lists/nv.py)",
+        "updates": "as counties report; mail ballots postmarked by Election Day count if received within four days, so totals move for days",
+        "script_ok": false,
+        "notes": "2026-10-09: www.nvsos.gov/SOSelectionPages/results/2026StateWidePrimary/ElectionSummary.aspx and silverstateelection.nv.gov/ both answered 200 with Incapsula's 212-byte stub (X-Iinfo header). In the Browser pane silverstateelection.nv.gov loaded only the Incapsula resource script and an empty page."
+      },
+      {
+        "what": "county",
+        "format": "html",
+        "address_pattern": "Clark: elections.clarkcountynv.gov redirects to https://www.clarkcountynv.gov/government/departments/elections/index.php; Washoe: https://www.washoecounty.gov/voters/ (results page not located)",
+        "updates": "untested",
+        "script_ok": "untested",
+        "notes": "Both county sites answer scripts for other files (the kit reads Clark's contest PDF and Washoe's contest workbook), but their results pages were not found in this pass."
+      }
+    ],
+    "races": "the state site carries federal, statewide, legislature, judges and multi-county races; each county clerk carries all local contests, cities included",
+    "precinct_level": false,
+    "vote_types": "unknown; Clark has historically reported early, mail and Election Day separately in its own files (not verified this pass)",
+    "counties_separate": "Yes, 17 (16 counties plus Carson City). Clark (clarkcountynv.gov elections), Washoe (washoecounty.gov/voters); about nine in ten Nevadans between them.",
+    "past_test": "none readable by script; the 2026 primary summary page is behind Incapsula",
+    "nov3_id": "unknown",
+    "terms": "none seen",
+    "blocked": "www.nvsos.gov and silverstateelection.nv.gov: Imperva Incapsula (212-byte stub to scripts; empty page in the Browser pane on 2026-10-09)",
+    "kit_already_reads": "ballot/lists/nv.py downloads nothing; it reads the certified list and official primary results John saves into ballot_cache/nv/. ballot/state_local_nv.py reads Clark's PDF table and Washoe's xlsx of November contests.",
+    "plan": "The state's own results cannot be read live. On election night Election Night could either show Nevada as 'results on the Secretary of State's site' with a link, or read Clark's and Washoe's own results files if a follow-up scout finds them answering scripts (Clark plus Washoe cover nearly every federal vote except NV-2's rural counties). Statewide totals then come from John's saved copy of the Secretary's page, or after the canvass (late November). Local results: Clark and Washoe first."
+  },
+  "CA": {
+    "system": "California Secretary of State's own election-night reporting: electionresults.sos.ca.gov (nginx behind CloudFront and Imperva) with a public JSON service at api.sos.ca.gov/returns/",
+    "site": "https://electionresults.sos.ca.gov/",
+    "feeds": [
+      {
+        "what": "statewide",
+        "format": "json",
+        "address_pattern": "https://api.sos.ca.gov/returns/<office> (governor answered: raceTitle, Reporting, ReportingTime, candidates[Name, Party, Votes, Percent, incumbent]); https://api.sos.ca.gov/returns/status (59 entries: each county's precincts reporting, turnout, registered, report timestamps, countyLink, plus 'statewide')",
+        "updates": "counties report to the Secretary through the night (the Elections Code asks at least every two hours on election night; check the section before quoting it); the ReportingTime field changes with each update",
+        "script_ok": true,
+        "notes": "2026-10-09: /returns/governor and /returns/status answered 200 to the script (X-CDN Imperva, no challenge). The feed is already loaded with the Nov 3, 2026 contests and TEST numbers (e.g. governor 'October 9, 2026, 2:53 p.m.', 20.2% reporting), while /returns/status still carries September 2024 test timestamps. Never show anything before 8 p.m. Pacific on Nov 3; treat any value before then as test data."
+      },
+      {
+        "what": "congress",
+        "format": "json",
+        "address_pattern": "https://api.sos.ca.gov/returns/us-rep/district/all (52 districts, 27 KB; one district likely /returns/us-rep/district/<n>)",
+        "updates": "as above",
+        "script_ok": true,
+        "notes": "No Senate race in California in 2026. Top-two general: both candidates may share a party."
+      },
+      {
+        "what": "legislature",
+        "format": "json",
+        "address_pattern": "presumably /returns/state-senate/district/all and /returns/state-assembly/district/all (not requested this pass)",
+        "updates": "as above",
+        "script_ok": "untested",
+        "notes": "Ballot measures likely at /returns/ballot-measures (untested)."
+      },
+      {
+        "what": "county",
+        "format": "html",
+        "address_pattern": "Los Angeles: https://results.lavote.gov/ (election list at /election-list)",
+        "updates": "LA posts on election night, then on a published schedule until certification",
+        "script_ok": "untested",
+        "notes": "results.lavote.gov answered 200 (12 KB shell, Imperva script embedded); its data calls were not traced. Each county's results link is in /returns/status (countyLink)."
+      }
+    ],
+    "races": "the Secretary's feed: statewide offices, Congress, legislature, ballot measures (judges: Supreme Court and appellate retention likely; superior court judges are county). County, city, school and special-district contests only on the 58 counties' own sites.",
+    "precinct_level": false,
+    "vote_types": "No: the Secretary's feed gives totals and precincts reporting only. The Secretary's Unprocessed Ballots Report (by county, mail vs provisional) is the count-order input; counties' own sites sometimes split vote-by-mail and in-person.",
+    "counties_separate": "Yes, 58. Los Angeles (results.lavote.gov), San Diego (sdvote.gov), Orange (ocvote.gov), Riverside and Santa Clara (both refused scripts with Cloudflare 403 in the 2026-09-30 scouting), San Bernardino, San Francisco (sfelections.org, ranked-choice).",
+    "past_test": "The live test feed itself (api.sos.ca.gov/returns/*, Nov 3 contests with test numbers, 2026-10-09) is a rehearsal target now. Past certified: the Statement of Vote CSV of the June 2, 2026 primary (https://elections.cdn.sos.ca.gov/sov/2026-primary/sov/csv-voter-nominated.xlsx, read by ballot/lists/ca.py).",
+    "nov3_id": "none needed: api.sos.ca.gov/returns/ serves the current election, already Nov 3, 2026 contests",
+    "terms": "none seen on the API responses",
+    "blocked": "nothing on the Secretary's feed; Riverside and Santa Clara county sites refuse scripts (Cloudflare 403, per local_scout.json)",
+    "kit_already_reads": "ballot/lists/ca.py: the Statement of Vote 'CSV Files - Voter Nominated' workbook of the June 2 primary and the Certified List of Candidates PDF (elections.cdn.sos.ca.gov). ballot/state_local_ca.py: the same SOV folder; the county plan in local_scout.json.",
+    "plan": "Poll api.sos.ca.gov/returns/governor, the other statewide offices and /returns/us-rep/district/all every few minutes from 8 p.m. Pacific, keyed on ReportingTime, with /returns/status for county reporting; rehearse against the test numbers it serves now. Because California counts for weeks, keep updating daily until certification and label the reporting share. Local results: one reader per county, Los Angeles first (results.lavote.gov), then San Diego, Orange and San Bernardino, which answered scripts in September."
+  },
+  "OR": {
+    "system": "Oregon Secretary of State's Election Night Reporting (results.oregonvotes.gov, state-built ASP.NET, ResultsSW.aspx pages, 'in cooperation with the Oregon Association of County Clerks')",
+    "site": "https://results.oregonvotes.gov/",
+    "feeds": [
+      {
+        "what": "statewide",
+        "format": "html",
+        "address_pattern": "https://results.oregonvotes.gov/ResultsSW.aspx?type=<FED|SW|...>&map=CTY; county view ResultsSW.aspx?type=CTYALL&cty=<county no>&map=CTY (Washington County's releases use cty=28)",
+        "updates": "first results about 8 p.m.; each county then on its own schedule (Washington County 2024: 8 p.m., 10 p.m., midnight, then Nov 8, 15, 22, Dec 2)",
+        "script_ok": "untested",
+        "notes": "2026-10-09: results.oregonvotes.gov/ answered 200 with the Secretary's general welcome page, and ResultsSW.aspx?type=FED&map=CTY answered 404: the site is dormant between elections. Retest on election week. Write-in totals are not reported there."
+      },
+      {
+        "what": "county",
+        "format": "html",
+        "address_pattern": "Marion posts cumulative PDFs (co.marion.or.us/CO/elections/Results/Documents/<yyyymmdd>/Cumulative ... .pdf); Washington County links the state site; Multnomah runs Portland's ranked-choice results on its own site",
+        "updates": "county schedules",
+        "script_ok": "untested",
+        "notes": "Portland's ranked-choice contests are reported only by Multnomah County, not the state (state release, 2024)."
+      }
+    ],
+    "races": "the state site: federal, statewide, legislature, judges, measures, and county-view pages that include local contests counties enter; Portland's RCV contests only at Multnomah",
+    "precinct_level": false,
+    "vote_types": "No split: Oregon votes entirely by mail; count order is by when ballots arrive (postmark by Election Day accepted for seven days)",
+    "counties_separate": "Yes, 36 counties: Multnomah (multco.us/elections), Washington (washingtoncountyor.gov/elections), Clackamas, Lane, Marion (co.marion.or.us/CO/elections)",
+    "past_test": "none live; the official May 19, 2026 primary results PDF (read by ballot/lists/or.py through the Secretary's records search) and Marion's 2024 cumulative PDFs",
+    "nov3_id": "none (the site serves the current election only)",
+    "terms": "none seen",
+    "blocked": "nothing refused; the results site is simply dormant",
+    "kit_already_reads": "ballot/lists/or.py: ORESTAR's candidate filing search (with its anti-forgery token) and the official primary results PDF from records.sos.state.or.us. ballot/state_local_or.py: ORESTAR's district attorney and circuit judge rows.",
+    "plan": "Re-scout results.oregonvotes.gov in the week before Nov 3, when the site comes alive, and read its ResultsSW pages (HTML) for statewide, the House seats and the Senate race politely every few minutes. If it refuses scripts then, use the counties' own postings for the big four. Local results: the state site's county views, Multnomah for Portland."
+  },
+  "WA": {
+    "system": "Enhanced Voting results platform (results.votewa.gov/results/public/washington), the Secretary of State's site since 2026; the old results.vote.wa.gov sends readers there",
+    "site": "https://results.votewa.gov/results/public/washington",
+    "feeds": [
+      {
+        "what": "statewide",
+        "format": "json",
+        "address_pattern": "https://results.votewa.gov/results/public/api/elections/washington/<yyyymmdd> (election record: isOfficialResults, lastUpdated, asOf, contest groups, parties, publicReportCategories naming the 'All Results Excel' blob); the workbook at https://results.votewa.gov/cdn/results/<blobName>",
+        "updates": "counties post about 8:15 p.m., then usually once a day each business day until certification (Nov 24, 2026 per the record's own message)",
+        "script_ok": true,
+        "notes": "2026-10-09: .../washington/20261103 answered 200 (Cloudflare, no challenge): '2026 General', isProduction true, isOfficialResults false, lastUpdated 2026-10-06, contest groups U.S. Congressional Representative, Legislative, Judicial, Other; blob 'All Results_7cc4fae4-3089-401c-8818-b5f988307044.xlsx'. .../washington/20241105 answered 404 (2024 is not on this platform)."
+      },
+      {
+        "what": "congress",
+        "format": "xlsx",
+        "address_pattern": "the All Results Excel: 'Summary Results' sheet (statewide totals by contest and candidate) and 'Precinct Results' sheet (by county, first column the county)",
+        "updates": "as above",
+        "script_ok": true,
+        "notes": "No U.S. Senate race in Washington in 2026. The Enhanced Voting JSON for ballot items was not traced; the workbook is what the kit reads."
+      }
+    ],
+    "races": "Congress, legislature, judges, statewide measures; county and local contests are each county's (the statewide list covers them, but results are on county sites)",
+    "precinct_level": false,
+    "vote_types": "No split: all-mail state; the count is ordered by ballot arrival (postmarked by Election Day). Counties publish a daily ballots-left-to-count figure.",
+    "counties_separate": "Yes for local results: 39 counties; King (kingcounty.gov/elections), Pierce, Snohomish, Spokane",
+    "past_test": "https://results.votewa.gov/results/public/api/elections/washington/20260804 (Aug 4, 2026 primary; answered 200, read by ballot/lists/wa.py); for 2024 the old export pattern https://results.vote.wa.gov/results/20241105/export/20241105_AllState.csv (from ballot/state_local_wa.py)",
+    "nov3_id": "20261103 (record id 01000000-a578-3971-654b-08defdf81b1d), posted",
+    "terms": "none seen",
+    "blocked": "nothing",
+    "kit_already_reads": "ballot/lists/wa.py: voter.votewa.gov candidate grids (elections 899 and 898) and the primary's Enhanced Voting record and All Results Excel. ballot/state_local_wa.py: the old results.vote.wa.gov export CSVs (2022, AllState).",
+    "plan": "Poll the 20261103 election record every few minutes after 8 p.m. Pacific; when lastUpdated changes, fetch the All Results Excel it names (and, if a later scout finds the ballot-item JSON, that instead). Repeat daily until certification on Nov 24. The same workbook carries legislative, judicial and county-level rows; the counties' own sites for city and school results."
+  },
+  "AK": {
+    "system": "Alaska Division of Elections' own results pages (www.elections.alaska.gov/election-results/e/?id=<code>) with static files in /results/<CODE>/, made with its tabulation system's exports (GA_ENR CSV, ElectionSummaryReport PDF)",
+    "site": "https://www.elections.alaska.gov/election-results/",
+    "feeds": [
+      {
+        "what": "statewide",
+        "format": "csv",
+        "address_pattern": "https://www.elections.alaska.gov/results/<YY><GENR|PRIM>/ENRbyPrecinct.csv (2024 general) or GA_ENR_Precinct_State_of_Alaska.csv (2026 primary); summary https://www.elections.alaska.gov/results/<CODE>/ElectionSummaryReport.pdf; per house district HD<n>.pdf; RCV tabulations RCV-USRep.pdf, RCV-HD<n>.pdf; cast vote record zip",
+        "updates": "election night as precincts report; then on the Division's published count days; ranked-choice tabulation runs about 15 days after (Nov 18)",
+        "script_ok": true,
+        "notes": "2026-10-09: ?id=26genr and ?id=24genr answered 200 only through the kit's states/net.get issuer repair (a plain Python request fails: 'unable to get local issuer certificate'). 26genr exists but links no files yet. The page states 'Results Status' when official."
+      }
+    ],
+    "races": "Senate, the at-large House seat, Governor, legislature, judicial retention, measures; borough and city elections are run by each clerk",
+    "precinct_level": true,
+    "vote_types": "Yes: each house district has 'NN - Absentee', 'NN - Early Voting' and 'NN - Question' rows beside its precincts (2026 primary file: 62 such rows in district 37). Useful for count order: absentee and question ballots are added on later count days.",
+    "counties_separate": "Boroughs and cities run their own local elections, most not on Nov 3 (Anchorage in April, Fairbanks North Star Oct 6); Mat-Su and Kenai Peninsula post November contests as PDFs or pages",
+    "past_test": "https://www.elections.alaska.gov/results/24GENR/ENRbyPrecinct.csv (2024 general) and the 2026 primary's GA_ENR_Precinct_State_of_Alaska.csv (cached at ballot_cache/ak/ak_2026_primary_precinct.csv)",
+    "nov3_id": "26genr (page posted, no files yet)",
+    "terms": "none seen",
+    "blocked": "nothing refuses; the host leaves its issuer certificate out of the handshake, which states/net.py already repairs",
+    "kit_already_reads": "ballot/lists/ak.py: candidate lists (?election=26genr, 26prim), the primary results page, its precinct CSV and Summary PDF, a sample ballot. ballot/state_local_ak.py: the same lists for state races.",
+    "plan": "Poll the 26genr results page every few minutes on election night through states/net.get; when it links the precinct CSV, read it by column name and sum by race. Show first-choice totals as 'first choices' until the Division posts the ranked-choice tabulation (about Nov 18). Local: only the boroughs voting Nov 3 (Mat-Su, Kenai Peninsula), from their own postings."
+  },
+  "HI": {
+    "system": "Hawaii Office of Elections' own results: printout readouts posted as text and PDF files (WordPress site behind Cloudflare; older years on files.hawaii.gov)",
+    "site": "https://elections.hawaii.gov/election-results/",
+    "feeds": [
+      {
+        "what": "statewide",
+        "format": "csv",
+        "address_pattern": "https://elections.hawaii.gov/wp-content/results/<YYYY> <Primary|General>/summary.txt (tab-separated, '#FormatVersion 1': contest, candidate, Mail Votes, In-Person Votes, Total Votes, precincts counted); precinct detail media.txt in the same folder; PDFs histatewide.pdf, coh.pdf, com.pdf, cok.pdf, cch.pdf, precinct.pdf, hi_sov.pdf",
+        "updates": "readouts through election night (first soon after polls close at 7 p.m. HST), then a final readout",
+        "script_ok": true,
+        "notes": "2026-10-09: the results page and .../2026 Primary/summary.txt (31 KB) answered 200 to the script (Cloudflare server, no challenge). The 2026 General folder is not linked yet; expect '2026 General'."
+      }
+    ],
+    "races": "Governor, both House seats, legislature, OHA trustees, county mayors and councils, measures: every contest on the ballot (Hawaii's counties have no separate results sites)",
+    "precinct_level": true,
+    "vote_types": "Yes: Mail Votes and In-Person Votes columns for every candidate, and blank, over and invalid votes split the same way",
+    "counties_separate": "No: the Office of Elections reports all four counties (Honolulu, Hawaii, Maui, Kauai)",
+    "past_test": "https://files.hawaii.gov/elections/files/results/2024/General/ (histatewide.pdf etc.; summary.txt for 2022 general at https://files.hawaii.gov/elections/files/results/2022/general/summary.txt, read by ballot/state_local_hi.py) and the certified 2026 primary at https://elections.hawaii.gov/wp-content/results/2026%20Primary/summary.txt",
+    "nov3_id": "folder not posted yet (2026-10-09)",
+    "terms": "none seen",
+    "blocked": "nothing",
+    "kit_already_reads": "ballot/lists/hi.py: the Candidate Report grid and the certified primary summary.txt and histatewide.pdf. ballot/state_local_hi.py: the same report, proclamations and the 2022 general summary.txt.",
+    "plan": "Poll summary.txt in the 2026 General folder every few minutes from 7 p.m. HST (midnight Central): it carries every contest at every level with a mail and in-person split, so one small file covers statewide, Congress and local. Add media.txt for precinct results once the night's readouts settle."
+  },
+  "KY": {
+    "system": "Kentucky's live results site on the State Board of Elections' voter-registration host (vrsws.sos.ky.gov/liveresults/?id=<n>), with statewide, county and precinct views; official certifications as PDFs on elect.ky.gov",
+    "site": "https://vrsws.sos.ky.gov/liveresults/",
+    "feeds": [
+      {
+        "what": "statewide",
+        "format": "html",
+        "address_pattern": "https://vrsws.sos.ky.gov/liveresults/?id=<election number> (2024 general appears as id=112 in search results)",
+        "updates": "as counties upload on election night",
+        "script_ok": false,
+        "notes": "2026-10-09: one request answered 403 with 'Kentucky State Board of Elections - Acceptable Use Policy': its firewall 'has identified website scraping (\"bot\") activity' and 'strictly limit[s] this type of activity'. Not retried, and not opened in the Browser pane, since the block is per address and John's address is the one that would be blocked on election night."
+      },
+      {
+        "what": "statewide",
+        "format": "html",
+        "address_pattern": "https://elect.ky.gov/results/2020-2029/Pages/2026.aspx (certifications and recap sheets as PDFs, e.g. /Documents/2026%20Primary%20Certification%20of%20Vote%20Totals%20Final.pdf)",
+        "updates": "official only, weeks after the election",
+        "script_ok": true,
+        "notes": "2026-10-09: answered 200. No link to the live results site on that page."
+      }
+    ],
+    "races": "the live site: every contest on the ballot statewide, county and precinct views (per its own pages as seen in search results)",
+    "precinct_level": true,
+    "vote_types": "unknown (not seen)",
+    "counties_separate": "Yes for some: Jefferson County Clerk posts its own results (https://www.jeffersoncountyclerk.org/Voter-Info/Election-Results/, files under /files/assets/clerk/v/1/elections/documents/election-results/, used by ballot/state_local_ky.py); Fayette, Kenton, Boone not checked",
+    "past_test": "the official 2026 primary certification PDF (read by ballot/lists/ky.py); the live site's 2024 general (id=112) is closed to scripts",
+    "nov3_id": "unknown",
+    "terms": "the State Board's Acceptable Use Policy page: scraping strictly limited (2026-10-09)",
+    "blocked": "vrsws.sos.ky.gov: the State Board's firewall, 403 with its Acceptable Use Policy page",
+    "kit_already_reads": "ballot/lists/ky.py: the Secretary of State's Candidate Filings pages and the Board's primary certification PDF. ballot/state_local_ky.py: the county filings Excel export, Jefferson's sample ballots and results files.",
+    "plan": "Do not poll Kentucky's live site: it says it blocks scraping, and a block would fall on John's own address. On election night show Kentucky's races with a link to the live site, or take figures John reads off the page himself; the official numbers arrive with the Board's certification PDFs, which the kit already reads. Ask John whether to write to the Board (its Contact Us form) asking whether a published feed or file exists. Local: Jefferson County's own results files."
+  },
+  "TN": {
+    "system": "Tennessee Secretary of State's election-night site elections.tn.gov (vendor not seen; served through Amazon CloudFront)",
+    "site": "https://elections.tn.gov/",
+    "feeds": [
+      {
+        "what": "statewide",
+        "format": "html",
+        "address_pattern": "unknown",
+        "updates": "unknown",
+        "script_ok": false,
+        "notes": "2026-10-09: 403 'The request could not be satisfied' from CloudFront to the honest User-Agent, as CLAUDE.md records for sos.tn.gov and its file host. The Browser pane is not allowed this site (CLAUDE.md), so it was not opened."
+      }
+    ],
+    "races": "unknown on the live site; Tennessee's counties elect their offices in August, so November local contests are mostly city races on county commissions' ballots",
+    "precinct_level": false,
+    "vote_types": "unknown",
+    "counties_separate": "Yes, 95 county election commissions: Shelby (shelbyvote.gov), Davidson (nashville.gov/departments/elections), Knox (knoxcounty.org/election), Hamilton (elect.hamiltontn.gov); results pages not checked",
+    "past_test": "none readable; the official August 6, 2026 primary PDFs that John saves into ballot_cache/tn/",
+    "nov3_id": "unknown",
+    "terms": "none seen",
+    "blocked": "elections.tn.gov, sos.tn.gov and sos-prod.tnsosgovfiles.com: CloudFront 403 to scripts",
+    "kit_already_reads": "ballot/lists/tn.py downloads nothing; it reads the candidate lists and primary results John saves into ballot_cache/tn/. ballot/state_local_tn.py reads the county shapes only.",
+    "plan": "Tennessee cannot be read live. Show the Senate, Governor and nine House races with a link to elections.tn.gov and ask John whether he will save the results page at intervals on election night, as he does for Minnesota. A follow-up scout should check whether Shelby's and Davidson's commissions post results files scripts can read (they cover TN-9 and TN-5/6/7 partly). Official results: John's saved certification files."
+  },
+  "AR": {
+    "system": "Tally election-night reporting (arkansas.tally-enr.com) with its keyless JSON service enr-results-api.totalresults.com, client 'arkansas'",
+    "site": "https://arkansas.tally-enr.com/",
+    "feeds": [
+      {
+        "what": "statewide",
+        "format": "json",
+        "address_pattern": "https://enr-results-api.totalresults.com/Election/GetElectionList?cid=arkansas; Contest/GetContestSearchList?cid=arkansas&electionID=<id> (contests, isOfficial, lastUpdated, versionID); Election/GetElectionInfo?cId=arkansas&electionID=<id> (parties); per-contest results as ballot/lists/ar.py reads them",
+        "updates": "as counties upload; versionID and lastUpdated change with each",
+        "script_ok": true,
+        "notes": "2026-10-09: GetElectionList answered 200 (3 KB, IIS): 25 elections, newest '2026 Primary Special Election' 2026-08-18 (default); the Nov 3, 2026 general is not listed yet. Election ids are GUIDs from 2025 on, numbers before (2024 General = 1846). isWinner is left unset even when official (CLAUDE.md), so winners are worked out."
+      }
+    ],
+    "races": "Senate, four House seats, statewide offices, legislature, judges (nonpartisan runoffs), measures, and county contests as counties enter them",
+    "precinct_level": false,
+    "vote_types": "unknown on this API (not traced; the kit's cached contest JSON keeps totals and precinct counts only)",
+    "counties_separate": "Partly: 75 county election commissions; Pulaski (votepulaskiar.gov), Washington (washingtoncountyar.gov election commission), Benton (refuses scripts, 403)",
+    "past_test": "electionID 1846 (2024 General) and 7f77a178-af02-40ec-92db-c5cc50882c68 (2026 Preferential Primary, official, read by the kit)",
+    "nov3_id": "not posted (2026-10-09); the kit's election_ids() reads it from the Secretary's Election Results page links (https://www.sos.arkansas.gov/elections/research/election-results)",
+    "terms": "none seen",
+    "blocked": "nothing on the Tally API",
+    "kit_already_reads": "ballot/lists/ar.py: candidates.arkansas.gov's list and the Tally API's election list, contest search and election info for the 2026 primary and runoff. ballot/state_local_ar.py: the same for state races and the House 44 specials.",
+    "plan": "Reuse ballot/lists/ar.py's Tally calls: on Nov 3 read the new election id from the Secretary's results page, then poll GetContestSearchList every few minutes and fetch results only when versionID changes, for the Senate, four House seats, statewide and legislative contests. County contests come from the same API where counties have entered them; check against Pulaski's and Washington County's own postings."
+  }
+}

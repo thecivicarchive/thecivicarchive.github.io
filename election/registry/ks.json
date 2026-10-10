@@ -1,0 +1,111 @@
+{
+ "v": 1,
+ "code": "KS",
+ "name": "Kansas",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "link",
+ "status_why": "The election-night page answers scripts with a Cloudflare refusal. Official precinct workbooks come after the State Board of Canvassers.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Kansas Secretary of State",
+ "system": "Secretary of State's own static election-night pages (ent.sos.ks.gov, 'Unofficial Kansas Election Results', meta refresh every 5 s) behind Cloudflare; official results later as PDF and precinct workbooks on sos.ks.gov (CloudFront).",
+ "family": null,
+ "reader_agent": "N12",
+ "results_page": {
+  "url": "https://ent.sos.ks.gov/kssos_ent.html",
+  "label": "Kansas Secretary of State: unofficial election night results",
+  "checked": "2026-10-09",
+  "source": "results_ne.json"
+ },
+ "other_pages": [
+  {
+   "url": "https://sos.ks.gov/elections/election-results.html",
+   "label": "Official results after certification"
+  }
+ ],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": null,
+  "posted": false,
+  "how_to_find": "Certified workbooks under sos.ks.gov/elections/26elec/."
+ },
+ "cadence": null,
+ "hand": null,
+ "feeds": [
+  {
+   "id": "ks-1",
+   "what": "statewide",
+   "format": "html",
+   "address": "https://ent.sos.ks.gov/kssos_ent.html and pages beside it (older years had kssos.org/ent/<year><type>/live/<county>.html)",
+   "hosts": [
+    "ent.sos.ks.gov"
+   ],
+   "updates": "page refreshes every 5 seconds; goes live at 5 p.m. on election day, results after the 7 p.m. poll close",
+   "script_ok": false,
+   "checked": "2026-10-09",
+   "note": "HTTP 403 from Cloudflare on 2026-10-09, although the body was the real page (title 'Unofficial Kansas Election Results', keywords for the 2026 primary, meta ROBOTS NOINDEX, NOFOLLOW). A 403 is a refusal: do not get around it."
+  },
+  {
+   "id": "ks-2",
+   "what": "precinct",
+   "format": "csv",
+   "address": "https://sos.ks.gov/elections/26elec/2026-General-Election-<Office>-Precinct-Level-Results.xlsx (pattern of the 2024 and 2026 primary files, for example 26elec/2026-Primary-Election-United-States-Senate-Precinct-Level-Results.xlsx); official vote totals PDF 26elec/2026-Primary-Election-Official-Vote-Totals.pdf",
+   "hosts": [
+    "sos.ks.gov"
+   ],
+   "updates": "once, after the State Board of Canvassers certifies (Dec 2 in 2024)",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "Results page HTTP 200 (CloudFront) on 2026-10-09. Format is xlsx (recorded as csv-like tables)."
+  }
+ ],
+ "units": "county",
+ "precinct_level": true,
+ "races_in_feed": [
+  "statewide",
+  "Congress",
+  "legislature",
+  "State Board of Education",
+  "judges (Court of Appeals, district and magistrate retention)",
+  "district attorneys"
+ ],
+ "local": "Yes. Johnson County Election Office (jocoelection.org), Sedgwick County (sedgwick.gov elections), Wyandotte/KCK (wycokck.org), Shawnee (snco.us/election). None of these were requested.",
+ "how_counted": "Counties report to the Secretary of State's election-night page from 7 p.m.; official results follow the State Board of Canvassers.",
+ "count_order": "Not seen.",
+ "vote_types": "Not split in the official workbooks seen. The election-night page was not readable.",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Kansas State Board of Canvassers",
+  "rule": "Meets no later than December 1 (Kan. Stat. 25-3206).",
+  "date": "2026-12-01",
+  "date_kind": "meets_by",
+  "local_rule": "County abstracts by the second Tuesday after the election (Kan. Stat. 25-3203).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [
+  "ent.sos.ks.gov"
+ ],
+ "never_why": {
+  "ent.sos.ks.gov": "Cloudflare 403 to scripts (scout, 2026-10-09)"
+ },
+ "partial_sources": [],
+ "rehearsal": null,
+ "terms": "The results page says unofficial and precinct results 'are available upon request' from the Elections Division.",
+ "scout_blocked": "ent.sos.ks.gov answers scripts with 403 (Cloudflare). The candidate list page (elections_upcoming_candidate.aspx) also answers 403 (CloudFront), as recorded in ballot/lists/ks.py.",
+ "scout_plan": "No live feed a script may read. Options: (1) John saves the election-night page from his browser every so often into a watched folder, as he does for Minnesota; (2) show Kansas through the news feed and the AP-free official sources only after canvass, using the precinct workbooks for the map. County sites (Johnson, Sedgwick) may publish readable election-night files; check them once each before November. Ask John which he prefers.",
+ "notes": [],
+ "to_do": [],
+ "sources": [
+  "election/scout/results_ne.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

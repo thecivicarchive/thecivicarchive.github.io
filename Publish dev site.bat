@@ -15,8 +15,8 @@ rem The published pages carry no names of the kit's own files and programs: one 
 rem The companion and the page guide ride on every page that keeps its own top bar.
 ".venv\Scripts\python.exe" build_shell.py --ride --root "site\dev"
 ".venv\Scripts\python.exe" quiet_pages.py "site\dev"
-rem The companions' lab and test pages are for checking the animals here; they are never published.
-robocopy "site\dev" "docs\dev" /MIR /NFL /NDL /NJH /NJS /NP /XF _companion_lab.html companions.html >nul
+rem The companions' lab and test pages and the tab icons' lab are for checking things here; they are never published.
+robocopy "site\dev" "docs\dev" /MIR /NFL /NDL /NJH /NJS /NP /XF _companion_lab.html companions.html _tabicons_lab.html >nul
 if errorlevel 8 (
   echo Could not copy the draft. Is a file open in another program? Close it and retry.
   echo.

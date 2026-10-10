@@ -10,6 +10,20 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.106 — 2026-10-10 — Search and filter a member's votes and bills
+
+- A member's "Every recorded vote" sheet keeps its three quick choices (All, Broke with party, Did not vote) and gains a search box and four fold-out groups of checkboxes, each choice with a live count: how they voted (yes, no, not voting, present; with or against most of their party; votes both parties backed, party-line votes, close votes), what the vote was about (the Bills page's four groups and 22 topics, and whether the bill became law, is still moving or failed), the kind of vote and its outcome (final passage, amendments, procedural motions, cloture, settling the other chamber's changes; passed or failed), and when (the last 30 or 90 days, this year, or dates you choose).
+- Choices in use show as chips you can remove one at a time or all at once. A line above the list counts what matches and how the votes split. Sort by newest, oldest, closest or widest margin, or topic, and download what you see as a spreadsheet, with the official roll-call address on every row.
+- Every filtered view has its own address, so a list such as "every no vote on health bills" can be bookmarked or sent, and the Back button undoes one change at a time.
+- "What NAME works on" now lists the member's own bills, sponsored and cosponsored, with the same search, topic and status filters, sorting, count and download.
+
+## v4.0.105 — 2026-10-09 — A member's page as a filing rack
+
+- Every member's page, in Congress and in all fifty statehouses, now opens on "Get to know" alone: the portrait, the seat, the links, and the In office card. Everything else waits in a rack of folders down the left side: Committees, How they vote, What they work on, Who funds the campaign, Every recorded vote, and From Wikipedia. Each folder shows only when there is something in it.
+- Choosing a folder files the open sheet back into the rack and draws the next one out, over five seconds. A click, a tap or any key finishes it at once. "Sheet speed" on the rack sets Full (5 seconds), Quick (1 second) or Instant, and the same setting is on the Access page; with Motion off, or when your device asks for less motion, sheets change at once.
+- Each folder carries a small object drawn in 3D on your own device, in brass, verdigris and parchment: a nameplate, a clipped sheaf of papers, a gauge, an inkwell and quill, a stack of coins, a ballot box and an open book. They turn a little toward your pointer. Where 3D is not available, plain icons stand in.
+- The rack works with the keyboard (arrow keys, Home, End, Enter), with screen readers, and on phones, where it becomes a row of folders under the top bar. Every folder has its own address, so a link can open it directly, and the Back button steps back through the folders you opened.
+
 ## v4.0.104 — 2026-10-07 — Every shared card in the new look
 
 - The cards a shared link shows for a single bill, a single recorded vote, a member of Congress, a state legislator, each state legislature and each race on the ballot are now drawn in the same look as the rest: parchment, the emblem beside the site's name, a brass rule at the head and a verdigris band at the foot. Vote bars and maps keep red and blue for the parties, in the colours the light pages use.

@@ -1,0 +1,104 @@
+{
+ "v": 1,
+ "code": "KY",
+ "name": "Kentucky",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "link",
+ "status_why": "Kentucky's live results host says it blocks scraping, and a block would fall on John's own address. Linked, never requested (John, 2026-10-10, D9).",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Kentucky State Board of Elections",
+ "system": "Kentucky's live results site on the State Board of Elections' voter-registration host (vrsws.sos.ky.gov/liveresults/?id=<n>), with statewide, county and precinct views; official certifications as PDFs on elect.ky.gov",
+ "family": null,
+ "reader_agent": "N12",
+ "results_page": {
+  "url": "https://elect.ky.gov/results/2020-2029/Pages/2026.aspx",
+  "label": "Kentucky State Board of Elections: 2026 results",
+  "checked": "2026-10-09",
+  "source": "results_az.json"
+ },
+ "other_pages": [
+  {
+   "url": "https://vrsws.sos.ky.gov/liveresults/",
+   "label": "Live results (the address the Board uses; not requested here)"
+  }
+ ],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": null,
+  "posted": false,
+  "how_to_find": "Certification PDFs on elect.ky.gov."
+ },
+ "cadence": null,
+ "hand": null,
+ "feeds": [
+  {
+   "id": "ky-1",
+   "what": "statewide",
+   "format": "html",
+   "address": "https://vrsws.sos.ky.gov/liveresults/?id=<election number> (2024 general appears as id=112 in search results)",
+   "hosts": [
+    "vrsws.sos.ky.gov"
+   ],
+   "updates": "as counties upload on election night",
+   "script_ok": false,
+   "checked": "2026-10-09",
+   "note": "2026-10-09: one request answered 403 with 'Kentucky State Board of Elections - Acceptable Use Policy': its firewall 'has identified website scraping (\"bot\") activity' and 'strictly limit[s] this type of activity'. Not retried, and not opened in the Browser pane, since the block is per address and John's address is the one that would be blocked on election night."
+  },
+  {
+   "id": "ky-2",
+   "what": "statewide",
+   "format": "html",
+   "address": "https://elect.ky.gov/results/2020-2029/Pages/2026.aspx (certifications and recap sheets as PDFs, e.g. /Documents/2026%20Primary%20Certification%20of%20Vote%20Totals%20Final.pdf)",
+   "hosts": [
+    "elect.ky.gov"
+   ],
+   "updates": "official only, weeks after the election",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "2026-10-09: answered 200. No link to the live results site on that page."
+  }
+ ],
+ "units": "county",
+ "precinct_level": true,
+ "races_in_feed": "the live site: every contest on the ballot statewide, county and precinct views (per its own pages as seen in search results)",
+ "local": "Yes for some: Jefferson County Clerk posts its own results (https://www.jeffersoncountyclerk.org/Voter-Info/Election-Results/, files under /files/assets/clerk/v/1/elections/documents/election-results/, used by ballot/state_local_ky.py); Fayette, Kenton, Boone not checked",
+ "how_counted": "Counties report to the State Board's live results site on the night; the Board certifies by the third Monday after the election.",
+ "count_order": "Not seen.",
+ "vote_types": "unknown (not seen)",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Kentucky State Board of Elections",
+  "rule": "Meets no later than the third Monday after the election to canvass the results (Ky. Rev. Stat. 118.425(5)).",
+  "date": "2026-11-23",
+  "date_kind": "meets_by",
+  "local_rule": "Counties certify by noon on the Friday after the election (Ky. Rev. Stat. 118.425(4)).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [
+  "vrsws.sos.ky.gov"
+ ],
+ "never_why": {
+  "vrsws.sos.ky.gov": "the State Board's Acceptable Use Policy limits scraping; a block would fall on John's own address (scout, 2026-10-09)"
+ },
+ "partial_sources": [],
+ "rehearsal": null,
+ "terms": "the State Board's Acceptable Use Policy page: scraping strictly limited (2026-10-09)",
+ "scout_blocked": "vrsws.sos.ky.gov: the State Board's firewall, 403 with its Acceptable Use Policy page",
+ "scout_plan": "Do not poll Kentucky's live site: it says it blocks scraping, and a block would fall on John's own address. On election night show Kentucky's races with a link to the live site, or take figures John reads off the page himself; the official numbers arrive with the Board's certification PDFs, which the kit already reads. Ask John whether to write to the Board (its Contact Us form) asking whether a published feed or file exists. Local: Jefferson County's own results files.",
+ "notes": [],
+ "to_do": [],
+ "sources": [
+  "election/scout/results_az.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

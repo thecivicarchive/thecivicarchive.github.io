@@ -1,0 +1,105 @@
+{
+ "v": 1,
+ "code": "SC",
+ "name": "South Carolina",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "live",
+ "status_why": "Clarity answered scripts; the kit already reads it.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the South Carolina State Election Commission",
+ "system": "Clarity Elections (Scytl) at www.enr-scvotes.org, the State Election Commission's results site, with every county as a sub-site.",
+ "family": "clarity",
+ "reader_agent": "N9",
+ "results_page": {
+  "url": "https://www.enr-scvotes.org/SC/",
+  "label": "South Carolina State Election Commission: election results",
+  "checked": "2026-10-10",
+  "source": "answered one request with the kit's User-Agent (N4, 2026-10-10)"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": null,
+  "posted": false,
+  "how_to_find": "scvotes.gov's results page in late October."
+ },
+ "cadence": {
+  "check_every_s": 150,
+  "signal": "https://www.enr-scvotes.org/SC/<electionId>/current_ver.txt",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "www.enr-scvotes.org"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "sc-1",
+   "what": "statewide",
+   "format": "json",
+   "address": "https://www.enr-scvotes.org/SC/<electionId>/current_ver.txt -> <ver>; then .../<electionId>/<ver>/json/en/electionsettings.json, .../<ver>/json/status.json, .../<ver>/reports/summary.zip and detailxml.zip (detail XML: every contest, county, vote type)",
+   "hosts": [
+    "www.enr-scvotes.org"
+   ],
+   "updates": "A new version number on every upload, every few minutes on election night.",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "current_ver.txt for 126294 (June 9 primary) answered 375593 on 2026-10-09 (CloudFront). The site's front page is an Angular app ('List Elections'); the elections are linked from scvotes.gov/elections-statistics/election-results/."
+  },
+  {
+   "id": "sc-2",
+   "what": "county",
+   "format": "xml",
+   "address": "https://www.enr-scvotes.org/SC/<County>/<countyElectionId>/... (same Clarity layout per county; ids listed in the state election's settings)",
+   "hosts": [
+    "www.enr-scvotes.org"
+   ],
+   "updates": "as above",
+   "script_ok": "untested",
+   "checked": "2026-10-09",
+   "note": "County contests are reported on the county sub-sites."
+  }
+ ],
+ "units": "county",
+ "precinct_level": true,
+ "races_in_feed": "Everything run by the Commission and the county boards: federal, statewide, legislature, solicitors, county council, school boards, and the city and special-district elections held on Nov 3 (which may be separate elections in the system).",
+ "local": "County results are sub-sites of the same Clarity host; Charleston, Greenville, Richland, Horry also post on their own pages (not checked).",
+ "how_counted": "South Carolina reports votes by type: Election Day, early, absentee and provisional.",
+ "count_order": "Clarity detail XML VoteTypes (Election Day, Early Voting, Absentee by Mail, Failsafe, Provisional).",
+ "vote_types": "Yes: Clarity detail XML gives each choice's votes by VoteType (in South Carolina usually Election Day, Early Voting, Absentee by Mail, Failsafe, Provisional); confirm on the replay.",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the South Carolina Board of State Canvassers",
+  "rule": "Convenes within 10 days of the election and may sit up to 15 days (S.C. Code 7-17-220, 7-17-230).",
+  "date": "2026-11-13",
+  "date_kind": "meets_by",
+  "local_rule": "Counties by noon on the Saturday after the election (7-17-20).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": "126294 (June 9, 2026 primary)",
+ "terms": "None stated.",
+ "scout_blocked": "Nothing refused scripts.",
+ "scout_plan": "Live-readable, and the kit already has the reader. On election night poll current_ver.txt every 2 to 3 minutes; when it changes, fetch summary.zip for the totals and detailxml.zip (vote types, counties) less often. Read the county sub-sites for local contests. The same code serves West Virginia.",
+ "notes": [],
+ "to_do": [
+  "Find the Nov 3 election id."
+ ],
+ "sources": [
+  "election/scout/results_la.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

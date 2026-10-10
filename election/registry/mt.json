@@ -1,0 +1,124 @@
+{
+ "v": 1,
+ "code": "MT",
+ "name": "Montana",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "care",
+ "status_why": "The Secretary's pages answered scripts; the exports are form postbacks not yet tried.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Montana Secretary of State",
+ "system": "Secretary of State's own ASP.NET results site (electionresults.mt.gov; data service esersws.mt.gov). Election ids are shared with the candidate filing system.",
+ "family": "resultssw",
+ "reader_agent": "N9",
+ "results_page": {
+  "url": "https://electionresults.mt.gov/Default.aspx?eid=450002987",
+  "label": "Montana Secretary of State: election results",
+  "checked": "2026-10-09",
+  "source": "results_ne.json"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": "450002987",
+  "posted": true,
+  "how_to_find": "Posted ('General Election - November 3, 2026')."
+ },
+ "cadence": {
+  "check_every_s": 300,
+  "signal": "https://electionresults.mt.gov/ResultsSW.aspx?type=<code>&eid=450002987",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "electionresults.mt.gov",
+   "esersws.mt.gov"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "mt-1",
+   "what": "statewide",
+   "format": "html",
+   "address": "https://electionresults.mt.gov/ResultsSW.aspx?type=<code>&eid=<eid> (pages), service root https://esersws.mt.gov/",
+   "hosts": [
+    "electionresults.mt.gov",
+    "esersws.mt.gov"
+   ],
+   "updates": "as counties upload on election night; the 2024 page last updated Dec 19, 2024",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "HTTP 200 on 2026-10-09. The root electionresults.mt.gov/ redirects to sosmt.gov/elections/results/ (Cloudflare, 200) between elections."
+  },
+  {
+   "id": "mt-2",
+   "what": "county",
+   "format": "csv",
+   "address": "https://electionresults.mt.gov/ResultsExport.aspx?eid=<eid>: 'Statewide Export', 'Legislative Export' and one export per county (ASP.NET postbacks)",
+   "hosts": [
+    "electionresults.mt.gov"
+   ],
+   "updates": "as above",
+   "script_ok": "untested",
+   "checked": "2026-10-09",
+   "note": "Page answered 200; postback not tried. resultsCSV.aspx (the Nebraska/New Mexico export) does not exist here (error page)."
+  },
+  {
+   "id": "mt-3",
+   "what": "precinct",
+   "format": "xlsx",
+   "address": "sosmt.gov/docs/32/results/<n>/<year>_general_precinct_by_precinct (after canvass)",
+   "hosts": [],
+   "updates": "after canvass",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "The kit reads the 2026 primary workbook this way."
+  }
+ ],
+ "units": "county",
+ "precinct_level": "after canvass only (workbook)",
+ "races_in_feed": [
+  "statewide",
+  "Congress",
+  "legislature",
+  "judges",
+  "county and local ('Results By County and Local Results')"
+ ],
+ "local": "Some: Yellowstone, Missoula, Gallatin and Flathead (flatheadcounty.gov/department-directory/election) post their own. The state site already carries county and local results.",
+ "how_counted": "Counties upload their counts through the night.",
+ "count_order": "Not seen.",
+ "vote_types": "Not seen.",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Montana Board of State Canvassers",
+  "rule": "Within 27 days after the election, or sooner (Mont. Code 13-15-502).",
+  "date": "2026-11-30",
+  "date_kind": "meets_by",
+  "local_rule": "County canvass within 14 days (Mont. Code 13-15-401).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": "The county exports are form postbacks not yet tried; the data service's method is not pinned down.",
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": "eid 450002785 (2024 general); 450002928 (2026 primary)",
+ "terms": "None seen.",
+ "scout_blocked": "Nothing refused.",
+ "scout_plan": "Rehearse on eid 450002785. On election night read the statewide, legislative and county exports (a form post each) or the esersws.mt.gov service the pages call, every few minutes. Local races are on the same site, so Montana can be covered at every level once the export or service format is pinned down.",
+ "notes": [],
+ "to_do": [
+  "Pin down the export postback or the data service the pages call."
+ ],
+ "sources": [
+  "election/scout/results_ne.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

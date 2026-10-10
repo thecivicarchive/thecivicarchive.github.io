@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Tab icons lab</title>
+<meta name="description" content="A still-frame lab for the live 3D icons of a member page's tabs: every icon at rest, hovered, focused, chosen and still, light and dark, as a PNG, and the cost of a frame. Not linked and never published.">
+<link rel="icon" href="data:,">
+<style>
+:root { --bg: #FBF9F4; --surface: #fff; --ink: #15171B; --muted: #5C6169; --line: #E4E5E1; --hair: #F1EFE9; --line-strong: #C9C6BE; --rack-bg: #F7F2E8; --rack-line: #E6DECB; --pocket-bg: #EFE5CF; --tab-brass: #C8963A; --tab-brass-ink: #8C6420; --tab-verd: #2F6B5E; --tab-focus: #2F6B5E; }
+:root[data-theme="dark"] { --bg: #121417; --surface: #1A1D21; --ink: #EDEAE3; --muted: #A9ADB4; --line: #2C3036; --hair: #1F2327; --line-strong: #3A3F46; --rack-bg: #1C1A17; --rack-line: #2E2A24; --pocket-bg: #26211A; --tab-brass: #C9944A; --tab-brass-ink: #DDB06A; --tab-verd: #6DBBA8; --tab-focus: #7FD0BC; }
+* { box-sizing: border-box; }
+html, body { background: var(--bg); color: var(--ink); margin: 0; font: 15px/1.5 system-ui, sans-serif; }
+main { max-width: 1240px; margin: 0 auto; padding: 20px 16px 48px; }
+h1 { font-size: 24px; margin: 0 0 6px; }
+.lede { color: var(--muted); margin: 0 0 14px; max-width: 80ch; }
+.bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 10px 0 14px; border-bottom: 1px solid var(--line); margin-bottom: 14px; }
+.bar label { color: var(--muted); font-size: 13px; display: inline-flex; gap: 6px; align-items: center; }
+button, select, input { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; min-height: 36px; }
+button { cursor: pointer; } button:hover { border-color: var(--tab-verd); }
+.desk { display: grid; grid-template-columns: 212px 1fr; gap: 36px; align-items: start; }
+/* the rack as the design draws it: a letter sorter with one folder per section */
+.rack { background: var(--rack-bg); border: 1px solid var(--rack-line); border-radius: 18px; padding: 12px 10px 14px; width: 212px; }
+.rack-rule { height: 3px; background: var(--tab-brass); border-radius: 2px; margin: 0 2px 8px; }
+.rack-kick { font-size: 11px; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; color: var(--tab-brass-ink); margin: 0 0 6px 8px; }
+.folder { position: relative; display: grid; grid-template-columns: 44px 1fr; grid-template-rows: auto auto; column-gap: 10px; align-items: center; width: 100%; min-height: 60px; padding: 6px 10px 6px 8px; margin: 0; border: 1px solid transparent; border-radius: 12px; background: transparent; color: var(--ink); text-align: left; transition: transform .18s cubic-bezier(.2,.8,.2,1), background .18s; }
+.folder + .folder { border-top-color: var(--rack-line); border-radius: 0 12px 12px 0; }
+.folder:hover { background: var(--hair); transform: translateX(2px); }
+.folder[aria-selected="true"] { background: var(--surface); border-color: var(--line-strong); transform: translateX(6px); box-shadow: 0 6px 18px -10px rgba(21,23,27,.35); border-radius: 12px; }
+.folder[aria-selected="true"]::before { content: ""; position: absolute; left: 0; top: 10px; bottom: 10px; width: 3px; border-radius: 2px; background: var(--tab-brass); }
+.folder:focus-visible { outline: 3px solid var(--tab-focus); outline-offset: 2px; }
+.slot { grid-row: 1 / 3; width: 44px; height: 44px; border-radius: 10px; background: var(--pocket-bg); display: grid; place-items: center; }
+.slot svg { width: 24px; height: 24px; fill: none; stroke: var(--tab-verd); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: opacity .3s; }
+.slot svg .b { stroke: var(--tab-brass); }
+.icons3d .slot svg { opacity: 0; }
+.lab { font-size: 14px; font-weight: 600; line-height: 1.2; opacity: .88; }
+.folder[aria-selected="true"] .lab { opacity: 1; }
+.sub { font-size: 11.5px; font-weight: 500; color: var(--muted); line-height: 1.3; }
+#out { display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-start; }
+#out figure { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 8px; }
+#out figcaption { font-size: 12px; color: var(--muted); margin-top: 6px; }
+#out img { display: block; max-width: 100%; }
+#log { white-space: pre-wrap; font: 12px/1.4 ui-monospace, monospace; color: var(--muted); margin: 12px 0 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>Tab icons lab</h1>
+<p class="lede">The live 3D icons of a member page's tabs, drawn into a mock rail exactly as the page mounts them. From the console: <code>__lab.still(w, h)</code> returns the rail as a PNG data URL; <code>__lab.sheet()</code> every icon at rest, hovered, focused, chosen and still, light and dark; <code>__lab.bench(n)</code> the cost of a frame; <code>__lab.shot(name, dataURL)</code> saves through the local saver on port 8799. Nothing here is linked or published.</p>
+<div class="bar" role="group" aria-label="Controls">
+  <button id="theme" type="button">Dark page</button>
+  <button id="still" type="button" aria-pressed="false">Still</button>
+  <label>Hover <select id="hov"><option value="">none</option></select></label>
+  <label>Focus <select id="foc"><option value="">none</option></select></label>
+  <button id="draw" type="button">Still of the rail</button>
+  <button id="sheet" type="button">Sheet of every state</button>
+  <button id="cost" type="button">Frame cost</button>
+  <button id="clear" type="button">Clear</button>
+</div>
+<div class="desk">
+  <div class="rack" id="rack">
+    <div class="rack-rule" aria-hidden="true"></div><p class="rack-kick" aria-hidden="true">On file</p>
+    <div role="tablist" aria-orientation="vertical" aria-label="Sections" id="tabs"></div>
+  </div>
+  <div>
+    <div id="out" aria-live="polite"></div>
+    <p id="log"></p>
+  </div>
+</div>
+</main>
+<script type="module">
+import { mount } from "./shell/tabicons.js";
+
+const TABS = [
+  ["office", "Get to know", "Fact", '<path class="b" d="M5 15l1.2-7h11.6l1.2 7z"/><path d="M3 18h18"/><path class="b" d="M8.5 11.5h7M9.5 13.5h5"/>'],
+  ["committees", "Committees", "Fact · 3 seats", '<path d="M9 7l-3 1 2.4 10 7.6-1.8"/><path d="M8.5 6h8v11h-8z"/><path d="M15.5 6l3 1-2.4 10"/><path class="b" d="M11 5.5a1.5 1.5 0 0 1 3 0v3"/>'],
+  ["howvotes", "How Arrington votes", "Analysis", '<path class="b" d="M4.5 15a7.5 7.5 0 0 1 15 0"/><path d="M12 15l4-5"/><path d="M12 15v.01"/><path d="M3.5 18.5h17"/>'],
+  ["work", "What Arrington works on", "Analysis · 51 bills", '<path d="M7 20h8"/><path d="M8 20v-5h6v5"/><path d="M10 15c0-2 3-4 4-7 1-2 3-3 5-3-1 3-2 5-4 7"/><path class="b" d="M11.5 13l-1 2"/>'],
+  ["money", "Who funds the campaign", "Fact · $12.5M", '<ellipse class="b" cx="12" cy="16" rx="7" ry="2.6"/><path class="b" d="M5 13c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6M5 10c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6"/><ellipse class="b" cx="12" cy="7.5" rx="7" ry="2.6"/>'],
+  ["votes", "Every recorded vote", "Fact · 391 votes", '<path d="M4 10h16v10H4z"/><path class="b" d="M8 10V9h8v1"/><path d="M10 10V5h6l-1 2.5V10"/>'],
+  ["wiki", "From Wikipedia", "Not an official record", '<path d="M4 6c3-.8 5.6-.4 8 1.2V19c-2.4-1.6-5-2-8-1.2z"/><path d="M20 6c-3-.8-5.6-.4-8 1.2V19c2.4-1.6 5-2 8-1.2z"/>']
+];
+const SAVER = "http://127.0.0.1:8799/";
+const rack = document.getElementById("rack"), tabs = document.getElementById("tabs"), out = document.getElementById("out"), log = document.getElementById("log");
+const say = s => { log.textContent = s; console.log("[lab]", s); };
+tabs.innerHTML = TABS.map(([id, lab, sub, svg]) => `<button type="button" role="tab" class="folder" id="tab-${id}" data-id="${id}" aria-selected="${id === "office"}" tabindex="${id === "office" ? 0 : -1}">` +
+  `<span class="slot" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${svg}</svg></span><span class="lab">${lab}</span><span class="sub">${sub}</span></button>`).join("");
+for (const sel of ["hov", "foc"]) for (const [id] of TABS) { const o = document.createElement("option"); o.value = id; o.textContent = id; document.getElementById(sel).append(o); }
+const items = () => TABS.map(([id]) => ({id, slot: document.querySelector(`#tab-${id} .slot`)}));
+let selected = "office";
+const t0 = performance.now();
+const ctl = await mount(rack, items(), {still: false, caveat: false});
+if (ctl) { rack.classList.add("icons3d"); ctl.select(selected); say(`mounted in ${Math.round(performance.now() - t0)} ms: ${ctl.ids.join(", ")}`); }
+else say("mount() returned null: no WebGL here, the plain icons stay");
+window.__tabicons = ctl;
+
+function dark() { return document.documentElement.getAttribute("data-theme") === "dark"; }
+function bg() { return dark() ? "#121417" : "#FBF9F4"; }
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+/* the pocket's drawn box, as the module computes it: 1.5 times the pocket, centred on it, relative to the canvas */
+function boxOf(id) {
+  const slot = document.querySelector(`#tab-${id} .slot`), r = slot.getBoundingClientRect(), cr = ctl.canvas.getBoundingClientRect();
+  const s = Math.max(r.width, r.height), b = s * 1.5;
+  return {x: r.left + r.width / 2 - b / 2 - cr.left, y: r.top + r.height / 2 - b / 2 - cr.top, s: b, cx: r.left + r.width / 2, cy: r.top + r.height / 2};
+}
+function roundRect(g, x, y, w, h, r) { g.beginPath(); g.moveTo(x + r, y); g.arcTo(x + w, y, x + w, y + h, r); g.arcTo(x + w, y + h, x, y + h, r); g.arcTo(x, y + h, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath(); }
+/* the rail composed over the page colour: rack, folders, pockets, labels, then the module's canvas on top */
+function compose() {
+  const rr = rack.getBoundingClientRect(), dpr = Math.min(2, devicePixelRatio || 1), W = Math.ceil(rr.width) + 24, Hh = Math.ceil(rr.height) + 24;
+  const cv = document.createElement("canvas"); cv.width = W * dpr; cv.height = Hh * dpr;
+  const g = cv.getContext("2d"); g.scale(dpr, dpr);
+  g.fillStyle = bg(); g.fillRect(0, 0, W, Hh);
+  g.translate(12 - rr.left, 12 - rr.top);
+  g.fillStyle = css("--rack-bg"); g.strokeStyle = css("--rack-line"); roundRect(g, rr.left, rr.top, rr.width, rr.height, 18); g.fill(); g.stroke();
+  const rule = rack.querySelector(".rack-rule").getBoundingClientRect(); g.fillStyle = css("--tab-brass"); g.fillRect(rule.left, rule.top, rule.width, rule.height);
+  g.font = "750 11px system-ui, sans-serif"; g.fillStyle = css("--tab-brass-ink"); g.fillText("ON FILE", rule.left + 6, rule.top + 20);
+  for (const b of tabs.querySelectorAll(".folder")) {
+    const fr = b.getBoundingClientRect(), on = b.getAttribute("aria-selected") === "true";
+    if (on) { g.fillStyle = css("--surface"); g.strokeStyle = css("--line-strong"); roundRect(g, fr.left, fr.top, fr.width, fr.height, 12); g.fill(); g.stroke(); g.fillStyle = css("--tab-brass"); g.fillRect(fr.left, fr.top + 10, 3, fr.height - 20); }
+    const sr = b.querySelector(".slot").getBoundingClientRect(); g.fillStyle = css("--pocket-bg"); roundRect(g, sr.left, sr.top, sr.width, sr.height, 10); g.fill();
+    g.fillStyle = css("--ink"); g.font = "600 14px system-ui, sans-serif"; g.fillText(b.querySelector(".lab").textContent, sr.right + 10, fr.top + fr.height / 2 - 1, fr.right - sr.right - 20);
+    g.fillStyle = css("--muted"); g.font = "500 11.5px system-ui, sans-serif"; g.fillText(b.querySelector(".sub").textContent, sr.right + 10, fr.top + fr.height / 2 + 14, fr.right - sr.right - 20);
+  }
+  if (ctl) { const cr = ctl.canvas.getBoundingClientRect(); g.drawImage(ctl.canvas, cr.left, cr.top, cr.width, cr.height); }
+  return cv;
+}
+function reset() { if (!ctl) return; ctl.hover(null); ctl.focus(null); ctl.setStill(false); rack.dispatchEvent(new PointerEvent("pointerleave", {bubbles: true})); }
+function state(name, id) {
+  reset();
+  const b = document.getElementById(`tab-${id}`);
+  if (name === "hover") { const bx = boxOf(id); ctl.hover(id); b.dispatchEvent(new PointerEvent("pointermove", {bubbles: true, clientX: bx.cx + 42, clientY: bx.cy + 24, pointerType: "mouse"})); }
+  if (name === "focus") ctl.focus(id);
+  if (name === "still") ctl.setStill(true);
+  ctl.select(name === "selected" ? id : (id === "office" ? "committees" : "office"));
+  for (const x of tabs.querySelectorAll(".folder")) x.setAttribute("aria-selected", x.dataset.id === (name === "selected" ? id : (id === "office" ? "committees" : "office")) ? "true" : "false");
+  ctl.settle();
+}
+/* --- the public hooks --- */
+function still(w = 0, h = 0) {
+  if (ctl) ctl.settle();
+  const cv = compose();
+  if (!w && !h) return cv.toDataURL("image/png");
+  const k = Math.min((w || 1e9) / cv.width, (h || 1e9) / cv.height), o = document.createElement("canvas"); o.width = Math.round(cv.width * k); o.height = Math.round(cv.height * k);
+  o.getContext("2d").drawImage(cv, 0, 0, o.width, o.height);
+  return o.toDataURL("image/png");
+}
+const STATES = ["rest", "hover", "focus", "selected", "still"];
+async function sheet(cell = 132) {
+  if (!ctl) throw new Error("no controller");
+  const was = dark(), ids = TABS.map(t => t[0]), cv = document.createElement("canvas"), pad = 6, labW = 70;
+  cv.width = labW + ids.length * (cell + pad) + pad; cv.height = 2 * STATES.length * (cell + pad) + 2 * 18 + pad;
+  const g = cv.getContext("2d");
+  for (const [ti, [, th]] of [["light", false], ["dark", true]].entries()) {
+    document.documentElement.setAttribute("data-theme", th ? "dark" : "light");
+    await new Promise(r => setTimeout(r, 30));
+    const y0 = ti * (STATES.length * (cell + pad) + 18);
+    g.fillStyle = th ? "#121417" : "#FBF9F4"; g.fillRect(0, y0, cv.width, STATES.length * (cell + pad) + 18 + pad);
+    g.fillStyle = th ? "#A9ADB4" : "#5C6169"; g.font = "600 12px system-ui, sans-serif"; g.fillText(th ? "dark" : "light", pad, y0 + 13);
+    STATES.forEach((st, si) => {
+      const y = y0 + 18 + si * (cell + pad);
+      g.fillStyle = th ? "#A9ADB4" : "#5C6169"; g.font = "12px system-ui, sans-serif"; g.fillText(st, pad, y + cell / 2 + 4);
+      ids.forEach((id, i) => {
+        state(st, id);
+        const b = boxOf(id), dpr = Math.min(2, devicePixelRatio || 1), x = labW + i * (cell + pad);
+        g.fillStyle = th ? "#26211A" : "#EFE5CF"; roundRect(g, x + cell / 6, y + cell / 6, cell * 2 / 3, cell * 2 / 3, cell / 6.6); g.fill();
+        g.drawImage(ctl.canvas, Math.round(b.x * dpr), Math.round(b.y * dpr), Math.round(b.s * dpr), Math.round(b.s * dpr), x, y, cell, cell);
+        if (si === 0) { g.fillStyle = th ? "#EDEAE3" : "#15171B"; g.font = "600 11px system-ui, sans-serif"; g.fillText(id, x, y0 + 13); }
+      });
+    });
+  }
+  document.documentElement.setAttribute("data-theme", was ? "dark" : "light");
+  reset(); ctl.select(selected); ctl.settle();
+  return cv.toDataURL("image/png");
+}
+function bench(n = 90) { if (!ctl) throw new Error("no controller"); const r = ctl.bench(n); say(JSON.stringify(r)); return r; }
+async function save(name, dataURL) {
+  const res = await fetch(SAVER + encodeURIComponent(name), {method: "POST", mode: "cors", headers: {"Content-Type": "text/plain"}, body: dataURL});
+  const j = await res.json().catch(() => ({})); say(`saved ${name}: ${JSON.stringify(j)}`); return j;
+}
+function place(dataURL, caption) { const f = document.createElement("figure"), img = new Image(), cap = document.createElement("figcaption"); img.src = dataURL; img.alt = caption; cap.textContent = caption; f.append(img, cap); out.prepend(f); }
+window.__lab = { ctl, mount, still, sheet, bench, save, place, state, reset, boxOf, compose, TABS, STATES,
+  shot: async (name, d) => save(name, d || still()), shotSheet: async name => save(name, await sheet()) };
+window.__labReady = true;
+
+/* --- the page's own controls --- */
+tabs.addEventListener("click", e => { const b = e.target.closest(".folder"); if (!b) return; selected = b.dataset.id; for (const x of tabs.querySelectorAll(".folder")) { const on = x === b; x.setAttribute("aria-selected", on ? "true" : "false"); x.tabIndex = on ? 0 : -1; } if (ctl) ctl.select(selected); });
+tabs.addEventListener("focusin", e => { const b = e.target.closest(".folder"); if (b && ctl) ctl.focus(b.dataset.id); });
+tabs.addEventListener("focusout", () => { if (ctl) ctl.focus(null); });
+document.getElementById("theme").addEventListener("click", e => { const d = !dark(); document.documentElement.setAttribute("data-theme", d ? "dark" : "light"); e.target.textContent = d ? "Light page" : "Dark page"; });
+document.getElementById("still").addEventListener("click", e => { const on = e.target.getAttribute("aria-pressed") !== "true"; e.target.setAttribute("aria-pressed", String(on)); if (ctl) ctl.setStill(on); });
+document.getElementById("hov").addEventListener("change", e => { if (ctl) ctl.hover(e.target.value || null); });
+document.getElementById("foc").addEventListener("change", e => { if (ctl) ctl.focus(e.target.value || null); });
+document.getElementById("draw").addEventListener("click", () => place(still(), `rail, ${dark() ? "dark" : "light"}`));
+document.getElementById("sheet").addEventListener("click", async () => place(await sheet(), "every icon: rest, hover, focus, selected, still; light and dark"));
+document.getElementById("cost").addEventListener("click", () => bench());
+document.getElementById("clear").addEventListener("click", () => { out.innerHTML = ""; });
+</script>
+</body>
+</html>

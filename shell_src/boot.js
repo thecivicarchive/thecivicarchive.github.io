@@ -1,5 +1,5 @@
 /* The Civic Archive: the first thing every page runs, in its head, before anything is drawn (Shell Spec sections 0 and 4).
-   It reads the reader's settings from this browser and writes the eleven axes onto <html> as data-* attributes, so the
+   It reads the reader's settings from this browser and writes the twelve axes onto <html> as data-* attributes, so the
    very first frame is already right: the right type, size, contrast and motion. Nothing is sent anywhere.
    On a first visit (no saved settings) it honours the device's own wishes: reduced motion, more contrast.
    The rest of the site still keeps two older switches of its own, "theme" (light or dark) and "motion" (on or off);
@@ -10,7 +10,7 @@
     depth: ["standard", "detailed", "focus"], lang: ["standard", "plain"], face: ["standard", "dyslexia", "hyperlegible"],
     scale: ["100", "115", "130", "150", "200"], space: ["standard", "generous"], contrast: ["standard", "high", "dark"],
     palette: ["standard", "deut", "prot", "trit", "mono"], motion: ["full", "reduced"], calm: ["off", "on"],
-    reveal: ["full", "subtle", "off"], companion: ["on", "still", "off"]
+    reveal: ["full", "subtle", "off"], companion: ["on", "still", "off"], sheets: ["full", "quick", "instant"]
   };
   var PERCH = __PERCH__;
   var get = function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } };

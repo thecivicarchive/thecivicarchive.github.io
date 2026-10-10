@@ -1,0 +1,2540 @@
+{
+ "_about": {
+  "what": "When the polls open and close on November 3, 2026, state by state (and by county where a state spans two time zones), and each state's own polling-place lookup. Daylight time ends November 1, so every time is standard time.",
+  "checked": "2026-10-10",
+  "how": "Each closing time was read on 2026-10-10 from the state's statute or its election office's own page, one polite request at a time with the site's honest User-Agent. A source marked 'cited' was not read by script and says why. Time-zone counties follow 49 CFR Part 71. Lookups were asked once each; a site that refused a script was not asked again, and hosts on the site's never list (every Minnesota Secretary of State host among them) were never requested.",
+  "times": "closes is the local clock time; closes_utc the same moment in UTC. latest is the latest a polling place may close where the state lets localities choose (Kansas, New Hampshire, North Dakota).",
+  "in_line": "Every state lets a voter already in line at closing time vote.",
+  "fallback_lookup": {
+   "url": "https://www.nass.org/can-I-vote",
+   "title": "NASS: Can I Vote",
+   "checked": "2026-10-10",
+   "read": "answered a script",
+   "note": "The National Association of Secretaries of State sends readers to each state's own lookup. Its list of lookups, https://www.nass.org/can-i-vote/find-your-polling-place, was read on 2026-10-10 to confirm the addresses this file could not request."
+  }
+ },
+ "election_day": "2026-11-03",
+ "states": {
+  "AK": {
+   "name": "Alaska",
+   "rule": "Polls are open 7 a.m. to 8 p.m. local time.",
+   "zones": [
+    {
+     "zone": "AKT",
+     "tz": "America/Anchorage",
+     "abbr": "AKST",
+     "where": "rest of the state",
+     "opens": "07:00",
+     "closes": "20:00",
+     "closes_utc": "2026-11-04T05:00:00Z"
+    },
+    {
+     "zone": "HT",
+     "tz": "Pacific/Honolulu",
+     "abbr": "HST",
+     "where": "The Aleutian Islands west of 169 degrees 30 minutes west",
+     "counties": [
+      {
+       "fips": "02016",
+       "name": "Aleutians West",
+       "part": true
+      }
+     ],
+     "opens": "07:00",
+     "closes": "20:00",
+     "closes_utc": "2026-11-04T06:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T05:00:00Z",
+   "last_close_utc": "2026-11-04T06:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Alaska Division of Elections, Polling Place Locations",
+    "url": "https://www.elections.alaska.gov/election-polls/",
+    "kind": "election office",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://www.elections.alaska.gov/election-polls/",
+    "title": "Alaska Division of Elections: Polling Place Locations",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   },
+   "zone_source": {
+    "title": "49 CFR Part 71, Standard time zone boundaries (Code of Federal Regulations, 2024 annual edition)",
+    "url": "https://www.govinfo.gov/content/pkg/CFR-2024-title49-vol1/xml/CFR-2024-title49-vol1-part71.xml",
+    "kind": "federal regulation",
+    "checked": "2026-10-10",
+    "read": "read by script",
+    "note": "The regulation describes the boundary as a line; the counties on each side are listed from it. A county marked part is split by the line."
+   }
+  },
+  "AL": {
+   "name": "Alabama",
+   "rule": "Polls are open 7 a.m. to 7 p.m.",
+   "zones": [
+    {
+     "zone": "CT",
+     "tz": "America/Chicago",
+     "abbr": "CST",
+     "where": "statewide",
+     "opens": "07:00",
+     "closes": "19:00",
+     "closes_utc": "2026-11-04T01:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T01:00:00Z",
+   "last_close_utc": "2026-11-04T01:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Alabama Secretary of State, election-day reminder (Code of Ala. 17-9-6)",
+    "url": "https://www.sos.alabama.gov/node/3501",
+    "kind": "election office",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://myinfo.alabamavotes.gov/VoterView",
+    "title": "Alabama Votes: VoterView",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   }
+  },
+  "AR": {
+   "name": "Arkansas",
+   "rule": "Polls are open 7:30 a.m. to 7:30 p.m.",
+   "zones": [
+    {
+     "zone": "CT",
+     "tz": "America/Chicago",
+     "abbr": "CST",
+     "where": "statewide",
+     "opens": "07:30",
+     "closes": "19:30",
+     "closes_utc": "2026-11-04T01:30:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T01:30:00Z",
+   "last_close_utc": "2026-11-04T01:30:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Arkansas Secretary of State, 2026 Election Dates (Ark. Code 7-5-304)",
+    "url": "https://www.sos.arkansas.gov/uploads/elections/2026_Election_Calendar_Rev._6-2025_.pdf",
+    "kind": "election office",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://www.voterview.ar-nova.org/voterview",
+    "title": "Arkansas Secretary of State: VoterView",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   }
+  },
+  "AZ": {
+   "name": "Arizona",
+   "rule": "Polls are open 6 a.m. to 7 p.m.",
+   "zones": [
+    {
+     "zone": "MT",
+     "tz": "America/Denver",
+     "abbr": "MST",
+     "where": "statewide",
+     "opens": "06:00",
+     "closes": "19:00",
+     "closes_utc": "2026-11-04T02:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T02:00:00Z",
+   "last_close_utc": "2026-11-04T02:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Arizona Revised Statutes 16-565",
+    "url": "https://www.azleg.gov/ars/16/00565.htm",
+    "kind": "statute",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://my.arizona.vote/WhereToVote.aspx?s=address",
+    "title": "Arizona: Where to vote",
+    "checked": "2026-10-10",
+    "read": "not requested: this site refuses scripts or is on the never list; the address is the one the state's own pages and NASS's Can I Vote list give"
+   }
+  },
+  "CA": {
+   "name": "California",
+   "rule": "Polls are open 7 a.m. to 8 p.m.",
+   "zones": [
+    {
+     "zone": "PT",
+     "tz": "America/Los_Angeles",
+     "abbr": "PST",
+     "where": "statewide",
+     "opens": "07:00",
+     "closes": "20:00",
+     "closes_utc": "2026-11-04T04:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T04:00:00Z",
+   "last_close_utc": "2026-11-04T04:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "California Secretary of State, Official Voter Information Guide: Dates to Remember (Elections Code 14212)",
+    "url": "https://voterguide.sos.ca.gov/voter-info/dates-to-remember.htm",
+    "kind": "election office",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://www.sos.ca.gov/elections/polling-place",
+    "title": "California Secretary of State: Find Your Polling Place",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   }
+  },
+  "CO": {
+   "name": "Colorado",
+   "rule": "Voting centers are open 7 a.m. to 7 p.m.",
+   "zones": [
+    {
+     "zone": "MT",
+     "tz": "America/Denver",
+     "abbr": "MST",
+     "where": "statewide",
+     "opens": "07:00",
+     "closes": "19:00",
+     "closes_utc": "2026-11-04T02:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T02:00:00Z",
+   "last_close_utc": "2026-11-04T02:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Colorado Revised Statutes 1-7-101 (2024 edition)",
+    "url": "https://leg.colorado.gov/sites/default/files/images/olls/crs2024-title-01.pdf",
+    "kind": "statute",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://www.govotecolorado.gov/",
+    "title": "Go Vote Colorado",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   }
+  },
+  "CT": {
+   "name": "Connecticut",
+   "rule": "Polls are open 6 a.m. to 8 p.m.",
+   "zones": [
+    {
+     "zone": "ET",
+     "tz": "America/New_York",
+     "abbr": "EST",
+     "where": "statewide",
+     "opens": "06:00",
+     "closes": "20:00",
+     "closes_utc": "2026-11-04T01:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T01:00:00Z",
+   "last_close_utc": "2026-11-04T01:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Connecticut Secretary of the State, Where and how do I vote (Conn. Gen. Stat. 9-174)",
+    "url": "https://portal.ct.gov/sots/election-services/voter-information/where-and-how-do-i-vote",
+    "kind": "election office",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://portaldir.ct.gov/sots/LookUp.aspx",
+    "title": "Connecticut: Voter Registration Lookup and Polling Place Locator",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   }
+  },
+  "DC": {
+   "name": "District of Columbia",
+   "rule": "Vote centers are open 7 a.m. to 8 p.m. Any vote center in the District will do.",
+   "zones": [
+    {
+     "zone": "ET",
+     "tz": "America/New_York",
+     "abbr": "EST",
+     "where": "statewide",
+     "opens": "07:00",
+     "closes": "20:00",
+     "closes_utc": "2026-11-04T01:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T01:00:00Z",
+   "last_close_utc": "2026-11-04T01:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "DC Board of Elections, 2026 General Election Day Vote Centers",
+    "url": "https://dcboe.org/voters/find-out-where-to-vote/election-day-vote-centers",
+    "kind": "election office",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://dcboe.org/voters/find-out-where-to-vote/election-day-vote-centers",
+    "title": "DC Board of Elections: Election Day Vote Centers",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   }
+  },
+  "DE": {
+   "name": "Delaware",
+   "rule": "Polls are open 7 a.m. to 8 p.m.",
+   "zones": [
+    {
+     "zone": "ET",
+     "tz": "America/New_York",
+     "abbr": "EST",
+     "where": "statewide",
+     "opens": "07:00",
+     "closes": "20:00",
+     "closes_utc": "2026-11-04T01:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T01:00:00Z",
+   "last_close_utc": "2026-11-04T01:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Delaware Department of Elections, Voting FAQ",
+    "url": "https://elections.delaware.gov/voter/VotingFAQ.html",
+    "kind": "election office",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://ivote.de.gov/VoterView",
+    "title": "Delaware Department of Elections: iVote",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   }
+  },
+  "FL": {
+   "name": "Florida",
+   "rule": "Polls are open 7 a.m. to 7 p.m. local time.",
+   "zones": [
+    {
+     "zone": "ET",
+     "tz": "America/New_York",
+     "abbr": "EST",
+     "where": "rest of the state",
+     "opens": "07:00",
+     "closes": "19:00",
+     "closes_utc": "2026-11-04T00:00:00Z"
+    },
+    {
+     "zone": "CT",
+     "tz": "America/Chicago",
+     "abbr": "CST",
+     "where": "The western Panhandle, west of the Apalachicola River",
+     "counties": [
+      {
+       "fips": "12033",
+       "name": "Escambia"
+      },
+      {
+       "fips": "12113",
+       "name": "Santa Rosa"
+      },
+      {
+       "fips": "12091",
+       "name": "Okaloosa"
+      },
+      {
+       "fips": "12131",
+       "name": "Walton"
+      },
+      {
+       "fips": "12059",
+       "name": "Holmes"
+      },
+      {
+       "fips": "12133",
+       "name": "Washington"
+      },
+      {
+       "fips": "12005",
+       "name": "Bay"
+      },
+      {
+       "fips": "12063",
+       "name": "Jackson"
+      },
+      {
+       "fips": "12013",
+       "name": "Calhoun"
+      },
+      {
+       "fips": "12045",
+       "name": "Gulf",
+       "part": true
+      }
+     ],
+     "opens": "07:00",
+     "closes": "19:00",
+     "closes_utc": "2026-11-04T01:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T00:00:00Z",
+   "last_close_utc": "2026-11-04T01:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Florida Statutes 100.011",
+    "url": "http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0100-0199/0100/Sections/0100.011.html",
+    "kind": "statute",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://dos.fl.gov/elections/for-voters/voting/election-day-voting/",
+    "title": "Florida Division of Elections: Election Day Voting",
+    "checked": "2026-10-10",
+    "read": "answered a script",
+    "note": "Florida's polling places are found through each county's Supervisor of Elections; this page links to them."
+   },
+   "zone_source": {
+    "title": "49 CFR Part 71, Standard time zone boundaries (Code of Federal Regulations, 2024 annual edition)",
+    "url": "https://www.govinfo.gov/content/pkg/CFR-2024-title49-vol1/xml/CFR-2024-title49-vol1-part71.xml",
+    "kind": "federal regulation",
+    "checked": "2026-10-10",
+    "read": "read by script",
+    "note": "The regulation describes the boundary as a line; the counties on each side are listed from it. A county marked part is split by the line."
+   }
+  },
+  "GA": {
+   "name": "Georgia",
+   "rule": "Polls are open 7 a.m. to 7 p.m.",
+   "zones": [
+    {
+     "zone": "ET",
+     "tz": "America/New_York",
+     "abbr": "EST",
+     "where": "statewide",
+     "opens": "07:00",
+     "closes": "19:00",
+     "closes_utc": "2026-11-04T00:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T00:00:00Z",
+   "last_close_utc": "2026-11-04T00:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Georgia.gov, Election Day - General Election, November 3, 2026",
+    "url": "https://georgia.gov/node/34116",
+    "kind": "election office",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://mvp.sos.ga.gov/s/",
+    "title": "Georgia My Voter Page",
+    "checked": "2026-10-10",
+    "read": "named on Georgia.gov's election-day page; it refused a script (403) on 2026-10-10, so it was not asked again"
+   }
+  },
+  "HI": {
+   "name": "Hawaii",
+   "rule": "Voter service centers are open 7 a.m. to 7 p.m.",
+   "zones": [
+    {
+     "zone": "HT",
+     "tz": "Pacific/Honolulu",
+     "abbr": "HST",
+     "where": "statewide",
+     "opens": "07:00",
+     "closes": "19:00",
+     "closes_utc": "2026-11-04T05:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T05:00:00Z",
+   "last_close_utc": "2026-11-04T05:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Hawaii Office of Elections, Voter Service Centers and Ballot Drop Boxes (November 3, 2026)",
+    "url": "https://elections.hawaii.gov/voter-service-centers-and-places-of-deposit/",
+    "kind": "election office",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://elections.hawaii.gov/voter-service-centers-and-places-of-deposit/",
+    "title": "Hawaii Office of Elections: Voter Service Centers",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   }
+  },
+  "IA": {
+   "name": "Iowa",
+   "rule": "Polls are open 7 a.m. to 8 p.m.",
+   "zones": [
+    {
+     "zone": "CT",
+     "tz": "America/Chicago",
+     "abbr": "CST",
+     "where": "statewide",
+     "opens": "07:00",
+     "closes": "20:00",
+     "closes_utc": "2026-11-04T02:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T02:00:00Z",
+   "last_close_utc": "2026-11-04T02:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Iowa Code 49.73",
+    "url": "https://www.legis.iowa.gov/docs/code/49.73.pdf",
+    "kind": "statute",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://sos.iowa.gov/elections/voterreg/pollingplace/search.aspx",
+    "title": "Iowa Secretary of State: Find your polling place",
+    "checked": "2026-10-10",
+    "read": "the Secretary of State's lookup refused a script (403) on 2026-10-10, so it was not asked again; the address is the one NASS's Can I Vote list gives"
+   }
+  },
+  "ID": {
+   "name": "Idaho",
+   "rule": "Polls are open 8 a.m. (7 a.m. in some counties) to 8 p.m. local time.",
+   "zones": [
+    {
+     "zone": "MT",
+     "tz": "America/Denver",
+     "abbr": "MST",
+     "where": "rest of the state",
+     "opens": "08:00",
+     "closes": "20:00",
+     "closes_utc": "2026-11-04T03:00:00Z"
+    },
+    {
+     "zone": "PT",
+     "tz": "America/Los_Angeles",
+     "abbr": "PST",
+     "where": "Northern Idaho, north of the Salmon River",
+     "counties": [
+      {
+       "fips": "16021",
+       "name": "Boundary"
+      },
+      {
+       "fips": "16017",
+       "name": "Bonner"
+      },
+      {
+       "fips": "16055",
+       "name": "Kootenai"
+      },
+      {
+       "fips": "16009",
+       "name": "Benewah"
+      },
+      {
+       "fips": "16079",
+       "name": "Shoshone"
+      },
+      {
+       "fips": "16057",
+       "name": "Latah"
+      },
+      {
+       "fips": "16035",
+       "name": "Clearwater"
+      },
+      {
+       "fips": "16069",
+       "name": "Nez Perce"
+      },
+      {
+       "fips": "16061",
+       "name": "Lewis"
+      },
+      {
+       "fips": "16049",
+       "name": "Idaho",
+       "part": true
+      }
+     ],
+     "opens": "08:00",
+     "closes": "20:00",
+     "closes_utc": "2026-11-04T04:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T03:00:00Z",
+   "last_close_utc": "2026-11-04T04:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Idaho Code 34-1101",
+    "url": "https://legislature.idaho.gov/statutesrules/idstat/title34/t34ch11/sect34-1101/",
+    "kind": "statute",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://votertools.voteidaho.gov/TEDElectionLink/VoterServices/voter/where-do-I-vote",
+    "title": "VoteIdaho: Where do I vote",
+    "checked": "2026-10-10",
+    "read": "named on voteidaho.gov; not requested itself"
+   },
+   "zone_source": {
+    "title": "49 CFR Part 71, Standard time zone boundaries (Code of Federal Regulations, 2024 annual edition)",
+    "url": "https://www.govinfo.gov/content/pkg/CFR-2024-title49-vol1/xml/CFR-2024-title49-vol1-part71.xml",
+    "kind": "federal regulation",
+    "checked": "2026-10-10",
+    "read": "read by script",
+    "note": "The regulation describes the boundary as a line; the counties on each side are listed from it. A county marked part is split by the line."
+   }
+  },
+  "IL": {
+   "name": "Illinois",
+   "rule": "Polls are open 6 a.m. to 7 p.m.",
+   "zones": [
+    {
+     "zone": "CT",
+     "tz": "America/Chicago",
+     "abbr": "CST",
+     "where": "statewide",
+     "opens": "06:00",
+     "closes": "19:00",
+     "closes_utc": "2026-11-04T01:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T01:00:00Z",
+   "last_close_utc": "2026-11-04T01:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Illinois Compiled Statutes, 10 ILCS 5/17-1",
+    "url": "https://www.ilga.gov/Documents/legislation/ilcs/documents/001000050K17-1.htm",
+    "kind": "statute",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://ova.elections.il.gov/PollingPlaceLookup.aspx",
+    "title": "Illinois State Board of Elections: Polling Place Lookup",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   }
+  },
+  "IN": {
+   "name": "Indiana",
+   "rule": "Polls are open 6 a.m. to 6 p.m. local time.",
+   "zones": [
+    {
+     "zone": "ET",
+     "tz": "America/New_York",
+     "abbr": "EST",
+     "where": "rest of the state",
+     "opens": "06:00",
+     "closes": "18:00",
+     "closes_utc": "2026-11-03T23:00:00Z"
+    },
+    {
+     "zone": "CT",
+     "tz": "America/Chicago",
+     "abbr": "CST",
+     "where": "Twelve counties in the northwest and the southwest corners",
+     "counties": [
+      {
+       "fips": "18089",
+       "name": "Lake"
+      },
+      {
+       "fips": "18127",
+       "name": "Porter"
+      },
+      {
+       "fips": "18091",
+       "name": "LaPorte"
+      },
+      {
+       "fips": "18111",
+       "name": "Newton"
+      },
+      {
+       "fips": "18073",
+       "name": "Jasper"
+      },
+      {
+       "fips": "18149",
+       "name": "Starke"
+      },
+      {
+       "fips": "18051",
+       "name": "Gibson"
+      },
+      {
+       "fips": "18129",
+       "name": "Posey"
+      },
+      {
+       "fips": "18163",
+       "name": "Vanderburgh"
+      },
+      {
+       "fips": "18173",
+       "name": "Warrick"
+      },
+      {
+       "fips": "18147",
+       "name": "Spencer"
+      },
+      {
+       "fips": "18123",
+       "name": "Perry"
+      }
+     ],
+     "opens": "06:00",
+     "closes": "18:00",
+     "closes_utc": "2026-11-04T00:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-03T23:00:00Z",
+   "last_close_utc": "2026-11-04T00:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Indiana Election Division, 2026 Election Calendar brochure",
+    "url": "https://www.in.gov/sos/elections/files/2026-Calendar-Brochure.FINAL-VERSION.pdf",
+    "kind": "election office",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://indianavoters.in.gov/",
+    "title": "Indiana Voters",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   },
+   "zone_source": {
+    "title": "49 CFR Part 71, Standard time zone boundaries (Code of Federal Regulations, 2024 annual edition)",
+    "url": "https://www.govinfo.gov/content/pkg/CFR-2024-title49-vol1/xml/CFR-2024-title49-vol1-part71.xml",
+    "kind": "federal regulation",
+    "checked": "2026-10-10",
+    "read": "read by script",
+    "note": "The regulation describes the boundary as a line; the counties on each side are listed from it. A county marked part is split by the line."
+   }
+  },
+  "KS": {
+   "name": "Kansas",
+   "rule": "Polls are open 7 a.m. to 7 p.m. Central time and 6 a.m. to 6 p.m. Mountain time, the same moment. A county may set other hours, closing no more than an hour later.",
+   "zones": [
+    {
+     "zone": "CT",
+     "tz": "America/Chicago",
+     "abbr": "CST",
+     "where": "rest of the state",
+     "opens": "07:00",
+     "closes": "19:00",
+     "closes_utc": "2026-11-04T01:00:00Z",
+     "latest": "20:00",
+     "latest_utc": "2026-11-04T02:00:00Z"
+    },
+    {
+     "zone": "MT",
+     "tz": "America/Denver",
+     "abbr": "MST",
+     "where": "Four counties on the Colorado line",
+     "counties": [
+      {
+       "fips": "20181",
+       "name": "Sherman"
+      },
+      {
+       "fips": "20199",
+       "name": "Wallace"
+      },
+      {
+       "fips": "20071",
+       "name": "Greeley"
+      },
+      {
+       "fips": "20075",
+       "name": "Hamilton"
+      }
+     ],
+     "opens": "06:00",
+     "closes": "18:00",
+     "closes_utc": "2026-11-04T01:00:00Z",
+     "latest": "19:00",
+     "latest_utc": "2026-11-04T02:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T01:00:00Z",
+   "last_close_utc": "2026-11-04T02:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Kansas Statutes 25-106",
+    "url": "https://www.ksrevisor.org/statutes/chapters/ch25/025_001_0006.html",
+    "kind": "statute",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://myvoteinfo.voteks.org/voterview",
+    "title": "Kansas Secretary of State: VoterView",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   },
+   "zone_source": {
+    "title": "49 CFR Part 71, Standard time zone boundaries (Code of Federal Regulations, 2024 annual edition)",
+    "url": "https://www.govinfo.gov/content/pkg/CFR-2024-title49-vol1/xml/CFR-2024-title49-vol1-part71.xml",
+    "kind": "federal regulation",
+    "checked": "2026-10-10",
+    "read": "read by script",
+    "note": "The regulation describes the boundary as a line; the counties on each side are listed from it. A county marked part is split by the line."
+   }
+  },
+  "KY": {
+   "name": "Kentucky",
+   "rule": "Polls are open 6 a.m. to 6 p.m. local time.",
+   "zones": [
+    {
+     "zone": "ET",
+     "tz": "America/New_York",
+     "abbr": "EST",
+     "where": "rest of the state",
+     "opens": "06:00",
+     "closes": "18:00",
+     "closes_utc": "2026-11-03T23:00:00Z"
+    },
+    {
+     "zone": "CT",
+     "tz": "America/Chicago",
+     "abbr": "CST",
+     "where": "Western Kentucky",
+     "counties": [
+      {
+       "fips": "21001",
+       "name": "Adair"
+      },
+      {
+       "fips": "21003",
+       "name": "Allen"
+      },
+      {
+       "fips": "21007",
+       "name": "Ballard"
+      },
+      {
+       "fips": "21009",
+       "name": "Barren"
+      },
+      {
+       "fips": "21027",
+       "name": "Breckinridge"
+      },
+      {
+       "fips": "21031",
+       "name": "Butler"
+      },
+      {
+       "fips": "21033",
+       "name": "Caldwell"
+      },
+      {
+       "fips": "21035",
+       "name": "Calloway"
+      },
+      {
+       "fips": "21039",
+       "name": "Carlisle"
+      },
+      {
+       "fips": "21047",
+       "name": "Christian"
+      },
+      {
+       "fips": "21053",
+       "name": "Clinton"
+      },
+      {
+       "fips": "21055",
+       "name": "Crittenden"
+      },
+      {
+       "fips": "21057",
+       "name": "Cumberland"
+      },
+      {
+       "fips": "21059",
+       "name": "Daviess"
+      },
+      {
+       "fips": "21061",
+       "name": "Edmonson"
+      },
+      {
+       "fips": "21075",
+       "name": "Fulton"
+      },
+      {
+       "fips": "21083",
+       "name": "Graves"
+      },
+      {
+       "fips": "21085",
+       "name": "Grayson"
+      },
+      {
+       "fips": "21087",
+       "name": "Green"
+      },
+      {
+       "fips": "21091",
+       "name": "Hancock"
+      },
+      {
+       "fips": "21099",
+       "name": "Hart"
+      },
+      {
+       "fips": "21101",
+       "name": "Henderson"
+      },
+      {
+       "fips": "21105",
+       "name": "Hickman"
+      },
+      {
+       "fips": "21107",
+       "name": "Hopkins"
+      },
+      {
+       "fips": "21139",
+       "name": "Livingston"
+      },
+      {
+       "fips": "21141",
+       "name": "Logan"
+      },
+      {
+       "fips": "21143",
+       "name": "Lyon"
+      },
+      {
+       "fips": "21145",
+       "name": "McCracken"
+      },
+      {
+       "fips": "21149",
+       "name": "McLean"
+      },
+      {
+       "fips": "21157",
+       "name": "Marshall"
+      },
+      {
+       "fips": "21169",
+       "name": "Metcalfe"
+      },
+      {
+       "fips": "21171",
+       "name": "Monroe"
+      },
+      {
+       "fips": "21177",
+       "name": "Muhlenberg"
+      },
+      {
+       "fips": "21183",
+       "name": "Ohio"
+      },
+      {
+       "fips": "21207",
+       "name": "Russell"
+      },
+      {
+       "fips": "21213",
+       "name": "Simpson"
+      },
+      {
+       "fips": "21219",
+       "name": "Todd"
+      },
+      {
+       "fips": "21221",
+       "name": "Trigg"
+      },
+      {
+       "fips": "21225",
+       "name": "Union"
+      },
+      {
+       "fips": "21227",
+       "name": "Warren"
+      },
+      {
+       "fips": "21233",
+       "name": "Webster"
+      }
+     ],
+     "opens": "06:00",
+     "closes": "18:00",
+     "closes_utc": "2026-11-04T00:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-03T23:00:00Z",
+   "last_close_utc": "2026-11-04T00:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Kentucky State Board of Elections, Election Day Information",
+    "url": "https://elect.ky.gov/Frequently-Asked-Questions/Pages/Election-Day-Information.aspx",
+    "kind": "election office",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://elect.ky.gov/Voters/Pages/Polling-Locations.aspx",
+    "title": "Kentucky State Board of Elections: Polling Locations",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   },
+   "zone_source": {
+    "title": "49 CFR Part 71, Standard time zone boundaries (Code of Federal Regulations, 2024 annual edition)",
+    "url": "https://www.govinfo.gov/content/pkg/CFR-2024-title49-vol1/xml/CFR-2024-title49-vol1-part71.xml",
+    "kind": "federal regulation",
+    "checked": "2026-10-10",
+    "read": "read by script",
+    "note": "The regulation describes the boundary as a line; the counties on each side are listed from it. A county marked part is split by the line."
+   }
+  },
+  "LA": {
+   "name": "Louisiana",
+   "rule": "Polls are open 6 a.m. to 8 p.m. (a Tuesday election).",
+   "zones": [
+    {
+     "zone": "CT",
+     "tz": "America/Chicago",
+     "abbr": "CST",
+     "where": "statewide",
+     "opens": "06:00",
+     "closes": "20:00",
+     "closes_utc": "2026-11-04T02:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T02:00:00Z",
+   "last_close_utc": "2026-11-04T02:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Louisiana Secretary of State, Election Dates (November 3, 2026)",
+    "url": "https://www.sos.la.gov/elections-voting/election-dates",
+    "kind": "election office",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://voterportal.sos.la.gov/",
+    "title": "Louisiana Voter Portal",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   }
+  },
+  "MA": {
+   "name": "Massachusetts",
+   "rule": "Polls are open by 7 a.m. and close at 8 p.m.",
+   "zones": [
+    {
+     "zone": "ET",
+     "tz": "America/New_York",
+     "abbr": "EST",
+     "where": "statewide",
+     "opens": "07:00",
+     "closes": "20:00",
+     "closes_utc": "2026-11-04T01:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T01:00:00Z",
+   "last_close_utc": "2026-11-04T01:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Massachusetts General Laws, chapter 54, section 64",
+    "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleVIII/Chapter54/Section64",
+    "kind": "statute",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://www.sec.state.ma.us/WhereDoIVoteMA/WhereDoIVote",
+    "title": "Massachusetts: Where Do I Vote?",
+    "checked": "2026-10-10",
+    "read": "not requested: this site refuses scripts or is on the never list; the address is the one the state's own pages and NASS's Can I Vote list give"
+   }
+  },
+  "MD": {
+   "name": "Maryland",
+   "rule": "Polls are open 7 a.m. to 8 p.m.",
+   "zones": [
+    {
+     "zone": "ET",
+     "tz": "America/New_York",
+     "abbr": "EST",
+     "where": "statewide",
+     "opens": "07:00",
+     "closes": "20:00",
+     "closes_utc": "2026-11-04T01:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T01:00:00Z",
+   "last_close_utc": "2026-11-04T01:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Maryland State Board of Elections, Maryland General Election Information",
+    "url": "https://elections.maryland.gov/elections/2026/vote2026/",
+    "kind": "election office",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://voterservices.elections.maryland.gov/PollingPlaceSearch",
+    "title": "Maryland State Board of Elections: Polling Place Search",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   }
+  },
+  "ME": {
+   "name": "Maine",
+   "rule": "Polls close at 8 p.m. Each town sets its opening time, between 6 and 10 a.m.",
+   "zones": [
+    {
+     "zone": "ET",
+     "tz": "America/New_York",
+     "abbr": "EST",
+     "where": "statewide",
+     "opens": null,
+     "closes": "20:00",
+     "closes_utc": "2026-11-04T01:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T01:00:00Z",
+   "last_close_utc": "2026-11-04T01:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Maine Revised Statutes, Title 21-A, section 626",
+    "url": "https://legislature.maine.gov/statutes/21-A/title21-Asec626.html",
+    "kind": "statute",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://www.maine.gov/portal/government/edemocracy/voter_lookup.php",
+    "title": "Maine: Voter Information Lookup",
+    "checked": "2026-10-10",
+    "read": "named on the Secretary of State's voting page; not requested itself"
+   }
+  },
+  "MI": {
+   "name": "Michigan",
+   "rule": "Polls are open 7 a.m. to 8 p.m. local time.",
+   "zones": [
+    {
+     "zone": "ET",
+     "tz": "America/New_York",
+     "abbr": "EST",
+     "where": "rest of the state",
+     "opens": "07:00",
+     "closes": "20:00",
+     "closes_utc": "2026-11-04T01:00:00Z"
+    },
+    {
+     "zone": "CT",
+     "tz": "America/Chicago",
+     "abbr": "CST",
+     "where": "Four counties of the Upper Peninsula on the Wisconsin line",
+     "counties": [
+      {
+       "fips": "26053",
+       "name": "Gogebic"
+      },
+      {
+       "fips": "26071",
+       "name": "Iron"
+      },
+      {
+       "fips": "26043",
+       "name": "Dickinson"
+      },
+      {
+       "fips": "26109",
+       "name": "Menominee"
+      }
+     ],
+     "opens": "07:00",
+     "closes": "20:00",
+     "closes_utc": "2026-11-04T02:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T01:00:00Z",
+   "last_close_utc": "2026-11-04T02:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Michigan Compiled Laws 168.720",
+    "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-168-720",
+    "kind": "statute",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://mvic.sos.state.mi.us/Voter/index",
+    "title": "Michigan Voter Information Center",
+    "checked": "2026-10-10",
+    "read": "not requested: this site refuses scripts or is on the never list; the address is the one the state's own pages and NASS's Can I Vote list give"
+   },
+   "zone_source": {
+    "title": "49 CFR Part 71, Standard time zone boundaries (Code of Federal Regulations, 2024 annual edition)",
+    "url": "https://www.govinfo.gov/content/pkg/CFR-2024-title49-vol1/xml/CFR-2024-title49-vol1-part71.xml",
+    "kind": "federal regulation",
+    "checked": "2026-10-10",
+    "read": "read by script",
+    "note": "The regulation describes the boundary as a line; the counties on each side are listed from it. A county marked part is split by the line."
+   }
+  },
+  "MN": {
+   "name": "Minnesota",
+   "rule": "Polls are open 7 a.m. to 8 p.m. (some small towns open later).",
+   "zones": [
+    {
+     "zone": "CT",
+     "tz": "America/Chicago",
+     "abbr": "CST",
+     "where": "statewide",
+     "opens": "07:00",
+     "closes": "20:00",
+     "closes_utc": "2026-11-04T02:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T02:00:00Z",
+   "last_close_utc": "2026-11-04T02:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Minnesota Statutes 204C.05",
+    "url": "https://www.revisor.mn.gov/statutes/cite/204C.05",
+    "kind": "statute",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://pollfinder.sos.mn.gov/",
+    "title": "Minnesota Secretary of State: Polling Place Finder",
+    "checked": "2026-10-10",
+    "read": "never requested by any program of this site (the Secretary of State's hosts are on its never list); readers follow the link themselves"
+   }
+  },
+  "MO": {
+   "name": "Missouri",
+   "rule": "Polls are open 6 a.m. to 7 p.m.",
+   "zones": [
+    {
+     "zone": "CT",
+     "tz": "America/Chicago",
+     "abbr": "CST",
+     "where": "statewide",
+     "opens": "06:00",
+     "closes": "19:00",
+     "closes_utc": "2026-11-04T01:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T01:00:00Z",
+   "last_close_utc": "2026-11-04T01:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Revised Statutes of Missouri 115.407",
+    "url": "https://revisor.mo.gov/main/OneSection.aspx?section=115.407",
+    "kind": "statute",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://voteroutreach.sos.mo.gov/portal/",
+    "title": "Missouri Secretary of State: Voter Outreach Portal",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   }
+  },
+  "MS": {
+   "name": "Mississippi",
+   "rule": "Polls are open 7 a.m. to 7 p.m.",
+   "zones": [
+    {
+     "zone": "CT",
+     "tz": "America/Chicago",
+     "abbr": "CST",
+     "where": "statewide",
+     "opens": "07:00",
+     "closes": "19:00",
+     "closes_utc": "2026-11-04T01:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T01:00:00Z",
+   "last_close_utc": "2026-11-04T01:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Mississippi Secretary of State, November 8 Election Day Reminders (2022)",
+    "url": "https://www.sos.ms.gov/node/1308",
+    "kind": "election office",
+    "checked": "2026-10-10",
+    "read": "read by script",
+    "note": "The Secretary's newest general-election reminder found; the hours are set by Miss. Code 23-15-541."
+   },
+   "lookup": {
+    "url": "https://www.sos.ms.gov/elections-voting/polling-place-locator",
+    "title": "Mississippi Secretary of State: Polling Place Locator",
+    "checked": "2026-10-10",
+    "read": "named on the Secretary's election-day reminders"
+   }
+  },
+  "MT": {
+   "name": "Montana",
+   "rule": "Polls are open 7 a.m. to 8 p.m. (small polling places from noon).",
+   "zones": [
+    {
+     "zone": "MT",
+     "tz": "America/Denver",
+     "abbr": "MST",
+     "where": "statewide",
+     "opens": "07:00",
+     "closes": "20:00",
+     "closes_utc": "2026-11-04T03:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T03:00:00Z",
+   "last_close_utc": "2026-11-04T03:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Montana Code Annotated 13-1-106",
+    "url": "https://leg.mt.gov/bills/mca/title_0130/chapter_0010/part_0010/section_0060/0130-0010-0010-0060.html",
+    "kind": "statute",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://prodvoterportal.mt.gov/WhereToVote.aspx",
+    "title": "Montana Voter Portal: Where to vote",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   }
+  },
+  "NC": {
+   "name": "North Carolina",
+   "rule": "Polls are open 6:30 a.m. to 7:30 p.m.",
+   "zones": [
+    {
+     "zone": "ET",
+     "tz": "America/New_York",
+     "abbr": "EST",
+     "where": "statewide",
+     "opens": "06:30",
+     "closes": "19:30",
+     "closes_utc": "2026-11-04T00:30:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T00:30:00Z",
+   "last_close_utc": "2026-11-04T00:30:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "North Carolina General Statutes 163-166.25",
+    "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_163/GS_163-166.25.html",
+    "kind": "statute",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://vt.ncsbe.gov/PPLkup/",
+    "title": "North Carolina State Board of Elections: Polling Place Search",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   }
+  },
+  "ND": {
+   "name": "North Dakota",
+   "rule": "Polls open between 7 and 9 a.m. and close between 7 and 9 p.m. local time; each county or city sets the hours.",
+   "zones": [
+    {
+     "zone": "CT",
+     "tz": "America/Chicago",
+     "abbr": "CST",
+     "where": "rest of the state",
+     "opens": "07:00",
+     "closes": "19:00",
+     "closes_utc": "2026-11-04T01:00:00Z",
+     "latest": "21:00",
+     "latest_utc": "2026-11-04T03:00:00Z"
+    },
+    {
+     "zone": "MT",
+     "tz": "America/Denver",
+     "abbr": "MST",
+     "where": "The southwest",
+     "counties": [
+      {
+       "fips": "38001",
+       "name": "Adams"
+      },
+      {
+       "fips": "38007",
+       "name": "Billings"
+      },
+      {
+       "fips": "38011",
+       "name": "Bowman"
+      },
+      {
+       "fips": "38033",
+       "name": "Golden Valley"
+      },
+      {
+       "fips": "38037",
+       "name": "Grant"
+      },
+      {
+       "fips": "38041",
+       "name": "Hettinger"
+      },
+      {
+       "fips": "38087",
+       "name": "Slope"
+      },
+      {
+       "fips": "38089",
+       "name": "Stark"
+      },
+      {
+       "fips": "38025",
+       "name": "Dunn",
+       "part": true
+      },
+      {
+       "fips": "38053",
+       "name": "McKenzie",
+       "part": true
+      },
+      {
+       "fips": "38085",
+       "name": "Sioux",
+       "part": true
+      }
+     ],
+     "opens": "07:00",
+     "closes": "19:00",
+     "closes_utc": "2026-11-04T02:00:00Z",
+     "latest": "21:00",
+     "latest_utc": "2026-11-04T04:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T01:00:00Z",
+   "last_close_utc": "2026-11-04T04:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "North Dakota Century Code 16.1-01-03",
+    "url": "https://ndlegis.gov/cencode/t16-1c01.pdf",
+    "kind": "statute",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://vip.sos.nd.gov/wheretovote.aspx",
+    "title": "North Dakota Secretary of State: Where to vote",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   },
+   "zone_source": {
+    "title": "49 CFR Part 71, Standard time zone boundaries (Code of Federal Regulations, 2024 annual edition)",
+    "url": "https://www.govinfo.gov/content/pkg/CFR-2024-title49-vol1/xml/CFR-2024-title49-vol1-part71.xml",
+    "kind": "federal regulation",
+    "checked": "2026-10-10",
+    "read": "read by script",
+    "note": "The regulation describes the boundary as a line; the counties on each side are listed from it. A county marked part is split by the line."
+   }
+  },
+  "NE": {
+   "name": "Nebraska",
+   "rule": "Polls are open 8 a.m. to 8 p.m. Central time, and 7 a.m. to 7 p.m. Mountain time, so all close at the same moment.",
+   "zones": [
+    {
+     "zone": "CT",
+     "tz": "America/Chicago",
+     "abbr": "CST",
+     "where": "rest of the state",
+     "opens": "08:00",
+     "closes": "20:00",
+     "closes_utc": "2026-11-04T02:00:00Z"
+    },
+    {
+     "zone": "MT",
+     "tz": "America/Denver",
+     "abbr": "MST",
+     "where": "The Panhandle and the southwest",
+     "counties": [
+      {
+       "fips": "31165",
+       "name": "Sioux"
+      },
+      {
+       "fips": "31045",
+       "name": "Dawes"
+      },
+      {
+       "fips": "31161",
+       "name": "Sheridan"
+      },
+      {
+       "fips": "31013",
+       "name": "Box Butte"
+      },
+      {
+       "fips": "31157",
+       "name": "Scotts Bluff"
+      },
+      {
+       "fips": "31007",
+       "name": "Banner"
+      },
+      {
+       "fips": "31105",
+       "name": "Kimball"
+      },
+      {
+       "fips": "31123",
+       "name": "Morrill"
+      },
+      {
+       "fips": "31033",
+       "name": "Cheyenne"
+      },
+      {
+       "fips": "31069",
+       "name": "Garden"
+      },
+      {
+       "fips": "31049",
+       "name": "Deuel"
+      },
+      {
+       "fips": "31075",
+       "name": "Grant"
+      },
+      {
+       "fips": "31005",
+       "name": "Arthur"
+      },
+      {
+       "fips": "31091",
+       "name": "Hooker"
+      },
+      {
+       "fips": "31101",
+       "name": "Keith"
+      },
+      {
+       "fips": "31135",
+       "name": "Perkins"
+      },
+      {
+       "fips": "31029",
+       "name": "Chase"
+      },
+      {
+       "fips": "31057",
+       "name": "Dundy"
+      },
+      {
+       "fips": "31031",
+       "name": "Cherry",
+       "part": true
+      }
+     ],
+     "opens": "07:00",
+     "closes": "19:00",
+     "closes_utc": "2026-11-04T02:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T02:00:00Z",
+   "last_close_utc": "2026-11-04T02:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Nebraska Revised Statutes 32-908",
+    "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=32-908",
+    "kind": "statute",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://www.votercheck.necvr.ne.gov/voterview",
+    "title": "Nebraska Voter Information Lookup",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   },
+   "zone_source": {
+    "title": "49 CFR Part 71, Standard time zone boundaries (Code of Federal Regulations, 2024 annual edition)",
+    "url": "https://www.govinfo.gov/content/pkg/CFR-2024-title49-vol1/xml/CFR-2024-title49-vol1-part71.xml",
+    "kind": "federal regulation",
+    "checked": "2026-10-10",
+    "read": "read by script",
+    "note": "The regulation describes the boundary as a line; the counties on each side are listed from it. A county marked part is split by the line."
+   }
+  },
+  "NH": {
+   "name": "New Hampshire",
+   "rule": "Polls close no earlier than 7 p.m.; some towns stay open to 8 p.m. Each town sets its opening time.",
+   "zones": [
+    {
+     "zone": "ET",
+     "tz": "America/New_York",
+     "abbr": "EST",
+     "where": "statewide",
+     "opens": null,
+     "closes": "19:00",
+     "closes_utc": "2026-11-04T00:00:00Z",
+     "latest": "20:00",
+     "latest_utc": "2026-11-04T01:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T00:00:00Z",
+   "last_close_utc": "2026-11-04T01:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "New Hampshire RSA 659:4",
+    "url": "https://gc.nh.gov/rsa/html/LXIII/659/659-4.htm",
+    "kind": "statute",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://app.sos.nh.gov/viphome",
+    "title": "New Hampshire Secretary of State: Voter Information Lookup",
+    "checked": "2026-10-10",
+    "read": "not requested: this site refuses scripts or is on the never list; the address is the one the state's own pages and NASS's Can I Vote list give"
+   }
+  },
+  "NJ": {
+   "name": "New Jersey",
+   "rule": "Polls are open 6 a.m. to 8 p.m.",
+   "zones": [
+    {
+     "zone": "ET",
+     "tz": "America/New_York",
+     "abbr": "EST",
+     "where": "statewide",
+     "opens": "06:00",
+     "closes": "20:00",
+     "closes_utc": "2026-11-04T01:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T01:00:00Z",
+   "last_close_utc": "2026-11-04T01:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "New Jersey Division of Elections, NJ Voter Information",
+    "url": "https://www.nj.gov/state/elections/vote.shtml",
+    "kind": "election office",
+    "checked": "2026-10-10",
+    "read": "read by script",
+    "note": "The Division's page gives 6 a.m. to 8 p.m. for each 2026 election (N.J.S.A. 19:15-2)."
+   },
+   "lookup": {
+    "url": "https://www.nj.gov/state/elections/vote-polling-location.shtml",
+    "title": "New Jersey Division of Elections: Polling Place Locations",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   }
+  },
+  "NM": {
+   "name": "New Mexico",
+   "rule": "Polling locations are open 7 a.m. to 7 p.m. Mail ballots must arrive by 7 p.m.",
+   "zones": [
+    {
+     "zone": "MT",
+     "tz": "America/Denver",
+     "abbr": "MST",
+     "where": "statewide",
+     "opens": "07:00",
+     "closes": "19:00",
+     "closes_utc": "2026-11-04T02:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T02:00:00Z",
+   "last_close_utc": "2026-11-04T02:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "New Mexico Secretary of State, Important Dates: General Election November 3, 2026",
+    "url": "https://www.sos.nm.gov/wp-content/uploads/2026/06/2026-Important-General-Election-Dates.pdf",
+    "kind": "election office",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://voterportal.servis.sos.state.nm.us/WhereToVoteAddress.aspx",
+    "title": "New Mexico Voter Information Portal: Where to vote",
+    "checked": "2026-10-10",
+    "read": "named on nmvote.org; not requested itself"
+   }
+  },
+  "NV": {
+   "name": "Nevada",
+   "rule": "Polls are open 7 a.m. to 7 p.m.",
+   "zones": [
+    {
+     "zone": "PT",
+     "tz": "America/Los_Angeles",
+     "abbr": "PST",
+     "where": "rest of the state",
+     "opens": "07:00",
+     "closes": "19:00",
+     "closes_utc": "2026-11-04T03:00:00Z"
+    },
+    {
+     "zone": "MT",
+     "tz": "America/Denver",
+     "abbr": "MST",
+     "where": "The City of West Wendover, in Elko County",
+     "counties": [
+      {
+       "fips": "32007",
+       "name": "Elko",
+       "part": true
+      }
+     ],
+     "opens": "07:00",
+     "closes": "19:00",
+     "closes_utc": "2026-11-04T02:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T02:00:00Z",
+   "last_close_utc": "2026-11-04T03:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Nevada Revised Statutes 293.273",
+    "url": "https://www.leg.state.nv.us/NRS/NRS-293.html",
+    "kind": "statute",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://nvsos.gov/votersearch/",
+    "title": "Nevada Secretary of State: Voter Search",
+    "checked": "2026-10-10",
+    "read": "not requested: this site refuses scripts or is on the never list; the address is the one the state's own pages and NASS's Can I Vote list give"
+   },
+   "zone_source": {
+    "title": "49 CFR Part 71, Standard time zone boundaries (Code of Federal Regulations, 2024 annual edition)",
+    "url": "https://www.govinfo.gov/content/pkg/CFR-2024-title49-vol1/xml/CFR-2024-title49-vol1-part71.xml",
+    "kind": "federal regulation",
+    "checked": "2026-10-10",
+    "read": "read by script",
+    "note": "The regulation describes the boundary as a line; the counties on each side are listed from it. A county marked part is split by the line."
+   }
+  },
+  "NY": {
+   "name": "New York",
+   "rule": "Polls are open 6 a.m. to 9 p.m.",
+   "zones": [
+    {
+     "zone": "ET",
+     "tz": "America/New_York",
+     "abbr": "EST",
+     "where": "statewide",
+     "opens": "06:00",
+     "closes": "21:00",
+     "closes_utc": "2026-11-04T02:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T02:00:00Z",
+   "last_close_utc": "2026-11-04T02:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "New York City Board of Elections, Upcoming Elections 2026 (Election Law 8-100)",
+    "url": "https://www.vote.nyc/elections",
+    "kind": "election office",
+    "checked": "2026-10-10",
+    "read": "read by script",
+    "note": "The State Board's own site refused a script (403); the city board's page gives the statewide hours for November 3, 2026."
+   },
+   "lookup": {
+    "url": "https://voterlookup.elections.ny.gov/",
+    "title": "New York State Board of Elections: Voter Lookup",
+    "checked": "2026-10-10",
+    "read": "not requested: this site refuses scripts or is on the never list; the address is the one the state's own pages and NASS's Can I Vote list give"
+   }
+  },
+  "OH": {
+   "name": "Ohio",
+   "rule": "Polls are open 6:30 a.m. to 7:30 p.m.",
+   "zones": [
+    {
+     "zone": "ET",
+     "tz": "America/New_York",
+     "abbr": "EST",
+     "where": "statewide",
+     "opens": "06:30",
+     "closes": "19:30",
+     "closes_utc": "2026-11-04T00:30:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T00:30:00Z",
+   "last_close_utc": "2026-11-04T00:30:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Ohio Revised Code 3501.32",
+    "url": "https://codes.ohio.gov/ohio-revised-code/section-3501.32",
+    "kind": "statute",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://www.ohiosos.gov/directories/find-my-polling-location",
+    "title": "Ohio Secretary of State: Find my polling location",
+    "checked": "2026-10-10",
+    "read": "not requested: this site refuses scripts or is on the never list; the address is the one the state's own pages and NASS's Can I Vote list give"
+   }
+  },
+  "OK": {
+   "name": "Oklahoma",
+   "rule": "Polls are open 7 a.m. to 7 p.m.",
+   "zones": [
+    {
+     "zone": "CT",
+     "tz": "America/Chicago",
+     "abbr": "CST",
+     "where": "statewide",
+     "opens": "07:00",
+     "closes": "19:00",
+     "closes_utc": "2026-11-04T01:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T01:00:00Z",
+   "last_close_utc": "2026-11-04T01:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Oklahoma State Election Board, Next Election",
+    "url": "https://oklahoma.gov/elections/elections-results/next-election.html",
+    "kind": "election office",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://oklahoma.gov/elections/voters/ok-voter-portal.html",
+    "title": "Oklahoma State Election Board: OK Voter Portal",
+    "checked": "2026-10-10",
+    "read": "answered a script",
+    "note": "This page leads to the portal itself, which refused a script (403) on 2026-10-10."
+   }
+  },
+  "OR": {
+   "name": "Oregon",
+   "rule": "Oregon votes by mail. Drop boxes and elections offices take ballots until 8 p.m.",
+   "zones": [
+    {
+     "zone": "PT",
+     "tz": "America/Los_Angeles",
+     "abbr": "PST",
+     "where": "rest of the state",
+     "opens": null,
+     "closes": "20:00",
+     "closes_utc": "2026-11-04T04:00:00Z"
+    },
+    {
+     "zone": "MT",
+     "tz": "America/Denver",
+     "abbr": "MST",
+     "where": "Most of Malheur County",
+     "counties": [
+      {
+       "fips": "41045",
+       "name": "Malheur",
+       "part": true
+      }
+     ],
+     "opens": null,
+     "closes": "20:00",
+     "closes_utc": "2026-11-04T03:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T03:00:00Z",
+   "last_close_utc": "2026-11-04T04:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Oregon Revised Statutes 254.470",
+    "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors254.html",
+    "kind": "statute",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://sos.oregon.gov/voting/Pages/drop-box-locator.aspx",
+    "title": "Oregon Secretary of State: Drop Box Locator",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   },
+   "zone_source": {
+    "title": "49 CFR Part 71, Standard time zone boundaries (Code of Federal Regulations, 2024 annual edition)",
+    "url": "https://www.govinfo.gov/content/pkg/CFR-2024-title49-vol1/xml/CFR-2024-title49-vol1-part71.xml",
+    "kind": "federal regulation",
+    "checked": "2026-10-10",
+    "read": "read by script",
+    "note": "The regulation describes the boundary as a line; the counties on each side are listed from it. A county marked part is split by the line."
+   }
+  },
+  "PA": {
+   "name": "Pennsylvania",
+   "rule": "Polls are open 7 a.m. to 8 p.m.",
+   "zones": [
+    {
+     "zone": "ET",
+     "tz": "America/New_York",
+     "abbr": "EST",
+     "where": "statewide",
+     "opens": "07:00",
+     "closes": "20:00",
+     "closes_utc": "2026-11-04T01:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T01:00:00Z",
+   "last_close_utc": "2026-11-04T01:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Pennsylvania Department of State, Find your Local Polling Place",
+    "url": "https://www.pa.gov/services/vote/find-your-local-polling-place",
+    "kind": "election office",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://www.pa.gov/services/vote/find-your-local-polling-place",
+    "title": "Pennsylvania: Find your Local Polling Place",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   }
+  },
+  "RI": {
+   "name": "Rhode Island",
+   "rule": "Polls close at 8 p.m.",
+   "zones": [
+    {
+     "zone": "ET",
+     "tz": "America/New_York",
+     "abbr": "EST",
+     "where": "statewide",
+     "opens": null,
+     "closes": "20:00",
+     "closes_utc": "2026-11-04T01:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T01:00:00Z",
+   "last_close_utc": "2026-11-04T01:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Rhode Island General Laws 17-18-11",
+    "url": "https://webserver.rilegislature.gov/Statutes/TITLE17/17-18/17-18-11.htm",
+    "kind": "statute",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://vote.sos.ri.gov/Home/PollingPlaces?ActiveFlag=2",
+    "title": "Rhode Island Secretary of State: Polling places",
+    "checked": "2026-10-10",
+    "read": "not requested: this site refuses scripts or is on the never list; the address is the one the state's own pages and NASS's Can I Vote list give"
+   }
+  },
+  "SC": {
+   "name": "South Carolina",
+   "rule": "Polls are open 7 a.m. to 7 p.m.",
+   "zones": [
+    {
+     "zone": "ET",
+     "tz": "America/New_York",
+     "abbr": "EST",
+     "where": "statewide",
+     "opens": "07:00",
+     "closes": "19:00",
+     "closes_utc": "2026-11-04T00:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T00:00:00Z",
+   "last_close_utc": "2026-11-04T00:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "South Carolina Code 7-13-60",
+    "url": "https://www.scstatehouse.gov/code/t07c013.php",
+    "kind": "statute",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://vrems.scvotes.sc.gov/Voter/Login?PageMode=PollingPlace",
+    "title": "SC Votes: Find your polling place",
+    "checked": "2026-10-10",
+    "read": "named on scvotes.gov; not requested itself"
+   }
+  },
+  "SD": {
+   "name": "South Dakota",
+   "rule": "Polls are open 7 a.m. to 7 p.m. local time.",
+   "zones": [
+    {
+     "zone": "CT",
+     "tz": "America/Chicago",
+     "abbr": "CST",
+     "where": "rest of the state",
+     "opens": "07:00",
+     "closes": "19:00",
+     "closes_utc": "2026-11-04T01:00:00Z"
+    },
+    {
+     "zone": "MT",
+     "tz": "America/Denver",
+     "abbr": "MST",
+     "where": "West of the Missouri River, roughly",
+     "counties": [
+      {
+       "fips": "46007",
+       "name": "Bennett"
+      },
+      {
+       "fips": "46019",
+       "name": "Butte"
+      },
+      {
+       "fips": "46031",
+       "name": "Corson"
+      },
+      {
+       "fips": "46033",
+       "name": "Custer"
+      },
+      {
+       "fips": "46041",
+       "name": "Dewey"
+      },
+      {
+       "fips": "46047",
+       "name": "Fall River"
+      },
+      {
+       "fips": "46055",
+       "name": "Haakon"
+      },
+      {
+       "fips": "46063",
+       "name": "Harding"
+      },
+      {
+       "fips": "46071",
+       "name": "Jackson"
+      },
+      {
+       "fips": "46081",
+       "name": "Lawrence"
+      },
+      {
+       "fips": "46093",
+       "name": "Meade"
+      },
+      {
+       "fips": "46102",
+       "name": "Oglala Lakota"
+      },
+      {
+       "fips": "46103",
+       "name": "Pennington"
+      },
+      {
+       "fips": "46105",
+       "name": "Perkins"
+      },
+      {
+       "fips": "46137",
+       "name": "Ziebach"
+      },
+      {
+       "fips": "46117",
+       "name": "Stanley",
+       "part": true
+      }
+     ],
+     "opens": "07:00",
+     "closes": "19:00",
+     "closes_utc": "2026-11-04T02:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T01:00:00Z",
+   "last_close_utc": "2026-11-04T02:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "South Dakota Secretary of State, Voting",
+    "url": "https://sdsos.gov/elections-voting/voting/default.aspx",
+    "kind": "election office",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://vip.sdsos.gov/viplogin.aspx",
+    "title": "South Dakota Voter Information Portal",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   },
+   "zone_source": {
+    "title": "49 CFR Part 71, Standard time zone boundaries (Code of Federal Regulations, 2024 annual edition)",
+    "url": "https://www.govinfo.gov/content/pkg/CFR-2024-title49-vol1/xml/CFR-2024-title49-vol1-part71.xml",
+    "kind": "federal regulation",
+    "checked": "2026-10-10",
+    "read": "read by script",
+    "note": "The regulation describes the boundary as a line; the counties on each side are listed from it. A county marked part is split by the line."
+   }
+  },
+  "TN": {
+   "name": "Tennessee",
+   "rule": "Polls close at 7 p.m. Central time and 8 p.m. Eastern time, the same moment. Each county sets its opening time.",
+   "zones": [
+    {
+     "zone": "CT",
+     "tz": "America/Chicago",
+     "abbr": "CST",
+     "where": "rest of the state",
+     "opens": null,
+     "closes": "19:00",
+     "closes_utc": "2026-11-04T01:00:00Z"
+    },
+    {
+     "zone": "ET",
+     "tz": "America/New_York",
+     "abbr": "EST",
+     "where": "East Tennessee",
+     "counties": [
+      {
+       "fips": "47001",
+       "name": "Anderson"
+      },
+      {
+       "fips": "47009",
+       "name": "Blount"
+      },
+      {
+       "fips": "47011",
+       "name": "Bradley"
+      },
+      {
+       "fips": "47013",
+       "name": "Campbell"
+      },
+      {
+       "fips": "47019",
+       "name": "Carter"
+      },
+      {
+       "fips": "47025",
+       "name": "Claiborne"
+      },
+      {
+       "fips": "47029",
+       "name": "Cocke"
+      },
+      {
+       "fips": "47057",
+       "name": "Grainger"
+      },
+      {
+       "fips": "47059",
+       "name": "Greene"
+      },
+      {
+       "fips": "47063",
+       "name": "Hamblen"
+      },
+      {
+       "fips": "47065",
+       "name": "Hamilton"
+      },
+      {
+       "fips": "47067",
+       "name": "Hancock"
+      },
+      {
+       "fips": "47073",
+       "name": "Hawkins"
+      },
+      {
+       "fips": "47089",
+       "name": "Jefferson"
+      },
+      {
+       "fips": "47091",
+       "name": "Johnson"
+      },
+      {
+       "fips": "47093",
+       "name": "Knox"
+      },
+      {
+       "fips": "47105",
+       "name": "Loudon"
+      },
+      {
+       "fips": "47107",
+       "name": "McMinn"
+      },
+      {
+       "fips": "47121",
+       "name": "Meigs"
+      },
+      {
+       "fips": "47123",
+       "name": "Monroe"
+      },
+      {
+       "fips": "47129",
+       "name": "Morgan"
+      },
+      {
+       "fips": "47139",
+       "name": "Polk"
+      },
+      {
+       "fips": "47143",
+       "name": "Rhea"
+      },
+      {
+       "fips": "47145",
+       "name": "Roane"
+      },
+      {
+       "fips": "47151",
+       "name": "Scott"
+      },
+      {
+       "fips": "47155",
+       "name": "Sevier"
+      },
+      {
+       "fips": "47163",
+       "name": "Sullivan"
+      },
+      {
+       "fips": "47171",
+       "name": "Unicoi"
+      },
+      {
+       "fips": "47173",
+       "name": "Union"
+      },
+      {
+       "fips": "47179",
+       "name": "Washington"
+      }
+     ],
+     "opens": null,
+     "closes": "20:00",
+     "closes_utc": "2026-11-04T01:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T01:00:00Z",
+   "last_close_utc": "2026-11-04T01:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Tennessee Attorney General, Opinion 19-12, quoting Tenn. Code Ann. 2-3-201(a)",
+    "url": "https://www.tn.gov/content/dam/tn/attorneygeneral/documents/ops/2019/op19-12.pdf",
+    "kind": "state attorney general",
+    "checked": "2026-10-10",
+    "read": "read by script",
+    "note": "The Secretary of State's own site refuses scripts; this opinion, on tn.gov, quotes the statute."
+   },
+   "lookup": {
+    "url": "https://tnmap.tn.gov/voterlookup/",
+    "title": "Tennessee: Voter Lookup",
+    "checked": "2026-10-10",
+    "read": "named on the Davidson County Election Commission's page; not requested itself"
+   },
+   "zone_source": {
+    "title": "49 CFR Part 71, Standard time zone boundaries (Code of Federal Regulations, 2024 annual edition)",
+    "url": "https://www.govinfo.gov/content/pkg/CFR-2024-title49-vol1/xml/CFR-2024-title49-vol1-part71.xml",
+    "kind": "federal regulation",
+    "checked": "2026-10-10",
+    "read": "read by script",
+    "note": "The regulation describes the boundary as a line; the counties on each side are listed from it. A county marked part is split by the line."
+   }
+  },
+  "TX": {
+   "name": "Texas",
+   "rule": "Polls are open 7 a.m. to 7 p.m. local time.",
+   "zones": [
+    {
+     "zone": "CT",
+     "tz": "America/Chicago",
+     "abbr": "CST",
+     "where": "rest of the state",
+     "opens": "07:00",
+     "closes": "19:00",
+     "closes_utc": "2026-11-04T01:00:00Z"
+    },
+    {
+     "zone": "MT",
+     "tz": "America/Denver",
+     "abbr": "MST",
+     "where": "Far West Texas",
+     "counties": [
+      {
+       "fips": "48141",
+       "name": "El Paso"
+      },
+      {
+       "fips": "48229",
+       "name": "Hudspeth"
+      }
+     ],
+     "opens": "07:00",
+     "closes": "19:00",
+     "closes_utc": "2026-11-04T02:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T01:00:00Z",
+   "last_close_utc": "2026-11-04T02:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Texas Secretary of State, November 3, 2026 Election Law Calendar (Election Code 41.031)",
+    "url": "https://www.sos.texas.gov/elections/laws/advisory2026-21-november-3-election-law-calendar.shtml",
+    "kind": "election office",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://www.votetexas.gov/voting/where.html",
+    "title": "VoteTexas.gov: Find Your Polling Place",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   },
+   "zone_source": {
+    "title": "49 CFR Part 71, Standard time zone boundaries (Code of Federal Regulations, 2024 annual edition)",
+    "url": "https://www.govinfo.gov/content/pkg/CFR-2024-title49-vol1/xml/CFR-2024-title49-vol1-part71.xml",
+    "kind": "federal regulation",
+    "checked": "2026-10-10",
+    "read": "read by script",
+    "note": "The regulation describes the boundary as a line; the counties on each side are listed from it. A county marked part is split by the line."
+   }
+  },
+  "UT": {
+   "name": "Utah",
+   "rule": "Polls are open 7 a.m. to 8 p.m.",
+   "zones": [
+    {
+     "zone": "MT",
+     "tz": "America/Denver",
+     "abbr": "MST",
+     "where": "statewide",
+     "opens": "07:00",
+     "closes": "20:00",
+     "closes_utc": "2026-11-04T03:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T03:00:00Z",
+   "last_close_utc": "2026-11-04T03:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Utah Code 20A-1-302",
+    "url": "https://le.utah.gov/xcode/Title20A/Chapter1/C20A-1-P3_1800010118000101.pdf",
+    "kind": "statute",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://votesearch.utah.gov/voter-search/search/search-by-address/how-and-where-can-i-vote",
+    "title": "Utah: How and where can I vote",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   }
+  },
+  "VA": {
+   "name": "Virginia",
+   "rule": "Polls are open 6 a.m. to 7 p.m.",
+   "zones": [
+    {
+     "zone": "ET",
+     "tz": "America/New_York",
+     "abbr": "EST",
+     "where": "statewide",
+     "opens": "06:00",
+     "closes": "19:00",
+     "closes_utc": "2026-11-04T00:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T00:00:00Z",
+   "last_close_utc": "2026-11-04T00:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Code of Virginia 24.2-603",
+    "url": "https://law.lis.virginia.gov/vacode/title24.2/chapter6/section24.2-603/",
+    "kind": "statute",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://vote.elections.virginia.gov/VoterInformation",
+    "title": "Virginia Department of Elections: Citizen Portal",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   }
+  },
+  "VT": {
+   "name": "Vermont",
+   "rule": "Polls close at 7 p.m. Each town sets its opening time, between 5 and 10 a.m.",
+   "zones": [
+    {
+     "zone": "ET",
+     "tz": "America/New_York",
+     "abbr": "EST",
+     "where": "statewide",
+     "opens": null,
+     "closes": "19:00",
+     "closes_utc": "2026-11-04T00:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T00:00:00Z",
+   "last_close_utc": "2026-11-04T00:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Vermont Statutes, 17 V.S.A. 2561",
+    "url": "https://legislature.vermont.gov/statutes/section/17/051/02561",
+    "kind": "statute",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://mvp.vermont.gov/",
+    "title": "Vermont My Voter Page",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   }
+  },
+  "WA": {
+   "name": "Washington",
+   "rule": "Washington votes by mail. Ballots must be in a drop box by 8 p.m. or postmarked by Election Day.",
+   "zones": [
+    {
+     "zone": "PT",
+     "tz": "America/Los_Angeles",
+     "abbr": "PST",
+     "where": "statewide",
+     "opens": null,
+     "closes": "20:00",
+     "closes_utc": "2026-11-04T04:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T04:00:00Z",
+   "last_close_utc": "2026-11-04T04:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Revised Code of Washington 29A.40.110",
+    "url": "https://app.leg.wa.gov/RCW/default.aspx?cite=29A.40.110",
+    "kind": "statute",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://voter.votewa.gov/WhereToVote.aspx",
+    "title": "VoteWA: Where to vote",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   }
+  },
+  "WI": {
+   "name": "Wisconsin",
+   "rule": "Polls are open 7 a.m. to 8 p.m.",
+   "zones": [
+    {
+     "zone": "CT",
+     "tz": "America/Chicago",
+     "abbr": "CST",
+     "where": "statewide",
+     "opens": "07:00",
+     "closes": "20:00",
+     "closes_utc": "2026-11-04T02:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T02:00:00Z",
+   "last_close_utc": "2026-11-04T02:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Wisconsin Statutes 6.78",
+    "url": "https://docs.legis.wisconsin.gov/statutes/statutes/6/iii/78",
+    "kind": "statute",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://myvote.wi.gov/en-us/Find-My-Polling-Place",
+    "title": "MyVote Wisconsin: Find My Polling Place",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   }
+  },
+  "WV": {
+   "name": "West Virginia",
+   "rule": "Polls are open 6:30 a.m. to 7:30 p.m.",
+   "zones": [
+    {
+     "zone": "ET",
+     "tz": "America/New_York",
+     "abbr": "EST",
+     "where": "statewide",
+     "opens": "06:30",
+     "closes": "19:30",
+     "closes_utc": "2026-11-04T00:30:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T00:30:00Z",
+   "last_close_utc": "2026-11-04T00:30:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "West Virginia Code 3-1-31",
+    "url": "https://code.wvlegislature.gov/3-1-31/",
+    "kind": "statute",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://apps.sos.wv.gov/Elections/Voter/FindMyPollingPlace",
+    "title": "West Virginia Secretary of State: Find my polling place",
+    "checked": "2026-10-10",
+    "read": "named on the Secretary of State's elections page; not requested itself"
+   }
+  },
+  "WY": {
+   "name": "Wyoming",
+   "rule": "Polls are open 7 a.m. to 7 p.m.",
+   "zones": [
+    {
+     "zone": "MT",
+     "tz": "America/Denver",
+     "abbr": "MST",
+     "where": "statewide",
+     "opens": "07:00",
+     "closes": "19:00",
+     "closes_utc": "2026-11-04T02:00:00Z"
+    }
+   ],
+   "first_close_utc": "2026-11-04T02:00:00Z",
+   "last_close_utc": "2026-11-04T02:00:00Z",
+   "in_line": "Anyone in line when the polls close may still vote.",
+   "source": {
+    "title": "Wyoming Secretary of State, Elections FAQ",
+    "url": "https://sos.wyo.gov/faqs.aspx?root=ELEC",
+    "kind": "election office",
+    "checked": "2026-10-10",
+    "read": "read by script"
+   },
+   "lookup": {
+    "url": "https://sos.wyo.gov/Elections/PollPlaceLookup.aspx",
+    "title": "Wyoming Secretary of State: Polling Place Locator",
+    "checked": "2026-10-10",
+    "read": "answered a script"
+   }
+  }
+ }
+}

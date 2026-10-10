@@ -1,0 +1,229 @@
+{
+ "_about": {
+  "scout": "results-feed scout for LA MS AL GA FL SC NC VA WV MD DE DC",
+  "checked": "2026-10-09",
+  "how": "Started from CLAUDE.md and the kit's loaders (ballot/lists/<code>.py, ballot/state_local_<code>.py) and their caches in ballot_cache/<code>/; then one to three polite requests per site (honest User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)', 1.5 s apart, response bodies capped), plus the Browser pane for DC's results app, Mississippi's results frame, Alabama's election-night page, Maryland's data page and Florida Election Watch. Nothing large was downloaded. This machine's router sometimes drops a DNS lookup ('getaddrinfo failed'); a retried lookup always got through, so that is local and not a block.",
+  "status_words": "script_ok true = a plain script request got 200 with the real content on 2026-10-09; 'untested' = the address comes from the kit's loaders or a past pattern and was not requested today."
+ },
+ "LA": {
+  "system": "State-built: the Louisiana Secretary of State's 'Graphical election results' on the Voter Portal (an app whose data are JSON files served through one Data?blob= endpoint). Louisiana runs every election in the state, parish offices included, through this one system.",
+  "site": "https://voterportal.sos.la.gov/graphical",
+  "feeds": [
+   {"what": "statewide", "format": "json", "address_pattern": "https://voterportal.sos.la.gov/ElectionResults/ElectionResults/Data?blob=ElectionDates.htm (list of elections with PKElectionID and ResultsOfficial 0/1); then Data?blob=<yyyymmdd>/ElectionRaces.htm (every race, with RaceID and Level), <yyyymmdd>/RacesCandidates_Multiparish.htm and <yyyymmdd>/Votes_Multiparish.htm (statewide votes for multi-parish races)", "updates": "Rewritten as parishes report on election night (the Votes files are the moving part); the app polls them. Exact interval not stated.", "script_ok": true, "notes": "200 on 2026-10-09 for ElectionDates.htm (91 KB JSON; DefaultElectionDate 11/03/2026, PKElectionID 344, ResultsOfficial 0) and for 20261103/ElectionRaces.htm (103 KB; U.S. Senator RaceID 67997, U.S. Representative 1st District RaceID 70195, ...). The .htm names hold JSON."},
+   {"what": "congress", "format": "json", "address_pattern": "Same files: Levels 140 (U.S. Senator) and 145 (U.S. Representative) in <yyyymmdd>/ElectionRaces.htm; votes in Votes_Multiparish.htm", "updates": "as above", "script_ok": true, "notes": "Nov 3 2026: the House contest is an open primary (runoff Dec 12, 2026, folder 20261212); the Senate has a regular general. Votes records carry AbsenteeExpected and AbsenteeReporting (la.py line 239)."},
+   {"what": "county", "format": "json", "address_pattern": "Data?blob=<yyyymmdd>/RacesCandidates/ByParish_<01..64>.htm (races in each parish) and the parish vote files beside them; csv/ByParish_<race>.csv gives one race's votes by parish", "updates": "as above", "script_ok": "untested", "notes": "The kit's state_local_la.py already reads the Nov 3 ByParish race files (cached as ballot_cache/la/local/sl_la_2026_local_results_feed.json). Parish vote file names for election night were not requested today."},
+   {"what": "precinct", "format": "json", "address_pattern": "The graphical site offers precinct views; the file name was not checked", "updates": "election night", "script_ok": "untested", "notes": "Precinct-level files after the election are on the Secretary's 'Post-election statistics' (PostElectionStatsAvailable flag in ElectionDates.htm)."}
+  ],
+  "races": "Everything on the ballot in Louisiana: Senate, House (open primary), Public Service Commission, judges, parish and municipal offices, school boards, constitutional amendments and local propositions (levels 998 and 999).",
+  "precinct_level": true,
+  "vote_types": "Partly: the vote records carry absentee reporting counts (AbsenteeExpected, AbsenteeReporting), so early and mail ballots can be told apart from precincts in the reporting status; whether votes are split by type in the election-night files is to be checked on the 2024 replay.",
+  "counties_separate": "No: parishes do not run their own results sites; every parish race is in the Secretary's feed.",
+  "past_test": "https://voterportal.sos.la.gov/ElectionResults/ElectionResults/Data?blob=20241105/ElectionRaces.htm (and 20241105/Votes_Multiparish.htm) for the 2024 general; 20260516 and 20260627 for the 2026 Senate primaries (cached by la.py).",
+  "nov3_id": "PKElectionID 344; data folder 20261103 (race files already posted, no votes yet).",
+  "terms": "None stated on the data files.",
+  "blocked": "Nothing refused scripts. The Candidate Inquiry pages on the same host also answer scripts.",
+  "kit_already_reads": "ballot/lists/la.py: Candidate Inquiry, ElectionDates.htm, RacesCandidates_Multiparish.htm, Votes_Multiparish.htm and csv/ByParish_<race>.csv for the May 16 and June 27 primaries (only when ResultsOfficial is 1). ballot/state_local_la.py: the same for state races, plus the Nov 3 race files (ElectionRaces.htm, RacesCandidates_Multiparish.htm, RacesCandidates/ByParish_01..64.htm).",
+  "plan": "Louisiana is the easiest state in this group: one host, JSON files, every level from the Senate to a parish school board. On election night the updater reads ElectionDates.htm once, then Votes_Multiparish.htm and the parish vote files for 20261103 every few minutes, maps RaceIDs to the races state_local_la.py already loaded, and marks every figure unofficial until ElectionDates.htm turns ResultsOfficial to 1. Rehearse on the 20241105 folder. Remember the House contest is an open primary with a Dec 12 runoff, so 'winner' on Nov 3 often means 'advances to the runoff'."
+ },
+ "MS": {
+  "system": "State-built: the Secretary of State's election results pages (www.sos.ms.gov/elections-voting/election-results/<year>/<slug>), each showing an ASPX results page in a frame from sos.ms.gov/elections/electionresults_aspx/; the official results are posted later as PDF recapitulations.",
+  "site": "https://www.sos.ms.gov/elections-voting/election-results",
+  "feeds": [
+   {"what": "statewide", "format": "html", "address_pattern": "https://sos.ms.gov/elections/electionresults_aspx/elections_results_<year>_<election>.aspx[?party=...] (e.g. elections_results_2026_march_primary.aspx?party=republican, elections_results_2024_general.aspx), framed by https://www.sos.ms.gov/elections-voting/election-results/<year>/<slug>", "updates": "Unofficial figures are typed in as circuit clerks report; frequency not stated.", "script_ok": false, "notes": "On 2026-10-09 the frame host sos.ms.gov/elections/electionresults_aspx/elections_results_2024_general.aspx answered 503 with an Akamai 'errors.edgesuite.net' error page to a script AND in the Browser pane, so it may be retired or down rather than walled. The listing page www.sos.ms.gov/elections-voting/election-results answered scripts 200 (185 KB; links to every election back to 2003)."},
+   {"what": "congress", "format": "html", "address_pattern": "Same pages; certified totals later as PDFs (the 2026 primaries: www.sos.ms.gov/content/documents/elections/2026/Recap%20report%20Democratic%20Primary%202026.pdf and .../republican%20primary%202026.pdf)", "updates": "after certification", "script_ok": true, "notes": "The PDFs are what ms.py reads."}
+  ],
+  "races": "Statewide feed: federal, statewide, judicial, legislative specials. County and municipal races are reported by circuit and municipal clerks; Mississippi's county offices were elected in 2023, so Nov 3 2026 is mainly Senate, House, judges and specials.",
+  "precinct_level": false,
+  "vote_types": "No split by ballot type in the state pages (absentee ballots are counted at the precincts in most counties).",
+  "counties_separate": "Some circuit clerks post their own returns (Hinds, Harrison, DeSoto, Rankin); addresses not checked today.",
+  "past_test": "https://www.sos.ms.gov/elections-voting/election-results/2024/2024-general-election-results (its frame did not load on 2026-10-09).",
+  "nov3_id": "Not posted (no 2026 general page on the listing yet).",
+  "terms": "None stated.",
+  "blocked": "sos.ms.gov (the frame host, without www) returned an Akamai error 503 to a script and to the Browser pane on 2026-10-09. www.sos.ms.gov answered scripts.",
+  "kit_already_reads": "ballot/lists/ms.py: the CandidateQualifying list, the sample ballot PDF and the March 10 primaries' Official Recapitulation PDFs; it names the results frame (RESULTS_FRAME) only to find them. ballot/state_local_ms.py: the qualifying list for state rows.",
+  "plan": "Mississippi has no machine-readable election-night feed that answered today. Recheck the frame host in the week before Nov 3 (one request); if it answers, read its HTML tables every 10 minutes for the Senate, the four House seats and the judicial races, labelled unofficial. If it still fails, Election Night shows Mississippi as a link out to the Secretary's results page (no figures) and fills in the certified recapitulation PDFs when they post. No local level beyond what those pages carry."
+ },
+ "AL": {
+  "system": "State-built: the Secretary of State's 'Election Night Reporting' (ASP.NET WebForms) on www2.alabamavotes.gov, fed by the 67 probate judges; certified precinct files later on sos.alabama.gov.",
+  "site": "https://www2.alabamavotes.gov/electionNight/",
+  "feeds": [
+   {"what": "statewide", "format": "html", "address_pattern": "https://www2.alabamavotes.gov/electionNight/ (page shows the current election only; earlier years used statewideResultsByContest.aspx?ecode=<election code>)", "updates": "As counties upload on election night; interval not stated.", "script_ok": true, "notes": "200 to a script on 2026-10-09 (after one lost DNS lookup), but the page is an empty WebForms shell between elections: no election is loaded now. Whether the night's pages need ViewState postbacks is untested; plan for HTML scraping."},
+   {"what": "precinct", "format": "zip", "address_pattern": "https://www.sos.alabama.gov/sites/default/files/election-data/<yyyy-mm>/<name>.zip (e.g. 2024-12/2024-General%20Precinct%20Level%20Results.zip; 2026-07/2026_Primary_Election.zip)", "updates": "Weeks after the election (certified).", "script_ok": true, "notes": "The Elections Data Downloads page (https://www.sos.alabama.gov/alabama-votes/voter/election-data) answered 200 to a script on 2026-10-09 and lists the 2024 general precinct zip. Columns: Contest Title, Party, Candidate, a column per precinct, then ABSENTEE and PROVISIONAL (al.py)."}
+  ],
+  "races": "Election night: federal, statewide, legislature specials, judges, county offices, county school boards (all partisan in Alabama). Cities vote at their own municipal elections, not Nov 3.",
+  "precinct_level": false,
+  "vote_types": "Only in the certified precinct files: an ABSENTEE column and a PROVISIONAL column beside the precincts. Alabama has no early in-person voting, so absentee vs. election day is the whole split, and it arrives after the night.",
+  "counties_separate": "Some probate offices publish their own election-night results (Jefferson, Madison, Mobile, Montgomery are the largest); addresses not checked today.",
+  "past_test": "The 2024 general precinct zip above (certified, for the count-order model); for an election-night rehearsal there is no replayable past night on the ENR host.",
+  "nov3_id": "Not posted (the ENR page has no election loaded).",
+  "terms": "None stated.",
+  "blocked": "Nothing refused scripts on 2026-10-09.",
+  "kit_already_reads": "ballot/lists/al.py: the 67 counties' official sample ballots, the primary and runoff precinct zips, the parties' certified workbooks. ballot/state_local_al.py: sample ballots for state, county and county school offices.",
+  "plan": "Readable with care. In the last week of October, load the ENR page once to learn its page names and election code; on election night scrape the statewide contest pages every 10 minutes (federal, statewide, county offices), labelled unofficial. Use the certified precinct zip (with its absentee column) for the count-order and roll-off predictors afterwards. If the ENR pages need form postbacks, write the reader to replay the page's own form, never anything more."
+ },
+ "GA": {
+  "system": "Enhanced Voting (results.sos.ga.gov, 'Georgia Election Results'), the same platform as Virginia's; Cloudflare in front.",
+  "site": "https://results.sos.ga.gov/results/public/Georgia/elections/",
+  "feeds": [
+   {"what": "statewide", "format": "json", "address_pattern": "https://results.sos.ga.gov/results/public/api/jurisdictions/Georgia (list of elections with publicElectionId and electionDate; childLocalities); https://results.sos.ga.gov/results/public/api/elections/Georgia/<publicElectionId> (isOfficialResults, lastUpdated, report files); report files under https://results.sos.ga.gov/cdn/results/<guid>/<file> (e.g. 'Total Votes Results_<guid>.xlsx')", "updates": "Every few minutes on election night as counties upload; lastUpdated is in the election record.", "script_ok": true, "notes": "jurisdictions/Georgia answered 200 JSON (44 KB) to a script on 2026-10-09, server cloudflare, no challenge."},
+   {"what": "congress", "format": "json", "address_pattern": "Same election record and files", "updates": "as above", "script_ok": true, "notes": ""},
+   {"what": "county", "format": "json", "address_pattern": "https://results.sos.ga.gov/results/public/api/jurisdictions/<shortName> for child localities (clayton-county-ga, dekalb-county-ga, gwinnett-county-ga and three more listed today); each has its own elections", "updates": "as above", "script_ok": "untested", "notes": "Only 6 counties publish their own local contests on the state platform; other counties' local races are in the state election or on their own sites."}
+  ],
+  "races": "Federal, statewide, legislature, PSC, judges (nonpartisan in May), county offices and many county and city contests that counties load into the state election; six counties have their own child sites.",
+  "precinct_level": true,
+  "vote_types": "Enhanced Voting reports by vote method (Election Day, Advance in Person, Absentee by Mail, Provisional) in its contest views and workbooks; confirm on the 2024NovGen replay.",
+  "counties_separate": "Six counties are child sites on the same platform (Clayton, DeKalb, Gwinnett and three more). Fulton and Cobb post their own results pages too (addresses not checked today).",
+  "past_test": "https://results.sos.ga.gov/results/public/Georgia/elections/2024NovGen (publicElectionId 2024NovGen, 2024-11-05); 2026 primary GeneralPrimary51926 and runoff 06162026GeneralPrimaryRunoff (cached by ga.py).",
+  "nov3_id": "Not yet posted on 2026-10-09 (newest: 08252026SpecialElectionRunoff).",
+  "terms": "None seen on the API.",
+  "blocked": "The results site answers scripts. The candidate list (mvp.sos.ga.gov) is behind reCAPTCHA (John's save).",
+  "kit_already_reads": "ballot/lists/ga.py: the API's election list, each election's isOfficialResults and its 'Total Votes Excel' workbook from /cdn/results/ for the May 19 primary and June 16 runoff. ballot/state_local_ga.py: primaries for state rows.",
+  "plan": "Live-readable. In the last week of October read jurisdictions/Georgia once a day until the Nov 3 election appears, then note its publicElectionId. On election night read the election record every 3 to 5 minutes and fetch its summary data when lastUpdated changes; Georgia's runoff rule (majority required, Dec 1 runoff) means 'leading' and 'advances to a runoff' must both be possible outcomes. Local races come from the same election and the six county child sites."
+ },
+ "FL": {
+  "system": "Two state systems: Florida Election Watch (floridaelectionwatch.gov, the Division of Elections' election-night site, with flat-file downloads) and the older Election Results Reporting System (results.elections.myflorida.com). Counties run their own ENR, most on VR Systems' enr.electionsfl.org.",
+  "site": "https://floridaelectionwatch.gov/",
+  "feeds": [
+   {"what": "statewide", "format": "csv", "address_pattern": "https://flelectionfiles.floridados.gov/enightfilespublic/<yyyymmdd>_ElecResultsFL.txt (tab-delimited: ElectionDate, PartyCode, PartyName, RaceCode, RaceName, CountyCode, CountyName, Juris1num, Juris2num, Precincts, PrecinctsReporting, CanNameLast, CanNameFirst, CanNameMiddle, CanVotes); pipe-delimited pair <yyyymmdd>_ElecResultsFL_PipeDlm_Info.txt and _PipeDlm_Votes.txt; an Excel file too (Downloads page)", "updates": "Election night from 8:00 p.m. Eastern (the site says results are not released before then because of two time zones); refreshed as counties upload.", "script_ok": true, "notes": "20241105_ElecResultsFL.txt answered 200 to a script on 2026-10-09 (392,733 bytes, application/octet-stream). The Downloads page lists 20260818 files for the Aug 18 primary."},
+   {"what": "congress", "format": "csv", "address_pattern": "Same file (RaceCode USS, USR; county rows)", "updates": "as above", "script_ok": true, "notes": ""},
+   {"what": "legislature", "format": "csv", "address_pattern": "Same file (State Senate, State Representative, multi-county and circuit judicial offices)", "updates": "as above", "script_ok": true, "notes": ""},
+   {"what": "statewide", "format": "csv", "address_pattern": "https://results.elections.myflorida.com/downloadresults.asp?ElectionDate=<m/d/yyyy>&DATAMODE= (form) posting to ResultsExtract.Asp", "updates": "as above", "script_ok": true, "notes": "The older Data Extract Utility answered 200 for ElectionDate=11/5/2024; fl.py reads it (OfficialResults=Y)."},
+   {"what": "local", "format": "html", "address_pattern": "https://enr.electionsfl.org/<3-letter county code>/<election id>/Summary/ (VR Systems county ENR; also /Precincts/ and /Map/PrecinctsReporting)", "updates": "election night", "script_ok": true, "notes": "enr.electionsfl.org/LEV/3693/Summary/ (Levy, 2024 general) answered 200 (167 KB HTML, Amazon S3). Each county's election id differs; data files behind the pages not checked."}
+  ],
+  "races": "State files: federal, statewide, legislature, multi-county offices and circuit judges, county by county. County ENR sites: county commission, school board, constitutional officers, cities, special districts.",
+  "precinct_level": false,
+  "vote_types": "Not in the state file (county totals only). Many county ENR sites show Election Day, Early Voting and Vote-by-Mail columns; Florida counts mail ballots before polls close and releases them first, so the count-order predictor has a strong known pattern. Check per county.",
+  "counties_separate": "Yes, all 67. Most use VR Systems ENR at enr.electionsfl.org/<CODE>/ (LEV, DIX seen); the biggest (Miami-Dade, Broward, Palm Beach, Hillsborough, Orange) run their own supervisor sites, addresses not checked today.",
+  "past_test": "https://flelectionfiles.floridados.gov/enightfilespublic/20241105_ElecResultsFL.txt (2024 general) and 20260818_ElecResultsFL.txt (Aug 18 primary).",
+  "nov3_id": "File name will be 20261103_ElecResultsFL.txt (by the pattern; not yet posted).",
+  "terms": "None stated on the Downloads page.",
+  "blocked": "Nothing refused scripts. The candidate download (dos.elections.myflorida.com) also answers scripts.",
+  "kit_already_reads": "ballot/lists/fl.py: the Candidate Tracking System download and the old system's Data Extract (ResultsExtract.Asp) and Summary Reports for the Aug 18 primary. ballot/state_local_fl.py: the Division's local candidate download and county supervisors' candidate pages.",
+  "plan": "Live-readable. On election night fetch 20261103_ElecResultsFL.txt every 3 to 5 minutes from 8:00 p.m. Eastern; it gives every federal, statewide and legislative race by county with precincts reporting. Local races: start with the counties on enr.electionsfl.org (find each county's election id the week before) and add the large self-hosted supervisors one at a time. Use the counties' vote-type columns for the count-order model, since Florida's mail and early votes come first."
+ },
+ "SC": {
+  "system": "Clarity Elections (Scytl) at www.enr-scvotes.org, the State Election Commission's results site, with every county as a sub-site.",
+  "site": "https://www.enr-scvotes.org/SC/",
+  "feeds": [
+   {"what": "statewide", "format": "json", "address_pattern": "https://www.enr-scvotes.org/SC/<electionId>/current_ver.txt -> <ver>; then .../<electionId>/<ver>/json/en/electionsettings.json, .../<ver>/json/status.json, .../<ver>/reports/summary.zip and detailxml.zip (detail XML: every contest, county, vote type)", "updates": "A new version number on every upload, every few minutes on election night.", "script_ok": true, "notes": "current_ver.txt for 126294 (June 9 primary) answered 375593 on 2026-10-09 (CloudFront). The site's front page is an Angular app ('List Elections'); the elections are linked from scvotes.gov/elections-statistics/election-results/."},
+   {"what": "county", "format": "xml", "address_pattern": "https://www.enr-scvotes.org/SC/<County>/<countyElectionId>/... (same Clarity layout per county; ids listed in the state election's settings)", "updates": "as above", "script_ok": "untested", "notes": "County contests are reported on the county sub-sites."}
+  ],
+  "races": "Everything run by the Commission and the county boards: federal, statewide, legislature, solicitors, county council, school boards, and the city and special-district elections held on Nov 3 (which may be separate elections in the system).",
+  "precinct_level": true,
+  "vote_types": "Yes: Clarity detail XML gives each choice's votes by VoteType (in South Carolina usually Election Day, Early Voting, Absentee by Mail, Failsafe, Provisional); confirm on the replay.",
+  "counties_separate": "County results are sub-sites of the same Clarity host; Charleston, Greenville, Richland, Horry also post on their own pages (not checked).",
+  "past_test": "June 9, 2026 primary: https://www.enr-scvotes.org/SC/126294/375593/reports/detailxml.zip (cached by sc.py). The 2024 general's id was not looked up today; it is on scvotes.gov's results page.",
+  "nov3_id": "Not looked up (the list page is a script app); check scvotes.gov's results page in late October.",
+  "terms": "None stated.",
+  "blocked": "Nothing refused scripts.",
+  "kit_already_reads": "ballot/lists/sc.py: scvotes.gov's results page for the site links, then current_ver.txt, electionsettings.json, status.json, detailxml.zip and summary.zip for the primary, runoff, recount and the Senate special primary and runoff. ballot/state_local_sc.py: the Candidate Tracking System and the same results.",
+  "plan": "Live-readable, and the kit already has the reader. On election night poll current_ver.txt every 2 to 3 minutes; when it changes, fetch summary.zip for the totals and detailxml.zip (vote types, counties) less often. Read the county sub-sites for local contests. The same code serves West Virginia."
+ },
+ "NC": {
+  "system": "State-built: the State Board of Elections' results site er.ncsbe.gov, with plain JSON text files and precinct zips on dl.ncsbe.gov (Cloudflare and S3).",
+  "site": "https://er.ncsbe.gov/",
+  "feeds": [
+   {"what": "statewide", "format": "json", "address_pattern": "https://er.ncsbe.gov/enr/elections.txt (list: edt date, con, vtm, pct, arc flags); https://er.ncsbe.gov/enr/<yyyymmdd>/data/county.txt (each county's precincts reporting, ballots cast, title 'UNOFFICIAL/OFFICIAL ...'); https://er.ncsbe.gov/enr/<yyyymmdd>/data/results_<n>.txt (contest results by group)", "updates": "Every few minutes on election night as counties upload.", "script_ok": true, "notes": "elections.txt answered 200 on 2026-10-09 and already lists 11/03/2026 (con 1, vtm 1, pct 1, arc 0). 20241105/data/county.txt answered 200 (title '11/05/2024 OFFICIAL GENERAL ELECTION RESULTS - STATEWIDE', 2658 precincts). Server cloudflare, no challenge."},
+   {"what": "precinct", "format": "zip", "address_pattern": "https://dl.ncsbe.gov/ENRS/<yyyy_mm_dd>/results_pct_<yyyymmdd>.zip (tab-separated: County, Election Date, Precinct, Contest Group ID, Contest Type, Choice, Choice Party, Vote For, Election Day, Early Voting, Absentee by Mail, Provisional, Total Votes)", "updates": "Election night and after", "script_ok": true, "notes": "nc.py reads the March 3 file; the 2024 one is at ENRS/2024_11_05/."}
+  ],
+  "races": "Every contest the Board and county boards run: federal, statewide, legislature, judges (partisan), county commission, school boards, soil and water, and municipal contests on the November ballot.",
+  "precinct_level": true,
+  "vote_types": "Yes: Election Day, Early Voting, Absentee by Mail and Provisional columns per precinct (the vtm flag in elections.txt marks vote-type data).",
+  "counties_separate": "No need: all 100 counties report into er.ncsbe.gov; Wake and Mecklenburg also post their own pages (not checked).",
+  "past_test": "https://er.ncsbe.gov/enr/20241105/data/county.txt and results files; https://dl.ncsbe.gov/ENRS/2024_11_05/results_pct_20241105.zip.",
+  "nov3_id": "11/03/2026 is listed in elections.txt (folder 20261103).",
+  "terms": "None stated.",
+  "blocked": "Nothing refused scripts.",
+  "kit_already_reads": "ballot/lists/nc.py: Candidate_Listing_2026.csv, results_pct_20260303.zip, enr/elections.txt, enr/20260303/data/county.txt and results_0.txt. ballot/state_local_nc.py: the same for state and local rows.",
+  "plan": "Live-readable, one of the best feeds anywhere: the Nov 3 election is already registered. On election night read county.txt and the results files every 3 minutes, and the precinct zip every 15 minutes for vote types and roll-off. Local contests are in the same files."
+ },
+ "VA": {
+  "system": "Enhanced Voting (enr.elections.virginia.gov), the Department of Elections' results site, the same platform as Georgia's; 133 localities as child sites.",
+  "site": "https://enr.elections.virginia.gov/results/public/virginia/elections/",
+  "feeds": [
+   {"what": "statewide", "format": "json", "address_pattern": "https://enr.elections.virginia.gov/results/public/api/jurisdictions/Virginia (election list); https://enr.elections.virginia.gov/results/public/api/elections/virginia/<slug>/data (the election's data: contests, choices, votes, isOfficialResults, lastUpdated); files under https://enr.elections.virginia.gov/cdn/results/", "updates": "Every few minutes on election night.", "script_ok": true, "notes": "jurisdictions/Virginia answered 200 JSON (122 KB) on 2026-10-09; it lists 2026-November-General (2026-11-03)."},
+   {"what": "county", "format": "json", "address_pattern": "Same API with a locality's shortName (accomack-county, albemarle-county, alexandria-city, ...: 133 children)", "updates": "as above", "script_ok": "untested", "notes": ""},
+   {"what": "precinct", "format": "csv", "address_pattern": "va.py adds up a precinct-level CSV from the site (candidate, votes, party, locality, precinct, district, office); the Department also keeps apps.elections.virginia.gov/SBE_CSV/", "updates": "after", "script_ok": "untested", "notes": ""}
+  ],
+  "races": "Federal, the special House of Delegates 20 contest, and every locality's November contests (county boards, city and town councils, school boards, constitutional officers where scheduled).",
+  "precinct_level": true,
+  "vote_types": "Partly: Virginia reports early and mail ballots in each locality's central absentee precincts (CAPs), so the split is by precinct type rather than a column; usable for count order.",
+  "counties_separate": "All 133 localities are child sites of the same platform; Fairfax and others also post their own pages (not checked).",
+  "past_test": "https://enr.elections.virginia.gov/results/public/api/elections/virginia/2024NovemberGeneral/data (2024 general); 2025-November-General for an off-year replay.",
+  "nov3_id": "2026-November-General",
+  "terms": "None seen.",
+  "blocked": "Nothing refused scripts.",
+  "kit_already_reads": "ballot/lists/va.py: the Federal Offices candidate page and the API's /data for the Aug 4 primaries (isOfficialResults required). ballot/state_local_va.py: the Local Offices workbook and the primaries.",
+  "plan": "Live-readable, and the Nov 3 election is already registered. Share one Enhanced Voting reader with Georgia: on election night read .../2026-November-General/data every 3 minutes, compare lastUpdated, and read locality children for local contests. Rehearse on 2024NovemberGeneral and 2025-November-General."
+ },
+ "WV": {
+  "system": "Clarity Elections (Scytl) at results.enr.clarityelections.com/WV/, the Secretary of State's results site; all 55 counties report into it.",
+  "site": "https://results.enr.clarityelections.com/WV/",
+  "feeds": [
+   {"what": "statewide", "format": "json", "address_pattern": "https://results.enr.clarityelections.com/WV/<electionId>/current_ver.txt -> <ver>; .../<ver>/json/en/electionsettings.json, .../<ver>/json/status.json, .../<ver>/reports/summary.zip, detailxml.zip", "updates": "A new version on each upload on election night.", "script_ok": true, "notes": "WV/126209/current_ver.txt (May 12, 2026 primary) answered 375698 on 2026-10-09 (CloudFront)."}
+  ],
+  "races": "Federal, legislature, judges (nonpartisan, in May), county commission, county row offices and others on the November ballot; municipal elections are separate.",
+  "precinct_level": true,
+  "vote_types": "Likely: Clarity detail XML carries VoteType elements (West Virginia counts early, absentee and election day ballots; 2024 turnout was reported as 418,850 election day, 310,878 early, 24,404 absentee). Confirm in a detailxml.",
+  "counties_separate": "No: counties are inside the same Clarity site.",
+  "past_test": "May 12, 2026 primary: https://results.enr.clarityelections.com/WV/126209/375698/reports/detailxml.zip (cached by wv.py). The 2024 general's id was not found today (sos.wv.gov's historical results page moved: HistElecResults.aspx and HistoricalElectionResults.aspx both 404).",
+  "nov3_id": "Not known; the Secretary links it from sos.wv.gov when posted.",
+  "terms": "None stated.",
+  "blocked": "Nothing refused scripts. candidates.wvsos.gov omits its intermediate certificate (net.get repairs it).",
+  "kit_already_reads": "ballot/lists/wv.py: candidates.wvsos.gov's JSON POST service, and the Clarity primary's current_ver.txt, electionsettings.json, status.json, detailxml.zip and summary.zip. ballot/state_local_wv.py: the candidate service and its CSV export.",
+  "plan": "Live-readable with the same Clarity reader as South Carolina. Find the Nov 3 Clarity election id on sos.wv.gov's results page in late October; poll current_ver.txt every 2 to 3 minutes and fetch summary.zip on change, detailxml.zip less often."
+ },
+ "MD": {
+  "system": "State-built: the State Board of Elections' static result pages and CSV data files on elections.maryland.gov (Cloudflare in front).",
+  "site": "https://elections.maryland.gov/elections/2026/index.html",
+  "feeds": [
+   {"what": "statewide", "format": "html", "address_pattern": "Election night: the Board's unofficial results pages under https://elections.maryland.gov/elections/2026/ (the primary's are primary_results/gen_results_2026_4_<n>.html; the general's folder name is not posted yet)", "updates": "Election night, as early-voting, election-day and mail-in batches are reported; Maryland counts mail ballots over several days after.", "script_ok": true, "notes": "elections.maryland.gov answered scripts 200 on 2026-10-09 (server cloudflare). The guess elections/2024/general_Results/ and elections/2024/index.html both returned the site's 404 page, so earlier years live at other paths."},
+   {"what": "congress", "format": "csv", "address_pattern": "https://elections.maryland.gov/elections/2026/election_data/<code>26_CongressionalBreakDown<Party>.csv; <code>26_LegislativeBreakDown<Party>.csv; <code>26_AllPrecincts<Party>.csv; <code>26_<cc>Results.csv per county (01..24) and <code>26_<cc>Precincts<Party>.csv; county council files <code>26_<cc>Counc<Party>Results.csv. code GP for the primary, GG for the general (by the Board's own naming)", "updates": "Data files are posted after the canvass, not live.", "script_ok": true, "notes": "The election_data index (Browser pane, 2026-10-09) lists the GP26 files; the general's 'State Precinct Reference' link is still a template placeholder ({*GENERAL_ELECTION_CODE*}_Precincts_and_Polling_Places.xlsx)."}
+  ],
+  "races": "2026 is Maryland's big local year: Governor and statewide, Congress, all 188 legislative seats, county executives and councils, sheriffs, state's attorneys, judges of the orphans' court, school boards, circuit court judges, plus Baltimore City offices are not on this ballot (2028). All on the Board's pages.",
+  "precinct_level": true,
+  "vote_types": "Yes in the data files (early voting, election day, mail-in and provisional columns by the Board's layout); confirm when GG26 posts.",
+  "counties_separate": "No separate results sites needed; the Board reports every county contest. Montgomery and Prince George's also post summaries (not checked).",
+  "past_test": "The 2026 primary's data files (election_data/GP26_*.csv) and pages (primary_results/), cached by md.py; the 2022 gubernatorial general would be the better replay (path not found today).",
+  "nov3_id": "GG26 (by the Board's naming; not posted).",
+  "terms": "None stated.",
+  "blocked": "Nothing refused scripts.",
+  "kit_already_reads": "ballot/lists/md.py: the GG and GP candidate lists and CSVs, the GP26 congressional breakdowns, every county's results CSV and the primary results pages. ballot/state_local_md.py: the local candidates CSV, county certified ballot PDFs, and GP26 legislative files.",
+  "plan": "Readable with care. Election-night figures are HTML pages whose folder name will only be known on the night: look once on the afternoon of Nov 3, then read the statewide and county pages every 5 to 10 minutes, labelled unofficial and with a note that Maryland's mail-in count continues for days. Switch to the GG26 CSVs (by county and precinct, with vote types) when the Board posts them."
+ },
+ "DE": {
+  "system": "State-built: the Department of Elections' results pages with JSON files beside them (elections.delaware.gov/results/enr/).",
+  "site": "https://elections.delaware.gov/results/index.html",
+  "feeds": [
+   {"what": "statewide", "format": "json", "address_pattern": "https://elections.delaware.gov/results/enr/<code>.html with https://elections.delaware.gov/results/enr/Election_StatewideResults_ID_<code>.json and Election_ByCountyWithWilmington_ID_<code>.json; code PR2026 for the Sept 15 primary, GE2026 expected for Nov 3 (GE2024 for 2024, by the same naming; not requested)", "updates": "Election night as districts report; frequency not stated.", "script_ok": true, "notes": "results/index.html answered 200 on 2026-10-09 and links 'Tuesday, Septermber 15, 2026: Primary Election Official Results' to results/enr/PR2026.html; an archive page lists earlier generals (elections/election_archive.html)."}
+  ],
+  "races": "Federal, statewide (treasurer, auditor, attorney general in 2026), legislature, county council and county row offices; school board elections are in May and municipal ones are run by the towns.",
+  "precinct_level": false,
+  "vote_types": "Yes: the JSON carries machine, absentee and early-voting votes for each candidate (de.py).",
+  "counties_separate": "No: county contests are on the Department's pages; New Castle County, Kent and Sussex do not run results sites. School results at elections.delaware.gov/school/results.html.",
+  "past_test": "Election_StatewideResults_ID_PR2026.json (cached by de.py); the 2024 general's files under the GE2024 code (to confirm from the archive page).",
+  "nov3_id": "GE2026 (expected; not posted).",
+  "terms": "None stated.",
+  "blocked": "Nothing refused scripts.",
+  "kit_already_reads": "ballot/lists/de.py: candidate lists, PR2026.html, Election_StatewideResults_ID_PR2026.json and Election_ByCountyWithWilmington_ID_PR2026.json. ballot/state_local_de.py: the Department's workbooks.",
+  "plan": "Live-readable. Confirm the GE2026 file names from the results index on Nov 3 afternoon, then read the two JSON files every 3 to 5 minutes; they already split machine, early and absentee votes, which feeds the count-order predictor directly."
+ },
+ "DC": {
+  "system": "State-built (District of Columbia Board of Elections): electionresults.dcboe.org, a React app over JSON endpoints with a SignalR live channel; Cloudflare in front.",
+  "site": "https://electionresults.dcboe.org/",
+  "feeds": [
+   {"what": "statewide", "format": "json", "address_pattern": "https://electionresults.dcboe.org/electionResults/getElectionResultsId (list: ElectionResultsId, ElectionDate, UrlText e.g. '2024-General-Election', IsLive, HasPublishedRCV); /electionResults/getElectionInfo/<UrlText> (PrecinctsCounted, TotalPrecincts, ElectionResultsTypeName, LastUpdated, IsLive, CSV/XML/PDF links); /cityWide/getCityWide/<UrlText> (every contest's totals); /cityWide/getWardPrecinct/<UrlText>; /citywide/GetANC/<UrlText>; /electionResults/getAllParties", "updates": "Live on election night (SignalR push to the page; IsLive flag); the JSON can be polled.", "script_ok": true, "notes": "getElectionInfo/2024-General-Election answered 200 JSON to a script on 2026-10-09 (server cloudflare). The page carries Cloudflare's passive bot-detection script, but plain requests were served."},
+   {"what": "precinct", "format": "csv", "address_pattern": "https://electionresults.dcboe.org/Downloads/Reports/<Month>_<D>_<YYYY>_General_Election_Certified_Results.csv (also .xml and .pdf); write-ins in ..._Write-In.pdf", "updates": "Certified files after the canvass; election-night files may appear under another name.", "script_ok": "untested", "notes": "Seen as links on the 2024 general page in the Browser pane."}
+  ],
+  "races": "Delegate to Congress, shadow senator and representative, Mayor, Council chair and members, Attorney General, State Board of Education, Advisory Neighborhood Commissioners (single-member districts), initiatives. 2026 is the first general with ranked-choice voting under Initiative 83 for some offices (the site carries a HasPublishedRCV flag).",
+  "precinct_level": true,
+  "vote_types": "Not seen in the summary JSON; the certified CSV may split by ballot type. Check before using for count order.",
+  "counties_separate": "Not applicable (one jurisdiction; wards and ANCs are in the same feed).",
+  "past_test": "https://electionresults.dcboe.org/election_results/2024-General-Election (ElectionResultsId 1132) and the 2026 June 16 primary (1158, '2026-Primary-Election').",
+  "nov3_id": "Not listed yet on 2026-10-09 (newest is the June 16, 2026 Primary and Special Election).",
+  "terms": "None stated.",
+  "blocked": "Nothing refused scripts.",
+  "kit_already_reads": "Nothing: the kit has no DC loader (DC is listed as still to come in CLAUDE.md).",
+  "plan": "Live-readable. Read getElectionResultsId in late October for the Nov 3 UrlText, then poll getElectionInfo and getCityWide every 3 minutes on the night, getWardPrecinct and GetANC less often. Ranked-choice rounds, where published, need their own display. DC needs a candidate list and district shapes (wards, ANC single-member districts) before its map can show local results."
+ }
+}

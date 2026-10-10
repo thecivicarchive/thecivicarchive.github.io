@@ -1,0 +1,105 @@
+{
+ "v": 1,
+ "code": "MD",
+ "name": "Maryland",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "care",
+ "status_why": "The Board's pages answered scripts, but the election-night folder's name is known only on the night.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Maryland State Board of Elections",
+ "system": "State-built: the State Board of Elections' static result pages and CSV data files on elections.maryland.gov (Cloudflare in front).",
+ "family": "md_pages",
+ "reader_agent": "N12",
+ "results_page": {
+  "url": "https://elections.maryland.gov/elections/2026/index.html",
+  "label": "Maryland State Board of Elections: 2026",
+  "checked": "2026-10-09",
+  "source": "results_la.json"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": "GG26 (by the Board's naming; not posted)",
+  "posted": false,
+  "how_to_find": "Look once on the afternoon of Nov 3."
+ },
+ "cadence": {
+  "check_every_s": 420,
+  "signal": "the Board's unofficial results pages under elections/2026/ (name on the night)",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "elections.maryland.gov"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "md-1",
+   "what": "statewide",
+   "format": "html",
+   "address": "Election night: the Board's unofficial results pages under https://elections.maryland.gov/elections/2026/ (the primary's are primary_results/gen_results_2026_4_<n>.html; the general's folder name is not posted yet)",
+   "hosts": [
+    "elections.maryland.gov"
+   ],
+   "updates": "Election night, as early-voting, election-day and mail-in batches are reported; Maryland counts mail ballots over several days after.",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "elections.maryland.gov answered scripts 200 on 2026-10-09 (server cloudflare). The guess elections/2024/general_Results/ and elections/2024/index.html both returned the site's 404 page, so earlier years live at other paths."
+  },
+  {
+   "id": "md-2",
+   "what": "congress",
+   "format": "csv",
+   "address": "https://elections.maryland.gov/elections/2026/election_data/<code>26_CongressionalBreakDown<Party>.csv; <code>26_LegislativeBreakDown<Party>.csv; <code>26_AllPrecincts<Party>.csv; <code>26_<cc>Results.csv per county (01..24) and <code>26_<cc>Precincts<Party>.csv; county council files <code>26_<cc>Counc<Party>Results.csv. code GP for the primary, GG for the general (by the Board's own naming)",
+   "hosts": [
+    "elections.maryland.gov"
+   ],
+   "updates": "Data files are posted after the canvass, not live.",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "The election_data index (Browser pane, 2026-10-09) lists the GP26 files; the general's 'State Precinct Reference' link is still a template placeholder ({*GENERAL_ELECTION_CODE*}_Precincts_and_Polling_Places.xlsx)."
+  }
+ ],
+ "units": "county",
+ "precinct_level": true,
+ "races_in_feed": "2026 is Maryland's big local year: Governor and statewide, Congress, all 188 legislative seats, county executives and councils, sheriffs, state's attorneys, judges of the orphans' court, school boards, circuit court judges, plus Baltimore City offices are not on this ballot (2028). All on the Board's pages.",
+ "local": "No separate results sites needed; the Board reports every county contest. Montgomery and Prince George's also post summaries (not checked).",
+ "how_counted": "Maryland reports early voting and Election Day ballots on the night and counts mail ballots for days after.",
+ "count_order": "Early voting, election day, mail-in and provisional columns in the data files after the canvass.",
+ "vote_types": "Yes in the data files (early voting, election day, mail-in and provisional columns by the Board's layout); confirm when GG26 posts.",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Maryland Board of State Canvassers",
+  "rule": "Convenes within 35 days of the election (Md. Elec. Law 11-503).",
+  "date": "2026-12-08",
+  "date_kind": "meets_by",
+  "local_rule": "Counties send certified results on the second Friday after the election (11-401(c)).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": "The election-night folder's name is known only on the afternoon of Nov 3.",
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": "GP26 data files and primary pages (cached by md.py)",
+ "terms": "None stated.",
+ "scout_blocked": "Nothing refused scripts.",
+ "scout_plan": "Readable with care. Election-night figures are HTML pages whose folder name will only be known on the night: look once on the afternoon of Nov 3, then read the statewide and county pages every 5 to 10 minutes, labelled unofficial and with a note that Maryland's mail-in count continues for days. Switch to the GG26 CSVs (by county and precinct, with vote types) when the Board posts them.",
+ "notes": [],
+ "to_do": [
+  "Learn the folder name on Nov 3."
+ ],
+ "sources": [
+  "election/scout/results_la.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

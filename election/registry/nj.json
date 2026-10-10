@@ -1,0 +1,99 @@
+{
+ "v": 1,
+ "code": "NJ",
+ "name": "New Jersey",
+ "written": "2026-10-10",
+ "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+ "status": "link",
+ "status_why": "No statewide count on the night: each of the 21 county clerks posts its own; the Division posts official results after certification.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the New Jersey Division of Elections",
+ "system": "No statewide live results: the Division of Elections publishes official (certified) results as PDFs weeks later; on election night each of the 21 county clerks posts unofficial results on its own site (vendors vary by county)",
+ "family": null,
+ "reader_agent": "N12",
+ "results_page": {
+  "url": "https://www.nj.gov/state/elections/election-information-2026.shtml",
+  "label": "New Jersey Division of Elections: 2026",
+  "checked": "2026-10-10",
+  "source": "answered one request with the kit's User-Agent (N4, 2026-10-10)"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": null,
+  "posted": false,
+  "how_to_find": "Official PDFs after certification."
+ },
+ "cadence": null,
+ "hand": null,
+ "feeds": [
+  {
+   "id": "nj-1",
+   "what": "statewide",
+   "format": "html",
+   "address": "no state live feed. After certification: https://www.nj.gov/state/elections/assets/pdf/election-results/2026/2026-official-general-results-us-senate.pdf, ...-us-house.pdf, and per county ...-official-general-results-us-senate-<county>.pdf, ...-official-general-result-ballotscast-<county>.pdf (already linked on the 2026 page)",
+   "hosts": [
+    "www.nj.gov"
+   ],
+   "updates": "once, after the counties certify (late November)",
+   "script_ok": true,
+   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+   "note": "The 2026 page answered 200 to a script (86 KB). The Division also posts county 'periodic reports' of ballots on election night as PDFs (seen for 2024: assets/pdf/periodic-report/2024/2024-1105-bergen-periodic-report-election-night.pdf, via a web search); these appear to count ballots, not votes for candidates (not opened)."
+  },
+  {
+   "id": "nj-2",
+   "what": "county",
+   "format": "html",
+   "address": "each county clerk's election results page; Bergen posts 'Unofficial Election Results' after 8 p.m. as its 70 municipalities report (per a Teaneck notice, teanecknj.gov, 2025)",
+   "hosts": [],
+   "updates": "as each county receives municipal returns",
+   "script_ok": "untested",
+   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+   "note": "bergencountyclerk.org was not on the Browser pane's allowed list; no county page was opened."
+  }
+ ],
+ "units": "county",
+ "precinct_level": false,
+ "races_in_feed": "the state publishes Congress and Senate only (no state legislature or governor on the 2026 ballot; odd-year offices). County sites carry county commissioners, clerks, sheriffs, surrogates, municipal councils, school boards and questions",
+ "local": "yes, all 21: Bergen County Clerk (bergencountyclerk.org), Middlesex, Essex, Monmouth, Hudson, Ocean (addresses not yet confirmed)",
+ "how_counted": "Each county clerk posts unofficial results as municipalities report; the state posts official results after certification.",
+ "count_order": "Not on any state feed.",
+ "vote_types": "not on any state feed; some county sites split vote-by-mail, election day and provisional (unverified)",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the New Jersey State Board of Canvassers",
+  "rule": "Meets no later than 30 days after the election (N.J. Rev. Stat. 19:21-1).",
+  "date": "2026-12-03",
+  "date_kind": "meets_by",
+  "local_rule": null,
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [
+  "*.elec.nj.gov",
+  "elec.nj.gov"
+ ],
+ "never_why": {
+  "elec.nj.gov": "Incapsula bot wall (CLAUDE.md)",
+  "*.elec.nj.gov": "Incapsula bot wall (CLAUDE.md)"
+ },
+ "partial_sources": [],
+ "rehearsal": null,
+ "terms": "none seen",
+ "scout_blocked": "nj.gov answered scripts (200). elec.nj.gov (campaign finance) is behind Incapsula (CLAUDE.md), not the results.",
+ "scout_plan": "Readable with care, county by county. New Jersey has no statewide election-night feed, so the U.S. Senate and twelve House races must be summed from the 21 county clerks' unofficial pages; a scout pass in October should find each county's results address and vendor (some are likely Clarity, which has a JSON feed) and write one small reader per layout, largest counties first. Where a county cannot be read, the page shows that county as 'not reporting here' rather than a partial sum. Official totals come from the Division's PDFs after certification. Local races ride on the same county pages.",
+ "notes": [],
+ "to_do": [],
+ "sources": [
+  "election/scout/results_pa.json (checked 2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts))",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

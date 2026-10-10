@@ -1,0 +1,103 @@
+{
+ "v": 1,
+ "code": "OR",
+ "name": "Oregon",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "care",
+ "status_why": "The results site is dormant between elections (404 on its pages); recheck in election week.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Oregon Secretary of State",
+ "system": "Oregon Secretary of State's Election Night Reporting (results.oregonvotes.gov, state-built ASP.NET, ResultsSW.aspx pages, 'in cooperation with the Oregon Association of County Clerks')",
+ "family": "resultssw",
+ "reader_agent": "N9",
+ "results_page": {
+  "url": "https://results.oregonvotes.gov/",
+  "label": "Oregon Secretary of State: election night reporting",
+  "checked": "2026-10-10",
+  "source": "answered one request with the kit's User-Agent (N4, 2026-10-10)"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": "the current election (no id)",
+  "posted": false,
+  "how_to_find": "Recheck in election week."
+ },
+ "cadence": {
+  "check_every_s": 300,
+  "signal": "https://results.oregonvotes.gov/ResultsSW.aspx?type=FED&map=CTY",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "results.oregonvotes.gov"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "or-1",
+   "what": "statewide",
+   "format": "html",
+   "address": "https://results.oregonvotes.gov/ResultsSW.aspx?type=<FED|SW|...>&map=CTY; county view ResultsSW.aspx?type=CTYALL&cty=<county no>&map=CTY (Washington County's releases use cty=28)",
+   "hosts": [
+    "results.oregonvotes.gov"
+   ],
+   "updates": "first results about 8 p.m.; each county then on its own schedule (Washington County 2024: 8 p.m., 10 p.m., midnight, then Nov 8, 15, 22, Dec 2)",
+   "script_ok": "untested",
+   "checked": "2026-10-09",
+   "note": "2026-10-09: results.oregonvotes.gov/ answered 200 with the Secretary's general welcome page, and ResultsSW.aspx?type=FED&map=CTY answered 404: the site is dormant between elections. Retest on election week. Write-in totals are not reported there."
+  },
+  {
+   "id": "or-2",
+   "what": "county",
+   "format": "html",
+   "address": "Marion posts cumulative PDFs (co.marion.or.us/CO/elections/Results/Documents/<yyyymmdd>/Cumulative ... .pdf); Washington County links the state site; Multnomah runs Portland's ranked-choice results on its own site",
+   "hosts": [],
+   "updates": "county schedules",
+   "script_ok": "untested",
+   "checked": "2026-10-09",
+   "note": "Portland's ranked-choice contests are reported only by Multnomah County, not the state (state release, 2024)."
+  }
+ ],
+ "units": "county",
+ "precinct_level": false,
+ "races_in_feed": "the state site: federal, statewide, legislature, judges, measures, and county-view pages that include local contests counties enter; Portland's RCV contests only at Multnomah",
+ "local": "Yes, 36 counties: Multnomah (multco.us/elections), Washington (washingtoncountyor.gov/elections), Clackamas, Lane, Marion (co.marion.or.us/CO/elections)",
+ "how_counted": "Oregon votes by mail; ballots postmarked by Election Day count if they arrive within seven days, so counties keep adding for days.",
+ "count_order": "All mail; count order by arrival.",
+ "vote_types": "No split: Oregon votes entirely by mail; count order is by when ballots arrive (postmark by Election Day accepted for seven days)",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Oregon Secretary of State",
+  "rule": "Not later than the 30th day after the election (Or. Rev. Stat. 254.555).",
+  "date": "2026-12-03",
+  "date_kind": "by",
+  "local_rule": "Counties by the 27th day (254.545).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": "The results site is dormant between elections (its pages answered 404 on 2026-10-09); recheck in election week, and link out if it refuses scripts then.",
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": "The May 19, 2026 primary's official PDF",
+ "terms": "none seen",
+ "scout_blocked": "nothing refused; the results site is simply dormant",
+ "scout_plan": "Re-scout results.oregonvotes.gov in the week before Nov 3, when the site comes alive, and read its ResultsSW pages (HTML) for statewide, the House seats and the Senate race politely every few minutes. If it refuses scripts then, use the counties' own postings for the big four. Local results: the state site's county views, Multnomah for Portland.",
+ "notes": [],
+ "to_do": [
+  "Recheck the site in the week before Nov 3."
+ ],
+ "sources": [
+  "election/scout/results_az.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

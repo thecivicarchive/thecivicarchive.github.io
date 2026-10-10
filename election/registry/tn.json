@@ -1,0 +1,90 @@
+{
+ "v": 1,
+ "code": "TN",
+ "name": "Tennessee",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "link",
+ "status_why": "The Secretary's results site answers scripts with a CloudFront refusal.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Tennessee Secretary of State",
+ "system": "Tennessee Secretary of State's election-night site elections.tn.gov (vendor not seen; served through Amazon CloudFront)",
+ "family": null,
+ "reader_agent": "N12",
+ "results_page": {
+  "url": "https://elections.tn.gov/",
+  "label": "Tennessee Secretary of State: election results",
+  "checked": "2026-10-09",
+  "source": "results_az.json"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": null,
+  "posted": false,
+  "how_to_find": "Certification files John saves."
+ },
+ "cadence": null,
+ "hand": null,
+ "feeds": [
+  {
+   "id": "tn-1",
+   "what": "statewide",
+   "format": "html",
+   "address": "unknown",
+   "hosts": [],
+   "updates": "unknown",
+   "script_ok": false,
+   "checked": "2026-10-09",
+   "note": "2026-10-09: 403 'The request could not be satisfied' from CloudFront to the honest User-Agent, as CLAUDE.md records for sos.tn.gov and its file host. The Browser pane is not allowed this site (CLAUDE.md), so it was not opened."
+  }
+ ],
+ "units": "county",
+ "precinct_level": false,
+ "races_in_feed": "unknown on the live site; Tennessee's counties elect their offices in August, so November local contests are mostly city races on county commissions' ballots",
+ "local": "Yes, 95 county election commissions: Shelby (shelbyvote.gov), Davidson (nashville.gov/departments/elections), Knox (knoxcounty.org/election), Hamilton (elect.hamiltontn.gov); results pages not checked",
+ "how_counted": "County election commissions report to the Secretary of State on the night and certify by the third Monday after the election.",
+ "count_order": "Not seen.",
+ "vote_types": "unknown",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Governor, Secretary of State and Attorney General of Tennessee",
+  "rule": "Meet as soon as the returns are received (Tenn. Code 2-8-110(a)).",
+  "date": null,
+  "date_kind": null,
+  "local_rule": "County commissions certify by the third Monday after the election (2-8-101).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [
+  "*.sos.tn.gov",
+  "elections.tn.gov",
+  "sos-prod.tnsosgovfiles.com",
+  "sos.tn.gov"
+ ],
+ "never_why": {
+  "elections.tn.gov": "CloudFront 403 (scout, 2026-10-09)",
+  "sos.tn.gov": "CloudFront 403 (CLAUDE.md)",
+  "*.sos.tn.gov": "CloudFront 403 (CLAUDE.md)",
+  "sos-prod.tnsosgovfiles.com": "CloudFront 403 (CLAUDE.md)"
+ },
+ "partial_sources": [],
+ "rehearsal": null,
+ "terms": "none seen",
+ "scout_blocked": "elections.tn.gov, sos.tn.gov and sos-prod.tnsosgovfiles.com: CloudFront 403 to scripts",
+ "scout_plan": "Tennessee cannot be read live. Show the Senate, Governor and nine House races with a link to elections.tn.gov and ask John whether he will save the results page at intervals on election night, as he does for Minnesota. A follow-up scout should check whether Shelby's and Davidson's commissions post results files scripts can read (they cover TN-9 and TN-5/6/7 partly). Official results: John's saved certification files.",
+ "notes": [],
+ "to_do": [],
+ "sources": [
+  "election/scout/results_az.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

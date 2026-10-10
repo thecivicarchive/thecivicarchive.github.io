@@ -1,0 +1,134 @@
+{
+ "v": 1,
+ "code": "OH",
+ "name": "Ohio",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "link",
+ "status_why": "LiveResults and the Secretary's other sites answer scripts with a Cloudflare challenge.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Ohio Secretary of State",
+ "system": "Secretary of State LiveResults (liveresults.ohiosos.gov), fed by the 88 county boards; boards also post their own results.",
+ "family": null,
+ "reader_agent": "N12",
+ "results_page": {
+  "url": "https://liveresults.ohiosos.gov/",
+  "label": "Ohio Secretary of State: LiveResults",
+  "checked": "2026-10-09",
+  "source": "results_mn.json"
+ },
+ "other_pages": [
+  {
+   "url": "https://www.ohiosos.gov/directories/local-election-results",
+   "label": "Each county board's results page"
+  }
+ ],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": null,
+  "posted": false,
+  "how_to_find": "The canvass workbooks."
+ },
+ "cadence": null,
+ "hand": null,
+ "feeds": [
+  {
+   "id": "oh-1",
+   "what": "statewide",
+   "format": "html",
+   "address": "https://liveresults.ohiosos.gov/ (active only during an election; on 2026-10-09 it redirected the Browser pane to https://www.ohiosos.gov/data)",
+   "hosts": [
+    "liveresults.ohiosos.gov",
+    "www.ohiosos.gov"
+   ],
+   "updates": "As boards upload; the Secretary reported delivering all results on election night in May 2026",
+   "script_ok": false,
+   "checked": "2026-10-09",
+   "note": "403 Cloudflare to the script on 2026-10-09. Data format during an election not seen."
+  },
+  {
+   "id": "oh-2",
+   "what": "statewide",
+   "format": "xlsx",
+   "address": "Official canvass workbooks under https://publicfiles.ohiosos.gov/election-results/ (files-index.json lists them)",
+   "hosts": [
+    "publicfiles.ohiosos.gov"
+   ],
+   "updates": "Not live: after the canvass",
+   "script_ok": false,
+   "checked": "2026-10-09",
+   "note": "Cloudflare challenge to scripts (CLAUDE.md); readable in the Browser pane or via Internet Archive captures (oh_place_votes.py)."
+  },
+  {
+   "id": "oh-3",
+   "what": "county",
+   "format": "html",
+   "address": "Directory of every board's results page: https://www.ohiosos.gov/directories/local-election-results (e.g. Butler https://elections.bcohio.gov/dataandresources/results.php, Cuyahoga https://boe.cuyahogacounty.gov/elections, Franklin https://vote.franklincountyohio.gov/election-info, Hamilton https://votehamiltoncountyohio.gov/results/, Lucas https://www.lucascountyohiovotes.gov/historic_election_results/index.php, Montgomery https://www.montgomery.boe.ohio.gov/election-results/, Stark https://www.starkcountyohio.gov/government/offices/board_of_elections/election_results/index.php, Summit https://www.boe.ohio.gov/summit/elections)",
+   "hosts": [
+    "boe.cuyahogacounty.gov",
+    "elections.bcohio.gov",
+    "vote.franklincountyohio.gov",
+    "votehamiltoncountyohio.gov",
+    "www.boe.ohio.gov",
+    "www.lucascountyohiovotes.gov",
+    "www.montgomery.boe.ohio.gov",
+    "www.ohiosos.gov",
+    "www.starkcountyohio.gov"
+   ],
+   "updates": "Periodically through the night (Hamilton posts PDFs)",
+   "script_ok": "untested",
+   "checked": "2026-10-09",
+   "note": "Directory read in the Browser pane 2026-10-09. Hamilton and boe.ohio.gov boards refuse scripts (Cloudflare, CLAUDE.md)."
+  }
+ ],
+ "units": "county",
+ "precinct_level": false,
+ "races_in_feed": "LiveResults: statewide, Congress, Legislature, Ohio Supreme Court and appeals courts; county and local races on the boards' own sites.",
+ "local": "Yes (directory above).",
+ "how_counted": "Ohio reports early and absentee ballots received by 7:30 p.m. first, then Election Day votes; late absentee and provisional ballots come only in the canvass.",
+ "count_order": "Early and absentee first, then Election Day; late absentee and provisional in the canvass.",
+ "vote_types": "Yes in practice: Ohio reports all early and absentee ballots received by 7:30 p.m. first, then Election Day votes; late absentee and provisional ballots only in the canvass (Secretary's election-night FAQ, via search 2026-10-09). Strong count-order signal.",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Ohio Secretary of State",
+  "rule": "Federal and non-executive state offices: not later than 10 days after every county's abstract is in (Ohio Rev. Code 3505.35); executive offices are declared by the General Assembly (3505.34).",
+  "date": null,
+  "date_kind": null,
+  "local_rule": "Boards complete the canvass by the 21st day (3505.32).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [
+  "*.boe.ohio.gov",
+  "*.ohiosos.gov",
+  "boe.ohio.gov",
+  "ohiosos.gov",
+  "votehamiltoncountyohio.gov"
+ ],
+ "never_why": {
+  "ohiosos.gov": "Cloudflare challenge (scout; CLAUDE.md)",
+  "*.ohiosos.gov": "Cloudflare (scout; CLAUDE.md)",
+  "boe.ohio.gov": "Cloudflare challenge (CLAUDE.md)",
+  "*.boe.ohio.gov": "Cloudflare challenge (CLAUDE.md)",
+  "votehamiltoncountyohio.gov": "Cloudflare challenge (CLAUDE.md)"
+ },
+ "partial_sources": [],
+ "rehearsal": null,
+ "terms": "Not seen.",
+ "scout_blocked": "liveresults.ohiosos.gov (Cloudflare 403 to the script, 2026-10-09), www.ohiosos.gov and publicfiles.ohiosos.gov (Cloudflare challenge, CLAUDE.md), boe.ohio.gov boards and votehamiltoncountyohio.gov (Cloudflare).",
+ "scout_plan": "Blocked for scripts on the night. Options for John: (a) he keeps LiveResults open in his browser and saves its download (if LiveResults offers one; check on the night of a test or in early November) into a folder, as for Minnesota; (b) the page links out to LiveResults with no numbers until the official canvass. County and local results: the boards' pages in the Secretary's directory, a few of which may answer scripts (test Butler, Cuyahoga, Franklin, Montgomery, Stark politely in late October). The 'early votes first' rule should be built into the count-order predictor.",
+ "notes": [],
+ "to_do": [],
+ "sources": [
+  "election/scout/results_mn.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

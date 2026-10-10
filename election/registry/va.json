@@ -1,0 +1,112 @@
+{
+ "v": 1,
+ "code": "VA",
+ "name": "Virginia",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "live",
+ "status_why": "Enhanced Voting answered scripts; 2026-November-General is posted.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Virginia Department of Elections",
+ "system": "Enhanced Voting (enr.elections.virginia.gov), the Department of Elections' results site, the same platform as Georgia's; 133 localities as child sites.",
+ "family": "enhanced_voting",
+ "reader_agent": "N10",
+ "results_page": {
+  "url": "https://enr.elections.virginia.gov/results/public/virginia/elections/",
+  "label": "Virginia Department of Elections: election results",
+  "checked": "2026-10-10",
+  "source": "answered one request with the kit's User-Agent (N4, 2026-10-10)"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": "2026-November-General",
+  "posted": true,
+  "how_to_find": "Posted."
+ },
+ "cadence": {
+  "check_every_s": 180,
+  "signal": "https://enr.elections.virginia.gov/results/public/api/elections/virginia/2026-November-General/data",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "enr.elections.virginia.gov"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "va-1",
+   "what": "statewide",
+   "format": "json",
+   "address": "https://enr.elections.virginia.gov/results/public/api/jurisdictions/Virginia (election list); https://enr.elections.virginia.gov/results/public/api/elections/virginia/<slug>/data (the election's data: contests, choices, votes, isOfficialResults, lastUpdated); files under https://enr.elections.virginia.gov/cdn/results/",
+   "hosts": [
+    "enr.elections.virginia.gov"
+   ],
+   "updates": "Every few minutes on election night.",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "jurisdictions/Virginia answered 200 JSON (122 KB) on 2026-10-09; it lists 2026-November-General (2026-11-03)."
+  },
+  {
+   "id": "va-2",
+   "what": "county",
+   "format": "json",
+   "address": "Same API with a locality's shortName (accomack-county, albemarle-county, alexandria-city, ...: 133 children)",
+   "hosts": [],
+   "updates": "as above",
+   "script_ok": "untested",
+   "checked": "2026-10-09",
+   "note": ""
+  },
+  {
+   "id": "va-3",
+   "what": "precinct",
+   "format": "csv",
+   "address": "va.py adds up a precinct-level CSV from the site (candidate, votes, party, locality, precinct, district, office); the Department also keeps apps.elections.virginia.gov/SBE_CSV/",
+   "hosts": [],
+   "updates": "after",
+   "script_ok": "untested",
+   "checked": "2026-10-09",
+   "note": ""
+  }
+ ],
+ "units": "county",
+ "precinct_level": true,
+ "races_in_feed": "Federal, the special House of Delegates 20 contest, and every locality's November contests (county boards, city and town councils, school boards, constitutional officers where scheduled).",
+ "local": "All 133 localities are child sites of the same platform; Fairfax and others also post their own pages (not checked).",
+ "how_counted": "Early and mail ballots are reported in each locality's central absentee precincts.",
+ "count_order": "Central absentee precincts (CAPs) carry early and mail ballots.",
+ "vote_types": "Partly: Virginia reports early and mail ballots in each locality's central absentee precincts (CAPs), so the split is by precinct type rather than a column; usable for count order.",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Virginia State Board of Elections",
+  "rule": "Meets on the first Monday in December (Va. Code 24.2-679).",
+  "date": "2026-12-07",
+  "date_kind": "meets_on",
+  "local_rule": "Local boards within 10 days (24.2-671).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": "2024NovemberGeneral; 2025-November-General",
+ "terms": "None seen.",
+ "scout_blocked": "Nothing refused scripts.",
+ "scout_plan": "Live-readable, and the Nov 3 election is already registered. Share one Enhanced Voting reader with Georgia: on election night read .../2026-November-General/data every 3 minutes, compare lastUpdated, and read locality children for local contests. Rehearse on 2024NovemberGeneral and 2025-November-General.",
+ "notes": [],
+ "to_do": [],
+ "sources": [
+  "election/scout/results_la.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

@@ -1,0 +1,109 @@
+{
+ "v": 1,
+ "code": "WY",
+ "name": "Wyoming",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "care",
+ "status_why": "The Secretary posts PDF summaries as each county finishes; slow, and not a data feed.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Wyoming Secretary of State",
+ "system": "Secretary of State's own site (sos.wyo.gov, ASP.NET): PDF summaries updated through the night as each county finishes and the Secretary checks it; a results zip afterwards.",
+ "family": "wy_pdf",
+ "reader_agent": "N12",
+ "results_page": {
+  "url": "https://sos.wyo.gov/Elections/ElectionResults.aspx",
+  "label": "Wyoming Secretary of State: election results",
+  "checked": "2026-10-10",
+  "source": "answered one request with the kit's User-Agent (N4, 2026-10-10)"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": "the 2026GeneralResults page (link commented out today)",
+  "posted": false,
+  "how_to_find": "Poll for the general results page."
+ },
+ "cadence": {
+  "check_every_s": 600,
+  "signal": "https://sos.wyo.gov/Elections/Docs/2026/2026GeneralResults.aspx",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "sos.wyo.gov"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "wy-1",
+   "what": "statewide",
+   "format": "html",
+   "address": "https://sos.wyo.gov/Elections/Docs/<year>/Results/<Primary|General>/<year>_General_Statewide_Candidates_Summary.pdf, ..._House_Candidates_Summary.pdf, ..._Senate_Candidates_Summary.pdf, ..._Judicial_Summary.pdf, ..._Constitutional_Amendment_Summary.pdf, ..._Total_Ballots_Cast_Summary.pdf",
+   "hosts": [
+    "sos.wyo.gov"
+   ],
+   "updates": "updated through election night as a county reports 100 percent and the Secretary verifies it (2024 page wording); not precinct by precinct",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "PDF, not a data feed. Pages answered 200 on 2026-10-09."
+  },
+  {
+   "id": "wy-2",
+   "what": "precinct",
+   "format": "zip",
+   "address": "https://sos.wyo.gov/Elections/Docs/<year>/Results/<Type>/<year>_Wyoming_<Type>_Results.zip and <year>_<County>_County_<Type>_PbP.pdf",
+   "hosts": [
+    "sos.wyo.gov"
+   ],
+   "updates": "after canvass",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "The kit reads the 2026 primary zip."
+  }
+ ],
+ "units": "county",
+ "precinct_level": "after canvass only",
+ "races_in_feed": [
+  "statewide",
+  "Congress",
+  "legislature",
+  "judges (retention)",
+  "constitutional amendments"
+ ],
+ "local": "Yes: the state page says county and local results are on the county clerks' sites. Laramie (laramiecountywy.gov Elections), Natrona (natronacounty-wy.gov), Campbell (campbellcountywy.gov/867/Elections), Park (parkcounty-wy.gov/county-elections). Not requested.",
+ "how_counted": "The Secretary of State adds a county's results once the county has counted every ballot and the office has checked it.",
+ "count_order": "Totals only; counties arrive whole.",
+ "vote_types": "No (summaries carry totals, undervotes, overvotes, provisional ballots).",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Wyoming State Canvassing Board",
+  "rule": "Meets no later than the second Wednesday after the election (Wyo. Stat. 22-16-118).",
+  "date": "2026-11-11",
+  "date_kind": "meets_by",
+  "local_rule": "County boards by the first Friday after the election (22-16-103).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": "PDF summaries, a county at a time once the county is complete and checked.",
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": "2024 general summaries and zip (2024GeneralResults.aspx)",
+ "terms": "None seen.",
+ "scout_blocked": "Nothing refused.",
+ "scout_plan": "Readable but slow and in PDF. Poll the general results page every ten minutes or so for new or changed summary PDFs, read them with ballot/pdftext.py, and show each county as 'all in' or 'not yet'. Local results only from county clerks after the night; leave them for after Nov 3.",
+ "notes": [],
+ "to_do": [],
+ "sources": [
+  "election/scout/results_ne.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

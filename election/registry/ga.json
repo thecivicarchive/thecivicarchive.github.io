@@ -1,0 +1,126 @@
+{
+ "v": 1,
+ "code": "GA",
+ "name": "Georgia",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "live",
+ "status_why": "Enhanced Voting answered scripts behind Cloudflare without a challenge.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Georgia Secretary of State",
+ "system": "Enhanced Voting (results.sos.ga.gov, 'Georgia Election Results'), the same platform as Virginia's; Cloudflare in front.",
+ "family": "enhanced_voting",
+ "reader_agent": "N10",
+ "results_page": {
+  "url": "https://results.sos.ga.gov/results/public/Georgia/elections/",
+  "label": "Georgia Secretary of State: election results",
+  "checked": "2026-10-09",
+  "source": "results_la.json"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": null,
+  "posted": false,
+  "how_to_find": "results/public/api/jurisdictions/Georgia once a day in late October."
+ },
+ "cadence": {
+  "check_every_s": 180,
+  "signal": "https://results.sos.ga.gov/results/public/api/elections/Georgia/<publicElectionId> (lastUpdated)",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "results.sos.ga.gov"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "ga-1",
+   "what": "statewide",
+   "format": "json",
+   "address": "https://results.sos.ga.gov/results/public/api/jurisdictions/Georgia (list of elections with publicElectionId and electionDate; childLocalities); https://results.sos.ga.gov/results/public/api/elections/Georgia/<publicElectionId> (isOfficialResults, lastUpdated, report files); report files under https://results.sos.ga.gov/cdn/results/<guid>/<file> (e.g. 'Total Votes Results_<guid>.xlsx')",
+   "hosts": [
+    "results.sos.ga.gov"
+   ],
+   "updates": "Every few minutes on election night as counties upload; lastUpdated is in the election record.",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "jurisdictions/Georgia answered 200 JSON (44 KB) to a script on 2026-10-09, server cloudflare, no challenge."
+  },
+  {
+   "id": "ga-2",
+   "what": "congress",
+   "format": "json",
+   "address": "Same election record and files",
+   "hosts": [],
+   "updates": "as above",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": ""
+  },
+  {
+   "id": "ga-3",
+   "what": "county",
+   "format": "json",
+   "address": "https://results.sos.ga.gov/results/public/api/jurisdictions/<shortName> for child localities (clayton-county-ga, dekalb-county-ga, gwinnett-county-ga and three more listed today); each has its own elections",
+   "hosts": [
+    "results.sos.ga.gov"
+   ],
+   "updates": "as above",
+   "script_ok": "untested",
+   "checked": "2026-10-09",
+   "note": "Only 6 counties publish their own local contests on the state platform; other counties' local races are in the state election or on their own sites."
+  }
+ ],
+ "units": "county",
+ "precinct_level": true,
+ "races_in_feed": "Federal, statewide, legislature, PSC, judges (nonpartisan in May), county offices and many county and city contests that counties load into the state election; six counties have their own child sites.",
+ "local": "Six counties are child sites on the same platform (Clayton, DeKalb, Gwinnett and three more). Fulton and Cobb post their own results pages too (addresses not checked today).",
+ "how_counted": "Counties upload through the night. A race where no one wins a majority goes to a runoff on December 1.",
+ "count_order": "Enhanced Voting reports by method (Election Day, Advance in Person, Absentee by Mail, Provisional); confirm on the 2024NovGen replay.",
+ "vote_types": "Enhanced Voting reports by vote method (Election Day, Advance in Person, Absentee by Mail, Provisional) in its contest views and workbooks; confirm on the 2024NovGen replay.",
+ "decision": {
+  "default": "majority_runoff",
+  "rules": [
+   {
+    "applies": "general-election races for federal and state office",
+    "rule": "majority_runoff",
+    "note": "Runoff on Dec 1, 2026."
+   }
+  ]
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Georgia Secretary of State",
+  "rule": "Not later than 5 p.m. on the 17th day after the election (Ga. Code 21-2-499(b)).",
+  "date": "2026-11-20",
+  "date_kind": "by",
+  "local_rule": "Counties certify by 5 p.m. on the Monday after the election (Ga. Code 21-2-493(k)).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [
+  "mvp.sos.ga.gov"
+ ],
+ "never_why": {
+  "mvp.sos.ga.gov": "reCAPTCHA (CLAUDE.md)"
+ },
+ "partial_sources": [],
+ "rehearsal": "2024NovGen; GeneralPrimary51926 and 06162026GeneralPrimaryRunoff",
+ "terms": "None seen on the API.",
+ "scout_blocked": "The results site answers scripts. The candidate list (mvp.sos.ga.gov) is behind reCAPTCHA (John's save).",
+ "scout_plan": "Live-readable. In the last week of October read jurisdictions/Georgia once a day until the Nov 3 election appears, then note its publicElectionId. On election night read the election record every 3 to 5 minutes and fetch its summary data when lastUpdated changes; Georgia's runoff rule (majority required, Dec 1 runoff) means 'leading' and 'advances to a runoff' must both be possible outcomes. Local races come from the same election and the six county child sites.",
+ "notes": [],
+ "to_do": [
+  "Find the publicElectionId."
+ ],
+ "sources": [
+  "election/scout/results_la.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

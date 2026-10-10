@@ -1,0 +1,112 @@
+{
+ "v": 1,
+ "code": "DC",
+ "name": "District of Columbia",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "live",
+ "status_why": "The Board's JSON endpoints answered scripts.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the District of Columbia Board of Elections",
+ "system": "State-built (District of Columbia Board of Elections): electionresults.dcboe.org, a React app over JSON endpoints with a SignalR live channel; Cloudflare in front.",
+ "family": "dc_boe",
+ "reader_agent": "N10",
+ "results_page": {
+  "url": "https://electionresults.dcboe.org/",
+  "label": "District of Columbia Board of Elections: election results",
+  "checked": "2026-10-10",
+  "source": "answered one request with the kit's User-Agent (N4, 2026-10-10)"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": null,
+  "posted": false,
+  "how_to_find": "/electionResults/getElectionResultsId in late October for the Nov 3 UrlText."
+ },
+ "cadence": {
+  "check_every_s": 180,
+  "signal": "https://electionresults.dcboe.org/electionResults/getElectionInfo/<UrlText> (LastUpdated, IsLive)",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "electionresults.dcboe.org"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "dc-1",
+   "what": "statewide",
+   "format": "json",
+   "address": "https://electionresults.dcboe.org/electionResults/getElectionResultsId (list: ElectionResultsId, ElectionDate, UrlText e.g. '2024-General-Election', IsLive, HasPublishedRCV); /electionResults/getElectionInfo/<UrlText> (PrecinctsCounted, TotalPrecincts, ElectionResultsTypeName, LastUpdated, IsLive, CSV/XML/PDF links); /cityWide/getCityWide/<UrlText> (every contest's totals); /cityWide/getWardPrecinct/<UrlText>; /citywide/GetANC/<UrlText>; /electionResults/getAllParties",
+   "hosts": [
+    "electionresults.dcboe.org"
+   ],
+   "updates": "Live on election night (SignalR push to the page; IsLive flag); the JSON can be polled.",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "getElectionInfo/2024-General-Election answered 200 JSON to a script on 2026-10-09 (server cloudflare). The page carries Cloudflare's passive bot-detection script, but plain requests were served."
+  },
+  {
+   "id": "dc-2",
+   "what": "precinct",
+   "format": "csv",
+   "address": "https://electionresults.dcboe.org/Downloads/Reports/<Month>_<D>_<YYYY>_General_Election_Certified_Results.csv (also .xml and .pdf); write-ins in ..._Write-In.pdf",
+   "hosts": [
+    "electionresults.dcboe.org"
+   ],
+   "updates": "Certified files after the canvass; election-night files may appear under another name.",
+   "script_ok": "untested",
+   "checked": "2026-10-09",
+   "note": "Seen as links on the 2024 general page in the Browser pane."
+  }
+ ],
+ "units": "precinct",
+ "precinct_level": true,
+ "races_in_feed": "Delegate to Congress, shadow senator and representative, Mayor, Council chair and members, Attorney General, State Board of Education, Advisory Neighborhood Commissioners (single-member districts), initiatives. 2026 is the first general with ranked-choice voting under Initiative 83 for some offices (the site carries a HasPublishedRCV flag).",
+ "local": "Not applicable (one jurisdiction; wards and ANCs are in the same feed).",
+ "how_counted": "The Board posts counts through the night. Ranked-choice rounds, where they apply, are published later.",
+ "count_order": "No vote-type split in the summary; the certified CSV may split it.",
+ "vote_types": "Not seen in the summary JSON; the certified CSV may split by ballot type. Check before using for count order.",
+ "decision": {
+  "default": "plurality",
+  "rules": [
+   {
+    "applies": "offices under Initiative 83 (the Board's HasPublishedRCV flag)",
+    "rule": "ranked_choice",
+    "note": "2026 is the first general with ranked choice for some offices (scout)."
+   }
+  ]
+ },
+ "ranked_choice": "First choices on the night; rounds when the Board publishes them.",
+ "certify": {
+  "body": "the District of Columbia Board of Elections",
+  "rule": "Not in the source read (NCSL's table covers the states only); to confirm from the Board's own calendar.",
+  "date": null,
+  "date_kind": null,
+  "local_rule": null,
+  "source": "The Board's results site (scout, 2026-10-09); certification date not yet read",
+  "confirm": "Certification date to be read from the Board's own calendar before it is printed."
+ },
+ "condition": null,
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": "ElectionResultsId 1132 (2024 general); 1158 (2026 primary)",
+ "terms": "None stated.",
+ "scout_blocked": "Nothing refused scripts.",
+ "scout_plan": "Live-readable. Read getElectionResultsId in late October for the Nov 3 UrlText, then poll getElectionInfo and getCityWide every 3 minutes on the night, getWardPrecinct and GetANC less often. Ranked-choice rounds, where published, need their own display. DC needs a candidate list and district shapes (wards, ANC single-member districts) before its map can show local results.",
+ "notes": [],
+ "to_do": [
+  "Find the Nov 3 UrlText."
+ ],
+ "sources": [
+  "election/scout/results_la.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

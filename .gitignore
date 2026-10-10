@@ -40,3 +40,8 @@ states_cache/
 
 # On The Ballot's downloaded candidate lists (some carry candidates' addresses and phone numbers; never published).
 ballot_cache/
+
+# Election Night: downloads and database side files stay on this computer
+election_cache/
+*.sqlite-shm
+*.sqlite-wal

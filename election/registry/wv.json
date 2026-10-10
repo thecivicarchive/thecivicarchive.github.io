@@ -1,0 +1,92 @@
+{
+ "v": 1,
+ "code": "WV",
+ "name": "West Virginia",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "live",
+ "status_why": "Clarity answered scripts; the kit already reads it.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the West Virginia Secretary of State",
+ "system": "Clarity Elections (Scytl) at results.enr.clarityelections.com/WV/, the Secretary of State's results site; all 55 counties report into it.",
+ "family": "clarity",
+ "reader_agent": "N9",
+ "results_page": {
+  "url": "https://results.enr.clarityelections.com/WV/",
+  "label": "West Virginia Secretary of State: election results",
+  "checked": "2026-10-09",
+  "source": "results_la.json"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": null,
+  "posted": false,
+  "how_to_find": "sos.wv.gov's results page in late October."
+ },
+ "cadence": {
+  "check_every_s": 150,
+  "signal": "https://results.enr.clarityelections.com/WV/<electionId>/current_ver.txt",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "results.enr.clarityelections.com"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "wv-1",
+   "what": "statewide",
+   "format": "json",
+   "address": "https://results.enr.clarityelections.com/WV/<electionId>/current_ver.txt -> <ver>; .../<ver>/json/en/electionsettings.json, .../<ver>/json/status.json, .../<ver>/reports/summary.zip, detailxml.zip",
+   "hosts": [
+    "results.enr.clarityelections.com"
+   ],
+   "updates": "A new version on each upload on election night.",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "WV/126209/current_ver.txt (May 12, 2026 primary) answered 375698 on 2026-10-09 (CloudFront)."
+  }
+ ],
+ "units": "county",
+ "precinct_level": true,
+ "races_in_feed": "Federal, legislature, judges (nonpartisan, in May), county commission, county row offices and others on the November ballot; municipal elections are separate.",
+ "local": "No: counties are inside the same Clarity site.",
+ "how_counted": "Counties report their counts through the night.",
+ "count_order": "Clarity detail XML likely carries vote types; confirm in a detail file.",
+ "vote_types": "Likely: Clarity detail XML carries VoteType elements (West Virginia counts early, absentee and election day ballots; 2024 turnout was reported as 418,850 election day, 310,878 early, 24,404 absentee). Confirm in a detailxml.",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Governor of West Virginia, on the counties' certificates",
+  "rule": "Members of Congress: the Governor proclaims the results after the counties' certificates arrive, within 30 days of the election (W. Va. Code 3-6-11); state officers and legislators are declared by the Legislature.",
+  "date": null,
+  "date_kind": null,
+  "local_rule": "County boards meet on the fifth day after, excluding Sundays (3-6-9).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": "126209 (May 12, 2026 primary)",
+ "terms": "None stated.",
+ "scout_blocked": "Nothing refused scripts. candidates.wvsos.gov omits its intermediate certificate (net.get repairs it).",
+ "scout_plan": "Live-readable with the same Clarity reader as South Carolina. Find the Nov 3 Clarity election id on sos.wv.gov's results page in late October; poll current_ver.txt every 2 to 3 minutes and fetch summary.zip on change, detailxml.zip less often.",
+ "notes": [],
+ "to_do": [
+  "Find the Nov 3 election id."
+ ],
+ "sources": [
+  "election/scout/results_la.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

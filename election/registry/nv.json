@@ -1,0 +1,104 @@
+{
+ "v": 1,
+ "code": "NV",
+ "name": "Nevada",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "link",
+ "status_why": "The Secretary's results sites sit behind an Incapsula bot wall.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Nevada Secretary of State",
+ "system": "Nevada Secretary of State's results pages (ASP.NET under www.nvsos.gov/SOSelectionPages/results/ and silverstateelection.nv.gov), behind Imperva Incapsula",
+ "family": null,
+ "reader_agent": "N12",
+ "results_page": {
+  "url": "https://silverstateelection.nv.gov/",
+  "label": "Nevada Secretary of State: election results",
+  "checked": "2026-10-09",
+  "source": "results_az.json"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": null,
+  "posted": false,
+  "how_to_find": "The canvass in late November."
+ },
+ "cadence": null,
+ "hand": null,
+ "feeds": [
+  {
+   "id": "nv-1",
+   "what": "statewide",
+   "format": "html",
+   "address": "https://www.nvsos.gov/SOSelectionPages/results/<year><Type>/ElectionSummary.aspx (2026StateWidePrimary for the June primary, per ballot/lists/nv.py)",
+   "hosts": [
+    "www.nvsos.gov"
+   ],
+   "updates": "as counties report; mail ballots postmarked by Election Day count if received within four days, so totals move for days",
+   "script_ok": false,
+   "checked": "2026-10-09",
+   "note": "2026-10-09: www.nvsos.gov/SOSelectionPages/results/2026StateWidePrimary/ElectionSummary.aspx and silverstateelection.nv.gov/ both answered 200 with Incapsula's 212-byte stub (X-Iinfo header). In the Browser pane silverstateelection.nv.gov loaded only the Incapsula resource script and an empty page."
+  },
+  {
+   "id": "nv-2",
+   "what": "county",
+   "format": "html",
+   "address": "Clark: elections.clarkcountynv.gov redirects to https://www.clarkcountynv.gov/government/departments/elections/index.php; Washoe: https://www.washoecounty.gov/voters/ (results page not located)",
+   "hosts": [
+    "www.clarkcountynv.gov",
+    "www.washoecounty.gov"
+   ],
+   "updates": "untested",
+   "script_ok": "untested",
+   "checked": "2026-10-09",
+   "note": "Both county sites answer scripts for other files (the kit reads Clark's contest PDF and Washoe's contest workbook), but their results pages were not found in this pass."
+  }
+ ],
+ "units": "county",
+ "precinct_level": false,
+ "races_in_feed": "the state site carries federal, statewide, legislature, judges and multi-county races; each county clerk carries all local contests, cities included",
+ "local": "Yes, 17 (16 counties plus Carson City). Clark (clarkcountynv.gov elections), Washoe (washoecounty.gov/voters); about nine in ten Nevadans between them.",
+ "how_counted": "Mail ballots postmarked by Election Day count if they arrive within four days, so totals move for days.",
+ "count_order": "Clark has reported early, mail and Election Day separately in its own files (not verified).",
+ "vote_types": "unknown; Clark has historically reported early, mail and Election Day separately in its own files (not verified this pass)",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Nevada Supreme Court's justices with the Secretary of State",
+  "rule": "On the fourth Tuesday of November (Nev. Rev. Stat. 293.395).",
+  "date": "2026-11-24",
+  "date_kind": "meets_on",
+  "local_rule": "Counties on or before the 10th day (293.387).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [
+  "*.nvsos.gov",
+  "nvsos.gov",
+  "silverstateelection.nv.gov"
+ ],
+ "never_why": {
+  "nvsos.gov": "Incapsula bot wall (scout, 2026-10-09)",
+  "*.nvsos.gov": "Incapsula bot wall (scout)",
+  "silverstateelection.nv.gov": "Incapsula bot wall (scout, 2026-10-09)"
+ },
+ "partial_sources": [],
+ "rehearsal": null,
+ "terms": "none seen",
+ "scout_blocked": "www.nvsos.gov and silverstateelection.nv.gov: Imperva Incapsula (212-byte stub to scripts; empty page in the Browser pane on 2026-10-09)",
+ "scout_plan": "The state's own results cannot be read live. On election night Election Night could either show Nevada as 'results on the Secretary of State's site' with a link, or read Clark's and Washoe's own results files if a follow-up scout finds them answering scripts (Clark plus Washoe cover nearly every federal vote except NV-2's rural counties). Statewide totals then come from John's saved copy of the Secretary's page, or after the canvass (late November). Local results: Clark and Washoe first.",
+ "notes": [],
+ "to_do": [],
+ "sources": [
+  "election/scout/results_az.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

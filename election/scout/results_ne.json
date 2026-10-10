@@ -1,0 +1,199 @@
+{
+ "_about": {
+  "role": "Results-feed scout for NE, KS, OK, TX, MT, WY, CO, NM, UT, ID (Election Night, phase 1, research only)",
+  "checked": "2026-10-09",
+  "method": "Each finding was checked with a few requests per site, one at a time and at least two seconds apart, using the kit's User-Agent (congress-catalog/1.0, personal legislative research). No CAPTCHA, bot wall or login was touched. Nothing was downloaded beyond page heads and small JSON or CSV answers. The Browser pane could not open a tab in this run. Status codes are what this machine saw on 2026-10-09.",
+  "verdicts": {
+   "NE": "live-readable", "KS": "blocked (election-night page 403 behind Cloudflare; official files readable after canvass)",
+   "OK": "blocked (403 at the load balancer; John saves exports by hand)", "TX": "live-readable",
+   "MT": "live-readable (with care: exports are form postbacks)", "WY": "readable with care (PDF summaries per county, no live feed)",
+   "CO": "live-readable", "NM": "live-readable", "UT": "live-readable", "ID": "live-readable"
+  }
+ },
+ "NE": {
+  "system": "Secretary of State's own ASP.NET results site on Azure Government (resultsSW.aspx, resultsCSV.aspx, ResultsExport.aspx; data service neresultswebservice.azurewebsites.us). Same platform family as New Mexico's.",
+  "site": "https://electionresults.nebraska.gov/",
+  "feeds": [
+   {"what": "congress", "format": "csv", "address_pattern": "https://electionresults.nebraska.gov/resultsCSV.aspx?text=All&type=CG&map=DIST (type codes from the home page: SW statewide, CG Congress, LD Legislature, PS Public Service Commission, SE State Board of Education, RG Regents, JD judicial retention, CC community college, LC Learning Community, NR natural resources districts, UT Metropolitan Utilities District, PP public power districts, RD reclamation districts, ED educational service units, PA statewide ballot measures)", "updates": "as counties upload on election night; each row carries CurrentDateTime; results began posting at 8 p.m. CT in 2024", "script_ok": true, "notes": "HTTP 200 application/text on 2026-10-09. Columns: RaceID, RaceName, PartyCode, AreaType, AreaNum, OfficeSeqNo, BallotOrder, CandidateID, CandidateName, CurrentDateTime, VoteFor, CandidateVotes, CandidatePercentage, PrecinctsReporting (e.g. ='0/438'). Already set up for the Nov 3 general with zero votes."},
+   {"what": "statewide", "format": "csv", "address_pattern": "https://electionresults.nebraska.gov/resultsCSV.aspx?text=All&type=SW&map=CTY", "updates": "as above", "script_ok": "untested", "notes": "Same export pattern as Congress; not requested separately."},
+   {"what": "legislature", "format": "csv", "address_pattern": "https://electionresults.nebraska.gov/resultsCSV.aspx?text=All&type=LD&map=DIST", "updates": "as above", "script_ok": "untested", "notes": "Nebraska's one-house, nonpartisan Legislature."},
+   {"what": "county", "format": "csv", "address_pattern": "https://electionresults.nebraska.gov/ResultsExport.aspx?cat=SWALL: 'Statewide Export', 'Legislative Export' and one export per county, each an ASP.NET postback (__doPostBack with __VIEWSTATE)", "updates": "as above", "script_ok": "untested", "notes": "Page answered 200; the postback itself was not tried. Header fields show 1,322 precincts and 1,259,447 registered voters."},
+   {"what": "county", "format": "json", "address_pattern": "https://neresultswebservice.azurewebsites.us/ (the map service the page calls; New Mexico's twin has GetMapDataArchive?type=..&category=CTY)", "updates": "as above", "script_ok": "untested", "notes": "County-by-county figures for the map. The method name for the live election has not been confirmed."}
+  ],
+  "races": ["statewide", "Congress", "legislature", "judges (retention)", "State Board of Education, Regents, PSC", "special districts (NRD, MUD, public power, ESU, community college, Learning Community)", "statewide ballot measures"],
+  "precinct_level": false,
+  "vote_types": "Not in the CSV seen (no early/absentee/election-day columns). The canvass book gives totals only. Count order would need county sources.",
+  "counties_separate": "Yes, for county, city and school races. The state hosts county files at countyelectionresults.nebraska.gov/election_files/<County>/ (for example .../Hall/2026_Primary_unofficial_results.pdf). Douglas County: votedouglascounty-ne.gov. Lancaster: lancaster.ne.gov (Election Commissioner). Sarpy: sarpy.gov. These sites were not requested.",
+  "past_test": "The site shows only the current election (Nov 3, 2026 is already loaded with zero votes, last updated 10/6/2026 8:49 AM CT). For a replay, use the posted zero-vote pages now, the canvass books (sos.nebraska.gov/sites/default/files/doc/elections/2024/2024%20General%20Canvass%20Book.pdf), or New Mexico's twin system with past eids.",
+  "nov3_id": "No id in the address; the home page reads 'Unofficial Results, General Election November 3, 2026'.",
+  "terms": "None stated on the pages read.",
+  "blocked": "Nothing refused scripts (IIS, HTTP 200).",
+  "kit_already_reads": "ballot/lists/ne.py: the final candidate list PDF and the primary canvass book from sos.nebraska.gov/elections. ballot/state_local_ne.py: the Secretary's candidate filing and state-level workbooks, past general canvass books (2020-2024), and county sample-ballot PDFs (Douglas, Lancaster, Sarpy, Buffalo, Madison, Adams, Washington, York, Phelps, Cherry).",
+  "plan": "Nebraska is one of the easiest. On election night the updater can read the CSV exports for SW, CG, LD and the other type codes every few minutes (a handful of small files) and match RaceID and CandidateID to the ballot rows already loaded. County-by-county numbers for the map come from the per-county exports (a form postback) or the map service. Local city and school results are county by county: start with the state-hosted county files and Douglas and Lancaster's own sites."
+ },
+ "KS": {
+  "system": "Secretary of State's own static election-night pages (ent.sos.ks.gov, 'Unofficial Kansas Election Results', meta refresh every 5 s) behind Cloudflare; official results later as PDF and precinct workbooks on sos.ks.gov (CloudFront).",
+  "site": "https://ent.sos.ks.gov/kssos_ent.html (election night); https://sos.ks.gov/elections/election-results.html (official)",
+  "feeds": [
+   {"what": "statewide", "format": "html", "address_pattern": "https://ent.sos.ks.gov/kssos_ent.html and pages beside it (older years had kssos.org/ent/<year><type>/live/<county>.html)", "updates": "page refreshes every 5 seconds; goes live at 5 p.m. on election day, results after the 7 p.m. poll close", "script_ok": false, "notes": "HTTP 403 from Cloudflare on 2026-10-09, although the body was the real page (title 'Unofficial Kansas Election Results', keywords for the 2026 primary, meta ROBOTS NOINDEX, NOFOLLOW). A 403 is a refusal: do not get around it."},
+   {"what": "precinct", "format": "csv", "address_pattern": "https://sos.ks.gov/elections/26elec/2026-General-Election-<Office>-Precinct-Level-Results.xlsx (pattern of the 2024 and 2026 primary files, for example 26elec/2026-Primary-Election-United-States-Senate-Precinct-Level-Results.xlsx); official vote totals PDF 26elec/2026-Primary-Election-Official-Vote-Totals.pdf", "updates": "once, after the State Board of Canvassers certifies (Dec 2 in 2024)", "script_ok": true, "notes": "Results page HTTP 200 (CloudFront) on 2026-10-09. Format is xlsx (recorded as csv-like tables)."}
+  ],
+  "races": ["statewide", "Congress", "legislature", "State Board of Education", "judges (Court of Appeals, district and magistrate retention)", "district attorneys"],
+  "precinct_level": true,
+  "vote_types": "Not split in the official workbooks seen. The election-night page was not readable.",
+  "counties_separate": "Yes. Johnson County Election Office (jocoelection.org), Sedgwick County (sedgwick.gov elections), Wyandotte/KCK (wycokck.org), Shawnee (snco.us/election). None of these were requested.",
+  "past_test": "2024 general precinct workbooks: https://sos.ks.gov/elections/24elec/2024-General-Election-United-States-House-of-Representatives-Precinct-Results.xlsx (and Senate, Kansas House, Kansas Senate, SBOE, courts, DA).",
+  "nov3_id": "None (static pages).",
+  "terms": "The results page says unofficial and precinct results 'are available upon request' from the Elections Division.",
+  "blocked": "ent.sos.ks.gov answers scripts with 403 (Cloudflare). The candidate list page (elections_upcoming_candidate.aspx) also answers 403 (CloudFront), as recorded in ballot/lists/ks.py.",
+  "kit_already_reads": "ballot/lists/ks.py: the official primary vote totals PDF and the primary precinct workbooks from sos.ks.gov/elections/election-results.html. The November list waits for John's saved page in ballot_cache/ks/.",
+  "plan": "No live feed a script may read. Options: (1) John saves the election-night page from his browser every so often into a watched folder, as he does for Minnesota; (2) show Kansas through the news feed and the AP-free official sources only after canvass, using the precinct workbooks for the map. County sites (Johnson, Sedgwick) may publish readable election-night files; check them once each before November. Ask John which he prefers."
+ },
+ "OK": {
+  "system": "State Election Board's results site OKER (results.okelections.us, AWS load balancer); exports <date>_StateResults.csv and <date>_CountyResults_csv.zip from its Export menu.",
+  "site": "https://results.okelections.us/OKER/?elecDate=20261103",
+  "feeds": [
+   {"what": "statewide", "format": "csv", "address_pattern": "https://results.okelections.us/OKER/?elecDate=<yyyymmdd>; exports <yyyymmdd>_StateResults.csv (one row per candidate per contest) and <yyyymmdd>_CountyResults_csv.zip", "updates": "through election night as counties report", "script_ok": false, "notes": "HTTP 403 (awselb/2.0) on 2026-10-09 for ?elecDate=20260825. results.okelections.gov also answered 403 (awselb/2.0); CLAUDE.md records it earlier failing to resolve."},
+   {"what": "county", "format": "zip", "address_pattern": "<yyyymmdd>_CountyResults_csv.zip from the same Export menu", "updates": "as above", "script_ok": false, "notes": "Same block."}
+  ],
+  "races": ["statewide", "Congress", "legislature", "judges (retention)", "county offices", "some local and school (the list prints only contested races)"],
+  "precinct_level": "unknown (county file seen; precinct export not confirmed)",
+  "vote_types": "Unknown; OKER is known to show early, absentee and election-day columns but this was not seen from here.",
+  "counties_separate": "Mostly no: county election boards report into the state system. Oklahoma County and Tulsa County election boards post their own notices (not requested).",
+  "past_test": "The June 16 primary and Aug 25 runoff exports John saved on 2026-10-03 in ballot_cache/ok/results/<yyyymmdd>/ (StateResults.csv, CountyResults_csv.zip).",
+  "nov3_id": "elecDate=20261103 (the site keys elections by date).",
+  "terms": "Not seen.",
+  "blocked": "403 to scripts at the AWS load balancer on both results.okelections.us and results.okelections.gov.",
+  "kit_already_reads": "ballot/lists/ok.py: hosting.okelections.us/electionlist.html, the candidate list book PDF and the hand-saved OKER exports. ballot/state_local_ok.py: the same lists for state and county rows.",
+  "plan": "Treat like Minnesota: John uses the site's own Export menu in his browser on election night and saves the two files into a watched folder (ballot_cache/ok/results/20261103/); the updater reads the newest copy and publishes. The column layout is already known from the primary exports, so the reader is mostly written."
+ },
+ "TX": {
+  "system": "Civix election night results ('Civix Election Night Results', goelect.txelections.civixapps.com, behind Cloudflare but answering scripts); answers are base64 JSON.",
+  "site": "https://goelect.txelections.civixapps.com/ivis-enr-ui/",
+  "feeds": [
+   {"what": "statewide", "format": "json", "address_pattern": "https://goelect.txelections.civixapps.com/api-ivis-system/api/s3/enr/electionConstants (list of elections, base64 JSON in 'upload'); https://goelect.txelections.civixapps.com/api-ivis-system/api/s3/enr/election/<ID> (record with base64 sections Home, Federal, StateWide, StateWideQ, Districted, OfficeSummary, Race, Lookups, ReportList)", "updates": "Home carries RefreshTime and LastUpdatedTime; counties report through the night (CountiesReporting CR of CT=254)", "script_ok": true, "notes": "HTTP 200 (cloudflare) on 2026-10-09. The Nov 3 election (ID 53815, 'O': N) currently returns only {'Version'}: the data is not loaded yet. The March primary record (53813) is 1.8 MB."},
+   {"what": "congress", "format": "json", "address_pattern": "Federal section of /election/<ID>: Races[] with Candidates[] carrying V (votes), EV (early votes), PE (percent), P (party)", "updates": "as above", "script_ok": true, "notes": "Early vote split present (EV)."},
+   {"what": "county", "format": "pdf", "address_pattern": "/api-ivis-system/api/s3/enr/electionReports/<ID>/<Report>/pdf (CountyByCountyCanvassReport, OfficialCanvassReport; base64 in JSON)", "updates": "after canvass", "script_ok": true, "notes": "The kit already reads the OfficialCanvassReport this way."}
+  ],
+  "races": ["statewide", "Congress", "legislature", "State Board of Education", "statewide judges and courts of appeals", "district judges and DAs (Districted)", "statewide propositions", "special elections (House 93, Senate 22 on Nov 3: IDs 66734, 66618)"],
+  "precinct_level": false,
+  "vote_types": "Yes: each candidate has EV (early votes) beside V (total), so election-day votes are V minus EV. Mail is not split from early in-person in the fields seen.",
+  "counties_separate": "Yes, for county, city and school races: Harris (harrisvotes.com), Dallas (dallascountyvotes.org), Tarrant (tarrantcountytx.gov elections), Bexar (bexar.org elections), Travis (votetravis.gov). Not requested.",
+  "past_test": "The 2026 primaries and runoffs on the same system (IDs 53813, 53814, 58315, 58314; Senate District 4 special 56181). The 2024 general sits on the older results.texas-election.com, which answers scripts with a Cloudflare challenge.",
+  "nov3_id": "53815 ('2026 NOVEMBER GENERAL ELECTION'); specials 66734 (House District 93) and 66618 (Senate District 22) on the same list.",
+  "terms": "Not seen on the API.",
+  "blocked": "results.texas-election.com (2019-2024 site): Cloudflare challenge, not asked (per ballot/lists/tx.py).",
+  "kit_already_reads": "ballot/lists/tx.py: electionConstants, election records and Official Canvass Report PDFs for the 2026 primaries and runoffs. ballot/state_local_tx.py: the qualified-candidates API (findQualifiedCandidates, election 53815) and the Ballot Certification Report.",
+  "plan": "Read /election/53815 (and the two specials) every few minutes on election night; the reader for the format exists in tx.py. Congress, statewide and legislative results with early-vote splits come straight from it, county by county via the Race section if present (to confirm on the primary record). County and city results need the big counties' own sites, largest first."
+ },
+ "MT": {
+  "system": "Secretary of State's own ASP.NET results site (electionresults.mt.gov; data service esersws.mt.gov). Election ids are shared with the candidate filing system.",
+  "site": "https://electionresults.mt.gov/Default.aspx?eid=450002987",
+  "feeds": [
+   {"what": "statewide", "format": "html", "address_pattern": "https://electionresults.mt.gov/ResultsSW.aspx?type=<code>&eid=<eid> (pages), service root https://esersws.mt.gov/", "updates": "as counties upload on election night; the 2024 page last updated Dec 19, 2024", "script_ok": true, "notes": "HTTP 200 on 2026-10-09. The root electionresults.mt.gov/ redirects to sosmt.gov/elections/results/ (Cloudflare, 200) between elections."},
+   {"what": "county", "format": "csv", "address_pattern": "https://electionresults.mt.gov/ResultsExport.aspx?eid=<eid>: 'Statewide Export', 'Legislative Export' and one export per county (ASP.NET postbacks)", "updates": "as above", "script_ok": "untested", "notes": "Page answered 200; postback not tried. resultsCSV.aspx (the Nebraska/New Mexico export) does not exist here (error page)."},
+   {"what": "precinct", "format": "xlsx", "address_pattern": "sosmt.gov/docs/32/results/<n>/<year>_general_precinct_by_precinct (after canvass)", "updates": "after canvass", "script_ok": true, "notes": "The kit reads the 2026 primary workbook this way."}
+  ],
+  "races": ["statewide", "Congress", "legislature", "judges", "county and local ('Results By County and Local Results')"],
+  "precinct_level": "after canvass only (workbook)",
+  "vote_types": "Not seen.",
+  "counties_separate": "Some: Yellowstone, Missoula, Gallatin and Flathead (flatheadcounty.gov/department-directory/election) post their own. The state site already carries county and local results.",
+  "past_test": "2024 general: https://electionresults.mt.gov/ResultsList.aspx?eid=450002785; 2026 primary: eid=450002928.",
+  "nov3_id": "450002987 (page live: 'General Election - November 3, 2026', turnout .0%).",
+  "terms": "None seen.",
+  "blocked": "Nothing refused.",
+  "kit_already_reads": "ballot/lists/mt.py: candidatefiling.mt.gov grids (e=450002987 general, 450002928 primary), the primary precinct workbook and State Canvass PDF. ballot/state_local_mt.py: county election pages and sample ballots.",
+  "plan": "Rehearse on eid 450002785. On election night read the statewide, legislative and county exports (a form post each) or the esersws.mt.gov service the pages call, every few minutes. Local races are on the same site, so Montana can be covered at every level once the export or service format is pinned down."
+ },
+ "WY": {
+  "system": "Secretary of State's own site (sos.wyo.gov, ASP.NET): PDF summaries updated through the night as each county finishes and the Secretary checks it; a results zip afterwards.",
+  "site": "https://sos.wyo.gov/Elections/ElectionResults.aspx (the 2026 general page will be /Elections/Docs/2026/2026GeneralResults.aspx; its link is commented out today)",
+  "feeds": [
+   {"what": "statewide", "format": "html", "address_pattern": "https://sos.wyo.gov/Elections/Docs/<year>/Results/<Primary|General>/<year>_General_Statewide_Candidates_Summary.pdf, ..._House_Candidates_Summary.pdf, ..._Senate_Candidates_Summary.pdf, ..._Judicial_Summary.pdf, ..._Constitutional_Amendment_Summary.pdf, ..._Total_Ballots_Cast_Summary.pdf", "updates": "updated through election night as a county reports 100 percent and the Secretary verifies it (2024 page wording); not precinct by precinct", "script_ok": true, "notes": "PDF, not a data feed. Pages answered 200 on 2026-10-09."},
+   {"what": "precinct", "format": "zip", "address_pattern": "https://sos.wyo.gov/Elections/Docs/<year>/Results/<Type>/<year>_Wyoming_<Type>_Results.zip and <year>_<County>_County_<Type>_PbP.pdf", "updates": "after canvass", "script_ok": true, "notes": "The kit reads the 2026 primary zip."}
+  ],
+  "races": ["statewide", "Congress", "legislature", "judges (retention)", "constitutional amendments"],
+  "precinct_level": "after canvass only",
+  "vote_types": "No (summaries carry totals, undervotes, overvotes, provisional ballots).",
+  "counties_separate": "Yes: the state page says county and local results are on the county clerks' sites. Laramie (laramiecountywy.gov Elections), Natrona (natronacounty-wy.gov), Campbell (campbellcountywy.gov/867/Elections), Park (parkcounty-wy.gov/county-elections). Not requested.",
+  "past_test": "2024 general: https://sos.wyo.gov/Elections/Docs/2024/2024GeneralResults.aspx (PDFs and 2024_Wyoming_General_Results.zip).",
+  "nov3_id": "Not posted; expected at /Elections/Docs/2026/2026GeneralResults.aspx.",
+  "terms": "None seen.",
+  "blocked": "Nothing refused.",
+  "kit_already_reads": "ballot/lists/wy.py: the general candidate list PDF and the primary results zip. ballot/state_local_wy.py: the general candidates CSV and county clerks' sample ballots.",
+  "plan": "Readable but slow and in PDF. Poll the general results page every ten minutes or so for new or changed summary PDFs, read them with ballot/pdftext.py, and show each county as 'all in' or 'not yet'. Local results only from county clerks after the night; leave them for after Nov 3."
+ },
+ "CO": {
+  "system": "Clarity Elections (Scytl/Civix ENR), results.enr.clarityelections.com/CO, on CloudFront.",
+  "site": "https://results.enr.clarityelections.com/CO/",
+  "feeds": [
+   {"what": "statewide", "format": "xml", "address_pattern": "https://results.enr.clarityelections.com/CO/<EID>/current_ver.txt, then /CO/<EID>/<ver>/reports/detailxml.zip (detail.xml: every contest, choice and county); election list at /CO/elections.json?v=1 (gzip JSON: EID, ElectionName, Date)", "updates": "new version number each upload (all-mail counting; counties report through the night and for days)", "script_ok": true, "notes": "HTTP 200 on 2026-10-09: current_ver.txt for 126592 = 377440; elections.json lists 2026 Primary 126592, 2025 Coordinated 124409, 2024 General 122598, 2024 Primary 121727, 2022 General 115903. Nov 3, 2026 not listed yet."},
+   {"what": "county", "format": "xml", "address_pattern": "https://results.enr.clarityelections.com/CO/<County>/<county EID>/<ver>/reports/detailxml.zip (each county's own Clarity page, with precinct detail and local races)", "updates": "as above", "script_ok": "untested", "notes": "County pages are linked from the state page."}
+  ],
+  "races": ["statewide", "Congress", "legislature", "judges (retention)", "RTD and other district races", "statewide measures"],
+  "precinct_level": "on the county Clarity pages (state page is county level)",
+  "vote_types": "The state detail.xml has one VoteType ('Total Votes') per choice (ballot/lists/co.py stops if more appear). Colorado votes by mail, so the count-order signal is the order of uploads (version by version), not ballot type.",
+  "counties_separate": "Yes, on Clarity under /CO/<County>/: Denver, El Paso, Arapahoe, Jefferson, Adams, Larimer, Boulder.",
+  "past_test": "2024 General: https://results.enr.clarityelections.com/CO/122598/ ; 2026 Primary: /CO/126592/",
+  "nov3_id": "Not posted yet (elections.json on 2026-10-09).",
+  "terms": "None seen in the API answers.",
+  "blocked": "Nothing refused.",
+  "kit_already_reads": "ballot/lists/co.py: current_ver.txt and detailxml.zip for the 2026 primary (126592), stored only where they equal the certified abstract. ballot/state_local_co.py: the Secretary's candidate pages.",
+  "plan": "Rehearse on 122598. On election night poll current_ver.txt every couple of minutes and fetch detailxml.zip only when the version changes; that gives every statewide, Congress and legislative contest by county. Saving each version also feeds the count-order predictor (how each county's share moves upload by upload). Local results: the large counties' Clarity pages, same reader."
+ },
+ "NM": {
+  "system": "Secretary of State's own ASP.NET results site on Azure Government (electionresults.sos.nm.gov, server volt-adc; data service nmresultswebservice.azurewebsites.us). Same platform family as Nebraska's.",
+  "site": "https://electionresults.sos.nm.gov/Default.aspx?eid=<eid>",
+  "feeds": [
+   {"what": "congress", "format": "csv", "address_pattern": "https://electionresults.sos.nm.gov/resultsCSV.aspx?text=All&type=FED&map=CTY&eid=<eid> (type codes SW statewide, FED, LGX legislative, JDX district judges, MGX magistrates, JMC Bernalillo Metropolitan Court, ECX Public Education Commission, MUX municipal)", "updates": "as counties upload on election night", "script_ok": true, "notes": "The kit reads the primary export (eid 2911). Pages HTTP 200 on 2026-10-09. Columns include CandidateAbsenteeVotes, CandidateElectionDayVotes, CandidateEarlyVotes and PrecinctsReporting."},
+   {"what": "county", "format": "json", "address_pattern": "https://nmresultswebservice.azurewebsites.us/NMResultsAjax.svc/GetMapDataArchive?type=<code>&category=CTY (archive; the live method name to confirm)", "updates": "as above", "script_ok": true, "notes": "The kit's loader uses this to check county sums."}
+  ],
+  "races": ["statewide", "Congress", "legislature", "judges (district, magistrate, Metropolitan Court, retention)", "Public Education Commission", "county offices ('Offices and Questions by County')", "municipal offices in elections that carry them"],
+  "precinct_level": false,
+  "vote_types": "Yes: absentee, early and election-day votes per candidate in the CSV.",
+  "counties_separate": "No need for state and county offices (the state site carries them). Bernalillo County Clerk (bernco.gov/clerk) also posts. Not requested.",
+  "past_test": "2026 primary eid=2911 (Official Results, updated 6/23/2026). 2024 general eid not found today; the Secretary's results page lists older eids (2791, 2796).",
+  "nov3_id": "Not posted yet: eid=2917 (the candidate portal's general id; the primary used the same id, 2911, on both) redirected to the Secretary's results page on 2026-10-09.",
+  "terms": "None seen.",
+  "blocked": "Nothing refused. A missing eid redirects to www.sos.nm.gov.",
+  "kit_already_reads": "ballot/lists/nm.py: candidate portal lists (eid 2917 general, 2911 primary), the primary results CSV and the county map service. ballot/state_local_nm.py: the candidate portal by county and the county map service archive.",
+  "plan": "Check once a week whether eid=2917 opens. On election night read the CSV exports for SW, FED, LGX and the court and county types every few minutes; the vote-type columns feed the count-order predictor directly. The reader in nm.py already handles this format."
+ },
+ "UT": {
+  "system": "Enhanced Voting (electionresults.utah.gov/results/public/...), with each county as a child jurisdiction on the same system.",
+  "site": "https://electionresults.utah.gov/results/public/Utah/elections/<publicElectionId>",
+  "feeds": [
+   {"what": "statewide", "format": "json", "address_pattern": "https://electionresults.utah.gov/results/public/api/jurisdictions/Utah (list: publicElectionId and date; childLocalities = 29 counties such as salt-lake-county-ut); https://electionresults.utah.gov/results/public/api/elections/Utah/<publicElectionId> (election record: lastUpdated, isOfficialResults, contestGroups, precinctsReporting, publicReportCategories, nextUpdateAt); report files under https://electionresults.utah.gov/cdn/results/<jurisdictionId>/<blobName>", "updates": "nextUpdateAt and lastUpdated in the record; counties upload through the night (all-mail state)", "script_ok": true, "notes": "HTTP 200 on 2026-10-09. The contest-results endpoint itself (beyond the election record and report files) was not identified."},
+   {"what": "county", "format": "json", "address_pattern": "https://electionresults.utah.gov/results/public/api/elections/<county-slug>/<publicElectionId>", "updates": "as above", "script_ok": "untested", "notes": "County summaries are listed as 'Summary Results' reports on the state record."},
+   {"what": "precinct", "format": "zip", "address_pattern": "'All Results Excel' report (Summary Results and Precinct Results sheets) from the record's publicReportCategories", "updates": "as published", "script_ok": true, "notes": "The kit reads it for the primary."}
+  ],
+  "races": ["statewide", "Congress", "legislature", "judges (retention, including justice courts)", "county and local (on county child jurisdictions)"],
+  "precinct_level": true,
+  "vote_types": "Not seen (Utah votes by mail; count order is upload order).",
+  "counties_separate": "On the same system as child jurisdictions (salt-lake-county-ut, utah-county-ut, davis-county-ut, weber-county-ut, washington-county-ut).",
+  "past_test": "2024 General: https://electionresults.utah.gov/results/public/api/elections/Utah/general11052024 (isOfficialResults true, last updated 2024-11-22; its report list is empty); 2026 primary: Primary06232026.",
+  "nov3_id": "Not posted yet (no 2026 general in the jurisdiction list on 2026-10-09; the pattern suggests general11032026).",
+  "terms": "None seen.",
+  "blocked": "Nothing refused.",
+  "kit_already_reads": "ballot/lists/ut.py: the election record and its All Results Excel and county summaries for Primary06232026. ballot/state_local_ut.py: the Lieutenant Governor's lists and pamphlet.",
+  "plan": "Find the contest-results call the public page makes (one look in the Browser pane on the 2024 general) and rehearse on general11052024. On election night poll the Utah election record for lastUpdated and fetch contest data when it changes, then each large county's child record for local races. Enhanced Voting also runs Idaho and Georgia, so one reader serves three states."
+ },
+ "ID": {
+  "system": "Enhanced Voting (results.voteidaho.gov, behind Cloudflare but answering scripts), adopted from the Nov 2025 election on; 44 counties as child jurisdictions.",
+  "site": "https://results.voteidaho.gov/results/public/id/elections/<publicElectionId>",
+  "feeds": [
+   {"what": "statewide", "format": "json", "address_pattern": "https://results.voteidaho.gov/results/public/api/jurisdictions/id (elections: may2026, dec2025, nov2025); https://results.voteidaho.gov/results/public/api/elections/id/<publicElectionId>", "updates": "lastUpdated and nextUpdateAt in the record", "script_ok": true, "notes": "HTTP 200 (cloudflare) on 2026-10-09. The may2026 record is official (lastUpdated 2026-08-24) and lists reports: Ballots Cast by Precinct; Precinct/District Results with Write-Ins by Contest Table; Summary Results by Contest; Summary and Precinct Results Excel. Contest groups Federal, Statewide and more."},
+   {"what": "county", "format": "json", "address_pattern": "https://results.voteidaho.gov/results/public/api/elections/<county-slug>/<publicElectionId> (slugs like ada-county-id, canyon-county-id)", "updates": "as above", "script_ok": "untested", "notes": "voteidaho.gov/election-results links each county's page."}
+  ],
+  "races": ["statewide", "Congress", "legislature", "judges", "county offices and local districts (on county child jurisdictions)"],
+  "precinct_level": true,
+  "vote_types": "Not seen in the election record (countGroups null for may2026).",
+  "counties_separate": "On the same system: Ada, Canyon, Kootenai, Bonneville, Bannock.",
+  "past_test": "2026 primary: https://results.voteidaho.gov/results/public/id/elections/may2026 (the 2024 general predates this system: canvass PDFs on archive.voteidaho.gov).",
+  "nov3_id": "Not posted yet (likely nov2026 by the pattern).",
+  "terms": "None seen.",
+  "blocked": "Nothing refused.",
+  "kit_already_reads": "ballot/lists/id.py: the candidate filing portal JSON (api-run.voteidaho.gov) and the primary canvass report PDF. ballot/state_local_id.py: the portal's county and local district types.",
+  "plan": "Same Enhanced Voting reader as Utah. Rehearse on may2026. On election night poll the Idaho record and the large counties' child records. Note that the canvass protects small counts ('**'), so precinct figures may be held back in places."
+ }
+}

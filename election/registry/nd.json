@@ -1,0 +1,136 @@
+{
+ "v": 1,
+ "code": "ND",
+ "name": "North Dakota",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "live",
+ "status_why": "Tally's JSON service answered scripts; election 348 is posted.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the North Dakota Secretary of State",
+ "system": "Tally / TotalResults election night reporting (the same API family as Arkansas's enr-results-api.totalresults.com) on the Secretary of State's domain",
+ "family": "tally",
+ "reader_agent": "N9",
+ "results_page": {
+  "url": "https://resultsnd.sos.nd.gov/",
+  "label": "North Dakota Secretary of State: election results",
+  "checked": "2026-10-09",
+  "source": "results_mn.json"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": "348",
+  "posted": true,
+  "how_to_find": "Posted ('2026 General Election')."
+ },
+ "cadence": {
+  "check_every_s": 120,
+  "signal": "https://api.resultsnd.sos.nd.gov/Election/GetElectionInfo?cId=north-dakota&electionID=348 (versionID)",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "api.resultsnd.sos.nd.gov"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "nd-1",
+   "what": "statewide",
+   "format": "json",
+   "address": "https://api.resultsnd.sos.nd.gov/Election/GetElectionInfo?cId=north-dakota&electionID=<id> (versionID, lastUpdated, isOfficial, turnout, parties, contest types SW/LEG/.../MUN/SCH, counties and precincts); Contest/GetContestSearchList?cid=north-dakota&electionID=<id>; Contest/GetSingleContestResults?cId=north-dakota&electionID=<id>&contestType=<code>&contestID=<id>; Contest/GetContestResults?...&contestType=<code>",
+   "hosts": [
+    "api.resultsnd.sos.nd.gov"
+   ],
+   "updates": "versionID increments (v1 now for Nov 3); lastUpdated timestamp",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "200 on 2026-10-09 (Cloudflare in front but no challenge)."
+  },
+  {
+   "id": "nd-2",
+   "what": "congress",
+   "format": "json",
+   "address": "same, contest type SW",
+   "hosts": [],
+   "updates": "same",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": ""
+  },
+  {
+   "id": "nd-3",
+   "what": "legislature",
+   "format": "json",
+   "address": "contest type LEG (legislative districts)",
+   "hosts": [],
+   "updates": "same",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": ""
+  },
+  {
+   "id": "nd-4",
+   "what": "local",
+   "format": "json",
+   "address": "contest types MUN (City), SCH (School), county types",
+   "hosts": [],
+   "updates": "same",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "City and school contests are in the state system."
+  },
+  {
+   "id": "nd-5",
+   "what": "precinct",
+   "format": "json",
+   "address": "GetElectionInfo 'districts.counties' lists every county's precincts (358 for 2026); contest results by location",
+   "hosts": [],
+   "updates": "same",
+   "script_ok": "untested",
+   "checked": "2026-10-09",
+   "note": "Precinct rows per contest not requested here."
+  }
+ ],
+ "units": "precinct",
+ "precinct_level": true,
+ "races_in_feed": "Statewide, Congress, Legislature, county, city, school (all in one system).",
+ "local": "No need.",
+ "how_counted": "Counties report through the night; every level is in one state system.",
+ "count_order": "One vote type ('All').",
+ "vote_types": "No: voteTypes lists only 'All' (2026 primary, eid 346).",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the North Dakota State Canvassing Board",
+  "rule": "Meets no later than 17 days after the election (N.D. Cent. Code 16.1-15-35).",
+  "date": "2026-11-20",
+  "date_kind": "meets_by",
+  "local_rule": "Counties before 4 p.m. on the 13th day (16.1-15-25).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": "electionID 346 (2026 primary)",
+ "terms": "None found.",
+ "scout_blocked": "Nothing seen.",
+ "scout_plan": "Live-readable and the best-prepared state: election 348 is already posted. Poll GetElectionInfo every 2 to 5 minutes; when versionID changes, fetch the contest results by type (SW for statewide and Congress, LEG, county, MUN, SCH). Choices' winner flag is left unset even when official, so winners come from the counts and the official flag. Rehearse on 346.",
+ "notes": [
+  "isWinner is left unset even when official."
+ ],
+ "to_do": [],
+ "sources": [
+  "election/scout/results_mn.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

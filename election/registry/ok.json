@@ -1,0 +1,119 @@
+{
+ "v": 1,
+ "code": "OK",
+ "name": "Oklahoma",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "hand",
+ "status_why": "The results site refuses scripts; John saves its two Export files by hand.",
+ "approved": true,
+ "approval_note": "John said yes (2026-10-10, D3): he saves the two Export files on the night.",
+ "office": "the Oklahoma State Election Board",
+ "system": "State Election Board's results site OKER (results.okelections.us, AWS load balancer); exports <date>_StateResults.csv and <date>_CountyResults_csv.zip from its Export menu.",
+ "family": "ok_export",
+ "reader_agent": "N12",
+ "results_page": {
+  "url": "https://results.okelections.us/OKER/?elecDate=20261103",
+  "label": "Oklahoma State Election Board: results",
+  "checked": "2026-10-09",
+  "source": "results_ne.json"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": "elecDate=20261103",
+  "posted": true,
+  "how_to_find": "The site keys elections by date."
+ },
+ "cadence": {
+  "check_every_s": 30,
+  "signal": "the watched folder (no network)",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": []
+ },
+ "hand": {
+  "folder": "ballot_cache/ok/results/20261103/",
+  "files": [
+   "20261103_StateResults.csv",
+   "20261103_CountyResults_csv.zip"
+  ],
+  "how": "John uses the site's own Export menu in his browser and saves both files into the folder; the updater reads the newest copy. A figure's time is the file's own time, or else when he saved it."
+ },
+ "feeds": [
+  {
+   "id": "ok-1",
+   "what": "statewide",
+   "format": "csv",
+   "address": "https://results.okelections.us/OKER/?elecDate=<yyyymmdd>; exports <yyyymmdd>_StateResults.csv (one row per candidate per contest) and <yyyymmdd>_CountyResults_csv.zip",
+   "hosts": [
+    "results.okelections.us"
+   ],
+   "updates": "through election night as counties report",
+   "script_ok": false,
+   "checked": "2026-10-09",
+   "note": "HTTP 403 (awselb/2.0) on 2026-10-09 for ?elecDate=20260825. results.okelections.gov also answered 403 (awselb/2.0); CLAUDE.md records it earlier failing to resolve."
+  },
+  {
+   "id": "ok-2",
+   "what": "county",
+   "format": "zip",
+   "address": "<yyyymmdd>_CountyResults_csv.zip from the same Export menu",
+   "hosts": [],
+   "updates": "as above",
+   "script_ok": false,
+   "checked": "2026-10-09",
+   "note": "Same block."
+  }
+ ],
+ "units": "county",
+ "precinct_level": "unknown (county file seen; precinct export not confirmed)",
+ "races_in_feed": [
+  "statewide",
+  "Congress",
+  "legislature",
+  "judges (retention)",
+  "county offices",
+  "some local and school (the list prints only contested races)"
+ ],
+ "local": "Mostly no: county election boards report into the state system. Oklahoma County and Tulsa County election boards post their own notices (not requested).",
+ "how_counted": "County election boards report to the State Election Board through the night.",
+ "count_order": "OKER is known to show early, absentee and Election Day columns (not seen from here).",
+ "vote_types": "Unknown; OKER is known to show early, absentee and election-day columns but this was not seen from here.",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Oklahoma State Election Board",
+  "rule": "After 5 p.m. on the Tuesday after the election (Okla. Stat. tit. 26, 7-136).",
+  "date": "2026-11-10",
+  "date_kind": "from",
+  "local_rule": "County boards after 5 p.m. on the Friday after (7-136).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [
+  "results.okelections.gov",
+  "results.okelections.us"
+ ],
+ "never_why": {
+  "results.okelections.us": "403 to scripts at the load balancer (scout, 2026-10-09)",
+  "results.okelections.gov": "403 to scripts at the load balancer (scout, 2026-10-09)"
+ },
+ "partial_sources": [],
+ "rehearsal": "The June 16 primary and Aug 25 runoff exports in ballot_cache/ok/results/<yyyymmdd>/",
+ "terms": "Not seen.",
+ "scout_blocked": "403 to scripts at the AWS load balancer on both results.okelections.us and results.okelections.gov.",
+ "scout_plan": "Treat like Minnesota: John uses the site's own Export menu in his browser on election night and saves the two files into a watched folder (ballot_cache/ok/results/20261103/); the updater reads the newest copy and publishes. The column layout is already known from the primary exports, so the reader is mostly written.",
+ "notes": [],
+ "to_do": [],
+ "sources": [
+  "election/scout/results_ne.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

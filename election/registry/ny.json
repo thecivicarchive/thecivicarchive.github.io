@@ -1,0 +1,123 @@
+{
+ "v": 1,
+ "code": "NY",
+ "name": "New York",
+ "written": "2026-10-10",
+ "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+ "status": "link",
+ "status_why": "The state's results page shows scripts a Cloudflare challenge, which is never worked around. New York City's own results may be read later.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the New York State Board of Elections",
+ "system": "State-built ASP.NET WebForms 'Unofficial Election Night Results' (NYS Board of Elections, counties upload); New York City's Board runs its own ENR",
+ "family": null,
+ "reader_agent": "N12",
+ "results_page": {
+  "url": "https://nyenr.elections.ny.gov/",
+  "label": "New York State Board of Elections: unofficial results",
+  "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+  "source": "results_pa.json"
+ },
+ "other_pages": [
+  {
+   "url": "https://enr.boenyc.gov/",
+   "label": "New York City Board of Elections"
+  }
+ ],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": null,
+  "posted": false,
+  "how_to_find": "The Board's certified workbook weeks later."
+ },
+ "cadence": null,
+ "hand": null,
+ "feeds": [
+  {
+   "id": "ny-1",
+   "what": "statewide",
+   "format": "html",
+   "address": "one page with postback drop-downs (ctl00_HomePage_ddPrimaryParty, ddContest: Comptroller, U.S. Congress, State Senate, State Assembly, judicial delegates; ddDistrict; ddCountyBreakDown Yes/No); no JSON or CSV call seen in the page's network requests (only the page, CSS, TrackContest.js, WebResource.axd)",
+   "hosts": [],
+   "updates": "the page has an 'Auto Refresh' switch; counties upload after polls close at 9 p.m.",
+   "script_ok": false,
+   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+   "note": "A script got HTTP 403 with Cloudflare's 'Just a moment...' challenge on 2026-10-09; the Browser pane opened it normally (still showing the June 23 primary, 11,862 of 12,853 election districts reporting)."
+  },
+  {
+   "id": "ny-2",
+   "what": "congress",
+   "format": "html",
+   "address": "same page, contest 'U.S. Congress', district picker, county breakdown Yes",
+   "hosts": [],
+   "updates": "as above",
+   "script_ok": false,
+   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+   "note": "Cloudflare challenge to scripts"
+  },
+  {
+   "id": "ny-3",
+   "what": "local",
+   "format": "html",
+   "address": "New York City: https://enr.boenyc.gov/ (between elections it redirects to https://vote.nyc/page/election-results-summary; RCV results at https://enr.boenyc.gov/rcv/); certified recaps as PDF and CSV per contest and per election district at https://vote.nyc/sites/default/files/pdf/election_results/<year>/<yyyymmdd><Election>/<code><contest> Recap.csv and ... EDLevel.csv; a cast-vote-record zip per election",
+   "hosts": [
+    "enr.boenyc.gov",
+    "vote.nyc"
+   ],
+   "updates": "enr.boenyc.gov during the count; recaps after certification",
+   "script_ok": true,
+   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+   "note": "enr.boenyc.gov answered a script 200 (a 436-byte redirect page) on 2026-10-09; vote.nyc read in the Browser pane."
+  }
+ ],
+ "units": "county",
+ "precinct_level": false,
+ "races_in_feed": "statewide (Governor/Lt. Governor, Comptroller, Attorney General), Congress, State Senate and Assembly, Supreme Court justices by judicial district; write-ins only as a total. Local results: 'contact the county board of elections' (the page's own words)",
+ "local": "yes: NYC Board (enr.boenyc.gov), Suffolk, Nassau, Westchester, Erie, Monroe county boards (addresses not checked); county board list at http://www.elections.ny.gov/CountyBoards.html",
+ "how_counted": "Counties count early voting and Election Day ballots first and mail ballots later.",
+ "count_order": "Early voting and Election Day first; mail and absentee later (Election Law 9-200, 9-208).",
+ "vote_types": "no on the state page. New York counts early voting and Election Day first and mail/absentee later (the page cites Election Law 9-200, 9-208; certification within 25 days for a general). NYC's ED-level recaps list lines by election district only.",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the New York State Board of Canvassers",
+  "rule": "In years without presidential electors, meets on or before the 15th day after the election (N.Y. Elec. Law 9-216); counties send their certified statements within 25 days (9-214).",
+  "date": null,
+  "date_kind": null,
+  "local_rule": "Counties within 25 days (N.Y. Elec. Law 9-214).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [
+  "*.elections.ny.gov",
+  "elections.ny.gov"
+ ],
+ "never_why": {
+  "elections.ny.gov": "Cloudflare challenge (scout, 2026-10-09)",
+  "*.elections.ny.gov": "Cloudflare challenge (scout, 2026-10-09; CLAUDE.md)"
+ },
+ "partial_sources": [
+  {
+   "what": "New York City (enr.boenyc.gov), labelled partial",
+   "host": "enr.boenyc.gov",
+   "status": "later",
+   "note": "answered a script 200 on 2026-10-09"
+  }
+ ],
+ "rehearsal": null,
+ "terms": "the page's 'Statement on the Unofficial Nature of Election Night Results'; no terms of use for reuse",
+ "scout_blocked": "nyenr.elections.ny.gov and elections.ny.gov answer scripts with a Cloudflare challenge (403); must not be worked around. The Browser pane passes it like any browser.",
+ "scout_plan": "Blocked to scripts on the night. Options, in order: (1) John keeps the state ENR page open in his own browser and saves it (Save as, HTML) into a watched folder every few minutes, or the Browser pane on his computer saves it, and the updater parses the saved copy; this works the same way as Minnesota's hand-saved files; (2) read New York City's enr.boenyc.gov directly (it answered scripts) for the city's congressional and legislative districts; (3) final figures from the Board's certified workbook weeks later. Ask John whether reading the state page through the Browser pane on election night is acceptable; it is a public page a browser opens normally.",
+ "notes": [],
+ "to_do": [],
+ "sources": [
+  "election/scout/results_pa.json (checked 2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts))",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

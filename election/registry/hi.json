@@ -1,0 +1,92 @@
+{
+ "v": 1,
+ "code": "HI",
+ "name": "Hawaii",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "live",
+ "status_why": "The Office's summary text file answered scripts.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Hawaii Office of Elections",
+ "system": "Hawaii Office of Elections' own results: printout readouts posted as text and PDF files (WordPress site behind Cloudflare; older years on files.hawaii.gov)",
+ "family": "hi_text",
+ "reader_agent": "N10",
+ "results_page": {
+  "url": "https://elections.hawaii.gov/election-results/",
+  "label": "Hawaii Office of Elections: election results",
+  "checked": "2026-10-09",
+  "source": "results_az.json"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": "folder '2026 General' (expected)",
+  "posted": false,
+  "how_to_find": "Watch the results page for the 2026 General folder."
+ },
+ "cadence": {
+  "check_every_s": 180,
+  "signal": "https://elections.hawaii.gov/wp-content/results/2026 General/summary.txt (conditional request)",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "elections.hawaii.gov"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "hi-1",
+   "what": "statewide",
+   "format": "csv",
+   "address": "https://elections.hawaii.gov/wp-content/results/<YYYY> <Primary|General>/summary.txt (tab-separated, '#FormatVersion 1': contest, candidate, Mail Votes, In-Person Votes, Total Votes, precincts counted); precinct detail media.txt in the same folder; PDFs histatewide.pdf, coh.pdf, com.pdf, cok.pdf, cch.pdf, precinct.pdf, hi_sov.pdf",
+   "hosts": [
+    "elections.hawaii.gov"
+   ],
+   "updates": "readouts through election night (first soon after polls close at 7 p.m. HST), then a final readout",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "2026-10-09: the results page and .../2026 Primary/summary.txt (31 KB) answered 200 to the script (Cloudflare server, no challenge). The 2026 General folder is not linked yet; expect '2026 General'."
+  }
+ ],
+ "units": "precinct",
+ "precinct_level": true,
+ "races_in_feed": "Governor, both House seats, legislature, OHA trustees, county mayors and councils, measures: every contest on the ballot (Hawaii's counties have no separate results sites)",
+ "local": "No: the Office of Elections reports all four counties (Honolulu, Hawaii, Maui, Kauai)",
+ "how_counted": "Readouts begin after polls close at 7 p.m. Hawaii time, with mail and in-person votes counted apart.",
+ "count_order": "Mail Votes and In-Person Votes columns for every candidate.",
+ "vote_types": "Yes: Mail Votes and In-Person Votes columns for every candidate, and blank, over and invalid votes split the same way",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "Hawaii's Chief Election Officer",
+  "rule": "After the time for bringing an election contest has passed: 4:30 p.m. on the 20th day after the election (Hawaii Rev. Stat. 11-155, 11-156, 11-174.5).",
+  "date": "2026-11-23",
+  "date_kind": "from",
+  "local_rule": null,
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": "2026 Primary summary.txt; files.hawaii.gov 2022 general summary.txt",
+ "terms": "none seen",
+ "scout_blocked": "nothing",
+ "scout_plan": "Poll summary.txt in the 2026 General folder every few minutes from 7 p.m. HST (midnight Central): it carries every contest at every level with a mail and in-person split, so one small file covers statewide, Congress and local. Add media.txt for precinct results once the night's readouts settle.",
+ "notes": [],
+ "to_do": [
+  "Confirm the folder name."
+ ],
+ "sources": [
+  "election/scout/results_az.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

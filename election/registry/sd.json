@@ -1,0 +1,116 @@
+{
+ "v": 1,
+ "code": "SD",
+ "name": "South Dakota",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "care",
+ "status_why": "The results site's certificate had expired on 2026-10-09. Certificate checking is never switched off: read only once the state renews it, else link out.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the South Dakota Secretary of State",
+ "system": "State election night reporting site (ASP.NET pages resultsSW.aspx; the same results system as Nebraska's electionresults.nebraska.gov per the kit's notes; vendor not confirmed)",
+ "family": "resultssw",
+ "reader_agent": "N9",
+ "results_page": {
+  "url": "https://electionresults.sd.gov/",
+  "label": "South Dakota Secretary of State: election results",
+  "checked": "2026-10-09",
+  "source": "results_mn.json"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": "774 (probable; unconfirmed)",
+  "posted": false,
+  "how_to_find": "Confirm eid 774 once the certificate is renewed."
+ },
+ "cadence": {
+  "check_every_s": 300,
+  "signal": "https://electionresults.sd.gov/resultsSW.aspx?type=SWR&map=CTY&eid=774",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "electionresults.sd.gov"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "sd-1",
+   "what": "statewide",
+   "format": "html",
+   "address": "https://electionresults.sd.gov/resultsSW.aspx?type=SWR&map=CTY&eid=<eid> (statewide races by county), each contest with 'Precinct Level' and 'County Level' buttons",
+   "hosts": [
+    "electionresults.sd.gov"
+   ],
+   "updates": "unknown",
+   "script_ok": false,
+   "checked": "2026-10-09",
+   "note": "2026-10-09: the script's TLS check failed with 'certificate has expired'. Never turn verification off; wait for the state to renew, and tell the state if it persists."
+  },
+  {
+   "id": "sd-2",
+   "what": "legislature",
+   "format": "html",
+   "address": "resultsSW.aspx?type=LEG&map=DIST&eid=<eid>",
+   "hosts": [],
+   "updates": "unknown",
+   "script_ok": false,
+   "checked": "2026-10-09",
+   "note": "same certificate failure"
+  },
+  {
+   "id": "sd-3",
+   "what": "precinct",
+   "format": "csv",
+   "address": "per-contest 'Precinct Level' export buttons (postbacks)",
+   "hosts": [],
+   "updates": "unknown",
+   "script_ok": "untested",
+   "checked": "2026-10-09",
+   "note": "ballot/sd_place_votes.py read these for 2024."
+  }
+ ],
+ "units": "county",
+ "precinct_level": true,
+ "races_in_feed": "Statewide, Congress, Legislature, county offices (state site); municipal and school elections are mostly in spring.",
+ "local": "Minnehaha (Sioux Falls) and Pennington post their own results pages (not checked).",
+ "how_counted": "Counties report to the Secretary of State's results site through the night.",
+ "count_order": "Not seen.",
+ "vote_types": "Unknown.",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the South Dakota Board of State Canvassers",
+  "rule": "Convenes within seven days after the election and may adjourn up to 10 days (S.D. Codified Laws 12-20-47).",
+  "date": "2026-11-10",
+  "date_kind": "meets_by",
+  "local_rule": "Counties within six days (12-20-36).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": "The results site's certificate had expired on 2026-10-09; read only once the state renews it.",
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": "eid 684 (2024 general); 773 (2026 primary)",
+ "terms": "Not checked.",
+ "scout_blocked": "Certificate expired (script, 2026-10-09). No bot wall seen earlier by the kit.",
+ "scout_plan": "Readable with care once the certificate is renewed: poll the statewide and legislative pages for eid 774 every 5 minutes and parse the HTML the way sd_place_votes.py does; county offices from the same pages. If the certificate is still expired in late October, show South Dakota as 'state site not reachable securely' and link out; never skip certificate checks. Election-night numbers stay labelled unofficial; certified figures come from the canvass PDF.",
+ "notes": [
+  "certificate expired on 2026-10-09; recheck in late October"
+ ],
+ "to_do": [
+  "Recheck the certificate in late October; if still expired, set status to link."
+ ],
+ "sources": [
+  "election/scout/results_mn.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

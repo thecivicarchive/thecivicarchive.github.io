@@ -1,0 +1,125 @@
+{
+ "v": 1,
+ "code": "TX",
+ "name": "Texas",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "live",
+ "status_why": "Civix answered scripts behind Cloudflare without a challenge; Nov 3 is election 53815.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Texas Secretary of State",
+ "system": "Civix election night results ('Civix Election Night Results', goelect.txelections.civixapps.com, behind Cloudflare but answering scripts); answers are base64 JSON.",
+ "family": "civix",
+ "reader_agent": "N11",
+ "results_page": {
+  "url": "https://goelect.txelections.civixapps.com/ivis-enr-ui/",
+  "label": "Texas Secretary of State: election night results",
+  "checked": "2026-10-09",
+  "source": "results_ne.json"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": "53815; specials 66734 (House District 93) and 66618 (Senate District 22)",
+  "posted": true,
+  "how_to_find": "Listed; the data loads on the night."
+ },
+ "cadence": {
+  "check_every_s": 180,
+  "signal": "https://goelect.txelections.civixapps.com/api-ivis-system/api/s3/enr/election/53815 (Home: LastUpdatedTime)",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "goelect.txelections.civixapps.com"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "tx-1",
+   "what": "statewide",
+   "format": "json",
+   "address": "https://goelect.txelections.civixapps.com/api-ivis-system/api/s3/enr/electionConstants (list of elections, base64 JSON in 'upload'); https://goelect.txelections.civixapps.com/api-ivis-system/api/s3/enr/election/<ID> (record with base64 sections Home, Federal, StateWide, StateWideQ, Districted, OfficeSummary, Race, Lookups, ReportList)",
+   "hosts": [
+    "goelect.txelections.civixapps.com"
+   ],
+   "updates": "Home carries RefreshTime and LastUpdatedTime; counties report through the night (CountiesReporting CR of CT=254)",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "HTTP 200 (cloudflare) on 2026-10-09. The Nov 3 election (ID 53815, 'O': N) currently returns only {'Version'}: the data is not loaded yet. The March primary record (53813) is 1.8 MB."
+  },
+  {
+   "id": "tx-2",
+   "what": "congress",
+   "format": "json",
+   "address": "Federal section of /election/<ID>: Races[] with Candidates[] carrying V (votes), EV (early votes), PE (percent), P (party)",
+   "hosts": [],
+   "updates": "as above",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "Early vote split present (EV)."
+  },
+  {
+   "id": "tx-3",
+   "what": "county",
+   "format": "pdf",
+   "address": "/api-ivis-system/api/s3/enr/electionReports/<ID>/<Report>/pdf (CountyByCountyCanvassReport, OfficialCanvassReport; base64 in JSON)",
+   "hosts": [],
+   "updates": "after canvass",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "The kit already reads the OfficialCanvassReport this way."
+  }
+ ],
+ "units": "county",
+ "precinct_level": false,
+ "races_in_feed": [
+  "statewide",
+  "Congress",
+  "legislature",
+  "State Board of Education",
+  "statewide judges and courts of appeals",
+  "district judges and DAs (Districted)",
+  "statewide propositions",
+  "special elections (House 93, Senate 22 on Nov 3: IDs 66734, 66618)"
+ ],
+ "local": "Yes, for county, city and school races: Harris (harrisvotes.com), Dallas (dallascountyvotes.org), Tarrant (tarrantcountytx.gov elections), Bexar (bexar.org elections), Travis (votetravis.gov). Not requested.",
+ "how_counted": "Texas reports early votes apart from Election Day votes.",
+ "count_order": "EV (early votes) beside V (total); mail not split from early in-person.",
+ "vote_types": "Yes: each candidate has EV (early votes) beside V (total), so election-day votes are V minus EV. Mail is not split from early in-person in the fields seen.",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Governor of Texas (the state canvass)",
+  "rule": "Between the 18th and the 33rd day after the election, at a time the Secretary of State sets (Tex. Elec. Code 67.012); governor and lieutenant governor are canvassed by the Legislature (67.011).",
+  "date": "2026-12-06",
+  "date_kind": "by",
+  "local_rule": "Local canvass by the 14th day (67.003).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [
+  "results.texas-election.com"
+ ],
+ "never_why": {
+  "results.texas-election.com": "Cloudflare challenge (CLAUDE.md; scout)"
+ },
+ "partial_sources": [],
+ "rehearsal": "53813, 53814 (primaries); 58315, 58314 (runoffs)",
+ "terms": "Not seen on the API.",
+ "scout_blocked": "results.texas-election.com (2019-2024 site): Cloudflare challenge, not asked (per ballot/lists/tx.py).",
+ "scout_plan": "Read /election/53815 (and the two specials) every few minutes on election night; the reader for the format exists in tx.py. Congress, statewide and legislative results with early-vote splits come straight from it, county by county via the Race section if present (to confirm on the primary record). County and city results need the big counties' own sites, largest first.",
+ "notes": [],
+ "to_do": [],
+ "sources": [
+  "election/scout/results_ne.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

@@ -1,0 +1,139 @@
+{
+ "v": 1,
+ "code": "LA",
+ "name": "Louisiana",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "live",
+ "status_why": "The Voter Portal's JSON files answered scripts; folder 20261103 is posted.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Louisiana Secretary of State",
+ "system": "State-built: the Louisiana Secretary of State's 'Graphical election results' on the Voter Portal (an app whose data are JSON files served through one Data?blob= endpoint). Louisiana runs every election in the state, parish offices included, through this one system.",
+ "family": "la_portal",
+ "reader_agent": "N11",
+ "results_page": {
+  "url": "https://voterportal.sos.la.gov/graphical",
+  "label": "Louisiana Secretary of State: election results",
+  "checked": "2026-10-09",
+  "source": "results_la.json"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": "PKElectionID 344; folder 20261103",
+  "posted": true,
+  "how_to_find": "Posted."
+ },
+ "cadence": {
+  "check_every_s": 180,
+  "signal": "https://voterportal.sos.la.gov/ElectionResults/ElectionResults/Data?blob=20261103/Votes_Multiparish.htm",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "voterportal.sos.la.gov"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "la-1",
+   "what": "statewide",
+   "format": "json",
+   "address": "https://voterportal.sos.la.gov/ElectionResults/ElectionResults/Data?blob=ElectionDates.htm (list of elections with PKElectionID and ResultsOfficial 0/1); then Data?blob=<yyyymmdd>/ElectionRaces.htm (every race, with RaceID and Level), <yyyymmdd>/RacesCandidates_Multiparish.htm and <yyyymmdd>/Votes_Multiparish.htm (statewide votes for multi-parish races)",
+   "hosts": [
+    "voterportal.sos.la.gov"
+   ],
+   "updates": "Rewritten as parishes report on election night (the Votes files are the moving part); the app polls them. Exact interval not stated.",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "200 on 2026-10-09 for ElectionDates.htm (91 KB JSON; DefaultElectionDate 11/03/2026, PKElectionID 344, ResultsOfficial 0) and for 20261103/ElectionRaces.htm (103 KB; U.S. Senator RaceID 67997, U.S. Representative 1st District RaceID 70195, ...). The .htm names hold JSON."
+  },
+  {
+   "id": "la-2",
+   "what": "congress",
+   "format": "json",
+   "address": "Same files: Levels 140 (U.S. Senator) and 145 (U.S. Representative) in <yyyymmdd>/ElectionRaces.htm; votes in Votes_Multiparish.htm",
+   "hosts": [],
+   "updates": "as above",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "Nov 3 2026: the House contest is an open primary (runoff Dec 12, 2026, folder 20261212); the Senate has a regular general. Votes records carry AbsenteeExpected and AbsenteeReporting (la.py line 239)."
+  },
+  {
+   "id": "la-3",
+   "what": "county",
+   "format": "json",
+   "address": "Data?blob=<yyyymmdd>/RacesCandidates/ByParish_<01..64>.htm (races in each parish) and the parish vote files beside them; csv/ByParish_<race>.csv gives one race's votes by parish",
+   "hosts": [],
+   "updates": "as above",
+   "script_ok": "untested",
+   "checked": "2026-10-09",
+   "note": "The kit's state_local_la.py already reads the Nov 3 ByParish race files (cached as ballot_cache/la/local/sl_la_2026_local_results_feed.json). Parish vote file names for election night were not requested today."
+  },
+  {
+   "id": "la-4",
+   "what": "precinct",
+   "format": "json",
+   "address": "The graphical site offers precinct views; the file name was not checked",
+   "hosts": [],
+   "updates": "election night",
+   "script_ok": "untested",
+   "checked": "2026-10-09",
+   "note": "Precinct-level files after the election are on the Secretary's 'Post-election statistics' (PostElectionStatsAvailable flag in ElectionDates.htm)."
+  }
+ ],
+ "units": "parish",
+ "precinct_level": true,
+ "races_in_feed": "Everything on the ballot in Louisiana: Senate, House (open primary), Public Service Commission, judges, parish and municipal offices, school boards, constitutional amendments and local propositions (levels 998 and 999).",
+ "local": "No: parishes do not run their own results sites; every parish race is in the Secretary's feed.",
+ "how_counted": "Parishes report through the night. The House contest is an open primary: if no one wins a majority, the top two meet on December 12.",
+ "count_order": "Vote records carry AbsenteeExpected and AbsenteeReporting.",
+ "vote_types": "Partly: the vote records carry absentee reporting counts (AbsenteeExpected, AbsenteeReporting), so early and mail ballots can be told apart from precincts in the reporting status; whether votes are split by type in the election-night files is to be checked on the 2024 replay.",
+ "decision": {
+  "default": "majority_runoff",
+  "rules": [
+   {
+    "applies": "U.S. House (open primary on Nov 3)",
+    "rule": "open_primary",
+    "note": "A majority wins; otherwise the top two go to the Dec 12 runoff."
+   },
+   {
+    "applies": "U.S. Senate (general after closed party primaries)",
+    "rule": "plurality",
+    "note": ""
+   },
+   {
+    "applies": "state and local offices on Nov 3",
+    "rule": "open_primary",
+    "note": "Dec 12 runoff where no majority."
+   }
+  ]
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Louisiana Secretary of State",
+  "rule": "Within 30 days after the election (La. Rev. Stat. 18:513).",
+  "date": "2026-12-03",
+  "date_kind": "by",
+  "local_rule": "Returns to the clerk of court by 4 p.m. on the fifth day (La. Rev. Stat. 18:574).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": "20241105 folder; 20260516 and 20260627 (Senate primaries)",
+ "terms": "None stated on the data files.",
+ "scout_blocked": "Nothing refused scripts. The Candidate Inquiry pages on the same host also answer scripts.",
+ "scout_plan": "Louisiana is the easiest state in this group: one host, JSON files, every level from the Senate to a parish school board. On election night the updater reads ElectionDates.htm once, then Votes_Multiparish.htm and the parish vote files for 20261103 every few minutes, maps RaceIDs to the races state_local_la.py already loaded, and marks every figure unofficial until ElectionDates.htm turns ResultsOfficial to 1. Rehearse on the 20241105 folder. Remember the House contest is an open primary with a Dec 12 runoff, so 'winner' on Nov 3 often means 'advances to the runoff'.",
+ "notes": [],
+ "to_do": [],
+ "sources": [
+  "election/scout/results_la.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

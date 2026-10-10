@@ -1,0 +1,98 @@
+{
+ "v": 1,
+ "code": "AK",
+ "name": "Alaska",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "care",
+ "status_why": "The Division's own static files; its host leaves out its issuer certificate, which the kit's issuer repair handles (the chain must still end at a trusted root). The 26genr page is posted with no files yet.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Alaska Division of Elections",
+ "system": "Alaska Division of Elections' own results pages (www.elections.alaska.gov/election-results/e/?id=<code>) with static files in /results/<CODE>/, made with its tabulation system's exports (GA_ENR CSV, ElectionSummaryReport PDF)",
+ "family": "ak_csv",
+ "reader_agent": "N12",
+ "results_page": {
+  "url": "https://www.elections.alaska.gov/election-results/",
+  "label": "Alaska Division of Elections: election results",
+  "checked": "2026-10-10",
+  "source": "answered one request with the kit's User-Agent (N4, 2026-10-10)"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": "26genr",
+  "posted": true,
+  "how_to_find": "Page posted; poll it until it links the precinct CSV (GA_ENR or ENRbyPrecinct)."
+ },
+ "cadence": {
+  "check_every_s": 180,
+  "signal": "https://www.elections.alaska.gov/election-results/e/?id=26genr",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "www.elections.alaska.gov"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "ak-1",
+   "what": "statewide",
+   "format": "csv",
+   "address": "https://www.elections.alaska.gov/results/<YY><GENR|PRIM>/ENRbyPrecinct.csv (2024 general) or GA_ENR_Precinct_State_of_Alaska.csv (2026 primary); summary https://www.elections.alaska.gov/results/<CODE>/ElectionSummaryReport.pdf; per house district HD<n>.pdf; RCV tabulations RCV-USRep.pdf, RCV-HD<n>.pdf; cast vote record zip",
+   "hosts": [
+    "www.elections.alaska.gov"
+   ],
+   "updates": "election night as precincts report; then on the Division's published count days; ranked-choice tabulation runs about 15 days after (Nov 18)",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "2026-10-09: ?id=26genr and ?id=24genr answered 200 only through the kit's states/net.get issuer repair (a plain Python request fails: 'unable to get local issuer certificate'). 26genr exists but links no files yet. The page states 'Results Status' when official."
+  }
+ ],
+ "units": "precinct",
+ "precinct_level": true,
+ "races_in_feed": "Senate, the at-large House seat, Governor, legislature, judicial retention, measures; borough and city elections are run by each clerk",
+ "local": "Boroughs and cities run their own local elections, most not on Nov 3 (Anchorage in April, Fairbanks North Star Oct 6); Mat-Su and Kenai Peninsula post November contests as PDFs or pages",
+ "how_counted": "Alaska counts on election night and adds absentee and questioned ballots on later count days. Ranked-choice rounds are counted about two weeks after the election.",
+ "count_order": "District rows 'NN - Absentee', 'NN - Early Voting' and 'NN - Question' arrive on later count days; the night's figures are mostly ballots cast in person.",
+ "vote_types": "Yes: each house district has 'NN - Absentee', 'NN - Early Voting' and 'NN - Question' rows beside its precincts (2026 primary file: 62 such rows in district 37). Useful for count order: absentee and question ballots are added on later count days.",
+ "decision": {
+  "default": "ranked_choice",
+  "rules": [
+   {
+    "applies": "every state and federal office on the general ballot",
+    "rule": "ranked_choice",
+    "note": "First choices on the night; the Division tabulates the rounds about Nov 18 (scout)."
+   }
+  ]
+ },
+ "ranked_choice": "First choices on the night; rounds about two weeks later (scout: about Nov 18).",
+ "certify": {
+  "body": "the Alaska Division of Elections, after the state ballot counting review",
+  "rule": "Upon completion of the state ballot counting review (Alaska Stat. 15.15.450).",
+  "date": null,
+  "date_kind": null,
+  "local_rule": "Local counts close no later than the day after the election (Alaska Stat. 15.15.370).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": "The host leaves out its issuer certificate (the kit's issuer repair handles it); no Nov 3 files linked yet.",
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": "2024 general: /results/24GENR/ENRbyPrecinct.csv; 2026 primary CSV cached at ballot_cache/ak/ak_2026_primary_precinct.csv",
+ "terms": "none seen",
+ "scout_blocked": "nothing refuses; the host leaves its issuer certificate out of the handshake, which states/net.py already repairs",
+ "scout_plan": "Poll the 26genr results page every few minutes on election night through states/net.get; when it links the precinct CSV, read it by column name and sum by race. Show first-choice totals as 'first choices' until the Division posts the ranked-choice tabulation (about Nov 18). Local: only the boroughs voting Nov 3 (Mat-Su, Kenai Peninsula), from their own postings.",
+ "notes": [],
+ "to_do": [
+  "Fill the Nov 3 file names once 26genr links them."
+ ],
+ "sources": [
+  "election/scout/results_az.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

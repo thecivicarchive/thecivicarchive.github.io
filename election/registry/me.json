@@ -1,0 +1,88 @@
+{
+ "v": 1,
+ "code": "ME",
+ "name": "Maine",
+ "written": "2026-10-10",
+ "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+ "status": "link",
+ "status_why": "Maine posts no count on the night: towns report within two business days and the Secretary posts workbooks after that.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Maine Secretary of State",
+ "system": "No live statewide results. The Secretary of State (Division of Elections) posts unofficial and then final tabulations as Excel workbooks on its results page in the days after the election; ranked-choice races are tabulated centrally the following week. Media (AP, Bangor Daily News) collect town returns on the night",
+ "family": null,
+ "reader_agent": "N12",
+ "results_page": {
+  "url": "https://www.maine.gov/sos/elections-voting/election-results-data",
+  "label": "Maine Secretary of State: results",
+  "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+  "source": "results_pa.json"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": null,
+  "posted": false,
+  "how_to_find": "Workbooks on the results page from Nov 4 (hourly look)."
+ },
+ "cadence": null,
+ "hand": null,
+ "feeds": [
+  {
+   "id": "me-1",
+   "what": "statewide",
+   "format": "html",
+   "address": "the results page links one workbook per office and party (files under https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/<name>.xlsx), plus RCV round reports",
+   "hosts": [
+    "www.maine.gov"
+   ],
+   "updates": "days after; towns have two days to report to the Secretary",
+   "script_ok": true,
+   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+   "note": "the page answered 200 (102 KB, Apache, max-age=300) on 2026-10-09; it lists the June 9, 2026 primary's workbooks and the SR 29 and SR 94 special election results"
+  }
+ ],
+ "units": "town",
+ "precinct_level": false,
+ "races_in_feed": "Governor, U.S. Senate, Congress (two districts, ranked-choice), State Senate and House, county offices, district attorneys, questions",
+ "local": "no county sites (the state prints county offices); cities post their own on the night: Portland (https://www.portlandmaine.gov), Bangor, Lewiston, South Portland (the kit's state_local_me.py names their pages)",
+ "how_counted": "Towns report to the Secretary of State within two business days; ranked-choice races are tabulated the following week.",
+ "count_order": "No split.",
+ "vote_types": "no",
+ "decision": {
+  "default": "plurality",
+  "rules": [
+   {
+    "applies": "U.S. Senate and U.S. House",
+    "rule": "ranked_choice",
+    "note": "Rounds tabulated centrally the following week."
+   }
+  ]
+ },
+ "ranked_choice": "Federal races only; rounds the week after.",
+ "certify": {
+  "body": "the Maine Secretary of State, to the Governor",
+  "rule": "The Secretary of State tabulates within 20 days after the election (Me. Rev. Stat. tit. 21-A, 722).",
+  "date": "2026-11-23",
+  "date_kind": "by",
+  "local_rule": "Towns file returns within two business days (tit. 21-A, 711).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": null,
+ "terms": "none seen",
+ "scout_blocked": "nothing refused scripts",
+ "scout_plan": "Readable with care, but not live. On the night Maine shows 'the Secretary of State posts results in the days after; ranked-choice races are tabulated the next week', with the largest cities' own postings where they can be read. Poll the results page hourly from Nov 4 and read each new workbook (the kit already reads this layout); RCV rounds when posted.",
+ "notes": [],
+ "to_do": [],
+ "sources": [
+  "election/scout/results_pa.json (checked 2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts))",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

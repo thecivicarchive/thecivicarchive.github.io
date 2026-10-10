@@ -1,0 +1,114 @@
+{
+ "v": 1,
+ "code": "NM",
+ "name": "New Mexico",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "live",
+ "status_why": "The CSV exports answered scripts; the kit already reads them.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the New Mexico Secretary of State",
+ "system": "Secretary of State's own ASP.NET results site on Azure Government (electionresults.sos.nm.gov, server volt-adc; data service nmresultswebservice.azurewebsites.us). Same platform family as Nebraska's.",
+ "family": "resultssw",
+ "reader_agent": "N9",
+ "results_page": {
+  "url": "https://electionresults.sos.nm.gov/",
+  "label": "New Mexico Secretary of State: election results",
+  "checked": "2026-10-10",
+  "source": "answered one request with the kit's User-Agent (N4, 2026-10-10)"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": "2917 (expected; not open on 2026-10-09)",
+  "posted": false,
+  "how_to_find": "Check once a week whether eid=2917 opens."
+ },
+ "cadence": {
+  "check_every_s": 180,
+  "signal": "https://electionresults.sos.nm.gov/resultsCSV.aspx?text=All&type=FED&map=CTY&eid=2917",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "electionresults.sos.nm.gov",
+   "nmresultswebservice.azurewebsites.us"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "nm-1",
+   "what": "congress",
+   "format": "csv",
+   "address": "https://electionresults.sos.nm.gov/resultsCSV.aspx?text=All&type=FED&map=CTY&eid=<eid> (type codes SW statewide, FED, LGX legislative, JDX district judges, MGX magistrates, JMC Bernalillo Metropolitan Court, ECX Public Education Commission, MUX municipal)",
+   "hosts": [
+    "electionresults.sos.nm.gov"
+   ],
+   "updates": "as counties upload on election night",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "The kit reads the primary export (eid 2911). Pages HTTP 200 on 2026-10-09. Columns include CandidateAbsenteeVotes, CandidateElectionDayVotes, CandidateEarlyVotes and PrecinctsReporting."
+  },
+  {
+   "id": "nm-2",
+   "what": "county",
+   "format": "json",
+   "address": "https://nmresultswebservice.azurewebsites.us/NMResultsAjax.svc/GetMapDataArchive?type=<code>&category=CTY (archive; the live method name to confirm)",
+   "hosts": [
+    "nmresultswebservice.azurewebsites.us"
+   ],
+   "updates": "as above",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "The kit's loader uses this to check county sums."
+  }
+ ],
+ "units": "county",
+ "precinct_level": false,
+ "races_in_feed": [
+  "statewide",
+  "Congress",
+  "legislature",
+  "judges (district, magistrate, Metropolitan Court, retention)",
+  "Public Education Commission",
+  "county offices ('Offices and Questions by County')",
+  "municipal offices in elections that carry them"
+ ],
+ "local": "No need for state and county offices (the state site carries them). Bernalillo County Clerk (bernco.gov/clerk) also posts. Not requested.",
+ "how_counted": "New Mexico reports absentee, early and Election Day votes separately.",
+ "count_order": "CandidateAbsenteeVotes, CandidateElectionDayVotes, CandidateEarlyVotes per candidate.",
+ "vote_types": "Yes: absentee, early and election-day votes per candidate in the CSV.",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the New Mexico State Canvassing Board",
+  "rule": "Declares the results on the third Tuesday after the election (N.M. Stat. 1-13-15).",
+  "date": "2026-11-24",
+  "date_kind": "on",
+  "local_rule": "County boards between the 6th and 10th day (13th in the largest counties) (1-13-13).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": "eid 2911 (2026 primary)",
+ "terms": "None seen.",
+ "scout_blocked": "Nothing refused. A missing eid redirects to www.sos.nm.gov.",
+ "scout_plan": "Check once a week whether eid=2917 opens. On election night read the CSV exports for SW, FED, LGX and the court and county types every few minutes; the vote-type columns feed the count-order predictor directly. The reader in nm.py already handles this format.",
+ "notes": [],
+ "to_do": [
+  "Confirm eid 2917 opens."
+ ],
+ "sources": [
+  "election/scout/results_ne.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

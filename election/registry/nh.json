@@ -1,0 +1,88 @@
+{
+ "v": 1,
+ "code": "NH",
+ "name": "New Hampshire",
+ "written": "2026-10-10",
+ "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+ "status": "link",
+ "status_why": "Nothing live to read: the Secretary posts town returns in the following days, and its site refuses scripts.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the New Hampshire Secretary of State",
+ "system": "No live results site. The Secretary of State posts results as Excel workbooks per office and party, town by town, after the clerks' returns arrive (days after the election), on www.sos.nh.gov",
+ "family": null,
+ "reader_agent": "N12",
+ "results_page": {
+  "url": "https://www.sos.nh.gov/2026-state-primary-election-results",
+  "label": "New Hampshire Secretary of State: 2026 results (primary page; the general's page goes beside it)",
+  "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+  "source": "results_pa.json"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": null,
+  "posted": false,
+  "how_to_find": "Workbooks on sos.nh.gov in the days after."
+ },
+ "cadence": null,
+ "hand": null,
+ "feeds": [
+  {
+   "id": "nh-1",
+   "what": "statewide",
+   "format": "html",
+   "address": "a results page per election (sos.nh.gov/2026-state-primary-election-results lists 'Ballots Cast - Excel', 'Names on Checklist - Excel', and a page per party primary with one Excel workbook per office)",
+   "hosts": [],
+   "updates": "posted in the days after the election, not live",
+   "script_ok": false,
+   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+   "note": "Akamai 'Access Denied' to scripts (CLAUDE.md, three tries on 2026-09-30; not retried). The Browser pane opened the 2026 primary results page on 2026-10-09; sos.nh.gov/elections/elections/election-results answered 'Forbidden' in the pane too."
+  }
+ ],
+ "units": "town",
+ "precinct_level": false,
+ "races_in_feed": "Governor, Congress, U.S. Senate, Executive Council, State Senate, State House (400 seats), county offices",
+ "local": "no county results sites; towns report to the Secretary (some towns post their own tallies)",
+ "how_counted": "Towns count and report to the Secretary of State, who posts town returns in the following days.",
+ "count_order": "No split.",
+ "vote_types": "no",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the New Hampshire Secretary of State",
+  "rule": "When the time for a recount or appeal has passed (N.H. Rev. Stat. 659:84); recounts may be asked for until the Friday after the election (660:1).",
+  "date": null,
+  "date_kind": null,
+  "local_rule": "Towns report by 8 a.m. on the day after the election (659:75).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [
+  "*.sos.nh.gov",
+  "sos.nh.gov"
+ ],
+ "never_why": {
+  "sos.nh.gov": "Akamai 403 (CLAUDE.md; scout)",
+  "*.sos.nh.gov": "Akamai 403 (CLAUDE.md; scout)"
+ },
+ "partial_sources": [],
+ "rehearsal": null,
+ "terms": "none seen",
+ "scout_blocked": "www.sos.nh.gov and app.sos.nh.gov: Akamai 403 to scripts",
+ "scout_plan": "Blocked, and there is nothing live to read anyway. On the night New Hampshire shows 'no official count tonight: the Secretary of State posts town returns in the following days'. As the workbooks appear, John saves them into ballot_cache/nh/ (as he does now) and the updater reads them. AP collects NH returns from towns, but that is not open.",
+ "notes": [],
+ "to_do": [
+  "Replace the page with the general's results page once posted."
+ ],
+ "sources": [
+  "election/scout/results_pa.json (checked 2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts))",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

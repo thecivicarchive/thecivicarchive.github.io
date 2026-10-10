@@ -1,0 +1,92 @@
+{
+ "v": 1,
+ "code": "DE",
+ "name": "Delaware",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "live",
+ "status_why": "The Department's JSON files answered scripts; the kit already reads them.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Delaware Department of Elections",
+ "system": "State-built: the Department of Elections' results pages with JSON files beside them (elections.delaware.gov/results/enr/).",
+ "family": "de_json",
+ "reader_agent": "N10",
+ "results_page": {
+  "url": "https://elections.delaware.gov/results/index.html",
+  "label": "Delaware Department of Elections: results",
+  "checked": "2026-10-09",
+  "source": "results_la.json"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": "GE2026 (expected)",
+  "posted": false,
+  "how_to_find": "Confirm the GE2026 file names from the results index on the afternoon of Nov 3."
+ },
+ "cadence": {
+  "check_every_s": 180,
+  "signal": "https://elections.delaware.gov/results/enr/Election_StatewideResults_ID_GE2026.json",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "elections.delaware.gov"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "de-1",
+   "what": "statewide",
+   "format": "json",
+   "address": "https://elections.delaware.gov/results/enr/<code>.html with https://elections.delaware.gov/results/enr/Election_StatewideResults_ID_<code>.json and Election_ByCountyWithWilmington_ID_<code>.json; code PR2026 for the Sept 15 primary, GE2026 expected for Nov 3 (GE2024 for 2024, by the same naming; not requested)",
+   "hosts": [
+    "elections.delaware.gov"
+   ],
+   "updates": "Election night as districts report; frequency not stated.",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "results/index.html answered 200 on 2026-10-09 and links 'Tuesday, Septermber 15, 2026: Primary Election Official Results' to results/enr/PR2026.html; an archive page lists earlier generals (elections/election_archive.html)."
+  }
+ ],
+ "units": "county",
+ "precinct_level": false,
+ "races_in_feed": "Federal, statewide (treasurer, auditor, attorney general in 2026), legislature, county council and county row offices; school board elections are in May and municipal ones are run by the towns.",
+ "local": "No: county contests are on the Department's pages; New Castle County, Kent and Sussex do not run results sites. School results at elections.delaware.gov/school/results.html.",
+ "how_counted": "Delaware reports machine, early and absentee votes separately.",
+ "count_order": "Machine, absentee and early-voting votes per candidate.",
+ "vote_types": "Yes: the JSON carries machine, absentee and early-voting votes for each candidate (de.py).",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Governor, on the counties' returns",
+  "rule": "The Governor examines the returns and declares the persons elected without delay after receiving each county's results (Del. Code tit. 15, 5710-5713).",
+  "date": null,
+  "date_kind": null,
+  "local_rule": "County canvass at 10 a.m. on the second day after the election (Del. Code tit. 15, 5701).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": "PR2026 (the Sept 15 primary); GE2024 (to confirm from the archive)",
+ "terms": "None stated.",
+ "scout_blocked": "Nothing refused scripts.",
+ "scout_plan": "Live-readable. Confirm the GE2026 file names from the results index on Nov 3 afternoon, then read the two JSON files every 3 to 5 minutes; they already split machine, early and absentee votes, which feeds the count-order predictor directly.",
+ "notes": [],
+ "to_do": [
+  "Confirm GE2026."
+ ],
+ "sources": [
+  "election/scout/results_la.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

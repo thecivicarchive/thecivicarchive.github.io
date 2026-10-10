@@ -1,0 +1,114 @@
+{
+ "v": 1,
+ "code": "IN",
+ "name": "Indiana",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "live",
+ "status_why": "The Election Division's JSON files answered scripts.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Indiana Election Division",
+ "system": "State-built election night reporting from the Indiana Election Division (enr.indianavoters.in.gov, JSON files behind a static page)",
+ "family": "in_enr",
+ "reader_agent": "N9",
+ "results_page": {
+  "url": "https://enr.indianavoters.in.gov/site/index.html",
+  "label": "Indiana Election Division: election results",
+  "checked": "2026-10-09",
+  "source": "results_mn.json"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": "the site switches to Nov 3 in place",
+  "posted": false,
+  "how_to_find": "settings.json's CurrentElection changes from 05/05/2026 to 11/03/2026."
+ },
+ "cadence": {
+  "check_every_s": 120,
+  "signal": "https://enr.indianavoters.in.gov/site/data/settings.json",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "enr.indianavoters.in.gov"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "in-1",
+   "what": "statewide",
+   "format": "json",
+   "address": "https://enr.indianavoters.in.gov/site/data/settings.json (CurrentElection, ElectionType, Certified, VersionType, IntervalInMinutes, parties) -> statewideElectionsC_<VersionType>.json (office categories by heading Federal/State/Local) -> OffCatC_<category id>_<VersionType>.json (StatewideSummary races and Regions per county with RegionSummary)",
+   "hosts": [
+    "enr.indianavoters.in.gov"
+   ],
+   "updates": "settings.json says IntervalInMinutes 2",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "200 on 2026-10-09 (Cloudflare in front, no challenge); files start with a UTF-8 BOM."
+  },
+  {
+   "id": "in-2",
+   "what": "congress",
+   "format": "json",
+   "address": "category 'US Representative' (and US Senator in Senate years)",
+   "hosts": [],
+   "updates": "2 minutes",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": ""
+  },
+  {
+   "id": "in-3",
+   "what": "county",
+   "format": "json",
+   "address": "Local categories: Clerk of the Circuit Court, County Auditor/Recorder/Treasurer/Sheriff/Coroner/Surveyor/Assessor, County Commissioner, County Council Member, Township Assessor/Trustee/Board Member, Mayor, City Clerk, City Court Judge, City/Town Council, Town Clerk-Treasurer, Constable",
+   "hosts": [],
+   "updates": "2 minutes",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "Seen in the May 5 primary's category list."
+  }
+ ],
+ "units": "county",
+ "precinct_level": false,
+ "races_in_feed": "Federal, State (Legislature, circuit and superior judges, prosecutors) and Local (county, township, city, town) all in one system; school board races too in general elections (not checked).",
+ "local": "Not needed for totals; Marion County also posts its own.",
+ "how_counted": "Counties report through the night; the state's site refreshes about every two minutes.",
+ "count_order": "No vote-type split: results by county.",
+ "vote_types": "Not seen: results are by county (Regions keyed by county FIPS).",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Governor, through the Indiana Election Division",
+  "rule": "Commissions for state offices are prepared by noon on the first Tuesday in December (Ind. Code 3-12-5-8); county clerks certify by noon on the second Monday after the election (3-12-5-6).",
+  "date": "2026-12-01",
+  "date_kind": "by",
+  "local_rule": "Second Monday after the election (Ind. Code 3-12-5-6).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": "Copy the May 5, 2026 primary's JSON before the site switches (N9).",
+ "terms": "None found.",
+ "scout_blocked": "Nothing seen.",
+ "scout_plan": "Live-readable. Poll settings.json every 2 minutes (its own stated interval); when WriteTime or VersionCode changes, fetch the office-category files for federal, state and local races. County-level only, which suits the map. Save a copy of the primary's JSON now to rehearse with, since the site will be overwritten by the general election.",
+ "notes": [],
+ "to_do": [
+  "Copy the primary's files before the site switches to Nov 3."
+ ],
+ "sources": [
+  "election/scout/results_mn.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

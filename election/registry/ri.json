@@ -1,0 +1,131 @@
+{
+ "v": 1,
+ "code": "RI",
+ "name": "Rhode Island",
+ "written": "2026-10-10",
+ "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+ "status": "live",
+ "status_why": "Enhanced Voting answered scripts (the Board's own site does not; it is not read).",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Rhode Island Board of Elections",
+ "system": "Enhanced Voting (results/public/api JSON service) for the Board of Elections",
+ "family": "enhanced_voting",
+ "reader_agent": "N10",
+ "results_page": {
+  "url": "https://electionresults.ri.gov/",
+  "label": "Rhode Island Board of Elections: election results",
+  "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+  "source": "results_pa.json"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": null,
+  "posted": false,
+  "how_to_find": "results/public/api/jurisdictions/RhodeIsland once an hour until Nov 3 appears."
+ },
+ "cadence": {
+  "check_every_s": 120,
+  "signal": "https://electionresults.ri.gov/results/public/api/elections/RhodeIsland/<publicElectionId>/data",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "electionresults.ri.gov"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "ri-1",
+   "what": "statewide",
+   "format": "json",
+   "address": "https://electionresults.ri.gov/results/public/api/jurisdictions/RhodeIsland (towns with percentReporting, and 'elections' with publicElectionId); https://electionresults.ri.gov/results/public/api/elections/RhodeIsland/<publicElectionId> (isOfficialResults); .../data (every contest, each candidate's votes and count groups); .../data/ballot-item/<id> (one contest town by town)",
+   "hosts": [
+    "electionresults.ri.gov"
+   ],
+   "updates": "Cache-Control public, max-age=60: roughly a minute",
+   "script_ok": true,
+   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+   "note": "jurisdictions/RhodeIsland answered 200 JSON (32 KB) on 2026-10-09; .../api/elections/RhodeIsland answered 404 (not an endpoint)."
+  },
+  {
+   "id": "ri-2",
+   "what": "congress",
+   "format": "json",
+   "address": "same .../data",
+   "hosts": [],
+   "updates": "as above",
+   "script_ok": true,
+   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+   "note": ""
+  },
+  {
+   "id": "ri-3",
+   "what": "legislature",
+   "format": "json",
+   "address": "same .../data",
+   "hosts": [],
+   "updates": "as above",
+   "script_ok": true,
+   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+   "note": ""
+  },
+  {
+   "id": "ri-4",
+   "what": "local",
+   "format": "json",
+   "address": "same .../data: city and town contests (mayors, councils, school committees) are on the Board's results",
+   "hosts": [],
+   "updates": "as above",
+   "script_ok": true,
+   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+   "note": "local specials appear as their own elections (decspec25, febspec26)"
+  }
+ ],
+ "units": "town",
+ "precinct_level": false,
+ "races_in_feed": "statewide (five general officers), Congress, Senate (U.S.), General Assembly, city and town offices, questions",
+ "local": "no (towns report to the Board; no county government)",
+ "how_counted": "Rhode Island reports Election Day, early and mail votes separately.",
+ "count_order": "Count groups Election Day, Early Voting, Mail Ballots.",
+ "vote_types": "yes: count groups 'Election Day', 'Early Voting' and 'Mail Ballots' for every candidate (the kit checks them for the primary)",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Rhode Island Board of Elections",
+  "rule": "No deadline in the law; the Board tabulates 'with all reasonable expedition' (R.I. Gen. Laws 17-22-1).",
+  "date": null,
+  "date_kind": null,
+  "local_rule": "Local boards meet the day after the election (17-19-36).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [
+  "elections.ri.gov",
+  "vote.sos.ri.gov"
+ ],
+ "never_why": {
+  "elections.ri.gov": "Cloudflare challenge (scout, 2026-10-09)",
+  "vote.sos.ri.gov": "Cloudflare challenge (CLAUDE.md; scout)"
+ },
+ "partial_sources": [],
+ "rehearsal": "RI2026StatewidePrimary",
+ "terms": "none seen",
+ "scout_blocked": "elections.ri.gov (the Board's own site) and vote.sos.ri.gov answer scripts with a Cloudflare challenge (403, checked 2026-10-09 on elections.ri.gov/elections/previous-election-results); electionresults.ri.gov does not",
+ "scout_plan": "Live-readable. Read the jurisdiction file once an hour until the Nov 3 election appears, then poll .../elections/RhodeIsland/<id>/data every two minutes; take town figures from ballot-item for the races open on the map. The Election Day / Early Voting / Mail split feeds count order directly. Local city and town races come from the same feed. Rehearse on RI2026StatewidePrimary.",
+ "notes": [],
+ "to_do": [
+  "Find the publicElectionId (not guessed)."
+ ],
+ "sources": [
+  "election/scout/results_pa.json (checked 2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts))",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

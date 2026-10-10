@@ -1,0 +1,107 @@
+{
+ "v": 1,
+ "code": "WA",
+ "name": "Washington",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "live",
+ "status_why": "Enhanced Voting answered scripts; 20261103 is posted.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Washington Secretary of State",
+ "system": "Enhanced Voting results platform (results.votewa.gov/results/public/washington), the Secretary of State's site since 2026; the old results.vote.wa.gov sends readers there",
+ "family": "enhanced_voting",
+ "reader_agent": "N10",
+ "results_page": {
+  "url": "https://results.votewa.gov/results/public/washington",
+  "label": "Washington Secretary of State: election results",
+  "checked": "2026-10-09",
+  "source": "results_az.json"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": "20261103",
+  "posted": true,
+  "how_to_find": "Posted."
+ },
+ "cadence": {
+  "check_every_s": 180,
+  "signal": "https://results.votewa.gov/results/public/api/elections/washington/20261103 (lastUpdated)",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "results.votewa.gov"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "wa-1",
+   "what": "statewide",
+   "format": "json",
+   "address": "https://results.votewa.gov/results/public/api/elections/washington/<yyyymmdd> (election record: isOfficialResults, lastUpdated, asOf, contest groups, parties, publicReportCategories naming the 'All Results Excel' blob); the workbook at https://results.votewa.gov/cdn/results/<blobName>",
+   "hosts": [
+    "results.votewa.gov"
+   ],
+   "updates": "counties post about 8:15 p.m., then usually once a day each business day until certification (Nov 24, 2026 per the record's own message)",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "2026-10-09: .../washington/20261103 answered 200 (Cloudflare, no challenge): '2026 General', isProduction true, isOfficialResults false, lastUpdated 2026-10-06, contest groups U.S. Congressional Representative, Legislative, Judicial, Other; blob 'All Results_7cc4fae4-3089-401c-8818-b5f988307044.xlsx'. .../washington/20241105 answered 404 (2024 is not on this platform)."
+  },
+  {
+   "id": "wa-2",
+   "what": "congress",
+   "format": "xlsx",
+   "address": "the All Results Excel: 'Summary Results' sheet (statewide totals by contest and candidate) and 'Precinct Results' sheet (by county, first column the county)",
+   "hosts": [],
+   "updates": "as above",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "No U.S. Senate race in Washington in 2026. The Enhanced Voting JSON for ballot items was not traced; the workbook is what the kit reads."
+  }
+ ],
+ "units": "county",
+ "precinct_level": false,
+ "races_in_feed": "Congress, legislature, judges, statewide measures; county and local contests are each county's (the statewide list covers them, but results are on county sites)",
+ "local": "Yes for local results: 39 counties; King (kingcounty.gov/elections), Pierce, Snohomish, Spokane",
+ "how_counted": "Washington votes by mail. Counties post about 8:15 p.m. Pacific, then usually once each business day until certification.",
+ "count_order": "All mail; ordered by ballot arrival; counties publish ballots left to count daily.",
+ "vote_types": "No split: all-mail state; the count is ordered by ballot arrival (postmarked by Election Day). Counties publish a daily ballots-left-to-count figure.",
+ "decision": {
+  "default": "top_two",
+  "rules": [
+   {
+    "applies": "partisan offices",
+    "rule": "top_two",
+    "note": "The two who advanced from the Aug 4 primary."
+   }
+  ]
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Washington Secretary of State",
+  "rule": "As soon as every county's returns are in, but not later than the 30th day after the election (Wash. Rev. Code 29A.60.250).",
+  "date": "2026-12-03",
+  "date_kind": "by",
+  "local_rule": "Counties certify 21 days after the election (29A.60.190).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": "20260804 (2026 primary); 2024: results.vote.wa.gov/results/20241105/export/20241105_AllState.csv",
+ "terms": "none seen",
+ "scout_blocked": "nothing",
+ "scout_plan": "Poll the 20261103 election record every few minutes after 8 p.m. Pacific; when lastUpdated changes, fetch the All Results Excel it names (and, if a later scout finds the ballot-item JSON, that instead). Repeat daily until certification on Nov 24. The same workbook carries legislative, judicial and county-level rows; the counties' own sites for city and school results.",
+ "notes": [],
+ "to_do": [],
+ "sources": [
+  "election/scout/results_az.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

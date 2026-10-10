@@ -1,0 +1,123 @@
+{
+ "v": 1,
+ "code": "AZ",
+ "name": "Arizona",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "link",
+ "status_why": "The official results page shows scripts a challenge, and John chose not to read its data host. The page links to Arizona's own results.",
+ "approved": false,
+ "approval_note": "John said no (2026-10-10, D2): never read cdn1.arizona.vote; Arizona links out to its own page.",
+ "office": "the Arizona Secretary of State",
+ "system": "Arizona Secretary of State's own election-night results site (AngularJS app, results.arizona.vote) fed by static JSON on a data CDN (cdn1.arizona.vote); counties upload, each upload numbered",
+ "family": null,
+ "reader_agent": "N12",
+ "results_page": {
+  "url": "https://results.arizona.vote/",
+  "label": "Arizona Secretary of State: election results",
+  "checked": "2026-10-09",
+  "source": "results_az.json"
+ },
+ "other_pages": [
+  {
+   "url": "https://elections.maricopa.gov/results-and-data/election-results.html",
+   "label": "Maricopa County's own results"
+  }
+ ],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": null,
+  "posted": false,
+  "how_to_find": "Not needed: Arizona links out."
+ },
+ "cadence": null,
+ "hand": null,
+ "feeds": [
+  {
+   "id": "az-1",
+   "what": "statewide",
+   "format": "json",
+   "address": "https://cdn1.arizona.vote/data/<electionId>/0/election_<electionId>_0.json gives {uploadId, electionId, timeStamp}; then .../featured_races_<eid>_0_en_<uploadId>.json, .../all_county_races_<eid>_0_en_<uploadId>.json, .../voter_turnout_<eid>_0_<uploadId>.json, .../tabs_<eid>_0_en_<uploadId>.json (the page's own requests, seen in the Browser pane for election 47, the 2024 general)",
+   "hosts": [
+    "cdn1.arizona.vote"
+   ],
+   "updates": "each county upload makes a new uploadId; poll the small election_<eid>_0.json (125 bytes) and fetch the rest only when uploadId changes",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "cdn1.arizona.vote/data/47/0/election_47_0.json answered the honest User-Agent with 200 (X-Cache TCP_REMOTE_HIT), while results.arizona.vote itself answered 403 with a Cloudflare challenge (Cf-Mitigated: challenge). The CDN is the address the page itself reads, not a way past the challenge, but John should approve this route before it is used (as with Ohio's Internet Archive route). Covers federal, state, legislative, judicial, ballot measures; county view per race."
+  },
+  {
+   "id": "az-2",
+   "what": "congress",
+   "format": "json",
+   "address": "same files as statewide; Federal tab",
+   "hosts": [],
+   "updates": "as above",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "AZ has nine House seats and no Senate race in 2026."
+  },
+  {
+   "id": "az-3",
+   "what": "county",
+   "format": "csv",
+   "address": "Maricopa: https://elections.maricopa.gov/results-and-data/election-results.html links a tab-delimited results file per election, already posted for Nov 3, 2026 as a zero report: https://elections.maricopa.gov/asset/jcr:bd0ce4f7-2378-408e-a205-800cd7cf6983/Zero%20for%20Web%20-%20Gen%202026.txt (and a PDF twin), with 'Results File Descriptions.pdf' (https://elections.maricopa.gov/asset/jcr:e59cc3f8-d16f-468d-811b-115eee664082/Results%20File%20Descriptions.pdf)",
+   "hosts": [
+    "elections.maricopa.gov"
+   ],
+   "updates": "Maricopa: 'posted at 8pm on Election Day and are updated daily until all ballots have been tabulated' (its page)",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "The Maricopa page answered 200 to the script (served through Cloudflare, no challenge). The asset address carries a content id (jcr:...), so the file name must be re-read from the page at each update. The kit's scouting found elections.maricopa.gov candidate PDFs behind a Cloudflare 403 on 2026-09-30, so access may vary by path."
+  }
+ ],
+ "units": "county",
+ "precinct_level": false,
+ "races_in_feed": "statewide, Congress, legislature, judges (retention), ballot measures on the state site; county, city, school and special-district contests only on each county's site",
+ "local": "Yes, 15 counties. Maricopa (elections.maricopa.gov/results-and-data/election-results.html, tab-delimited file); Pima (pima.gov, not opened: the address tried returned an unrelated page); Pinal and Yavapai not checked.",
+ "how_counted": "Counties upload through the night and keep counting for days; the Secretary of State certifies by the third Monday after the election.",
+ "count_order": "The state's ballot progress page lists ballots left to count by county (not read here).",
+ "vote_types": "Not on the state site. The state links a ballot progress page (apps.arizona.vote/electioninfo/BPS/<eid>/0) with ballots left to count by county, which is useful for count order. Maricopa's results file description should be checked for early vs Election Day columns.",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Arizona Secretary of State",
+  "rule": "The Secretary of State canvasses no later than the third Monday after the election (Ariz. Rev. Stat. 16-642).",
+  "date": "2026-11-23",
+  "date_kind": "by",
+  "local_rule": "Counties canvass no later than the third Thursday after the election (Ariz. Rev. Stat. 16-642).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [
+  "*.arizona.vote",
+  "*.azsos.gov",
+  "azsos.gov",
+  "cdn1.arizona.vote",
+  "results.arizona.vote"
+ ],
+ "never_why": {
+  "results.arizona.vote": "Cloudflare challenge to scripts (scout, 2026-10-09)",
+  "cdn1.arizona.vote": "John's answer, 2026-10-10 (D2): never read; Arizona links out",
+  "*.arizona.vote": "John's answer, 2026-10-10 (D2): Arizona links out to its own page",
+  "azsos.gov": "challenges scripts (CLAUDE.md, 2026-09-30)",
+  "*.azsos.gov": "challenges scripts (CLAUDE.md)"
+ },
+ "partial_sources": [],
+ "rehearsal": null,
+ "terms": "none seen",
+ "scout_blocked": "results.arizona.vote: 403 Cloudflare challenge to scripts (passes in the Browser pane); azsos.gov, apps.azsos.gov and my.arizona.vote also challenge scripts (CLAUDE.md, 2026-09-30)",
+ "scout_plan": "With John's approval, poll cdn1.arizona.vote's election_<id>_0.json every few minutes and, when the uploadId changes, fetch the featured and all-county race files for the statewide and nine House contests; take the election id from the front page link John or the Browser pane reads on Nov 3. If John says no, Arizona waits for him to save the official canvass. Local results come from Maricopa's tab-delimited file (about six in ten Arizonans) and then Pima and Pinal one at a time.",
+ "notes": [],
+ "to_do": [],
+ "sources": [
+  "election/scout/results_az.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

@@ -1,0 +1,143 @@
+{
+ "v": 1,
+ "code": "PA",
+ "name": "Pennsylvania",
+ "written": "2026-10-10",
+ "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+ "status": "live",
+ "status_why": "The Department's JSON service answered scripts; the kit already reads it.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Pennsylvania Department of State",
+ "system": "State-built: Pennsylvania Department of State 'Election Returns' (ASP.NET site with a JSON data service); counties run their own ENR for local offices (Allegheny on Clarity/Scytl ENR; Philadelphia on its own City Commissioners results page)",
+ "family": "pa_returns",
+ "reader_agent": "N11",
+ "results_page": {
+  "url": "https://www.electionreturns.pa.gov/",
+  "label": "Pennsylvania Department of State: election returns",
+  "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+  "source": "results_pa.json"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": null,
+  "posted": false,
+  "how_to_find": "api/Reports/GetElectionList for a 2026 General with ISActive 1."
+ },
+ "cadence": {
+  "check_every_s": 180,
+  "signal": "https://www.electionreturns.pa.gov/api/ElectionReturn/GetOfficeData?officeId=<o>&...&electionid=<id>",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "www.electionreturns.pa.gov"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "pa-1",
+   "what": "statewide",
+   "format": "json",
+   "address": "https://www.electionreturns.pa.gov/api/Reports/GetElectionList (all elections: Electionid, ElectionType G/P/S, ElectionStatus O = official, ISActive 1 = the current one); then https://www.electionreturns.pa.gov/api/ElectionReturn/GetOfficeData?officeId=<office>&methodName=GetOfficeDetails&electionid=<id>&electiontype=<G|P|S>&isactive=<0|1> (office 3 Governor, 4 Lieutenant Governor, 11 Representative in Congress, 12 State Senate, 13 State House; the response is a JSON string that holds JSON, keyed 'District name$$id$$')",
+   "hosts": [
+    "www.electionreturns.pa.gov"
+   ],
+   "updates": "the Department refreshes as counties upload through the night (minutes apart; no stated interval). The list call answered with Cache-Control no-cache",
+   "script_ok": true,
+   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+   "note": "GetElectionList answered 200 JSON (45 KB) on 2026-10-09. The host sits on an Imperva address range (45.60.233.41) but served scripts normally; keep requests few and spaced."
+  },
+  {
+   "id": "pa-2",
+   "what": "congress",
+   "format": "json",
+   "address": "same GetOfficeData call with officeId=11; county by county: https://www.electionreturns.pa.gov/api/ElectionReturn/GetCountyBreak?officeId=<o>&districtId=<d>&methodName=GetCountyBreak&electionid=<id>&electiontype=<t>&isactive=<0|1>",
+   "hosts": [
+    "www.electionreturns.pa.gov"
+   ],
+   "updates": "as above",
+   "script_ok": true,
+   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+   "note": "The kit already reads it for the May 19 primary (election 117)."
+  },
+  {
+   "id": "pa-3",
+   "what": "legislature",
+   "format": "json",
+   "address": "GetOfficeData with officeId 12 (Senate, even districts in 2026) and 13 (House, 203 seats)",
+   "hosts": [],
+   "updates": "as above",
+   "script_ok": true,
+   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+   "note": ""
+  },
+  {
+   "id": "pa-4",
+   "what": "county",
+   "format": "csv",
+   "address": "the Reporting Center export (https://www.electionreturns.pa.gov/ReportCenter/Reports): one row per county, office, district, party, candidate with Votes, Election Day Votes, Mail Votes, Provisional Votes",
+   "hosts": [
+    "www.electionreturns.pa.gov"
+   ],
+   "updates": "on request; the kit keeps one copy (ballot_cache/pa/pa_primary_2026_congress_by_county.csv)",
+   "script_ok": true,
+   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+   "note": "Use as the control on the night, not the main poll."
+  },
+  {
+   "id": "pa-5",
+   "what": "local",
+   "format": "html",
+   "address": "county sites: Allegheny https://results.enr.clarityelections.com/PA/Allegheny/ (Clarity's new Angular ENR; the root answered 200 to a script, 4 KB shell, election ids not yet found); Philadelphia https://vote.phila.gov/results/ (linked as 'Current Election Results' from vote.phila.gov; checked in the Browser pane)",
+   "hosts": [
+    "results.enr.clarityelections.com",
+    "vote.phila.gov"
+   ],
+   "updates": "county by county",
+   "script_ok": "untested",
+   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+   "note": "Pennsylvania elects almost no regular local office in even years (CLAUDE.md), so local results on Nov 3 are a handful of specials."
+  }
+ ],
+ "units": "county",
+ "precinct_level": false,
+ "races_in_feed": "statewide (Governor and Lieutenant Governor), Congress, State Senate and House, ballot questions; not local offices",
+ "local": "yes, for county-level detail and precincts: Allegheny (Clarity, https://results.enr.clarityelections.com/PA/Allegheny/), Philadelphia (https://vote.phila.gov/results/); Montgomery, Bucks and Delaware counties run their own results pages (not checked)",
+ "how_counted": "Counties may not start processing mail ballots until 7 a.m. on Election Day, so mail counts arrive county by county; Election Day, mail and provisional votes are reported apart.",
+ "count_order": "Election Day, Mail and Provisional by county (Reporting Center CSV).",
+ "vote_types": "yes: every candidate's Election Day, Mail and Provisional votes, by county (the Reporting Center CSV columns 'Election Day Votes', 'Mail Votes', 'Provisional Votes'). Pennsylvania may not start processing mail ballots until 7 a.m. on Election Day, so mail counts arrive on a county-by-county schedule: valuable for the count-order predictor.",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Pennsylvania Secretary of the Commonwealth",
+  "rule": "No completion deadline in the law (25 P.S. 3159); counties certify after the five-day recount window (3154(f)).",
+  "date": null,
+  "date_kind": null,
+  "local_rule": "Unofficial returns by 5 p.m. on the Tuesday after (3154(f)).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": "Electionid 105 (2024 general); 117 (2026 primary)",
+ "terms": "none stated on the API; the site is the Department's public returns",
+ "scout_blocked": "nothing refused scripts on 2026-10-09",
+ "scout_plan": "Live-readable. On the night, read GetElectionList once to find the 2026 General's id, then poll GetOfficeData for offices 3, 11, 12 and 13 every few minutes (four calls a round), and GetCountyBreak only for the races on the map that are open, to fill the county shading. Pull the Reporting Center CSV once an hour for the Election Day/Mail/Provisional split that feeds count order. Rehearse on election 105 (2024) in October. Local results are a handful of specials: take them from the county sites only where one is on the ballot, otherwise say Pennsylvania holds its local elections in odd years.",
+ "notes": [],
+ "to_do": [
+  "Find the Nov 3 Electionid."
+ ],
+ "sources": [
+  "election/scout/results_pa.json (checked 2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts))",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

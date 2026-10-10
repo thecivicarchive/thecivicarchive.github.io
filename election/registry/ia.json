@@ -1,0 +1,125 @@
+{
+ "v": 1,
+ "code": "IA",
+ "name": "Iowa",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "live",
+ "status_why": "Clarity on the Secretary's own domain answered scripts; the kit already reads it.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Iowa Secretary of State",
+ "system": "Clarity Elections (Scytl/Civica Clarity ENR) on the Secretary of State's own domain: electionresults.iowa.gov",
+ "family": "clarity",
+ "reader_agent": "N9",
+ "results_page": {
+  "url": "https://electionresults.iowa.gov/IA/",
+  "label": "Iowa Secretary of State: election results",
+  "checked": "2026-10-09",
+  "source": "results_mn.json"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": null,
+  "posted": false,
+  "how_to_find": "/IA/elections.json until the 2026 general appears."
+ },
+ "cadence": {
+  "check_every_s": 120,
+  "signal": "https://electionresults.iowa.gov/IA/<EID>/current_ver.txt",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "electionresults.iowa.gov"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "ia-1",
+   "what": "statewide",
+   "format": "json",
+   "address": "https://electionresults.iowa.gov/IA/elections.json (list: EID, ElectionName, Date) -> /IA/<EID>/current_ver.txt -> /IA/<EID>/<ver>/json/en/summary.json (every contest: C title, CH choices, P parties, V votes, TP/PR counties total/reporting)",
+   "hosts": [
+    "electionresults.iowa.gov"
+   ],
+   "updates": "Each new version number on current_ver.txt (Clarity typically every few minutes on election night)",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "200 on 2026-10-09 (CloudFront, gzip). 2026 primary EID 126082 version 377216: statewide summary reports by county (TP 99)."
+  },
+  {
+   "id": "ia-2",
+   "what": "congress",
+   "format": "json",
+   "address": "same summary.json (category Federal)",
+   "hosts": [],
+   "updates": "same",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": ""
+  },
+  {
+   "id": "ia-3",
+   "what": "county",
+   "format": "json",
+   "address": "/IA/<EID>/<ver>/json/en/electionsettings.json lists 'participatingcounties' as name|eid|version; each county: /IA/<county>/<county EID>/<ver>/json/en/summary.json",
+   "hosts": [],
+   "updates": "same",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "Already used by ballot/state_local_ia.py (primary_index, primary_parties)."
+  },
+  {
+   "id": "ia-4",
+   "what": "precinct",
+   "format": "zip",
+   "address": "Clarity county reports: /IA/<county>/<EID>/<ver>/reports/detailxml.zip (precinct and vote-type detail)",
+   "hosts": [],
+   "updates": "same",
+   "script_ok": "untested",
+   "checked": "2026-10-09",
+   "note": "Standard Clarity path, not requested here."
+  }
+ ],
+ "units": "county",
+ "precinct_level": true,
+ "races_in_feed": "Statewide, Congress, Legislature, judicial retention, county offices; city and school elections are odd-year (the Nov 4, 2025 City-School election is on the same system).",
+ "local": "County pages sit inside the same system. Polk (dmcountyelections.iowa.gov), Linn, Scott, Johnson also post their own pages (addresses in state_local_ia.py).",
+ "how_counted": "County auditors upload their counts through the night.",
+ "count_order": "Clarity detail XML likely splits Election Day and Absentee; not confirmed live.",
+ "vote_types": "Likely yes: Clarity detail XML carries VoteType breakdowns (Election Day, Absentee) where counties enter them; Iowa's canvass reports Election Day and Absentee per precinct (ballot/ia_place_votes.py). Not confirmed live.",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Iowa State Board of Canvassers",
+  "rule": "The Secretary of State presents the abstracts no later than 27 days after the election and the board approves the canvass (Iowa Code 50.38).",
+  "date": "2026-11-30",
+  "date_kind": "by",
+  "local_rule": "County abstracts within 13 days (Iowa Code 50.30).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": "EID 126082 (2026 primary); 124196 (2025 city-school)",
+ "terms": "None found on the JSON.",
+ "scout_blocked": "Nothing seen.",
+ "scout_plan": "Live-readable. Poll elections.json until the 2026 General appears, then poll current_ver.txt every 2 to 5 minutes and fetch summary.json only when the version changes (statewide and Congress), plus each county's summary for county offices and legislative seats; detailxml.zip per county gives precincts and vote types for the count-order predictor. Rehearse on EID 126082 and 124196.",
+ "notes": [],
+ "to_do": [
+  "Find the Nov 3 EID."
+ ],
+ "sources": [
+  "election/scout/results_mn.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

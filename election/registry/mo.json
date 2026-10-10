@@ -1,0 +1,111 @@
+{
+ "v": 1,
+ "code": "MO",
+ "name": "Missouri",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "link",
+ "status_why": "The live results site shows scripts a Cloudflare CAPTCHA, which is never worked around.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Missouri Secretary of State",
+ "system": "Secretary of State election night reporting at enr.sos.mo.gov (vendor not confirmed), plus official PDFs (Grand Totals, Results by County) on sos.mo.gov after the canvass; 116 local election authorities post their own.",
+ "family": null,
+ "reader_agent": "N12",
+ "results_page": {
+  "url": "https://www.sos.mo.gov/elections/results",
+  "label": "Missouri Secretary of State: election results",
+  "checked": "2026-10-10",
+  "source": "answered one request with the kit's User-Agent (N4, 2026-10-10)"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": null,
+  "posted": false,
+  "how_to_find": "Grand Totals PDF after the canvass."
+ },
+ "cadence": null,
+ "hand": null,
+ "feeds": [
+  {
+   "id": "mo-1",
+   "what": "statewide",
+   "format": "html",
+   "address": "https://enr.sos.mo.gov/ (linked from https://www.sos.mo.gov/elections/results as 'Primary Election - August 4, 2026 Unofficial Results')",
+   "hosts": [
+    "enr.sos.mo.gov",
+    "www.sos.mo.gov"
+   ],
+   "updates": "unknown",
+   "script_ok": false,
+   "checked": "2026-10-09",
+   "note": "403 Cloudflare managed challenge (captcha) to the script on 2026-10-09."
+  },
+  {
+   "id": "mo-2",
+   "what": "statewide",
+   "format": "html",
+   "address": "Official PDFs: https://www.sos.mo.gov/CMSImages/ElectionResultsStatistics/<year>GeneralElection.pdf (Grand Totals) and ActualResults-<Month><D><YYYY>.pdf (Results by County)",
+   "hosts": [
+    "www.sos.mo.gov"
+   ],
+   "updates": "Not live: weeks after the canvass",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "The results page answered 200 on 2026-10-09 and lists these back to 2012."
+  },
+  {
+   "id": "mo-3",
+   "what": "county",
+   "format": "html",
+   "address": "Local election authorities: St. Louis County (stlouiscountymo.gov board of elections), Kansas City (kceb.org), Jackson County (jcebmo.org), St. Louis City, Greene (vote.greenecountymo.gov)",
+   "hosts": [],
+   "updates": "election night",
+   "script_ok": "untested",
+   "checked": "2026-10-09",
+   "note": "Addresses from ballot/state_local_mo.py; results pages not checked."
+  }
+ ],
+ "units": "county",
+ "precinct_level": false,
+ "races_in_feed": "ENR: statewide, Congress, Legislature, judges and retention; county and local races mostly on the authorities' own sites.",
+ "local": "Yes (above).",
+ "how_counted": "Local election authorities report to the Secretary of State's live page; official totals follow the canvass.",
+ "count_order": "Not seen.",
+ "vote_types": "Unknown.",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Missouri Board of State Canvassers",
+  "rule": "Issues its statement not later than the second Tuesday in December (Mo. Rev. Stat. 115.511).",
+  "date": "2026-12-08",
+  "date_kind": "by",
+  "local_rule": "Election authorities send abstracts by the second Tuesday after the election (115.507).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [
+  "enr.sos.mo.gov"
+ ],
+ "never_why": {
+  "enr.sos.mo.gov": "Cloudflare CAPTCHA (scout, 2026-10-09)"
+ },
+ "partial_sources": [],
+ "rehearsal": null,
+ "terms": "Not seen.",
+ "scout_blocked": "enr.sos.mo.gov (Cloudflare captcha, 403, 2026-10-09). Precinct files are sold, not published (mo_place_votes.py).",
+ "scout_plan": "Blocked for scripts on the night: the live site sits behind a Cloudflare captcha, which must not be worked around. Show Missouri with a link to the Secretary's live page, or have John save its pages or exports by hand if he wants numbers; official totals come later from the Grand Totals PDF, which scripts can read. Check the biggest local authorities' results pages in late October for anything a script may read.",
+ "notes": [],
+ "to_do": [],
+ "sources": [
+  "election/scout/results_mn.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

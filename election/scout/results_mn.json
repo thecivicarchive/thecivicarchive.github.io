@@ -1,0 +1,203 @@
+{
+  "_about": {
+    "role": "Results-feed scout, Minnesota and its neighbours (MN WI IA ND SD MI IL IN OH MO)",
+    "checked": "2026-10-09",
+    "how": "Started from CLAUDE.md and the kit's loaders (ballot/lists/<code>.py, ballot/state_local_<code>.py, ballot/<code>_place_votes.py); then one or two requests per site from a script with the kit's User-Agent (congress-catalog/1.0, personal legislative research), 1.5 s apart, and a few public pages read in the Browser pane. No CAPTCHA, bot wall or login was touched; the Minnesota Secretary of State's results hosts were not requested. No file over 5 MB was downloaded; no contact details were printed or stored.",
+    "status_codes_seen": "403 + 'Just a moment' = Cloudflare JavaScript challenge; 403 + captcha text = Cloudflare managed challenge. DNS lookups on this router fail about one time in three: every script must use states/net.patient_lookups()."
+  },
+  "MN": {
+    "system": "State-built Secretary of State election results site (electionresults.sos.mn.gov) plus 'media results' text files on electionresultsfiles.sos.mn.gov",
+    "site": "https://electionresults.sos.mn.gov/",
+    "feeds": [
+      {"what": "statewide", "format": "csv", "address_pattern": "Media Files: one semicolon-separated text file per office group (U.S. Senate, U.S. House, statewide, legislative, judicial, county, municipal, school district, hospital district), each with state; county id; precinct; office id; office name; district; candidate order; candidate name; suffix; incumbent; party; precincts reporting; precincts total; votes; percent; office total (layout per CLAUDE.md, to be checked against a real file)", "updates": "Re-posted through election night as counties report (frequency not checked: host not requested)", "script_ok": false, "notes": "Radware CAPTCHA to this machine, in the Browser pane too (CLAUDE.md). Never requested. John saves the files by hand into states_cache/mn_local/sos/<yyyymmdd>/ and the updater reads that folder."},
+      {"what": "congress", "format": "csv", "address_pattern": "same media files (U.S. Representative file)", "updates": "as above", "script_ok": false, "notes": "same"},
+      {"what": "precinct", "format": "csv", "address_pattern": "media files carry a precinct column; precinct-level rows exist for every office group", "updates": "as above", "script_ok": false, "notes": "same"},
+      {"what": "precinct", "format": "json", "address_pattern": "Minnesota Geospatial Commons feature services, 'General Election Results By Precinct <year>' layers under https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_sos/ (found by layer name)", "updates": "Not live: posted after the canvass", "script_ok": true, "notes": "Already read by ballot/mn_place_votes.py for 2012-2024 official precinct results (past results and roll-off inputs, not election night)."}
+    ],
+    "races": "Everything on the ballot: statewide, Congress, Legislature, judges, county, soil and water, city, township, school, hospital districts (the SOS reports all levels in one system).",
+    "precinct_level": true,
+    "vote_types": "No: the media files give one total per precinct; absentee ballots are counted into precincts (or the county's absentee board precinct where used). Count-order predictor must use county reporting order, not ballot-type splits.",
+    "counties_separate": "Not needed: the SOS site carries county and local races for all 87 counties. Hennepin and Ramsey publish nothing separate for live counts (not re-checked).",
+    "past_test": "Rehearsal needs John to save the 2024 general's (20241105) or the Aug 11, 2026 primary's (20260811) media files into the empty folders states_cache/mn_local/sos/20241105/ and 20260811/ (both exist, both empty on 2026-10-09).",
+    "nov3_id": "Not applicable (files by date: 20261103). The folder already holds John's candidate files for Nov 3.",
+    "terms": "Not checked (host not requested).",
+    "blocked": "electionresults.sos.mn.gov, electionresultsfiles.sos.mn.gov, candidates.sos.mn.gov and www.sos.mn.gov after a few requests: Radware CAPTCHA (CLAUDE.md). Do not request.",
+    "kit_already_reads": "ballot/lists/mn.py and ballot/state_local_mn.py read John's saved candidate files (20261103); state_local_mn.py's read_file is the reader for saved SOS text files; ballot/mn_place_votes.py reads past official precinct results from the Geospatial Commons.",
+    "plan": "Minnesota is a hand-fed state on election night. John downloads the Media Files text files from the Secretary of State's results site in his own browser every so often (every 15 to 30 minutes is realistic) into states_cache/mn_local/sos/20261103/results/; the updater watches that folder, reads the files with the existing semicolon reader, checks each office's precinct counts and totals, and publishes. Because the files carry every level from U.S. Senate down to school and hospital boards with precinct rows, one save covers statewide, congressional and local results at once. Before Nov 3, John should save one set of 20241105 or 20260811 media files so the reader can be rehearsed and the column layout confirmed."
+  },
+  "WI": {
+    "system": "No statewide election-night reporting: the Wisconsin Elections Commission publishes only canvassed results (county-by-county workbooks) weeks later; 72 county clerks post their own unofficial results (PDF summaries, some vendor ENR sites).",
+    "site": "https://elections.wi.gov/elections/election-results",
+    "feeds": [
+      {"what": "statewide", "format": "xlsx", "address_pattern": "Canvass 'County by County Report' workbooks on elections.wi.gov (one sheet per office), linked from the election's results page", "updates": "Not live: posted after the state canvass (late November)", "script_ok": false, "notes": "403 Cloudflare 'Just a moment' to the script on 2026-10-09; readable in the Browser pane (kit carries files out as base64)."},
+      {"what": "county", "format": "html", "address_pattern": "Milwaukee County Election Commission: https://county.milwaukee.gov/files/county/county-clerk/Election-Commission/ElectionResultsCopy-1/<year>/<mm-dd-yy>-...-Summary--Unofficial-Results.pdf (and a 'Canvass' PDF)", "updates": "Re-posted through the night (county media advisory says 'regularly updated')", "script_ok": false, "notes": "403 Cloudflare 'Just a moment' to the script on 2026-10-09. The format is a PDF summary report, not data."},
+      {"what": "county", "format": "html", "address_pattern": "Dane County: https://elections.danecounty.gov/Election-Results", "updates": "unknown", "script_ok": false, "notes": "403 Cloudflare managed challenge (captcha) to the script on 2026-10-09."},
+      {"what": "local", "format": "html", "address_pattern": "City of Milwaukee Election Commission PDFs: https://city.milwaukee.gov/ImageLibrary/Groups/electionAuthors/Election-Results/<year>/...pdf", "updates": "election night", "script_ok": "untested", "notes": "Found by web search only."}
+    ],
+    "races": "On Nov 3, 2026: statewide (Governor and the other constitutional offices), Congress, Legislature, and only three county offices (sheriff, clerk of circuit court, coroner) per CLAUDE.md. City and school offices are elected in April.",
+    "precinct_level": false,
+    "vote_types": "Unknown live. Milwaukee's central count of absentee ballots reports late and in large batches (well known; not checked here); county summaries do not split it out in a machine-readable way.",
+    "counties_separate": "Yes, entirely: Milwaukee County (county.milwaukee.gov, Cloudflare), Dane (elections.danecounty.gov, Cloudflare captcha), Waukesha, Brown, Racine (not checked).",
+    "past_test": "Aug 11, 2026 partisan primary: Milwaukee County's unofficial summary PDF (address above); the WEC canvass workbook for the 2026 Partisan Primary that ballot/lists/wi.py already reads from ballot_cache/wi/.",
+    "nov3_id": "None (no statewide system).",
+    "terms": "Not found.",
+    "blocked": "elections.wi.gov (Cloudflare JS challenge, 403); county.milwaukee.gov files (Cloudflare JS challenge, 403); elections.danecounty.gov (Cloudflare captcha, 403). All checked 2026-10-09.",
+    "kit_already_reads": "ballot/lists/wi.py reads the WEC 'Candidates on Ballot' PDF and the Partisan Primary county-by-county workbook, both carried out of the Browser pane into ballot_cache/wi/; ballot/state_local_wi.py reads county sample ballots; ballot/wi_place_votes.py reads LTSB open-data precinct results (data-ltsb.opendata.arcgis.com), never elections.wi.gov.",
+    "plan": "Wisconsin has no official live feed a script can read: the state publishes nothing until the canvass, and the big counties sit behind Cloudflare. Election Night should show Wisconsin as 'official count arrives with the canvass' and, on the night, either (a) John saves the Milwaukee and Dane summary PDFs by hand a few times (both are PDF reports, so a reader per county), or (b) the page links out to each county clerk's results page without numbers. Final results come from the WEC canvass workbook (Browser-pane carry-out, as the kit already does). Local races on Nov 3 are only three county offices, so the county PDFs cover them."
+  },
+  "IA": {
+    "system": "Clarity Elections (Scytl/Civica Clarity ENR) on the Secretary of State's own domain: electionresults.iowa.gov",
+    "site": "https://electionresults.iowa.gov/IA/",
+    "feeds": [
+      {"what": "statewide", "format": "json", "address_pattern": "https://electionresults.iowa.gov/IA/elections.json (list: EID, ElectionName, Date) -> /IA/<EID>/current_ver.txt -> /IA/<EID>/<ver>/json/en/summary.json (every contest: C title, CH choices, P parties, V votes, TP/PR counties total/reporting)", "updates": "Each new version number on current_ver.txt (Clarity typically every few minutes on election night)", "script_ok": true, "notes": "200 on 2026-10-09 (CloudFront, gzip). 2026 primary EID 126082 version 377216: statewide summary reports by county (TP 99)."},
+      {"what": "congress", "format": "json", "address_pattern": "same summary.json (category Federal)", "updates": "same", "script_ok": true, "notes": ""},
+      {"what": "county", "format": "json", "address_pattern": "/IA/<EID>/<ver>/json/en/electionsettings.json lists 'participatingcounties' as name|eid|version; each county: /IA/<county>/<county EID>/<ver>/json/en/summary.json", "updates": "same", "script_ok": true, "notes": "Already used by ballot/state_local_ia.py (primary_index, primary_parties)."},
+      {"what": "precinct", "format": "zip", "address_pattern": "Clarity county reports: /IA/<county>/<EID>/<ver>/reports/detailxml.zip (precinct and vote-type detail)", "updates": "same", "script_ok": "untested", "notes": "Standard Clarity path, not requested here."}
+    ],
+    "races": "Statewide, Congress, Legislature, judicial retention, county offices; city and school elections are odd-year (the Nov 4, 2025 City-School election is on the same system).",
+    "precinct_level": true,
+    "vote_types": "Likely yes: Clarity detail XML carries VoteType breakdowns (Election Day, Absentee) where counties enter them; Iowa's canvass reports Election Day and Absentee per precinct (ballot/ia_place_votes.py). Not confirmed live.",
+    "counties_separate": "County pages sit inside the same system. Polk (dmcountyelections.iowa.gov), Linn, Scott, Johnson also post their own pages (addresses in state_local_ia.py).",
+    "past_test": "https://electionresults.iowa.gov/IA/126082/ (2026 Primary, June 2) and 124196 (2025 City-School Election, Nov 4, 2025: local races). The list holds nothing older than 2025.",
+    "nov3_id": "Not posted yet on 2026-10-09 (elections.json's newest entry is the 2026 Primary).",
+    "terms": "None found on the JSON.",
+    "blocked": "Nothing seen.",
+    "kit_already_reads": "ballot/state_local_ia.py reads elections.json, current_ver.txt, electionsettings.json and county summary.json (party only); ballot/lists/ia.py reads the SOS canvass PDF; ballot/ia_place_votes.py reads official precinct results.",
+    "plan": "Live-readable. Poll elections.json until the 2026 General appears, then poll current_ver.txt every 2 to 5 minutes and fetch summary.json only when the version changes (statewide and Congress), plus each county's summary for county offices and legislative seats; detailxml.zip per county gives precincts and vote types for the count-order predictor. Rehearse on EID 126082 and 124196."
+  },
+  "ND": {
+    "system": "Tally / TotalResults election night reporting (the same API family as Arkansas's enr-results-api.totalresults.com) on the Secretary of State's domain",
+    "site": "https://resultsnd.sos.nd.gov/",
+    "feeds": [
+      {"what": "statewide", "format": "json", "address_pattern": "https://api.resultsnd.sos.nd.gov/Election/GetElectionInfo?cId=north-dakota&electionID=<id> (versionID, lastUpdated, isOfficial, turnout, parties, contest types SW/LEG/.../MUN/SCH, counties and precincts); Contest/GetContestSearchList?cid=north-dakota&electionID=<id>; Contest/GetSingleContestResults?cId=north-dakota&electionID=<id>&contestType=<code>&contestID=<id>; Contest/GetContestResults?...&contestType=<code>", "updates": "versionID increments (v1 now for Nov 3); lastUpdated timestamp", "script_ok": true, "notes": "200 on 2026-10-09 (Cloudflare in front but no challenge)."},
+      {"what": "congress", "format": "json", "address_pattern": "same, contest type SW", "updates": "same", "script_ok": true, "notes": ""},
+      {"what": "legislature", "format": "json", "address_pattern": "contest type LEG (legislative districts)", "updates": "same", "script_ok": true, "notes": ""},
+      {"what": "local", "format": "json", "address_pattern": "contest types MUN (City), SCH (School), county types", "updates": "same", "script_ok": true, "notes": "City and school contests are in the state system."},
+      {"what": "precinct", "format": "json", "address_pattern": "GetElectionInfo 'districts.counties' lists every county's precincts (358 for 2026); contest results by location", "updates": "same", "script_ok": "untested", "notes": "Precinct rows per contest not requested here."}
+    ],
+    "races": "Statewide, Congress, Legislature, county, city, school (all in one system).",
+    "precinct_level": true,
+    "vote_types": "No: voteTypes lists only 'All' (2026 primary, eid 346).",
+    "counties_separate": "No need.",
+    "past_test": "electionID 346 (2026 Primary, June 9: isOfficial true, 358 of 358 precincts). The 2024 general is on the older results.sos.nd.gov system (CLAUDE.md).",
+    "nov3_id": "348 (posted: '2026 General Election', 2026-11-03, versionID v1, 0 of 358 precincts, checked 2026-10-09)",
+    "terms": "None found.",
+    "blocked": "Nothing seen.",
+    "kit_already_reads": "ballot/lists/nd.py and ballot/state_local_nd.py (primary results via Election/GetElectionInfo, Contest/GetContestSearchList, Contest/GetSingleContestResults, Contest/GetContestResults); ballot/nd_place_votes.py (past precinct workbooks).",
+    "plan": "Live-readable and the best-prepared state: election 348 is already posted. Poll GetElectionInfo every 2 to 5 minutes; when versionID changes, fetch the contest results by type (SW for statewide and Congress, LEG, county, MUN, SCH). Choices' winner flag is left unset even when official, so winners come from the counts and the official flag. Rehearse on 346."
+  },
+  "SD": {
+    "system": "State election night reporting site (ASP.NET pages resultsSW.aspx; the same results system as Nebraska's electionresults.nebraska.gov per the kit's notes; vendor not confirmed)",
+    "site": "https://electionresults.sd.gov/",
+    "feeds": [
+      {"what": "statewide", "format": "html", "address_pattern": "https://electionresults.sd.gov/resultsSW.aspx?type=SWR&map=CTY&eid=<eid> (statewide races by county), each contest with 'Precinct Level' and 'County Level' buttons", "updates": "unknown", "script_ok": false, "notes": "2026-10-09: the script's TLS check failed with 'certificate has expired'. Never turn verification off; wait for the state to renew, and tell the state if it persists."},
+      {"what": "legislature", "format": "html", "address_pattern": "resultsSW.aspx?type=LEG&map=DIST&eid=<eid>", "updates": "unknown", "script_ok": false, "notes": "same certificate failure"},
+      {"what": "precinct", "format": "csv", "address_pattern": "per-contest 'Precinct Level' export buttons (postbacks)", "updates": "unknown", "script_ok": "untested", "notes": "ballot/sd_place_votes.py read these for 2024."}
+    ],
+    "races": "Statewide, Congress, Legislature, county offices (state site); municipal and school elections are mostly in spring.",
+    "precinct_level": true,
+    "vote_types": "Unknown.",
+    "counties_separate": "Minnehaha (Sioux Falls) and Pennington post their own results pages (not checked).",
+    "past_test": "eid 684 (2024 General), 471 (2022 General), 773 (2026 Primary, June 2). The site keeps 'Unofficial Results' forever; the certified canvass is a scanned PDF on sdsos.gov.",
+    "nov3_id": "Probably 774 (the candidate list's election number; the primary's results and list shared 773). Unconfirmed.",
+    "terms": "Not checked.",
+    "blocked": "Certificate expired (script, 2026-10-09). No bot wall seen earlier by the kit.",
+    "kit_already_reads": "ballot/lists/sd.py and state_local_sd.py read the candidate lists on vip.sdsos.gov (eid 773/774); ballot/sd_place_votes.py read the results site (resultsSW.aspx pages and precinct exports) and the canvass PDFs.",
+    "plan": "Readable with care once the certificate is renewed: poll the statewide and legislative pages for eid 774 every 5 minutes and parse the HTML the way sd_place_votes.py does; county offices from the same pages. If the certificate is still expired in late October, show South Dakota as 'state site not reachable securely' and link out; never skip certificate checks. Election-night numbers stay labelled unofficial; certified figures come from the canvass PDF."
+  },
+  "MI": {
+    "system": "No statewide election-night reporting (the Department of State says local clerks post unofficial results on their own sites; official results later on the Michigan Voter Information Center). Counties use Clarity ENR (Oakland) or PDF reports (Wayne).",
+    "site": "https://mvic.sos.state.mi.us/votehistory/ (official results after certification)",
+    "feeds": [
+      {"what": "statewide", "format": "zip", "address_pattern": "MVIC VoteHistory/GetPrecinctResultsFile?electionId=<id> (<year>GEN.zip, tab-delimited) and VoteHistory/GetElectionResultFile?electionId=<id> (county file); 2024 = 699", "updates": "Not live: after the state canvass", "script_ok": false, "notes": "403 Cloudflare 'Just a moment' to the script on 2026-10-09; readable in the Browser pane (kit carried files out as base64)."},
+      {"what": "county", "format": "json", "address_pattern": "Oakland County Clarity: https://results.enr.clarityelections.com/MI/Oakland/<EID>/current_ver.txt -> /<EID>/<ver>/json/en/summary.json, electionsettings.json; EIDs are linked from elections.oaklandcountymi.gov (127074 and 126183 linked on 2026-10-09)", "updates": "Clarity versions on election night", "script_ok": true, "notes": "200 on 2026-10-09; EID 127074 version 379092, 145 contests from Governor down; settings show filterbyvotetype and showvotetypedetails. Oakland's own elections.json list is empty, so EIDs come from the county's page."},
+      {"what": "county", "format": "html", "address_pattern": "Wayne County: https://www.waynecountymi.gov/Government/Elected-Officials/Clerk/Elections/Election-Results-Candidates/November-3rd-2026-General-Election (PDF summary, precinct-by-precinct PDF, county and local race PDFs)", "updates": "election night (unofficial PDFs), then official PDFs", "script_ok": "untested", "notes": "Read in the Browser pane 2026-10-09; the Aug 4 page lists 'Official Summary Report' and 'Official Precinct by Precinct' PDFs."}
+    ],
+    "races": "Statewide (Governor, AG, SOS, Supreme Court, education boards, university boards), Congress, Legislature, county, city, township, school, judges: each county reports its own share.",
+    "precinct_level": true,
+    "vote_types": "Clarity counties can split absentee counting boards (AVCB) from precincts; Michigan reports absentee counting boards as their own 'precincts' (Oakland's Absent Voter Counting Board schedule was posted for the primary). Useful for count order.",
+    "counties_separate": "Yes, all 83: Oakland (Clarity, address above), Wayne (PDFs, address above), Macomb, Kent, Washtenaw, Ottawa (not checked live; candidate-list addresses in state_local_mi.py).",
+    "past_test": "Oakland Clarity EID 127074 and 126183 (2026 elections linked on the county page); Wayne's Aug 4, 2026 primary PDFs.",
+    "nov3_id": "Not posted (Oakland will link its Nov 3 Clarity EID on its elections page).",
+    "terms": "None found.",
+    "blocked": "mvic.sos.state.mi.us (Cloudflare JS challenge, 403, 2026-10-09); the rest of michigan.gov answers scripts 403 (CLAUDE.md).",
+    "kit_already_reads": "ballot/lists/mi.py (mi-boe.entellitrak.com candidate listings); ballot/state_local_mi.py (nine county candidate lists); ballot/mi_place_votes.py (MVIC precinct and county files carried out of the Browser pane).",
+    "plan": "Readable with care, county by county. Statewide and congressional totals on the night must be summed from counties: start with the counties on Clarity (Oakland confirmed; check the other large counties' results pages for Clarity EIDs in late October) and read Wayne's PDFs if John agrees (or link out). Show each race's 'counties reporting' honestly; until most counties are machine-readable, a statewide total will be partial, so the page should say which counties are in. Official numbers come from MVIC after the canvass (Browser-pane carry-out)."
+  },
+  "IL": {
+    "system": "No statewide election-night reporting: 108 election authorities (county clerks and city boards) report their own; the State Board of Elections posts official vote totals after the canvass.",
+    "site": "https://www.elections.il.gov/ElectionOperations/ElectionVoteTotals.aspx",
+    "feeds": [
+      {"what": "statewide", "format": "html", "address_pattern": "https://www.elections.il.gov/ElectionOperations/ElectionVoteTotals.aspx?ID=<election id>&OfficeType=<type>; downloads on DownloadVoteTotals.aspx", "updates": "Not live: after the canvass (early December)", "script_ok": true, "notes": "200 on 2026-10-09 (2026 primary page, ID Z2J%2fvYpKX8w%3d)."},
+      {"what": "county", "format": "html", "address_pattern": "Cook County Clerk (suburban Cook): https://www.cookcountyclerkil.gov/elections/results-and-election-data/election-results (a search by year and election; the clerk also has a JSON candidate API, /api/Candidate/GetAllCandidates?language=en&electionCode=110326)", "updates": "election night", "script_ok": "untested", "notes": "The page answered the script 200; its results search did not reveal a data endpoint in a quick look."},
+      {"what": "local", "format": "html", "address_pattern": "Chicago Board of Election Commissioners: https://chicagoelections.gov/elections/results (by year tabs)", "updates": "election night", "script_ok": false, "notes": "403 Cloudflare managed challenge (captcha) to the script on 2026-10-09; the page opens in the Browser pane."}
+    ],
+    "races": "Nov 3: statewide (Governor and constitutional offices), U.S. Senate, Congress, Legislature, judges and retention, county offices, regional superintendents, water reclamation (Cook).",
+    "precinct_level": true,
+    "vote_types": "Chicago and Cook publish ballot-counting data by method (Cook's 'March 17, 2026 Ballot Counting Data' page); Chicago's turnout split was Election Day 49.5%, early 24.1%, mail 26.2% for the March primary (news reports). Mail ballots arriving up to 14 days after are counted late.",
+    "counties_separate": "Yes: Cook County Clerk (suburban Cook), Chicago Board (city, Cloudflare), DuPage, Lake, Will, Kane (not checked).",
+    "past_test": "Cook County Clerk results search for 2026 (March 17 primary); Chicago 2026 tab (Browser pane only).",
+    "nov3_id": "Cook's election code is 110326 (from the candidate API the kit already uses).",
+    "terms": "Not found.",
+    "blocked": "chicagoelections.gov (Cloudflare captcha, 403, 2026-10-09).",
+    "kit_already_reads": "ballot/lists/il.py (SBE candidate list PDF, official canvass PDF, ElectionVoteTotals page); ballot/state_local_il.py (Cook Clerk candidate API, Chicago Board PDF, ElectionVoteTotals).",
+    "plan": "Readable with care for parts only. No statewide total exists on the night; a statewide race must be summed from 108 authorities, which is not realistic by Nov 3. Recommend: show Illinois statewide and congressional races as 'counting by county; official totals from the State Board after the canvass', read the Cook County Clerk's results (find its data endpoint in the Browser pane in late October) for suburban Cook races, link to Chicago's page, and load the State Board's official totals when posted."
+  },
+  "IN": {
+    "system": "State-built election night reporting from the Indiana Election Division (enr.indianavoters.in.gov, JSON files behind a static page)",
+    "site": "https://enr.indianavoters.in.gov/site/index.html",
+    "feeds": [
+      {"what": "statewide", "format": "json", "address_pattern": "https://enr.indianavoters.in.gov/site/data/settings.json (CurrentElection, ElectionType, Certified, VersionType, IntervalInMinutes, parties) -> statewideElectionsC_<VersionType>.json (office categories by heading Federal/State/Local) -> OffCatC_<category id>_<VersionType>.json (StatewideSummary races and Regions per county with RegionSummary)", "updates": "settings.json says IntervalInMinutes 2", "script_ok": true, "notes": "200 on 2026-10-09 (Cloudflare in front, no challenge); files start with a UTF-8 BOM."},
+      {"what": "congress", "format": "json", "address_pattern": "category 'US Representative' (and US Senator in Senate years)", "updates": "2 minutes", "script_ok": true, "notes": ""},
+      {"what": "county", "format": "json", "address_pattern": "Local categories: Clerk of the Circuit Court, County Auditor/Recorder/Treasurer/Sheriff/Coroner/Surveyor/Assessor, County Commissioner, County Council Member, Township Assessor/Trustee/Board Member, Mayor, City Clerk, City Court Judge, City/Town Council, Town Clerk-Treasurer, Constable", "updates": "2 minutes", "script_ok": true, "notes": "Seen in the May 5 primary's category list."}
+    ],
+    "races": "Federal, State (Legislature, circuit and superior judges, prosecutors) and Local (county, township, city, town) all in one system; school board races too in general elections (not checked).",
+    "precinct_level": false,
+    "vote_types": "Not seen: results are by county (Regions keyed by county FIPS).",
+    "counties_separate": "Not needed for totals; Marion County also posts its own.",
+    "past_test": "The site still holds the certified May 5, 2026 primary (settings.json VersionCode 20260921_104402, Certified T).",
+    "nov3_id": "Not yet: settings.json still says CurrentElection 05/05/2026 (2026-10-09). The site switches to the next election in place, so the primary should be copied before then if a rehearsal set is wanted.",
+    "terms": "None found.",
+    "blocked": "Nothing seen.",
+    "kit_already_reads": "ballot/lists/in.py and ballot/state_local_in.py read settings.json, statewideElectionsC_<v>, OffCatC_<id>_<v> for the certified primary.",
+    "plan": "Live-readable. Poll settings.json every 2 minutes (its own stated interval); when WriteTime or VersionCode changes, fetch the office-category files for federal, state and local races. County-level only, which suits the map. Save a copy of the primary's JSON now to rehearse with, since the site will be overwritten by the general election."
+  },
+  "OH": {
+    "system": "Secretary of State LiveResults (liveresults.ohiosos.gov), fed by the 88 county boards; boards also post their own results.",
+    "site": "https://liveresults.ohiosos.gov/",
+    "feeds": [
+      {"what": "statewide", "format": "html", "address_pattern": "https://liveresults.ohiosos.gov/ (active only during an election; on 2026-10-09 it redirected the Browser pane to https://www.ohiosos.gov/data)", "updates": "As boards upload; the Secretary reported delivering all results on election night in May 2026", "script_ok": false, "notes": "403 Cloudflare to the script on 2026-10-09. Data format during an election not seen."},
+      {"what": "statewide", "format": "xlsx", "address_pattern": "Official canvass workbooks under https://publicfiles.ohiosos.gov/election-results/ (files-index.json lists them)", "updates": "Not live: after the canvass", "script_ok": false, "notes": "Cloudflare challenge to scripts (CLAUDE.md); readable in the Browser pane or via Internet Archive captures (oh_place_votes.py)."},
+      {"what": "county", "format": "html", "address_pattern": "Directory of every board's results page: https://www.ohiosos.gov/directories/local-election-results (e.g. Butler https://elections.bcohio.gov/dataandresources/results.php, Cuyahoga https://boe.cuyahogacounty.gov/elections, Franklin https://vote.franklincountyohio.gov/election-info, Hamilton https://votehamiltoncountyohio.gov/results/, Lucas https://www.lucascountyohiovotes.gov/historic_election_results/index.php, Montgomery https://www.montgomery.boe.ohio.gov/election-results/, Stark https://www.starkcountyohio.gov/government/offices/board_of_elections/election_results/index.php, Summit https://www.boe.ohio.gov/summit/elections)", "updates": "Periodically through the night (Hamilton posts PDFs)", "script_ok": "untested", "notes": "Directory read in the Browser pane 2026-10-09. Hamilton and boe.ohio.gov boards refuse scripts (Cloudflare, CLAUDE.md)."}
+    ],
+    "races": "LiveResults: statewide, Congress, Legislature, Ohio Supreme Court and appeals courts; county and local races on the boards' own sites.",
+    "precinct_level": false,
+    "vote_types": "Yes in practice: Ohio reports all early and absentee ballots received by 7:30 p.m. first, then Election Day votes; late absentee and provisional ballots only in the canvass (Secretary's election-night FAQ, via search 2026-10-09). Strong count-order signal.",
+    "counties_separate": "Yes (directory above).",
+    "past_test": "LiveResults is not browsable between elections. Rehearsal would use the May 5, 2026 primary's canvass workbooks (already carried out to ballot_cache/oh/) and Hamilton's unofficial-results PDFs.",
+    "nov3_id": "Not applicable.",
+    "terms": "Not seen.",
+    "blocked": "liveresults.ohiosos.gov (Cloudflare 403 to the script, 2026-10-09), www.ohiosos.gov and publicfiles.ohiosos.gov (Cloudflare challenge, CLAUDE.md), boe.ohio.gov boards and votehamiltoncountyohio.gov (Cloudflare).",
+    "kit_already_reads": "ballot/lists/oh.py (county boards' lists, primary canvass workbooks carried out of the Browser pane); ballot/state_local_oh.py (46-day notices of 23 boards); ballot/oh_place_votes.py (official canvass workbooks via the Internet Archive).",
+    "plan": "Blocked for scripts on the night. Options for John: (a) he keeps LiveResults open in his browser and saves its download (if LiveResults offers one; check on the night of a test or in early November) into a folder, as for Minnesota; (b) the page links out to LiveResults with no numbers until the official canvass. County and local results: the boards' pages in the Secretary's directory, a few of which may answer scripts (test Butler, Cuyahoga, Franklin, Montgomery, Stark politely in late October). The 'early votes first' rule should be built into the count-order predictor."
+  },
+  "MO": {
+    "system": "Secretary of State election night reporting at enr.sos.mo.gov (vendor not confirmed), plus official PDFs (Grand Totals, Results by County) on sos.mo.gov after the canvass; 116 local election authorities post their own.",
+    "site": "https://enr.sos.mo.gov/",
+    "feeds": [
+      {"what": "statewide", "format": "html", "address_pattern": "https://enr.sos.mo.gov/ (linked from https://www.sos.mo.gov/elections/results as 'Primary Election - August 4, 2026 Unofficial Results')", "updates": "unknown", "script_ok": false, "notes": "403 Cloudflare managed challenge (captcha) to the script on 2026-10-09."},
+      {"what": "statewide", "format": "html", "address_pattern": "Official PDFs: https://www.sos.mo.gov/CMSImages/ElectionResultsStatistics/<year>GeneralElection.pdf (Grand Totals) and ActualResults-<Month><D><YYYY>.pdf (Results by County)", "updates": "Not live: weeks after the canvass", "script_ok": true, "notes": "The results page answered 200 on 2026-10-09 and lists these back to 2012."},
+      {"what": "county", "format": "html", "address_pattern": "Local election authorities: St. Louis County (stlouiscountymo.gov board of elections), Kansas City (kceb.org), Jackson County (jcebmo.org), St. Louis City, Greene (vote.greenecountymo.gov)", "updates": "election night", "script_ok": "untested", "notes": "Addresses from ballot/state_local_mo.py; results pages not checked."}
+    ],
+    "races": "ENR: statewide, Congress, Legislature, judges and retention; county and local races mostly on the authorities' own sites.",
+    "precinct_level": false,
+    "vote_types": "Unknown.",
+    "counties_separate": "Yes (above).",
+    "past_test": "enr.sos.mo.gov's Aug 4, 2026 primary (Browser pane only); the 2024 general's Grand Totals and Results by County PDFs on sos.mo.gov.",
+    "nov3_id": "Not applicable.",
+    "terms": "Not seen.",
+    "blocked": "enr.sos.mo.gov (Cloudflare captcha, 403, 2026-10-09). Precinct files are sold, not published (mo_place_votes.py).",
+    "kit_already_reads": "ballot/lists/mo.py (certification PDF, CandidatesOnWeb); ballot/state_local_mo.py (13 authorities' notices and sample ballots); ballot/mo_place_votes.py (county results PDFs).",
+    "plan": "Blocked for scripts on the night: the live site sits behind a Cloudflare captcha, which must not be worked around. Show Missouri with a link to the Secretary's live page, or have John save its pages or exports by hand if he wants numbers; official totals come later from the Grand Totals PDF, which scripts can read. Check the biggest local authorities' results pages in late October for anything a script may read."
+  }
+}

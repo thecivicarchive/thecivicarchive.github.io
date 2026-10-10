@@ -1,0 +1,111 @@
+{
+ "v": 1,
+ "code": "ID",
+ "name": "Idaho",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "live",
+ "status_why": "Enhanced Voting answered scripts behind Cloudflare without a challenge.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Idaho Secretary of State",
+ "system": "Enhanced Voting (results.voteidaho.gov, behind Cloudflare but answering scripts), adopted from the Nov 2025 election on; 44 counties as child jurisdictions.",
+ "family": "enhanced_voting",
+ "reader_agent": "N10",
+ "results_page": {
+  "url": "https://voteidaho.gov/election-results/",
+  "label": "Idaho Secretary of State: election results",
+  "checked": "2026-10-10",
+  "source": "answered one request with the kit's User-Agent (N4, 2026-10-10)"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": "nov2026 (likely, by the pattern)",
+  "posted": false,
+  "how_to_find": "results/public/api/jurisdictions/id until the Nov 3 election appears."
+ },
+ "cadence": {
+  "check_every_s": 180,
+  "signal": "https://results.voteidaho.gov/results/public/api/elections/id/<publicElectionId> (lastUpdated)",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "results.voteidaho.gov"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "id-1",
+   "what": "statewide",
+   "format": "json",
+   "address": "https://results.voteidaho.gov/results/public/api/jurisdictions/id (elections: may2026, dec2025, nov2025); https://results.voteidaho.gov/results/public/api/elections/id/<publicElectionId>",
+   "hosts": [
+    "results.voteidaho.gov"
+   ],
+   "updates": "lastUpdated and nextUpdateAt in the record",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "HTTP 200 (cloudflare) on 2026-10-09. The may2026 record is official (lastUpdated 2026-08-24) and lists reports: Ballots Cast by Precinct; Precinct/District Results with Write-Ins by Contest Table; Summary Results by Contest; Summary and Precinct Results Excel. Contest groups Federal, Statewide and more."
+  },
+  {
+   "id": "id-2",
+   "what": "county",
+   "format": "json",
+   "address": "https://results.voteidaho.gov/results/public/api/elections/<county-slug>/<publicElectionId> (slugs like ada-county-id, canyon-county-id)",
+   "hosts": [
+    "results.voteidaho.gov"
+   ],
+   "updates": "as above",
+   "script_ok": "untested",
+   "checked": "2026-10-09",
+   "note": "voteidaho.gov/election-results links each county's page."
+  }
+ ],
+ "units": "county",
+ "precinct_level": true,
+ "races_in_feed": [
+  "statewide",
+  "Congress",
+  "legislature",
+  "judges",
+  "county offices and local districts (on county child jurisdictions)"
+ ],
+ "local": "On the same system: Ada, Canyon, Kootenai, Bonneville, Bannock.",
+ "how_counted": "Counties upload their counts through the night.",
+ "count_order": "No vote-type split seen; the canvass protects small counts ('**').",
+ "vote_types": "Not seen in the election record (countGroups null for may2026).",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Idaho State Board of Canvassers",
+  "rule": "Meets within 21 days after the general election (Idaho Code 34-1211).",
+  "date": "2026-11-24",
+  "date_kind": "meets_by",
+  "local_rule": "County boards meet within 10 days (Idaho Code 34-1205).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": "may2026 (the 2026 primary)",
+ "terms": "None seen.",
+ "scout_blocked": "Nothing refused.",
+ "scout_plan": "Same Enhanced Voting reader as Utah. Rehearse on may2026. On election night poll the Idaho record and the large counties' child records. Note that the canvass protects small counts ('**'), so precinct figures may be held back in places.",
+ "notes": [],
+ "to_do": [
+  "Confirm the publicElectionId."
+ ],
+ "sources": [
+  "election/scout/results_ne.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

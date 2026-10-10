@@ -1,0 +1,99 @@
+{
+ "v": 1,
+ "code": "AR",
+ "name": "Arkansas",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "live",
+ "status_why": "Tally's keyless JSON service answered scripts; the kit already reads it for the primaries.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Arkansas Secretary of State",
+ "system": "Tally election-night reporting (arkansas.tally-enr.com) with its keyless JSON service enr-results-api.totalresults.com, client 'arkansas'",
+ "family": "tally",
+ "reader_agent": "N9",
+ "results_page": {
+  "url": "https://www.sos.arkansas.gov/elections/research/election-results",
+  "label": "Arkansas Secretary of State: election results",
+  "checked": "2026-10-10",
+  "source": "answered one request with the kit's User-Agent (N4, 2026-10-10)"
+ },
+ "other_pages": [
+  {
+   "url": "https://arkansas.tally-enr.com/",
+   "label": "Election-night results"
+  }
+ ],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": null,
+  "posted": false,
+  "how_to_find": "Election/GetElectionList?cid=arkansas, or the Secretary's results page links; not listed on 2026-10-09."
+ },
+ "cadence": {
+  "check_every_s": 120,
+  "signal": "https://enr-results-api.totalresults.com/Contest/GetContestSearchList?cid=arkansas&electionID=<id> (versionID, lastUpdated)",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "enr-results-api.totalresults.com"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "ar-1",
+   "what": "statewide",
+   "format": "json",
+   "address": "https://enr-results-api.totalresults.com/Election/GetElectionList?cid=arkansas; Contest/GetContestSearchList?cid=arkansas&electionID=<id> (contests, isOfficial, lastUpdated, versionID); Election/GetElectionInfo?cId=arkansas&electionID=<id> (parties); per-contest results as ballot/lists/ar.py reads them",
+   "hosts": [
+    "enr-results-api.totalresults.com"
+   ],
+   "updates": "as counties upload; versionID and lastUpdated change with each",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "2026-10-09: GetElectionList answered 200 (3 KB, IIS): 25 elections, newest '2026 Primary Special Election' 2026-08-18 (default); the Nov 3, 2026 general is not listed yet. Election ids are GUIDs from 2025 on, numbers before (2024 General = 1846). isWinner is left unset even when official (CLAUDE.md), so winners are worked out."
+  }
+ ],
+ "units": "county",
+ "precinct_level": false,
+ "races_in_feed": "Senate, four House seats, statewide offices, legislature, judges (nonpartisan runoffs), measures, and county contests as counties enter them",
+ "local": "Partly: 75 county election commissions; Pulaski (votepulaskiar.gov), Washington (washingtoncountyar.gov election commission), Benton (refuses scripts, 403)",
+ "how_counted": "County election commissions report through the night as they count.",
+ "count_order": "No vote-type split seen on this service.",
+ "vote_types": "unknown on this API (not traced; the kit's cached contest JSON keeps totals and precinct counts only)",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Arkansas Secretary of State",
+  "rule": "Members of Congress: the Secretary of State casts up the votes within 30 days of receiving the county returns (Ark. Code 7-5-703); constitutional officers are certified by the General Assembly in the first week of its session (Ark. Code 7-5-705).",
+  "date": null,
+  "date_kind": null,
+  "local_rule": "County boards certify no later than the 15th day after the election (Ark. Code 7-5-701).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": "electionID 1846 (2024 general); 7f77a178-af02-40ec-92db-c5cc50882c68 (2026 preferential primary)",
+ "terms": "none seen",
+ "scout_blocked": "nothing on the Tally API",
+ "scout_plan": "Reuse ballot/lists/ar.py's Tally calls: on Nov 3 read the new election id from the Secretary's results page, then poll GetContestSearchList every few minutes and fetch results only when versionID changes, for the Senate, four House seats, statewide and legislative contests. County contests come from the same API where counties have entered them; check against Pulaski's and Washington County's own postings.",
+ "notes": [
+  "isWinner is left unset even when official."
+ ],
+ "to_do": [
+  "Find the Nov 3 election id (a GUID)."
+ ],
+ "sources": [
+  "election/scout/results_az.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

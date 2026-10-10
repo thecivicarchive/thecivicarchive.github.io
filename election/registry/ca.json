@@ -1,0 +1,141 @@
+{
+ "v": 1,
+ "code": "CA",
+ "name": "California",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "live",
+ "status_why": "The Secretary's public JSON service answered scripts and already carries the Nov 3 contests, with test numbers.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the California Secretary of State",
+ "system": "California Secretary of State's own election-night reporting: electionresults.sos.ca.gov (nginx behind CloudFront and Imperva) with a public JSON service at api.sos.ca.gov/returns/",
+ "family": "ca_api",
+ "reader_agent": "N11",
+ "results_page": {
+  "url": "https://electionresults.sos.ca.gov/",
+  "label": "California Secretary of State: election results",
+  "checked": "2026-10-09",
+  "source": "results_az.json"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": "the current election (no id)",
+  "posted": true,
+  "how_to_find": "The service serves the current election; nothing to find."
+ },
+ "cadence": {
+  "check_every_s": 180,
+  "signal": "https://api.sos.ca.gov/returns/status (and each office's ReportingTime)",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "api.sos.ca.gov"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "ca-1",
+   "what": "statewide",
+   "format": "json",
+   "address": "https://api.sos.ca.gov/returns/<office> (governor answered: raceTitle, Reporting, ReportingTime, candidates[Name, Party, Votes, Percent, incumbent]); https://api.sos.ca.gov/returns/status (59 entries: each county's precincts reporting, turnout, registered, report timestamps, countyLink, plus 'statewide')",
+   "hosts": [
+    "api.sos.ca.gov"
+   ],
+   "updates": "counties report to the Secretary through the night (the Elections Code asks at least every two hours on election night; check the section before quoting it); the ReportingTime field changes with each update",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "2026-10-09: /returns/governor and /returns/status answered 200 to the script (X-CDN Imperva, no challenge). The feed is already loaded with the Nov 3, 2026 contests and TEST numbers (e.g. governor 'October 9, 2026, 2:53 p.m.', 20.2% reporting), while /returns/status still carries September 2024 test timestamps. Never show anything before 8 p.m. Pacific on Nov 3; treat any value before then as test data."
+  },
+  {
+   "id": "ca-2",
+   "what": "congress",
+   "format": "json",
+   "address": "https://api.sos.ca.gov/returns/us-rep/district/all (52 districts, 27 KB; one district likely /returns/us-rep/district/<n>)",
+   "hosts": [
+    "api.sos.ca.gov"
+   ],
+   "updates": "as above",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "No Senate race in California in 2026. Top-two general: both candidates may share a party."
+  },
+  {
+   "id": "ca-3",
+   "what": "legislature",
+   "format": "json",
+   "address": "presumably /returns/state-senate/district/all and /returns/state-assembly/district/all (not requested this pass)",
+   "hosts": [],
+   "updates": "as above",
+   "script_ok": "untested",
+   "checked": "2026-10-09",
+   "note": "Ballot measures likely at /returns/ballot-measures (untested)."
+  },
+  {
+   "id": "ca-4",
+   "what": "county",
+   "format": "html",
+   "address": "Los Angeles: https://results.lavote.gov/ (election list at /election-list)",
+   "hosts": [
+    "results.lavote.gov"
+   ],
+   "updates": "LA posts on election night, then on a published schedule until certification",
+   "script_ok": "untested",
+   "checked": "2026-10-09",
+   "note": "results.lavote.gov answered 200 (12 KB shell, Imperva script embedded); its data calls were not traced. Each county's results link is in /returns/status (countyLink)."
+  }
+ ],
+ "units": "county",
+ "precinct_level": false,
+ "races_in_feed": "the Secretary's feed: statewide offices, Congress, legislature, ballot measures (judges: Supreme Court and appellate retention likely; superior court judges are county). County, city, school and special-district contests only on the 58 counties' own sites.",
+ "local": "Yes, 58. Los Angeles (results.lavote.gov), San Diego (sdvote.gov), Orange (ocvote.gov), Riverside and Santa Clara (both refused scripts with Cloudflare 403 in the 2026-09-30 scouting), San Bernardino, San Francisco (sfelections.org, ranked-choice).",
+ "how_counted": "Counties report through the night and keep counting for weeks; the Secretary of State certifies 38 days after the election.",
+ "count_order": "No ballot-type split in the feed; the Secretary's Unprocessed Ballots Report (mail against provisional, by county) is the count-order input.",
+ "vote_types": "No: the Secretary's feed gives totals and precincts reporting only. The Secretary's Unprocessed Ballots Report (by county, mail vs provisional) is the count-order input; counties' own sites sometimes split vote-by-mail and in-person.",
+ "decision": {
+  "default": "top_two",
+  "rules": [
+   {
+    "applies": "voter-nominated offices (Congress, statewide, Legislature)",
+    "rule": "top_two",
+    "note": "The two who advanced from the June primary; both may share a party."
+   }
+  ]
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the California Secretary of State",
+  "rule": "On the 38th day after the election, or sooner if every return is in (Cal. Elec. Code 15503, 15504).",
+  "date": "2026-12-11",
+  "date_kind": "by",
+  "local_rule": "Counties certify within 30 days (Cal. Elec. Code 15372).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [
+  "cal-access.sos.ca.gov"
+ ],
+ "never_why": {
+  "cal-access.sos.ca.gov": "Incapsula bot wall (CLAUDE.md)"
+ },
+ "partial_sources": [],
+ "rehearsal": "The live test feed itself (Nov 3 contests with test numbers); the June 2, 2026 Statement of Vote.",
+ "terms": "none seen on the API responses",
+ "scout_blocked": "nothing on the Secretary's feed; Riverside and Santa Clara county sites refuse scripts (Cloudflare 403, per local_scout.json)",
+ "scout_plan": "Poll api.sos.ca.gov/returns/governor, the other statewide offices and /returns/us-rep/district/all every few minutes from 8 p.m. Pacific, keyed on ReportingTime, with /returns/status for county reporting; rehearse against the test numbers it serves now. Because California counts for weeks, keep updating daily until certification and label the reporting share. Local results: one reader per county, Los Angeles first (results.lavote.gov), then San Diego, Orange and San Bernardino, which answered scripts in September.",
+ "notes": [
+  "The feed serves TEST numbers today (2026-10-09). Nothing before 8 p.m. Pacific on Nov 3 is real."
+ ],
+ "to_do": [
+  "Confirm the legislature and measure paths (/returns/state-senate/district/all and the like)."
+ ],
+ "sources": [
+  "election/scout/results_az.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

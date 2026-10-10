@@ -1,0 +1,138 @@
+{
+ "v": 1,
+ "code": "FL",
+ "name": "Florida",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "live",
+ "status_why": "The Division's flat file answered scripts.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Florida Division of Elections",
+ "system": "Two state systems: Florida Election Watch (floridaelectionwatch.gov, the Division of Elections' election-night site, with flat-file downloads) and the older Election Results Reporting System (results.elections.myflorida.com). Counties run their own ENR, most on VR Systems' enr.electionsfl.org.",
+ "family": "fl_watch",
+ "reader_agent": "N11",
+ "results_page": {
+  "url": "https://floridaelectionwatch.gov/",
+  "label": "Florida Election Watch",
+  "checked": "2026-10-09",
+  "source": "results_la.json"
+ },
+ "other_pages": [],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": "20261103 (by the file pattern)",
+  "posted": false,
+  "how_to_find": "The file name follows the date; it appears on the night."
+ },
+ "cadence": {
+  "check_every_s": 180,
+  "signal": "https://flelectionfiles.floridados.gov/enightfilespublic/20261103_ElecResultsFL.txt (conditional request)",
+  "data_on_change": true,
+  "from": "the state's first poll closing",
+  "hosts": [
+   "flelectionfiles.floridados.gov"
+  ]
+ },
+ "hand": null,
+ "feeds": [
+  {
+   "id": "fl-1",
+   "what": "statewide",
+   "format": "csv",
+   "address": "https://flelectionfiles.floridados.gov/enightfilespublic/<yyyymmdd>_ElecResultsFL.txt (tab-delimited: ElectionDate, PartyCode, PartyName, RaceCode, RaceName, CountyCode, CountyName, Juris1num, Juris2num, Precincts, PrecinctsReporting, CanNameLast, CanNameFirst, CanNameMiddle, CanVotes); pipe-delimited pair <yyyymmdd>_ElecResultsFL_PipeDlm_Info.txt and _PipeDlm_Votes.txt; an Excel file too (Downloads page)",
+   "hosts": [
+    "flelectionfiles.floridados.gov"
+   ],
+   "updates": "Election night from 8:00 p.m. Eastern (the site says results are not released before then because of two time zones); refreshed as counties upload.",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "20241105_ElecResultsFL.txt answered 200 to a script on 2026-10-09 (392,733 bytes, application/octet-stream). The Downloads page lists 20260818 files for the Aug 18 primary."
+  },
+  {
+   "id": "fl-2",
+   "what": "congress",
+   "format": "csv",
+   "address": "Same file (RaceCode USS, USR; county rows)",
+   "hosts": [],
+   "updates": "as above",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": ""
+  },
+  {
+   "id": "fl-3",
+   "what": "legislature",
+   "format": "csv",
+   "address": "Same file (State Senate, State Representative, multi-county and circuit judicial offices)",
+   "hosts": [],
+   "updates": "as above",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": ""
+  },
+  {
+   "id": "fl-4",
+   "what": "statewide",
+   "format": "csv",
+   "address": "https://results.elections.myflorida.com/downloadresults.asp?ElectionDate=<m/d/yyyy>&DATAMODE= (form) posting to ResultsExtract.Asp",
+   "hosts": [
+    "results.elections.myflorida.com"
+   ],
+   "updates": "as above",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "The older Data Extract Utility answered 200 for ElectionDate=11/5/2024; fl.py reads it (OfficialResults=Y)."
+  },
+  {
+   "id": "fl-5",
+   "what": "local",
+   "format": "html",
+   "address": "https://enr.electionsfl.org/<3-letter county code>/<election id>/Summary/ (VR Systems county ENR; also /Precincts/ and /Map/PrecinctsReporting)",
+   "hosts": [
+    "enr.electionsfl.org"
+   ],
+   "updates": "election night",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "enr.electionsfl.org/LEV/3693/Summary/ (Levy, 2024 general) answered 200 (167 KB HTML, Amazon S3). Each county's election id differs; data files behind the pages not checked."
+  }
+ ],
+ "units": "county",
+ "precinct_level": false,
+ "races_in_feed": "State files: federal, statewide, legislature, multi-county offices and circuit judges, county by county. County ENR sites: county commission, school board, constitutional officers, cities, special districts.",
+ "local": "Yes, all 67. Most use VR Systems ENR at enr.electionsfl.org/<CODE>/ (LEV, DIX seen); the biggest (Miami-Dade, Broward, Palm Beach, Hillsborough, Orange) run their own supervisor sites, addresses not checked today.",
+ "how_counted": "Florida counts mail and early ballots before polls close and releases them first, from 8 p.m. Eastern.",
+ "count_order": "Mail and early votes first; county ENR sites split Election Day, Early Voting and Vote-by-Mail.",
+ "vote_types": "Not in the state file (county totals only). Many county ENR sites show Election Day, Early Voting and Vote-by-Mail columns; Florida counts mail ballots before polls close and releases them first, so the count-order predictor has a strong known pattern. Check per county.",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Elections Canvassing Commission",
+  "rule": "Meets at 8 a.m. on the 14th day after the election (Fla. Stat. 102.111).",
+  "date": "2026-11-17",
+  "date_kind": "meets_on",
+  "local_rule": "Counties file returns by noon on the 13th day (Fla. Stat. 102.112).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [],
+ "never_why": {},
+ "partial_sources": [],
+ "rehearsal": "20241105_ElecResultsFL.txt; 20260818_ElecResultsFL.txt",
+ "terms": "None stated on the Downloads page.",
+ "scout_blocked": "Nothing refused scripts. The candidate download (dos.elections.myflorida.com) also answers scripts.",
+ "scout_plan": "Live-readable. On election night fetch 20261103_ElecResultsFL.txt every 3 to 5 minutes from 8:00 p.m. Eastern; it gives every federal, statewide and legislative race by county with precincts reporting. Local races: start with the counties on enr.electionsfl.org (find each county's election id the week before) and add the large self-hosted supervisors one at a time. Use the counties' vote-type columns for the count-order model, since Florida's mail and early votes come first.",
+ "notes": [],
+ "to_do": [],
+ "sources": [
+  "election/scout/results_la.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}

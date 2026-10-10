@@ -13,7 +13,8 @@ const AXES = {
   depth: ["standard", "detailed", "focus"], lang: ["standard", "plain"], face: ["standard", "dyslexia", "hyperlegible"],
   scale: ["100", "115", "130", "150", "200"], space: ["standard", "generous"], contrast: ["standard", "high", "dark"],
   palette: ["standard", "deut", "prot", "trit", "mono"], motion: ["full", "reduced"], calm: ["off", "on"],
-  reveal: ["full", "subtle", "off"], companion: ["on", "still", "off"]
+  reveal: ["full", "subtle", "off"], companion: ["on", "still", "off"],
+  sheets: ["full", "quick", "instant"]      /* how a member's page changes sheets (5 s, 1 s, at once); instant anyway when motion is off */
 };
 const DEF = Object.fromEntries(Object.entries(AXES).map(([k, v]) => [k, v[0]]));
 /* the eight presets (Shell Spec section 2, with the fade and companion updates of sections 7.2 and 9) */

@@ -1,0 +1,145 @@
+{
+ "v": 1,
+ "code": "MN",
+ "name": "Minnesota",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "hand",
+ "status_why": "The Secretary of State's results sites show this computer a CAPTCHA, so no program asks them for anything; John saves the Media Files by hand on the night and the updater reads the folder.",
+ "approved": true,
+ "approval_note": "John's answers of 2026-10-09 (Minnesota by hand) and 2026-10-10 (D3).",
+ "office": "the Minnesota Secretary of State",
+ "system": "The Secretary of State's own results site and its Media Files: semicolon-separated text, one line per candidate per area, every level from U.S. Senator to hospital boards, with precinct lines.",
+ "family": "mn_media",
+ "reader_agent": "N1",
+ "results_page": {
+  "url": "https://electionresults.sos.mn.gov/",
+  "label": "Minnesota Secretary of State: election results",
+  "checked": "2026-10-09",
+  "source": "results_mn.json (a link for readers; never requested by a program)"
+ },
+ "other_pages": [
+  {
+   "url": "https://pollfinder.sos.mn.gov/",
+   "label": "Minnesota Secretary of State: find your polling place",
+   "note": "a link for readers; never requested by a program"
+  }
+ ],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": "20261103",
+  "posted": true,
+  "how_to_find": "Files by date: the night's files go in states_cache/mn_local/sos/20261103/results/."
+ },
+ "cadence": {
+  "check_every_s": 30,
+  "signal": "the watched folder (no network)",
+  "data_on_change": true,
+  "from": "polls close at 8 p.m. Central",
+  "hosts": []
+ },
+ "hand": {
+  "folder": "states_cache/mn_local/sos/20261103/results/",
+  "files": [
+   "every text file on the election's Media Files page (any extension; each file is recognised by its first lines, never by its name)"
+  ],
+  "how": "John saves the Media Files in his own browser every 15 to 30 minutes from about 8:15 p.m. until the counties finish, and once more in the morning. All the files in the folder are read together as one snapshot; a figure's time is when he saved the newest file, since the files state no time of their own.",
+  "rehearsal_folders": [
+   "states_cache/mn_local/sos/20260811/",
+   "states_cache/mn_local/sos/20241105/"
+  ]
+ },
+ "feeds": [
+  {
+   "id": "mn-media",
+   "what": "every level: statewide, Congress, Legislature, courts, county, soil and water, city, township, school and hospital districts, by precinct",
+   "format": "csv",
+   "address": "Media Files on the Secretary's results site (saved by John; never fetched)",
+   "hosts": [],
+   "updates": "re-posted through the night as counties report",
+   "script_ok": false,
+   "checked": "2026-10-09",
+   "note": "Radware CAPTCHA to this computer, in the Browser pane too (CLAUDE.md). Never requested."
+  },
+  {
+   "id": "mn-gis-past",
+   "what": "past official precinct results (2012 to 2024), for rehearsals and the model; not live",
+   "format": "json",
+   "address": "Minnesota Geospatial Commons, us_mn_state_sos feature services (General Election Results By Precinct)",
+   "hosts": [
+    "enterprise.gisdata.mn.gov"
+   ],
+   "updates": "after each canvass",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "Read already by the ballot pages' past-vote figures."
+  }
+ ],
+ "units": "precinct",
+ "precinct_level": true,
+ "races_in_feed": [
+  "statewide",
+  "Congress",
+  "legislature",
+  "courts",
+  "county offices",
+  "soil and water",
+  "city",
+  "township",
+  "school",
+  "hospital and other districts"
+ ],
+ "local": "Every level is in the Secretary's files; the counties publish nothing separate for live counts.",
+ "how_counted": "Each precinct is reported once it is complete. The files give one total a precinct; absentee ballots are counted into their precincts, or into a county's absentee precinct where the county uses one.",
+ "count_order": "Precincts arrive county by county as each finishes; there is no split by ballot type, so the order to learn is which counties and precincts report first, and when each county's last absentee ballots are added.",
+ "vote_types": "No: one total a precinct.",
+ "decision": {
+  "default": "plurality",
+  "rules": [
+   {
+    "applies": "a contest where voters choose several (\"Elect 2\" in the office title)",
+    "rule": "plurality",
+    "note": "the top N candidates take the seats"
+   }
+  ]
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Minnesota State Canvassing Board",
+  "rule": "The State Canvassing Board meets on the 16th day after the state general election; county canvassing boards meet between the third and eighth days after it (Minn. Stat. 204C.33).",
+  "date": "2026-11-19",
+  "date_kind": "meets_on",
+  "local_rule": "County canvassing boards, Nov 6 to Nov 11, 2026.",
+  "source": "Minn. Stat. 204C.33, https://www.revisor.mn.gov/statutes/cite/204C.33 (read 2026-10-09, ARCHITECTURE.md 8)"
+ },
+ "condition": null,
+ "never": [
+  "*.sos.mn.gov",
+  "sos.mn.gov",
+  "*.sos.state.mn.us"
+ ],
+ "never_why": {
+  "*.sos.mn.gov": "the Secretary of State's results, results files, candidates, main site and poll finder: a Radware CAPTCHA to this computer (CLAUDE.md); John saves the files himself",
+  "sos.mn.gov": "the same",
+  "*.sos.state.mn.us": "the Secretary's older host names"
+ },
+ "partial_sources": [],
+ "rehearsal": "John's saved Media Files for the Aug 11, 2026 primary (20260811) and, if he can, the Nov 5, 2024 general (20241105); until then the fixture in election/fixtures/mn/ (the 2024 U.S. Senate count in three counties, from the Secretary's official precinct results).",
+ "terms": "Not checked (the host is never requested).",
+ "scout_blocked": "electionresults.sos.mn.gov, electionresultsfiles.sos.mn.gov, candidates.sos.mn.gov and www.sos.mn.gov: Radware CAPTCHA (CLAUDE.md).",
+ "scout_plan": "Hand-fed: John saves the Media Files every 15 to 30 minutes; the updater reads the folder, checks each office's precinct lines against the file's own totals, and publishes.",
+ "notes": [
+  "The results file layout is the Secretary's media file description as the kit and OpenElections' readers have it; it is confirmed only when John saves a real set of files (the Aug 11 primary's, by Oct 12)."
+ ],
+ "to_do": [
+  "Confirm the layout and the precinct codes on John's saved Aug 11, 2026 files (python -m election.readers.mn_media --read states_cache/mn_local/sos/20260811)."
+ ],
+ "sources": [
+  "election/scout/results_mn.json (checked 2026-10-09)",
+  "the Secretary of State's column note saved with the candidate files (states_cache/mn_local/sos/20261103/)",
+  "Minn. Stat. 204C.33 (read 2026-10-09)",
+  "ARCHITECTURE.md sections 2.2, 2.5, 3.4 and John's answers of 2026-10-10"
+ ]
+}

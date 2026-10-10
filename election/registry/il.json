@@ -1,0 +1,125 @@
+{
+ "v": 1,
+ "code": "IL",
+ "name": "Illinois",
+ "written": "2026-10-10",
+ "checked": "2026-10-09",
+ "status": "link",
+ "status_why": "No statewide count on the night: 108 local election authorities each report their own, and Chicago's board shows scripts a challenge. The State Board posts official totals after the canvass.",
+ "approved": true,
+ "approval_note": "",
+ "office": "the Illinois State Board of Elections",
+ "system": "No statewide election-night reporting: 108 election authorities (county clerks and city boards) report their own; the State Board of Elections posts official vote totals after the canvass.",
+ "family": null,
+ "reader_agent": "N12",
+ "results_page": {
+  "url": "https://www.elections.il.gov/ElectionOperations/ElectionVoteTotals.aspx",
+  "label": "Illinois State Board of Elections: vote totals",
+  "checked": "2026-10-09",
+  "source": "results_mn.json"
+ },
+ "other_pages": [
+  {
+   "url": "https://www.cookcountyclerkil.gov/elections/results-and-election-data/election-results",
+   "label": "Cook County Clerk (suburban Cook)"
+  },
+  {
+   "url": "https://chicagoelections.gov/elections/results",
+   "label": "Chicago Board"
+  }
+ ],
+ "election": {
+  "id": "2026-11-03",
+  "kind": "general",
+  "date": "2026-11-03",
+  "nov3_id": null,
+  "posted": false,
+  "how_to_find": "The State Board's vote totals after the canvass."
+ },
+ "cadence": null,
+ "hand": null,
+ "feeds": [
+  {
+   "id": "il-1",
+   "what": "statewide",
+   "format": "html",
+   "address": "https://www.elections.il.gov/ElectionOperations/ElectionVoteTotals.aspx?ID=<election id>&OfficeType=<type>; downloads on DownloadVoteTotals.aspx",
+   "hosts": [
+    "www.elections.il.gov"
+   ],
+   "updates": "Not live: after the canvass (early December)",
+   "script_ok": true,
+   "checked": "2026-10-09",
+   "note": "200 on 2026-10-09 (2026 primary page, ID Z2J%2fvYpKX8w%3d)."
+  },
+  {
+   "id": "il-2",
+   "what": "county",
+   "format": "html",
+   "address": "Cook County Clerk (suburban Cook): https://www.cookcountyclerkil.gov/elections/results-and-election-data/election-results (a search by year and election; the clerk also has a JSON candidate API, /api/Candidate/GetAllCandidates?language=en&electionCode=110326)",
+   "hosts": [
+    "www.cookcountyclerkil.gov"
+   ],
+   "updates": "election night",
+   "script_ok": "untested",
+   "checked": "2026-10-09",
+   "note": "The page answered the script 200; its results search did not reveal a data endpoint in a quick look."
+  },
+  {
+   "id": "il-3",
+   "what": "local",
+   "format": "html",
+   "address": "Chicago Board of Election Commissioners: https://chicagoelections.gov/elections/results (by year tabs)",
+   "hosts": [
+    "chicagoelections.gov"
+   ],
+   "updates": "election night",
+   "script_ok": false,
+   "checked": "2026-10-09",
+   "note": "403 Cloudflare managed challenge (captcha) to the script on 2026-10-09; the page opens in the Browser pane."
+  }
+ ],
+ "units": "county",
+ "precinct_level": true,
+ "races_in_feed": "Nov 3: statewide (Governor and constitutional offices), U.S. Senate, Congress, Legislature, judges and retention, county offices, regional superintendents, water reclamation (Cook).",
+ "local": "Yes: Cook County Clerk (suburban Cook), Chicago Board (city, Cloudflare), DuPage, Lake, Will, Kane (not checked).",
+ "how_counted": "Each of the state's 108 election authorities counts and posts its own results; mail ballots that arrive up to 14 days after Election Day are counted late.",
+ "count_order": "Chicago and Cook publish ballot-counting data by method.",
+ "vote_types": "Chicago and Cook publish ballot-counting data by method (Cook's 'March 17, 2026 Ballot Counting Data' page); Chicago's turnout split was Election Day 49.5%, early 24.1%, mail 26.2% for the March primary (news reports). Mail ballots arriving up to 14 days after are counted late.",
+ "decision": {
+  "default": "plurality",
+  "rules": []
+ },
+ "ranked_choice": false,
+ "certify": {
+  "body": "the Illinois State Board of Elections",
+  "rule": "Canvasses within 31 days after the election (10 ILCS 5/22-7).",
+  "date": "2026-12-04",
+  "date_kind": "by",
+  "local_rule": "Election authorities finish their canvass within 21 days (10 ILCS 5/22-1, 22-2).",
+  "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
+ },
+ "condition": null,
+ "never": [
+  "*.chicagoelections.gov",
+  "chicagoelections.gov"
+ ],
+ "never_why": {
+  "chicagoelections.gov": "Cloudflare managed challenge (scout, 2026-10-09)",
+  "*.chicagoelections.gov": "Cloudflare managed challenge (scout, 2026-10-09)"
+ },
+ "partial_sources": [],
+ "rehearsal": null,
+ "terms": "Not found.",
+ "scout_blocked": "chicagoelections.gov (Cloudflare captcha, 403, 2026-10-09).",
+ "scout_plan": "Readable with care for parts only. No statewide total exists on the night; a statewide race must be summed from 108 authorities, which is not realistic by Nov 3. Recommend: show Illinois statewide and congressional races as 'counting by county; official totals from the State Board after the canvass', read the Cook County Clerk's results (find its data endpoint in the Browser pane in late October) for suburban Cook races, link to Chicago's page, and load the State Board's official totals when posted.",
+ "notes": [],
+ "to_do": [
+  "Later: Cook County Clerk's results, if a data address answers scripts."
+ ],
+ "sources": [
+  "election/scout/results_mn.json (checked 2026-10-09)",
+  "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+ ]
+}
