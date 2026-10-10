@@ -300,7 +300,8 @@ will on GitHub.
 | `discover` | once a day from Oct 20: each state's list of elections (one request a state) for its Nov 3 id; prints what is found and what is missing |
 | `once [--publish] [--state xx] [--from-file raw]` | one cycle; `--from-file` tests a mended reader on a held file |
 | `live` | the night: cycles until stopped |
-| `replay --election <past> [--states mn,ia] [--speed 6] [--order random\|small-first\|metro-last]` | a past election as if live, to `/night-live/rehearsal/` |
+| `replay --election <past> [--states mn,ia] [--speed 6] [--order random\|small-first\|metro-last] [--feed] [--night <date>]` | a past election as if live, to `/night-live/rehearsal/`, with the night's models run after each new reading (stored as rehearsal runs; a rehearsal's folder carries forecasts only while publishing is off or `FORECASTS_PUBLIC` is True); `--feed` also runs the feed's collectors and measures; `--night` sets the one night that elections held on different days share. A feed state is named with its past id and date (`fl=20241105@2024-11-05`; the ids are the folder names in `election_cache/replay/sources/`). Six states at 12 times speed keep pace; 24 is too fast. Oct 20: `replay --election mn=2024-11-05,nd=346@2026-06-09,ia=126082@2026-06-02,ga=2024NovGen@2024-11-05 --states mn,nd,ia,ga --speed 6 --hours 12` |
+| `feed-dry-run [--hours 3]` | the feed's live sources for a few hours (the Oct 22 dry run), publishing only to the rehearsal path |
 | `preview` | serves `site/` at http://127.0.0.1:8791/ |
 | `status` | rewrites `election_night_status.md`: what is read, what waits on John, the last publish |
 | `scan` | the built pages and live files: contact-like text (`check_local.contact_like`), any social account not on the official list, any name of the kit's files |

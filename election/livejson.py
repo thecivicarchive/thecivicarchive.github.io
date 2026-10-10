@@ -281,6 +281,64 @@ class LiveRoot:
         return gone
 
 
+def _forecast_dir(root, dirpath):
+    """Whether a folder under a live folder holds forecasts: h/ (and below), s/<seq>/fc/, each also under rehearsal/."""
+    rel = os.path.relpath(dirpath, root).replace(os.sep, "/")
+    parts = [] if rel == "." else rel.split("/")
+    if parts[:1] == ["rehearsal"]:
+        parts = parts[1:]
+    return (parts[:1] == ["h"]) or (len(parts) >= 3 and parts[0] == "s" and SEQ_DIR.match(parts[1]) is not None and parts[2] == "fc")
+
+
+def forecast_files(root):
+    """Every forecast file under a live folder (and its rehearsal/ folder): the snapshot folders' fc/ files, the history
+    files h/ (which hold only forecast histories), and the "fc" pointer in a now.json (listed as that now.json)."""
+    out = []
+    for dirpath, dirs, names in os.walk(root):
+        if _forecast_dir(root, dirpath):
+            out += [os.path.join(dirpath, n) for n in names]
+            continue
+        if "now.json" in names:
+            try:
+                with open(os.path.join(dirpath, "now.json"), encoding="utf-8") as fh:
+                    if "fc" in json.load(fh):
+                        out.append(os.path.join(dirpath, "now.json"))
+            except (OSError, ValueError):
+                pass
+    return out
+
+
+def strip_forecasts(root):
+    """Takes every forecast out of a live folder (forecast_files): before anything is published while forecasts are not
+    public, since a rehearsal run with publishing off may have left the night's forecasts there for viewing here.
+    Returns how many files were removed or rewritten."""
+    n = 0
+    for p in forecast_files(root):
+        if os.path.basename(p) == "now.json" and not _forecast_dir(root, os.path.dirname(p)):
+            try:
+                with open(p, encoding="utf-8") as fh:
+                    doc = json.load(fh)
+                doc.pop("fc", None)
+                _write_text(p, dumps(doc))
+                n += 1
+            except (OSError, ValueError):
+                pass
+            continue
+        try:
+            os.remove(p)
+            n += 1
+        except OSError:
+            pass
+    for dirpath, dirs, names in os.walk(root, topdown=False):
+        if _forecast_dir(root, dirpath):
+            try:
+                if not os.listdir(dirpath):
+                    os.rmdir(dirpath)
+            except OSError:
+                pass
+    return n
+
+
 def now_doc(seq, base, at, next_at, run, states, rehearsal=False, label=None, fc=None, fd=None):
     doc = {"v": FORMAT, "seq": seq, "at": iso(at), "next": iso(next_at) if next_at else None, "run": run, "rehearsal": bool(rehearsal),
            "practice": False, "label": label, "base": base, "st": states}

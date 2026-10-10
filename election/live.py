@@ -90,7 +90,8 @@ HAND_EVERY = 30              # seconds between looks at a watched folder (no net
 SETTLE = 45                  # a changed folder is read once it has been unchanged this long
 PRE_CLOSE_EVERY = 3600       # a live state's "what's new" before its polls close (a test then)
 WARM_UP = 30                 # minutes before a state's first poll closing when the night's cadence starts
-STALE_AFTER = 3              # failures in a row before a state says its site has not answered
+STALE_AFTER = 3              # failures in a row, after its polls close, before a state says its site has not answered
+CLOCK_SLACK = 15             # minutes: a state's "as of" later than this after it was fetched is a misread clock
 BACKOFF_MAX = 600            # a state whose site did not answer is asked again after every x 2**failures, at most this
 RESULTS_TIMEOUT = 25         # seconds of silence before a results request is given up (the feed keeps the gate's 60)
 PARTIAL = (".crdownload", ".part", ".tmp", ".download", ".partial")
@@ -225,6 +226,14 @@ def optional(name):
         if e.name and (name == e.name or name.startswith(e.name + ".")):
             return None
         raise
+
+
+def _params(fn):
+    try:
+        import inspect
+        return set(inspect.signature(fn).parameters)
+    except (TypeError, ValueError):
+        return set()
 
 
 def forecasts_public():
@@ -415,16 +424,27 @@ class Lock:
 # ============================================================================================== the night
 
 class Night:
-    """The updater. mode: "live" (the night), "once" (one cycle), "replay" (a rehearsal), "status" (no cycle)."""
+    """The updater. mode: "live" (the night), "once" (one cycle), "replay" (a rehearsal), "feed" (the feed's dry run: the
+    live feed on the real clock, no results read, written to the rehearsal folder), "status" (no cycle).
+
+    What runs beside the results (the sections thread):
+      live, once   the night's models after new results, the day's pre-election forecasts, the feed's collectors and measures
+      replay       the night's models after new results, exactly as on the night (Minnesota's live_model, night_us for the
+                   others), each run stored marked as a rehearsal run; the feed's collectors and measures only with feed=True
+                   (they read today's live sources on the real clock, which say nothing about a replayed past night)
+      feed         the feed's collectors and measures only (rehearsal-marked measures), no results and no models
+    Forecasts leave this computer only once John has said yes (FORECASTS_PUBLIC); a rehearsal's own folder carries the
+    night's forecasts for viewing here only while publishing is off (forecasts_out)."""
 
     def __init__(self, mode="live", db=None, live_root=LIVE_ROOT, publish_root=LIVE_ROOT, work=WORK, clock=None, states=None,
                  src=None, say=print, status_path=STATUS_MD, log_path=None, day=ELECTION_DAY, label=None, raw_dir=RAW,
                  hand_folders=None, closes=None, end=None, sections=True, remote=None, publisher="auto", savers=None, run=None,
-                 elections=None, feed_src=None):
+                 elections=None, feed_src=None, feed=False):
         from election import publish as P
         from election.replay import RealClock
         self.mode = mode
-        self.rehearsal = mode == "replay"
+        self.rehearsal = mode in ("replay", "feed")
+        self.results_on = mode != "feed"
         self.clock = clock or RealClock()
         self.day = day
         self.db_path = db or store.DB
@@ -446,16 +466,26 @@ class Night:
         self.feed_src = feed_src or (src if src is not None else Source(log=self._source_log))
         self.stop_check = lambda: False         # run() points this at the stop request, so a long step can end early
         self._helper_sig = None
-        self.sections_on = sections and mode in ("live", "once")
+        self.models_on = bool(sections) and mode in ("live", "once", "replay")
+        self.feed_on = bool(sections) and (mode in ("live", "once", "feed") or (mode == "replay" and bool(feed)))
+        self.sections_on = self.models_on or self.feed_on
         if publisher == "auto":
             publisher = P.Publisher(source=publish_root, clone=P.CLONE if remote is None else os.path.join(work, "clone"),
                                     remote=remote, lock=self.lock, log=self.log, say=self.note,
                                     watch_path="rehearsal/now.json" if self.rehearsal else "now.json",
                                     history=os.path.join(work, "publish_log.jsonl"), src=Source(log=self._source_log))
         self.publisher = publisher
+        if self.publishing() and not forecasts_public():
+            # A rehearsal run while publishing was off may have left the night's forecasts in the rehearsal folder for
+            # viewing here; the publisher copies the whole live folder, so they are taken out before anything is sent.
+            gone = livejson.strip_forecasts(publish_root)
+            if gone:
+                self.log(f"took {gone} forecast files out of the live folder before publishing (forecasts are not public yet)")
+                self.live.load()
         self.reg = registry.load_all()
         try:
-            self.poll = json.load(open(POLL_HOURS, encoding="utf-8"))["states"]
+            with open(POLL_HOURS, encoding="utf-8") as fh:
+                self.poll = json.load(fh)["states"]
         except (OSError, ValueError, KeyError):
             self.poll = {}
         self.codes = [c.upper() for c in states] if states else sorted(self.reg)
@@ -506,6 +536,14 @@ class Night:
         if t is None or not self.rehearsal or not hasattr(self.clock, "night_start"):
             return t
         return self.clock.night_start + (t - self.clock.wall_start) * self.clock.speed
+
+    def publishing(self):
+        return self.publisher is not None and self.publisher.enabled
+
+    def forecasts_out(self):
+        """Whether the night's forecasts go into the live folder: always once John has said yes (FORECASTS_PUBLIC); before
+        that only into a rehearsal's own folder while nothing is published, for viewing on this computer."""
+        return forecasts_public() or (self.rehearsal and not self.publishing())
 
     # ------------------------------------------------------------------ the states
     def _setup(self):
@@ -616,6 +654,8 @@ class Night:
         now = self.clock.now()
         for code, saver in self.savers.items():
             self._tick_saver(code, saver, now)
+        if not self.results_on:
+            return                                      # the feed's dry run reads no results
         for code, s in self.st.items():
             if s["kind"] not in READ_KINDS:
                 continue
@@ -723,6 +763,8 @@ class Night:
     def _answered(self, code):
         s = self.st[code]
         s["trouble"] = False
+        if s["note"].startswith(("waiting for its polls", "nothing posted")):
+            s["note"] = ""                              # it has answered: what was said while waiting no longer holds
         if s["fails"] >= STALE_AFTER:
             self.note(f"{code}: the state's site is answering again")
         s["fails"], s["fail_since"] = 0, None
@@ -730,6 +772,12 @@ class Night:
 
     def _failed(self, code, why):
         s = self.st[code]
+        if self.clock.now() < s["first_close"]:
+            # Before its polls close a state has nothing to post: a failed, empty or not-yet-posted answer means waiting,
+            # never "not answering". Logged; not counted toward stale, and no slower asking.
+            s["note"] = "waiting for its polls to close; nothing is posted for this election yet"
+            self.log(f"{code}: before its polls close, no figures yet ({why[:200]}); waiting, not counted as a failure")
+            return "wait"
         store.failed_snapshot(self.con, code, s["feed"], "failed", why[:300])
         store.feed_outcome(self.con, code, s["feed"], False, why[:200])
         s["fails"] += 1
@@ -797,8 +845,14 @@ class Night:
         if not force:
             if fp != s["fp_seen"]:
                 s["fp_seen"], s["seen_at"] = fp, now
-                return None
-            if (now - s["seen_at"]).total_seconds() < SETTLE:
+                # Quiet long enough already by the files' own times (a look can come long after a save when the other
+                # states' reads are slow, and a rehearsal's clock runs fast): read now rather than wait for another look,
+                # which may only come after the next save has changed the folder again.
+                newest = max((x[2] for x in fp), default=None)
+                quiet = (time.time() - newest / 1e9) * getattr(self.clock, "speed", 1.0) if newest is not None else None
+                if quiet is None or quiet < SETTLE:
+                    return None
+            elif (now - s["seen_at"]).total_seconds() < SETTLE:
                 return None
         reader, why = self._reader(code)
         if not reader:
@@ -853,8 +907,53 @@ class Night:
             self.log(f"{code}: the raw files could not be kept ({e.__class__.__name__})")
         return folder
 
+    def figures_time(self, code, stated, now):
+        """The time a state's figures are shown as of. stated: what the file (or the saved file) says; now: when they were
+        fetched or read.
+          A rehearsal: the moment on the rehearsal's night clock that the replayed figures stand for (the replay step a feed
+          state's files came from, the save a Minnesota file came from; never later than the clock), written as the real
+          time at which the night clock showed it, as every time in the figures is. A past file's own time (2024, or a
+          certification months later) is only logged.
+          The night: a time more than CLOCK_SLACK minutes after the figures were fetched is a misread clock (a wrong zone,
+          a typed date): John is told plainly and the figures are shown as of when they were fetched, so that no page
+          ever shows a time in the future."""
+        s = self.st[code]
+        if self.rehearsal and hasattr(self.clock, "to_wall"):
+            moment = None
+            saver = self.savers.get(code)
+            if saver is not None:
+                i = saver.due(now)
+                moment = saver.saves[i] if i >= 0 else None
+            else:
+                step_time = getattr(getattr(self.src, "replay", None), "step_time", None)
+                moment = step_time(code) if callable(step_time) else None
+            moment = min(moment or now, now)
+            moved = iso(self.clock.to_wall(moment))
+            if stated and stated != moved:
+                self.log(f"{code}: the replayed file says its figures are as of {stated}; on this rehearsal's night clock they "
+                         f"are as of {clock_words(moment)}")
+            return moved
+        t = parse(stated)
+        if t is None:
+            return stated
+        tz_t = t if t.tzinfo else t.replace(tzinfo=UTC)
+        fetched = now if now.tzinfo else now.replace(tzinfo=UTC)
+        if tz_t > fetched + dt.timedelta(minutes=CLOCK_SLACK):
+            text = (f"{code}: the state's file says its figures are as of {clock_words(tz_t, day=True)}, which is "
+                    f"{(tz_t - fetched).total_seconds() / 60:,.0f} minutes after they were fetched ({clock_words(fetched)}). That clock "
+                    f"is misread (a wrong time zone or a mistyped date in the file), so the figures are shown as of the time they "
+                    f"were fetched; the file itself is kept unchanged")
+            if not s.get("clock_said"):                 # said once on the console; every later one in the log
+                s["clock_said"] = True
+                self.note(text)
+            else:
+                self.log(text)
+            return iso(fetched)
+        return stated
+
     def _store(self, code, reading, sha, raw, source_time, version, now, again=False):
         s = self.st[code]
+        source_time = self.figures_time(code, source_time, now)
         test = now < s["first_close"] or bool(reading.get("test"))
         reading = dict(reading, state=code, feed=s["feed"])
         if test:
@@ -909,8 +1008,8 @@ class Night:
             return "refused"
         if s["kind"] == "partial" and not summ:
             return "link"           # the state's own count is not read here; its county's figures, once in, are counted below
-        if s["kind"] != "hand" and s["fails"] >= STALE_AFTER:
-            return "stale"
+        if s["kind"] != "hand" and s["fails"] >= STALE_AFTER and now >= s["first_close"]:
+            return "stale"                              # never before its polls close: until then a state is waiting
         if s["why"] and not summ:
             # its reader is missing or does not load: the state does publish a count, which this site is not reading
             # just now; never "link", which tells readers the state publishes nothing this site may read
@@ -979,9 +1078,9 @@ class Night:
             self.st[code]["changed"] = False
             u = summ.get(code, {}).get("units")
             part = self.st[code].get("part")
-            unit = "precinct" if part else str(self.st[code]["entry"].get("units") or "unit").split()[0]
-            many = {"county": "counties", "parish": "parishes", "locality": "localities"}.get(unit, unit + "s")
-            words = f"{u[0]:,} of {u[1]:,} {many} in" if u else "figures read"
+            # the figures count whatever the state reports by (precincts in most feeds, counties in some, towns in New
+            # England), which is not always the registry's map unit, so the console names no unit
+            words = f"{u[0]:,} of {u[1]:,} reporting units in" if u else "figures read"
             if part:
                 words = f"{part['name']} only (one county's own count, not the state's): {words}"
             self.note(f"{code}: {words} (figures as of {clock_words(self.shown(parse(summ.get(code, {}).get('at'))))})", at=night)
@@ -1007,8 +1106,9 @@ class Night:
         files, hist, fc, fd = {}, {}, None, None
         try:
             # The forecasts go out only once John has said yes (election.model.FORECASTS_PUBLIC, which the forecasts page
-            # reads too); until then no forecast file, history or pointer is written into the live folder.
-            runs = optional("election.model.runs") if forecasts_public() else None
+            # reads too); until then no forecast file, history or pointer is written into the live folder, except into a
+            # rehearsal's own folder while nothing is published (forecasts_out), for viewing on this computer.
+            runs = optional("election.model.runs") if self.forecasts_out() else None
             if runs is not None:
                 for code in self.codes:
                     if hasattr(runs, "page_json"):
@@ -1019,10 +1119,11 @@ class Night:
                         for rid, d in (runs.history(code, rehearsal=self.rehearsal) or {}).items():
                             hist[f"{code.lower()}/{rid}.json"] = livejson.dumps(d)
                 fc = runs.newest(rehearsal=self.rehearsal) if hasattr(runs, "newest") else None
-            meas = optional("election.feeds.measures")
+            # A replay without the feed leaves the feed out: today's headlines say nothing about a replayed past night.
+            meas = optional("election.feeds.measures") if (self.feed_on or not self.rehearsal) else None
             if meas is not None and hasattr(meas, "page_json"):
                 for code in ["US"] + self.codes:
-                    doc = meas.page_json(code)
+                    doc = meas.page_json(code, rehearsal=self.rehearsal) if self.rehearsal else meas.page_json(code)
                     if doc:
                         files[f"feed/{code.lower()}.json"] = livejson.dumps(doc)
                 fd = meas.newest() if hasattr(meas, "newest") else None
@@ -1036,7 +1137,7 @@ class Night:
             return
         bs = None
         try:
-            bs = optional("election.feeds.bluesky")
+            bs = optional("election.feeds.bluesky") if self.feed_on else None
         except Exception as e:  # noqa: BLE001
             self.note(f"the Bluesky collector did not load ({e.__class__.__name__}); the feed goes on without it")
         if bs is not None and hasattr(bs, "start"):
@@ -1069,8 +1170,14 @@ class Night:
         in the next snapshot, whatever the feed's collectors take), then the feed's sections. Returns what was called."""
         due = due if due is not None else {}
         now = self.clock.now()
-        before = local(now) < dt.datetime.combine(self.day, dt.time(17))
-        called = self.models_tick(now)
+        called = self.models_tick(now) if self.models_on else []
+        if not self.feed_on:
+            return called
+        if self.rehearsal:
+            # the feed reads today's live sources, so in a rehearsal it runs on the real clock, at the night's pace
+            now, before = utcnow(), False
+        else:
+            before = local(now) < dt.datetime.combine(self.day, dt.time(17))
         for name, (modname, fn, every_night, every_before) in SECTIONS.items():
             if due.get(name) and now < due[name]:
                 continue
@@ -1084,7 +1191,11 @@ class Night:
                 self.sections_state[name] = "not there yet"
                 continue
             try:
-                out = getattr(mod, fn)(src=self.feed_src, now=now, rehearsal=self.rehearsal, say=lambda t: self.note(t, console=False))
+                kw = {}
+                if self.rehearsal:                      # the measures read the rehearsal's own results, never the night's
+                    params = _params(getattr(mod, fn))
+                    kw.update({k: v for k, v in (("results_db", self.db_path),) if k in params})
+                out = getattr(mod, fn)(src=self.feed_src, now=now, rehearsal=self.rehearsal, say=lambda t: self.note(t, console=False), **kw)
                 self.sections_state[name] = f"ran at {clock_words(utcnow())}"
                 self.log(f"{name}: {json.dumps(out)[:300] if out else 'done'}")
                 called.append(name)
@@ -1124,7 +1235,8 @@ class Night:
                     self.log(f"model {code}: {res['skipped']} ({secs:.1f} s)")
                 else:
                     self.sections_state["forecasts"] = f"{code} ran at {clock_words(utcnow())}"
-                    self.log(f"model {code}: run {res.get('run')}, {res.get('races')} races, {res.get('written')} with new rows, {secs:.1f} s")
+                    self.log(f"model {code}: run {res.get('run')}, {res.get('races')} races, {res.get('written')} with new rows, {secs:.1f} s"
+                             + (" (stored as a rehearsal run)" if self.rehearsal else ""))
                     called.append(f"model {code}")
             except Exception as e:  # noqa: BLE001
                 self.sections_state["forecasts"] = f"{code} failed ({e.__class__.__name__})"
@@ -1132,7 +1244,8 @@ class Night:
         if queue:
             self.log(f"models: {len(queue)} states in {time.monotonic() - t_all:.1f} s")
         today = local(now).date()
-        if not self.summ and self._pre_day != today:
+        # the day's pre-election forecasts belong to the real days before the night, never to a replayed night's clock
+        if not self.rehearsal and not self.summ and self._pre_day != today:
             self._pre_day = today
             called += run_pre_all(now=now, rehearsal=self.rehearsal, say=lambda t: self.note(t, console=False), log=self.log)
         return called
@@ -1179,6 +1292,11 @@ class Night:
             reason = "stop"
         finally:
             self._stop_sections()
+            if reason == "end" and self.rehearsal and self.models_on and self._model_queue:
+                try:                                    # the last figures' forecasts, as the night would have made them
+                    self.models_tick(self.clock.now())
+                except Exception as ex:  # noqa: BLE001
+                    self.log(f"the last models did not run ({ex.__class__.__name__}: {str(ex)[:160]})")
             word = "stopped" if reason == "end" else "paused"
             self.note("stopping: the last figures go out with 'updates paused'" if word == "paused" else
                       "the rehearsal's night is over: the last figures go out")
@@ -1283,7 +1401,12 @@ class Night:
         L += [f"- {w}" for w in waits] or ["- Nothing."]
         L += ["", "## The other sections", ""]
         for name in list(SECTIONS) + ["bluesky", "forecasts"]:
-            L.append(f"- {name}: {self.sections_state.get(name, 'not asked yet' if self.sections_on else 'not run in this mode')}")
+            on = self.models_on if name == "forecasts" else self.feed_on
+            L.append(f"- {name}: {self.sections_state.get(name, 'not asked yet' if on else 'not run in this mode')}")
+        if self.rehearsal and self.models_on:
+            L.append("- the forecasts made on this rehearsal are stored as rehearsal runs, apart from real ones; " +
+                     ("they are in the rehearsal folder" if self.forecasts_out() else
+                      "none is written into the live folder (publishing is on and forecasts are not public yet)"))
         if self.notes:
             L += ["", "## Recent notes", ""] + [f"- {n}" for n in list(self.notes)[-15:]]
         text = "\n".join(L) + "\n"

@@ -10,6 +10,11 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.112 — 2026-10-10 — Election Night: ready for rehearsals
+
+- On election night a state whose polls are still open shows as waiting for its first figures, never as a site that is not answering, and no figure is ever shown with a time later than the moment it was read.
+- Rehearsals of a past election night now run the forecasts as the real night will, kept on this computer, so the whole night can be practised before November 3.
+
 ## v4.0.111 — 2026-10-10 — Election Night: forecasts that follow every state's count, and the Method page
 
 - On election night the forecasts for the other states' races for Congress, governor and the statewide offices now move with the count, county by county (precinct by precinct where a state posts precincts), allowing for the order in which each state counts its kinds of ballot and for its own rule for winning (most votes, a majority with a runoff, ranked choice, or the top two). Tested by replaying the 2024 counts of Florida, North Carolina, Pennsylvania, Louisiana and Georgia.

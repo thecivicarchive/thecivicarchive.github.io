@@ -16,7 +16,17 @@ run_night.py - Election Night's one command (ARCHITECTURE.md 3.1). John starts t
                                                (Stop Election Night.bat)
     python run_night.py replay --election 2024-11-05 [--states mn] [--speed 6] [--order random|small-first|metro-last]
                                [--late] [--source fixture|2024-senate|saved:<yyyymmdd>] [--hours 12] [--resume]
-                                               a past election as if live, to the rehearsal folder (/night-live/rehearsal/)
+                               [--night yyyy-mm-dd] [--feed]
+                                               a past election as if live, to the rehearsal folder (/night-live/rehearsal/);
+                                               the night's models run on it and are stored as rehearsal runs; a feed
+                                               state's past election is named with its id and date, as in
+                                               --election mn=2024-11-05,nd=346@2026-06-09 --states mn,nd; --feed also
+                                               runs the live feed beside it (the dress rehearsal, Oct 29)
+                               Rehearsal 1 (Oct 20): replay --election mn=2024-11-05,nd=346@2026-06-09,ia=126082@2026-06-02,
+                                               ga=2024NovGen@2024-11-05 --states mn,nd,ia,ga --speed 6 --hours 12
+    python run_night.py feed-dry-run [--hours 3]
+                                               the feed's dry run (Oct 22, 6 to 9 p.m.): the live collectors and measures,
+                                               no results, published only to the rehearsal folder
     python run_night.py preview                serves site/ at http://127.0.0.1:8791/ (the draft and the live figures
                                                side by side, as on GitHub)
     python run_night.py status                 rewrites election_night_status.md
@@ -193,7 +203,8 @@ def _tmp():
 
 
 def selftest_cycle(tmp, say=print):
-    """The cycle with no network: a made-up reader family read through a replay; test figures before the polls close
+    """The cycle with no network: a made-up reader family read through a replay; no answer before the polls close is
+    waiting; test figures before the polls close
     are never published; three failures make a state stale and an answer clears it; a refusal stops the state; a file
     that does not read holds the state and the last good figures stay; Minnesota's folder read after it settles; a
     snapshot written whole, the unchanged next one not written twice, now.json under 4 KB, the files read back as a page
@@ -282,6 +293,13 @@ def selftest_cycle(tmp, say=print):
         return n
 
     night = make(clock)
+    answers["mode"] = "down"
+    for _i in range(L.STALE_AFTER + 1):
+        night.poll_state("ZZ", clock.now())
+    night.snapshot("running", publish=False)
+    expect(night.status_word("ZZ") == "wait" and night.st["ZZ"]["fails"] == 0,
+           "no answer before the polls close is waiting, never 'not answering'")
+    answers["mode"] = "ok"
     st = night.poll_state("ZZ", clock.now())
     expect(st == "test", "figures before the polls close are a test")
     snap = night.snapshot("running", publish=False)
@@ -314,6 +332,7 @@ def selftest_cycle(tmp, say=print):
     # Minnesota's folder, from the reader's test files
     for f in ("ussenate_precincts.txt", "ussenate_summary.txt"):
         shutil.copy2(os.path.join(HERE, "election", "fixtures", "mn", "night", f), mn_folder)
+        os.utime(os.path.join(mn_folder, f), None)          # saved just now
     t = clock.now()
     expect(night.look_folder("MN", t) is None, "a changed folder waits until it has been quiet")
     st = night.look_folder("MN", t + dt.timedelta(seconds=L.SETTLE + 1))
@@ -587,7 +606,7 @@ def cmd_replay(a):
     else:
         states = [s.strip().upper() for s in (a.states or "mn").split(",") if s.strip()]
         elections = parse_elections(a.election, states)
-        closes, ids = {}, {}
+        closes, ids, days = {}, {}, {}
         poll = json.load(open(L.POLL_HOURS, encoding="utf-8"))["states"]
         for code in states:
             v = elections.get(code)
@@ -599,11 +618,16 @@ def cmd_replay(a):
             if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", day):
                 say(f"{code}: give the past election's date, as in {code.lower()}=<id>@2026-06-09")
                 return 2
-            zones = (poll.get(code) or {}).get("zones") or [{"tz": "America/Chicago", "closes": "20:00"}]
-            d = dt.date.fromisoformat(day)
-            closes[code] = min(L.from_local(dt.datetime.combine(d, dt.time(*map(int, z["closes"].split(":")))), z["tz"]) for z in zones)
+            days[code] = dt.date.fromisoformat(day)
             if v != day:
                 ids[code] = past_id
+        # One night for every state: elections held on different days (a 2024 general beside a 2026 primary) are each
+        # replayed as if their polls closed at their own local time on the rehearsal's night, the earliest of the days
+        # unless --night names another.
+        night_day = dt.date.fromisoformat(a.night) if a.night else min(days.values())
+        for code in states:
+            zones = (poll.get(code) or {}).get("zones") or [{"tz": "America/Chicago", "closes": "20:00"}]
+            closes[code] = min(L.from_local(dt.datetime.combine(night_day, dt.time(*map(int, z["closes"].split(":")))), z["tz"]) for z in zones)
         source, label = None, None
         if "MN" in states:
             day = (elections["MN"].partition("@")[2] or elections["MN"]).replace("-", "")
@@ -613,14 +637,20 @@ def cmd_replay(a):
                 return 1
             _folder, label = R.mn_source(kind)
             source = kind
-        label = label or ", ".join(f"{c} {elections[c]}" for c in states)
+        others = [c for c in states if c != "MN"]
+        rest = ", ".join(f"{c} {_day_words(days[c])}" for c in others)
+        label = (f"{label}; {rest}" if label and rest else label) or rest
         run = R.Run.new(base, a.election, states, a.speed, a.order, a.late, source, label, closes, a.hours, seed=a.seed)
         run.doc["ids"] = ids
+        run.doc["days"] = {c: d.isoformat() for c, d in days.items()}
+        run.doc["night_day"] = night_day.isoformat()
+        run.doc["feed"] = bool(a.feed)
         run.save()
         say(f"Rehearsal {run.doc['id']}: {label}; {a.speed:g} times as fast; {a.order} order" + ("; late batches held back" if a.late else "") +
-            f"; the night runs {a.hours} hours ({a.hours * 60 / a.speed:.0f} minutes here).")
+            f"; the night runs {a.hours:g} hours ({a.hours * 60 / a.speed:.0f} minutes here), on the night of {_day_words(night_day)}.")
     clock = run.clock
     closes = run.closes
+    say(_plan_words(run.doc, closes))
     savers = {}
     if "MN" in run.doc["states"]:
         folder, _label = R.mn_source(run.doc["source"])
@@ -629,14 +659,21 @@ def cmd_replay(a):
         say("MN: " + savers["MN"].describe())
     feed_states = [c for c in run.doc["states"] if c != "MN"]
     hosts = {}
+    steps_root = os.path.join(run.folder, "steps")
     for code in feed_states:
         e = registry.load(code) or {}
         for h in (e.get("cadence") or {}).get("hosts", []):
             hosts[h] = code
-        steps = os.path.join(run.folder, "steps", code.lower())
+        steps = os.path.join(steps_root, code.lower())
         if not os.path.isdir(steps):
             prepare_feed_state(run, code, e)
-    src = Source(replay=R.StepReplay(os.path.join(run.folder, "steps"), clock, closes, hosts), log=None)
+        mod = None
+        try:
+            mod = importlib.import_module(f"election.readers.{e.get('family')}") if e.get("family") else None
+        except ImportError:
+            pass
+        say(R.plan_line(code, R.step_minutes(steps_root, code), has_reveal=bool(mod and hasattr(mod, "units") and hasattr(mod, "reveal"))))
+    src = Source(replay=R.StepReplay(steps_root, clock, closes, hosts), log=None)
     hand = {"MN": run.watch_folder("MN")} if "MN" in savers else {}
     remote = a.remote or None
     if remote and not os.path.isabs(remote) and not remote.startswith("file://"):
@@ -645,10 +682,58 @@ def cmd_replay(a):
     night = L.Night(mode="replay", db=run.db, live_root=os.path.join(L.LIVE_ROOT, "rehearsal"), publish_root=L.LIVE_ROOT,
                     clock=clock, states=run.doc["states"], src=src, say=say, label=run.doc["label"], raw_dir=os.path.join(run.folder, "raw"),
                     hand_folders=hand, closes=closes, end=run.end, remote=remote, savers=savers, run=run, elections=run.doc.get("ids") or {},
-                    day=L.local(min(closes.values())).date())
+                    day=L.local(min(closes.values())).date(), feed=run.doc.get("feed", False))
     if a.min_gap is not None and night.publisher is not None:
         night.publisher.min_gap = a.min_gap
+    say("Forecasts: the night's models run after each new figures, as on the night (Minnesota's own model, the other states' "
+        "model), each run stored as a rehearsal run, apart from real ones; " +
+        ("they are written into the rehearsal folder" + ("" if L.forecasts_public() else ", for viewing on this computer only (nothing is published)")
+         if night.forecasts_out() else "none is written into the rehearsal folder, because it is published and forecasts are not public yet") + ".")
+    say("The feed: " + ("the live collectors and measures run beside the replay, on the real clock (rehearsal-marked measures)."
+                        if night.feed_on else "not run (today's headlines say nothing about a replayed night; add --feed to run the "
+                        "live collectors and measures beside it, as in the dress rehearsal)."))
     return night.run()
+
+
+def cmd_feed_dry_run(a):
+    """The feed's dry run (ARCHITECTURE.md 5.3, phase 4; Thu Oct 22, 6 to 9 p.m. CT): the live feed's collectors and
+    measures on the real clock, exactly as on the night, with no results read and no models; the snapshots go only to the
+    rehearsal folder (site/night-live/rehearsal/, shown by the pages only with #rehearsal), and the measures are stored
+    marked as a rehearsal's. Its own results database, so the night's is never touched."""
+    from election import live as L
+    remote = a.remote or None
+    if remote and not os.path.isabs(remote) and not remote.startswith("file://"):
+        say("--remote takes a test repository on this computer (a folder); the live repository is named in election/publish.py")
+        return 2
+    now = L.utcnow()
+    folder = os.path.join(L.WORK, "feed_dry_run", now.strftime("%Y%m%d-%H%M%S"))
+    os.makedirs(folder, exist_ok=True)
+    night = L.Night(mode="feed", db=os.path.join(folder, "election.sqlite"), live_root=os.path.join(L.LIVE_ROOT, "rehearsal"),
+                    publish_root=L.LIVE_ROOT, say=say, label="a dry run of the news feed (no results are read)",
+                    raw_dir=os.path.join(folder, "raw"), end=now + dt.timedelta(hours=a.hours), remote=remote, day=L.local(now).date())
+    say(f"The feed's dry run: the live collectors and measures for {a.hours:g} hours (until {L.clock_words(night.end)}), no results "
+        f"and no forecasts; snapshots go to the rehearsal folder only" +
+        ("" if night.publishing() else " (publishing is off, so they stay on this computer)") +
+        ". Stop it early with Stop Election Night.bat or Ctrl+C.")
+    return night.run()
+
+
+def _day_words(d):
+    from election.replay import MONTHS
+    return f"{MONTHS[d.month - 1]} {d.day}, {d.year}"
+
+
+def _plan_words(doc, closes):
+    """When each state's polls close on the rehearsal's night clock, and which elections were moved onto that night."""
+    from election import live as L
+    days = doc.get("days") or {}
+    night = doc.get("night_day")
+    moved = [c for c, d in days.items() if night and d != night]
+    text = "Polls close on the night clock: " + ", ".join(f"{c} {L.clock_words(t)}" for c, t in sorted(closes.items(), key=lambda x: x[1]))
+    if moved:
+        text += (". Moved onto this night, at their own local closing time: " +
+                 ", ".join(f"{c} (held {_day_words(dt.date.fromisoformat(days[c]))})" for c in moved))
+    return text if text.endswith(".") else text + "."
 
 
 def prepare_feed_state(run, code, entry):
@@ -676,8 +761,7 @@ def prepare_feed_state(run, code, entry):
         except (Refused, SourceError) as ex:
             say(f"{code}: its past election could not be fetched ({ex}); it is left out of this rehearsal")
             return
-    steps = R.make_steps(code, mod, final, os.path.join(run.folder, "steps"), order=run.doc["order"], seed=run.doc.get("seed", 7))
-    say(f"{code}: {len(steps)} steps of its past night, every 10 minutes after its polls closed")
+    R.make_steps(code, mod, final, os.path.join(run.folder, "steps"), order=run.doc["order"], seed=run.doc.get("seed", 7))
 
 
 # ============================================================================================== preview, status, scan
@@ -867,7 +951,12 @@ def cmd_publish(a):
     if L.Lock(L.WORK).holder():
         say("The updater is running and publishes by itself.")
         return 0
+    from election import livejson
     from election.source import Source
+    if not L.forecasts_public():
+        gone = livejson.strip_forecasts(P.SOURCE)       # a rehearsal's forecasts, left for viewing here, never go out
+        if gone:
+            say(f"Took {gone} forecast files out of the live folder first (forecasts are not public yet).")
     p = P.Publisher(log=lambda line: None, src=Source(), history=os.path.join(L.WORK, "publish_log.jsonl"))
     if a.setup:
         P.prepare(P.CLONE, P.repo_url(), lambda *_: None)
@@ -931,6 +1020,11 @@ def main(argv=None):
     p.add_argument("--resume", action="store_true")
     p.add_argument("--remote", help="a test repository on this computer, in place of the live one (for checks)")
     p.add_argument("--min-gap", type=int, default=None, help="seconds between pushes (default 360)")
+    p.add_argument("--night", help="the rehearsal's night (yyyy-mm-dd); default the earliest of the elections' days")
+    p.add_argument("--feed", action="store_true", help="also run the live feed's collectors and measures (the dress rehearsal)")
+    p = sub.add_parser("feed-dry-run")
+    p.add_argument("--hours", type=float, default=3.0)
+    p.add_argument("--remote", help="a test repository on this computer, in place of the live one (for checks)")
     p = sub.add_parser("preview")
     p.add_argument("--port", type=int, default=8791)
     sub.add_parser("status")
@@ -950,7 +1044,7 @@ def main(argv=None):
         ap.print_help()
         return 2
     return {"check": cmd_check, "build": cmd_build, "discover": cmd_discover, "once": cmd_once, "live": cmd_live, "stop": cmd_stop,
-            "replay": cmd_replay, "preview": cmd_preview, "status": cmd_status, "forecast": cmd_forecast, "scan": cmd_scan, "certify": cmd_certify,
+            "replay": cmd_replay, "feed-dry-run": cmd_feed_dry_run, "preview": cmd_preview, "status": cmd_status, "forecast": cmd_forecast, "scan": cmd_scan, "certify": cmd_certify,
             "publish": cmd_publish, "folder": cmd_folder}[a.cmd](a)
 
 

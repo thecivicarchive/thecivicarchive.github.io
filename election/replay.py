@@ -5,7 +5,11 @@ the night's own code: the same updater, the same readers, the same store, the sa
                 runs `speed` times faster than the wall clock (6 times: a 12-hour night in 2 hours). Everything the
                 updater decides by time (when a state's polls close, when a snapshot is due, when John would have saved
                 files) follows the night clock; every time written into the figures is the real time, so the pages'
-                own clocks (stale after 25 minutes, the reader's time zone) work as they will on the night.
+                own clocks (stale after 25 minutes, the reader's time zone) work as they will on the night. A figure's
+                time is the moment on the night clock that its replay step (or Minnesota's save) stands for, never the
+                past file's own time (live.Night.figures_time). Elections held on different days (Minnesota's 2024
+                general with North Dakota's 2026 primary) share one night: each state's polls close at their own local
+                time on the rehearsal's night (the earliest of the elections' days, or --night).
 
   Minnesota     the replayed night's results files are revealed precinct by precinct and written into a rehearsal
                 folder the updater watches, at the moments John's saves would arrive (from about 8:15 p.m. every 20
@@ -95,6 +99,10 @@ class ReplayClock:
 
     def wall_seconds(self, night_seconds):
         return night_seconds / self.speed
+
+    def to_wall(self, night_t):
+        """The real moment at which the night clock shows night_t (the inverse of now())."""
+        return self.wall_start + (night_t - self.night_start) / self.speed
 
 
 # ---------------------------------------------------------------------------------------------- Minnesota's sources
@@ -383,6 +391,13 @@ class StepReplay:
         from election.source import FolderReplay
         self.root, self.clock, self.closes, self.hosts = root, clock, closes, hosts
         self.FolderReplay = FolderReplay
+        self.served = {}                # code -> the step (minutes after its polls closed) last answered from
+
+    def step_time(self, code):
+        """The moment on the night clock of the step last answered for a state (its polls' closing plus the step's
+        minutes), or None before any: the time its replayed figures stand for."""
+        m = self.served.get(code)
+        return None if m is None else self.closes[code] + dt.timedelta(minutes=m)
 
     def step_for(self, code):
         d = os.path.join(self.root, code.lower())
@@ -399,7 +414,10 @@ class StepReplay:
         step = self.step_for(code)
         if step is None:
             return 404, b"", {}
-        return self.FolderReplay(os.path.join(self.root, code.lower(), f"{step:04d}"))(url)
+        got = self.FolderReplay(os.path.join(self.root, code.lower(), f"{step:04d}"))(url)
+        if got and got[0] == 200:
+            self.served[code] = step
+        return got
 
 
 def save_final(files, final_dir):
@@ -451,6 +469,25 @@ def make_steps(code, reader, final_dir, out_root, order="random", seed=7, every=
             break
         m += every
     return steps
+
+
+def step_minutes(steps_root, code):
+    d = os.path.join(steps_root, code.lower())
+    return sorted(int(n) for n in os.listdir(d) if n.isdigit()) if os.path.isdir(d) else []
+
+
+def plan_line(code, steps, has_reveal=True):
+    """The rehearsal's plan for one feed state, in plain words (printed at the start and on resume)."""
+    if not steps:
+        return f"{code}: no steps of its past night are on file, so it stays waiting all night"
+    if len(steps) == 1:
+        why = ("its reader cannot cut them into the earlier moments of the night" if not has_reveal else
+               "nothing earlier could be cut from them")
+        return (f"{code}: one step only: just its final figures are on file and {why}, so {code} shows complete (every "
+                f"reporting unit in) from its first step, {steps[0]} minutes after its polls closed")
+    last = steps[-1]
+    return (f"{code}: {len(steps)} steps of its past night, every {steps[1] - steps[0]} minutes after its polls closed; the last "
+            f"(its final figures) {last // 60} h {last % 60:02d} min after")
 
 
 def _write_step(dest, m, files):
