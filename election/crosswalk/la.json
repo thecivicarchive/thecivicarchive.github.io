@@ -1,0 +1,1070 @@
+{
+"_about":"Louisiana's races on the November 3, 2026 ballot that the Election Night pages read (Congress from ballot_2026.sqlite; the statewide boards, the Legislature and the appellate and supreme courts from ballot_local_2026.sqlite), each with the key a contest of the Secretary of State's results files is tied by (read from its title) and the candidates as filed; and the Secretary's posted Nov 3 race file tied to them. A race the posted file does not carry was decided without a contest (one candidate qualified) or is not on this ballot.",
+"state":"LA",
+"election":"2026-11-03",
+"built":"2026-10-10",
+"feed":"Voter Portal Data?blob=20261103/RacesCandidates_Multiparish.htm",
+"feed_note":"Races with one qualified candidate are elected unopposed and do not appear in the results files.",
+"order":[
+"what the contest is (its kind and district, read from the state's own title)",
+"the candidates' family names"
+],
+"counts":{
+"races":18,
+"by_level":{
+"congress":7,
+"statewide":3,
+"legislature":1,
+"court":7
+},
+"posted_contests":97,
+"posted_tied":11,
+"posted_not_tied":0,
+"posted_out_of_scope":86,
+"races_not_in_posted_list":7,
+"printed_lines_not_tied":0
+},
+"races":{
+"2026-LA-COA2-2-AL":{
+"key":"court_of_appeals:2-2:at large",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Judge, Court of Appeal",
+"district":"2-2",
+"seat":"At Large",
+"special":0,
+"names":[
+[
+"\"Jeff\" Cox",
+"Republican"
+]
+]
+},
+"2026-LA-COA3-1-B":{
+"key":"court_of_appeals:3-1:division b",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Judge, Court of Appeal",
+"district":"3-1",
+"seat":"Division B",
+"special":0,
+"names":[
+[
+"\"Greg\" Beard",
+"Republican"
+]
+]
+},
+"2026-LA-COA3-1-C":{
+"key":"court_of_appeals:3-1:division c",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Judge, Court of Appeal",
+"district":"3-1",
+"seat":"Division C",
+"special":0,
+"names":[
+[
+"Shannon Gremillion",
+"Republican"
+]
+]
+},
+"2026-LA-COA4-1-D":{
+"key":"court_of_appeals:4-1:division d",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Judge, Court of Appeal",
+"district":"4-1",
+"seat":"Division D",
+"special":0,
+"names":[
+[
+"Rachael Johnson",
+"Democrat"
+]
+]
+},
+"2026-LA-H01":{
+"key":"us_house:1",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"1",
+"seat":null,
+"special":0,
+"names":[
+[
+"Randall Arrington",
+"Republican"
+],
+[
+"E. \"Liddy\" Glass",
+"No Party"
+],
+[
+"Lauren Jewett",
+"Democrat"
+],
+[
+"Steve Scalise",
+"Republican"
+]
+]
+},
+"2026-LA-H02":{
+"key":"us_house:2",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"2",
+"seat":null,
+"special":0,
+"names":[
+[
+"Lisa Ballay",
+"Libertarian"
+],
+[
+"Walter \"Rocky\" Beach",
+"No Party"
+],
+[
+"Troy A. Carter Sr.",
+"Democrat"
+],
+[
+"Renada \"Honey\" Collins",
+"No Party"
+],
+[
+"Peter Williams",
+"Republican"
+]
+]
+},
+"2026-LA-H03":{
+"key":"us_house:3",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"3",
+"seat":null,
+"special":0,
+"names":[
+[
+"\"Kate\" Cotten",
+"Republican"
+],
+[
+"John Day",
+"Democrat"
+],
+[
+"Priscilla Gonzalez",
+"Democrat"
+],
+[
+"\"Clay\" Higgins",
+"Republican"
+],
+[
+"Tia LeBrun",
+"No Party"
+],
+[
+"Caleb \"With a C\" Walker",
+"Democrat"
+]
+]
+},
+"2026-LA-H04":{
+"key":"us_house:4",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"4",
+"seat":null,
+"special":0,
+"names":[
+[
+"Conrad Cable",
+"Democrat"
+],
+[
+"\"Matt\" Gromlich",
+"Democrat"
+],
+[
+"Gordon Heslop",
+"Republican"
+],
+[
+"\"Mike\" Johnson",
+"Republican"
+],
+[
+"\"Mike\" Nichols",
+"Republican"
+]
+]
+},
+"2026-LA-H05":{
+"key":"us_house:5",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"5",
+"seat":null,
+"special":0,
+"names":[
+[
+"Stewart Cathey Jr.",
+"Republican"
+],
+[
+"Misti Cordell",
+"Republican"
+],
+[
+"Oscar \"Omar\" Dantzler",
+"Republican"
+],
+[
+"Michael Echols",
+"Republican"
+],
+[
+"\"Gabe\" Firment",
+"Republican"
+],
+[
+"Austin Magee",
+"Republican"
+],
+[
+"Dan McKay",
+"Democrat"
+],
+[
+"Patricia \"Pat\" Moore",
+"Democrat"
+],
+[
+"Antonio Wilson",
+"Democrat"
+]
+]
+},
+"2026-LA-H06":{
+"key":"us_house:6",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"6",
+"seat":null,
+"special":0,
+"names":[
+[
+"Monique Appeaning",
+"Republican"
+],
+[
+"Chauna Banks",
+"Democrat"
+],
+[
+"Rufus Craig",
+"Libertarian"
+],
+[
+"Larry Davis III",
+"Republican"
+],
+[
+"\"Rick\" Edmonds",
+"Republican"
+],
+[
+"Patrick \"Pat\" Forbes",
+"Democrat"
+],
+[
+"Lindsay \"Rubia\" Garcia",
+"Democrat"
+],
+[
+"Michael Mebruer",
+"Republican"
+],
+[
+"Blake Miguez",
+"Republican"
+],
+[
+"Stephen Wagley",
+"Republican"
+]
+]
+},
+"2026-LA-PSC1":{
+"key":"public_service_commissioner:1",
+"level":"statewide",
+"kind":"public_service_commissioner",
+"office":"Public Service Commissioner",
+"district":"1",
+"seat":null,
+"special":0,
+"names":[
+[
+"Stephanie Hilferty",
+"Republican"
+],
+[
+"Christopher \"Chris\" Justin",
+"No Party"
+],
+[
+"Connie Norris",
+"Democrat"
+]
+]
+},
+"2026-LA-PSC5":{
+"key":"public_service_commissioner:5",
+"level":"statewide",
+"kind":"public_service_commissioner",
+"office":"Public Service Commissioner",
+"district":"5",
+"seat":null,
+"special":0,
+"names":[
+[
+"John E. Atkins",
+"Republican"
+],
+[
+"James Edward Green",
+"Democrat"
+]
+]
+},
+"2026-LA-S2":{
+"key":"us_senate",
+"level":"congress",
+"kind":"us_senate",
+"office":"U.S. Senate",
+"district":null,
+"seat":null,
+"special":0,
+"names":[
+[
+"\"Jamie\" Davis",
+"Democrat"
+],
+[
+"Julia Letlow",
+"Republican"
+]
+]
+},
+"2026-LA-SBOE1":{
+"key":"state_board_of_education:1",
+"level":"statewide",
+"kind":"state_board_of_education",
+"office":"Member, Board of Elementary and Secondary Education",
+"district":"1",
+"seat":null,
+"special":0,
+"names":[
+[
+"\"Joseph\" Cao",
+"Republican"
+],
+[
+"Angela Hershey",
+"Democrat"
+]
+]
+},
+"2026-LA-SC1":{
+"key":"supreme_court:1",
+"level":"court",
+"kind":"supreme_court",
+"office":"Associate Justice, Supreme Court",
+"district":"1",
+"seat":null,
+"special":0,
+"names":[
+[
+"William \"Billy\" Burris",
+"Republican"
+]
+]
+},
+"2026-LA-SC3":{
+"key":"supreme_court:3",
+"level":"court",
+"kind":"supreme_court",
+"office":"Associate Justice, Supreme Court",
+"district":"3",
+"seat":null,
+"special":0,
+"names":[
+[
+"Cade R. Cole",
+"Republican"
+]
+]
+},
+"2026-LA-SC4":{
+"key":"supreme_court:4",
+"level":"court",
+"kind":"supreme_court",
+"office":"Associate Justice, Supreme Court",
+"district":"4",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jay B. McCallum",
+"Republican"
+]
+]
+},
+"2026-LA-SH92":{
+"key":"state_house:92",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"92",
+"seat":null,
+"special":1,
+"names":[
+[
+"Gregory Carroll",
+"Democrat"
+],
+[
+"Alex Perdomo",
+"Republican"
+],
+[
+"Michael \"Mike\" Sigur",
+"Republican"
+]
+]
+}
+},
+"keys":{
+"court_of_appeals:2-2:at large":"2026-LA-COA2-2-AL",
+"court_of_appeals:3-1:division b":"2026-LA-COA3-1-B",
+"court_of_appeals:3-1:division c":"2026-LA-COA3-1-C",
+"court_of_appeals:4-1:division d":"2026-LA-COA4-1-D",
+"public_service_commissioner:1":"2026-LA-PSC1",
+"public_service_commissioner:5":"2026-LA-PSC5",
+"state_board_of_education:1":"2026-LA-SBOE1",
+"state_house:92":"2026-LA-SH92",
+"supreme_court:1":"2026-LA-SC1",
+"supreme_court:3":"2026-LA-SC3",
+"supreme_court:4":"2026-LA-SC4",
+"us_house:1":"2026-LA-H01",
+"us_house:2":"2026-LA-H02",
+"us_house:3":"2026-LA-H03",
+"us_house:4":"2026-LA-H04",
+"us_house:5":"2026-LA-H05",
+"us_house:6":"2026-LA-H06",
+"us_senate":"2026-LA-S2"
+},
+"keys_shared":[],
+"posted":{
+"67997":{
+"race":"2026-LA-S2",
+"title":"U. S. Senator",
+"names":{
+"\"Jamie\" Davis":"\"Jamie\" Davis",
+"Julia Letlow":"Julia Letlow"
+}
+},
+"70195":{
+"race":"2026-LA-H01",
+"title":"U. S. Representative -- 1st Congressional District",
+"names":{
+"Randall Arrington":"Randall Arrington",
+"E. \"Liddy\" Glass":"E. \"Liddy\" Glass",
+"Lauren Jewett":"Lauren Jewett",
+"Steve Scalise":"Steve Scalise"
+}
+},
+"70196":{
+"race":"2026-LA-H02",
+"title":"U. S. Representative -- 2nd Congressional District",
+"names":{
+"Lisa Ballay":"Lisa Ballay",
+"Walter \"Rocky\" Beach":"Walter \"Rocky\" Beach",
+"Troy A. Carter, Sr.":"Troy A. Carter Sr.",
+"Renada \"Honey\" Collins":"Renada \"Honey\" Collins",
+"Peter Williams":"Peter Williams"
+}
+},
+"70197":{
+"race":"2026-LA-H03",
+"title":"U. S. Representative -- 3rd Congressional District",
+"names":{
+"\"Kate\" Cotten":"\"Kate\" Cotten",
+"John Day":"John Day",
+"Priscilla Gonzalez":"Priscilla Gonzalez",
+"\"Clay\" Higgins":"\"Clay\" Higgins",
+"Tia LeBrun":"Tia LeBrun",
+"Caleb \"With a C\" Walker":"Caleb \"With a C\" Walker"
+}
+},
+"70198":{
+"race":"2026-LA-H04",
+"title":"U. S. Representative -- 4th Congressional District",
+"names":{
+"Conrad Cable":"Conrad Cable",
+"\"Matt\" Gromlich":"\"Matt\" Gromlich",
+"Gordon Heslop":"Gordon Heslop",
+"\"Mike\" Johnson":"\"Mike\" Johnson",
+"\"Mike\" Nichols":"\"Mike\" Nichols"
+}
+},
+"70199":{
+"race":"2026-LA-H05",
+"title":"U. S. Representative -- 5th Congressional District",
+"names":{
+"Stewart Cathey, Jr.":"Stewart Cathey Jr.",
+"Misti Cordell":"Misti Cordell",
+"Oscar \"Omar\" Dantzler":"Oscar \"Omar\" Dantzler",
+"Michael Echols":"Michael Echols",
+"\"Gabe\" Firment":"\"Gabe\" Firment",
+"Austin Magee":"Austin Magee",
+"Dan McKay":"Dan McKay",
+"Patricia \"Pat\" Moore":"Patricia \"Pat\" Moore",
+"Antonio Wilson":"Antonio Wilson"
+}
+},
+"70200":{
+"race":"2026-LA-H06",
+"title":"U. S. Representative -- 6th Congressional District",
+"names":{
+"Monique Appeaning":"Monique Appeaning",
+"Chauna Banks":"Chauna Banks",
+"Rufus Craig":"Rufus Craig",
+"Larry Davis III":"Larry Davis III",
+"\"Rick\" Edmonds":"\"Rick\" Edmonds",
+"Patrick \"Pat\" Forbes":"Patrick \"Pat\" Forbes",
+"Lindsay \"Rubia\" Garcia":"Lindsay \"Rubia\" Garcia",
+"Michael Mebruer":"Michael Mebruer",
+"Blake Miguez":"Blake Miguez",
+"Stephen Wagley":"Stephen Wagley"
+}
+},
+"67989":{
+"race":"2026-LA-PSC1",
+"title":"PSC -- District 1",
+"names":{
+"Stephanie Hilferty":"Stephanie Hilferty",
+"Christopher \"Chris\" Justin":"Christopher \"Chris\" Justin",
+"Connie Norris":"Connie Norris"
+}
+},
+"67990":{
+"race":"2026-LA-PSC5",
+"title":"PSC -- District 5",
+"names":{
+"John E. Atkins":"John E. Atkins",
+"James Edward Green":"James Edward Green"
+}
+},
+"70065":{
+"race":"2026-LA-SBOE1",
+"title":"BESE -- District 1",
+"names":{
+"\"Joseph\" Cao":"\"Joseph\" Cao",
+"Angela Hershey":"Angela Hershey"
+}
+},
+"70161":{
+"race":"2026-LA-SH92",
+"title":"State Representative -- 92nd Representative District",
+"names":{
+"Gregory Carroll":"Gregory Carroll",
+"Alex Perdomo":"Alex Perdomo",
+"Michael \"Mike\" Sigur":"Michael \"Mike\" Sigur"
+}
+}
+},
+"posted_not_tied":[],
+"races_not_in_posted_list":[
+{
+"race":"2026-LA-COA2-2-AL",
+"key":"court_of_appeals:2-2:at large",
+"why":"one candidate filed for it (unopposed), so the state's list of contests does not carry it"
+},
+{
+"race":"2026-LA-COA3-1-B",
+"key":"court_of_appeals:3-1:division b",
+"why":"one candidate filed for it (unopposed), so the state's list of contests does not carry it"
+},
+{
+"race":"2026-LA-COA3-1-C",
+"key":"court_of_appeals:3-1:division c",
+"why":"one candidate filed for it (unopposed), so the state's list of contests does not carry it"
+},
+{
+"race":"2026-LA-COA4-1-D",
+"key":"court_of_appeals:4-1:division d",
+"why":"one candidate filed for it (unopposed), so the state's list of contests does not carry it"
+},
+{
+"race":"2026-LA-SC1",
+"key":"supreme_court:1",
+"why":"one candidate filed for it (unopposed), so the state's list of contests does not carry it"
+},
+{
+"race":"2026-LA-SC3",
+"key":"supreme_court:3",
+"why":"one candidate filed for it (unopposed), so the state's list of contests does not carry it"
+},
+{
+"race":"2026-LA-SC4",
+"key":"supreme_court:4",
+"why":"one candidate filed for it (unopposed), so the state's list of contests does not carry it"
+}
+],
+"printed_lines_not_tied":[],
+"posted_out_of_scope":[
+{
+"id":"67788",
+"title":"District Judge -- 1st Judicial District Court, ES 3, Div. F",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67790",
+"title":"District Judge -- 2nd Judicial District Court, Div. A",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67791",
+"title":"District Judge -- 2nd Judicial District Court, Div. B",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67794",
+"title":"District Judge -- 3rd Judicial District Court, Div. B",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67797",
+"title":"District Judge -- 4th Judicial District Court, ES 1, Div. H",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67798",
+"title":"District Judge -- 4th Judicial District Court, ES 1, Div. I",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67801",
+"title":"District Judge -- 4th Judicial District Court, ES 2, Div. B",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67825",
+"title":"District Judge -- 12th Judicial District Court, Division A",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67826",
+"title":"District Judge -- 12th Judicial District Court, Division B",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67831",
+"title":"District Judge -- 14th Judicial District Court, ES 1, Div. J",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67842",
+"title":"District Judge -- 15th Judicial District Court, ES 3, Div. I",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67845",
+"title":"District Judge -- 15th Judicial District Court, ES 3, Div. M",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67862",
+"title":"District Judge -- 17th Judicial District Court, Division D",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67864",
+"title":"District Judge -- 18th Judicial District Court, ES 1, Div. C",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"70043",
+"title":"District Judge -- 19th Judicial District Court, Div. B",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"70048",
+"title":"District Judge -- 19th Judicial District Court, ES 1, Div. L",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"70049",
+"title":"District Judge -- 19th Judicial District Court, ES 1, Div. M",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67889",
+"title":"District Judge -- 21st Judicial District Court, Division E",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67899",
+"title":"District Judge -- 22nd Judicial District Court, Division E",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67901",
+"title":"District Judge -- 22nd Judicial District Court, Division G",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67902",
+"title":"District Judge -- 22nd Judicial District Court, Division H",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67908",
+"title":"District Judge -- 23rd Judicial District Court, ES 2, Div. A",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67920",
+"title":"District Judge -- 24th Judicial District Court, ES 2, Div. F",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67937",
+"title":"District Judge -- 27th Judicial District Court, ES 1, Div. C",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67947",
+"title":"District Judge -- 30th Judicial District Court, Division C",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67948",
+"title":"District Judge -- 31st Judicial District Court",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67952",
+"title":"District Judge -- 32nd Judicial District Court, Division D",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67953",
+"title":"District Judge -- 32nd Judicial District Court, Division E",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67961",
+"title":"District Judge -- 35th Judicial District Court",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67967",
+"title":"District Judge -- 40th Judicial District Court, ES 1, Div. B",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67968",
+"title":"District Judge -- 40th Judicial District Court, ES 2, Div. A",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"70082",
+"title":"Judge -- Civil District Court, Division L",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"70083",
+"title":"Judge -- Civil District Court, Division M",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"70085",
+"title":"Judge -- Civil District Court, Domestic Section 1",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"70090",
+"title":"Judge -- Criminal District Court, Section D",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"70094",
+"title":"Judge -- Criminal District Court, Section H",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"69144",
+"title":"Magistrate -- Magistrate Section, Criminal District Court",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"70118",
+"title":"Magistrate Judge -- 14th Judicial District Court",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"70194",
+"title":"District Attorney -- 1st Judicial District Court",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67738",
+"title":"District Attorney -- 2nd Judicial District Court",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67740",
+"title":"District Attorney -- 4th Judicial District Court",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67742",
+"title":"District Attorney -- 6th Judicial District Court",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67744",
+"title":"District Attorney -- 8th Judicial District Court",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67747",
+"title":"District Attorney -- 11th Judicial District Court",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67748",
+"title":"District Attorney -- 12th Judicial District Court",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67751",
+"title":"District Attorney -- 15th Judicial District Court",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67755",
+"title":"District Attorney -- 19th Judicial District Court",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67756",
+"title":"District Attorney -- 20th Judicial District Court",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67757",
+"title":"District Attorney -- 21st Judicial District Court",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67767",
+"title":"District Attorney -- 31st Judicial District Court",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67769",
+"title":"District Attorney -- 33rd Judicial District Court",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67771",
+"title":"District Attorney -- 35th Judicial District Court",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67773",
+"title":"District Attorney -- 37th Judicial District Court",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"68069",
+"title":"City Judge, City Court -- Election Dist. 2, Div. D, City of Shreveport",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"68072",
+"title":"City Marshal -- City Court, City of Eunice",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"68220",
+"title":"Mayor -- City of Eunice",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"68222",
+"title":"Mayor -- City of Shreveport",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"69547",
+"title":"Mayor -- Town of Arnaudville",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67978",
+"title":"Mayor -- Town of Basile",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67728",
+"title":"Chief of Police -- Town of Basile",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67722",
+"title":"Alderman at Large -- Town of Basile",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"68010",
+"title":"Alderman -- Ward 1, City of Eunice",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"68011",
+"title":"Alderman -- Ward 2, City of Eunice",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"68013",
+"title":"Alderman -- Ward 4, City of Eunice",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67723",
+"title":"Aldermen -- District 2, Town of Basile",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"69498",
+"title":"Aldermen -- Town of Arnaudville",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"67724",
+"title":"Aldermen -- Town of Duson",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"68157",
+"title":"Councilman -- District A, City of Shreveport",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"68158",
+"title":"Councilman -- District B, City of Shreveport",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"68159",
+"title":"Councilman -- District C, City of Shreveport",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"68161",
+"title":"Councilman -- District E, City of Shreveport",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"68162",
+"title":"Councilman -- District F, City of Shreveport",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"68163",
+"title":"Councilman -- District G, City of Shreveport",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"68866",
+"title":"Councilman -- District 1, City of Broussard",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"68867",
+"title":"Councilman -- District 2, City of Broussard",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"13833",
+"title":"CA No. 1 (ACT No. 39, 2026-RS - SB 180) -- Allows a one-time transfer of a property tax exemption for surviving spouse of a disabled veteran",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"13836",
+"title":"CA No. 2 (ACT No. 273, 2026-RS - HB 521) -- Allows taxing authority to continue lower millage rate without losing ability to adjust to max rate",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"13834",
+"title":"CA No. 3 (ACT No. 271, 2026-RS - HB 51) -- Prohibits release on bail for defendants who have been convicted of certain offenses against a child",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"13839",
+"title":"CA No. 4 (ACT No. 414, 2026-RS - HB 225) -- Sets a lifetime term limit on a person who has served as governor more than one and one-half terms",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"13840",
+"title":"CA No. 5 (ACT No. 606, 2026-RS - HB 27) -- Authorizes retirement systems to apply funds to any unfunded accrued liability, not only the oldest",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"13837",
+"title":"CA No. 6 (ACT No. 274, 2026-RS - HB 514) -- Authorizes extension of an additional property tax exemption for owners who are 65 or older",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"13841",
+"title":"CA No. 7 (ACT No. 607, 2026-RS - SB 228) -- Authorizes the use of public funds to identify, inventory, remove, or replace certain water lines",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"13838",
+"title":"CA No. 8 (ACT No. 277, 2026-RS - HB 192) -- Prohibits expropriation of property by a foreign adversary or an agent of a foreign adversary",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"13832",
+"title":"CA No. 9 (ACT No. 220, 2025-RS - HB 300) -- Increases the income limit to qualify for the special assessment level for a homestead exemption",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"13835",
+"title":"CA No. 10 (ACT No. 272, 2026-RS - HB 214) -- Allows property tax exemption of rehabilitated blighted property under conditions provided by law",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"13804",
+"title":"City of Shreveport (Downtown Dev. Dist.) -- 9.04 Mills Cont. - CC - 25 Yrs.",
+"why":"not a contest these pages read (local office, question or other)"
+}
+]
+}

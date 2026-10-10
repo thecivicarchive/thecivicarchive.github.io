@@ -16,7 +16,8 @@
   "url": "https://www.maine.gov/sos/elections-voting/election-results-data",
   "label": "Maine Secretary of State: results",
   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
-  "source": "results_pa.json"
+  "source": "results_pa.json",
+  "confirmed": "2026-10-10: answered one request with the kit's User-Agent (200)"
  },
  "other_pages": [],
  "election": {
@@ -78,11 +79,21 @@
  "terms": "none seen",
  "scout_blocked": "nothing refused scripts",
  "scout_plan": "Readable with care, but not live. On the night Maine shows 'the Secretary of State posts results in the days after; ranked-choice races are tabulated the next week', with the largest cities' own postings where they can be read. Poll the results page hourly from Nov 4 and read each new workbook (the kit already reads this layout); RCV rounds when posted.",
- "notes": [],
+ "notes": [
+  "2026-10-10 (N12): confirmed as a link state; certified results source recorded under certified_results."
+ ],
  "to_do": [],
  "sources": [
   "election/scout/results_pa.json (checked 2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts))",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
   "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+ ],
+ "certified_results": {
+  "what": "the Secretary of State's workbooks by office, and the ranked-choice tabulations",
+  "address": "https://www.maine.gov/sos/elections-voting/election-results-data",
+  "script_ok": true,
+  "when": "days after; ranked-choice rounds the next week",
+  "how": "maine.gov answers scripts",
+  "checked": "2026-10-10"
+ }
 }

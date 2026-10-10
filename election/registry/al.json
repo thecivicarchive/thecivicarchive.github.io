@@ -101,12 +101,26 @@
  "scout_plan": "Readable with care. In the last week of October, load the ENR page once to learn its page names and election code; on election night scrape the statewide contest pages every 10 minutes (federal, statewide, county offices), labelled unofficial. Use the certified precinct zip (with its absentee column) for the count-order and roll-off predictors afterwards. If the ENR pages need form postbacks, write the reader to replay the page's own form, never anything more.",
  "notes": [],
  "to_do": [
-  "Learn the page names and election code in the last week of October.",
+  "Load the election-night page once in the last week of October (or the afternoon of Nov 3) to see its layout; mend al_enr.read_night() and test it with run_night.py once --state al --from-file <raw>.",
   "If the pages need form postbacks, replay only the page's own form."
  ],
  "sources": [
   "election/scout/results_la.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
   "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+ ],
+ "reader": {
+  "module": "al_enr",
+  "written": "2026-10-10",
+  "selftest": "pass (fixture: three counties of the 2026 primary's precinct zip; the empty election-night form)",
+  "replay": "pass for the certified path: the 2026 primary's precinct zip, 65 contests tied, 63 with official figures stored, all equal (the May 1st and 6th district Republican contests, replaced by the August specials, set aside). The election-night page's layout is NOT known: it was an empty form on 2026-10-09 and 2026-10-10"
+ },
+ "certified_results": {
+  "what": "precinct results zip (one .xls a county, absentee and provisional apart)",
+  "address": "https://www.sos.alabama.gov/alabama-votes/voter/election-data",
+  "script_ok": true,
+  "when": "weeks after the election",
+  "how": "the reader's certified() finds the general's zip on the page",
+  "checked": "2026-10-10"
+ }
 }

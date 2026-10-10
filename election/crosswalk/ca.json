@@ -1,0 +1,4610 @@
+{
+"_about":"California's races on the November 3, 2026 ballot that the Election Night pages read (Congress from ballot_2026.sqlite; the statewide offices, the Board of Equalization and the Legislature from ballot_local_2026.sqlite), each with the key a contest of the Secretary's returns service is tied by (its office and district) and the candidates as filed; and the contests the service already carries for November 3 (with test numbers) tied to them. The Supreme Court and Court of Appeal retention votes are left out: the service's address for them was not found, so the pages link to the Secretary's own results.",
+"state":"CA",
+"election":"2026-11-03",
+"built":"2026-10-10",
+"feed":"api.sos.ca.gov/returns (district/all and the statewide offices, as served on 2026-10-10)",
+"feed_note":"The service serves the current election only; before 8 p.m. Pacific on November 3 its numbers are test numbers.",
+"order":[
+"what the contest is (its kind and district, read from the state's own title)",
+"the candidates' family names"
+],
+"counts":{
+"races":164,
+"by_level":{
+"congress":52,
+"statewide":12,
+"legislature":100,
+"court":0
+},
+"posted_contests":164,
+"posted_tied":164,
+"posted_not_tied":0,
+"posted_out_of_scope":0,
+"races_not_in_posted_list":0,
+"printed_lines_not_tied":0
+},
+"races":{
+"2026-CA-AG":{
+"key":"attorney_general",
+"level":"statewide",
+"kind":"attorney_general",
+"office":"Attorney General",
+"district":null,
+"seat":null,
+"special":0,
+"names":[
+[
+"Michael E. Gates",
+"Republican"
+],
+[
+"Rob Bonta",
+"Democratic"
+]
+]
+},
+"2026-CA-BOE1":{
+"key":"board_of_equalization:1",
+"level":"statewide",
+"kind":"board_of_equalization",
+"office":"Member of the State Board of Equalization",
+"district":"1",
+"seat":null,
+"special":0,
+"names":[
+[
+"Nelson Esparza",
+"Democratic"
+],
+[
+"Shannon Grove",
+"Republican"
+]
+]
+},
+"2026-CA-BOE2":{
+"key":"board_of_equalization:2",
+"level":"statewide",
+"kind":"board_of_equalization",
+"office":"Member of the State Board of Equalization",
+"district":"2",
+"seat":null,
+"special":0,
+"names":[
+[
+"John Pimentel",
+"Democratic"
+],
+[
+"Sally J. Lieber",
+"Democratic"
+]
+]
+},
+"2026-CA-BOE3":{
+"key":"board_of_equalization:3",
+"level":"statewide",
+"kind":"board_of_equalization",
+"office":"Member of the State Board of Equalization",
+"district":"3",
+"seat":null,
+"special":0,
+"names":[
+[
+"Mike Gipson",
+"Democratic"
+],
+[
+"Samuel P. Sukaton",
+"Democratic"
+]
+]
+},
+"2026-CA-BOE4":{
+"key":"board_of_equalization:4",
+"level":"statewide",
+"kind":"board_of_equalization",
+"office":"Member of the State Board of Equalization",
+"district":"4",
+"seat":null,
+"special":0,
+"names":[
+[
+"Denis Bilodeau",
+"Republican"
+],
+[
+"Tom Umberg",
+"Democratic"
+]
+]
+},
+"2026-CA-CTRL":{
+"key":"state_controller",
+"level":"statewide",
+"kind":"state_controller",
+"office":"Controller",
+"district":null,
+"seat":null,
+"special":0,
+"names":[
+[
+"Herb W Morgan",
+"Republican"
+],
+[
+"Malia M. Cohen",
+"Democratic"
+]
+]
+},
+"2026-CA-GOV":{
+"key":"governor",
+"level":"statewide",
+"kind":"governor",
+"office":"Governor",
+"district":null,
+"seat":null,
+"special":0,
+"names":[
+[
+"Steve Hilton",
+"Republican"
+],
+[
+"Xavier Becerra",
+"Democratic"
+]
+]
+},
+"2026-CA-H01":{
+"key":"us_house:1",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"1",
+"seat":null,
+"special":0,
+"names":[
+[
+"James Gallagher",
+"Republican"
+],
+[
+"Mike McGuire",
+"Democratic"
+]
+]
+},
+"2026-CA-H02":{
+"key":"us_house:2",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"2",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jared Huffman",
+"Democratic"
+],
+[
+"Robin Littau",
+"Republican"
+]
+]
+},
+"2026-CA-H03":{
+"key":"us_house:3",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"3",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ami Bera",
+"Democratic"
+],
+[
+"Robb Tucker",
+"Republican"
+]
+]
+},
+"2026-CA-H04":{
+"key":"us_house:4",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"4",
+"seat":null,
+"special":0,
+"names":[
+[
+"Eric Jones",
+"Democratic"
+],
+[
+"Mike Thompson",
+"Democratic"
+]
+]
+},
+"2026-CA-H05":{
+"key":"us_house:5",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"5",
+"seat":null,
+"special":0,
+"names":[
+[
+"Michael Masuda",
+"Democratic"
+],
+[
+"Tom McClintock",
+"Republican"
+]
+]
+},
+"2026-CA-H06":{
+"key":"us_house:6",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"6",
+"seat":null,
+"special":0,
+"names":[
+[
+"Kevin Kiley",
+"No Party Preference"
+],
+[
+"Richard Pan",
+"Democratic"
+]
+]
+},
+"2026-CA-H07":{
+"key":"us_house:7",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"7",
+"seat":null,
+"special":0,
+"names":[
+[
+"Doris Matsui",
+"Democratic"
+],
+[
+"Mai Vang",
+"Democratic"
+]
+]
+},
+"2026-CA-H08":{
+"key":"us_house:8",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"8",
+"seat":null,
+"special":0,
+"names":[
+[
+"John Garamendi",
+"Democratic"
+],
+[
+"Rudy Recile",
+"Republican"
+]
+]
+},
+"2026-CA-H09":{
+"key":"us_house:9",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"9",
+"seat":null,
+"special":0,
+"names":[
+[
+"John McBride",
+"Republican"
+],
+[
+"Josh Harder",
+"Democratic"
+]
+]
+},
+"2026-CA-H10":{
+"key":"us_house:10",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"10",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jeff Frese",
+"Republican"
+],
+[
+"Mark DeSaulnier",
+"Democratic"
+]
+]
+},
+"2026-CA-H11":{
+"key":"us_house:11",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"11",
+"seat":null,
+"special":0,
+"names":[
+[
+"Connie Chan",
+"Democratic"
+],
+[
+"Scott Wiener",
+"Democratic"
+]
+]
+},
+"2026-CA-H12":{
+"key":"us_house:12",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"12",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jamie Joyce",
+"Democratic"
+],
+[
+"Lateefah Simon",
+"Democratic"
+]
+]
+},
+"2026-CA-H13":{
+"key":"us_house:13",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"13",
+"seat":null,
+"special":0,
+"names":[
+[
+"Adam Gray",
+"Democratic"
+],
+[
+"Kevin Lincoln",
+"Republican"
+]
+]
+},
+"2026-CA-H14":{
+"key":"us_house:14",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"14",
+"seat":null,
+"special":0,
+"names":[
+[
+"Aisha Wahab",
+"Democratic"
+],
+[
+"Melissa Hernandez",
+"Democratic"
+]
+]
+},
+"2026-CA-H15":{
+"key":"us_house:15",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"15",
+"seat":null,
+"special":0,
+"names":[
+[
+"Charles Hoelter",
+"Republican"
+],
+[
+"Kevin Mullin",
+"Democratic"
+]
+]
+},
+"2026-CA-H16":{
+"key":"us_house:16",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"16",
+"seat":null,
+"special":0,
+"names":[
+[
+"Peter Sundin Soulé",
+"Republican"
+],
+[
+"Sam Liccardo",
+"Democratic"
+]
+]
+},
+"2026-CA-H17":{
+"key":"us_house:17",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"17",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ritesh Tandon",
+"Republican"
+],
+[
+"Ro Khanna",
+"Democratic"
+]
+]
+},
+"2026-CA-H18":{
+"key":"us_house:18",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"18",
+"seat":null,
+"special":0,
+"names":[
+[
+"Shane Lewis",
+"Republican"
+],
+[
+"Zoe Lofgren",
+"Democratic"
+]
+]
+},
+"2026-CA-H19":{
+"key":"us_house:19",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"19",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jimmy Panetta",
+"Democratic"
+],
+[
+"Peter Coe Verbica",
+"Republican"
+]
+]
+},
+"2026-CA-H20":{
+"key":"us_house:20",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"20",
+"seat":null,
+"special":0,
+"names":[
+[
+"Sandra Van Scotter",
+"Democratic"
+],
+[
+"Vince Fong",
+"Republican"
+]
+]
+},
+"2026-CA-H21":{
+"key":"us_house:21",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"21",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jim Costa",
+"Democratic"
+],
+[
+"Kyle Kirkland",
+"Republican"
+]
+]
+},
+"2026-CA-H22":{
+"key":"us_house:22",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"22",
+"seat":null,
+"special":0,
+"names":[
+[
+"David G. Valadao",
+"Republican"
+],
+[
+"Randy Villegas",
+"Democratic"
+]
+]
+},
+"2026-CA-H23":{
+"key":"us_house:23",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"23",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jay Obernolte",
+"Republican"
+],
+[
+"Tessa Lynn Hodge",
+"Democratic"
+]
+]
+},
+"2026-CA-H24":{
+"key":"us_house:24",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"24",
+"seat":null,
+"special":0,
+"names":[
+[
+"Bob Smith",
+"Republican"
+],
+[
+"Salud Carbajal",
+"Democratic"
+]
+]
+},
+"2026-CA-H25":{
+"key":"us_house:25",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"25",
+"seat":null,
+"special":0,
+"names":[
+[
+"Joe Males",
+"Republican"
+],
+[
+"Raul Ruiz",
+"Democratic"
+]
+]
+},
+"2026-CA-H26":{
+"key":"us_house:26",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"26",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jacqui Irwin",
+"Democratic"
+],
+[
+"Sam Gallucci",
+"Republican"
+]
+]
+},
+"2026-CA-H27":{
+"key":"us_house:27",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"27",
+"seat":null,
+"special":0,
+"names":[
+[
+"George Whitesides",
+"Democratic"
+],
+[
+"Jason Gibbs",
+"Republican"
+]
+]
+},
+"2026-CA-H28":{
+"key":"us_house:28",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"28",
+"seat":null,
+"special":0,
+"names":[
+[
+"April A. Verlato",
+"Republican"
+],
+[
+"Judy Chu",
+"Democratic"
+]
+]
+},
+"2026-CA-H29":{
+"key":"us_house:29",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"29",
+"seat":null,
+"special":0,
+"names":[
+[
+"Angélica María Dueñas",
+"Democratic"
+],
+[
+"Luz Maria Rivas",
+"Democratic"
+]
+]
+},
+"2026-CA-H30":{
+"key":"us_house:30",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"30",
+"seat":null,
+"special":0,
+"names":[
+[
+"Laura Friedman",
+"Democratic"
+],
+[
+"Scott Alan Meyers",
+"Republican"
+]
+]
+},
+"2026-CA-H31":{
+"key":"us_house:31",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"31",
+"seat":null,
+"special":0,
+"names":[
+[
+"Eric Ching",
+"Republican"
+],
+[
+"Gil Cisneros",
+"Democratic"
+]
+]
+},
+"2026-CA-H32":{
+"key":"us_house:32",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"32",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brad Sherman",
+"Democratic"
+],
+[
+"Larry Thompson",
+"Republican"
+]
+]
+},
+"2026-CA-H33":{
+"key":"us_house:33",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"33",
+"seat":null,
+"special":0,
+"names":[
+[
+"Pete Aguilar",
+"Democratic"
+],
+[
+"Stephanie M. Vargas",
+"Republican"
+]
+]
+},
+"2026-CA-H34":{
+"key":"us_house:34",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"34",
+"seat":null,
+"special":0,
+"names":[
+[
+"Angela Gonzales-Torres",
+"Democratic"
+],
+[
+"Jimmy Gomez",
+"Democratic"
+]
+]
+},
+"2026-CA-H35":{
+"key":"us_house:35",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"35",
+"seat":null,
+"special":0,
+"names":[
+[
+"Mike Cargile",
+"Republican"
+],
+[
+"Norma J. Torres",
+"Democratic"
+]
+]
+},
+"2026-CA-H36":{
+"key":"us_house:36",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"36",
+"seat":null,
+"special":0,
+"names":[
+[
+"Houston Brignano",
+"Republican"
+],
+[
+"Ted W. Lieu",
+"Democratic"
+]
+]
+},
+"2026-CA-H37":{
+"key":"us_house:37",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"37",
+"seat":null,
+"special":0,
+"names":[
+[
+"Samantha Mota",
+"Democratic"
+],
+[
+"Sydney Kamlager-Dove",
+"Democratic"
+]
+]
+},
+"2026-CA-H38":{
+"key":"us_house:38",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"38",
+"seat":null,
+"special":0,
+"names":[
+[
+"Hilda Solis",
+"Democratic"
+],
+[
+"Pedro Antonio Casas",
+"Republican"
+]
+]
+},
+"2026-CA-H39":{
+"key":"us_house:39",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"39",
+"seat":null,
+"special":0,
+"names":[
+[
+"Mark Takano",
+"Democratic"
+],
+[
+"Steve Manos",
+"Republican"
+]
+]
+},
+"2026-CA-H40":{
+"key":"us_house:40",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"40",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ken Calvert",
+"Republican"
+],
+[
+"Young Kim",
+"Republican"
+]
+]
+},
+"2026-CA-H41":{
+"key":"us_house:41",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"41",
+"seat":null,
+"special":0,
+"names":[
+[
+"Linda Sánchez",
+"Democratic"
+],
+[
+"Mitch Clemmons",
+"Republican"
+]
+]
+},
+"2026-CA-H42":{
+"key":"us_house:42",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"42",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brian Burley",
+"Republican"
+],
+[
+"Robert Garcia",
+"Democratic"
+]
+]
+},
+"2026-CA-H43":{
+"key":"us_house:43",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"43",
+"seat":null,
+"special":0,
+"names":[
+[
+"Cristian Morales",
+"Republican"
+],
+[
+"Maxine Waters",
+"Democratic"
+]
+]
+},
+"2026-CA-H44":{
+"key":"us_house:44",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"44",
+"seat":null,
+"special":0,
+"names":[
+[
+"Genevieve Angel",
+"Republican"
+],
+[
+"Nanette Diaz Barragan",
+"Democratic"
+]
+]
+},
+"2026-CA-H45":{
+"key":"us_house:45",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"45",
+"seat":null,
+"special":0,
+"names":[
+[
+"Chuong V. Vo",
+"Republican"
+],
+[
+"Derek Tran",
+"Democratic"
+]
+]
+},
+"2026-CA-H46":{
+"key":"us_house:46",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"46",
+"seat":null,
+"special":0,
+"names":[
+[
+"David Pan",
+"Republican"
+],
+[
+"Lou Correa",
+"Democratic"
+]
+]
+},
+"2026-CA-H47":{
+"key":"us_house:47",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"47",
+"seat":null,
+"special":0,
+"names":[
+[
+"Dave Min",
+"Democratic"
+],
+[
+"Jenny Rae Le Roux",
+"Republican"
+]
+]
+},
+"2026-CA-H48":{
+"key":"us_house:48",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"48",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jim Desmond",
+"Republican"
+],
+[
+"Marni von Wilpert",
+"Democratic"
+]
+]
+},
+"2026-CA-H49":{
+"key":"us_house:49",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"49",
+"seat":null,
+"special":0,
+"names":[
+[
+"Armen Kurdian",
+"Republican"
+],
+[
+"Mike Levin",
+"Democratic"
+]
+]
+},
+"2026-CA-H50":{
+"key":"us_house:50",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"50",
+"seat":null,
+"special":0,
+"names":[
+[
+"Scott Peters",
+"Democratic"
+],
+[
+"Steve Cohen",
+"Republican"
+]
+]
+},
+"2026-CA-H51":{
+"key":"us_house:51",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"51",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ricardo Cabrera",
+"Republican"
+],
+[
+"Sara Jacobs",
+"Democratic"
+]
+]
+},
+"2026-CA-H52":{
+"key":"us_house:52",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"52",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jeff Belle",
+"Republican"
+],
+[
+"Juan Vargas",
+"Democratic"
+]
+]
+},
+"2026-CA-INS":{
+"key":"insurance_commissioner",
+"level":"statewide",
+"kind":"insurance_commissioner",
+"office":"Insurance Commissioner",
+"district":null,
+"seat":null,
+"special":0,
+"names":[
+[
+"Ben Allen",
+"Democratic"
+],
+[
+"Jane Kim",
+"Democratic"
+]
+]
+},
+"2026-CA-LTG":{
+"key":"lieutenant_governor",
+"level":"statewide",
+"kind":"lieutenant_governor",
+"office":"Lieutenant Governor",
+"district":null,
+"seat":null,
+"special":0,
+"names":[
+[
+"Fiona Ma",
+"Democratic"
+],
+[
+"Gloria Romero",
+"Republican"
+]
+]
+},
+"2026-CA-SH1":{
+"key":"state_house:1",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"1",
+"seat":null,
+"special":0,
+"names":[
+[
+"Dianna Margaret James",
+"Democratic"
+],
+[
+"Heather Hadwick",
+"Republican"
+]
+]
+},
+"2026-CA-SH10":{
+"key":"state_house:10",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"10",
+"seat":null,
+"special":0,
+"names":[
+[
+"Stephanie Nguyen",
+"Democratic"
+],
+[
+"Vinaya Singh",
+"Republican"
+]
+]
+},
+"2026-CA-SH11":{
+"key":"state_house:11",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"11",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jenny Leilani Callison",
+"No Party Preference"
+],
+[
+"Lori D Wilson",
+"Democratic"
+]
+]
+},
+"2026-CA-SH12":{
+"key":"state_house:12",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"12",
+"seat":null,
+"special":0,
+"names":[
+[
+"Eric Lucan",
+"Democratic"
+],
+[
+"Jackie Elward",
+"Democratic"
+]
+]
+},
+"2026-CA-SH13":{
+"key":"state_house:13",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"13",
+"seat":null,
+"special":0,
+"names":[
+[
+"Rhodesia Ransom",
+"Democratic"
+],
+[
+"Tom Patti",
+"Republican"
+]
+]
+},
+"2026-CA-SH14":{
+"key":"state_house:14",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"14",
+"seat":null,
+"special":0,
+"names":[
+[
+"Buffy Wicks",
+"Democratic"
+],
+[
+"Mark Rendon",
+"Green"
+]
+]
+},
+"2026-CA-SH15":{
+"key":"state_house:15",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"15",
+"seat":null,
+"special":0,
+"names":[
+[
+"Anamarie Avila Farias",
+"Democratic"
+],
+[
+"Arthur Webb",
+"No Party Preference"
+]
+]
+},
+"2026-CA-SH16":{
+"key":"state_house:16",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"16",
+"seat":null,
+"special":0,
+"names":[
+[
+"Joseph A. Rubay",
+"Republican"
+],
+[
+"Rebecca Bauer-Kahan",
+"Democratic"
+]
+]
+},
+"2026-CA-SH17":{
+"key":"state_house:17",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"17",
+"seat":null,
+"special":0,
+"names":[
+[
+"Manuel Noris-Barrera",
+"Republican"
+],
+[
+"Matt Haney",
+"Democratic"
+]
+]
+},
+"2026-CA-SH18":{
+"key":"state_house:18",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"18",
+"seat":null,
+"special":0,
+"names":[
+[
+"Andre Sandford",
+"Democratic"
+],
+[
+"Mia Bonta",
+"Democratic"
+]
+]
+},
+"2026-CA-SH19":{
+"key":"state_house:19",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"19",
+"seat":null,
+"special":0,
+"names":[
+[
+"Catherine Stefani",
+"Democratic"
+],
+[
+"Philip Louis Wing",
+"Republican"
+]
+]
+},
+"2026-CA-SH2":{
+"key":"state_house:2",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"2",
+"seat":null,
+"special":0,
+"names":[
+[
+"Chris Rogers",
+"Democratic"
+],
+[
+"Michael Greer",
+"Republican"
+]
+]
+},
+"2026-CA-SH20":{
+"key":"state_house:20",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"20",
+"seat":null,
+"special":0,
+"names":[
+[
+"Liz Ortega",
+"Democratic"
+],
+[
+"Patricia Muga",
+"Republican"
+]
+]
+},
+"2026-CA-SH21":{
+"key":"state_house:21",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"21",
+"seat":null,
+"special":0,
+"names":[
+[
+"Diane Papan",
+"Democratic"
+],
+[
+"Jabra J Muhawieh",
+"Republican"
+]
+]
+},
+"2026-CA-SH22":{
+"key":"state_house:22",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"22",
+"seat":null,
+"special":0,
+"names":[
+[
+"Juan Alanis",
+"Republican"
+]
+]
+},
+"2026-CA-SH23":{
+"key":"state_house:23",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"23",
+"seat":null,
+"special":0,
+"names":[
+[
+"David G. Johnson",
+"Republican"
+],
+[
+"Marc Berman",
+"Democratic"
+]
+]
+},
+"2026-CA-SH24":{
+"key":"state_house:24",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"24",
+"seat":null,
+"special":0,
+"names":[
+[
+"Alex Lee",
+"Democratic"
+],
+[
+"Max Hsia",
+"Republican"
+]
+]
+},
+"2026-CA-SH25":{
+"key":"state_house:25",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"25",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ash Kalra",
+"Democratic"
+],
+[
+"Himat Singh Bainiwal",
+"Republican"
+]
+]
+},
+"2026-CA-SH26":{
+"key":"state_house:26",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"26",
+"seat":null,
+"special":0,
+"names":[
+[
+"Patrick Ahrens",
+"Democratic"
+],
+[
+"Tim Gorsulowsky",
+"Republican"
+]
+]
+},
+"2026-CA-SH27":{
+"key":"state_house:27",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"27",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brian Pacheco",
+"Democratic"
+],
+[
+"Mike Murphy",
+"Republican"
+]
+]
+},
+"2026-CA-SH28":{
+"key":"state_house:28",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"28",
+"seat":null,
+"special":0,
+"names":[
+[
+"Carol Pefley",
+"Republican"
+],
+[
+"Gail Pellerin",
+"Democratic"
+]
+]
+},
+"2026-CA-SH29":{
+"key":"state_house:29",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"29",
+"seat":null,
+"special":0,
+"names":[
+[
+"Dennis P. Sanchez",
+"Republican"
+],
+[
+"Robert Rivas",
+"Democratic"
+]
+]
+},
+"2026-CA-SH3":{
+"key":"state_house:3",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"3",
+"seat":null,
+"special":0,
+"names":[
+[
+"Dom Belza",
+"Republican"
+],
+[
+"James \"Jamie\" Johansson",
+"Republican"
+]
+]
+},
+"2026-CA-SH30":{
+"key":"state_house:30",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"30",
+"seat":null,
+"special":0,
+"names":[
+[
+"Dawn Addis",
+"Democratic"
+],
+[
+"Shannon Kessler",
+"Republican"
+]
+]
+},
+"2026-CA-SH31":{
+"key":"state_house:31",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"31",
+"seat":null,
+"special":0,
+"names":[
+[
+"Annalisa Perea",
+"Democratic"
+],
+[
+"Jim Polsgrove",
+"Republican"
+]
+]
+},
+"2026-CA-SH32":{
+"key":"state_house:32",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"32",
+"seat":null,
+"special":0,
+"names":[
+[
+"David Couch",
+"Republican"
+]
+]
+},
+"2026-CA-SH33":{
+"key":"state_house:33",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"33",
+"seat":null,
+"special":0,
+"names":[
+[
+"Alexandra (Ali) Macedo",
+"Republican"
+],
+[
+"Hipolito Angel Cerros",
+"Democratic"
+]
+]
+},
+"2026-CA-SH34":{
+"key":"state_house:34",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"34",
+"seat":null,
+"special":0,
+"names":[
+[
+"Charles Frederick Hughes",
+"Republican"
+],
+[
+"Randall Putz",
+"Democratic"
+]
+]
+},
+"2026-CA-SH35":{
+"key":"state_house:35",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"35",
+"seat":null,
+"special":0,
+"names":[
+[
+"Andrae Gonzales",
+"Democratic"
+],
+[
+"Saul Ayon",
+"Republican"
+]
+]
+},
+"2026-CA-SH36":{
+"key":"state_house:36",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"36",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ida S. Obeso-Martinez",
+"Democratic"
+],
+[
+"Jeff Gonzalez",
+"Republican"
+]
+]
+},
+"2026-CA-SH37":{
+"key":"state_house:37",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"37",
+"seat":null,
+"special":0,
+"names":[
+[
+"Gregg Hart",
+"Democratic"
+],
+[
+"Sari Domingues",
+"Republican"
+]
+]
+},
+"2026-CA-SH38":{
+"key":"state_house:38",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"38",
+"seat":null,
+"special":0,
+"names":[
+[
+"Michael MacDonald",
+"Democratic"
+],
+[
+"Steve Bennett",
+"Democratic"
+]
+]
+},
+"2026-CA-SH39":{
+"key":"state_house:39",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"39",
+"seat":null,
+"special":0,
+"names":[
+[
+"Juan Carrillo",
+"Democratic"
+],
+[
+"Paul Andre Marsh",
+"Republican"
+]
+]
+},
+"2026-CA-SH4":{
+"key":"state_house:4",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"4",
+"seat":null,
+"special":0,
+"names":[
+[
+"Cecilia M. Aguiar-Curry",
+"Democratic"
+]
+]
+},
+"2026-CA-SH40":{
+"key":"state_house:40",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"40",
+"seat":null,
+"special":0,
+"names":[
+[
+"Pilar Schiavo",
+"Democratic"
+],
+[
+"Rickey Tracy Hayes II",
+"Republican"
+]
+]
+},
+"2026-CA-SH41":{
+"key":"state_house:41",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"41",
+"seat":null,
+"special":0,
+"names":[
+[
+"Adam Christopher Vena",
+"Republican"
+],
+[
+"John Harabedian",
+"Democratic"
+]
+]
+},
+"2026-CA-SH42":{
+"key":"state_house:42",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"42",
+"seat":null,
+"special":0,
+"names":[
+[
+"Deborah Klein Lopez",
+"Democratic"
+],
+[
+"Ted Nordblum",
+"Republican"
+]
+]
+},
+"2026-CA-SH43":{
+"key":"state_house:43",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"43",
+"seat":null,
+"special":0,
+"names":[
+[
+"Celeste Rodriguez",
+"Democratic"
+],
+[
+"Ricardo Benitez",
+"Republican"
+]
+]
+},
+"2026-CA-SH44":{
+"key":"state_house:44",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"44",
+"seat":null,
+"special":0,
+"names":[
+[
+"Carolyn Daniels",
+"Republican"
+],
+[
+"Nicholas \"Nick\" Schultz",
+"Democratic"
+]
+]
+},
+"2026-CA-SH45":{
+"key":"state_house:45",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"45",
+"seat":null,
+"special":0,
+"names":[
+[
+"Greg Abdouch",
+"Republican"
+],
+[
+"James C. Ramos",
+"Democratic"
+]
+]
+},
+"2026-CA-SH46":{
+"key":"state_house:46",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"46",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jesse Gabriel",
+"Democratic"
+],
+[
+"Tracey Schroeder",
+"Republican"
+]
+]
+},
+"2026-CA-SH47":{
+"key":"state_house:47",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"47",
+"seat":null,
+"special":0,
+"names":[
+[
+"Greg Wallis",
+"Republican"
+],
+[
+"Leila Namvar",
+"Democratic"
+]
+]
+},
+"2026-CA-SH48":{
+"key":"state_house:48",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"48",
+"seat":null,
+"special":0,
+"names":[
+[
+"Blanca Rubio",
+"Democratic"
+],
+[
+"Dan T. Tran",
+"Republican"
+]
+]
+},
+"2026-CA-SH49":{
+"key":"state_house:49",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"49",
+"seat":null,
+"special":0,
+"names":[
+[
+"Long David Liu",
+"Republican"
+],
+[
+"Mike Fong",
+"Democratic"
+]
+]
+},
+"2026-CA-SH5":{
+"key":"state_house:5",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"5",
+"seat":null,
+"special":0,
+"names":[
+[
+"Joe Patterson",
+"Republican"
+],
+[
+"Neva Parker",
+"Democratic"
+]
+]
+},
+"2026-CA-SH50":{
+"key":"state_house:50",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"50",
+"seat":null,
+"special":0,
+"names":[
+[
+"Robert Garcia",
+"Democratic"
+],
+[
+"Victoria Viveros Mageno",
+"Republican"
+]
+]
+},
+"2026-CA-SH51":{
+"key":"state_house:51",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"51",
+"seat":null,
+"special":0,
+"names":[
+[
+"Colin D. Hernandez",
+"Democratic"
+],
+[
+"Rick Chavez Zbur",
+"Democratic"
+]
+]
+},
+"2026-CA-SH52":{
+"key":"state_house:52",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"52",
+"seat":null,
+"special":0,
+"names":[
+[
+"Andrea Lee Anderson",
+"Republican"
+],
+[
+"Jessica Caloza",
+"Democratic"
+]
+]
+},
+"2026-CA-SH53":{
+"key":"state_house:53",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"53",
+"seat":null,
+"special":0,
+"names":[
+[
+"Michelle Rodriguez",
+"Democratic"
+],
+[
+"Rafaela Romero",
+"Republican"
+]
+]
+},
+"2026-CA-SH54":{
+"key":"state_house:54",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"54",
+"seat":null,
+"special":0,
+"names":[
+[
+"Alexandra Briseno",
+"Republican"
+],
+[
+"Mark Gonzalez",
+"Democratic"
+]
+]
+},
+"2026-CA-SH55":{
+"key":"state_house:55",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"55",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ashley M. Brown",
+"Democratic"
+],
+[
+"Isaac G. Bryan",
+"Democratic"
+]
+]
+},
+"2026-CA-SH56":{
+"key":"state_house:56",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"56",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jessica Martinez",
+"Republican"
+],
+[
+"Lisa Calderon",
+"Democratic"
+]
+]
+},
+"2026-CA-SH57":{
+"key":"state_house:57",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"57",
+"seat":null,
+"special":0,
+"names":[
+[
+"Constance Jewel Menzies",
+"Republican"
+],
+[
+"Sade Elhawary",
+"Democratic"
+]
+]
+},
+"2026-CA-SH58":{
+"key":"state_house:58",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"58",
+"seat":null,
+"special":0,
+"names":[
+[
+"Clarissa Cervantes",
+"Democratic"
+],
+[
+"Leticia Castillo",
+"Republican"
+]
+]
+},
+"2026-CA-SH59":{
+"key":"state_house:59",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"59",
+"seat":null,
+"special":0,
+"names":[
+[
+"Phillip Chen",
+"Republican"
+],
+[
+"Victor Hernandez",
+"Green"
+]
+]
+},
+"2026-CA-SH6":{
+"key":"state_house:6",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"6",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jagtar Singh",
+"Democratic"
+],
+[
+"Maggy Krell",
+"Democratic"
+]
+]
+},
+"2026-CA-SH60":{
+"key":"state_house:60",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"60",
+"seat":null,
+"special":0,
+"names":[
+[
+"Corey A Jackson",
+"Democratic"
+],
+[
+"Ed Delgado",
+"Republican"
+]
+]
+},
+"2026-CA-SH61":{
+"key":"state_house:61",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"61",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brian Lockwood",
+"Republican"
+],
+[
+"Tina Simone McKinnor",
+"Democratic"
+]
+]
+},
+"2026-CA-SH62":{
+"key":"state_house:62",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"62",
+"seat":null,
+"special":0,
+"names":[
+[
+"José Luis Solache",
+"Democratic"
+],
+[
+"Paul Irving Jones",
+"Republican"
+]
+]
+},
+"2026-CA-SH63":{
+"key":"state_house:63",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"63",
+"seat":null,
+"special":0,
+"names":[
+[
+"Kevin Akin",
+"Peace and Freedom"
+],
+[
+"Natasha Johnson",
+"Republican"
+]
+]
+},
+"2026-CA-SH64":{
+"key":"state_house:64",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"64",
+"seat":null,
+"special":0,
+"names":[
+[
+"Blanca Pacheco",
+"Democratic"
+],
+[
+"Raul Ortiz Jr.",
+"Republican"
+]
+]
+},
+"2026-CA-SH65":{
+"key":"state_house:65",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"65",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ayanna Davis",
+"Democratic"
+],
+[
+"Lydia A. Gutiérrez",
+"Republican"
+]
+]
+},
+"2026-CA-SH66":{
+"key":"state_house:66",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"66",
+"seat":null,
+"special":0,
+"names":[
+[
+"Paul Seo",
+"Democratic"
+],
+[
+"Sara Deen",
+"Democratic"
+]
+]
+},
+"2026-CA-SH67":{
+"key":"state_house:67",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"67",
+"seat":null,
+"special":0,
+"names":[
+[
+"Mark Pulido",
+"Democratic"
+],
+[
+"Paulo Morales",
+"Republican"
+]
+]
+},
+"2026-CA-SH68":{
+"key":"state_house:68",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"68",
+"seat":null,
+"special":0,
+"names":[
+[
+"David Penaloza",
+"Democratic"
+],
+[
+"Jessie Lopez",
+"Democratic"
+]
+]
+},
+"2026-CA-SH69":{
+"key":"state_house:69",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"69",
+"seat":null,
+"special":0,
+"names":[
+[
+"Carolyn J. Essex",
+"Democratic"
+],
+[
+"Josh Lowenthal",
+"Democratic"
+]
+]
+},
+"2026-CA-SH7":{
+"key":"state_house:7",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"7",
+"seat":null,
+"special":0,
+"names":[
+[
+"Amy L. Slavensky",
+"Democratic"
+],
+[
+"Josh Hoover",
+"Republican"
+]
+]
+},
+"2026-CA-SH70":{
+"key":"state_house:70",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"70",
+"seat":null,
+"special":0,
+"names":[
+[
+"Paula Swift",
+"Democratic"
+],
+[
+"Tri Ta",
+"Republican"
+]
+]
+},
+"2026-CA-SH71":{
+"key":"state_house:71",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"71",
+"seat":null,
+"special":0,
+"names":[
+[
+"JJ Galvez",
+"Democratic"
+],
+[
+"Kate Sanchez",
+"Republican"
+]
+]
+},
+"2026-CA-SH72":{
+"key":"state_house:72",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"72",
+"seat":null,
+"special":0,
+"names":[
+[
+"Chris Kluwe",
+"Democratic"
+],
+[
+"Gracey Van Der Mark",
+"Republican"
+]
+]
+},
+"2026-CA-SH73":{
+"key":"state_house:73",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"73",
+"seat":null,
+"special":0,
+"names":[
+[
+"Cottie Petrie-Norris",
+"Democratic"
+],
+[
+"Urson Russell",
+"Republican"
+]
+]
+},
+"2026-CA-SH74":{
+"key":"state_house:74",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"74",
+"seat":null,
+"special":0,
+"names":[
+[
+"Laurie Davies",
+"Republican"
+],
+[
+"Sergio Farias",
+"Democratic"
+]
+]
+},
+"2026-CA-SH75":{
+"key":"state_house:75",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"75",
+"seat":null,
+"special":0,
+"names":[
+[
+"Carl DeMaio",
+"Republican"
+],
+[
+"Gerald C. Boursiquot",
+"Democratic"
+]
+]
+},
+"2026-CA-SH76":{
+"key":"state_house:76",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"76",
+"seat":null,
+"special":0,
+"names":[
+[
+"Carrie S. Espinoza Villanueva",
+"Republican"
+],
+[
+"Darshana Patel",
+"Democratic"
+]
+]
+},
+"2026-CA-SH77":{
+"key":"state_house:77",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"77",
+"seat":null,
+"special":0,
+"names":[
+[
+"Tasha Boerner",
+"Democratic"
+],
+[
+"Trinity Hannaway",
+"Republican"
+]
+]
+},
+"2026-CA-SH78":{
+"key":"state_house:78",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"78",
+"seat":null,
+"special":0,
+"names":[
+[
+"Chris Ward",
+"Democratic"
+],
+[
+"Payton Galvez",
+"Republican"
+]
+]
+},
+"2026-CA-SH79":{
+"key":"state_house:79",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"79",
+"seat":null,
+"special":0,
+"names":[
+[
+"Andrew Lawson",
+"Republican"
+],
+[
+"LaShae Sharp-Collins",
+"Democratic"
+]
+]
+},
+"2026-CA-SH8":{
+"key":"state_house:8",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"8",
+"seat":null,
+"special":0,
+"names":[
+[
+"David Jariustokaeutulelei Tangipa",
+"Republican"
+]
+]
+},
+"2026-CA-SH80":{
+"key":"state_house:80",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"80",
+"seat":null,
+"special":0,
+"names":[
+[
+"Alejandro Galicia",
+"Republican"
+],
+[
+"David A. Alvarez",
+"Democratic"
+]
+]
+},
+"2026-CA-SH9":{
+"key":"state_house:9",
+"level":"legislature",
+"kind":"state_house",
+"office":"Member of the State Assembly",
+"district":"9",
+"seat":null,
+"special":0,
+"names":[
+[
+"Heath Flora",
+"Republican"
+],
+[
+"Matthew Adams",
+"Democratic"
+]
+]
+},
+"2026-CA-SOS":{
+"key":"secretary_of_state",
+"level":"statewide",
+"kind":"secretary_of_state",
+"office":"Secretary of State",
+"district":null,
+"seat":null,
+"special":0,
+"names":[
+[
+"Donald P. (Don) Wagner",
+"Republican"
+],
+[
+"Shirley N. Weber",
+"Democratic"
+]
+]
+},
+"2026-CA-SPI":{
+"key":"superintendent_of_public_instruction",
+"level":"statewide",
+"kind":"superintendent_of_public_instruction",
+"office":"Superintendent of Public Instruction",
+"district":null,
+"seat":null,
+"special":0,
+"names":[
+[
+"Richard Barrera",
+"Nonpartisan office"
+],
+[
+"Sonja Shaw",
+"Nonpartisan office"
+]
+]
+},
+"2026-CA-SS10":{
+"key":"state_senate:10",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"10",
+"seat":null,
+"special":0,
+"names":[
+[
+"Linda R. Price",
+"Republican"
+],
+[
+"Scott Sakakihara",
+"Democratic"
+]
+]
+},
+"2026-CA-SS12":{
+"key":"state_senate:12",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"12",
+"seat":null,
+"special":0,
+"names":[
+[
+"Nathan Magsig",
+"Republican"
+],
+[
+"William Brown Jr.",
+"Libertarian"
+]
+]
+},
+"2026-CA-SS14":{
+"key":"state_senate:14",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"14",
+"seat":null,
+"special":0,
+"names":[
+[
+"Darin S. DuPont",
+"Republican"
+],
+[
+"Esmeralda Soria",
+"Democratic"
+]
+]
+},
+"2026-CA-SS16":{
+"key":"state_senate:16",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"16",
+"seat":null,
+"special":0,
+"names":[
+[
+"Guillermo Asuncion Gonzalez",
+"Republican"
+],
+[
+"Melissa Hurtado",
+"Democratic"
+]
+]
+},
+"2026-CA-SS18":{
+"key":"state_senate:18",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"18",
+"seat":null,
+"special":0,
+"names":[
+[
+"Art Hodges",
+"Republican"
+],
+[
+"Steve Padilla",
+"Democratic"
+]
+]
+},
+"2026-CA-SS2":{
+"key":"state_senate:2",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"2",
+"seat":null,
+"special":0,
+"names":[
+[
+"Damon Connolly",
+"Democratic"
+],
+[
+"Tief Gibbs",
+"Republican"
+]
+]
+},
+"2026-CA-SS20":{
+"key":"state_senate:20",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"20",
+"seat":null,
+"special":0,
+"names":[
+[
+"Caroline Menjivar",
+"Democratic"
+],
+[
+"Tony Rodriguez",
+"Republican"
+]
+]
+},
+"2026-CA-SS22":{
+"key":"state_senate:22",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"22",
+"seat":null,
+"special":0,
+"names":[
+[
+"Mike Netter",
+"Republican"
+],
+[
+"Susan Rubio",
+"Democratic"
+]
+]
+},
+"2026-CA-SS24":{
+"key":"state_senate:24",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"24",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brian Goldsmith",
+"Democratic"
+],
+[
+"John M. Erickson",
+"Democratic"
+]
+]
+},
+"2026-CA-SS26":{
+"key":"state_senate:26",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"26",
+"seat":null,
+"special":0,
+"names":[
+[
+"Sara Hernandez",
+"Democratic"
+],
+[
+"Sarah Rascón",
+"Democratic"
+]
+]
+},
+"2026-CA-SS28":{
+"key":"state_senate:28",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"28",
+"seat":null,
+"special":0,
+"names":[
+[
+"Joe Lisuzzo",
+"Republican"
+],
+[
+"Lola Smallwood-Cuevas",
+"Democratic"
+]
+]
+},
+"2026-CA-SS30":{
+"key":"state_senate:30",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"30",
+"seat":null,
+"special":0,
+"names":[
+[
+"Araceli Martinez",
+"Republican"
+],
+[
+"Bob J. Archuleta",
+"Democratic"
+]
+]
+},
+"2026-CA-SS32":{
+"key":"state_senate:32",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"32",
+"seat":null,
+"special":0,
+"names":[
+[
+"Kelly Seyarto",
+"Republican"
+],
+[
+"Tiffanie Tate",
+"Democratic"
+]
+]
+},
+"2026-CA-SS34":{
+"key":"state_senate:34",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"34",
+"seat":null,
+"special":0,
+"names":[
+[
+"Avelino Valencia",
+"Democratic"
+],
+[
+"Rhonda Shader",
+"Republican"
+]
+]
+},
+"2026-CA-SS36":{
+"key":"state_senate:36",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"36",
+"seat":null,
+"special":0,
+"names":[
+[
+"Chris Duncan",
+"Democratic"
+],
+[
+"Tony Strickland",
+"Republican"
+]
+]
+},
+"2026-CA-SS38":{
+"key":"state_senate:38",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"38",
+"seat":null,
+"special":0,
+"names":[
+[
+"Catherine S. Blakespear",
+"Democratic"
+],
+[
+"Laura Bassett",
+"Republican"
+]
+]
+},
+"2026-CA-SS4":{
+"key":"state_senate:4",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"4",
+"seat":null,
+"special":0,
+"names":[
+[
+"Alexandra Duarte",
+"Republican"
+],
+[
+"Jaron Brandon",
+"Democratic"
+]
+]
+},
+"2026-CA-SS40":{
+"key":"state_senate:40",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"40",
+"seat":null,
+"special":0,
+"names":[
+[
+"Kristie Bruce-Lane",
+"Republican"
+],
+[
+"Mara Elliott",
+"Democratic"
+]
+]
+},
+"2026-CA-SS6":{
+"key":"state_senate:6",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"6",
+"seat":null,
+"special":0,
+"names":[
+[
+"Roger Niello",
+"Republican"
+],
+[
+"Sean Frame",
+"Democratic"
+]
+]
+},
+"2026-CA-SS8":{
+"key":"state_senate:8",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"8",
+"seat":null,
+"special":0,
+"names":[
+[
+"Angelique Ashby",
+"Democratic"
+],
+[
+"Susan A Mason",
+"Republican"
+]
+]
+},
+"2026-CA-TREAS":{
+"key":"state_treasurer",
+"level":"statewide",
+"kind":"state_treasurer",
+"office":"Treasurer",
+"district":null,
+"seat":null,
+"special":0,
+"names":[
+[
+"Eleni Kounalakis",
+"Democratic"
+],
+[
+"Jennifer Hawks",
+"Republican"
+]
+]
+}
+},
+"keys":{
+"attorney_general":"2026-CA-AG",
+"board_of_equalization:1":"2026-CA-BOE1",
+"board_of_equalization:2":"2026-CA-BOE2",
+"board_of_equalization:3":"2026-CA-BOE3",
+"board_of_equalization:4":"2026-CA-BOE4",
+"governor":"2026-CA-GOV",
+"insurance_commissioner":"2026-CA-INS",
+"lieutenant_governor":"2026-CA-LTG",
+"secretary_of_state":"2026-CA-SOS",
+"state_controller":"2026-CA-CTRL",
+"state_house:1":"2026-CA-SH1",
+"state_house:10":"2026-CA-SH10",
+"state_house:11":"2026-CA-SH11",
+"state_house:12":"2026-CA-SH12",
+"state_house:13":"2026-CA-SH13",
+"state_house:14":"2026-CA-SH14",
+"state_house:15":"2026-CA-SH15",
+"state_house:16":"2026-CA-SH16",
+"state_house:17":"2026-CA-SH17",
+"state_house:18":"2026-CA-SH18",
+"state_house:19":"2026-CA-SH19",
+"state_house:2":"2026-CA-SH2",
+"state_house:20":"2026-CA-SH20",
+"state_house:21":"2026-CA-SH21",
+"state_house:22":"2026-CA-SH22",
+"state_house:23":"2026-CA-SH23",
+"state_house:24":"2026-CA-SH24",
+"state_house:25":"2026-CA-SH25",
+"state_house:26":"2026-CA-SH26",
+"state_house:27":"2026-CA-SH27",
+"state_house:28":"2026-CA-SH28",
+"state_house:29":"2026-CA-SH29",
+"state_house:3":"2026-CA-SH3",
+"state_house:30":"2026-CA-SH30",
+"state_house:31":"2026-CA-SH31",
+"state_house:32":"2026-CA-SH32",
+"state_house:33":"2026-CA-SH33",
+"state_house:34":"2026-CA-SH34",
+"state_house:35":"2026-CA-SH35",
+"state_house:36":"2026-CA-SH36",
+"state_house:37":"2026-CA-SH37",
+"state_house:38":"2026-CA-SH38",
+"state_house:39":"2026-CA-SH39",
+"state_house:4":"2026-CA-SH4",
+"state_house:40":"2026-CA-SH40",
+"state_house:41":"2026-CA-SH41",
+"state_house:42":"2026-CA-SH42",
+"state_house:43":"2026-CA-SH43",
+"state_house:44":"2026-CA-SH44",
+"state_house:45":"2026-CA-SH45",
+"state_house:46":"2026-CA-SH46",
+"state_house:47":"2026-CA-SH47",
+"state_house:48":"2026-CA-SH48",
+"state_house:49":"2026-CA-SH49",
+"state_house:5":"2026-CA-SH5",
+"state_house:50":"2026-CA-SH50",
+"state_house:51":"2026-CA-SH51",
+"state_house:52":"2026-CA-SH52",
+"state_house:53":"2026-CA-SH53",
+"state_house:54":"2026-CA-SH54",
+"state_house:55":"2026-CA-SH55",
+"state_house:56":"2026-CA-SH56",
+"state_house:57":"2026-CA-SH57",
+"state_house:58":"2026-CA-SH58",
+"state_house:59":"2026-CA-SH59",
+"state_house:6":"2026-CA-SH6",
+"state_house:60":"2026-CA-SH60",
+"state_house:61":"2026-CA-SH61",
+"state_house:62":"2026-CA-SH62",
+"state_house:63":"2026-CA-SH63",
+"state_house:64":"2026-CA-SH64",
+"state_house:65":"2026-CA-SH65",
+"state_house:66":"2026-CA-SH66",
+"state_house:67":"2026-CA-SH67",
+"state_house:68":"2026-CA-SH68",
+"state_house:69":"2026-CA-SH69",
+"state_house:7":"2026-CA-SH7",
+"state_house:70":"2026-CA-SH70",
+"state_house:71":"2026-CA-SH71",
+"state_house:72":"2026-CA-SH72",
+"state_house:73":"2026-CA-SH73",
+"state_house:74":"2026-CA-SH74",
+"state_house:75":"2026-CA-SH75",
+"state_house:76":"2026-CA-SH76",
+"state_house:77":"2026-CA-SH77",
+"state_house:78":"2026-CA-SH78",
+"state_house:79":"2026-CA-SH79",
+"state_house:8":"2026-CA-SH8",
+"state_house:80":"2026-CA-SH80",
+"state_house:9":"2026-CA-SH9",
+"state_senate:10":"2026-CA-SS10",
+"state_senate:12":"2026-CA-SS12",
+"state_senate:14":"2026-CA-SS14",
+"state_senate:16":"2026-CA-SS16",
+"state_senate:18":"2026-CA-SS18",
+"state_senate:2":"2026-CA-SS2",
+"state_senate:20":"2026-CA-SS20",
+"state_senate:22":"2026-CA-SS22",
+"state_senate:24":"2026-CA-SS24",
+"state_senate:26":"2026-CA-SS26",
+"state_senate:28":"2026-CA-SS28",
+"state_senate:30":"2026-CA-SS30",
+"state_senate:32":"2026-CA-SS32",
+"state_senate:34":"2026-CA-SS34",
+"state_senate:36":"2026-CA-SS36",
+"state_senate:38":"2026-CA-SS38",
+"state_senate:4":"2026-CA-SS4",
+"state_senate:40":"2026-CA-SS40",
+"state_senate:6":"2026-CA-SS6",
+"state_senate:8":"2026-CA-SS8",
+"state_treasurer":"2026-CA-TREAS",
+"superintendent_of_public_instruction":"2026-CA-SPI",
+"us_house:1":"2026-CA-H01",
+"us_house:10":"2026-CA-H10",
+"us_house:11":"2026-CA-H11",
+"us_house:12":"2026-CA-H12",
+"us_house:13":"2026-CA-H13",
+"us_house:14":"2026-CA-H14",
+"us_house:15":"2026-CA-H15",
+"us_house:16":"2026-CA-H16",
+"us_house:17":"2026-CA-H17",
+"us_house:18":"2026-CA-H18",
+"us_house:19":"2026-CA-H19",
+"us_house:2":"2026-CA-H02",
+"us_house:20":"2026-CA-H20",
+"us_house:21":"2026-CA-H21",
+"us_house:22":"2026-CA-H22",
+"us_house:23":"2026-CA-H23",
+"us_house:24":"2026-CA-H24",
+"us_house:25":"2026-CA-H25",
+"us_house:26":"2026-CA-H26",
+"us_house:27":"2026-CA-H27",
+"us_house:28":"2026-CA-H28",
+"us_house:29":"2026-CA-H29",
+"us_house:3":"2026-CA-H03",
+"us_house:30":"2026-CA-H30",
+"us_house:31":"2026-CA-H31",
+"us_house:32":"2026-CA-H32",
+"us_house:33":"2026-CA-H33",
+"us_house:34":"2026-CA-H34",
+"us_house:35":"2026-CA-H35",
+"us_house:36":"2026-CA-H36",
+"us_house:37":"2026-CA-H37",
+"us_house:38":"2026-CA-H38",
+"us_house:39":"2026-CA-H39",
+"us_house:4":"2026-CA-H04",
+"us_house:40":"2026-CA-H40",
+"us_house:41":"2026-CA-H41",
+"us_house:42":"2026-CA-H42",
+"us_house:43":"2026-CA-H43",
+"us_house:44":"2026-CA-H44",
+"us_house:45":"2026-CA-H45",
+"us_house:46":"2026-CA-H46",
+"us_house:47":"2026-CA-H47",
+"us_house:48":"2026-CA-H48",
+"us_house:49":"2026-CA-H49",
+"us_house:5":"2026-CA-H05",
+"us_house:50":"2026-CA-H50",
+"us_house:51":"2026-CA-H51",
+"us_house:52":"2026-CA-H52",
+"us_house:6":"2026-CA-H06",
+"us_house:7":"2026-CA-H07",
+"us_house:8":"2026-CA-H08",
+"us_house:9":"2026-CA-H09"
+},
+"keys_shared":[],
+"posted":{
+"us-rep|U.S. House of Representatives District 1":{
+"race":"2026-CA-H01",
+"title":"U.S. House of Representatives District 1",
+"names":{
+"Mike McGuire":"Mike McGuire",
+"James Gallagher":"James Gallagher"
+}
+},
+"us-rep|U.S. House of Representatives District 2":{
+"race":"2026-CA-H02",
+"title":"U.S. House of Representatives District 2",
+"names":{
+"Jared Huffman":"Jared Huffman",
+"Robin Littau":"Robin Littau"
+}
+},
+"us-rep|U.S. House of Representatives District 3":{
+"race":"2026-CA-H03",
+"title":"U.S. House of Representatives District 3",
+"names":{
+"Ami Bera":"Ami Bera",
+"Robb Tucker":"Robb Tucker"
+}
+},
+"us-rep|U.S. House of Representatives District 4":{
+"race":"2026-CA-H04",
+"title":"U.S. House of Representatives District 4",
+"names":{
+"Eric Jones":"Eric Jones",
+"Mike Thompson":"Mike Thompson"
+}
+},
+"us-rep|U.S. House of Representatives District 5":{
+"race":"2026-CA-H05",
+"title":"U.S. House of Representatives District 5",
+"names":{
+"Michael Masuda":"Michael Masuda",
+"Tom McClintock":"Tom McClintock"
+}
+},
+"us-rep|U.S. House of Representatives District 6":{
+"race":"2026-CA-H06",
+"title":"U.S. House of Representatives District 6",
+"names":{
+"Richard Pan":"Richard Pan",
+"Kevin Kiley":"Kevin Kiley"
+}
+},
+"us-rep|U.S. House of Representatives District 7":{
+"race":"2026-CA-H07",
+"title":"U.S. House of Representatives District 7",
+"names":{
+"Doris Matsui":"Doris Matsui",
+"Mai Vang":"Mai Vang"
+}
+},
+"us-rep|U.S. House of Representatives District 8":{
+"race":"2026-CA-H08",
+"title":"U.S. House of Representatives District 8",
+"names":{
+"John Garamendi":"John Garamendi",
+"Rudy Recile":"Rudy Recile"
+}
+},
+"us-rep|U.S. House of Representatives District 9":{
+"race":"2026-CA-H09",
+"title":"U.S. House of Representatives District 9",
+"names":{
+"Josh Harder":"Josh Harder",
+"John McBride":"John McBride"
+}
+},
+"us-rep|U.S. House of Representatives District 10":{
+"race":"2026-CA-H10",
+"title":"U.S. House of Representatives District 10",
+"names":{
+"Mark DeSaulnier":"Mark DeSaulnier",
+"Jeff Frese":"Jeff Frese"
+}
+},
+"us-rep|U.S. House of Representatives District 11":{
+"race":"2026-CA-H11",
+"title":"U.S. House of Representatives District 11",
+"names":{
+"Connie Chan":"Connie Chan",
+"Scott Wiener":"Scott Wiener"
+}
+},
+"us-rep|U.S. House of Representatives District 12":{
+"race":"2026-CA-H12",
+"title":"U.S. House of Representatives District 12",
+"names":{
+"Jamie Joyce":"Jamie Joyce",
+"Lateefah Simon":"Lateefah Simon"
+}
+},
+"us-rep|U.S. House of Representatives District 13":{
+"race":"2026-CA-H13",
+"title":"U.S. House of Representatives District 13",
+"names":{
+"Adam Gray":"Adam Gray",
+"Kevin Lincoln":"Kevin Lincoln"
+}
+},
+"us-rep|U.S. House of Representatives District 14":{
+"race":"2026-CA-H14",
+"title":"U.S. House of Representatives District 14",
+"names":{
+"Melissa Hernandez":"Melissa Hernandez",
+"Aisha Wahab":"Aisha Wahab"
+}
+},
+"us-rep|U.S. House of Representatives District 15":{
+"race":"2026-CA-H15",
+"title":"U.S. House of Representatives District 15",
+"names":{
+"Kevin Mullin":"Kevin Mullin",
+"Charles Hoelter":"Charles Hoelter"
+}
+},
+"us-rep|U.S. House of Representatives District 16":{
+"race":"2026-CA-H16",
+"title":"U.S. House of Representatives District 16",
+"names":{
+"Sam Liccardo":"Sam Liccardo",
+"Peter Sundin Soulé":"Peter Sundin Soulé"
+}
+},
+"us-rep|U.S. House of Representatives District 17":{
+"race":"2026-CA-H17",
+"title":"U.S. House of Representatives District 17",
+"names":{
+"Ro Khanna":"Ro Khanna",
+"Ritesh Tandon":"Ritesh Tandon"
+}
+},
+"us-rep|U.S. House of Representatives District 18":{
+"race":"2026-CA-H18",
+"title":"U.S. House of Representatives District 18",
+"names":{
+"Zoe Lofgren":"Zoe Lofgren",
+"Shane Lewis":"Shane Lewis"
+}
+},
+"us-rep|U.S. House of Representatives District 19":{
+"race":"2026-CA-H19",
+"title":"U.S. House of Representatives District 19",
+"names":{
+"Jimmy Panetta":"Jimmy Panetta",
+"Peter Coe Verbica":"Peter Coe Verbica"
+}
+},
+"us-rep|U.S. House of Representatives District 20":{
+"race":"2026-CA-H20",
+"title":"U.S. House of Representatives District 20",
+"names":{
+"Sandra Van Scotter":"Sandra Van Scotter",
+"Vince Fong":"Vince Fong"
+}
+},
+"us-rep|U.S. House of Representatives District 21":{
+"race":"2026-CA-H21",
+"title":"U.S. House of Representatives District 21",
+"names":{
+"Jim Costa":"Jim Costa",
+"Kyle Kirkland":"Kyle Kirkland"
+}
+},
+"us-rep|U.S. House of Representatives District 22":{
+"race":"2026-CA-H22",
+"title":"U.S. House of Representatives District 22",
+"names":{
+"Randy Villegas":"Randy Villegas",
+"David G. Valadao":"David G. Valadao"
+}
+},
+"us-rep|U.S. House of Representatives District 23":{
+"race":"2026-CA-H23",
+"title":"U.S. House of Representatives District 23",
+"names":{
+"Tessa Lynn Hodge":"Tessa Lynn Hodge",
+"Jay Obernolte":"Jay Obernolte"
+}
+},
+"us-rep|U.S. House of Representatives District 24":{
+"race":"2026-CA-H24",
+"title":"U.S. House of Representatives District 24",
+"names":{
+"Salud Carbajal":"Salud Carbajal",
+"Bob Smith":"Bob Smith"
+}
+},
+"us-rep|U.S. House of Representatives District 25":{
+"race":"2026-CA-H25",
+"title":"U.S. House of Representatives District 25",
+"names":{
+"Raul Ruiz":"Raul Ruiz",
+"Joe Males":"Joe Males"
+}
+},
+"us-rep|U.S. House of Representatives District 26":{
+"race":"2026-CA-H26",
+"title":"U.S. House of Representatives District 26",
+"names":{
+"Jacqui Irwin":"Jacqui Irwin",
+"Sam Gallucci":"Sam Gallucci"
+}
+},
+"us-rep|U.S. House of Representatives District 27":{
+"race":"2026-CA-H27",
+"title":"U.S. House of Representatives District 27",
+"names":{
+"George Whitesides":"George Whitesides",
+"Jason Gibbs":"Jason Gibbs"
+}
+},
+"us-rep|U.S. House of Representatives District 28":{
+"race":"2026-CA-H28",
+"title":"U.S. House of Representatives District 28",
+"names":{
+"Judy Chu":"Judy Chu",
+"April A. Verlato":"April A. Verlato"
+}
+},
+"us-rep|U.S. House of Representatives District 29":{
+"race":"2026-CA-H29",
+"title":"U.S. House of Representatives District 29",
+"names":{
+"Angélica María Dueñas":"Angélica María Dueñas",
+"Luz Maria Rivas":"Luz Maria Rivas"
+}
+},
+"us-rep|U.S. House of Representatives District 30":{
+"race":"2026-CA-H30",
+"title":"U.S. House of Representatives District 30",
+"names":{
+"Laura Friedman":"Laura Friedman",
+"Scott Alan Meyers":"Scott Alan Meyers"
+}
+},
+"us-rep|U.S. House of Representatives District 31":{
+"race":"2026-CA-H31",
+"title":"U.S. House of Representatives District 31",
+"names":{
+"Gil Cisneros":"Gil Cisneros",
+"Eric Ching":"Eric Ching"
+}
+},
+"us-rep|U.S. House of Representatives District 32":{
+"race":"2026-CA-H32",
+"title":"U.S. House of Representatives District 32",
+"names":{
+"Brad Sherman":"Brad Sherman",
+"Larry Thompson":"Larry Thompson"
+}
+},
+"us-rep|U.S. House of Representatives District 33":{
+"race":"2026-CA-H33",
+"title":"U.S. House of Representatives District 33",
+"names":{
+"Pete Aguilar":"Pete Aguilar",
+"Stephanie M. Vargas":"Stephanie M. Vargas"
+}
+},
+"us-rep|U.S. House of Representatives District 34":{
+"race":"2026-CA-H34",
+"title":"U.S. House of Representatives District 34",
+"names":{
+"Jimmy Gomez":"Jimmy Gomez",
+"Angela Gonzales-Torres":"Angela Gonzales-Torres"
+}
+},
+"us-rep|U.S. House of Representatives District 35":{
+"race":"2026-CA-H35",
+"title":"U.S. House of Representatives District 35",
+"names":{
+"Norma J. Torres":"Norma J. Torres",
+"Mike Cargile":"Mike Cargile"
+}
+},
+"us-rep|U.S. House of Representatives District 36":{
+"race":"2026-CA-H36",
+"title":"U.S. House of Representatives District 36",
+"names":{
+"Ted W. Lieu":"Ted W. Lieu",
+"Houston Brignano":"Houston Brignano"
+}
+},
+"us-rep|U.S. House of Representatives District 37":{
+"race":"2026-CA-H37",
+"title":"U.S. House of Representatives District 37",
+"names":{
+"Sydney Kamlager-Dove":"Sydney Kamlager-Dove",
+"Samantha Mota":"Samantha Mota"
+}
+},
+"us-rep|U.S. House of Representatives District 38":{
+"race":"2026-CA-H38",
+"title":"U.S. House of Representatives District 38",
+"names":{
+"Hilda Solis":"Hilda Solis",
+"Pedro Antonio Casas":"Pedro Antonio Casas"
+}
+},
+"us-rep|U.S. House of Representatives District 39":{
+"race":"2026-CA-H39",
+"title":"U.S. House of Representatives District 39",
+"names":{
+"Mark Takano":"Mark Takano",
+"Steve Manos":"Steve Manos"
+}
+},
+"us-rep|U.S. House of Representatives District 40":{
+"race":"2026-CA-H40",
+"title":"U.S. House of Representatives District 40",
+"names":{
+"Ken Calvert":"Ken Calvert",
+"Young Kim":"Young Kim"
+}
+},
+"us-rep|U.S. House of Representatives District 41":{
+"race":"2026-CA-H41",
+"title":"U.S. House of Representatives District 41",
+"names":{
+"Linda Sánchez":"Linda Sánchez",
+"Mitch Clemmons":"Mitch Clemmons"
+}
+},
+"us-rep|U.S. House of Representatives District 42":{
+"race":"2026-CA-H42",
+"title":"U.S. House of Representatives District 42",
+"names":{
+"Robert Garcia":"Robert Garcia",
+"Brian Burley":"Brian Burley"
+}
+},
+"us-rep|U.S. House of Representatives District 43":{
+"race":"2026-CA-H43",
+"title":"U.S. House of Representatives District 43",
+"names":{
+"Maxine Waters":"Maxine Waters",
+"Cristian Morales":"Cristian Morales"
+}
+},
+"us-rep|U.S. House of Representatives District 44":{
+"race":"2026-CA-H44",
+"title":"U.S. House of Representatives District 44",
+"names":{
+"Nanette Diaz Barragan":"Nanette Diaz Barragan",
+"Genevieve Angel":"Genevieve Angel"
+}
+},
+"us-rep|U.S. House of Representatives District 45":{
+"race":"2026-CA-H45",
+"title":"U.S. House of Representatives District 45",
+"names":{
+"Derek Tran":"Derek Tran",
+"Chuong V. Vo":"Chuong V. Vo"
+}
+},
+"us-rep|U.S. House of Representatives District 46":{
+"race":"2026-CA-H46",
+"title":"U.S. House of Representatives District 46",
+"names":{
+"Lou Correa":"Lou Correa",
+"David Pan":"David Pan"
+}
+},
+"us-rep|U.S. House of Representatives District 47":{
+"race":"2026-CA-H47",
+"title":"U.S. House of Representatives District 47",
+"names":{
+"Dave Min":"Dave Min",
+"Jenny Rae Le Roux":"Jenny Rae Le Roux"
+}
+},
+"us-rep|U.S. House of Representatives District 48":{
+"race":"2026-CA-H48",
+"title":"U.S. House of Representatives District 48",
+"names":{
+"Marni von Wilpert":"Marni von Wilpert",
+"Jim Desmond":"Jim Desmond"
+}
+},
+"us-rep|U.S. House of Representatives District 49":{
+"race":"2026-CA-H49",
+"title":"U.S. House of Representatives District 49",
+"names":{
+"Mike Levin":"Mike Levin",
+"Armen Kurdian":"Armen Kurdian"
+}
+},
+"us-rep|U.S. House of Representatives District 50":{
+"race":"2026-CA-H50",
+"title":"U.S. House of Representatives District 50",
+"names":{
+"Scott Peters":"Scott Peters",
+"Steve Cohen":"Steve Cohen"
+}
+},
+"us-rep|U.S. House of Representatives District 51":{
+"race":"2026-CA-H51",
+"title":"U.S. House of Representatives District 51",
+"names":{
+"Sara Jacobs":"Sara Jacobs",
+"Ricardo Cabrera":"Ricardo Cabrera"
+}
+},
+"us-rep|U.S. House of Representatives District 52":{
+"race":"2026-CA-H52",
+"title":"U.S. House of Representatives District 52",
+"names":{
+"Juan Vargas":"Juan Vargas",
+"Jeff Belle":"Jeff Belle"
+}
+},
+"state-senate|State Senate District 2":{
+"race":"2026-CA-SS2",
+"title":"State Senate District 2",
+"names":{
+"Damon Connolly":"Damon Connolly",
+"Tief Gibbs":"Tief Gibbs"
+}
+},
+"state-senate|State Senate District 4":{
+"race":"2026-CA-SS4",
+"title":"State Senate District 4",
+"names":{
+"Jaron Brandon":"Jaron Brandon",
+"Alexandra Duarte":"Alexandra Duarte"
+}
+},
+"state-senate|State Senate District 6":{
+"race":"2026-CA-SS6",
+"title":"State Senate District 6",
+"names":{
+"Sean Frame":"Sean Frame",
+"Roger Niello":"Roger Niello"
+}
+},
+"state-senate|State Senate District 8":{
+"race":"2026-CA-SS8",
+"title":"State Senate District 8",
+"names":{
+"Angelique Ashby":"Angelique Ashby",
+"Susan A Mason":"Susan A Mason"
+}
+},
+"state-senate|State Senate District 10":{
+"race":"2026-CA-SS10",
+"title":"State Senate District 10",
+"names":{
+"Scott Sakakihara":"Scott Sakakihara",
+"Linda R. Price":"Linda R. Price"
+}
+},
+"state-senate|State Senate District 12":{
+"race":"2026-CA-SS12",
+"title":"State Senate District 12",
+"names":{
+"Nathan Magsig":"Nathan Magsig",
+"William Brown Jr.":"William Brown Jr."
+}
+},
+"state-senate|State Senate District 14":{
+"race":"2026-CA-SS14",
+"title":"State Senate District 14",
+"names":{
+"Esmeralda Soria":"Esmeralda Soria",
+"Darin S. DuPont":"Darin S. DuPont"
+}
+},
+"state-senate|State Senate District 16":{
+"race":"2026-CA-SS16",
+"title":"State Senate District 16",
+"names":{
+"Melissa Hurtado":"Melissa Hurtado",
+"Guillermo Asuncion Gonzalez":"Guillermo Asuncion Gonzalez"
+}
+},
+"state-senate|State Senate District 18":{
+"race":"2026-CA-SS18",
+"title":"State Senate District 18",
+"names":{
+"Steve Padilla":"Steve Padilla",
+"Art Hodges":"Art Hodges"
+}
+},
+"state-senate|State Senate District 20":{
+"race":"2026-CA-SS20",
+"title":"State Senate District 20",
+"names":{
+"Caroline Menjivar":"Caroline Menjivar",
+"Tony Rodriguez":"Tony Rodriguez"
+}
+},
+"state-senate|State Senate District 22":{
+"race":"2026-CA-SS22",
+"title":"State Senate District 22",
+"names":{
+"Susan Rubio":"Susan Rubio",
+"Mike Netter":"Mike Netter"
+}
+},
+"state-senate|State Senate District 24":{
+"race":"2026-CA-SS24",
+"title":"State Senate District 24",
+"names":{
+"John M. Erickson":"John M. Erickson",
+"Brian Goldsmith":"Brian Goldsmith"
+}
+},
+"state-senate|State Senate District 26":{
+"race":"2026-CA-SS26",
+"title":"State Senate District 26",
+"names":{
+"Sara Hernandez":"Sara Hernandez",
+"Sarah Rascón":"Sarah Rascón"
+}
+},
+"state-senate|State Senate District 28":{
+"race":"2026-CA-SS28",
+"title":"State Senate District 28",
+"names":{
+"Lola Smallwood-Cuevas":"Lola Smallwood-Cuevas",
+"Joe Lisuzzo":"Joe Lisuzzo"
+}
+},
+"state-senate|State Senate District 30":{
+"race":"2026-CA-SS30",
+"title":"State Senate District 30",
+"names":{
+"Bob J. Archuleta":"Bob J. Archuleta",
+"Araceli Martinez":"Araceli Martinez"
+}
+},
+"state-senate|State Senate District 32":{
+"race":"2026-CA-SS32",
+"title":"State Senate District 32",
+"names":{
+"Tiffanie Tate":"Tiffanie Tate",
+"Kelly Seyarto":"Kelly Seyarto"
+}
+},
+"state-senate|State Senate District 34":{
+"race":"2026-CA-SS34",
+"title":"State Senate District 34",
+"names":{
+"Avelino Valencia":"Avelino Valencia",
+"Rhonda Shader":"Rhonda Shader"
+}
+},
+"state-senate|State Senate District 36":{
+"race":"2026-CA-SS36",
+"title":"State Senate District 36",
+"names":{
+"Chris Duncan":"Chris Duncan",
+"Tony Strickland":"Tony Strickland"
+}
+},
+"state-senate|State Senate District 38":{
+"race":"2026-CA-SS38",
+"title":"State Senate District 38",
+"names":{
+"Catherine S. Blakespear":"Catherine S. Blakespear",
+"Laura Bassett":"Laura Bassett"
+}
+},
+"state-senate|State Senate District 40":{
+"race":"2026-CA-SS40",
+"title":"State Senate District 40",
+"names":{
+"Mara Elliott":"Mara Elliott",
+"Kristie Bruce-Lane":"Kristie Bruce-Lane"
+}
+},
+"state-assembly|State Assembly District 1":{
+"race":"2026-CA-SH1",
+"title":"State Assembly District 1",
+"names":{
+"Dianna Margaret James":"Dianna Margaret James",
+"Heather Hadwick":"Heather Hadwick"
+}
+},
+"state-assembly|State Assembly District 2":{
+"race":"2026-CA-SH2",
+"title":"State Assembly District 2",
+"names":{
+"Chris Rogers":"Chris Rogers",
+"Michael Greer":"Michael Greer"
+}
+},
+"state-assembly|State Assembly District 3":{
+"race":"2026-CA-SH3",
+"title":"State Assembly District 3",
+"names":{
+"Dom Belza":"Dom Belza",
+"James \"Jamie\" Johansson":"James \"Jamie\" Johansson"
+}
+},
+"state-assembly|State Assembly District 4":{
+"race":"2026-CA-SH4",
+"title":"State Assembly District 4",
+"names":{
+"Cecilia M. Aguiar-Curry":"Cecilia M. Aguiar-Curry"
+}
+},
+"state-assembly|State Assembly District 5":{
+"race":"2026-CA-SH5",
+"title":"State Assembly District 5",
+"names":{
+"Neva Parker":"Neva Parker",
+"Joe Patterson":"Joe Patterson"
+}
+},
+"state-assembly|State Assembly District 6":{
+"race":"2026-CA-SH6",
+"title":"State Assembly District 6",
+"names":{
+"Maggy Krell":"Maggy Krell",
+"Jagtar Singh":"Jagtar Singh"
+}
+},
+"state-assembly|State Assembly District 7":{
+"race":"2026-CA-SH7",
+"title":"State Assembly District 7",
+"names":{
+"Amy L. Slavensky":"Amy L. Slavensky",
+"Josh Hoover":"Josh Hoover"
+}
+},
+"state-assembly|State Assembly District 8":{
+"race":"2026-CA-SH8",
+"title":"State Assembly District 8",
+"names":{
+"David Jariustokaeutulelei Tangipa":"David Jariustokaeutulelei Tangipa"
+}
+},
+"state-assembly|State Assembly District 9":{
+"race":"2026-CA-SH9",
+"title":"State Assembly District 9",
+"names":{
+"Matthew Adams":"Matthew Adams",
+"Heath Flora":"Heath Flora"
+}
+},
+"state-assembly|State Assembly District 10":{
+"race":"2026-CA-SH10",
+"title":"State Assembly District 10",
+"names":{
+"Stephanie Nguyen":"Stephanie Nguyen",
+"Vinaya Singh":"Vinaya Singh"
+}
+},
+"state-assembly|State Assembly District 11":{
+"race":"2026-CA-SH11",
+"title":"State Assembly District 11",
+"names":{
+"Lori D Wilson":"Lori D Wilson",
+"Jenny Leilani Callison":"Jenny Leilani Callison"
+}
+},
+"state-assembly|State Assembly District 12":{
+"race":"2026-CA-SH12",
+"title":"State Assembly District 12",
+"names":{
+"Jackie Elward":"Jackie Elward",
+"Eric Lucan":"Eric Lucan"
+}
+},
+"state-assembly|State Assembly District 13":{
+"race":"2026-CA-SH13",
+"title":"State Assembly District 13",
+"names":{
+"Rhodesia Ransom":"Rhodesia Ransom",
+"Tom Patti":"Tom Patti"
+}
+},
+"state-assembly|State Assembly District 14":{
+"race":"2026-CA-SH14",
+"title":"State Assembly District 14",
+"names":{
+"Buffy Wicks":"Buffy Wicks",
+"Mark Rendon":"Mark Rendon"
+}
+},
+"state-assembly|State Assembly District 15":{
+"race":"2026-CA-SH15",
+"title":"State Assembly District 15",
+"names":{
+"Anamarie Avila Farias":"Anamarie Avila Farias",
+"Arthur Webb":"Arthur Webb"
+}
+},
+"state-assembly|State Assembly District 16":{
+"race":"2026-CA-SH16",
+"title":"State Assembly District 16",
+"names":{
+"Rebecca Bauer-Kahan":"Rebecca Bauer-Kahan",
+"Joseph A. Rubay":"Joseph A. Rubay"
+}
+},
+"state-assembly|State Assembly District 17":{
+"race":"2026-CA-SH17",
+"title":"State Assembly District 17",
+"names":{
+"Matt Haney":"Matt Haney",
+"Manuel Noris-Barrera":"Manuel Noris-Barrera"
+}
+},
+"state-assembly|State Assembly District 18":{
+"race":"2026-CA-SH18",
+"title":"State Assembly District 18",
+"names":{
+"Mia Bonta":"Mia Bonta",
+"Andre Sandford":"Andre Sandford"
+}
+},
+"state-assembly|State Assembly District 19":{
+"race":"2026-CA-SH19",
+"title":"State Assembly District 19",
+"names":{
+"Catherine Stefani":"Catherine Stefani",
+"Philip Louis Wing":"Philip Louis Wing"
+}
+},
+"state-assembly|State Assembly District 20":{
+"race":"2026-CA-SH20",
+"title":"State Assembly District 20",
+"names":{
+"Liz Ortega":"Liz Ortega",
+"Patricia Muga":"Patricia Muga"
+}
+},
+"state-assembly|State Assembly District 21":{
+"race":"2026-CA-SH21",
+"title":"State Assembly District 21",
+"names":{
+"Diane Papan":"Diane Papan",
+"Jabra J Muhawieh":"Jabra J Muhawieh"
+}
+},
+"state-assembly|State Assembly District 22":{
+"race":"2026-CA-SH22",
+"title":"State Assembly District 22",
+"names":{
+"Juan Alanis":"Juan Alanis"
+}
+},
+"state-assembly|State Assembly District 23":{
+"race":"2026-CA-SH23",
+"title":"State Assembly District 23",
+"names":{
+"Marc Berman":"Marc Berman",
+"David G. Johnson":"David G. Johnson"
+}
+},
+"state-assembly|State Assembly District 24":{
+"race":"2026-CA-SH24",
+"title":"State Assembly District 24",
+"names":{
+"Alex Lee":"Alex Lee",
+"Max Hsia":"Max Hsia"
+}
+},
+"state-assembly|State Assembly District 25":{
+"race":"2026-CA-SH25",
+"title":"State Assembly District 25",
+"names":{
+"Ash Kalra":"Ash Kalra",
+"Himat Singh Bainiwal":"Himat Singh Bainiwal"
+}
+},
+"state-assembly|State Assembly District 26":{
+"race":"2026-CA-SH26",
+"title":"State Assembly District 26",
+"names":{
+"Patrick Ahrens":"Patrick Ahrens",
+"Tim Gorsulowsky":"Tim Gorsulowsky"
+}
+},
+"state-assembly|State Assembly District 27":{
+"race":"2026-CA-SH27",
+"title":"State Assembly District 27",
+"names":{
+"Brian Pacheco":"Brian Pacheco",
+"Mike Murphy":"Mike Murphy"
+}
+},
+"state-assembly|State Assembly District 28":{
+"race":"2026-CA-SH28",
+"title":"State Assembly District 28",
+"names":{
+"Gail Pellerin":"Gail Pellerin",
+"Carol Pefley":"Carol Pefley"
+}
+},
+"state-assembly|State Assembly District 29":{
+"race":"2026-CA-SH29",
+"title":"State Assembly District 29",
+"names":{
+"Robert Rivas":"Robert Rivas",
+"Dennis P. Sanchez":"Dennis P. Sanchez"
+}
+},
+"state-assembly|State Assembly District 30":{
+"race":"2026-CA-SH30",
+"title":"State Assembly District 30",
+"names":{
+"Dawn Addis":"Dawn Addis",
+"Shannon Kessler":"Shannon Kessler"
+}
+},
+"state-assembly|State Assembly District 31":{
+"race":"2026-CA-SH31",
+"title":"State Assembly District 31",
+"names":{
+"Annalisa Perea":"Annalisa Perea",
+"Jim Polsgrove":"Jim Polsgrove"
+}
+},
+"state-assembly|State Assembly District 32":{
+"race":"2026-CA-SH32",
+"title":"State Assembly District 32",
+"names":{
+"David Couch":"David Couch"
+}
+},
+"state-assembly|State Assembly District 33":{
+"race":"2026-CA-SH33",
+"title":"State Assembly District 33",
+"names":{
+"Hipolito Angel Cerros":"Hipolito Angel Cerros",
+"Alexandra (Ali) Macedo":"Alexandra (Ali) Macedo"
+}
+},
+"state-assembly|State Assembly District 34":{
+"race":"2026-CA-SH34",
+"title":"State Assembly District 34",
+"names":{
+"Randall Putz":"Randall Putz",
+"Charles Frederick Hughes":"Charles Frederick Hughes"
+}
+},
+"state-assembly|State Assembly District 35":{
+"race":"2026-CA-SH35",
+"title":"State Assembly District 35",
+"names":{
+"Andrae Gonzales":"Andrae Gonzales",
+"Saul Ayon":"Saul Ayon"
+}
+},
+"state-assembly|State Assembly District 36":{
+"race":"2026-CA-SH36",
+"title":"State Assembly District 36",
+"names":{
+"Ida S. Obeso-Martinez":"Ida S. Obeso-Martinez",
+"Jeff Gonzalez":"Jeff Gonzalez"
+}
+},
+"state-assembly|State Assembly District 37":{
+"race":"2026-CA-SH37",
+"title":"State Assembly District 37",
+"names":{
+"Gregg Hart":"Gregg Hart",
+"Sari Domingues":"Sari Domingues"
+}
+},
+"state-assembly|State Assembly District 38":{
+"race":"2026-CA-SH38",
+"title":"State Assembly District 38",
+"names":{
+"Steve Bennett":"Steve Bennett",
+"Michael MacDonald":"Michael MacDonald"
+}
+},
+"state-assembly|State Assembly District 39":{
+"race":"2026-CA-SH39",
+"title":"State Assembly District 39",
+"names":{
+"Juan Carrillo":"Juan Carrillo",
+"Paul Andre Marsh":"Paul Andre Marsh"
+}
+},
+"state-assembly|State Assembly District 40":{
+"race":"2026-CA-SH40",
+"title":"State Assembly District 40",
+"names":{
+"Pilar Schiavo":"Pilar Schiavo",
+"Rickey Tracy Hayes II":"Rickey Tracy Hayes II"
+}
+},
+"state-assembly|State Assembly District 41":{
+"race":"2026-CA-SH41",
+"title":"State Assembly District 41",
+"names":{
+"John Harabedian":"John Harabedian",
+"Adam Christopher Vena":"Adam Christopher Vena"
+}
+},
+"state-assembly|State Assembly District 42":{
+"race":"2026-CA-SH42",
+"title":"State Assembly District 42",
+"names":{
+"Deborah Klein Lopez":"Deborah Klein Lopez",
+"Ted Nordblum":"Ted Nordblum"
+}
+},
+"state-assembly|State Assembly District 43":{
+"race":"2026-CA-SH43",
+"title":"State Assembly District 43",
+"names":{
+"Celeste Rodriguez":"Celeste Rodriguez",
+"Ricardo Benitez":"Ricardo Benitez"
+}
+},
+"state-assembly|State Assembly District 44":{
+"race":"2026-CA-SH44",
+"title":"State Assembly District 44",
+"names":{
+"Nicholas \"Nick\" Schultz":"Nicholas \"Nick\" Schultz",
+"Carolyn Daniels":"Carolyn Daniels"
+}
+},
+"state-assembly|State Assembly District 45":{
+"race":"2026-CA-SH45",
+"title":"State Assembly District 45",
+"names":{
+"James C. Ramos":"James C. Ramos",
+"Greg Abdouch":"Greg Abdouch"
+}
+},
+"state-assembly|State Assembly District 46":{
+"race":"2026-CA-SH46",
+"title":"State Assembly District 46",
+"names":{
+"Jesse Gabriel":"Jesse Gabriel",
+"Tracey Schroeder":"Tracey Schroeder"
+}
+},
+"state-assembly|State Assembly District 47":{
+"race":"2026-CA-SH47",
+"title":"State Assembly District 47",
+"names":{
+"Leila Namvar":"Leila Namvar",
+"Greg Wallis":"Greg Wallis"
+}
+},
+"state-assembly|State Assembly District 48":{
+"race":"2026-CA-SH48",
+"title":"State Assembly District 48",
+"names":{
+"Blanca Rubio":"Blanca Rubio",
+"Dan T. Tran":"Dan T. Tran"
+}
+},
+"state-assembly|State Assembly District 49":{
+"race":"2026-CA-SH49",
+"title":"State Assembly District 49",
+"names":{
+"Mike Fong":"Mike Fong",
+"Long David Liu":"Long David Liu"
+}
+},
+"state-assembly|State Assembly District 50":{
+"race":"2026-CA-SH50",
+"title":"State Assembly District 50",
+"names":{
+"Robert Garcia":"Robert Garcia",
+"Victoria Viveros Mageno":"Victoria Viveros Mageno"
+}
+},
+"state-assembly|State Assembly District 51":{
+"race":"2026-CA-SH51",
+"title":"State Assembly District 51",
+"names":{
+"Colin D. Hernandez":"Colin D. Hernandez",
+"Rick Chavez Zbur":"Rick Chavez Zbur"
+}
+},
+"state-assembly|State Assembly District 52":{
+"race":"2026-CA-SH52",
+"title":"State Assembly District 52",
+"names":{
+"Jessica Caloza":"Jessica Caloza",
+"Andrea Lee Anderson":"Andrea Lee Anderson"
+}
+},
+"state-assembly|State Assembly District 53":{
+"race":"2026-CA-SH53",
+"title":"State Assembly District 53",
+"names":{
+"Michelle Rodriguez":"Michelle Rodriguez",
+"Rafaela Romero":"Rafaela Romero"
+}
+},
+"state-assembly|State Assembly District 54":{
+"race":"2026-CA-SH54",
+"title":"State Assembly District 54",
+"names":{
+"Mark Gonzalez":"Mark Gonzalez",
+"Alexandra Briseno":"Alexandra Briseno"
+}
+},
+"state-assembly|State Assembly District 55":{
+"race":"2026-CA-SH55",
+"title":"State Assembly District 55",
+"names":{
+"Ashley M. Brown":"Ashley M. Brown",
+"Isaac G. Bryan":"Isaac G. Bryan"
+}
+},
+"state-assembly|State Assembly District 56":{
+"race":"2026-CA-SH56",
+"title":"State Assembly District 56",
+"names":{
+"Lisa Calderon":"Lisa Calderon",
+"Jessica Martinez":"Jessica Martinez"
+}
+},
+"state-assembly|State Assembly District 57":{
+"race":"2026-CA-SH57",
+"title":"State Assembly District 57",
+"names":{
+"Sade Elhawary":"Sade Elhawary",
+"Constance Jewel Menzies":"Constance Jewel Menzies"
+}
+},
+"state-assembly|State Assembly District 58":{
+"race":"2026-CA-SH58",
+"title":"State Assembly District 58",
+"names":{
+"Clarissa Cervantes":"Clarissa Cervantes",
+"Leticia Castillo":"Leticia Castillo"
+}
+},
+"state-assembly|State Assembly District 59":{
+"race":"2026-CA-SH59",
+"title":"State Assembly District 59",
+"names":{
+"Phillip Chen":"Phillip Chen",
+"Victor Hernandez":"Victor Hernandez"
+}
+},
+"state-assembly|State Assembly District 60":{
+"race":"2026-CA-SH60",
+"title":"State Assembly District 60",
+"names":{
+"Corey A Jackson":"Corey A Jackson",
+"Ed Delgado":"Ed Delgado"
+}
+},
+"state-assembly|State Assembly District 61":{
+"race":"2026-CA-SH61",
+"title":"State Assembly District 61",
+"names":{
+"Tina Simone McKinnor":"Tina Simone McKinnor",
+"Brian Lockwood":"Brian Lockwood"
+}
+},
+"state-assembly|State Assembly District 62":{
+"race":"2026-CA-SH62",
+"title":"State Assembly District 62",
+"names":{
+"José Luis Solache":"José Luis Solache",
+"Paul Irving Jones":"Paul Irving Jones"
+}
+},
+"state-assembly|State Assembly District 63":{
+"race":"2026-CA-SH63",
+"title":"State Assembly District 63",
+"names":{
+"Natasha Johnson":"Natasha Johnson",
+"Kevin Akin":"Kevin Akin"
+}
+},
+"state-assembly|State Assembly District 64":{
+"race":"2026-CA-SH64",
+"title":"State Assembly District 64",
+"names":{
+"Blanca Pacheco":"Blanca Pacheco",
+"Raul Ortiz Jr.":"Raul Ortiz Jr."
+}
+},
+"state-assembly|State Assembly District 65":{
+"race":"2026-CA-SH65",
+"title":"State Assembly District 65",
+"names":{
+"Ayanna Davis":"Ayanna Davis",
+"Lydia A. Gutiérrez":"Lydia A. Gutiérrez"
+}
+},
+"state-assembly|State Assembly District 66":{
+"race":"2026-CA-SH66",
+"title":"State Assembly District 66",
+"names":{
+"Sara Deen":"Sara Deen",
+"Paul Seo":"Paul Seo"
+}
+},
+"state-assembly|State Assembly District 67":{
+"race":"2026-CA-SH67",
+"title":"State Assembly District 67",
+"names":{
+"Mark Pulido":"Mark Pulido",
+"Paulo Morales":"Paulo Morales"
+}
+},
+"state-assembly|State Assembly District 68":{
+"race":"2026-CA-SH68",
+"title":"State Assembly District 68",
+"names":{
+"Jessie Lopez":"Jessie Lopez",
+"David Penaloza":"David Penaloza"
+}
+},
+"state-assembly|State Assembly District 69":{
+"race":"2026-CA-SH69",
+"title":"State Assembly District 69",
+"names":{
+"Carolyn J. Essex":"Carolyn J. Essex",
+"Josh Lowenthal":"Josh Lowenthal"
+}
+},
+"state-assembly|State Assembly District 70":{
+"race":"2026-CA-SH70",
+"title":"State Assembly District 70",
+"names":{
+"Paula Swift":"Paula Swift",
+"Tri Ta":"Tri Ta"
+}
+},
+"state-assembly|State Assembly District 71":{
+"race":"2026-CA-SH71",
+"title":"State Assembly District 71",
+"names":{
+"JJ Galvez":"JJ Galvez",
+"Kate Sanchez":"Kate Sanchez"
+}
+},
+"state-assembly|State Assembly District 72":{
+"race":"2026-CA-SH72",
+"title":"State Assembly District 72",
+"names":{
+"Chris Kluwe":"Chris Kluwe",
+"Gracey Van Der Mark":"Gracey Van Der Mark"
+}
+},
+"state-assembly|State Assembly District 73":{
+"race":"2026-CA-SH73",
+"title":"State Assembly District 73",
+"names":{
+"Cottie Petrie-Norris":"Cottie Petrie-Norris",
+"Urson Russell":"Urson Russell"
+}
+},
+"state-assembly|State Assembly District 74":{
+"race":"2026-CA-SH74",
+"title":"State Assembly District 74",
+"names":{
+"Sergio Farias":"Sergio Farias",
+"Laurie Davies":"Laurie Davies"
+}
+},
+"state-assembly|State Assembly District 75":{
+"race":"2026-CA-SH75",
+"title":"State Assembly District 75",
+"names":{
+"Gerald C. Boursiquot":"Gerald C. Boursiquot",
+"Carl DeMaio":"Carl DeMaio"
+}
+},
+"state-assembly|State Assembly District 76":{
+"race":"2026-CA-SH76",
+"title":"State Assembly District 76",
+"names":{
+"Darshana Patel":"Darshana Patel",
+"Carrie S. Espinoza Villanueva":"Carrie S. Espinoza Villanueva"
+}
+},
+"state-assembly|State Assembly District 77":{
+"race":"2026-CA-SH77",
+"title":"State Assembly District 77",
+"names":{
+"Tasha Boerner":"Tasha Boerner",
+"Trinity Hannaway":"Trinity Hannaway"
+}
+},
+"state-assembly|State Assembly District 78":{
+"race":"2026-CA-SH78",
+"title":"State Assembly District 78",
+"names":{
+"Chris Ward":"Chris Ward",
+"Payton Galvez":"Payton Galvez"
+}
+},
+"state-assembly|State Assembly District 79":{
+"race":"2026-CA-SH79",
+"title":"State Assembly District 79",
+"names":{
+"LaShae Sharp-Collins":"LaShae Sharp-Collins",
+"Andrew Lawson":"Andrew Lawson"
+}
+},
+"state-assembly|State Assembly District 80":{
+"race":"2026-CA-SH80",
+"title":"State Assembly District 80",
+"names":{
+"David A. Alvarez":"David A. Alvarez",
+"Alejandro Galicia":"Alejandro Galicia"
+}
+},
+"board-of-equalization|Board of Equalization District 1":{
+"race":"2026-CA-BOE1",
+"title":"Board of Equalization District 1",
+"names":{
+"Nelson Esparza":"Nelson Esparza",
+"Shannon Grove":"Shannon Grove"
+}
+},
+"board-of-equalization|Board of Equalization District 2":{
+"race":"2026-CA-BOE2",
+"title":"Board of Equalization District 2",
+"names":{
+"Sally J. Lieber":"Sally J. Lieber",
+"John Pimentel":"John Pimentel"
+}
+},
+"board-of-equalization|Board of Equalization District 3":{
+"race":"2026-CA-BOE3",
+"title":"Board of Equalization District 3",
+"names":{
+"Mike Gipson":"Mike Gipson",
+"Samuel P. Sukaton":"Samuel P. Sukaton"
+}
+},
+"board-of-equalization|Board of Equalization District 4":{
+"race":"2026-CA-BOE4",
+"title":"Board of Equalization District 4",
+"names":{
+"Tom Umberg":"Tom Umberg",
+"Denis Bilodeau":"Denis Bilodeau"
+}
+},
+"governor|Governor":{
+"race":"2026-CA-GOV",
+"title":"Governor",
+"names":{
+"Xavier Becerra":"Xavier Becerra",
+"Steve Hilton":"Steve Hilton"
+}
+},
+"lieutenant-governor|Lieutenant Governor":{
+"race":"2026-CA-LTG",
+"title":"Lieutenant Governor",
+"names":{
+"Fiona Ma":"Fiona Ma",
+"Gloria Romero":"Gloria Romero"
+}
+},
+"secretary-of-state|Secretary of State":{
+"race":"2026-CA-SOS",
+"title":"Secretary of State",
+"names":{
+"Shirley N. Weber":"Shirley N. Weber",
+"Donald P. (Don) Wagner":"Donald P. (Don) Wagner"
+}
+},
+"controller|Controller":{
+"race":"2026-CA-CTRL",
+"title":"Controller",
+"names":{
+"Malia M. Cohen":"Malia M. Cohen",
+"Herb W Morgan":"Herb W Morgan"
+}
+},
+"treasurer|Treasurer":{
+"race":"2026-CA-TREAS",
+"title":"Treasurer",
+"names":{
+"Eleni Kounalakis":"Eleni Kounalakis",
+"Jennifer Hawks":"Jennifer Hawks"
+}
+},
+"attorney-general|Attorney General":{
+"race":"2026-CA-AG",
+"title":"Attorney General",
+"names":{
+"Rob Bonta":"Rob Bonta",
+"Michael E. Gates":"Michael E. Gates"
+}
+},
+"insurance-commissioner|Insurance Commissioner":{
+"race":"2026-CA-INS",
+"title":"Insurance Commissioner",
+"names":{
+"Ben Allen":"Ben Allen",
+"Jane Kim":"Jane Kim"
+}
+},
+"superintendent-of-public-instruction|Superintendent of Public Instruction":{
+"race":"2026-CA-SPI",
+"title":"Superintendent of Public Instruction",
+"names":{
+"Richard Barrera":"Richard Barrera",
+"Sonja Shaw":"Sonja Shaw"
+}
+}
+},
+"posted_not_tied":[],
+"races_not_in_posted_list":[],
+"printed_lines_not_tied":[],
+"posted_out_of_scope":[]
+}

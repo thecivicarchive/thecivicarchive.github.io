@@ -3,7 +3,7 @@
  "code": "WA",
  "name": "Washington",
  "written": "2026-10-10",
- "checked": "2026-10-09",
+ "checked": "2026-10-09; 2026-10-10 by N10 (the reader's own requests through election/source.py)",
  "status": "live",
  "status_why": "Enhanced Voting answered scripts; 20261103 is posted.",
  "approved": true,
@@ -25,7 +25,7 @@
   "date": "2026-11-03",
   "nov3_id": "20261103",
   "posted": true,
-  "how_to_find": "Posted."
+  "how_to_find": "Posted (20261103)."
  },
  "cadence": {
   "check_every_s": 180,
@@ -93,15 +93,18 @@
  "never": [],
  "never_why": {},
  "partial_sources": [],
- "rehearsal": "20260804 (2026 primary); 2024: results.vote.wa.gov/results/20241105/export/20241105_AllState.csv",
+ "rehearsal": "20260804 (2026 top-two primary, official) and the posted 20261103, kept in election_cache/replay/sources/<code>-<id>/ (kept 2026-10-10 by N10 for rehearsals)",
  "terms": "none seen",
  "scout_blocked": "nothing",
  "scout_plan": "Poll the 20261103 election record every few minutes after 8 p.m. Pacific; when lastUpdated changes, fetch the All Results Excel it names (and, if a later scout finds the ballot-item JSON, that instead). Repeat daily until certification on Nov 24. The same workbook carries legislative, judicial and county-level rows; the counties' own sites for city and school results.",
- "notes": [],
+ "notes": [
+  "Reader (N10, 2026-10-10): enhanced_voting. check() reads the election record's lastUpdated; fetch() reads <site>/results/public/api/elections/<j>/<id>/data (statewide totals, count groups, reporting units). The per-contest county breakdown (2.5 MB a contest) is not read."
+ ],
  "to_do": [],
  "sources": [
   "election/scout/results_az.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
-  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)",
+  "N10's own requests, 2026-10-10, through election/source.py with the kit's User-Agent: the addresses in the reader's notes answered a script"
  ]
 }

@@ -1,0 +1,10647 @@
+{
+"_about": "Oklahoma's 2026 races (Congress from ballot_2026.sqlite, state and local from ballot_local_2026.sqlite, both read only) and what ties a contest of the State Election Board's exports to each: the office class and district in the title, the special (unexpired term) mark, the counties, and the candidates' names as filed for each 2026 election. County keys are the export's county names without spaces.",
+"built": "2026-10-10",
+"counties": {
+"ADAIR": "40001",
+"ALFALFA": "40003",
+"ATOKA": "40005",
+"BEAVER": "40007",
+"BECKHAM": "40009",
+"BLAINE": "40011",
+"BRYAN": "40013",
+"CADDO": "40015",
+"CANADIAN": "40017",
+"CARTER": "40019",
+"CHEROKEE": "40021",
+"CHOCTAW": "40023",
+"CIMARRON": "40025",
+"CLEVELAND": "40027",
+"COAL": "40029",
+"COMANCHE": "40031",
+"COTTON": "40033",
+"CRAIG": "40035",
+"CREEK": "40037",
+"CUSTER": "40039",
+"DELAWARE": "40041",
+"DEWEY": "40043",
+"ELLIS": "40045",
+"GARFIELD": "40047",
+"GARVIN": "40049",
+"GRADY": "40051",
+"GRANT": "40053",
+"GREER": "40055",
+"HARMON": "40057",
+"HARPER": "40059",
+"HASKELL": "40061",
+"HUGHES": "40063",
+"JACKSON": "40065",
+"JEFFERSON": "40067",
+"JOHNSTON": "40069",
+"KAY": "40071",
+"KINGFISHER": "40073",
+"KIOWA": "40075",
+"LATIMER": "40077",
+"LEFLORE": "40079",
+"LINCOLN": "40081",
+"LOGAN": "40083",
+"LOVE": "40085",
+"MAJOR": "40093",
+"MARSHALL": "40095",
+"MAYES": "40097",
+"MCCLAIN": "40087",
+"MCCURTAIN": "40089",
+"MCINTOSH": "40091",
+"MURRAY": "40099",
+"MUSKOGEE": "40101",
+"NOBLE": "40103",
+"NOWATA": "40105",
+"OKFUSKEE": "40107",
+"OKLAHOMA": "40109",
+"OKMULGEE": "40111",
+"OSAGE": "40113",
+"OTTAWA": "40115",
+"PAWNEE": "40117",
+"PAYNE": "40119",
+"PITTSBURG": "40121",
+"PONTOTOC": "40123",
+"POTTAWATOMIE": "40125",
+"PUSHMATAHA": "40127",
+"ROGERMILLS": "40129",
+"ROGERS": "40131",
+"SEMINOLE": "40133",
+"SEQUOYAH": "40135",
+"STEPHENS": "40137",
+"TEXAS": "40139",
+"TILLMAN": "40141",
+"TULSA": "40143",
+"WAGONER": "40145",
+"WASHINGTON": "40147",
+"WASHITA": "40149",
+"WOODS": "40151",
+"WOODWARD": "40153"
+},
+"races": {
+"2026-OK-40001-county-assessor": {
+"cls": "other",
+"counties": [
+"40001"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Dianna Dawn Yell",
+"Republican",
+null,
+0
+],
+[
+"Teresa Turner",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Assessor",
+"special": 0
+},
+"2026-OK-40001-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40001"
+],
+"district": null,
+"level": "county",
+"names": {
+"general": [
+[
+"Charles E.W. Boecher",
+"Republican",
+1,
+0
+],
+[
+"Shelby Eubanks",
+"Democrat",
+2,
+0
+]
+],
+"primary-DEM": [
+[
+"Shelby Eubanks",
+"Democrat",
+null,
+0
+],
+[
+"Brad Kimble",
+"Democrat",
+null,
+0
+]
+],
+"primary-REP": [
+[
+"Mike Wininger",
+"Republican",
+null,
+0
+],
+[
+"Charles E.W. Boecher",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40001-county-treasurer": {
+"cls": "other",
+"counties": [
+"40001"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Ann Bishop",
+"Republican",
+null,
+0
+],
+[
+"Rosita Gallardo",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Treasurer",
+"special": 0
+},
+"2026-OK-40005-county-assessor": {
+"cls": "other",
+"counties": [
+"40005"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Bree Settlemire",
+"Republican",
+null,
+0
+],
+[
+"Trey Harbin",
+"Republican",
+null,
+0
+],
+[
+"John Potts",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Trey Harbin",
+"Republican",
+null,
+0
+],
+[
+"Bree Settlemire",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Assessor",
+"special": 0
+},
+"2026-OK-40005-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40005"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Jon Edwin Holstine",
+"Republican",
+null,
+0
+],
+[
+"Joe Don Partin",
+"Republican",
+null,
+0
+],
+[
+"Keegan Heard",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Jon Edwin Holstine",
+"Republican",
+null,
+0
+],
+[
+"Joe Don Partin",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40005-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40005"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Joshua Cirkles",
+"Republican",
+null,
+0
+],
+[
+"Ethan Settlemire",
+"Republican",
+null,
+0
+],
+[
+"Shane Tomlinson",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Ethan Settlemire",
+"Republican",
+null,
+0
+],
+[
+"Shane Tomlinson",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40007-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40007"
+],
+"district": null,
+"level": "county",
+"names": {
+"general": [
+[
+"Mary Chris Barth",
+"Republican",
+1,
+0
+],
+[
+"Trevor Estrada",
+"Independent",
+2,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40009-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40009"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Drake McKennon",
+"Republican",
+null,
+0
+],
+[
+"Butch Goldesberry",
+"Republican",
+null,
+0
+],
+[
+"Lonnie Risenhoover",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40009-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40009"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Colby Robinson",
+"Republican",
+null,
+0
+],
+[
+"Sammy Carnes",
+"Republican",
+null,
+0
+],
+[
+"James E. Greer",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Sammy Carnes",
+"Republican",
+null,
+0
+],
+[
+"James E. Greer",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40011-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40011"
+],
+"district": null,
+"level": "county",
+"names": {
+"general": [
+[
+"Chad Scheihing",
+"Republican",
+1,
+0
+],
+[
+"Mike Allen",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Darryl Hicks",
+"Republican",
+null,
+0
+],
+[
+"Chad Scheihing",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40011-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40011"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Tracy Matli",
+"Republican",
+null,
+0
+],
+[
+"Thad Schenk",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40011-county-treasurer": {
+"cls": "other",
+"counties": [
+"40011"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Crystal Campos-Perez",
+"Republican",
+null,
+0
+],
+[
+"Sabra Barnes",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Treasurer",
+"special": 0
+},
+"2026-OK-40013-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40013"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Richard Nix",
+"Republican",
+null,
+0
+],
+[
+"Lance Billings",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40013-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40013"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Brandon Carr",
+"Republican",
+null,
+0
+],
+[
+"Josh Cross",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40015-county-assessor": {
+"cls": "other",
+"counties": [
+"40015"
+],
+"district": null,
+"level": "county",
+"names": {
+"general": [
+[
+"Ladonna Phillips",
+"Republican",
+1,
+0
+],
+[
+"Taylor Allen",
+"Democrat",
+2,
+0
+]
+],
+"primary-DEM": [
+[
+"Patrick Michael Hayes",
+"Democrat",
+null,
+0
+],
+[
+"Taylor Allen",
+"Democrat",
+null,
+0
+]
+]
+},
+"office": "County Assessor",
+"special": 0
+},
+"2026-OK-40015-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40015"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Mike Belter",
+"Republican",
+null,
+0
+],
+[
+"Bucky Brown",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40015-county-treasurer": {
+"cls": "other",
+"counties": [
+"40015"
+],
+"district": null,
+"level": "county",
+"names": {
+"general": [
+[
+"Cindy Campbell Anderson",
+"Republican",
+1,
+0
+],
+[
+"Delta Reynolds",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "County Treasurer",
+"special": 0
+},
+"2026-OK-40017-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40017"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Tom Manske",
+"Republican",
+null,
+0
+],
+[
+"Marc Hader",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40019-county-assessor": {
+"cls": "other",
+"counties": [
+"40019"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Kerry Ross",
+"Republican",
+null,
+0
+],
+[
+"Chad Eubanks",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Assessor",
+"special": 0
+},
+"2026-OK-40019-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40019"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Kenny Leon Emerson",
+"Republican",
+null,
+0
+],
+[
+"Berry Lee-Brinkman",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40021-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40021"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Scott Kirk",
+"Republican",
+null,
+0
+],
+[
+"Jake Green",
+"Republican",
+null,
+0
+],
+[
+"Jamie Thompson",
+"Republican",
+null,
+0
+],
+[
+"Kevin Stilwell",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Scott Kirk",
+"Republican",
+null,
+0
+],
+[
+"Jake Green",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40023-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40023"
+],
+"district": null,
+"level": "county",
+"names": {
+"general": [
+[
+"Jim Bob Sullivan",
+"Republican",
+1,
+0
+],
+[
+"Jerome Mick",
+"Democrat",
+2,
+0
+]
+],
+"primary-DEM": [
+[
+"Jerome Mick",
+"Democrat",
+null,
+0
+],
+[
+"Steven M Smith",
+"Democrat",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40023-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40023"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Aaron Young",
+"Republican",
+null,
+0
+],
+[
+"Jeff Davis",
+"Republican",
+null,
+0
+],
+[
+"C. Shane Miller",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40025-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40025"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Kent Tooley",
+"Republican",
+null,
+0
+],
+[
+"Randy Lynn Eslinger",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40027-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40027"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Michael David Nash",
+"Republican",
+null,
+0
+],
+[
+"Rusty Grissom",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40029-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40029"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Dee Hensley",
+"Republican",
+null,
+0
+],
+[
+"Kelly Campbell",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40031-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40031"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Kevin T Turpin",
+"Republican",
+null,
+0
+],
+[
+"George Gill",
+"Republican",
+null,
+0
+],
+[
+"Ryan John",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40031-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40031"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Landon Cochrane",
+"Republican",
+null,
+0
+],
+[
+"Josh Powers",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40033-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40033"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"David Edgmon",
+"Republican",
+null,
+0
+],
+[
+"John Anderson",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40033-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40033"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Scooter Park",
+"Republican",
+null,
+0
+],
+[
+"Milton Honeycutt",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40035-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40035"
+],
+"district": null,
+"level": "county",
+"names": {
+"general": [
+[
+"Todd Taylor",
+"Republican",
+1,
+0
+],
+[
+"Allen Goforth",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Lowell Walker",
+"Republican",
+null,
+0
+],
+[
+"Todd Taylor",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40035-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40035"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Trenton Langley",
+"Republican",
+null,
+0
+],
+[
+"Willis Sonny Underwood",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40037-county-assessor": {
+"cls": "other",
+"counties": [
+"40037"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Haley Anderson",
+"Republican",
+null,
+0
+],
+[
+"Carl Prescott",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Assessor",
+"special": 0
+},
+"2026-OK-40037-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40037"
+],
+"district": null,
+"level": "county",
+"names": {
+"general": [
+[
+"Jarrod Whitehouse",
+"Republican",
+1,
+0
+],
+[
+"Justin Mann",
+"Independent",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Jarrod Whitehouse",
+"Republican",
+null,
+0
+],
+[
+"Danny Gann",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40039-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40039"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Wade Anders",
+"Republican",
+null,
+0
+],
+[
+"Jeremiah Trent",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40041-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40041"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"David Beck",
+"Republican",
+null,
+0
+],
+[
+"Danny David Duncan",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40043-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40043"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Chuck Hurt",
+"Republican",
+null,
+0
+],
+[
+"Todd Vaughan",
+"Republican",
+null,
+0
+],
+[
+"Dillon Berry",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40045-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40045"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Wyatt Campbell",
+"Republican",
+null,
+0
+],
+[
+"Blake Suthers",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40047-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40047"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Sam Strecker",
+"Republican",
+null,
+0
+],
+[
+"Joe Kegin",
+"Republican",
+null,
+0
+],
+[
+"Mike Umstead",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40047-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40047"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Clarence Otie Maly",
+"Republican",
+null,
+0
+],
+[
+"NeAnne Clinton",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40049-county-assessor": {
+"cls": "other",
+"counties": [
+"40049"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Melissa Mullett",
+"Republican",
+null,
+0
+],
+[
+"Becky Dennis",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Assessor",
+"special": 0
+},
+"2026-OK-40051-county-assessor": {
+"cls": "other",
+"counties": [
+"40051"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Cindy Gelnar",
+"Republican",
+null,
+0
+],
+[
+"Krissi Jensen",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Assessor",
+"special": 0
+},
+"2026-OK-40051-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40051"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Zachary Davis",
+"Republican",
+null,
+0
+],
+[
+"Richard Shuck",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40051-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40051"
+],
+"district": null,
+"level": "county",
+"names": {
+"general": [
+[
+"Gary Bray",
+"Republican",
+1,
+0
+],
+[
+"Scott Nichols",
+"Democrat",
+2,
+0
+],
+[
+"Kirk L. Painter",
+"Independent",
+3,
+0
+]
+],
+"primary-DEM": [
+[
+"Scott Nichols",
+"Democrat",
+null,
+0
+],
+[
+"Lorenzo Garza",
+"Democrat",
+null,
+0
+]
+],
+"primary-REP": [
+[
+"Gary Bray",
+"Republican",
+null,
+0
+],
+[
+"Justin McWilliams",
+"Republican",
+null,
+0
+],
+[
+"William Billy Wesolowski",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40051-county-treasurer": {
+"cls": "other",
+"counties": [
+"40051"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Carolyn Bowen",
+"Republican",
+null,
+0
+],
+[
+"Brad Hollowell",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Treasurer",
+"special": 0
+},
+"2026-OK-40053-county-assessor": {
+"cls": "other",
+"counties": [
+"40053"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Robin Herod",
+"Republican",
+null,
+0
+],
+[
+"Lori Cripe",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Assessor",
+"special": 0
+},
+"2026-OK-40053-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40053"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Rod Haskins",
+"Republican",
+null,
+0
+],
+[
+"Keith J. McClure",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40055-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40055"
+],
+"district": null,
+"level": "county",
+"names": {
+"general": [
+[
+"Kenneth Slaton",
+"Republican",
+1,
+0
+],
+[
+"Bert Dyer",
+"Democrat",
+2,
+0
+]
+],
+"primary-DEM": [
+[
+"Bert Dyer",
+"Democrat",
+null,
+0
+],
+[
+"Dale Rogers",
+"Democrat",
+null,
+0
+]
+],
+"primary-REP": [
+[
+"Kenneth Slaton",
+"Republican",
+null,
+0
+],
+[
+"Larry G. Miller",
+"Republican",
+null,
+0
+],
+[
+"Andy Scott",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40055-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40055"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Rodney Rogers Jr",
+"Republican",
+null,
+0
+],
+[
+"Dennis Halford",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40059-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40059"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Chris McMinn",
+"Republican",
+null,
+0
+],
+[
+"Bret Cosby",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40061-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40061"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Brian Knowles",
+"Republican",
+null,
+0
+],
+[
+"Scott Welch",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40061-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40061"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Neil Smith",
+"Republican",
+null,
+0
+],
+[
+"Jack K Denny",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40061-county-treasurer": {
+"cls": "other",
+"counties": [
+"40061"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Bailey Watkins",
+"Republican",
+null,
+0
+],
+[
+"Holly R Hinton",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Treasurer",
+"special": 0
+},
+"2026-OK-40063-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40063"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Dwight H Barnett",
+"Republican",
+null,
+0
+],
+[
+"Malcolm Harden",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40065-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40065"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Brent Pannell",
+"Republican",
+null,
+0
+],
+[
+"Tandy Johns",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40067-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40067"
+],
+"district": null,
+"level": "county",
+"names": {
+"general": [
+[
+"Mical A Delaney",
+"Republican",
+1,
+0
+],
+[
+"Ricky Martin",
+"Democrat",
+2,
+0
+]
+],
+"primary-DEM": [
+[
+"Ricky Martin",
+"Democrat",
+null,
+0
+],
+[
+"Mike Bussy",
+"Democrat",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40069-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40069"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Mike Niblett",
+"Republican",
+null,
+0
+],
+[
+"Derek Gray",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40071-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40071"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Shane Jones",
+"Republican",
+null,
+0
+],
+[
+"Dustin Schickram",
+"Republican",
+null,
+0
+],
+[
+"Marion Harris",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40079-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40079"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"David Honeycutt",
+"Republican",
+null,
+0
+],
+[
+"James Eugene Brown",
+"Republican",
+null,
+0
+],
+[
+"Mike Parker",
+"Republican",
+null,
+0
+],
+[
+"Carroll Wayne Rogers",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Mike Parker",
+"Republican",
+null,
+0
+],
+[
+"David Honeycutt",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40079-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40079"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Jamie Oliver",
+"Republican",
+null,
+0
+],
+[
+"James Lockhart",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40081-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40081"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Jim Rackley",
+"Republican",
+null,
+0
+],
+[
+"Lee Doolen",
+"Republican",
+null,
+0
+],
+[
+"David Armitage",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Lee Doolen",
+"Republican",
+null,
+0
+],
+[
+"David Armitage",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40085-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40085"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Jason Tipton",
+"Republican",
+null,
+0
+],
+[
+"Johnny R Jacobs Jr",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40087-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40087"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Terry Dwain Hillis Jr.",
+"Republican",
+null,
+0
+],
+[
+"Glen Murray",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40087-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40087"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Joe Southern",
+"Republican",
+null,
+0
+],
+[
+"Scott Carroll",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40089-county-assessor": {
+"cls": "other",
+"counties": [
+"40089"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Justin Graham",
+"Republican",
+null,
+0
+],
+[
+"Justin McCarrell",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Assessor",
+"special": 0
+},
+"2026-OK-40089-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40089"
+],
+"district": null,
+"level": "county",
+"names": {
+"general": [
+[
+"John Wayne Williams",
+"Republican",
+1,
+0
+],
+[
+"Zeb Sims",
+"Independent",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Jesse Jones",
+"Republican",
+null,
+0
+],
+[
+"Cristal Joslin",
+"Republican",
+null,
+0
+],
+[
+"John Wayne Williams",
+"Republican",
+null,
+0
+],
+[
+"Clint Bray",
+"Republican",
+null,
+0
+],
+[
+"Dale Broussard",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"John Wayne Williams",
+"Republican",
+null,
+0
+],
+[
+"Clint Bray",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40089-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40089"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Bill Moore",
+"Republican",
+null,
+0
+],
+[
+"Dug Elledge",
+"Republican",
+null,
+0
+],
+[
+"Johnny Caldwell",
+"Republican",
+null,
+0
+],
+[
+"John Pee Wee Lowery",
+"Republican",
+null,
+0
+],
+[
+"Mitch Bishop",
+"Republican",
+null,
+0
+],
+[
+"Robert Beck",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Johnny Caldwell",
+"Republican",
+null,
+0
+],
+[
+"Mitch Bishop",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40091-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40091"
+],
+"district": null,
+"level": "county",
+"names": {
+"general": [
+[
+"Jeff Coleman",
+"Republican",
+1,
+0
+],
+[
+"Loyal Dean Taylor",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Jeff Boyd",
+"Republican",
+null,
+0
+],
+[
+"Jeff Coleman",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40091-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40091"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Jaymn Burdine",
+"Republican",
+null,
+0
+],
+[
+"Gunner Ford",
+"Republican",
+null,
+0
+],
+[
+"Chip Collins",
+"Republican",
+null,
+0
+],
+[
+"Bobby Ziegler",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Jaymn Burdine",
+"Republican",
+null,
+0
+],
+[
+"Gunner Ford",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40093-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40093"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Travis Darr",
+"Republican",
+null,
+0
+],
+[
+"Davis Webb",
+"Republican",
+null,
+0
+],
+[
+"Tom Nichols",
+"Republican",
+null,
+0
+],
+[
+"Tanner McBride",
+"Republican",
+null,
+0
+],
+[
+"Christopher Woods",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Christopher Woods",
+"Republican",
+null,
+0
+],
+[
+"Tom Nichols",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40095-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40095"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Jerry Don Stuckey",
+"Republican",
+null,
+0
+],
+[
+"Justin Wormy Ayres",
+"Republican",
+null,
+0
+],
+[
+"Robert Chaney",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40095-county-treasurer": {
+"cls": "other",
+"counties": [
+"40095"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Laura Larkin",
+"Republican",
+null,
+0
+],
+[
+"Mary Ann Hale",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Treasurer",
+"special": 0
+},
+"2026-OK-40097-county-assessor": {
+"cls": "other",
+"counties": [
+"40097"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Jenny Peper",
+"Republican",
+null,
+0
+],
+[
+"Yolanda Thompson",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Assessor",
+"special": 0
+},
+"2026-OK-40097-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40097"
+],
+"district": null,
+"level": "county",
+"names": {
+"general": [
+[
+"Toby Graves",
+"Republican",
+1,
+0
+],
+[
+"Adam Ward",
+"Libertarian",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Toby Graves",
+"Republican",
+null,
+0
+],
+[
+"Matt Swift",
+"Republican",
+null,
+0
+],
+[
+"Frank R. Phillips",
+"Republican",
+null,
+0
+],
+[
+"Dennis Troyer",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Toby Graves",
+"Republican",
+null,
+0
+],
+[
+"Dennis Troyer",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40097-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40097"
+],
+"district": null,
+"level": "county",
+"names": {
+"general": [
+[
+"Randy Pierce",
+"Republican",
+1,
+0
+],
+[
+"Gaye Brewer",
+"Independent",
+2,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40101-county-assessor": {
+"cls": "other",
+"counties": [
+"40101"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Reyna Benavides",
+"Republican",
+null,
+0
+],
+[
+"Billy Delay",
+"Republican",
+null,
+0
+],
+[
+"Jeffrey Smith",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Jeffrey Smith",
+"Republican",
+null,
+0
+],
+[
+"Reyna Benavides",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Assessor",
+"special": 0
+},
+"2026-OK-40101-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40101"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Greg Taylor",
+"Republican",
+null,
+0
+],
+[
+"Matt Muskrat",
+"Republican",
+null,
+0
+],
+[
+"Steve Goad",
+"Republican",
+null,
+0
+],
+[
+"Ken Doke",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40101-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40101"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Kenny Payne",
+"Republican",
+null,
+0
+],
+[
+"Chadwic Cochran",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40103-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40103"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Nick Hughes",
+"Republican",
+null,
+0
+],
+[
+"Darrell Newell",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40105-county-assessor": {
+"cls": "other",
+"counties": [
+"40105"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Chris Clouse",
+"Republican",
+null,
+0
+],
+[
+"Arthur Devon Friddle",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Assessor",
+"special": 0
+},
+"2026-OK-40105-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40105"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"John David Hultz",
+"Republican",
+null,
+0
+],
+[
+"Paul Crupper",
+"Republican",
+null,
+0
+],
+[
+"Elizabeth Pravel",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40107-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40107"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Randy Stubblefield",
+"Republican",
+null,
+0
+],
+[
+"Heath Henry",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40107-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40107"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"James Yandell",
+"Republican",
+null,
+0
+],
+[
+"McCoy Joslin",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40109-county-assessor": {
+"cls": "other",
+"counties": [
+"40109"
+],
+"district": null,
+"level": "county",
+"names": {
+"general": [
+[
+"Larry Stein",
+"Republican",
+1,
+0
+],
+[
+"John Gibbons",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Larry Stein",
+"Republican",
+null,
+0
+],
+[
+"Ferlin Kearns",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Assessor",
+"special": 0
+},
+"2026-OK-40109-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40109"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-DEM": [
+[
+"Harry Meister",
+"Democrat",
+null,
+0
+],
+[
+"Kayla Baker",
+"Democrat",
+null,
+0
+],
+[
+"Mark Faulk",
+"Democrat",
+null,
+0
+],
+[
+"Jason Lowe",
+"Democrat",
+null,
+0
+]
+],
+"runoff-DEM": [
+[
+"Jason Lowe",
+"Democrat",
+null,
+0
+],
+[
+"Kayla Baker",
+"Democrat",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40109-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40109"
+],
+"district": null,
+"level": "county",
+"names": {
+"general": [
+[
+"Jessica Clayton",
+"Republican",
+1,
+0
+],
+[
+"Jennifer Mayo",
+"Democrat",
+2,
+0
+]
+],
+"primary-DEM": [
+[
+"Thomas Guild",
+"Democrat",
+null,
+0
+],
+[
+"Corey Winston",
+"Democrat",
+null,
+0
+],
+[
+"Jennifer Mayo",
+"Democrat",
+null,
+0
+]
+],
+"primary-REP": [
+[
+"Thomas Gerald Parkhurst",
+"Republican",
+null,
+0
+],
+[
+"Wendy Jo Hampton",
+"Republican",
+null,
+0
+],
+[
+"Alex Warren",
+"Republican",
+null,
+0
+],
+[
+"Scott Wesley Ermis",
+"Republican",
+null,
+0
+],
+[
+"Jessica Clayton",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Jessica Clayton",
+"Republican",
+null,
+0
+],
+[
+"Alex Warren",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40109-county-treasurer": {
+"cls": "other",
+"counties": [
+"40109"
+],
+"district": null,
+"level": "county",
+"names": {
+"general": [
+[
+"Christie K. Miller",
+"Republican",
+1,
+0
+],
+[
+"Jessica Thompson",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "County Treasurer",
+"special": 0
+},
+"2026-OK-40111-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40111"
+],
+"district": null,
+"level": "county",
+"names": {
+"general": [
+[
+"Ernie Ferreira",
+"Republican",
+1,
+0
+],
+[
+"Barbarbra Cooks",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Ernie Ferreira",
+"Republican",
+null,
+0
+],
+[
+"Breck Taylor",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40111-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40111"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Michael Wallace",
+"Republican",
+null,
+0
+],
+[
+"Steve Sanford",
+"Republican",
+null,
+0
+],
+[
+"Brandon England",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Brandon England",
+"Republican",
+null,
+0
+],
+[
+"Michael Wallace",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40113-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40113"
+],
+"district": null,
+"level": "county",
+"names": {
+"general": [
+[
+"Anthony Lloyd Hudson",
+"Republican",
+1,
+0
+],
+[
+"Randall Jones",
+"Independent",
+2,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40113-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40113"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Chad Ray",
+"Republican",
+null,
+0
+],
+[
+"Charlie Edward Cartwright",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40113-county-treasurer": {
+"cls": "other",
+"counties": [
+"40113"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Shawna Myers",
+"Republican",
+null,
+0
+],
+[
+"Bridget West",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Treasurer",
+"special": 0
+},
+"2026-OK-40115-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40115"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Jr Needham",
+"Republican",
+null,
+0
+],
+[
+"Mike Furnas",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40117-county-treasurer": {
+"cls": "other",
+"counties": [
+"40117"
+],
+"district": null,
+"level": "county",
+"names": {
+"general": [
+[
+"Linda Nicole Lytle-Woodrell",
+"Republican",
+1,
+0
+],
+[
+"Shayla Brien",
+"Independent",
+2,
+0
+]
+]
+},
+"office": "County Treasurer",
+"special": 0
+},
+"2026-OK-40119-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40119"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Zachary Cavett",
+"Republican",
+null,
+0
+],
+[
+"Ray Harper",
+"Republican",
+null,
+0
+],
+[
+"Jacob Presuhn",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40119-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40119"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Rhonda Markum",
+"Republican",
+null,
+0
+],
+[
+"Clayton Estus",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40121-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40121"
+],
+"district": null,
+"level": "county",
+"names": {
+"general": [
+[
+"Ross Selman",
+"Republican",
+1,
+0
+],
+[
+"Jonathan Casey Myers",
+"Independent",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Trent Myers",
+"Republican",
+null,
+0
+],
+[
+"Ross Selman",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40121-sheriff-S": {
+"cls": "other",
+"counties": [
+"40121"
+],
+"district": null,
+"level": "county",
+"names": {
+"general": [
+[
+"Frankie McClendon",
+"Republican",
+1,
+0
+],
+[
+"Bobby Cox",
+"Independent",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Frankie McClendon",
+"Republican",
+null,
+0
+],
+[
+"Richard Rick Dominic",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Sheriff",
+"special": 1
+},
+"2026-OK-40125-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40125"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Phil Solinger Sr.",
+"Republican",
+null,
+0
+],
+[
+"Melissa Dennis",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40125-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40125"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Tanner Silas",
+"Republican",
+null,
+0
+],
+[
+"Chad Edward Votaw",
+"Republican",
+null,
+0
+],
+[
+"Angela Williams",
+"Republican",
+null,
+0
+],
+[
+"Dell Kerbs",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Tanner Silas",
+"Republican",
+null,
+0
+],
+[
+"Dell Kerbs",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40127-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40127"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Donnie Brown",
+"Republican",
+null,
+0
+],
+[
+"Mike Berryhill",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40127-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40127"
+],
+"district": null,
+"level": "county",
+"names": {
+"general": [
+[
+"Buck Jones",
+"Republican",
+1,
+0
+],
+[
+"John Roberts",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40129-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40129"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Rusty Conard Miller",
+"Republican",
+null,
+0
+],
+[
+"Mike Bagzis",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40131-county-assessor": {
+"cls": "other",
+"counties": [
+"40131"
+],
+"district": null,
+"level": "county",
+"names": {
+"general": [
+[
+"Lane A. Carter",
+"Republican",
+1,
+0
+],
+[
+"Aimee Nolan",
+"Independent",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Brad Peixotto",
+"Republican",
+null,
+0
+],
+[
+"Lane A. Carter",
+"Republican",
+null,
+0
+],
+[
+"Eric T Long",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Lane A. Carter",
+"Republican",
+null,
+0
+],
+[
+"Eric T Long",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Assessor",
+"special": 0
+},
+"2026-OK-40131-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40131"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Darren Andrews",
+"Republican",
+null,
+0
+],
+[
+"Teddy Squeak Noland",
+"Republican",
+null,
+0
+],
+[
+"Lane Brown",
+"Republican",
+null,
+0
+],
+[
+"Duane Beamer",
+"Republican",
+null,
+0
+],
+[
+"Kenny Breshears",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Kenny Breshears",
+"Republican",
+null,
+0
+],
+[
+"Teddy Squeak Noland",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40131-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40131"
+],
+"district": null,
+"level": "county",
+"names": {
+"general": [
+[
+"Ron Burrows",
+"Republican",
+1,
+0
+],
+[
+"Thomas Trolinger",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40133-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40133"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Bud Moore",
+"Republican",
+null,
+0
+],
+[
+"Gary Choate",
+"Republican",
+null,
+0
+],
+[
+"Russell Yott",
+"Republican",
+null,
+0
+],
+[
+"John Glover",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Bud Moore",
+"Republican",
+null,
+0
+],
+[
+"Gary Choate",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40133-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40133"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Keith Jennings",
+"Republican",
+null,
+0
+],
+[
+"Manuel Smith",
+"Republican",
+null,
+0
+],
+[
+"Taran Findley",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Manuel Smith",
+"Republican",
+null,
+0
+],
+[
+"Keith Jennings",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40135-county-assessor": {
+"cls": "other",
+"counties": [
+"40135"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Brandy Allen",
+"Republican",
+null,
+0
+],
+[
+"Roger Crawford",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Assessor",
+"special": 0
+},
+"2026-OK-40135-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40135"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Joel Stump",
+"Republican",
+null,
+0
+],
+[
+"Jason Brooks",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40137-county-assessor": {
+"cls": "other",
+"counties": [
+"40137"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Chris Billings",
+"Republican",
+null,
+0
+],
+[
+"MacKenzie Payne",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Assessor",
+"special": 0
+},
+"2026-OK-40137-county-treasurer": {
+"cls": "other",
+"counties": [
+"40137"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Amanda G. Brady",
+"Republican",
+null,
+0
+],
+[
+"Debbie Burden",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Treasurer",
+"special": 0
+},
+"2026-OK-40139-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40139"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"John Allen Humble",
+"Republican",
+null,
+0
+],
+[
+"David Johnson",
+"Republican",
+null,
+0
+],
+[
+"Darrell Edwards",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"John Allen Humble",
+"Republican",
+null,
+0
+],
+[
+"David Johnson",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40139-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40139"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Levi Bickford",
+"Republican",
+null,
+0
+],
+[
+"Ronnie Bellar",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40141-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40141"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Jason Herring",
+"Republican",
+null,
+0
+],
+[
+"Mark Huff",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40143-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40143"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Idris Shelby",
+"Republican",
+null,
+0
+],
+[
+"Stan Sallee",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40143-county-treasurer": {
+"cls": "other",
+"counties": [
+"40143"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Brandon L Shreffler",
+"Republican",
+null,
+0
+],
+[
+"John M. Fothergill",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Treasurer",
+"special": 0
+},
+"2026-OK-40145-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40145"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"James E Hanning",
+"Republican",
+null,
+0
+],
+[
+"Josh Stenros",
+"Republican",
+null,
+0
+],
+[
+"Terry Oard",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40145-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40145"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Dennis McCollough",
+"Republican",
+null,
+0
+],
+[
+"Donnie Yocham",
+"Republican",
+null,
+0
+],
+[
+"Johnny Walker",
+"Republican",
+null,
+0
+],
+[
+"David Greeno",
+"Republican",
+null,
+0
+],
+[
+"Patrick Sampson",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Patrick Sampson",
+"Republican",
+null,
+0
+],
+[
+"Dennis McCollough",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40147-county-assessor": {
+"cls": "other",
+"counties": [
+"40147"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Chris Standridge",
+"Republican",
+null,
+0
+],
+[
+"Steve Campbell",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Assessor",
+"special": 0
+},
+"2026-OK-40149-county-assessor": {
+"cls": "other",
+"counties": [
+"40149"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Kolby Dowell",
+"Republican",
+null,
+0
+],
+[
+"Rusty Bookout",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Assessor",
+"special": 0
+},
+"2026-OK-40149-county-commissioner-1": {
+"cls": "other",
+"counties": [
+"40149"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Bart Gossen",
+"Republican",
+null,
+0
+],
+[
+"Matthew Misak",
+"Republican",
+null,
+0
+],
+[
+"Chris Shields",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Bart Gossen",
+"Republican",
+null,
+0
+],
+[
+"Chris Shields",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40149-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40149"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Floyd King",
+"Republican",
+null,
+0
+],
+[
+"Greg Chandler",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40151-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40151"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"John D. Smiley",
+"Republican",
+null,
+0
+],
+[
+"Bill Huffman",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-40153-county-assessor": {
+"cls": "other",
+"counties": [
+"40153"
+],
+"district": null,
+"level": "county",
+"names": {
+"general": [
+[
+"Tiffany Jobe",
+"Democrat",
+1,
+0
+],
+[
+"Laura Beth Culp",
+"Libertarian",
+2,
+0
+]
+]
+},
+"office": "County Assessor",
+"special": 0
+},
+"2026-OK-40153-county-commissioner-3": {
+"cls": "other",
+"counties": [
+"40153"
+],
+"district": null,
+"level": "county",
+"names": {
+"primary-REP": [
+[
+"Daniel Justin Turner",
+"Republican",
+null,
+0
+],
+[
+"Donny Thorn",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "County Commissioner",
+"special": 0
+},
+"2026-OK-ADJ-40003": {
+"cls": "other",
+"counties": [
+"40003"
+],
+"district": null,
+"level": "court",
+"names": {
+"general": [
+[
+"Megan Hickman",
+"Nonpartisan office",
+1,
+0
+],
+[
+"Brian E. Mitchell",
+"Nonpartisan office",
+2,
+0
+]
+],
+"primary-NP": [
+[
+"Megan Hickman",
+"Nonpartisan office",
+null,
+0
+],
+[
+"Brian E. Mitchell",
+"Nonpartisan office",
+null,
+0
+],
+[
+"Loren E. Angle",
+"Nonpartisan office",
+null,
+0
+]
+]
+},
+"office": "Associate District Judge",
+"special": 0
+},
+"2026-OK-ADJ-40075": {
+"cls": "other",
+"counties": [
+"40075"
+],
+"district": null,
+"level": "court",
+"names": {
+"general": [
+[
+"Ricky A. Marsh",
+"Nonpartisan office",
+1,
+0
+],
+[
+"Kyle N. Eastwood",
+"Nonpartisan office",
+2,
+0
+]
+]
+},
+"office": "Associate District Judge",
+"special": 0
+},
+"2026-OK-ADJ-40083": {
+"cls": "other",
+"counties": [
+"40083"
+],
+"district": null,
+"level": "court",
+"names": {
+"general": [
+[
+"Sierra Pfeiffer",
+"Nonpartisan office",
+1,
+0
+],
+[
+"Diane Vaughan",
+"Nonpartisan office",
+2,
+0
+]
+]
+},
+"office": "Associate District Judge",
+"special": 0
+},
+"2026-OK-ADJ-40105": {
+"cls": "other",
+"counties": [
+"40105"
+],
+"district": null,
+"level": "court",
+"names": {
+"general": [
+[
+"James M Pfeffer",
+"Nonpartisan office",
+1,
+0
+],
+[
+"Linda Michelle Branstetter",
+"Nonpartisan office",
+2,
+0
+]
+],
+"primary-NP": [
+[
+"Linda Michelle Branstetter",
+"Nonpartisan office",
+null,
+0
+],
+[
+"Tanayia Hubler",
+"Nonpartisan office",
+null,
+0
+],
+[
+"James M Pfeffer",
+"Nonpartisan office",
+null,
+0
+]
+]
+},
+"office": "Associate District Judge",
+"special": 0
+},
+"2026-OK-ADJ-40147": {
+"cls": "other",
+"counties": [
+"40147"
+],
+"district": null,
+"level": "court",
+"names": {
+"general": [
+[
+"Todd Cone",
+"Nonpartisan office",
+1,
+0
+],
+[
+"Alan Wayne Gentges",
+"Nonpartisan office",
+2,
+0
+]
+]
+},
+"office": "Associate District Judge",
+"special": 0
+},
+"2026-OK-AG": {
+"cls": "attorney_general",
+"counties": null,
+"district": null,
+"level": "statewide",
+"names": {
+"general": [
+[
+"Jon Echols",
+"Republican",
+1,
+0
+],
+[
+"Nick Coffey",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Jon Echols",
+"Republican",
+null,
+0
+],
+[
+"Jeff Starling",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "Attorney General",
+"special": 0
+},
+"2026-OK-AUD": {
+"cls": "state_auditor",
+"counties": null,
+"district": null,
+"level": "statewide",
+"names": {
+"general": [
+[
+"Melissa Capps",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Auditor and Inspector",
+"special": 0
+},
+"2026-OK-CC": {
+"cls": "corporation_commissioner",
+"counties": null,
+"district": null,
+"level": "statewide",
+"names": {
+"general": [
+[
+"Brad Boles",
+"Republican",
+1,
+0
+],
+[
+"Rhonda Eastman",
+"Democrat",
+2,
+0
+]
+],
+"primary-DEM": [
+[
+"Harold D. Spradling",
+"Democrat",
+null,
+0
+],
+[
+"Rhonda Eastman",
+"Democrat",
+null,
+0
+],
+[
+"Donald Anthony Clytus",
+"Democrat",
+null,
+0
+]
+],
+"primary-REP": [
+[
+"Justin Hornback",
+"Republican",
+null,
+0
+],
+[
+"Brad Boles",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "Corporation Commissioner",
+"special": 0
+},
+"2026-OK-DA-14": {
+"cls": "other",
+"counties": [
+"40143"
+],
+"district": null,
+"level": "court",
+"names": {
+"primary-REP": [
+[
+"Steve Kunzweiler",
+"Republican",
+null,
+0
+],
+[
+"Colleen McCarty",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "District Attorney",
+"special": 0
+},
+"2026-OK-DA-18": {
+"cls": "other",
+"counties": [
+"40061",
+"40121"
+],
+"district": null,
+"level": "court",
+"names": {
+"primary-REP": [
+[
+"James M. Green",
+"Republican",
+null,
+0
+],
+[
+"J. B. Miller",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "District Attorney",
+"special": 0
+},
+"2026-OK-DA-20": {
+"cls": "other",
+"counties": [
+"40019",
+"40069",
+"40085",
+"40095",
+"40099"
+],
+"district": null,
+"level": "court",
+"names": {
+"primary-REP": [
+[
+"James R. Gilmartin",
+"Republican",
+null,
+0
+],
+[
+"Melissa Handke",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "District Attorney",
+"special": 0
+},
+"2026-OK-DA-23": {
+"cls": "other",
+"counties": [
+"40081",
+"40125"
+],
+"district": null,
+"level": "court",
+"names": {
+"primary-REP": [
+[
+"Daniel McClure",
+"Republican",
+null,
+0
+],
+[
+"Adam Panter",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "District Attorney",
+"special": 0
+},
+"2026-OK-DC-14-1": {
+"cls": "other",
+"counties": [
+"40117",
+"40143"
+],
+"district": null,
+"level": "court",
+"names": {
+"general": [
+[
+"Tom Sawyer",
+"Nonpartisan office",
+1,
+0
+],
+[
+"Caroline Wall",
+"Nonpartisan office",
+2,
+0
+]
+]
+},
+"office": "District Judge",
+"special": 0
+},
+"2026-OK-DC-14-12": {
+"cls": "other",
+"counties": [
+"40117",
+"40143"
+],
+"district": null,
+"level": "court",
+"names": {
+"general": [
+[
+"Christopher Camp",
+"Nonpartisan office",
+1,
+0
+],
+[
+"Kevin Gray",
+"Nonpartisan office",
+2,
+0
+]
+]
+},
+"office": "District Judge",
+"special": 0
+},
+"2026-OK-DC-14-4": {
+"cls": "other",
+"counties": [
+"40143"
+],
+"district": null,
+"level": "court",
+"names": {
+"general": [
+[
+"Loretta Radford",
+"Nonpartisan office",
+1,
+0
+],
+[
+"Dustin Allen",
+"Nonpartisan office",
+2,
+0
+]
+],
+"primary-NP": [
+[
+"Dustin Allen",
+"Nonpartisan office",
+null,
+0
+],
+[
+"Phillip Peak",
+"Nonpartisan office",
+null,
+0
+],
+[
+"Loretta Radford",
+"Nonpartisan office",
+null,
+0
+]
+]
+},
+"office": "District Judge",
+"special": 0
+},
+"2026-OK-DC-23-2": {
+"cls": "other",
+"counties": [
+"40081",
+"40125"
+],
+"district": null,
+"level": "court",
+"names": {
+"general": [
+[
+"Troy Austin Officer",
+"Nonpartisan office",
+1,
+0
+],
+[
+"Joseph Costa",
+"Nonpartisan office",
+2,
+0
+]
+]
+},
+"office": "District Judge",
+"special": 0
+},
+"2026-OK-DC-4-2": {
+"cls": "other",
+"counties": [
+"40011",
+"40047",
+"40053",
+"40073"
+],
+"district": null,
+"level": "court",
+"names": {
+"general": [
+[
+"Eric Edwards",
+"Nonpartisan office",
+1,
+0
+],
+[
+"Paul K. Woodward",
+"Nonpartisan office",
+2,
+0
+]
+]
+},
+"office": "District Judge",
+"special": 0
+},
+"2026-OK-DC-5-1": {
+"cls": "other",
+"counties": [
+"40031",
+"40033",
+"40067",
+"40137"
+],
+"district": null,
+"level": "court",
+"names": {
+"general": [
+[
+"Neil West",
+"Nonpartisan office",
+1,
+0
+],
+[
+"Christine Galbraith",
+"Nonpartisan office",
+2,
+0
+]
+],
+"primary-NP": [
+[
+"Neil West",
+"Nonpartisan office",
+null,
+0
+],
+[
+"Christine Galbraith",
+"Nonpartisan office",
+null,
+0
+],
+[
+"Steven W. Crow",
+"Nonpartisan office",
+null,
+0
+],
+[
+"Tommy Sims",
+"Nonpartisan office",
+null,
+0
+]
+]
+},
+"office": "District Judge",
+"special": 0
+},
+"2026-OK-DC-8-1": {
+"cls": "other",
+"counties": [
+"40071",
+"40103"
+],
+"district": null,
+"level": "court",
+"names": {
+"general": [
+[
+"Rob Davis",
+"Nonpartisan office",
+1,
+0
+],
+[
+"Scott Loftis",
+"Nonpartisan office",
+2,
+0
+]
+],
+"primary-NP": [
+[
+"Rob Davis",
+"Nonpartisan office",
+null,
+0
+],
+[
+"Scott Loftis",
+"Nonpartisan office",
+null,
+0
+],
+[
+"Lee Turner",
+"Nonpartisan office",
+null,
+0
+]
+]
+},
+"office": "District Judge",
+"special": 0
+},
+"2026-OK-GOV": {
+"cls": "governor",
+"counties": null,
+"district": null,
+"level": "statewide",
+"names": {
+"general": [
+[
+"Mike Mazzei",
+"Republican",
+1,
+0
+],
+[
+"Cyndi Munson",
+"Democrat",
+2,
+0
+],
+[
+"Orlando Lynn Bush",
+"Independent",
+3,
+0
+],
+[
+"Robert E Brooks Sr",
+"Independent",
+4,
+0
+],
+[
+"Jerry Griffin",
+"Independent",
+5,
+0
+]
+],
+"primary-DEM": [
+[
+"Cyndi Munson",
+"Democrat",
+null,
+0
+],
+[
+"Arya",
+"Democrat",
+null,
+0
+],
+[
+"Connie Johnson",
+"Democrat",
+null,
+0
+]
+],
+"primary-REP": [
+[
+"Charles McCall",
+"Republican",
+null,
+0
+],
+[
+"Mike Mazzei",
+"Republican",
+null,
+0
+],
+[
+"Leisa Mitchell Haynes",
+"Republican",
+null,
+0
+],
+[
+"Gentner Drummond",
+"Republican",
+null,
+0
+],
+[
+"Kenneth Sturgell",
+"Republican",
+null,
+0
+],
+[
+"Jennifer Domenico",
+"Republican",
+null,
+0
+],
+[
+"Chip Keating",
+"Republican",
+null,
+0
+],
+[
+"Calup Anthony Taylor",
+"Republican",
+null,
+0
+],
+[
+"Jake A. Merrick",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Mike Mazzei",
+"Republican",
+null,
+0
+],
+[
+"Gentner Drummond",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "Governor",
+"special": 0
+},
+"2026-OK-H01": {
+"cls": "us_house",
+"counties": null,
+"district": 1,
+"level": "congress",
+"names": {
+"general": [
+[
+"Mark Tedford",
+"Republican",
+1,
+0
+],
+[
+"John Croisant",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Kelly B. Walsh",
+"Republican",
+null,
+0
+],
+[
+"Kim David",
+"Republican",
+null,
+0
+],
+[
+"Jed Cochran",
+"Republican",
+null,
+0
+],
+[
+"Mark Tedford",
+"Republican",
+null,
+0
+],
+[
+"Dan Rooney",
+"Republican",
+null,
+0
+],
+[
+"Courtney Gill",
+"Republican",
+null,
+0
+],
+[
+"Nathan Butterfield",
+"Republican",
+null,
+0
+],
+[
+"Jackson Lahmeyer",
+"Republican",
+null,
+0
+],
+[
+"Nancy Dyson",
+"Republican",
+null,
+0
+],
+[
+"Todd Woods",
+"Republican",
+null,
+0
+],
+[
+"Paul Royse",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "U.S. House",
+"special": 0
+},
+"2026-OK-H02": {
+"cls": "us_house",
+"counties": null,
+"district": 2,
+"level": "congress",
+"names": {
+"general": [
+[
+"Josh Brecheen",
+"Republican",
+1,
+0
+],
+[
+"Brandon Wade",
+"Democrat",
+2,
+0
+],
+[
+"Ronnie Hopkins",
+"Independent",
+3,
+0
+]
+],
+"primary-DEM": [
+[
+"Erik Terwey",
+"Democrat",
+null,
+0
+],
+[
+"Brandon Wade",
+"Democrat",
+null,
+0
+]
+],
+"primary-REP": [
+[
+"Will Webb",
+"Republican",
+null,
+0
+],
+[
+"Josh Brecheen",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "U.S. House",
+"special": 0
+},
+"2026-OK-H03": {
+"cls": "us_house",
+"counties": null,
+"district": 3,
+"level": "congress",
+"names": {
+"general": [
+[
+"Frank D. Lucas",
+"Republican",
+1,
+0
+],
+[
+"Suzie Byrd",
+"Democrat",
+2,
+0
+]
+],
+"primary-DEM": [
+[
+"Jules Roberson",
+"Democrat",
+null,
+0
+],
+[
+"Suzie Byrd",
+"Democrat",
+null,
+0
+]
+],
+"primary-REP": [
+[
+"Frank D. Lucas",
+"Republican",
+null,
+0
+],
+[
+"Wade Burleson",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "U.S. House",
+"special": 0
+},
+"2026-OK-H04": {
+"cls": "us_house",
+"counties": null,
+"district": 4,
+"level": "congress",
+"names": {
+"general": [
+[
+"Tom Cole",
+"Republican",
+1,
+0
+],
+[
+"Mitchell Jacob",
+"Democrat",
+2,
+0
+],
+[
+"Rocco Bonacci",
+"Independent",
+3,
+0
+]
+],
+"primary-DEM": [
+[
+"Jeff Pixley",
+"Democrat",
+null,
+0
+],
+[
+"Mitchell Jacob",
+"Democrat",
+null,
+0
+]
+],
+"primary-REP": [
+[
+"Tom Cole",
+"Republican",
+null,
+0
+],
+[
+"Marcie Everhart",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "U.S. House",
+"special": 0
+},
+"2026-OK-H05": {
+"cls": "us_house",
+"counties": null,
+"district": 5,
+"level": "congress",
+"names": {
+"general": [
+[
+"Stephanie Bice",
+"Republican",
+1,
+0
+],
+[
+"Jena Nelson",
+"Democrat",
+2,
+0
+],
+[
+"Robert P. Henri",
+"Independent",
+3,
+0
+],
+[
+"Austin Nieves",
+"Independent",
+4,
+0
+]
+],
+"primary-DEM": [
+[
+"Jena Nelson",
+"Democrat",
+null,
+0
+],
+[
+"Trey Martin",
+"Democrat",
+null,
+0
+]
+]
+},
+"office": "U.S. House",
+"special": 0
+},
+"2026-OK-INS": {
+"cls": "insurance_commissioner",
+"counties": null,
+"district": null,
+"level": "statewide",
+"names": {
+"general": [
+[
+"Bob Sullivan",
+"Republican",
+1,
+0
+],
+[
+"Craig Macintyre",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Marty L Quinn",
+"Republican",
+null,
+0
+],
+[
+"Bob Sullivan",
+"Republican",
+null,
+0
+],
+[
+"Greta Shuler",
+"Republican",
+null,
+0
+],
+[
+"Chris Merideth",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Marty L Quinn",
+"Republican",
+null,
+0
+],
+[
+"Bob Sullivan",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "Insurance Commissioner",
+"special": 0
+},
+"2026-OK-LAB": {
+"cls": "labor_commissioner",
+"counties": null,
+"district": null,
+"level": "statewide",
+"names": {
+"general": [
+[
+"Kevin West",
+"Republican",
+1,
+0
+],
+[
+"Kevin Dawson",
+"Democrat",
+2,
+0
+],
+[
+"Mike Hall",
+"Libertarian",
+3,
+0
+]
+],
+"primary-REP": [
+[
+"Kevin West",
+"Republican",
+null,
+0
+],
+[
+"Lisa Janloo",
+"Republican",
+null,
+0
+],
+[
+"John Pfeiffer",
+"Republican",
+null,
+0
+],
+[
+"Keith Swinton",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Kevin West",
+"Republican",
+null,
+0
+],
+[
+"John Pfeiffer",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "Commissioner of Labor",
+"special": 0
+},
+"2026-OK-LTG": {
+"cls": "lieutenant_governor",
+"counties": null,
+"district": null,
+"level": "statewide",
+"names": {
+"general": [
+[
+"T. W. Shannon",
+"Republican",
+1,
+0
+],
+[
+"Kelly Forbes",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Darrell Weaver",
+"Republican",
+null,
+0
+],
+[
+"H. Victor Flores",
+"Republican",
+null,
+0
+],
+[
+"T. W. Shannon",
+"Republican",
+null,
+0
+],
+[
+"Justin Jj Humphrey",
+"Republican",
+null,
+0
+],
+[
+"Brian Hill",
+"Republican",
+null,
+0
+],
+[
+"David Ostrowe",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "Lieutenant Governor",
+"special": 0
+},
+"2026-OK-M-04450-council-ward-1": {
+"cls": "other",
+"counties": [
+"40147"
+],
+"district": null,
+"level": "city",
+"names": {
+"general": [
+[
+"Tim Sherrick",
+"Nonpartisan office",
+null,
+0
+],
+[
+"Michael Colaw",
+"Nonpartisan office",
+null,
+0
+]
+]
+},
+"office": "Councilmember",
+"special": 0
+},
+"2026-OK-M-04450-council-ward-2": {
+"cls": "other",
+"counties": [
+"40147"
+],
+"district": null,
+"level": "city",
+"names": {
+"general": [
+[
+"Cameron Byers",
+"Nonpartisan office",
+null,
+0
+],
+[
+"David Austin",
+"Nonpartisan office",
+null,
+0
+]
+]
+},
+"office": "Councilmember",
+"special": 0
+},
+"2026-OK-M-04450-council-ward-3": {
+"cls": "other",
+"counties": [
+"40147"
+],
+"district": null,
+"level": "city",
+"names": {
+"general": [
+[
+"Ingard Curtiss",
+"Nonpartisan office",
+null,
+0
+],
+[
+"Josh Lock",
+"Nonpartisan office",
+null,
+0
+],
+[
+"James S. Curd Jr.",
+"Nonpartisan office",
+null,
+0
+]
+]
+},
+"office": "Councilmember",
+"special": 0
+},
+"2026-OK-M-04450-council-ward-4": {
+"cls": "other",
+"counties": [
+"40113",
+"40147"
+],
+"district": null,
+"level": "city",
+"names": {
+"general": [
+[
+"Aaron Kirkpatrick",
+"Nonpartisan office",
+null,
+0
+],
+[
+"Joel Rabin",
+"Nonpartisan office",
+null,
+0
+],
+[
+"Amanda Veley",
+"Nonpartisan office",
+null,
+0
+]
+]
+},
+"office": "Councilmember",
+"special": 0
+},
+"2026-OK-M-04450-council-ward-5": {
+"cls": "other",
+"counties": [
+"40147"
+],
+"district": null,
+"level": "city",
+"names": {
+"general": [
+[
+"Eddie Collins",
+"Nonpartisan office",
+null,
+0
+],
+[
+"Trevor D Dorsey",
+"Nonpartisan office",
+null,
+0
+],
+[
+"Angela Utley",
+"Nonpartisan office",
+null,
+0
+]
+]
+},
+"office": "Councilmember",
+"special": 0
+},
+"2026-OK-M-15400-council-ward-4": {
+"cls": "other",
+"counties": [
+"40039",
+"40149"
+],
+"district": null,
+"level": "city",
+"names": {
+"general": [
+[
+"Bobby Stewart",
+"Nonpartisan office",
+null,
+0
+],
+[
+"Lucas Martinez",
+"Nonpartisan office",
+null,
+0
+]
+]
+},
+"office": "Councilman",
+"special": 0
+},
+"2026-OK-M-15400-mayor": {
+"cls": "other",
+"counties": [
+"40039",
+"40149"
+],
+"district": null,
+"level": "city",
+"names": {
+"general": [
+[
+"David Berrong",
+"Nonpartisan office",
+null,
+0
+],
+[
+"Ernie Dowdell",
+"Nonpartisan office",
+null,
+0
+]
+]
+},
+"office": "Mayor",
+"special": 0
+},
+"2026-OK-M-23700-council-ward-3": {
+"cls": "other",
+"counties": [
+"40017"
+],
+"district": null,
+"level": "city",
+"names": {
+"general": [
+[
+"David Black",
+"Nonpartisan office",
+null,
+0
+],
+[
+"Blake Dewberry",
+"Nonpartisan office",
+null,
+0
+]
+]
+},
+"office": "Councilmember",
+"special": 0
+},
+"2026-OK-M-41850-council-ward-2-S": {
+"cls": "other",
+"counties": [
+"40031"
+],
+"district": null,
+"level": "city",
+"names": {
+"general": [
+[
+"Jena M Smith",
+"Nonpartisan office",
+null,
+0
+],
+[
+"Taron Epps Sr",
+"Nonpartisan office",
+null,
+0
+]
+],
+"primary-NP": [
+[
+"Taron Epps Sr",
+"Nonpartisan office",
+null,
+0
+],
+[
+"Jena M Smith",
+"Nonpartisan office",
+null,
+0
+],
+[
+"Jason Kunkel",
+"Nonpartisan office",
+null,
+0
+]
+]
+},
+"office": "Council Member",
+"special": 1
+},
+"2026-OK-M-75000-council-district-1": {
+"cls": "other",
+"counties": [
+"40113",
+"40143"
+],
+"district": null,
+"level": "city",
+"names": {
+"general": [
+[
+"Vanessa Hall-Harper",
+"Nonpartisan office",
+null,
+0
+],
+[
+"Corinice Wilson",
+"Nonpartisan office",
+null,
+0
+]
+],
+"primary-NP": [
+[
+"Mareo Johnson",
+"Nonpartisan office",
+null,
+0
+],
+[
+"Corinice Wilson",
+"Nonpartisan office",
+null,
+0
+],
+[
+"Vanessa Hall-Harper",
+"Nonpartisan office",
+null,
+0
+],
+[
+"Reggie Williams",
+"Nonpartisan office",
+null,
+0
+],
+[
+"Thomas William Moore",
+"Nonpartisan office",
+null,
+0
+]
+]
+},
+"office": "Councilmember",
+"special": 0
+},
+"2026-OK-M-82950-council-ward-3-S": {
+"cls": "other",
+"counties": [
+"40017"
+],
+"district": null,
+"level": "city",
+"names": {
+"general": [
+[
+"Brian Pillmore",
+"Nonpartisan office",
+null,
+0
+],
+[
+"Joe Phillips",
+"Nonpartisan office",
+null,
+0
+]
+]
+},
+"office": "Councilmember",
+"special": 1
+},
+"2026-OK-S2": {
+"cls": "us_senate",
+"counties": null,
+"district": null,
+"level": "congress",
+"names": {
+"general": [
+[
+"Kevin Hern",
+"Republican",
+1,
+0
+],
+[
+"N'Kiyla Jasmine Thomas",
+"Democrat",
+2,
+0
+],
+[
+"Sevier White",
+"Libertarian",
+3,
+0
+],
+[
+"Ron Meinhardt",
+"Independent",
+4,
+0
+],
+[
+"Curtis Stinnett",
+"Independent",
+5,
+0
+]
+],
+"primary-DEM": [
+[
+"Troy W. Green",
+"Democrat",
+null,
+0
+],
+[
+"Jim Priest",
+"Democrat",
+null,
+0
+],
+[
+"R.O. Joe Cassity Jr.",
+"Democrat",
+null,
+0
+],
+[
+"N'Kiyla Jasmine Thomas",
+"Democrat",
+null,
+0
+],
+[
+"Ervin Stone Yen",
+"Democrat",
+null,
+0
+]
+],
+"primary-REP": [
+[
+"Kevin Hern",
+"Republican",
+null,
+0
+],
+[
+"Sean Buckner",
+"Republican",
+null,
+0
+],
+[
+"Brian Ragain",
+"Republican",
+null,
+0
+],
+[
+"Nick Hankins",
+"Republican",
+null,
+0
+],
+[
+"Gary Ty England",
+"Republican",
+null,
+0
+]
+],
+"runoff-DEM": [
+[
+"Jim Priest",
+"Democrat",
+null,
+0
+],
+[
+"N'Kiyla Jasmine Thomas",
+"Democrat",
+null,
+0
+]
+]
+},
+"office": "U.S. Senate",
+"special": 0
+},
+"2026-OK-SH1": {
+"cls": "state_house",
+"counties": [
+"40079",
+"40089"
+],
+"district": 1,
+"level": "legislature",
+"names": {
+"primary-REP": [
+[
+"Wes Watson",
+"Republican",
+null,
+0
+],
+[
+"Austin Loard",
+"Republican",
+null,
+0
+],
+[
+"George Phipps",
+"Republican",
+null,
+0
+],
+[
+"Chris White",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"George Phipps",
+"Republican",
+null,
+0
+],
+[
+"Chris White",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH10": {
+"cls": "state_house",
+"counties": [
+"40105",
+"40113",
+"40147"
+],
+"district": 10,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Judd Strom",
+"Republican",
+1,
+0
+],
+[
+"Isaac D Mattox",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Judd Strom",
+"Republican",
+null,
+0
+],
+[
+"Jake Bair",
+"Republican",
+null,
+0
+],
+[
+"Cuen Funderburke",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH100": {
+"cls": "state_house",
+"counties": [
+"40109"
+],
+"district": 100,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Marilyn Stark",
+"Republican",
+1,
+0
+],
+[
+"Chaunté Gilmore",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH101": {
+"cls": "state_house",
+"counties": [
+"40109"
+],
+"district": 101,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Robert Manger",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH11": {
+"cls": "state_house",
+"counties": [
+"40143",
+"40147"
+],
+"district": 11,
+"level": "legislature",
+"names": {
+"primary-REP": [
+[
+"John B. Kane",
+"Republican",
+null,
+0
+],
+[
+"Wendi Stearman",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH12": {
+"cls": "state_house",
+"counties": [
+"40145"
+],
+"district": 12,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Mark Chapman",
+"Republican",
+1,
+0
+],
+[
+"Tiffany Prater",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Mark Chapman",
+"Republican",
+null,
+0
+],
+[
+"Sandy Hodges",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH13": {
+"cls": "state_house",
+"counties": [
+"40091",
+"40101",
+"40145"
+],
+"district": 13,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Neil Hays",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH14": {
+"cls": "state_house",
+"counties": [
+"40021",
+"40101",
+"40145"
+],
+"district": 14,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Chris Sneed",
+"Republican",
+1,
+0
+],
+[
+"Jeremiah Gantz",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Roy Timmons",
+"Republican",
+null,
+0
+],
+[
+"Chris Sneed",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH15": {
+"cls": "state_house",
+"counties": [
+"40061",
+"40079",
+"40091",
+"40101",
+"40121"
+],
+"district": 15,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Tim Turner",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH16": {
+"cls": "state_house",
+"counties": [
+"40101",
+"40111",
+"40143"
+],
+"district": 16,
+"level": "legislature",
+"names": {
+"general": [
+[
+"David Nelson",
+"Republican",
+1,
+0
+],
+[
+"Rose Rosie Lynch",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH17": {
+"cls": "state_house",
+"counties": [
+"40077",
+"40121"
+],
+"district": 17,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jim Grego",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH18": {
+"cls": "state_house",
+"counties": [
+"40029",
+"40063",
+"40107",
+"40121"
+],
+"district": 18,
+"level": "legislature",
+"names": {
+"primary-REP": [
+[
+"David Smith",
+"Republican",
+null,
+0
+],
+[
+"Shelton Foster",
+"Republican",
+null,
+0
+],
+[
+"Pamela Gordon",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"David Smith",
+"Republican",
+null,
+0
+],
+[
+"Pamela Gordon",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH19": {
+"cls": "state_house",
+"counties": [
+"40005",
+"40013",
+"40023",
+"40127"
+],
+"district": 19,
+"level": "legislature",
+"names": {
+"primary-REP": [
+[
+"Michael A. Brittingham",
+"Republican",
+null,
+0
+],
+[
+"Anthony Devore",
+"Republican",
+null,
+0
+],
+[
+"Derek Porter",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Michael A. Brittingham",
+"Republican",
+null,
+0
+],
+[
+"Anthony Devore",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH2": {
+"cls": "state_house",
+"counties": [
+"40135"
+],
+"district": 2,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jim Olsen",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH20": {
+"cls": "state_house",
+"counties": [
+"40027",
+"40087"
+],
+"district": 20,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jonathan Wilk",
+"Republican",
+1,
+0
+],
+[
+"Chris May",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Jonathan Wilk",
+"Republican",
+null,
+0
+],
+[
+"Mike Fullerton",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH21": {
+"cls": "state_house",
+"counties": [
+"40013",
+"40095"
+],
+"district": 21,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Cody Maynard",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH22": {
+"cls": "state_house",
+"counties": [
+"40005",
+"40029",
+"40069",
+"40099"
+],
+"district": 22,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Ryan Eaves",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH23": {
+"cls": "state_house",
+"counties": [
+"40131",
+"40143",
+"40145"
+],
+"district": 23,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Derrick R. Hildebrant",
+"Republican",
+1,
+0
+],
+[
+"Catherine Peters",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH24": {
+"cls": "state_house",
+"counties": [
+"40037",
+"40111",
+"40143"
+],
+"district": 24,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Chris Banning",
+"Republican",
+1,
+0
+],
+[
+"Joshua Conant",
+"Independent",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Chris Banning",
+"Republican",
+null,
+0
+],
+[
+"Casey Fixico Sutterfield",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH25": {
+"cls": "state_house",
+"counties": [
+"40087",
+"40123",
+"40125"
+],
+"district": 25,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Ronny Johns",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH26": {
+"cls": "state_house",
+"counties": [
+"40125"
+],
+"district": 26,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Leah Longest",
+"Republican",
+1,
+0
+],
+[
+"Chris Odneal",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH27": {
+"cls": "state_house",
+"counties": [
+"40027",
+"40125"
+],
+"district": 27,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Danny Sterling",
+"Republican",
+1,
+0
+],
+[
+"Memory Taylor",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Danny Sterling",
+"Republican",
+null,
+0
+],
+[
+"Roberta Lewis",
+"Republican",
+null,
+0
+],
+[
+"Shoney Qualls",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH28": {
+"cls": "state_house",
+"counties": [
+"40125",
+"40133"
+],
+"district": 28,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Danny Williams",
+"Republican",
+1,
+0
+],
+[
+"Blake Cummings",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH29": {
+"cls": "state_house",
+"counties": [
+"40037",
+"40143"
+],
+"district": 29,
+"level": "legislature",
+"names": {
+"primary-REP": [
+[
+"Kyle Hilbert",
+"Republican",
+null,
+0
+],
+[
+"Brian Jackson",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH3": {
+"cls": "state_house",
+"counties": [
+"40079"
+],
+"district": 3,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Rick West",
+"Republican",
+1,
+0
+],
+[
+"Steve Glinski",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Rick West",
+"Republican",
+null,
+0
+],
+[
+"Dalton Staley",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH30": {
+"cls": "state_house",
+"counties": [
+"40037",
+"40143"
+],
+"district": 30,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Mark Lawson",
+"Republican",
+1,
+0
+],
+[
+"Sonya Amling",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH31": {
+"cls": "state_house",
+"counties": [
+"40083",
+"40109"
+],
+"district": 31,
+"level": "legislature",
+"names": {
+"primary-REP": [
+[
+"Collin Duel",
+"Republican",
+null,
+0
+],
+[
+"Karmin Grider",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH32": {
+"cls": "state_house",
+"counties": [
+"40081",
+"40083",
+"40119"
+],
+"district": 32,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jim Shaw",
+"Republican",
+1,
+0
+],
+[
+"Andy Brown",
+"Independent",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Jim Shaw",
+"Republican",
+null,
+0
+],
+[
+"Jack Vaughan",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH33": {
+"cls": "state_house",
+"counties": [
+"40083",
+"40119"
+],
+"district": 33,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Molly Jenkins",
+"Republican",
+1,
+0
+],
+[
+"Max E. Burchett Jr",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Molly Jenkins",
+"Republican",
+null,
+0
+],
+[
+"B. J. Roberson",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH34": {
+"cls": "state_house",
+"counties": [
+"40119"
+],
+"district": 34,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Aaron Means",
+"Republican",
+1,
+0
+],
+[
+"Trish Ranson",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH35": {
+"cls": "state_house",
+"counties": [
+"40037",
+"40103",
+"40113",
+"40117",
+"40119"
+],
+"district": 35,
+"level": "legislature",
+"names": {
+"primary-REP": [
+[
+"Dillon Travis",
+"Republican",
+null,
+0
+],
+[
+"Kevin Wright",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH36": {
+"cls": "state_house",
+"counties": [
+"40027",
+"40109"
+],
+"district": 36,
+"level": "legislature",
+"names": {
+"general": [
+[
+"John George",
+"Republican",
+1,
+0
+],
+[
+"Leslie Hellebuyck",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"John George",
+"Republican",
+null,
+0
+],
+[
+"Jenni White",
+"Republican",
+null,
+0
+],
+[
+"Joe Sarge Nelson",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH37": {
+"cls": "state_house",
+"counties": [
+"40071",
+"40113"
+],
+"district": 37,
+"level": "legislature",
+"names": {
+"primary-REP": [
+[
+"Jeremy Sacket",
+"Republican",
+null,
+0
+],
+[
+"Spencer Grace",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH38": {
+"cls": "state_house",
+"counties": [
+"40047",
+"40053",
+"40071",
+"40083",
+"40103"
+],
+"district": 38,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Madison Bolay",
+"Republican",
+1,
+0
+],
+[
+"Doyle Lewis",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Jim Neal",
+"Republican",
+null,
+0
+],
+[
+"Madison Bolay",
+"Republican",
+null,
+0
+],
+[
+"Michael Norman",
+"Republican",
+null,
+0
+],
+[
+"Suzanne Callihan",
+"Republican",
+null,
+0
+],
+[
+"Danielle Deterding",
+"Republican",
+null,
+0
+],
+[
+"Brian Hobbs",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Madison Bolay",
+"Republican",
+null,
+0
+],
+[
+"Danielle Deterding",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH39": {
+"cls": "state_house",
+"counties": [
+"40109"
+],
+"district": 39,
+"level": "legislature",
+"names": {
+"primary-REP": [
+[
+"Erick Harris",
+"Republican",
+null,
+0
+],
+[
+"Ronda Peterson",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH4": {
+"cls": "state_house",
+"counties": [
+"40021",
+"40145"
+],
+"district": 4,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Bob Ed Culver",
+"Republican",
+1,
+0
+],
+[
+"Christopher Wier",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH40": {
+"cls": "state_house",
+"counties": [
+"40047"
+],
+"district": 40,
+"level": "legislature",
+"names": {
+"primary-REP": [
+[
+"Torry Turnbow",
+"Republican",
+null,
+0
+],
+[
+"Kinsley Jordan",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH41": {
+"cls": "state_house",
+"counties": [
+"40017",
+"40073",
+"40083",
+"40109"
+],
+"district": 41,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Denise Crosswhite Hader",
+"Republican",
+1,
+0
+],
+[
+"Mike Bockus",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH42": {
+"cls": "state_house",
+"counties": [
+"40027",
+"40049",
+"40087"
+],
+"district": 42,
+"level": "legislature",
+"names": {
+"primary-REP": [
+[
+"Cindy Roe",
+"Republican",
+null,
+0
+],
+[
+"Kaity Keith",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH43": {
+"cls": "state_house",
+"counties": [
+"40017"
+],
+"district": 43,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jay Steagall",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH44": {
+"cls": "state_house",
+"counties": [
+"40027"
+],
+"district": 44,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jared Deck",
+"Democrat",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH45": {
+"cls": "state_house",
+"counties": [
+"40027"
+],
+"district": 45,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Carolyn Womack-Bielich",
+"Republican",
+1,
+0
+],
+[
+"Annie Menz",
+"Democrat",
+2,
+0
+]
+],
+"primary-DEM": [
+[
+"Annie Menz",
+"Democrat",
+null,
+0
+],
+[
+"Evan Nathaniel Shepherd",
+"Democrat",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH46": {
+"cls": "state_house",
+"counties": [
+"40027"
+],
+"district": 46,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jacob Rosecrants",
+"Democrat",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH47": {
+"cls": "state_house",
+"counties": [
+"40017"
+],
+"district": 47,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Toby Thompson",
+"Republican",
+1,
+0
+],
+[
+"Indigo Oliver",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Kevan Gentry",
+"Republican",
+null,
+0
+],
+[
+"Toby Thompson",
+"Republican",
+null,
+0
+],
+[
+"Kevin Simons",
+"Republican",
+null,
+0
+],
+[
+"Kevin Warnemuende",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Kevan Gentry",
+"Republican",
+null,
+0
+],
+[
+"Toby Thompson",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH48": {
+"cls": "state_house",
+"counties": [
+"40019",
+"40049",
+"40099"
+],
+"district": 48,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Tammy Townley",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH49": {
+"cls": "state_house",
+"counties": [
+"40019",
+"40085",
+"40095"
+],
+"district": 49,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Josh Cantrell",
+"Republican",
+1,
+0
+],
+[
+"Dusty Jo Jones",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH5": {
+"cls": "state_house",
+"counties": [
+"40041",
+"40097"
+],
+"district": 5,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Josh West",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH50": {
+"cls": "state_house",
+"counties": [
+"40067",
+"40137"
+],
+"district": 50,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Stacy Jo Adams",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH51": {
+"cls": "state_house",
+"counties": [
+"40051",
+"40137"
+],
+"district": 51,
+"level": "legislature",
+"names": {
+"primary-REP": [
+[
+"Cody Elliott",
+"Republican",
+null,
+0
+],
+[
+"Cole Stevens",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH52": {
+"cls": "state_house",
+"counties": [
+"40055",
+"40057",
+"40065",
+"40075"
+],
+"district": 52,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Gerrid Kendrix",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH53": {
+"cls": "state_house",
+"counties": [
+"40027"
+],
+"district": 53,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jason Blair",
+"Republican",
+1,
+0
+],
+[
+"Carroll Asséo",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Jason Blair",
+"Republican",
+null,
+0
+],
+[
+"Grant Worley",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH54": {
+"cls": "state_house",
+"counties": [
+"40027",
+"40109"
+],
+"district": 54,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Heath Kufahl",
+"Republican",
+1,
+0
+],
+[
+"Crystal Abram-Garcia",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Alexander Torvi",
+"Republican",
+null,
+0
+],
+[
+"Heath Kufahl",
+"Republican",
+null,
+0
+],
+[
+"Philip C. Lancaster",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH55": {
+"cls": "state_house",
+"counties": [
+"40009",
+"40011",
+"40015",
+"40017",
+"40149"
+],
+"district": 55,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Nick Archer",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH56": {
+"cls": "state_house",
+"counties": [
+"40015",
+"40017",
+"40051"
+],
+"district": 56,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Dick Lowe",
+"Republican",
+1,
+0
+],
+[
+"Linda Pedro",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH57": {
+"cls": "state_house",
+"counties": [
+"40009",
+"40039",
+"40129"
+],
+"district": 57,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Anthony S. Moore",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH58": {
+"cls": "state_house",
+"counties": [
+"40003",
+"40047",
+"40093",
+"40151",
+"40153"
+],
+"district": 58,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Carl Newton",
+"Republican",
+1,
+0
+],
+[
+"Albert Borrie",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH59": {
+"cls": "state_house",
+"counties": [
+"40011",
+"40043",
+"40047",
+"40073",
+"40153"
+],
+"district": 59,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Mike Dobrinski",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH6": {
+"cls": "state_house",
+"counties": [
+"40035",
+"40097",
+"40105",
+"40131"
+],
+"district": 6,
+"level": "legislature",
+"names": {
+"primary-REP": [
+[
+"Eli Richard",
+"Republican",
+null,
+0
+],
+[
+"Rusty Cornwell",
+"Republican",
+null,
+0
+],
+[
+"Amber Dawn Ellis",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH60": {
+"cls": "state_house",
+"counties": [
+"40017"
+],
+"district": 60,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Mike Kelley",
+"Republican",
+1,
+0
+],
+[
+"Sharon K Taylor",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Mike Kelley",
+"Republican",
+null,
+0
+],
+[
+"Kade Renfro",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH61": {
+"cls": "state_house",
+"counties": [
+"40007",
+"40025",
+"40045",
+"40059",
+"40139",
+"40153"
+],
+"district": 61,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Kenton Patzkowsky",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH62": {
+"cls": "state_house",
+"counties": [
+"40031"
+],
+"district": 62,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Daniel Pae",
+"Republican",
+1,
+0
+],
+[
+"Blake Munoz",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH63": {
+"cls": "state_house",
+"counties": [
+"40031",
+"40033",
+"40075",
+"40141"
+],
+"district": 63,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Trey Caldwell",
+"Republican",
+1,
+0
+],
+[
+"Shykira Smith",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH64": {
+"cls": "state_house",
+"counties": [
+"40031"
+],
+"district": 64,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Louis Jackson",
+"Republican",
+1,
+0
+],
+[
+"Kathy Suttles",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH65": {
+"cls": "state_house",
+"counties": [
+"40015",
+"40031"
+],
+"district": 65,
+"level": "legislature",
+"names": {
+"primary-REP": [
+[
+"Sam Mitchell",
+"Republican",
+null,
+0
+],
+[
+"Carla Blue Weaver",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH66": {
+"cls": "state_house",
+"counties": [
+"40113",
+"40143"
+],
+"district": 66,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Clay Staires",
+"Republican",
+1,
+0
+],
+[
+"Kenny Blevins",
+"Libertarian",
+2,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH67": {
+"cls": "state_house",
+"counties": [
+"40143"
+],
+"district": 67,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Rob Hall",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH68": {
+"cls": "state_house",
+"counties": [
+"40037",
+"40143"
+],
+"district": 68,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Mike Lay",
+"Republican",
+1,
+0
+],
+[
+"Michelle Lafleur",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH69": {
+"cls": "state_house",
+"counties": [
+"40143"
+],
+"district": 69,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Sheila Dills",
+"Republican",
+1,
+0
+],
+[
+"Tyler Price",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Sheila Dills",
+"Republican",
+null,
+0
+],
+[
+"Angela Strohm",
+"Republican",
+null,
+0
+],
+[
+"Carrie Deweese",
+"Republican",
+null,
+0
+],
+[
+"Cody Nichols",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH7": {
+"cls": "state_house",
+"counties": [
+"40035",
+"40041",
+"40115"
+],
+"district": 7,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Steve Bashore",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH70": {
+"cls": "state_house",
+"counties": [
+"40143"
+],
+"district": 70,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Suzanne E. Schreiber",
+"Democrat",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH71": {
+"cls": "state_house",
+"counties": [
+"40143"
+],
+"district": 71,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Amanda Clinton",
+"Democrat",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH72": {
+"cls": "state_house",
+"counties": [
+"40143"
+],
+"district": 72,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Adam Martin",
+"Republican",
+1,
+0
+],
+[
+"Michelle McCane",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH73": {
+"cls": "state_house",
+"counties": [
+"40113",
+"40143"
+],
+"district": 73,
+"level": "legislature",
+"names": {
+"primary-DEM": [
+[
+"Ron Stewart",
+"Democrat",
+null,
+0
+],
+[
+"Ed Ross",
+"Democrat",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH74": {
+"cls": "state_house",
+"counties": [
+"40131",
+"40143"
+],
+"district": 74,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Kevin W. Norwood",
+"Republican",
+1,
+0
+],
+[
+"Aaron Brent",
+"Independent",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Kevin W. Norwood",
+"Republican",
+null,
+0
+],
+[
+"Sheila Vancuren",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH75": {
+"cls": "state_house",
+"counties": [
+"40143"
+],
+"district": 75,
+"level": "legislature",
+"names": {
+"general": [
+[
+"T.J. Marti",
+"Republican",
+1,
+0
+],
+[
+"Joe Watkins",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH76": {
+"cls": "state_house",
+"counties": [
+"40143"
+],
+"district": 76,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Ross Ford",
+"Republican",
+1,
+0
+],
+[
+"Michael Tinsley",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH77": {
+"cls": "state_house",
+"counties": [
+"40143"
+],
+"district": 77,
+"level": "legislature",
+"names": {
+"primary-DEM": [
+[
+"Kristina Gabriel",
+"Democrat",
+null,
+0
+],
+[
+"John Waldron",
+"Democrat",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH78": {
+"cls": "state_house",
+"counties": [
+"40143"
+],
+"district": 78,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Meloyde Blancett",
+"Democrat",
+1,
+0
+],
+[
+"Tony Oliva",
+"Independent",
+2,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH79": {
+"cls": "state_house",
+"counties": [
+"40143"
+],
+"district": 79,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Paul Hassink",
+"Republican",
+1,
+0
+],
+[
+"Melissa Provenzano",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH8": {
+"cls": "state_house",
+"counties": [
+"40097",
+"40131",
+"40145"
+],
+"district": 8,
+"level": "legislature",
+"names": {
+"primary-REP": [
+[
+"Tom Gann",
+"Republican",
+null,
+0
+],
+[
+"Todd Rice",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH80": {
+"cls": "state_house",
+"counties": [
+"40143"
+],
+"district": 80,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Stan May",
+"Republican",
+1,
+0
+],
+[
+"Jeremy Founds",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH81": {
+"cls": "state_house",
+"counties": [
+"40109"
+],
+"district": 81,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Troy Talley",
+"Republican",
+1,
+0
+],
+[
+"Megan Hornbeek Allen",
+"Democrat",
+2,
+0
+]
+],
+"primary-DEM": [
+[
+"Megan Hornbeek Allen",
+"Democrat",
+null,
+0
+],
+[
+"Jason Lankford",
+"Democrat",
+null,
+0
+]
+],
+"primary-REP": [
+[
+"Rusty Rains",
+"Republican",
+null,
+0
+],
+[
+"Troy Talley",
+"Republican",
+null,
+0
+],
+[
+"Amber Canary",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Rusty Rains",
+"Republican",
+null,
+0
+],
+[
+"Troy Talley",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH82": {
+"cls": "state_house",
+"counties": [
+"40109"
+],
+"district": 82,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Nicole Miller",
+"Republican",
+1,
+0
+],
+[
+"Travis Headd",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH83": {
+"cls": "state_house",
+"counties": [
+"40109"
+],
+"district": 83,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Eric Roberts",
+"Republican",
+1,
+0
+],
+[
+"Dalton Gau",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH84": {
+"cls": "state_house",
+"counties": [
+"40109"
+],
+"district": 84,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Tammy West",
+"Republican",
+1,
+0
+],
+[
+"Jeffrey Perez",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH85": {
+"cls": "state_house",
+"counties": [
+"40109"
+],
+"district": 85,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Joe Fallin",
+"Republican",
+1,
+0
+],
+[
+"Chelsey Branham",
+"Democrat",
+2,
+0
+]
+],
+"primary-DEM": [
+[
+"Estefania Gruenstein",
+"Democrat",
+null,
+0
+],
+[
+"Chelsey Branham",
+"Democrat",
+null,
+0
+],
+[
+"Braxton Banks",
+"Democrat",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH86": {
+"cls": "state_house",
+"counties": [
+"40001",
+"40021",
+"40041",
+"40097"
+],
+"district": 86,
+"level": "legislature",
+"names": {
+"general": [
+[
+"David Hardin",
+"Republican",
+1,
+0
+],
+[
+"Hannah Cole",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"David Hardin",
+"Republican",
+null,
+0
+],
+[
+"Ryan Martin",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH87": {
+"cls": "state_house",
+"counties": [
+"40109"
+],
+"district": 87,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Codey Bartle",
+"Republican",
+1,
+0
+],
+[
+"Ellyn Hefner",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH88": {
+"cls": "state_house",
+"counties": [
+"40109"
+],
+"district": 88,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Ellen Pogemiller",
+"Democrat",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH89": {
+"cls": "state_house",
+"counties": [
+"40109"
+],
+"district": 89,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Arturo Alonso",
+"Democrat",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH9": {
+"cls": "state_house",
+"counties": [
+"40131",
+"40143"
+],
+"district": 9,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Scotty Stokes",
+"Republican",
+1,
+0
+],
+[
+"Andrea Biscardi",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Scotty Stokes",
+"Republican",
+null,
+0
+],
+[
+"Crystal Campbell",
+"Republican",
+null,
+0
+],
+[
+"Debbie Long",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Scotty Stokes",
+"Republican",
+null,
+0
+],
+[
+"Crystal Campbell",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH90": {
+"cls": "state_house",
+"counties": [
+"40027",
+"40109"
+],
+"district": 90,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Emily Gise",
+"Republican",
+1,
+0
+],
+[
+"Kymberly Ward",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH91": {
+"cls": "state_house",
+"counties": [
+"40027"
+],
+"district": 91,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Roberto Seda",
+"Republican",
+1,
+0
+],
+[
+"Chris Fowler",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Roberto Seda",
+"Republican",
+null,
+0
+],
+[
+"Michael Freeman",
+"Republican",
+null,
+0
+],
+[
+"Teresa Sterling",
+"Republican",
+null,
+0
+],
+[
+"Bruce Fleming",
+"Republican",
+null,
+0
+],
+[
+"Debbie Shultz",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Roberto Seda",
+"Republican",
+null,
+0
+],
+[
+"Teresa Sterling",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH92": {
+"cls": "state_house",
+"counties": [
+"40109"
+],
+"district": 92,
+"level": "legislature",
+"names": {
+"primary-DEM": [
+[
+"Sam Wargin Grimaldo",
+"Democrat",
+null,
+0
+],
+[
+"Vicki Ruth Werneke",
+"Democrat",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH92-UNEXP": {
+"cls": "state_house",
+"counties": [
+"40109"
+],
+"district": 92,
+"level": "legislature",
+"names": {
+"primary-DEM": [
+[
+"Sam Wargin Grimaldo",
+"Democrat",
+null,
+0
+],
+[
+"Vicki Ruth Werneke",
+"Democrat",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 1
+},
+"2026-OK-SH93": {
+"cls": "state_house",
+"counties": [
+"40109"
+],
+"district": 93,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Mickey Dollens",
+"Democrat",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH94": {
+"cls": "state_house",
+"counties": [
+"40109"
+],
+"district": 94,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Andy Fugate",
+"Democrat",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH95": {
+"cls": "state_house",
+"counties": [
+"40027",
+"40109"
+],
+"district": 95,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Max Wolfley",
+"Republican",
+1,
+0
+],
+[
+"Tegan Malone",
+"Democrat",
+2,
+0
+],
+[
+"Ryan Gardner",
+"Independent",
+3,
+0
+]
+],
+"primary-REP": [
+[
+"Max Wolfley",
+"Republican",
+null,
+0
+],
+[
+"Brent Rinehart",
+"Republican",
+null,
+0
+],
+[
+"Alexander Yoder",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH96": {
+"cls": "state_house",
+"counties": [
+"40109"
+],
+"district": 96,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Preston Stinson",
+"Republican",
+1,
+0
+],
+[
+"Ashtyn Smith",
+"Democrat",
+2,
+0
+]
+],
+"primary-DEM": [
+[
+"Austin Reams",
+"Democrat",
+null,
+0
+],
+[
+"Phillip Massad",
+"Democrat",
+null,
+0
+],
+[
+"Ashtyn Smith",
+"Democrat",
+null,
+0
+]
+],
+"primary-REP": [
+[
+"Preston Stinson",
+"Republican",
+null,
+0
+],
+[
+"John Bachman",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH97": {
+"cls": "state_house",
+"counties": [
+"40109"
+],
+"district": 97,
+"level": "legislature",
+"names": {
+"primary-DEM": [
+[
+"Aletia Haynes Timmons",
+"Democrat",
+null,
+0
+],
+[
+"Chimere Grant",
+"Democrat",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH98": {
+"cls": "state_house",
+"counties": [
+"40143",
+"40145"
+],
+"district": 98,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Gabe Woolley",
+"Republican",
+1,
+0
+],
+[
+"Cathy Smythe",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Gabe Woolley",
+"Republican",
+null,
+0
+],
+[
+"Dean Davis",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SH99": {
+"cls": "state_house",
+"counties": [
+"40109"
+],
+"district": 99,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Melvin Latham",
+"Republican",
+1,
+0
+],
+[
+"Herschel L. Brown",
+"Democrat",
+2,
+0
+]
+],
+"primary-DEM": [
+[
+"Herschel L. Brown",
+"Democrat",
+null,
+0
+],
+[
+"Derrick Sier",
+"Democrat",
+null,
+0
+],
+[
+"Alan Washington",
+"Democrat",
+null,
+0
+],
+[
+"Carlos M. Robinson",
+"Democrat",
+null,
+0
+],
+[
+"Steve Davis",
+"Democrat",
+null,
+0
+]
+],
+"runoff-DEM": [
+[
+"Herschel L. Brown",
+"Democrat",
+null,
+0
+],
+[
+"Carlos M. Robinson",
+"Democrat",
+null,
+0
+]
+]
+},
+"office": "State Representative",
+"special": 0
+},
+"2026-OK-SPI": {
+"cls": "superintendent_of_public_instruction",
+"counties": null,
+"district": null,
+"level": "statewide",
+"names": {
+"general": [
+[
+"Robert Franklin",
+"Republican",
+1,
+0
+],
+[
+"Jennettie Marshall",
+"Democrat",
+2,
+0
+]
+],
+"primary-DEM": [
+[
+"Craig McVay",
+"Democrat",
+null,
+0
+],
+[
+"Jennettie Marshall",
+"Democrat",
+null,
+0
+]
+],
+"primary-REP": [
+[
+"Toni Hasenbeck",
+"Republican",
+null,
+0
+],
+[
+"John Cox",
+"Republican",
+null,
+0
+],
+[
+"Robert Franklin",
+"Republican",
+null,
+0
+],
+[
+"Adam Pugh",
+"Republican",
+null,
+0
+],
+[
+"Debra A. Herlihy",
+"Republican",
+null,
+0
+],
+[
+"James Taylor",
+"Republican",
+null,
+0
+],
+[
+"William E Crozier",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Robert Franklin",
+"Republican",
+null,
+0
+],
+[
+"James Taylor",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "Superintendent of Public Instruction",
+"special": 0
+},
+"2026-OK-SS10": {
+"cls": "state_senate",
+"counties": [
+"40071",
+"40113",
+"40143"
+],
+"district": 10,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Bill Coleman",
+"Republican",
+1,
+0
+],
+[
+"Chayelynn Moore",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Bill Coleman",
+"Republican",
+null,
+0
+],
+[
+"Jadan A. Terrazas",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Senator",
+"special": 0
+},
+"2026-OK-SS12": {
+"cls": "state_senate",
+"counties": [
+"40037",
+"40143"
+],
+"district": 12,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Todd Gollihare",
+"Republican",
+1,
+0
+],
+[
+"Erica Watkins",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Todd Gollihare",
+"Republican",
+null,
+0
+],
+[
+"Wm Craig Stump",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Senator",
+"special": 0
+},
+"2026-OK-SS14": {
+"cls": "state_senate",
+"counties": [
+"40019",
+"40029",
+"40069",
+"40095",
+"40099"
+],
+"district": 14,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jerry Alvord",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Senator",
+"special": 0
+},
+"2026-OK-SS16": {
+"cls": "state_senate",
+"counties": [
+"40027"
+],
+"district": 16,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Mary B. Boren",
+"Democrat",
+null,
+0
+]
+]
+},
+"office": "State Senator",
+"special": 0
+},
+"2026-OK-SS17-UNEXP": {
+"cls": "state_senate",
+"counties": [
+"40027",
+"40109",
+"40125"
+],
+"district": 17,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Justin Freeland Wood",
+"Republican",
+1,
+0
+],
+[
+"Ed Bolt",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Steve King",
+"Republican",
+null,
+0
+],
+[
+"Abby Thompson",
+"Republican",
+null,
+0
+],
+[
+"Justin Freeland Wood",
+"Republican",
+null,
+0
+],
+[
+"Randy Cornelius",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Abby Thompson",
+"Republican",
+null,
+0
+],
+[
+"Justin Freeland Wood",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Senator",
+"special": 1
+},
+"2026-OK-SS18": {
+"cls": "state_senate",
+"counties": [
+"40017",
+"40109"
+],
+"district": 18,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Tyler Herring",
+"Republican",
+1,
+0
+],
+[
+"Meredith McGinnis",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Jack Stewart",
+"Republican",
+null,
+0
+],
+[
+"Misty Shannon",
+"Republican",
+null,
+0
+],
+[
+"Tyler Herring",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Jack Stewart",
+"Republican",
+null,
+0
+],
+[
+"Tyler Herring",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Senator",
+"special": 0
+},
+"2026-OK-SS2": {
+"cls": "state_senate",
+"counties": [
+"40131",
+"40143"
+],
+"district": 2,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Ally Seifried",
+"Republican",
+1,
+0
+],
+[
+"Randy Cowling",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Ally Seifried",
+"Republican",
+null,
+0
+],
+[
+"Payton Pepin",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Senator",
+"special": 0
+},
+"2026-OK-SS20": {
+"cls": "state_senate",
+"counties": [
+"40073",
+"40083",
+"40103",
+"40117",
+"40119"
+],
+"district": 20,
+"level": "legislature",
+"names": {
+"primary-REP": [
+[
+"Chuck Hall",
+"Republican",
+null,
+0
+],
+[
+"Mark Lemarr",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Senator",
+"special": 0
+},
+"2026-OK-SS22": {
+"cls": "state_senate",
+"counties": [
+"40017",
+"40109"
+],
+"district": 22,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Kristen Thompson",
+"Republican",
+1,
+0
+],
+[
+"Kenny Kemper",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "State Senator",
+"special": 0
+},
+"2026-OK-SS24": {
+"cls": "state_senate",
+"counties": [
+"40027"
+],
+"district": 24,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jon Painter",
+"Republican",
+1,
+0
+],
+[
+"Jonathan Morales",
+"Democrat",
+2,
+0
+],
+[
+"Melissa Elder",
+"Independent",
+3,
+0
+]
+],
+"primary-REP": [
+[
+"Tammi Didlot",
+"Republican",
+null,
+0
+],
+[
+"Bryan Husted",
+"Republican",
+null,
+0
+],
+[
+"Robert Keyes",
+"Republican",
+null,
+0
+],
+[
+"Heather Boss",
+"Republican",
+null,
+0
+],
+[
+"Jon Painter",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Robert Keyes",
+"Republican",
+null,
+0
+],
+[
+"Jon Painter",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Senator",
+"special": 0
+},
+"2026-OK-SS26": {
+"cls": "state_senate",
+"counties": [
+"40011",
+"40015",
+"40017",
+"40039",
+"40073"
+],
+"district": 26,
+"level": "legislature",
+"names": {
+"primary-REP": [
+[
+"Jessica Winegeart",
+"Republican",
+null,
+0
+],
+[
+"Rick Koch",
+"Republican",
+null,
+0
+],
+[
+"Brady Butler",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Jessica Winegeart",
+"Republican",
+null,
+0
+],
+[
+"Rick Koch",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Senator",
+"special": 0
+},
+"2026-OK-SS28": {
+"cls": "state_senate",
+"counties": [
+"40081",
+"40083",
+"40109",
+"40125",
+"40133"
+],
+"district": 28,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Grant Green",
+"Republican",
+1,
+0
+],
+[
+"Kevin M. Connor",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Robert Trimble",
+"Republican",
+null,
+0
+],
+[
+"Grant Green",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Senator",
+"special": 0
+},
+"2026-OK-SS30": {
+"cls": "state_senate",
+"counties": [
+"40109"
+],
+"district": 30,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Julia Kirt",
+"Democrat",
+null,
+0
+]
+]
+},
+"office": "State Senator",
+"special": 0
+},
+"2026-OK-SS32": {
+"cls": "state_senate",
+"counties": [
+"40031"
+],
+"district": 32,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Curtis W. Erwin",
+"Republican",
+1,
+0
+],
+[
+"Booker T. Newton",
+"Democrat",
+2,
+0
+],
+[
+"Valentin Peña",
+"Independent",
+3,
+0
+]
+],
+"primary-REP": [
+[
+"Jean Hausheer",
+"Republican",
+null,
+0
+],
+[
+"Curtis W. Erwin",
+"Republican",
+null,
+0
+],
+[
+"Dusty Deevers",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Jean Hausheer",
+"Republican",
+null,
+0
+],
+[
+"Curtis W. Erwin",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Senator",
+"special": 0
+},
+"2026-OK-SS34": {
+"cls": "state_senate",
+"counties": [
+"40143"
+],
+"district": 34,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Aaron Forst",
+"Republican",
+1,
+0
+],
+[
+"Amy Hossain",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Aaron Forst",
+"Republican",
+null,
+0
+],
+[
+"Kent Taylor",
+"Republican",
+null,
+0
+],
+[
+"Brent Driskill",
+"Republican",
+null,
+0
+],
+[
+"Dana Prieto",
+"Republican",
+null,
+0
+]
+],
+"runoff-REP": [
+[
+"Aaron Forst",
+"Republican",
+null,
+0
+],
+[
+"Dana Prieto",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Senator",
+"special": 0
+},
+"2026-OK-SS36": {
+"cls": "state_senate",
+"counties": [
+"40143",
+"40145"
+],
+"district": 36,
+"level": "legislature",
+"names": {
+"general": [
+[
+"John Haste",
+"Republican",
+1,
+0
+],
+[
+"Rick Larsen",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"John Haste",
+"Republican",
+null,
+0
+],
+[
+"Philip A. Weiland",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Senator",
+"special": 0
+},
+"2026-OK-SS38": {
+"cls": "state_senate",
+"counties": [
+"40009",
+"40055",
+"40057",
+"40065",
+"40075",
+"40141",
+"40149"
+],
+"district": 38,
+"level": "legislature",
+"names": {
+"primary-REP": [
+[
+"Joe B. Buchanan",
+"Republican",
+null,
+0
+],
+[
+"Rick Vernon",
+"Republican",
+null,
+0
+],
+[
+"Barry Dwaine Christian",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Senator",
+"special": 0
+},
+"2026-OK-SS4": {
+"cls": "state_senate",
+"counties": [
+"40001",
+"40021",
+"40041",
+"40135"
+],
+"district": 4,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Tom Woods",
+"Republican",
+1,
+0
+],
+[
+"Ellen Cuff",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Tom Woods",
+"Republican",
+null,
+0
+],
+[
+"Kenny Smith",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Senator",
+"special": 0
+},
+"2026-OK-SS40": {
+"cls": "state_senate",
+"counties": [
+"40109"
+],
+"district": 40,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Carri Hicks",
+"Democrat",
+null,
+0
+]
+]
+},
+"office": "State Senator",
+"special": 0
+},
+"2026-OK-SS42": {
+"cls": "state_senate",
+"counties": [
+"40109"
+],
+"district": 42,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Brenda Stanley",
+"Republican",
+1,
+0
+],
+[
+"Chris Jones",
+"Democrat",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Malana Bracht",
+"Republican",
+null,
+0
+],
+[
+"Brenda Stanley",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Senator",
+"special": 0
+},
+"2026-OK-SS44": {
+"cls": "state_senate",
+"counties": [
+"40017",
+"40109"
+],
+"district": 44,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Michael Brooks",
+"Democrat",
+null,
+0
+]
+]
+},
+"office": "State Senator",
+"special": 0
+},
+"2026-OK-SS46": {
+"cls": "state_senate",
+"counties": [
+"40109"
+],
+"district": 46,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Mark Mann",
+"Democrat",
+null,
+0
+]
+]
+},
+"office": "State Senator",
+"special": 0
+},
+"2026-OK-SS48": {
+"cls": "state_senate",
+"counties": [
+"40109"
+],
+"district": 48,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Nikki Nice",
+"Democrat",
+null,
+0
+]
+]
+},
+"office": "State Senator",
+"special": 0
+},
+"2026-OK-SS6": {
+"cls": "state_senate",
+"counties": [
+"40005",
+"40013",
+"40023",
+"40069",
+"40127"
+],
+"district": 6,
+"level": "legislature",
+"names": {
+"general": [
+[
+"David Bullard",
+"Republican",
+1,
+0
+],
+[
+"Patrick Southerland",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "State Senator",
+"special": 0
+},
+"2026-OK-SS8": {
+"cls": "state_senate",
+"counties": [
+"40037",
+"40091",
+"40101",
+"40107",
+"40111"
+],
+"district": 8,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Bryan Logan",
+"Republican",
+1,
+0
+],
+[
+"Nathan Brewer",
+"Democrat",
+2,
+0
+]
+]
+},
+"office": "State Senator",
+"special": 0
+},
+"2026-OK-TREAS": {
+"cls": "state_treasurer",
+"counties": null,
+"district": null,
+"level": "statewide",
+"names": {
+"general": [
+[
+"Cindy Byrd",
+"Republican",
+1,
+0
+],
+[
+"Kiefer Perry",
+"Libertarian",
+2,
+0
+]
+],
+"primary-REP": [
+[
+"Todd Russ",
+"Republican",
+null,
+0
+],
+[
+"Cindy Byrd",
+"Republican",
+null,
+0
+]
+]
+},
+"office": "State Treasurer",
+"special": 0
+},
+"2026-OK-X-051-bridge-creek-fire-fire-board": {
+"cls": "other",
+"counties": [
+"40051"
+],
+"district": null,
+"level": "other",
+"names": {
+"general": [
+[
+"Ronald Heck",
+"Nonpartisan office",
+null,
+0
+],
+[
+"NaRissa Anderson",
+"Nonpartisan office",
+null,
+0
+],
+[
+"David Macy",
+"Nonpartisan office",
+null,
+0
+]
+]
+},
+"office": "Member of the Board of Directors",
+"special": 0
+},
+"2026-OK-X-081-southwest-lin-co-fire-1-fire-board": {
+"cls": "other",
+"counties": [
+"40081"
+],
+"district": null,
+"level": "other",
+"names": {
+"general": [
+[
+"Brad Morgan",
+"Nonpartisan office",
+null,
+0
+],
+[
+"John B. Pieper",
+"Nonpartisan office",
+null,
+0
+],
+[
+"David A. Hunt",
+"Nonpartisan office",
+null,
+0
+]
+]
+},
+"office": "Member of the Board of Directors",
+"special": 0
+},
+"2026-OK-X-131-verdigris-fire-fire-board": {
+"cls": "other",
+"counties": [
+"40131"
+],
+"district": null,
+"level": "other",
+"names": {
+"general": [
+[
+"Dan Merkey",
+"Nonpartisan office",
+null,
+0
+],
+[
+"Bruce Coon",
+"Nonpartisan office",
+null,
+0
+]
+]
+},
+"office": "Member of the Board of Directors",
+"special": 0
+}
+},
+"state": "OK"
+}

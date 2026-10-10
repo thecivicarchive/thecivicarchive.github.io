@@ -16,7 +16,8 @@
   "url": "https://electionstats.state.ma.us/",
   "label": "Massachusetts election statistics (certified results)",
   "checked": "2026-10-10",
-  "source": "answered one request with the kit's User-Agent (N4, 2026-10-10)"
+  "source": "answered one request with the kit's User-Agent (N4, 2026-10-10)",
+  "confirmed": "2026-10-10: answered one request with the kit's User-Agent (200)"
  },
  "other_pages": [
   {
@@ -96,11 +97,21 @@
  "terms": "none seen",
  "scout_blocked": "www.sec.state.ma.us is behind Incapsula (CLAUDE.md, 2026-09-30); electionstats.state.ma.us is not",
  "scout_plan": "No live source for the whole state. The Associated Press gathers Massachusetts returns from the town clerks under a long-standing arrangement and resells them; that is not open. On the night Election Night can show Boston's own unofficial precinct results (one reader) and say plainly that Massachusetts publishes no statewide count until certification; the statewide and congressional map fills from ElectionStats when it is certified. Ask John whether to read a handful of the largest cities' pages.",
- "notes": [],
+ "notes": [
+  "2026-10-10 (N12): confirmed as a link state; certified results source recorded under certified_results."
+ ],
  "to_do": [],
  "sources": [
   "election/scout/results_pa.json (checked 2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts))",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
   "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+ ],
+ "certified_results": {
+  "what": "ElectionStats, the Secretary's certified results by office (CSV download)",
+  "address": "https://electionstats.state.ma.us/",
+  "script_ok": true,
+  "when": "after certification, late November",
+  "how": "electionstats.state.ma.us answers scripts",
+  "checked": "2026-10-10"
+ }
 }

@@ -109,7 +109,7 @@
  "never": [],
  "never_why": {},
  "partial_sources": [],
- "rehearsal": "EID 126082 (2026 primary); 124196 (2025 city-school)",
+ "rehearsal": "EID 126082 (2026 primary): replay check 2026-10-10, 44 of 44 primary races with certified figures equal the Secretary's canvass (ballot database); 124196 (2025 city-school)",
  "terms": "None found on the JSON.",
  "scout_blocked": "Nothing seen.",
  "scout_plan": "Live-readable. Poll elections.json until the 2026 General appears, then poll current_ver.txt every 2 to 5 minutes and fetch summary.json only when the version changes (statewide and Congress), plus each county's summary for county offices and legislative seats; detailxml.zip per county gives precincts and vote types for the count-order predictor. Rehearse on EID 126082 and 124196.",
@@ -120,6 +120,14 @@
  "sources": [
   "election/scout/results_mn.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
-  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)",
+  "N9 reader checks, 2026-10-10: the state's own results service, read through election/source.py"
+ ],
+ "replay_check": {
+  "election": "126082",
+  "checked": "2026-10-10",
+  "result": "44 races equal the certified canvass, 0 differ",
+  "kept": "election_cache/replay/sources/ia-126082/"
+ },
+ "reader_note": "Reader election/readers/clarity.py written 2026-10-10 (N9): self-test on its fixture passes; crosswalk election/crosswalk/ia.json ties feed contests to the ballot databases' race ids."
 }

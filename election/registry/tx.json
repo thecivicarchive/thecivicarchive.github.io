@@ -29,7 +29,7 @@
  },
  "cadence": {
   "check_every_s": 180,
-  "signal": "https://goelect.txelections.civixapps.com/api-ivis-system/api/s3/enr/election/53815 (Home: LastUpdatedTime)",
+  "signal": "https://goelect.txelections.civixapps.com/api-ivis-system/api/s3/enr/election/53815 (asked with its ETag; Version and Home's LastUpdatedTime)",
   "data_on_change": true,
   "from": "the state's first poll closing",
   "hosts": [
@@ -111,15 +111,25 @@
   "results.texas-election.com": "Cloudflare challenge (CLAUDE.md; scout)"
  },
  "partial_sources": [],
- "rehearsal": "53813, 53814 (primaries); 58315, 58314 (runoffs)",
+ "rehearsal": "53813@2026-03-03 (the March 3 Republican primary; run_night.py replay --election tx=53813@2026-03-03); also 53814, 58315, 58314",
  "terms": "Not seen on the API.",
  "scout_blocked": "results.texas-election.com (2019-2024 site): Cloudflare challenge, not asked (per ballot/lists/tx.py).",
  "scout_plan": "Read /election/53815 (and the two specials) every few minutes on election night; the reader for the format exists in tx.py. Congress, statewide and legislative results with early-vote splits come straight from it, county by county via the Race section if present (to confirm on the primary record). County and city results need the big counties' own sites, largest first.",
- "notes": [],
- "to_do": [],
+ "notes": [
+  "The record (election/<ID>) carries each race statewide; election/countyInfo/<ID> carries every race county by county with precincts reporting; early votes (EV) beside totals (V).",
+  "The two special elections on November 3 (House District 93, 66734; Senate District 22, 66618) are not in the ballot lists yet: their contests are listed by the reader and never tied to the regular House 93 and Senate 22 races."
+ ],
+ "to_do": [
+  "Add the November 3 specials for House District 93 and Senate District 22 to the ballot lists (then the crosswalk ties them)."
+ ],
  "sources": [
   "election/scout/results_ne.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
   "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+ ],
+ "reader": {
+  "family": "civix",
+  "written": "2026-10-10",
+  "checked": "2026-10-10: the March 3 Republican primary (53813) read whole: 231 contests; every race's record lines equal its 254 counties' sums, totals and early votes; the 39 federal races equal the Secretary's Official Canvass Report"
+ }
 }

@@ -16,7 +16,8 @@
   "url": "https://mvic.sos.state.mi.us/votehistory/",
   "label": "Michigan Voter Information Center: official results",
   "checked": "2026-10-09",
-  "source": "results_mn.json"
+  "source": "results_mn.json",
+  "confirmed": "2026-10-10: not asked: mvic.sos.state.mi.us is on the never list (it refuses scripts), so no program asks it; the page is for readers' own browsers, as the scout found it (2026-10-09)"
  },
  "other_pages": [
   {
@@ -122,11 +123,21 @@
  "terms": "None found.",
  "scout_blocked": "mvic.sos.state.mi.us (Cloudflare JS challenge, 403, 2026-10-09); the rest of michigan.gov answers scripts 403 (CLAUDE.md).",
  "scout_plan": "Readable with care, county by county. Statewide and congressional totals on the night must be summed from counties: start with the counties on Clarity (Oakland confirmed; check the other large counties' results pages for Clarity EIDs in late October) and read Wayne's PDFs if John agrees (or link out). Show each race's 'counties reporting' honestly; until most counties are machine-readable, a statewide total will be partial, so the page should say which counties are in. Official numbers come from MVIC after the canvass (Browser-pane carry-out).",
- "notes": [],
+ "notes": [
+  "2026-10-10 (N12): confirmed as a link state; certified results source recorded under certified_results."
+ ],
  "to_do": [],
  "sources": [
   "election/scout/results_mn.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
   "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+ ],
+ "certified_results": {
+  "what": "the Bureau of Elections' official results files (MVIC VoteHistory: precinct and county files)",
+  "address": "https://mvic.sos.state.mi.us/votehistory/",
+  "script_ok": false,
+  "when": "after the state canvass",
+  "how": "MVIC answers scripts 403 (on the never list): carried out of the Browser pane, as for 2020 to 2024 (states_cache/mi_local/)",
+  "checked": "2026-10-10"
+ }
 }

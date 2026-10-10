@@ -1,0 +1,6387 @@
+{
+"_about":"North Carolina's races on the November 3, 2026 ballot that the Election Night pages read (Congress from ballot_2026.sqlite; the Legislature, the Supreme Court and the Court of Appeals from ballot_local_2026.sqlite; no statewide executive office is elected in 2026), each with the key a contest of the State Board's results files is tied by (read from its name) and the candidates as filed; and the Board's posted Nov 3 statewide file, already carrying every contest at zero, tied to them.",
+"state":"NC",
+"election":"2026-11-03",
+"built":"2026-10-10",
+"feed":"er.ncsbe.gov enr/20261103/data/results_0.txt",
+"feed_note":"The Board posts the November 3 contests with zero votes weeks ahead; a race with one candidate is still printed.",
+"order":[
+"what the contest is (its kind and district, read from the state's own title)",
+"the candidates' family names"
+],
+"counts":{
+"races":189,
+"by_level":{
+"congress":15,
+"statewide":0,
+"legislature":170,
+"court":4
+},
+"posted_contests":412,
+"posted_tied":189,
+"posted_not_tied":0,
+"posted_out_of_scope":223,
+"races_not_in_posted_list":0,
+"printed_lines_not_tied":0
+},
+"races":{
+"2026-NC-COA1":{
+"key":"court_of_appeals::seat 1",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Judge of the Court of Appeals",
+"district":null,
+"seat":"Seat 1",
+"special":0,
+"names":[
+[
+"John S. Arrowood",
+"Democratic"
+],
+[
+"Michael C. Byrne",
+"Republican"
+]
+]
+},
+"2026-NC-COA2":{
+"key":"court_of_appeals::seat 2",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Judge of the Court of Appeals",
+"district":null,
+"seat":"Seat 2",
+"special":0,
+"names":[
+[
+"George Cooper Bell",
+"Republican"
+],
+[
+"Tobias (Toby) Hampson",
+"Democratic"
+]
+]
+},
+"2026-NC-COA3":{
+"key":"court_of_appeals::seat 3",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Judge of the Court of Appeals",
+"district":null,
+"seat":"Seat 3",
+"special":0,
+"names":[
+[
+"Christine Marie Walczyk",
+"Democratic"
+],
+[
+"Craig Collins",
+"Republican"
+]
+]
+},
+"2026-NC-H01":{
+"key":"us_house:1",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"1",
+"seat":null,
+"special":0,
+"names":[
+[
+"Don Davis",
+"Democratic"
+],
+[
+"Laurie Buckhout",
+"Republican"
+],
+[
+"Tom Bailey",
+"Libertarian"
+]
+]
+},
+"2026-NC-H02":{
+"key":"us_house:2",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"2",
+"seat":null,
+"special":0,
+"names":[
+[
+"Eugene F. Douglass",
+"Republican"
+],
+[
+"Deborah K. Ross",
+"Democratic"
+],
+[
+"Matthew Laszacs",
+"Libertarian"
+]
+]
+},
+"2026-NC-H03":{
+"key":"us_house:3",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"3",
+"seat":null,
+"special":0,
+"names":[
+[
+"Daniel Cavender",
+"Libertarian"
+],
+[
+"Raymond Smith",
+"Democratic"
+],
+[
+"Greg Murphy",
+"Republican"
+]
+]
+},
+"2026-NC-H04":{
+"key":"us_house:4",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"4",
+"seat":null,
+"special":0,
+"names":[
+[
+"Valerie P. Foushee",
+"Democratic"
+],
+[
+"Guy Meilleur",
+"Libertarian"
+],
+[
+"Mahesh (Max) Ganorkar",
+"Republican"
+]
+]
+},
+"2026-NC-H05":{
+"key":"us_house:5",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"5",
+"seat":null,
+"special":0,
+"names":[
+[
+"Virginia Foxx",
+"Republican"
+],
+[
+"Robert B. Luffman",
+"Libertarian"
+],
+[
+"Chuck Hubbard",
+"Democratic"
+]
+]
+},
+"2026-NC-H06":{
+"key":"us_house:6",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"6",
+"seat":null,
+"special":0,
+"names":[
+[
+"Addison McDowell",
+"Republican"
+],
+[
+"Cyril Jefferson",
+"Democratic"
+]
+]
+},
+"2026-NC-H07":{
+"key":"us_house:7",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"7",
+"seat":null,
+"special":0,
+"names":[
+[
+"Maad Abu-Ghazalah",
+"Libertarian"
+],
+[
+"David Rouzer",
+"Republican"
+],
+[
+"Kimberly Hardy",
+"Democratic"
+]
+]
+},
+"2026-NC-H08":{
+"key":"us_house:8",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"8",
+"seat":null,
+"special":0,
+"names":[
+[
+"Bo Whitehead",
+"Green"
+],
+[
+"Colby Watson",
+"Democratic"
+],
+[
+"Mark Harris",
+"Republican"
+]
+]
+},
+"2026-NC-H09":{
+"key":"us_house:9",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"9",
+"seat":null,
+"special":0,
+"names":[
+[
+"Richard N. Ojeda II",
+"Democratic"
+],
+[
+"Richard Hudson",
+"Republican"
+]
+]
+},
+"2026-NC-H10":{
+"key":"us_house:10",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"10",
+"seat":null,
+"special":0,
+"names":[
+[
+"Steven Feldman",
+"Libertarian"
+],
+[
+"Ashley Bell",
+"Democratic"
+],
+[
+"Pat Harrigan",
+"Republican"
+]
+]
+},
+"2026-NC-H11":{
+"key":"us_house:11",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"11",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jennifer Capps Balkcom",
+"Republican"
+],
+[
+"Jamie Ager",
+"Democratic"
+],
+[
+"Travis Groo",
+"Libertarian"
+]
+]
+},
+"2026-NC-H12":{
+"key":"us_house:12",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"12",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jack Codiga",
+"Republican"
+],
+[
+"Alma S. Adams",
+"Democratic"
+]
+]
+},
+"2026-NC-H13":{
+"key":"us_house:13",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"13",
+"seat":null,
+"special":0,
+"names":[
+[
+"Paul Barringer",
+"Democratic"
+],
+[
+"Steven Swinton",
+"Libertarian"
+],
+[
+"Brad Knott",
+"Republican"
+]
+]
+},
+"2026-NC-H14":{
+"key":"us_house:14",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"14",
+"seat":null,
+"special":0,
+"names":[
+[
+"Lakesha Womack",
+"Democratic"
+],
+[
+"Tim Moore",
+"Republican"
+]
+]
+},
+"2026-NC-S2":{
+"key":"us_senate",
+"level":"congress",
+"kind":"us_senate",
+"office":"U.S. Senate",
+"district":null,
+"seat":null,
+"special":0,
+"names":[
+[
+"Michael Dublin",
+"Green"
+],
+[
+"Roy Cooper",
+"Democratic"
+],
+[
+"Shannon W. Bray",
+"Libertarian"
+],
+[
+"Michael Whatley",
+"Republican"
+]
+]
+},
+"2026-NC-SC1":{
+"key":"supreme_court:1",
+"level":"court",
+"kind":"supreme_court",
+"office":"Associate Justice of the Supreme Court",
+"district":null,
+"seat":"Seat 1",
+"special":0,
+"names":[
+[
+"Anita Earls",
+"Democratic"
+],
+[
+"Sarah Stevens",
+"Republican"
+]
+]
+},
+"2026-NC-SH1":{
+"key":"state_house:1",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"1",
+"seat":null,
+"special":0,
+"names":[
+[
+"Edward C. Goodwin",
+"Republican"
+],
+[
+"Miriam Rollin",
+"Democratic"
+]
+]
+},
+"2026-NC-SH10":{
+"key":"state_house:10",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"10",
+"seat":null,
+"special":0,
+"names":[
+[
+"John Bell",
+"Republican"
+],
+[
+"Zyaire Webb",
+"Democratic"
+]
+]
+},
+"2026-NC-SH100":{
+"key":"state_house:100",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"100",
+"seat":null,
+"special":0,
+"names":[
+[
+"Julia Greenfield",
+"Democratic"
+]
+]
+},
+"2026-NC-SH101":{
+"key":"state_house:101",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"101",
+"seat":null,
+"special":0,
+"names":[
+[
+"Carolyn G. Logan",
+"Democratic"
+]
+]
+},
+"2026-NC-SH102":{
+"key":"state_house:102",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"102",
+"seat":null,
+"special":0,
+"names":[
+[
+"Becky Carney",
+"Democratic"
+]
+]
+},
+"2026-NC-SH103":{
+"key":"state_house:103",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"103",
+"seat":null,
+"special":0,
+"names":[
+[
+"Laura Budd",
+"Democratic"
+]
+]
+},
+"2026-NC-SH104":{
+"key":"state_house:104",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"104",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brandon Lofton",
+"Democratic"
+],
+[
+"Trina Boyd",
+"Republican"
+]
+]
+},
+"2026-NC-SH105":{
+"key":"state_house:105",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"105",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ken McCool",
+"Democratic"
+],
+[
+"Tricia Ann Cotham",
+"Republican"
+]
+]
+},
+"2026-NC-SH106":{
+"key":"state_house:106",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"106",
+"seat":null,
+"special":0,
+"names":[
+[
+"Rodney Sadler",
+"Democratic"
+]
+]
+},
+"2026-NC-SH107":{
+"key":"state_house:107",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"107",
+"seat":null,
+"special":0,
+"names":[
+[
+"Aisha O. Dew",
+"Democratic"
+]
+]
+},
+"2026-NC-SH108":{
+"key":"state_house:108",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"108",
+"seat":null,
+"special":0,
+"names":[
+[
+"John A. Torbett",
+"Republican"
+],
+[
+"Sydnie Hutchinson",
+"Democratic"
+]
+]
+},
+"2026-NC-SH109":{
+"key":"state_house:109",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"109",
+"seat":null,
+"special":0,
+"names":[
+[
+"Donnie Loftis",
+"Republican"
+],
+[
+"Mark D. Carver",
+"Democratic"
+]
+]
+},
+"2026-NC-SH11":{
+"key":"state_house:11",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"11",
+"seat":null,
+"special":0,
+"names":[
+[
+"Allison A. Dahle",
+"Democratic"
+],
+[
+"Matthew Kordon",
+"Libertarian"
+]
+]
+},
+"2026-NC-SH110":{
+"key":"state_house:110",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"110",
+"seat":null,
+"special":0,
+"names":[
+[
+"Caroline Eason",
+"Republican"
+],
+[
+"Mary Silver",
+"Democratic"
+]
+]
+},
+"2026-NC-SH111":{
+"key":"state_house:111",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"111",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jerry Blake",
+"Democratic"
+],
+[
+"Paul Scott",
+"Republican"
+]
+]
+},
+"2026-NC-SH112":{
+"key":"state_house:112",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"112",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jordan Lopez",
+"Democratic"
+]
+]
+},
+"2026-NC-SH113":{
+"key":"state_house:113",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"113",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jake Johnson",
+"Republican"
+],
+[
+"John Morgan",
+"Democratic"
+]
+]
+},
+"2026-NC-SH114":{
+"key":"state_house:114",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"114",
+"seat":null,
+"special":0,
+"names":[
+[
+"Eric Ager",
+"Democratic"
+]
+]
+},
+"2026-NC-SH115":{
+"key":"state_house:115",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"115",
+"seat":null,
+"special":0,
+"names":[
+[
+"Anthony J. Penland",
+"Republican"
+],
+[
+"Lindsey Prather",
+"Democratic"
+]
+]
+},
+"2026-NC-SH116":{
+"key":"state_house:116",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"116",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brian Turner",
+"Democratic"
+]
+]
+},
+"2026-NC-SH117":{
+"key":"state_house:117",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"117",
+"seat":null,
+"special":0,
+"names":[
+[
+"Chelsea Walsh",
+"Republican"
+],
+[
+"Lynne Russo",
+"Democratic"
+]
+]
+},
+"2026-NC-SH118":{
+"key":"state_house:118",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"118",
+"seat":null,
+"special":0,
+"names":[
+[
+"Danny E. Davis",
+"Democratic"
+],
+[
+"James M. (Jimmy) Rogers",
+"Republican"
+]
+]
+},
+"2026-NC-SH119":{
+"key":"state_house:119",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"119",
+"seat":null,
+"special":0,
+"names":[
+[
+"Anna Ferguson",
+"Republican"
+],
+[
+"Mark Burrows",
+"Democratic"
+]
+]
+},
+"2026-NC-SH12":{
+"key":"state_house:12",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"12",
+"seat":null,
+"special":0,
+"names":[
+[
+"Chris Humphrey",
+"Republican"
+],
+[
+"Don Hardy",
+"Democratic"
+]
+]
+},
+"2026-NC-SH120":{
+"key":"state_house:120",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"120",
+"seat":null,
+"special":0,
+"names":[
+[
+"Caleb Brown",
+"Democratic"
+],
+[
+"Karl Gillespie",
+"Republican"
+]
+]
+},
+"2026-NC-SH13":{
+"key":"state_house:13",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"13",
+"seat":null,
+"special":0,
+"names":[
+[
+"Celeste Cairns",
+"Republican"
+],
+[
+"Jason Moore",
+"Democratic"
+]
+]
+},
+"2026-NC-SH14":{
+"key":"state_house:14",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"14",
+"seat":null,
+"special":0,
+"names":[
+[
+"Wyatt Gable",
+"Republican"
+]
+]
+},
+"2026-NC-SH15":{
+"key":"state_house:15",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"15",
+"seat":null,
+"special":0,
+"names":[
+[
+"Christopher Schulte",
+"Democratic"
+],
+[
+"Phillip Shepard",
+"Republican"
+]
+]
+},
+"2026-NC-SH16":{
+"key":"state_house:16",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"16",
+"seat":null,
+"special":0,
+"names":[
+[
+"Carson Smith",
+"Republican"
+],
+[
+"Jim Harris",
+"Democratic"
+]
+]
+},
+"2026-NC-SH17":{
+"key":"state_house:17",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"17",
+"seat":null,
+"special":0,
+"names":[
+[
+"Dennis A. Breen",
+"Democratic"
+],
+[
+"Frank Iler",
+"Republican"
+]
+]
+},
+"2026-NC-SH18":{
+"key":"state_house:18",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"18",
+"seat":null,
+"special":0,
+"names":[
+[
+"Deb Butler",
+"Democratic"
+],
+[
+"Latisha Grady",
+"Republican"
+]
+]
+},
+"2026-NC-SH19":{
+"key":"state_house:19",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"19",
+"seat":null,
+"special":0,
+"names":[
+[
+"Charlie Miller",
+"Republican"
+],
+[
+"Scott Nasiff",
+"Democratic"
+]
+]
+},
+"2026-NC-SH2":{
+"key":"state_house:2",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"2",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ray Jeffers",
+"Democratic"
+]
+]
+},
+"2026-NC-SH20":{
+"key":"state_house:20",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"20",
+"seat":null,
+"special":0,
+"names":[
+[
+"Dane Scalise",
+"Republican"
+],
+[
+"Tim Merrick",
+"Democratic"
+]
+]
+},
+"2026-NC-SH21":{
+"key":"state_house:21",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"21",
+"seat":null,
+"special":0,
+"names":[
+[
+"Bryson Johnson",
+"Republican"
+],
+[
+"Ya Liu",
+"Democratic"
+]
+]
+},
+"2026-NC-SH22":{
+"key":"state_house:22",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"22",
+"seat":null,
+"special":0,
+"names":[
+[
+"Wellie Jackson",
+"Republican"
+]
+]
+},
+"2026-NC-SH23":{
+"key":"state_house:23",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"23",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brent Roberson",
+"Republican"
+],
+[
+"Patricia Smith",
+"Democratic"
+]
+]
+},
+"2026-NC-SH24":{
+"key":"state_house:24",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"24",
+"seat":null,
+"special":0,
+"names":[
+[
+"Blake Boykin",
+"Republican"
+],
+[
+"Dante Pittman",
+"Democratic"
+]
+]
+},
+"2026-NC-SH25":{
+"key":"state_house:25",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"25",
+"seat":null,
+"special":0,
+"names":[
+[
+"Allen Chesser",
+"Republican"
+],
+[
+"Lorenza M. Wilkins",
+"Democratic"
+],
+[
+"Nick Taylor",
+"Libertarian"
+]
+]
+},
+"2026-NC-SH26":{
+"key":"state_house:26",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"26",
+"seat":null,
+"special":0,
+"names":[
+[
+"Donna McDowell White",
+"Republican"
+],
+[
+"L'Bertrice Solomon",
+"Democratic"
+]
+]
+},
+"2026-NC-SH27":{
+"key":"state_house:27",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"27",
+"seat":null,
+"special":0,
+"names":[
+[
+"David Woodson",
+"Republican"
+],
+[
+"Rodney D. Pierce",
+"Democratic"
+]
+]
+},
+"2026-NC-SH28":{
+"key":"state_house:28",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"28",
+"seat":null,
+"special":0,
+"names":[
+[
+"D. Matthew Bailey",
+"Democratic"
+],
+[
+"Larry C. Strickland",
+"Republican"
+]
+]
+},
+"2026-NC-SH29":{
+"key":"state_house:29",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"29",
+"seat":null,
+"special":0,
+"names":[
+[
+"Vernetta Alston",
+"Democratic"
+]
+]
+},
+"2026-NC-SH3":{
+"key":"state_house:3",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"3",
+"seat":null,
+"special":0,
+"names":[
+[
+"Angela Humphries",
+"Libertarian"
+],
+[
+"Diannia Bright",
+"Democratic"
+],
+[
+"Steve Tyson",
+"Republican"
+]
+]
+},
+"2026-NC-SH30":{
+"key":"state_house:30",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"30",
+"seat":null,
+"special":0,
+"names":[
+[
+"Marcia Morey",
+"Democratic"
+],
+[
+"Ray Ubinger",
+"Libertarian"
+]
+]
+},
+"2026-NC-SH31":{
+"key":"state_house:31",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"31",
+"seat":null,
+"special":0,
+"names":[
+[
+"Zack Hawkins",
+"Democratic"
+]
+]
+},
+"2026-NC-SH32":{
+"key":"state_house:32",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"32",
+"seat":null,
+"special":0,
+"names":[
+[
+"Bryan K. Cohn",
+"Democratic"
+],
+[
+"Frank Sossamon",
+"Republican"
+]
+]
+},
+"2026-NC-SH33":{
+"key":"state_house:33",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"33",
+"seat":null,
+"special":0,
+"names":[
+[
+"Matthew Orr",
+"Republican"
+],
+[
+"Monika Johnson-Hostler",
+"Democratic"
+]
+]
+},
+"2026-NC-SH34":{
+"key":"state_house:34",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"34",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ed George",
+"Libertarian"
+],
+[
+"Tim Longest",
+"Democratic"
+]
+]
+},
+"2026-NC-SH35":{
+"key":"state_house:35",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"35",
+"seat":null,
+"special":0,
+"names":[
+[
+"Evonne S. Hopkins",
+"Democratic"
+],
+[
+"Mike Schietzelt",
+"Republican"
+]
+]
+},
+"2026-NC-SH36":{
+"key":"state_house:36",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"36",
+"seat":null,
+"special":0,
+"names":[
+[
+"Julie von Haefen",
+"Democratic"
+],
+[
+"Mary Insprucker",
+"Republican"
+]
+]
+},
+"2026-NC-SH37":{
+"key":"state_house:37",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"37",
+"seat":null,
+"special":0,
+"names":[
+[
+"Erin Pare",
+"Republican"
+],
+[
+"Winn Decker",
+"Democratic"
+]
+]
+},
+"2026-NC-SH38":{
+"key":"state_house:38",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"38",
+"seat":null,
+"special":0,
+"names":[
+[
+"Abe Jones",
+"Democratic"
+]
+]
+},
+"2026-NC-SH39":{
+"key":"state_house:39",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"39",
+"seat":null,
+"special":0,
+"names":[
+[
+"James A. Roberson",
+"Democratic"
+],
+[
+"Jorge Cordova",
+"Republican"
+],
+[
+"Wayne Cockrell",
+"Libertarian"
+]
+]
+},
+"2026-NC-SH4":{
+"key":"state_house:4",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"4",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jimmy Dixon",
+"Republican"
+],
+[
+"Vernon Moore",
+"Democratic"
+]
+]
+},
+"2026-NC-SH40":{
+"key":"state_house:40",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"40",
+"seat":null,
+"special":0,
+"names":[
+[
+"Lucas Everett Jones",
+"Libertarian"
+],
+[
+"Phil Rubin",
+"Democratic"
+]
+]
+},
+"2026-NC-SH41":{
+"key":"state_house:41",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"41",
+"seat":null,
+"special":0,
+"names":[
+[
+"Bruce Forster",
+"Republican"
+],
+[
+"Maria Cervania",
+"Democratic"
+]
+]
+},
+"2026-NC-SH42":{
+"key":"state_house:42",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"42",
+"seat":null,
+"special":0,
+"names":[
+[
+"Mike Colvin",
+"Democratic"
+]
+]
+},
+"2026-NC-SH43":{
+"key":"state_house:43",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"43",
+"seat":null,
+"special":0,
+"names":[
+[
+"Diane Wheatley",
+"Republican"
+],
+[
+"Janene Ackles",
+"Democratic"
+]
+]
+},
+"2026-NC-SH44":{
+"key":"state_house:44",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"44",
+"seat":null,
+"special":0,
+"names":[
+[
+"Charles Smith",
+"Democratic"
+]
+]
+},
+"2026-NC-SH45":{
+"key":"state_house:45",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"45",
+"seat":null,
+"special":0,
+"names":[
+[
+"Frances Jackson",
+"Democratic"
+]
+]
+},
+"2026-NC-SH46":{
+"key":"state_house:46",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"46",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brenden H. Jones",
+"Republican"
+],
+[
+"Brittany Newton",
+"Democratic"
+]
+]
+},
+"2026-NC-SH47":{
+"key":"state_house:47",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"47",
+"seat":null,
+"special":0,
+"names":[
+[
+"Eshonda Hooper",
+"Democratic"
+],
+[
+"John L. Lowery",
+"Republican"
+]
+]
+},
+"2026-NC-SH48":{
+"key":"state_house:48",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"48",
+"seat":null,
+"special":0,
+"names":[
+[
+"Garland E. Pierce",
+"Democratic"
+],
+[
+"Ralph Carter",
+"Republican"
+]
+]
+},
+"2026-NC-SH49":{
+"key":"state_house:49",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"49",
+"seat":null,
+"special":0,
+"names":[
+[
+"Cynthia Ball",
+"Democratic"
+],
+[
+"Daran Thomas",
+"Republican"
+]
+]
+},
+"2026-NC-SH5":{
+"key":"state_house:5",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"5",
+"seat":null,
+"special":0,
+"names":[
+[
+"Bill Ward",
+"Republican"
+],
+[
+"Sam Davis III",
+"Democratic"
+]
+]
+},
+"2026-NC-SH50":{
+"key":"state_house:50",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"50",
+"seat":null,
+"special":0,
+"names":[
+[
+"Renee A. Price",
+"Democratic"
+]
+]
+},
+"2026-NC-SH51":{
+"key":"state_house:51",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"51",
+"seat":null,
+"special":0,
+"names":[
+[
+"April Montgomery",
+"Unaffiliated"
+],
+[
+"Charles M. Taylor",
+"Republican"
+]
+]
+},
+"2026-NC-SH52":{
+"key":"state_house:52",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"52",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ben Moss",
+"Republican"
+],
+[
+"Joe Parfitt",
+"Democratic"
+]
+]
+},
+"2026-NC-SH53":{
+"key":"state_house:53",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"53",
+"seat":null,
+"special":0,
+"names":[
+[
+"Christopher Sessions",
+"Libertarian"
+],
+[
+"Howard L. Penny, Jr.",
+"Republican"
+],
+[
+"Kevin G. Thurman",
+"Democratic"
+]
+]
+},
+"2026-NC-SH54":{
+"key":"state_house:54",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"54",
+"seat":null,
+"special":0,
+"names":[
+[
+"Robert T. Reives II",
+"Democratic"
+]
+]
+},
+"2026-NC-SH55":{
+"key":"state_house:55",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"55",
+"seat":null,
+"special":0,
+"names":[
+[
+"Clancy Baucom",
+"Republican"
+],
+[
+"John J. Kirkpatrick IV",
+"Democratic"
+]
+]
+},
+"2026-NC-SH56":{
+"key":"state_house:56",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"56",
+"seat":null,
+"special":0,
+"names":[
+[
+"Allen Buansi",
+"Democratic"
+],
+[
+"Matthew P. Clements",
+"Libertarian"
+]
+]
+},
+"2026-NC-SH57":{
+"key":"state_house:57",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"57",
+"seat":null,
+"special":0,
+"names":[
+[
+"Tracy Clark",
+"Democratic"
+]
+]
+},
+"2026-NC-SH58":{
+"key":"state_house:58",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"58",
+"seat":null,
+"special":0,
+"names":[
+[
+"Amos Quick",
+"Democratic"
+]
+]
+},
+"2026-NC-SH59":{
+"key":"state_house:59",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"59",
+"seat":null,
+"special":0,
+"names":[
+[
+"Alan Branson",
+"Republican"
+],
+[
+"Elma Hairston",
+"Democratic"
+]
+]
+},
+"2026-NC-SH6":{
+"key":"state_house:6",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"6",
+"seat":null,
+"special":0,
+"names":[
+[
+"Joe Pike",
+"Republican"
+],
+[
+"Tony Spears",
+"Democratic"
+]
+]
+},
+"2026-NC-SH60":{
+"key":"state_house:60",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"60",
+"seat":null,
+"special":0,
+"names":[
+[
+"Amanda Cook",
+"Democratic"
+],
+[
+"Joseph Perrotta",
+"Republican"
+]
+]
+},
+"2026-NC-SH61":{
+"key":"state_house:61",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"61",
+"seat":null,
+"special":0,
+"names":[
+[
+"Mary Price (Pricey) Harrison",
+"Democratic"
+]
+]
+},
+"2026-NC-SH62":{
+"key":"state_house:62",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"62",
+"seat":null,
+"special":0,
+"names":[
+[
+"John M. Blust",
+"Republican"
+],
+[
+"Shelly Headen",
+"Democratic"
+]
+]
+},
+"2026-NC-SH63":{
+"key":"state_house:63",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"63",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ian Baltutis",
+"Democratic"
+],
+[
+"Ryan Moffitt",
+"Republican"
+]
+]
+},
+"2026-NC-SH64":{
+"key":"state_house:64",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"64",
+"seat":null,
+"special":0,
+"names":[
+[
+"Dennis Riddell",
+"Republican"
+],
+[
+"LeVon Barnes",
+"Democratic"
+]
+]
+},
+"2026-NC-SH65":{
+"key":"state_house:65",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"65",
+"seat":null,
+"special":0,
+"names":[
+[
+"Gavin McGaughey",
+"Democratic"
+],
+[
+"Seth Woodall",
+"Republican"
+]
+]
+},
+"2026-NC-SH66":{
+"key":"state_house:66",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"66",
+"seat":null,
+"special":0,
+"names":[
+[
+"Sarah Crawford",
+"Democratic"
+]
+]
+},
+"2026-NC-SH67":{
+"key":"state_house:67",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"67",
+"seat":null,
+"special":0,
+"names":[
+[
+"Cody Huneycutt",
+"Republican"
+],
+[
+"Jocelyn Torres",
+"Democratic"
+]
+]
+},
+"2026-NC-SH68":{
+"key":"state_house:68",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"68",
+"seat":null,
+"special":0,
+"names":[
+[
+"David Willis",
+"Republican"
+],
+[
+"Derek Warriner",
+"Democratic"
+]
+]
+},
+"2026-NC-SH69":{
+"key":"state_house:69",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"69",
+"seat":null,
+"special":0,
+"names":[
+[
+"Dean Arp",
+"Republican"
+],
+[
+"Heidi Sinsley",
+"Democratic"
+]
+]
+},
+"2026-NC-SH7":{
+"key":"state_house:7",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"7",
+"seat":null,
+"special":0,
+"names":[
+[
+"Cory Thornton",
+"Republican"
+],
+[
+"Mark Speed",
+"Democratic"
+]
+]
+},
+"2026-NC-SH70":{
+"key":"state_house:70",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"70",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brian Biggs",
+"Republican"
+],
+[
+"William (Bill) McCaskill",
+"Democratic"
+]
+]
+},
+"2026-NC-SH71":{
+"key":"state_house:71",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"71",
+"seat":null,
+"special":0,
+"names":[
+[
+"Kanika Brown",
+"Democratic"
+],
+[
+"Mathew Mena",
+"Green"
+]
+]
+},
+"2026-NC-SH72":{
+"key":"state_house:72",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"72",
+"seat":null,
+"special":0,
+"names":[
+[
+"Amber M. Baker",
+"Democratic"
+]
+]
+},
+"2026-NC-SH73":{
+"key":"state_house:73",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"73",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jonathan Almond",
+"Republican"
+],
+[
+"Thomas J. Monks",
+"Democratic"
+]
+]
+},
+"2026-NC-SH74":{
+"key":"state_house:74",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"74",
+"seat":null,
+"special":0,
+"names":[
+[
+"Amy Taylor North",
+"Democratic"
+],
+[
+"Jeff Zenger",
+"Republican"
+]
+]
+},
+"2026-NC-SH75":{
+"key":"state_house:75",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"75",
+"seat":null,
+"special":0,
+"names":[
+[
+"Donny C. Lambeth",
+"Republican"
+],
+[
+"Jen Wiles",
+"Democratic"
+]
+]
+},
+"2026-NC-SH76":{
+"key":"state_house:76",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"76",
+"seat":null,
+"special":0,
+"names":[
+[
+"Greg Edds",
+"Republican"
+],
+[
+"Scott Huffman",
+"Democratic"
+]
+]
+},
+"2026-NC-SH77":{
+"key":"state_house:77",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"77",
+"seat":null,
+"special":0,
+"names":[
+[
+"Julia Howard",
+"Republican"
+],
+[
+"Sabrina Harris",
+"Democratic"
+]
+]
+},
+"2026-NC-SH78":{
+"key":"state_house:78",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"78",
+"seat":null,
+"special":0,
+"names":[
+[
+"Matt Holway",
+"Democratic"
+],
+[
+"Neal Jackson",
+"Republican"
+]
+]
+},
+"2026-NC-SH79":{
+"key":"state_house:79",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"79",
+"seat":null,
+"special":0,
+"names":[
+[
+"Darren Armstrong",
+"Republican"
+]
+]
+},
+"2026-NC-SH8":{
+"key":"state_house:8",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"8",
+"seat":null,
+"special":0,
+"names":[
+[
+"Cathy Thorne Bynum",
+"Republican"
+],
+[
+"Gloristine Brown",
+"Democratic"
+]
+]
+},
+"2026-NC-SH80":{
+"key":"state_house:80",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"80",
+"seat":null,
+"special":0,
+"names":[
+[
+"JacQuez Johnson",
+"Democratic"
+],
+[
+"Sam Watford",
+"Republican"
+]
+]
+},
+"2026-NC-SH81":{
+"key":"state_house:81",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"81",
+"seat":null,
+"special":0,
+"names":[
+[
+"Dylan R. Tucker",
+"Democratic"
+],
+[
+"Larry W. Potts",
+"Republican"
+]
+]
+},
+"2026-NC-SH82":{
+"key":"state_house:82",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"82",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brian Echevarria",
+"Republican"
+],
+[
+"Chris Bishopp",
+"Democratic"
+]
+]
+},
+"2026-NC-SH83":{
+"key":"state_house:83",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"83",
+"seat":null,
+"special":0,
+"names":[
+[
+"Grant Campbell",
+"Republican"
+],
+[
+"Johnnie Jones",
+"Democratic"
+]
+]
+},
+"2026-NC-SH84":{
+"key":"state_house:84",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"84",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jeffrey C. McNeely",
+"Republican"
+]
+]
+},
+"2026-NC-SH85":{
+"key":"state_house:85",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"85",
+"seat":null,
+"special":0,
+"names":[
+[
+"Dudley Greene",
+"Republican"
+],
+[
+"Suzanne Gavenus",
+"Democratic"
+]
+]
+},
+"2026-NC-SH86":{
+"key":"state_house:86",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"86",
+"seat":null,
+"special":0,
+"names":[
+[
+"Hugh Blackwell",
+"Republican"
+],
+[
+"Wesley E. Hendrix",
+"Democratic"
+]
+]
+},
+"2026-NC-SH87":{
+"key":"state_house:87",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"87",
+"seat":null,
+"special":0,
+"names":[
+[
+"Destin Hall",
+"Republican"
+],
+[
+"Iris Bender",
+"Democratic"
+]
+]
+},
+"2026-NC-SH88":{
+"key":"state_house:88",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"88",
+"seat":null,
+"special":0,
+"names":[
+[
+"Mary Belk",
+"Democratic"
+],
+[
+"Ray Craig",
+"Republican"
+]
+]
+},
+"2026-NC-SH89":{
+"key":"state_house:89",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"89",
+"seat":null,
+"special":0,
+"names":[
+[
+"Mitchell Smith Setzer",
+"Republican"
+],
+[
+"Robert (Spider) Thompson",
+"Democratic"
+]
+]
+},
+"2026-NC-SH9":{
+"key":"state_house:9",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"9",
+"seat":null,
+"special":0,
+"names":[
+[
+"Claire Kempner",
+"Democratic"
+],
+[
+"Timothy Reeder",
+"Republican"
+]
+]
+},
+"2026-NC-SH90":{
+"key":"state_house:90",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"90",
+"seat":null,
+"special":0,
+"names":[
+[
+"Dan Kiger",
+"Republican"
+],
+[
+"Ken Badgett",
+"Democratic"
+]
+]
+},
+"2026-NC-SH91":{
+"key":"state_house:91",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"91",
+"seat":null,
+"special":0,
+"names":[
+[
+"Kyle Hall",
+"Republican"
+],
+[
+"Lucille Puckett",
+"Democratic"
+]
+]
+},
+"2026-NC-SH92":{
+"key":"state_house:92",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"92",
+"seat":null,
+"special":0,
+"names":[
+[
+"Terry Brown",
+"Democratic"
+]
+]
+},
+"2026-NC-SH93":{
+"key":"state_house:93",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"93",
+"seat":null,
+"special":0,
+"names":[
+[
+"Charlie Wallin",
+"Democratic"
+],
+[
+"Ray Pickett",
+"Republican"
+]
+]
+},
+"2026-NC-SH94":{
+"key":"state_house:94",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"94",
+"seat":null,
+"special":0,
+"names":[
+[
+"Andy Warren",
+"Democratic"
+],
+[
+"Blair Eddins",
+"Republican"
+]
+]
+},
+"2026-NC-SH95":{
+"key":"state_house:95",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"95",
+"seat":null,
+"special":0,
+"names":[
+[
+"Michael Robinson",
+"Democratic"
+],
+[
+"Richard (Todd) Carver",
+"Republican"
+]
+]
+},
+"2026-NC-SH96":{
+"key":"state_house:96",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"96",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jay Adams",
+"Republican"
+],
+[
+"Park Inglefield",
+"Democratic"
+]
+]
+},
+"2026-NC-SH97":{
+"key":"state_house:97",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"97",
+"seat":null,
+"special":0,
+"names":[
+[
+"Greg McBryde",
+"Democratic"
+],
+[
+"Heather Rhyne",
+"Republican"
+]
+]
+},
+"2026-NC-SH98":{
+"key":"state_house:98",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"98",
+"seat":null,
+"special":0,
+"names":[
+[
+"Beth Helfrich",
+"Democratic"
+],
+[
+"John Rhodes",
+"Republican"
+]
+]
+},
+"2026-NC-SH99":{
+"key":"state_house:99",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"99",
+"seat":null,
+"special":0,
+"names":[
+[
+"Veleria M. Levy",
+"Democratic"
+]
+]
+},
+"2026-NC-SS1":{
+"key":"state_senate:1",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"1",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jerry Tillett",
+"Republican"
+],
+[
+"Melissa Zehner",
+"Democratic"
+]
+]
+},
+"2026-NC-SS10":{
+"key":"state_senate:10",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"10",
+"seat":null,
+"special":0,
+"names":[
+[
+"Benton Sawrey",
+"Republican"
+],
+[
+"Kevin Terrett",
+"Libertarian"
+],
+[
+"Pat LeGrand",
+"Democratic"
+]
+]
+},
+"2026-NC-SS11":{
+"key":"state_senate:11",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"11",
+"seat":null,
+"special":0,
+"names":[
+[
+"Gavin Bell",
+"Libertarian"
+],
+[
+"James D. Gailliard",
+"Democratic"
+],
+[
+"Lisa Stone Barnes",
+"Republican"
+]
+]
+},
+"2026-NC-SS12":{
+"key":"state_senate:12",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"12",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jim Burgin",
+"Republican"
+],
+[
+"Tanya White Anderson",
+"Democratic"
+]
+]
+},
+"2026-NC-SS13":{
+"key":"state_senate:13",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"13",
+"seat":null,
+"special":0,
+"names":[
+[
+"Lisa Grafstein",
+"Democratic"
+],
+[
+"Robert van Brederode",
+"Republican"
+]
+]
+},
+"2026-NC-SS14":{
+"key":"state_senate:14",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"14",
+"seat":null,
+"special":0,
+"names":[
+[
+"Angela B. McCarty",
+"Republican"
+],
+[
+"Dan Blue",
+"Democratic"
+]
+]
+},
+"2026-NC-SS15":{
+"key":"state_senate:15",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"15",
+"seat":null,
+"special":0,
+"names":[
+[
+"David Bankert",
+"Republican"
+],
+[
+"Jay J. Chaudhuri",
+"Democratic"
+]
+]
+},
+"2026-NC-SS16":{
+"key":"state_senate:16",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"16",
+"seat":null,
+"special":0,
+"names":[
+[
+"Gale Adcock",
+"Democratic"
+],
+[
+"Jonathan D. Miller",
+"Libertarian"
+],
+[
+"Philip Hensley",
+"Republican"
+]
+]
+},
+"2026-NC-SS17":{
+"key":"state_senate:17",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"17",
+"seat":null,
+"special":0,
+"names":[
+[
+"Mrs. Sydney Batch",
+"Democratic"
+],
+[
+"Patrick J. Bowersox",
+"Libertarian"
+],
+[
+"Shirley Johnson",
+"Republican"
+]
+]
+},
+"2026-NC-SS18":{
+"key":"state_senate:18",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"18",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brad Hessel",
+"Libertarian"
+],
+[
+"Chris Stock",
+"Republican"
+],
+[
+"Haseeb Fatmi",
+"Democratic"
+]
+]
+},
+"2026-NC-SS19":{
+"key":"state_senate:19",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"19",
+"seat":null,
+"special":0,
+"names":[
+[
+"Val Applewhite",
+"Democratic"
+],
+[
+"Venus de la Cruz",
+"Republican"
+]
+]
+},
+"2026-NC-SS2":{
+"key":"state_senate:2",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"2",
+"seat":null,
+"special":0,
+"names":[
+[
+"Norman Sanderson",
+"Republican"
+],
+[
+"Roy Surrett",
+"Democratic"
+]
+]
+},
+"2026-NC-SS20":{
+"key":"state_senate:20",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"20",
+"seat":null,
+"special":0,
+"names":[
+[
+"Natalie S. Murdock",
+"Democratic"
+]
+]
+},
+"2026-NC-SS21":{
+"key":"state_senate:21",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"21",
+"seat":null,
+"special":0,
+"names":[
+[
+"Paul Taylor",
+"Democratic"
+],
+[
+"Tom McInnis",
+"Republican"
+]
+]
+},
+"2026-NC-SS22":{
+"key":"state_senate:22",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"22",
+"seat":null,
+"special":0,
+"names":[
+[
+"LaKeshia M. Alston",
+"Republican"
+],
+[
+"Sophia Chitlik",
+"Democratic"
+]
+]
+},
+"2026-NC-SS23":{
+"key":"state_senate:23",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"23",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jonah Garson",
+"Democratic"
+],
+[
+"Laura Pichardo",
+"Republican"
+]
+]
+},
+"2026-NC-SS24":{
+"key":"state_senate:24",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"24",
+"seat":null,
+"special":0,
+"names":[
+[
+"Catina Hamm",
+"Democratic"
+],
+[
+"Danny Earl Britt, Jr.",
+"Republican"
+]
+]
+},
+"2026-NC-SS25":{
+"key":"state_senate:25",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"25",
+"seat":null,
+"special":0,
+"names":[
+[
+"Amy Scott Galey",
+"Republican"
+],
+[
+"Southey Blanton",
+"Democratic"
+]
+]
+},
+"2026-NC-SS26":{
+"key":"state_senate:26",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"26",
+"seat":null,
+"special":0,
+"names":[
+[
+"Sam Page",
+"Republican"
+],
+[
+"Steve Luking",
+"Democratic"
+]
+]
+},
+"2026-NC-SS27":{
+"key":"state_senate:27",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"27",
+"seat":null,
+"special":0,
+"names":[
+[
+"Michael K. Garrett",
+"Democratic"
+]
+]
+},
+"2026-NC-SS28":{
+"key":"state_senate:28",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"28",
+"seat":null,
+"special":0,
+"names":[
+[
+"Gladys A. Robinson",
+"Democratic"
+]
+]
+},
+"2026-NC-SS29":{
+"key":"state_senate:29",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"29",
+"seat":null,
+"special":0,
+"names":[
+[
+"Dave Craven",
+"Republican"
+],
+[
+"Judy Little",
+"Democratic"
+]
+]
+},
+"2026-NC-SS3":{
+"key":"state_senate:3",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"3",
+"seat":null,
+"special":0,
+"names":[
+[
+"Bob Brinson",
+"Republican"
+],
+[
+"Charles Dudley",
+"Democratic"
+]
+]
+},
+"2026-NC-SS30":{
+"key":"state_senate:30",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"30",
+"seat":null,
+"special":0,
+"names":[
+[
+"Pamela D. McAfee",
+"Democratic"
+],
+[
+"Steve Jarvis",
+"Republican"
+]
+]
+},
+"2026-NC-SS31":{
+"key":"state_senate:31",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"31",
+"seat":null,
+"special":0,
+"names":[
+[
+"Andy Bowline",
+"Democratic"
+],
+[
+"Dana Caudill Jones",
+"Republican"
+]
+]
+},
+"2026-NC-SS32":{
+"key":"state_senate:32",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"32",
+"seat":null,
+"special":0,
+"names":[
+[
+"Keenen Altic",
+"Green"
+],
+[
+"Paul Lowe, Jr.",
+"Democratic"
+],
+[
+"Peter Antinozzi",
+"Republican"
+]
+]
+},
+"2026-NC-SS33":{
+"key":"state_senate:33",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"33",
+"seat":null,
+"special":0,
+"names":[
+[
+"Carl Ford",
+"Republican"
+],
+[
+"Gary R. Weart",
+"Democratic"
+]
+]
+},
+"2026-NC-SS34":{
+"key":"state_senate:34",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"34",
+"seat":null,
+"special":0,
+"names":[
+[
+"April Cook",
+"Democratic"
+],
+[
+"Kevin Crutchfield",
+"Republican"
+]
+]
+},
+"2026-NC-SS35":{
+"key":"state_senate:35",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"35",
+"seat":null,
+"special":0,
+"names":[
+[
+"Christine E. Winward",
+"Democratic"
+],
+[
+"Todd Johnson",
+"Republican"
+]
+]
+},
+"2026-NC-SS36":{
+"key":"state_senate:36",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"36",
+"seat":null,
+"special":0,
+"names":[
+[
+"Eddie Settle",
+"Republican"
+],
+[
+"Trevor Cole Hardwick",
+"Democratic"
+]
+]
+},
+"2026-NC-SS37":{
+"key":"state_senate:37",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"37",
+"seat":null,
+"special":0,
+"names":[
+[
+"Raygan J. Angel",
+"Democratic"
+],
+[
+"Vickie Sawyer",
+"Republican"
+]
+]
+},
+"2026-NC-SS38":{
+"key":"state_senate:38",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"38",
+"seat":null,
+"special":0,
+"names":[
+[
+"Mujtaba A. Mohammed",
+"Democratic"
+]
+]
+},
+"2026-NC-SS39":{
+"key":"state_senate:39",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"39",
+"seat":null,
+"special":0,
+"names":[
+[
+"DeAndrea Salvador",
+"Democratic"
+]
+]
+},
+"2026-NC-SS4":{
+"key":"state_senate:4",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"4",
+"seat":null,
+"special":0,
+"names":[
+[
+"Buck Newton",
+"Republican"
+],
+[
+"Jessica (Jess) Rivera",
+"Democratic"
+]
+]
+},
+"2026-NC-SS40":{
+"key":"state_senate:40",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"40",
+"seat":null,
+"special":0,
+"names":[
+[
+"Bobbie Shields",
+"Republican"
+],
+[
+"Joyce Waddell",
+"Democratic"
+]
+]
+},
+"2026-NC-SS41":{
+"key":"state_senate:41",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"41",
+"seat":null,
+"special":0,
+"names":[
+[
+"Caleb Theodros",
+"Democratic"
+],
+[
+"Kevin Gray",
+"Republican"
+]
+]
+},
+"2026-NC-SS42":{
+"key":"state_senate:42",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"42",
+"seat":null,
+"special":0,
+"names":[
+[
+"Mrs. Woodson Bradley",
+"Democratic"
+],
+[
+"Stacie McGinn",
+"Republican"
+]
+]
+},
+"2026-NC-SS43":{
+"key":"state_senate:43",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"43",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brad Overcash",
+"Republican"
+],
+[
+"Steve Rutherford",
+"Democratic"
+]
+]
+},
+"2026-NC-SS44":{
+"key":"state_senate:44",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"44",
+"seat":null,
+"special":0,
+"names":[
+[
+"Rod Powell",
+"Democratic"
+],
+[
+"Ted Alexander",
+"Republican"
+]
+]
+},
+"2026-NC-SS45":{
+"key":"state_senate:45",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"45",
+"seat":null,
+"special":0,
+"names":[
+[
+"Greg Cranford",
+"Democratic"
+],
+[
+"Mark Hollo",
+"Republican"
+]
+]
+},
+"2026-NC-SS46":{
+"key":"state_senate:46",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"46",
+"seat":null,
+"special":0,
+"names":[
+[
+"Kyle Whisnant",
+"Democratic"
+],
+[
+"Warren Daniel",
+"Republican"
+]
+]
+},
+"2026-NC-SS47":{
+"key":"state_senate:47",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"47",
+"seat":null,
+"special":0,
+"names":[
+[
+"Frank Patton Hughes III",
+"Democratic"
+],
+[
+"Ralph Hise",
+"Republican"
+]
+]
+},
+"2026-NC-SS48":{
+"key":"state_senate:48",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"48",
+"seat":null,
+"special":0,
+"names":[
+[
+"Doyle G. Brown, Jr.",
+"Democratic"
+],
+[
+"Tim Moffitt",
+"Republican"
+]
+]
+},
+"2026-NC-SS49":{
+"key":"state_senate:49",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"49",
+"seat":null,
+"special":0,
+"names":[
+[
+"CJ Domingo",
+"Republican"
+],
+[
+"Julie Mayfield",
+"Democratic"
+]
+]
+},
+"2026-NC-SS5":{
+"key":"state_senate:5",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"5",
+"seat":null,
+"special":0,
+"names":[
+[
+"Henry Hostetler",
+"Republican"
+],
+[
+"Kandie D. Smith",
+"Democratic"
+]
+]
+},
+"2026-NC-SS50":{
+"key":"state_senate:50",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"50",
+"seat":null,
+"special":0,
+"names":[
+[
+"Kevin Corbin",
+"Republican"
+],
+[
+"Tom Downing",
+"Democratic"
+]
+]
+},
+"2026-NC-SS6":{
+"key":"state_senate:6",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"6",
+"seat":null,
+"special":0,
+"names":[
+[
+"Andi Morrow",
+"Democratic"
+],
+[
+"Michael Anthony Lazzara",
+"Republican"
+]
+]
+},
+"2026-NC-SS7":{
+"key":"state_senate:7",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"7",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jessica Bichler",
+"Democratic"
+],
+[
+"Michael Lee",
+"Republican"
+]
+]
+},
+"2026-NC-SS8":{
+"key":"state_senate:8",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"8",
+"seat":null,
+"special":0,
+"names":[
+[
+"Bill Rabon",
+"Republican"
+],
+[
+"Richard (Rick) Combes",
+"Democratic"
+],
+[
+"Tim White",
+"Libertarian"
+]
+]
+},
+"2026-NC-SS9":{
+"key":"state_senate:9",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"9",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brent Jackson",
+"Republican"
+]
+]
+}
+},
+"keys":{
+"court_of_appeals::seat 1":"2026-NC-COA1",
+"court_of_appeals::seat 2":"2026-NC-COA2",
+"court_of_appeals::seat 3":"2026-NC-COA3",
+"state_house:1":"2026-NC-SH1",
+"state_house:10":"2026-NC-SH10",
+"state_house:100":"2026-NC-SH100",
+"state_house:101":"2026-NC-SH101",
+"state_house:102":"2026-NC-SH102",
+"state_house:103":"2026-NC-SH103",
+"state_house:104":"2026-NC-SH104",
+"state_house:105":"2026-NC-SH105",
+"state_house:106":"2026-NC-SH106",
+"state_house:107":"2026-NC-SH107",
+"state_house:108":"2026-NC-SH108",
+"state_house:109":"2026-NC-SH109",
+"state_house:11":"2026-NC-SH11",
+"state_house:110":"2026-NC-SH110",
+"state_house:111":"2026-NC-SH111",
+"state_house:112":"2026-NC-SH112",
+"state_house:113":"2026-NC-SH113",
+"state_house:114":"2026-NC-SH114",
+"state_house:115":"2026-NC-SH115",
+"state_house:116":"2026-NC-SH116",
+"state_house:117":"2026-NC-SH117",
+"state_house:118":"2026-NC-SH118",
+"state_house:119":"2026-NC-SH119",
+"state_house:12":"2026-NC-SH12",
+"state_house:120":"2026-NC-SH120",
+"state_house:13":"2026-NC-SH13",
+"state_house:14":"2026-NC-SH14",
+"state_house:15":"2026-NC-SH15",
+"state_house:16":"2026-NC-SH16",
+"state_house:17":"2026-NC-SH17",
+"state_house:18":"2026-NC-SH18",
+"state_house:19":"2026-NC-SH19",
+"state_house:2":"2026-NC-SH2",
+"state_house:20":"2026-NC-SH20",
+"state_house:21":"2026-NC-SH21",
+"state_house:22":"2026-NC-SH22",
+"state_house:23":"2026-NC-SH23",
+"state_house:24":"2026-NC-SH24",
+"state_house:25":"2026-NC-SH25",
+"state_house:26":"2026-NC-SH26",
+"state_house:27":"2026-NC-SH27",
+"state_house:28":"2026-NC-SH28",
+"state_house:29":"2026-NC-SH29",
+"state_house:3":"2026-NC-SH3",
+"state_house:30":"2026-NC-SH30",
+"state_house:31":"2026-NC-SH31",
+"state_house:32":"2026-NC-SH32",
+"state_house:33":"2026-NC-SH33",
+"state_house:34":"2026-NC-SH34",
+"state_house:35":"2026-NC-SH35",
+"state_house:36":"2026-NC-SH36",
+"state_house:37":"2026-NC-SH37",
+"state_house:38":"2026-NC-SH38",
+"state_house:39":"2026-NC-SH39",
+"state_house:4":"2026-NC-SH4",
+"state_house:40":"2026-NC-SH40",
+"state_house:41":"2026-NC-SH41",
+"state_house:42":"2026-NC-SH42",
+"state_house:43":"2026-NC-SH43",
+"state_house:44":"2026-NC-SH44",
+"state_house:45":"2026-NC-SH45",
+"state_house:46":"2026-NC-SH46",
+"state_house:47":"2026-NC-SH47",
+"state_house:48":"2026-NC-SH48",
+"state_house:49":"2026-NC-SH49",
+"state_house:5":"2026-NC-SH5",
+"state_house:50":"2026-NC-SH50",
+"state_house:51":"2026-NC-SH51",
+"state_house:52":"2026-NC-SH52",
+"state_house:53":"2026-NC-SH53",
+"state_house:54":"2026-NC-SH54",
+"state_house:55":"2026-NC-SH55",
+"state_house:56":"2026-NC-SH56",
+"state_house:57":"2026-NC-SH57",
+"state_house:58":"2026-NC-SH58",
+"state_house:59":"2026-NC-SH59",
+"state_house:6":"2026-NC-SH6",
+"state_house:60":"2026-NC-SH60",
+"state_house:61":"2026-NC-SH61",
+"state_house:62":"2026-NC-SH62",
+"state_house:63":"2026-NC-SH63",
+"state_house:64":"2026-NC-SH64",
+"state_house:65":"2026-NC-SH65",
+"state_house:66":"2026-NC-SH66",
+"state_house:67":"2026-NC-SH67",
+"state_house:68":"2026-NC-SH68",
+"state_house:69":"2026-NC-SH69",
+"state_house:7":"2026-NC-SH7",
+"state_house:70":"2026-NC-SH70",
+"state_house:71":"2026-NC-SH71",
+"state_house:72":"2026-NC-SH72",
+"state_house:73":"2026-NC-SH73",
+"state_house:74":"2026-NC-SH74",
+"state_house:75":"2026-NC-SH75",
+"state_house:76":"2026-NC-SH76",
+"state_house:77":"2026-NC-SH77",
+"state_house:78":"2026-NC-SH78",
+"state_house:79":"2026-NC-SH79",
+"state_house:8":"2026-NC-SH8",
+"state_house:80":"2026-NC-SH80",
+"state_house:81":"2026-NC-SH81",
+"state_house:82":"2026-NC-SH82",
+"state_house:83":"2026-NC-SH83",
+"state_house:84":"2026-NC-SH84",
+"state_house:85":"2026-NC-SH85",
+"state_house:86":"2026-NC-SH86",
+"state_house:87":"2026-NC-SH87",
+"state_house:88":"2026-NC-SH88",
+"state_house:89":"2026-NC-SH89",
+"state_house:9":"2026-NC-SH9",
+"state_house:90":"2026-NC-SH90",
+"state_house:91":"2026-NC-SH91",
+"state_house:92":"2026-NC-SH92",
+"state_house:93":"2026-NC-SH93",
+"state_house:94":"2026-NC-SH94",
+"state_house:95":"2026-NC-SH95",
+"state_house:96":"2026-NC-SH96",
+"state_house:97":"2026-NC-SH97",
+"state_house:98":"2026-NC-SH98",
+"state_house:99":"2026-NC-SH99",
+"state_senate:1":"2026-NC-SS1",
+"state_senate:10":"2026-NC-SS10",
+"state_senate:11":"2026-NC-SS11",
+"state_senate:12":"2026-NC-SS12",
+"state_senate:13":"2026-NC-SS13",
+"state_senate:14":"2026-NC-SS14",
+"state_senate:15":"2026-NC-SS15",
+"state_senate:16":"2026-NC-SS16",
+"state_senate:17":"2026-NC-SS17",
+"state_senate:18":"2026-NC-SS18",
+"state_senate:19":"2026-NC-SS19",
+"state_senate:2":"2026-NC-SS2",
+"state_senate:20":"2026-NC-SS20",
+"state_senate:21":"2026-NC-SS21",
+"state_senate:22":"2026-NC-SS22",
+"state_senate:23":"2026-NC-SS23",
+"state_senate:24":"2026-NC-SS24",
+"state_senate:25":"2026-NC-SS25",
+"state_senate:26":"2026-NC-SS26",
+"state_senate:27":"2026-NC-SS27",
+"state_senate:28":"2026-NC-SS28",
+"state_senate:29":"2026-NC-SS29",
+"state_senate:3":"2026-NC-SS3",
+"state_senate:30":"2026-NC-SS30",
+"state_senate:31":"2026-NC-SS31",
+"state_senate:32":"2026-NC-SS32",
+"state_senate:33":"2026-NC-SS33",
+"state_senate:34":"2026-NC-SS34",
+"state_senate:35":"2026-NC-SS35",
+"state_senate:36":"2026-NC-SS36",
+"state_senate:37":"2026-NC-SS37",
+"state_senate:38":"2026-NC-SS38",
+"state_senate:39":"2026-NC-SS39",
+"state_senate:4":"2026-NC-SS4",
+"state_senate:40":"2026-NC-SS40",
+"state_senate:41":"2026-NC-SS41",
+"state_senate:42":"2026-NC-SS42",
+"state_senate:43":"2026-NC-SS43",
+"state_senate:44":"2026-NC-SS44",
+"state_senate:45":"2026-NC-SS45",
+"state_senate:46":"2026-NC-SS46",
+"state_senate:47":"2026-NC-SS47",
+"state_senate:48":"2026-NC-SS48",
+"state_senate:49":"2026-NC-SS49",
+"state_senate:5":"2026-NC-SS5",
+"state_senate:50":"2026-NC-SS50",
+"state_senate:6":"2026-NC-SS6",
+"state_senate:7":"2026-NC-SS7",
+"state_senate:8":"2026-NC-SS8",
+"state_senate:9":"2026-NC-SS9",
+"supreme_court:1":"2026-NC-SC1",
+"us_house:1":"2026-NC-H01",
+"us_house:10":"2026-NC-H10",
+"us_house:11":"2026-NC-H11",
+"us_house:12":"2026-NC-H12",
+"us_house:13":"2026-NC-H13",
+"us_house:14":"2026-NC-H14",
+"us_house:2":"2026-NC-H02",
+"us_house:3":"2026-NC-H03",
+"us_house:4":"2026-NC-H04",
+"us_house:5":"2026-NC-H05",
+"us_house:6":"2026-NC-H06",
+"us_house:7":"2026-NC-H07",
+"us_house:8":"2026-NC-H08",
+"us_house:9":"2026-NC-H09",
+"us_senate":"2026-NC-S2"
+},
+"keys_shared":[],
+"posted":{
+"1383":{
+"race":"2026-NC-S2",
+"title":"US SENATE (VOTE FOR 1)",
+"names":{
+"Michael Dublin":"Michael Dublin",
+"Roy Cooper":"Roy Cooper",
+"Shannon W. Bray":"Shannon W. Bray",
+"Michael Whatley":"Michael Whatley"
+}
+},
+"1369":{
+"race":"2026-NC-H01",
+"title":"US HOUSE OF REPRESENTATIVES DISTRICT 01 (VOTE FOR 1)",
+"names":{
+"Don Davis":"Don Davis",
+"Laurie Buckhout":"Laurie Buckhout",
+"Tom Bailey":"Tom Bailey"
+}
+},
+"1370":{
+"race":"2026-NC-H02",
+"title":"US HOUSE OF REPRESENTATIVES DISTRICT 02 (VOTE FOR 1)",
+"names":{
+"Eugene F. Douglass":"Eugene F. Douglass",
+"Deborah K. Ross":"Deborah K. Ross",
+"Matthew Laszacs":"Matthew Laszacs",
+"Write-In (Miscellaneous)":null
+}
+},
+"1371":{
+"race":"2026-NC-H03",
+"title":"US HOUSE OF REPRESENTATIVES DISTRICT 03 (VOTE FOR 1)",
+"names":{
+"Daniel Cavender":"Daniel Cavender",
+"Raymond Smith":"Raymond Smith",
+"Greg Murphy":"Greg Murphy"
+}
+},
+"1372":{
+"race":"2026-NC-H04",
+"title":"US HOUSE OF REPRESENTATIVES DISTRICT 04 (VOTE FOR 1)",
+"names":{
+"Valerie P. Foushee":"Valerie P. Foushee",
+"Guy Meilleur":"Guy Meilleur",
+"Mahesh (Max) Ganorkar":"Mahesh (Max) Ganorkar"
+}
+},
+"1373":{
+"race":"2026-NC-H05",
+"title":"US HOUSE OF REPRESENTATIVES DISTRICT 05 (VOTE FOR 1)",
+"names":{
+"Virginia Foxx":"Virginia Foxx",
+"Robert B. Luffman":"Robert B. Luffman",
+"Chuck Hubbard":"Chuck Hubbard"
+}
+},
+"1374":{
+"race":"2026-NC-H06",
+"title":"US HOUSE OF REPRESENTATIVES DISTRICT 06 (VOTE FOR 1)",
+"names":{
+"Addison McDowell":"Addison McDowell",
+"Cyril Jefferson":"Cyril Jefferson"
+}
+},
+"1375":{
+"race":"2026-NC-H07",
+"title":"US HOUSE OF REPRESENTATIVES DISTRICT 07 (VOTE FOR 1)",
+"names":{
+"Maad Abu-Ghazalah":"Maad Abu-Ghazalah",
+"David Rouzer":"David Rouzer",
+"Kimberly Hardy":"Kimberly Hardy"
+}
+},
+"1376":{
+"race":"2026-NC-H08",
+"title":"US HOUSE OF REPRESENTATIVES DISTRICT 08 (VOTE FOR 1)",
+"names":{
+"Bo Whitehead":"Bo Whitehead",
+"Colby Watson":"Colby Watson",
+"Mark Harris":"Mark Harris"
+}
+},
+"1377":{
+"race":"2026-NC-H09",
+"title":"US HOUSE OF REPRESENTATIVES DISTRICT 09 (VOTE FOR 1)",
+"names":{
+"Richard N. Ojeda II":"Richard N. Ojeda II",
+"Richard Hudson":"Richard Hudson"
+}
+},
+"1378":{
+"race":"2026-NC-H10",
+"title":"US HOUSE OF REPRESENTATIVES DISTRICT 10 (VOTE FOR 1)",
+"names":{
+"Steven Feldman":"Steven Feldman",
+"Ashley Bell":"Ashley Bell",
+"Pat Harrigan":"Pat Harrigan"
+}
+},
+"1379":{
+"race":"2026-NC-H11",
+"title":"US HOUSE OF REPRESENTATIVES DISTRICT 11 (VOTE FOR 1)",
+"names":{
+"Jennifer Capps Balkcom":"Jennifer Capps Balkcom",
+"Jamie Ager":"Jamie Ager",
+"Travis Groo":"Travis Groo"
+}
+},
+"1380":{
+"race":"2026-NC-H12",
+"title":"US HOUSE OF REPRESENTATIVES DISTRICT 12 (VOTE FOR 1)",
+"names":{
+"Jack Codiga":"Jack Codiga",
+"Alma S. Adams":"Alma S. Adams"
+}
+},
+"1381":{
+"race":"2026-NC-H13",
+"title":"US HOUSE OF REPRESENTATIVES DISTRICT 13 (VOTE FOR 1)",
+"names":{
+"Paul Barringer":"Paul Barringer",
+"Steven Swinton":"Steven Swinton",
+"Brad Knott":"Brad Knott"
+}
+},
+"1382":{
+"race":"2026-NC-H14",
+"title":"US HOUSE OF REPRESENTATIVES DISTRICT 14 (VOTE FOR 1)",
+"names":{
+"Lakesha Womack":"Lakesha Womack",
+"Tim Moore":"Tim Moore"
+}
+},
+"1368":{
+"race":"2026-NC-SC1",
+"title":"NC SUPREME COURT ASSOCIATE JUSTICE SEAT 01 (VOTE FOR 1)",
+"names":{
+"Anita Earls":"Anita Earls",
+"Sarah Stevens":"Sarah Stevens"
+}
+},
+"1040":{
+"race":"2026-NC-COA1",
+"title":"NC COURT OF APPEALS JUDGE SEAT 01 (VOTE FOR 1)",
+"names":{
+"Michael C. Byrne":"Michael C. Byrne",
+"John S. Arrowood":"John S. Arrowood"
+}
+},
+"1041":{
+"race":"2026-NC-COA2",
+"title":"NC COURT OF APPEALS JUDGE SEAT 02 (VOTE FOR 1)",
+"names":{
+"George Cooper Bell":"George Cooper Bell",
+"Tobias (Toby) Hampson":"Tobias (Toby) Hampson"
+}
+},
+"1042":{
+"race":"2026-NC-COA3",
+"title":"NC COURT OF APPEALS JUDGE SEAT 03 (VOTE FOR 1)",
+"names":{
+"Craig Collins":"Craig Collins",
+"Christine Marie Walczyk":"Christine Marie Walczyk"
+}
+},
+"1289":{
+"race":"2026-NC-SS1",
+"title":"NC STATE SENATE DISTRICT 01 (VOTE FOR 1)",
+"names":{
+"Melissa Zehner":"Melissa Zehner",
+"Jerry Tillett":"Jerry Tillett"
+}
+},
+"1290":{
+"race":"2026-NC-SS2",
+"title":"NC STATE SENATE DISTRICT 02 (VOTE FOR 1)",
+"names":{
+"Roy Surrett":"Roy Surrett",
+"Norman Sanderson":"Norman Sanderson"
+}
+},
+"1291":{
+"race":"2026-NC-SS3",
+"title":"NC STATE SENATE DISTRICT 03 (VOTE FOR 1)",
+"names":{
+"Charles Dudley":"Charles Dudley",
+"Bob Brinson":"Bob Brinson"
+}
+},
+"1292":{
+"race":"2026-NC-SS4",
+"title":"NC STATE SENATE DISTRICT 04 (VOTE FOR 1)",
+"names":{
+"Jessica (Jess) Rivera":"Jessica (Jess) Rivera",
+"Buck Newton":"Buck Newton"
+}
+},
+"1293":{
+"race":"2026-NC-SS5",
+"title":"NC STATE SENATE DISTRICT 05 (VOTE FOR 1)",
+"names":{
+"Kandie D. Smith":"Kandie D. Smith",
+"Henry Hostetler":"Henry Hostetler"
+}
+},
+"1294":{
+"race":"2026-NC-SS6",
+"title":"NC STATE SENATE DISTRICT 06 (VOTE FOR 1)",
+"names":{
+"Andi Morrow":"Andi Morrow",
+"Michael Anthony Lazzara":"Michael Anthony Lazzara"
+}
+},
+"1295":{
+"race":"2026-NC-SS7",
+"title":"NC STATE SENATE DISTRICT 07 (VOTE FOR 1)",
+"names":{
+"Jessica Bichler":"Jessica Bichler",
+"Michael Lee":"Michael Lee"
+}
+},
+"1296":{
+"race":"2026-NC-SS8",
+"title":"NC STATE SENATE DISTRICT 08 (VOTE FOR 1)",
+"names":{
+"Richard (Rick) Combes":"Richard (Rick) Combes",
+"Tim White":"Tim White",
+"Bill Rabon":"Bill Rabon"
+}
+},
+"1297":{
+"race":"2026-NC-SS9",
+"title":"NC STATE SENATE DISTRICT 09 (VOTE FOR 1)",
+"names":{
+"Brent Jackson":"Brent Jackson"
+}
+},
+"1298":{
+"race":"2026-NC-SS10",
+"title":"NC STATE SENATE DISTRICT 10 (VOTE FOR 1)",
+"names":{
+"Kevin Terrett":"Kevin Terrett",
+"Benton Sawrey":"Benton Sawrey",
+"Pat LeGrand":"Pat LeGrand"
+}
+},
+"1299":{
+"race":"2026-NC-SS11",
+"title":"NC STATE SENATE DISTRICT 11 (VOTE FOR 1)",
+"names":{
+"Gavin Bell":"Gavin Bell",
+"Lisa Stone Barnes":"Lisa Stone Barnes",
+"James D. Gailliard":"James D. Gailliard"
+}
+},
+"1300":{
+"race":"2026-NC-SS12",
+"title":"NC STATE SENATE DISTRICT 12 (VOTE FOR 1)",
+"names":{
+"Jim Burgin":"Jim Burgin",
+"Tanya White Anderson":"Tanya White Anderson"
+}
+},
+"1301":{
+"race":"2026-NC-SS13",
+"title":"NC STATE SENATE DISTRICT 13 (VOTE FOR 1)",
+"names":{
+"Robert van Brederode":"Robert van Brederode",
+"Lisa Grafstein":"Lisa Grafstein"
+}
+},
+"1302":{
+"race":"2026-NC-SS14",
+"title":"NC STATE SENATE DISTRICT 14 (VOTE FOR 1)",
+"names":{
+"Dan Blue":"Dan Blue",
+"Angela B. McCarty":"Angela B. McCarty"
+}
+},
+"1303":{
+"race":"2026-NC-SS15",
+"title":"NC STATE SENATE DISTRICT 15 (VOTE FOR 1)",
+"names":{
+"Jay J. Chaudhuri":"Jay J. Chaudhuri",
+"David Bankert":"David Bankert"
+}
+},
+"1304":{
+"race":"2026-NC-SS16",
+"title":"NC STATE SENATE DISTRICT 16 (VOTE FOR 1)",
+"names":{
+"Gale Adcock":"Gale Adcock",
+"Jonathan D. Miller":"Jonathan D. Miller",
+"Philip Hensley":"Philip Hensley"
+}
+},
+"1305":{
+"race":"2026-NC-SS17",
+"title":"NC STATE SENATE DISTRICT 17 (VOTE FOR 1)",
+"names":{
+"Patrick J. Bowersox":"Patrick J. Bowersox",
+"Mrs. Sydney Batch":"Mrs. Sydney Batch",
+"Shirley Johnson":"Shirley Johnson"
+}
+},
+"1306":{
+"race":"2026-NC-SS18",
+"title":"NC STATE SENATE DISTRICT 18 (VOTE FOR 1)",
+"names":{
+"Haseeb Fatmi":"Haseeb Fatmi",
+"Chris Stock":"Chris Stock",
+"Brad Hessel":"Brad Hessel"
+}
+},
+"1307":{
+"race":"2026-NC-SS19",
+"title":"NC STATE SENATE DISTRICT 19 (VOTE FOR 1)",
+"names":{
+"Venus de la Cruz":"Venus de la Cruz",
+"Val Applewhite":"Val Applewhite"
+}
+},
+"1308":{
+"race":"2026-NC-SS20",
+"title":"NC STATE SENATE DISTRICT 20 (VOTE FOR 1)",
+"names":{
+"Natalie S. Murdock":"Natalie S. Murdock"
+}
+},
+"1309":{
+"race":"2026-NC-SS21",
+"title":"NC STATE SENATE DISTRICT 21 (VOTE FOR 1)",
+"names":{
+"Paul Taylor":"Paul Taylor",
+"Tom McInnis":"Tom McInnis"
+}
+},
+"1310":{
+"race":"2026-NC-SS22",
+"title":"NC STATE SENATE DISTRICT 22 (VOTE FOR 1)",
+"names":{
+"Sophia Chitlik":"Sophia Chitlik",
+"LaKeshia M. Alston":"LaKeshia M. Alston"
+}
+},
+"1311":{
+"race":"2026-NC-SS23",
+"title":"NC STATE SENATE DISTRICT 23 (VOTE FOR 1)",
+"names":{
+"Laura Pichardo":"Laura Pichardo",
+"Jonah Garson":"Jonah Garson"
+}
+},
+"1312":{
+"race":"2026-NC-SS24",
+"title":"NC STATE SENATE DISTRICT 24 (VOTE FOR 1)",
+"names":{
+"Danny Earl Britt, Jr.":"Danny Earl Britt, Jr.",
+"Catina Hamm":"Catina Hamm"
+}
+},
+"1313":{
+"race":"2026-NC-SS25",
+"title":"NC STATE SENATE DISTRICT 25 (VOTE FOR 1)",
+"names":{
+"Southey Blanton":"Southey Blanton",
+"Amy Scott Galey":"Amy Scott Galey"
+}
+},
+"1314":{
+"race":"2026-NC-SS26",
+"title":"NC STATE SENATE DISTRICT 26 (VOTE FOR 1)",
+"names":{
+"Sam Page":"Sam Page",
+"Steve Luking":"Steve Luking"
+}
+},
+"1315":{
+"race":"2026-NC-SS27",
+"title":"NC STATE SENATE DISTRICT 27 (VOTE FOR 1)",
+"names":{
+"Michael K. Garrett":"Michael K. Garrett"
+}
+},
+"1316":{
+"race":"2026-NC-SS28",
+"title":"NC STATE SENATE DISTRICT 28 (VOTE FOR 1)",
+"names":{
+"Gladys A. Robinson":"Gladys A. Robinson"
+}
+},
+"1317":{
+"race":"2026-NC-SS29",
+"title":"NC STATE SENATE DISTRICT 29 (VOTE FOR 1)",
+"names":{
+"Dave Craven":"Dave Craven",
+"Judy Little":"Judy Little"
+}
+},
+"1318":{
+"race":"2026-NC-SS30",
+"title":"NC STATE SENATE DISTRICT 30 (VOTE FOR 1)",
+"names":{
+"Pamela D. McAfee":"Pamela D. McAfee",
+"Steve Jarvis":"Steve Jarvis"
+}
+},
+"1319":{
+"race":"2026-NC-SS31",
+"title":"NC STATE SENATE DISTRICT 31 (VOTE FOR 1)",
+"names":{
+"Andy Bowline":"Andy Bowline",
+"Dana Caudill Jones":"Dana Caudill Jones"
+}
+},
+"1320":{
+"race":"2026-NC-SS32",
+"title":"NC STATE SENATE DISTRICT 32 (VOTE FOR 1)",
+"names":{
+"Peter Antinozzi":"Peter Antinozzi",
+"Keenen Altic":"Keenen Altic",
+"Paul Lowe, Jr.":"Paul Lowe, Jr."
+}
+},
+"1321":{
+"race":"2026-NC-SS33",
+"title":"NC STATE SENATE DISTRICT 33 (VOTE FOR 1)",
+"names":{
+"Carl Ford":"Carl Ford",
+"Gary R. Weart":"Gary R. Weart"
+}
+},
+"1322":{
+"race":"2026-NC-SS34",
+"title":"NC STATE SENATE DISTRICT 34 (VOTE FOR 1)",
+"names":{
+"Kevin Crutchfield":"Kevin Crutchfield",
+"April Cook":"April Cook"
+}
+},
+"1323":{
+"race":"2026-NC-SS35",
+"title":"NC STATE SENATE DISTRICT 35 (VOTE FOR 1)",
+"names":{
+"Christine E. Winward":"Christine E. Winward",
+"Todd Johnson":"Todd Johnson"
+}
+},
+"1324":{
+"race":"2026-NC-SS36",
+"title":"NC STATE SENATE DISTRICT 36 (VOTE FOR 1)",
+"names":{
+"Eddie Settle":"Eddie Settle",
+"Trevor Cole Hardwick":"Trevor Cole Hardwick"
+}
+},
+"1325":{
+"race":"2026-NC-SS37",
+"title":"NC STATE SENATE DISTRICT 37 (VOTE FOR 1)",
+"names":{
+"Raygan J. Angel":"Raygan J. Angel",
+"Vickie Sawyer":"Vickie Sawyer"
+}
+},
+"1326":{
+"race":"2026-NC-SS38",
+"title":"NC STATE SENATE DISTRICT 38 (VOTE FOR 1)",
+"names":{
+"Mujtaba A. Mohammed":"Mujtaba A. Mohammed"
+}
+},
+"1327":{
+"race":"2026-NC-SS39",
+"title":"NC STATE SENATE DISTRICT 39 (VOTE FOR 1)",
+"names":{
+"DeAndrea Salvador":"DeAndrea Salvador"
+}
+},
+"1328":{
+"race":"2026-NC-SS40",
+"title":"NC STATE SENATE DISTRICT 40 (VOTE FOR 1)",
+"names":{
+"Joyce Waddell":"Joyce Waddell",
+"Bobbie Shields":"Bobbie Shields"
+}
+},
+"1329":{
+"race":"2026-NC-SS41",
+"title":"NC STATE SENATE DISTRICT 41 (VOTE FOR 1)",
+"names":{
+"Caleb Theodros":"Caleb Theodros",
+"Kevin Gray":"Kevin Gray"
+}
+},
+"1330":{
+"race":"2026-NC-SS42",
+"title":"NC STATE SENATE DISTRICT 42 (VOTE FOR 1)",
+"names":{
+"Mrs. Woodson Bradley":"Mrs. Woodson Bradley",
+"Stacie McGinn":"Stacie McGinn"
+}
+},
+"1331":{
+"race":"2026-NC-SS43",
+"title":"NC STATE SENATE DISTRICT 43 (VOTE FOR 1)",
+"names":{
+"Steve Rutherford":"Steve Rutherford",
+"Brad Overcash":"Brad Overcash"
+}
+},
+"1332":{
+"race":"2026-NC-SS44",
+"title":"NC STATE SENATE DISTRICT 44 (VOTE FOR 1)",
+"names":{
+"Ted Alexander":"Ted Alexander",
+"Rod Powell":"Rod Powell"
+}
+},
+"1333":{
+"race":"2026-NC-SS45",
+"title":"NC STATE SENATE DISTRICT 45 (VOTE FOR 1)",
+"names":{
+"Greg Cranford":"Greg Cranford",
+"Mark Hollo":"Mark Hollo"
+}
+},
+"1334":{
+"race":"2026-NC-SS46",
+"title":"NC STATE SENATE DISTRICT 46 (VOTE FOR 1)",
+"names":{
+"Warren Daniel":"Warren Daniel",
+"Kyle Whisnant":"Kyle Whisnant"
+}
+},
+"1335":{
+"race":"2026-NC-SS47",
+"title":"NC STATE SENATE DISTRICT 47 (VOTE FOR 1)",
+"names":{
+"Frank Patton Hughes III":"Frank Patton Hughes III",
+"Ralph Hise":"Ralph Hise"
+}
+},
+"1336":{
+"race":"2026-NC-SS48",
+"title":"NC STATE SENATE DISTRICT 48 (VOTE FOR 1)",
+"names":{
+"Doyle G. Brown, Jr.":"Doyle G. Brown, Jr.",
+"Tim Moffitt":"Tim Moffitt"
+}
+},
+"1337":{
+"race":"2026-NC-SS49",
+"title":"NC STATE SENATE DISTRICT 49 (VOTE FOR 1)",
+"names":{
+"CJ Domingo":"CJ Domingo",
+"Julie Mayfield":"Julie Mayfield"
+}
+},
+"1338":{
+"race":"2026-NC-SS50",
+"title":"NC STATE SENATE DISTRICT 50 (VOTE FOR 1)",
+"names":{
+"Tom Downing":"Tom Downing",
+"Kevin Corbin":"Kevin Corbin"
+}
+},
+"1169":{
+"race":"2026-NC-SH1",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 001 (VOTE FOR 1)",
+"names":{
+"Miriam Rollin":"Miriam Rollin",
+"Edward C. Goodwin":"Edward C. Goodwin"
+}
+},
+"1170":{
+"race":"2026-NC-SH2",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 002 (VOTE FOR 1)",
+"names":{
+"Ray Jeffers":"Ray Jeffers"
+}
+},
+"1171":{
+"race":"2026-NC-SH3",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 003 (VOTE FOR 1)",
+"names":{
+"Diannia Bright":"Diannia Bright",
+"Steve Tyson":"Steve Tyson",
+"Angela Humphries":"Angela Humphries"
+}
+},
+"1172":{
+"race":"2026-NC-SH4",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 004 (VOTE FOR 1)",
+"names":{
+"Jimmy Dixon":"Jimmy Dixon",
+"Vernon Moore":"Vernon Moore"
+}
+},
+"1173":{
+"race":"2026-NC-SH5",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 005 (VOTE FOR 1)",
+"names":{
+"Sam Davis III":"Sam Davis III",
+"Bill Ward":"Bill Ward"
+}
+},
+"1174":{
+"race":"2026-NC-SH6",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 006 (VOTE FOR 1)",
+"names":{
+"Tony Spears":"Tony Spears",
+"Joe Pike":"Joe Pike"
+}
+},
+"1175":{
+"race":"2026-NC-SH7",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 007 (VOTE FOR 1)",
+"names":{
+"Cory Thornton":"Cory Thornton",
+"Mark Speed":"Mark Speed"
+}
+},
+"1176":{
+"race":"2026-NC-SH8",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 008 (VOTE FOR 1)",
+"names":{
+"Cathy Thorne Bynum":"Cathy Thorne Bynum",
+"Gloristine Brown":"Gloristine Brown"
+}
+},
+"1177":{
+"race":"2026-NC-SH9",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 009 (VOTE FOR 1)",
+"names":{
+"Timothy Reeder":"Timothy Reeder",
+"Claire Kempner":"Claire Kempner"
+}
+},
+"1178":{
+"race":"2026-NC-SH10",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 010 (VOTE FOR 1)",
+"names":{
+"John Bell":"John Bell",
+"Zyaire Webb":"Zyaire Webb"
+}
+},
+"1179":{
+"race":"2026-NC-SH11",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 011 (VOTE FOR 1)",
+"names":{
+"Allison A. Dahle":"Allison A. Dahle",
+"Matthew Kordon":"Matthew Kordon"
+}
+},
+"1180":{
+"race":"2026-NC-SH12",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 012 (VOTE FOR 1)",
+"names":{
+"Chris Humphrey":"Chris Humphrey",
+"Don Hardy":"Don Hardy"
+}
+},
+"1181":{
+"race":"2026-NC-SH13",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 013 (VOTE FOR 1)",
+"names":{
+"Celeste Cairns":"Celeste Cairns",
+"Jason Moore":"Jason Moore"
+}
+},
+"1182":{
+"race":"2026-NC-SH14",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 014 (VOTE FOR 1)",
+"names":{
+"Wyatt Gable":"Wyatt Gable"
+}
+},
+"1183":{
+"race":"2026-NC-SH15",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 015 (VOTE FOR 1)",
+"names":{
+"Phillip Shepard":"Phillip Shepard",
+"Christopher Schulte":"Christopher Schulte"
+}
+},
+"1184":{
+"race":"2026-NC-SH16",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 016 (VOTE FOR 1)",
+"names":{
+"Carson Smith":"Carson Smith",
+"Jim Harris":"Jim Harris"
+}
+},
+"1185":{
+"race":"2026-NC-SH17",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 017 (VOTE FOR 1)",
+"names":{
+"Dennis A. Breen":"Dennis A. Breen",
+"Frank Iler":"Frank Iler"
+}
+},
+"1186":{
+"race":"2026-NC-SH18",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 018 (VOTE FOR 1)",
+"names":{
+"Deb Butler":"Deb Butler",
+"Latisha Grady":"Latisha Grady"
+}
+},
+"1187":{
+"race":"2026-NC-SH19",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 019 (VOTE FOR 1)",
+"names":{
+"Scott Nasiff":"Scott Nasiff",
+"Charlie Miller":"Charlie Miller"
+}
+},
+"1188":{
+"race":"2026-NC-SH20",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 020 (VOTE FOR 1)",
+"names":{
+"Dane Scalise":"Dane Scalise",
+"Tim Merrick":"Tim Merrick"
+}
+},
+"1189":{
+"race":"2026-NC-SH21",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 021 (VOTE FOR 1)",
+"names":{
+"Ya Liu":"Ya Liu",
+"Bryson Johnson":"Bryson Johnson"
+}
+},
+"1190":{
+"race":"2026-NC-SH22",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 022 (VOTE FOR 1)",
+"names":{
+"Wellie Jackson":"Wellie Jackson"
+}
+},
+"1191":{
+"race":"2026-NC-SH23",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 023 (VOTE FOR 1)",
+"names":{
+"Patricia Smith":"Patricia Smith",
+"Brent Roberson":"Brent Roberson"
+}
+},
+"1192":{
+"race":"2026-NC-SH24",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 024 (VOTE FOR 1)",
+"names":{
+"Blake Boykin":"Blake Boykin",
+"Dante Pittman":"Dante Pittman"
+}
+},
+"1193":{
+"race":"2026-NC-SH25",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 025 (VOTE FOR 1)",
+"names":{
+"Allen Chesser":"Allen Chesser",
+"Lorenza M. Wilkins":"Lorenza M. Wilkins",
+"Nick Taylor":"Nick Taylor"
+}
+},
+"1194":{
+"race":"2026-NC-SH26",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 026 (VOTE FOR 1)",
+"names":{
+"Donna McDowell White":"Donna McDowell White",
+"L'Bertrice Solomon":"L'Bertrice Solomon"
+}
+},
+"1195":{
+"race":"2026-NC-SH27",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 027 (VOTE FOR 1)",
+"names":{
+"David Woodson":"David Woodson",
+"Rodney D. Pierce":"Rodney D. Pierce"
+}
+},
+"1196":{
+"race":"2026-NC-SH28",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 028 (VOTE FOR 1)",
+"names":{
+"D. Matthew Bailey":"D. Matthew Bailey",
+"Larry C. Strickland":"Larry C. Strickland"
+}
+},
+"1197":{
+"race":"2026-NC-SH29",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 029 (VOTE FOR 1)",
+"names":{
+"Vernetta Alston":"Vernetta Alston"
+}
+},
+"1198":{
+"race":"2026-NC-SH30",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 030 (VOTE FOR 1)",
+"names":{
+"Ray Ubinger":"Ray Ubinger",
+"Marcia Morey":"Marcia Morey"
+}
+},
+"1199":{
+"race":"2026-NC-SH31",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 031 (VOTE FOR 1)",
+"names":{
+"Zack Hawkins":"Zack Hawkins"
+}
+},
+"1200":{
+"race":"2026-NC-SH32",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 032 (VOTE FOR 1)",
+"names":{
+"Bryan K. Cohn":"Bryan K. Cohn",
+"Frank Sossamon":"Frank Sossamon"
+}
+},
+"1201":{
+"race":"2026-NC-SH33",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 033 (VOTE FOR 1)",
+"names":{
+"Matthew Orr":"Matthew Orr",
+"Monika Johnson-Hostler":"Monika Johnson-Hostler"
+}
+},
+"1202":{
+"race":"2026-NC-SH34",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 034 (VOTE FOR 1)",
+"names":{
+"Tim Longest":"Tim Longest",
+"Ed George":"Ed George"
+}
+},
+"1203":{
+"race":"2026-NC-SH35",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 035 (VOTE FOR 1)",
+"names":{
+"Mike Schietzelt":"Mike Schietzelt",
+"Evonne S. Hopkins":"Evonne S. Hopkins"
+}
+},
+"1204":{
+"race":"2026-NC-SH36",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 036 (VOTE FOR 1)",
+"names":{
+"Julie von Haefen":"Julie von Haefen",
+"Mary Insprucker":"Mary Insprucker"
+}
+},
+"1205":{
+"race":"2026-NC-SH37",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 037 (VOTE FOR 1)",
+"names":{
+"Winn Decker":"Winn Decker",
+"Erin Pare":"Erin Pare"
+}
+},
+"1206":{
+"race":"2026-NC-SH38",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 038 (VOTE FOR 1)",
+"names":{
+"Abe Jones":"Abe Jones"
+}
+},
+"1207":{
+"race":"2026-NC-SH39",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 039 (VOTE FOR 1)",
+"names":{
+"Jorge Cordova":"Jorge Cordova",
+"Wayne Cockrell":"Wayne Cockrell",
+"James A. Roberson":"James A. Roberson"
+}
+},
+"1208":{
+"race":"2026-NC-SH40",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 040 (VOTE FOR 1)",
+"names":{
+"Phil Rubin":"Phil Rubin",
+"Lucas Everett Jones":"Lucas Everett Jones"
+}
+},
+"1209":{
+"race":"2026-NC-SH41",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 041 (VOTE FOR 1)",
+"names":{
+"Bruce Forster":"Bruce Forster",
+"Maria Cervania":"Maria Cervania"
+}
+},
+"1210":{
+"race":"2026-NC-SH42",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 042 (VOTE FOR 1)",
+"names":{
+"Mike Colvin":"Mike Colvin"
+}
+},
+"1211":{
+"race":"2026-NC-SH43",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 043 (VOTE FOR 1)",
+"names":{
+"Janene Ackles":"Janene Ackles",
+"Diane Wheatley":"Diane Wheatley"
+}
+},
+"1212":{
+"race":"2026-NC-SH44",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 044 (VOTE FOR 1)",
+"names":{
+"Charles Smith":"Charles Smith"
+}
+},
+"1213":{
+"race":"2026-NC-SH45",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 045 (VOTE FOR 1)",
+"names":{
+"Frances Jackson":"Frances Jackson"
+}
+},
+"1214":{
+"race":"2026-NC-SH46",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 046 (VOTE FOR 1)",
+"names":{
+"Brittany Newton":"Brittany Newton",
+"Brenden H. Jones":"Brenden H. Jones"
+}
+},
+"1215":{
+"race":"2026-NC-SH47",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 047 (VOTE FOR 1)",
+"names":{
+"John L. Lowery":"John L. Lowery",
+"Eshonda Hooper":"Eshonda Hooper"
+}
+},
+"1216":{
+"race":"2026-NC-SH48",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 048 (VOTE FOR 1)",
+"names":{
+"Ralph Carter":"Ralph Carter",
+"Garland E. Pierce":"Garland E. Pierce"
+}
+},
+"1217":{
+"race":"2026-NC-SH49",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 049 (VOTE FOR 1)",
+"names":{
+"Cynthia Ball":"Cynthia Ball",
+"Daran Thomas":"Daran Thomas"
+}
+},
+"1218":{
+"race":"2026-NC-SH50",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 050 (VOTE FOR 1)",
+"names":{
+"Renee A. Price":"Renee A. Price"
+}
+},
+"1219":{
+"race":"2026-NC-SH51",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 051 (VOTE FOR 1)",
+"names":{
+"Charles M. Taylor":"Charles M. Taylor",
+"April Montgomery":"April Montgomery"
+}
+},
+"1220":{
+"race":"2026-NC-SH52",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 052 (VOTE FOR 1)",
+"names":{
+"Joe Parfitt":"Joe Parfitt",
+"Ben Moss":"Ben Moss"
+}
+},
+"1221":{
+"race":"2026-NC-SH53",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 053 (VOTE FOR 1)",
+"names":{
+"Kevin G. Thurman":"Kevin G. Thurman",
+"Christopher Sessions":"Christopher Sessions",
+"Howard L. Penny, Jr.":"Howard L. Penny, Jr."
+}
+},
+"1222":{
+"race":"2026-NC-SH54",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 054 (VOTE FOR 1)",
+"names":{
+"Robert T. Reives II":"Robert T. Reives II"
+}
+},
+"1223":{
+"race":"2026-NC-SH55",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 055 (VOTE FOR 1)",
+"names":{
+"Clancy Baucom":"Clancy Baucom",
+"John J. Kirkpatrick IV":"John J. Kirkpatrick IV"
+}
+},
+"1224":{
+"race":"2026-NC-SH56",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 056 (VOTE FOR 1)",
+"names":{
+"Matthew P. Clements":"Matthew P. Clements",
+"Allen Buansi":"Allen Buansi"
+}
+},
+"1225":{
+"race":"2026-NC-SH57",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 057 (VOTE FOR 1)",
+"names":{
+"Tracy Clark":"Tracy Clark"
+}
+},
+"1226":{
+"race":"2026-NC-SH58",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 058 (VOTE FOR 1)",
+"names":{
+"Amos Quick":"Amos Quick"
+}
+},
+"1227":{
+"race":"2026-NC-SH59",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 059 (VOTE FOR 1)",
+"names":{
+"Alan Branson":"Alan Branson",
+"Elma Hairston":"Elma Hairston"
+}
+},
+"1228":{
+"race":"2026-NC-SH60",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 060 (VOTE FOR 1)",
+"names":{
+"Amanda Cook":"Amanda Cook",
+"Joseph Perrotta":"Joseph Perrotta"
+}
+},
+"1229":{
+"race":"2026-NC-SH61",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 061 (VOTE FOR 1)",
+"names":{
+"Mary Price (Pricey) Harrison":"Mary Price (Pricey) Harrison"
+}
+},
+"1230":{
+"race":"2026-NC-SH62",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 062 (VOTE FOR 1)",
+"names":{
+"John M. Blust":"John M. Blust",
+"Shelly Headen":"Shelly Headen"
+}
+},
+"1231":{
+"race":"2026-NC-SH63",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 063 (VOTE FOR 1)",
+"names":{
+"Ian Baltutis":"Ian Baltutis",
+"Ryan Moffitt":"Ryan Moffitt"
+}
+},
+"1232":{
+"race":"2026-NC-SH64",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 064 (VOTE FOR 1)",
+"names":{
+"LeVon Barnes":"LeVon Barnes",
+"Dennis Riddell":"Dennis Riddell"
+}
+},
+"1233":{
+"race":"2026-NC-SH65",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 065 (VOTE FOR 1)",
+"names":{
+"Seth Woodall":"Seth Woodall",
+"Gavin McGaughey":"Gavin McGaughey"
+}
+},
+"1234":{
+"race":"2026-NC-SH66",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 066 (VOTE FOR 1)",
+"names":{
+"Sarah Crawford":"Sarah Crawford"
+}
+},
+"1235":{
+"race":"2026-NC-SH67",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 067 (VOTE FOR 1)",
+"names":{
+"Jocelyn Torres":"Jocelyn Torres",
+"Cody Huneycutt":"Cody Huneycutt"
+}
+},
+"1236":{
+"race":"2026-NC-SH68",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 068 (VOTE FOR 1)",
+"names":{
+"David Willis":"David Willis",
+"Derek Warriner":"Derek Warriner"
+}
+},
+"1237":{
+"race":"2026-NC-SH69",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 069 (VOTE FOR 1)",
+"names":{
+"Dean Arp":"Dean Arp",
+"Heidi Sinsley":"Heidi Sinsley"
+}
+},
+"1238":{
+"race":"2026-NC-SH70",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 070 (VOTE FOR 1)",
+"names":{
+"Brian Biggs":"Brian Biggs",
+"William (Bill) McCaskill":"William (Bill) McCaskill"
+}
+},
+"1239":{
+"race":"2026-NC-SH71",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 071 (VOTE FOR 1)",
+"names":{
+"Kanika Brown":"Kanika Brown",
+"Mathew Mena":"Mathew Mena"
+}
+},
+"1240":{
+"race":"2026-NC-SH72",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 072 (VOTE FOR 1)",
+"names":{
+"Amber M. Baker":"Amber M. Baker"
+}
+},
+"1241":{
+"race":"2026-NC-SH73",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 073 (VOTE FOR 1)",
+"names":{
+"Jonathan Almond":"Jonathan Almond",
+"Thomas J. Monks":"Thomas J. Monks"
+}
+},
+"1242":{
+"race":"2026-NC-SH74",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 074 (VOTE FOR 1)",
+"names":{
+"Jeff Zenger":"Jeff Zenger",
+"Amy Taylor North":"Amy Taylor North"
+}
+},
+"1243":{
+"race":"2026-NC-SH75",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 075 (VOTE FOR 1)",
+"names":{
+"Jen Wiles":"Jen Wiles",
+"Donny C. Lambeth":"Donny C. Lambeth"
+}
+},
+"1244":{
+"race":"2026-NC-SH76",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 076 (VOTE FOR 1)",
+"names":{
+"Greg Edds":"Greg Edds",
+"Scott Huffman":"Scott Huffman"
+}
+},
+"1245":{
+"race":"2026-NC-SH77",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 077 (VOTE FOR 1)",
+"names":{
+"Julia Howard":"Julia Howard",
+"Sabrina Harris":"Sabrina Harris"
+}
+},
+"1246":{
+"race":"2026-NC-SH78",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 078 (VOTE FOR 1)",
+"names":{
+"Neal Jackson":"Neal Jackson",
+"Matt Holway":"Matt Holway"
+}
+},
+"1247":{
+"race":"2026-NC-SH79",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 079 (VOTE FOR 1)",
+"names":{
+"Darren Armstrong":"Darren Armstrong"
+}
+},
+"1248":{
+"race":"2026-NC-SH80",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 080 (VOTE FOR 1)",
+"names":{
+"Sam Watford":"Sam Watford",
+"JacQuez Johnson":"JacQuez Johnson"
+}
+},
+"1249":{
+"race":"2026-NC-SH81",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 081 (VOTE FOR 1)",
+"names":{
+"Dylan R. Tucker":"Dylan R. Tucker",
+"Larry W. Potts":"Larry W. Potts"
+}
+},
+"1250":{
+"race":"2026-NC-SH82",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 082 (VOTE FOR 1)",
+"names":{
+"Brian Echevarria":"Brian Echevarria",
+"Chris Bishopp":"Chris Bishopp"
+}
+},
+"1251":{
+"race":"2026-NC-SH83",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 083 (VOTE FOR 1)",
+"names":{
+"Grant Campbell":"Grant Campbell",
+"Johnnie Jones":"Johnnie Jones"
+}
+},
+"1252":{
+"race":"2026-NC-SH84",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 084 (VOTE FOR 1)",
+"names":{
+"Jeffrey C. McNeely":"Jeffrey C. McNeely"
+}
+},
+"1253":{
+"race":"2026-NC-SH85",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 085 (VOTE FOR 1)",
+"names":{
+"Dudley Greene":"Dudley Greene",
+"Suzanne Gavenus":"Suzanne Gavenus"
+}
+},
+"1254":{
+"race":"2026-NC-SH86",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 086 (VOTE FOR 1)",
+"names":{
+"Hugh Blackwell":"Hugh Blackwell",
+"Wesley E. Hendrix":"Wesley E. Hendrix"
+}
+},
+"1255":{
+"race":"2026-NC-SH87",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 087 (VOTE FOR 1)",
+"names":{
+"Iris Bender":"Iris Bender",
+"Destin Hall":"Destin Hall"
+}
+},
+"1256":{
+"race":"2026-NC-SH88",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 088 (VOTE FOR 1)",
+"names":{
+"Ray Craig":"Ray Craig",
+"Mary Belk":"Mary Belk"
+}
+},
+"1257":{
+"race":"2026-NC-SH89",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 089 (VOTE FOR 1)",
+"names":{
+"Robert (Spider) Thompson":"Robert (Spider) Thompson",
+"Mitchell Smith Setzer":"Mitchell Smith Setzer"
+}
+},
+"1258":{
+"race":"2026-NC-SH90",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 090 (VOTE FOR 1)",
+"names":{
+"Ken Badgett":"Ken Badgett",
+"Dan Kiger":"Dan Kiger"
+}
+},
+"1259":{
+"race":"2026-NC-SH91",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 091 (VOTE FOR 1)",
+"names":{
+"Lucille Puckett":"Lucille Puckett",
+"Kyle Hall":"Kyle Hall"
+}
+},
+"1260":{
+"race":"2026-NC-SH92",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 092 (VOTE FOR 1)",
+"names":{
+"Terry Brown":"Terry Brown"
+}
+},
+"1261":{
+"race":"2026-NC-SH93",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 093 (VOTE FOR 1)",
+"names":{
+"Charlie Wallin":"Charlie Wallin",
+"Ray Pickett":"Ray Pickett"
+}
+},
+"1262":{
+"race":"2026-NC-SH94",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 094 (VOTE FOR 1)",
+"names":{
+"Blair Eddins":"Blair Eddins",
+"Andy Warren":"Andy Warren"
+}
+},
+"1263":{
+"race":"2026-NC-SH95",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 095 (VOTE FOR 1)",
+"names":{
+"Richard (Todd) Carver":"Richard (Todd) Carver",
+"Michael Robinson":"Michael Robinson"
+}
+},
+"1264":{
+"race":"2026-NC-SH96",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 096 (VOTE FOR 1)",
+"names":{
+"Jay Adams":"Jay Adams",
+"Park Inglefield":"Park Inglefield"
+}
+},
+"1265":{
+"race":"2026-NC-SH97",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 097 (VOTE FOR 1)",
+"names":{
+"Heather Rhyne":"Heather Rhyne",
+"Greg McBryde":"Greg McBryde"
+}
+},
+"1266":{
+"race":"2026-NC-SH98",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 098 (VOTE FOR 1)",
+"names":{
+"John Rhodes":"John Rhodes",
+"Beth Helfrich":"Beth Helfrich"
+}
+},
+"1267":{
+"race":"2026-NC-SH99",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 099 (VOTE FOR 1)",
+"names":{
+"Veleria M. Levy":"Veleria M. Levy"
+}
+},
+"1268":{
+"race":"2026-NC-SH100",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 100 (VOTE FOR 1)",
+"names":{
+"Julia Greenfield":"Julia Greenfield"
+}
+},
+"1269":{
+"race":"2026-NC-SH101",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 101 (VOTE FOR 1)",
+"names":{
+"Carolyn G. Logan":"Carolyn G. Logan"
+}
+},
+"1270":{
+"race":"2026-NC-SH102",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 102 (VOTE FOR 1)",
+"names":{
+"Becky Carney":"Becky Carney"
+}
+},
+"1271":{
+"race":"2026-NC-SH103",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 103 (VOTE FOR 1)",
+"names":{
+"Laura Budd":"Laura Budd"
+}
+},
+"1272":{
+"race":"2026-NC-SH104",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 104 (VOTE FOR 1)",
+"names":{
+"Trina Boyd":"Trina Boyd",
+"Brandon Lofton":"Brandon Lofton"
+}
+},
+"1273":{
+"race":"2026-NC-SH105",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 105 (VOTE FOR 1)",
+"names":{
+"Tricia Ann Cotham":"Tricia Ann Cotham",
+"Ken McCool":"Ken McCool"
+}
+},
+"1274":{
+"race":"2026-NC-SH106",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 106 (VOTE FOR 1)",
+"names":{
+"Rodney Sadler":"Rodney Sadler"
+}
+},
+"1275":{
+"race":"2026-NC-SH107",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 107 (VOTE FOR 1)",
+"names":{
+"Aisha O. Dew":"Aisha O. Dew"
+}
+},
+"1276":{
+"race":"2026-NC-SH108",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 108 (VOTE FOR 1)",
+"names":{
+"John A. Torbett":"John A. Torbett",
+"Sydnie Hutchinson":"Sydnie Hutchinson"
+}
+},
+"1277":{
+"race":"2026-NC-SH109",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 109 (VOTE FOR 1)",
+"names":{
+"Mark D. Carver":"Mark D. Carver",
+"Donnie Loftis":"Donnie Loftis"
+}
+},
+"1278":{
+"race":"2026-NC-SH110",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 110 (VOTE FOR 1)",
+"names":{
+"Caroline Eason":"Caroline Eason",
+"Mary Silver":"Mary Silver"
+}
+},
+"1279":{
+"race":"2026-NC-SH111",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 111 (VOTE FOR 1)",
+"names":{
+"Jerry Blake":"Jerry Blake",
+"Paul Scott":"Paul Scott"
+}
+},
+"1280":{
+"race":"2026-NC-SH112",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 112 (VOTE FOR 1)",
+"names":{
+"Jordan Lopez":"Jordan Lopez"
+}
+},
+"1281":{
+"race":"2026-NC-SH113",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 113 (VOTE FOR 1)",
+"names":{
+"John Morgan":"John Morgan",
+"Jake Johnson":"Jake Johnson"
+}
+},
+"1282":{
+"race":"2026-NC-SH114",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 114 (VOTE FOR 1)",
+"names":{
+"Eric Ager":"Eric Ager"
+}
+},
+"1283":{
+"race":"2026-NC-SH115",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 115 (VOTE FOR 1)",
+"names":{
+"Lindsey Prather":"Lindsey Prather",
+"Anthony J. Penland":"Anthony J. Penland"
+}
+},
+"1284":{
+"race":"2026-NC-SH116",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 116 (VOTE FOR 1)",
+"names":{
+"Brian Turner":"Brian Turner"
+}
+},
+"1285":{
+"race":"2026-NC-SH117",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 117 (VOTE FOR 1)",
+"names":{
+"Chelsea Walsh":"Chelsea Walsh",
+"Lynne Russo":"Lynne Russo"
+}
+},
+"1286":{
+"race":"2026-NC-SH118",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 118 (VOTE FOR 1)",
+"names":{
+"Danny E. Davis":"Danny E. Davis",
+"James M. (Jimmy) Rogers":"James M. (Jimmy) Rogers"
+}
+},
+"1287":{
+"race":"2026-NC-SH119",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 119 (VOTE FOR 1)",
+"names":{
+"Anna Ferguson":"Anna Ferguson",
+"Mark Burrows":"Mark Burrows"
+}
+},
+"1288":{
+"race":"2026-NC-SH120",
+"title":"NC HOUSE OF REPRESENTATIVES DISTRICT 120 (VOTE FOR 1)",
+"names":{
+"Caleb Brown":"Caleb Brown",
+"Karl Gillespie":"Karl Gillespie"
+}
+}
+},
+"posted_not_tied":[],
+"races_not_in_posted_list":[],
+"printed_lines_not_tied":[],
+"posted_out_of_scope":[
+{
+"id":"1339",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 01 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1340",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 02 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1341",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 05 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1342",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 06B SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1343",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 08B SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1344",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 10B SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1345",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 10D SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1346",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 11 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1347",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 11 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1348",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 14A SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1385",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 14B SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1349",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 14C SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1350",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 16B SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1351",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 16B SEAT 03 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1352",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 17 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1353",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 17 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1354",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 19 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1355",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 19 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1356",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 24A SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1357",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 24D SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1358",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 26C SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1359",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 26F SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1360",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 26H SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1361",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 29 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1394",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 31B SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1362",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 35 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1363",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 36 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1364",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 37 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1365",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 38 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1366",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 40 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1389",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 42 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1367",
+"title":"NC SUPERIOR COURT JUDGE DISTRICT 43B SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1043",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 01 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1044",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 01 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1045",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 01 SEAT 03 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1046",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 01 SEAT 04 (UNEXPIRED) (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1047",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 02 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1048",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 02 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1049",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 03 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1050",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 03 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1051",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 05 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1052",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 05 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1386",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 05 SEAT 08 (UNEXPIRED) (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1053",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 06 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1054",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 06 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1055",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 06 SEAT 03 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1056",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 06 SEAT 04 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1057",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 08 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1058",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 08 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1059",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 08 SEAT 03 (UNEXPIRED) (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1060",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 08 SEAT 06 (UNEXPIRED) (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1061",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 09 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1062",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 10A SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1063",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 10B SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1064",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 10D SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1065",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 10D SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1066",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 10D SEAT 03 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1067",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 10E SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1068",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 10E SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1069",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 10F SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1070",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 11B SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1071",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 12 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1072",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 12 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1073",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 12 SEAT 03 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1074",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 14 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1075",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 14 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1076",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 14 SEAT 03 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1077",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 14 SEAT 04 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1078",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 14 SEAT 05 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1079",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 14 SEAT 06 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1080",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 14 SEAT 07 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1081",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 15 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1082",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 15 SEAT 05 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1083",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 15 SEAT 07 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1084",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 16 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1085",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 16 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1086",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 16 SEAT 03 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1087",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 16 SEAT 04 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1088",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 16 SEAT 05 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1089",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 16 SEAT 06 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1090",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 17 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1091",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 18 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1092",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 20 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1093",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 20 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1094",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 20 SEAT 03 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1390",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 20 SEAT 04 (UNEXPIRED) (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1095",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 21 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1096",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 21 SEAT 03 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1097",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 22 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1098",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 22 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1099",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 22 SEAT 03 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1100",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 23 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1101",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 23 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1102",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 23 SEAT 03 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1103",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 24 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1104",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 24 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1387",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 24 SEAT 06 (UNEXPIRED) (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1105",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 25 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1106",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 25 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1107",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 25 SEAT 03 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1108",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 25 SEAT 04 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1109",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 26 SEAT 13 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1110",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 26 SEAT 14 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1111",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 26 SEAT 15 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1112",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 26 SEAT 16 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1113",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 26 SEAT 17 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1114",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 26 SEAT 18 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1115",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 26 SEAT 19 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1116",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 26 SEAT 20 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1117",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 26 SEAT 21 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1388",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 26 SEAT 06 (UNEXPIRED) (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1118",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 27 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1119",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 27 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1120",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 27 SEAT 03 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1121",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 27 SEAT 04 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1122",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 28 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1123",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 28 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1124",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 28 SEAT 03 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1125",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 29 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1126",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 29 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1127",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 29 SEAT 05 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1128",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 31 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1129",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 31 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1130",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 31 SEAT 03 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1131",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 31 SEAT 04 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1132",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 32 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1133",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 32 SEAT 06 (UNEXPIRED) (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1134",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 33 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1135",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 33 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1136",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 33 SEAT 03 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1137",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 33 SEAT 04 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1138",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 33 SEAT 05 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1139",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 33 SEAT 06 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1140",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 34 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1141",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 34 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1142",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 34 SEAT 03 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1143",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 35 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1144",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 36 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1145",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 36 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1146",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 36 SEAT 03 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1147",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 36 SEAT 04 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1148",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 36 SEAT 05 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1149",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 36 SEAT 06 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1150",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 36 SEAT 07 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1391",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 36 SEAT 09 (UNEXPIRED) (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1151",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 37 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1152",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 37 SEAT 03 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1153",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 37 SEAT 04 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1395",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 37 SEAT 02 (UNEXPIRED) (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1154",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 38 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1155",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 38 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1156",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 39 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1157",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 40 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1158",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 40 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1159",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 40 SEAT 03 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1160",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 40 SEAT 04 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1161",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 40 SEAT 05 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1162",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 41 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1163",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 41 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1164",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 41 SEAT 03 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1165",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 42 SEAT 05 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1166",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 43 SEAT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1167",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 43 SEAT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1168",
+"title":"NC DISTRICT COURT JUDGE DISTRICT 43 SEAT 03 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1001",
+"title":"DISTRICT ATTORNEY DISTRICT 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1002",
+"title":"DISTRICT ATTORNEY DISTRICT 02 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1003",
+"title":"DISTRICT ATTORNEY DISTRICT 03 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1004",
+"title":"DISTRICT ATTORNEY DISTRICT 04 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1005",
+"title":"DISTRICT ATTORNEY DISTRICT 05 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1006",
+"title":"DISTRICT ATTORNEY DISTRICT 06 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1007",
+"title":"DISTRICT ATTORNEY DISTRICT 07 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1008",
+"title":"DISTRICT ATTORNEY DISTRICT 08 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1009",
+"title":"DISTRICT ATTORNEY DISTRICT 09 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1010",
+"title":"DISTRICT ATTORNEY DISTRICT 10 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1011",
+"title":"DISTRICT ATTORNEY DISTRICT 11 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1012",
+"title":"DISTRICT ATTORNEY DISTRICT 13 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1013",
+"title":"DISTRICT ATTORNEY DISTRICT 14 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1014",
+"title":"DISTRICT ATTORNEY DISTRICT 15 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1015",
+"title":"DISTRICT ATTORNEY DISTRICT 16 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1016",
+"title":"DISTRICT ATTORNEY DISTRICT 17 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1017",
+"title":"DISTRICT ATTORNEY DISTRICT 18 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1018",
+"title":"DISTRICT ATTORNEY DISTRICT 19 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1019",
+"title":"DISTRICT ATTORNEY DISTRICT 20 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1020",
+"title":"DISTRICT ATTORNEY DISTRICT 21 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1021",
+"title":"DISTRICT ATTORNEY DISTRICT 22 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1022",
+"title":"DISTRICT ATTORNEY DISTRICT 23 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1023",
+"title":"DISTRICT ATTORNEY DISTRICT 24 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1024",
+"title":"DISTRICT ATTORNEY DISTRICT 25 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1025",
+"title":"DISTRICT ATTORNEY DISTRICT 26 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1026",
+"title":"DISTRICT ATTORNEY DISTRICT 27 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1027",
+"title":"DISTRICT ATTORNEY DISTRICT 28 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1028",
+"title":"DISTRICT ATTORNEY DISTRICT 30 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1029",
+"title":"DISTRICT ATTORNEY DISTRICT 31 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1030",
+"title":"DISTRICT ATTORNEY DISTRICT 33 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1031",
+"title":"DISTRICT ATTORNEY DISTRICT 34 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1032",
+"title":"DISTRICT ATTORNEY DISTRICT 35 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1033",
+"title":"DISTRICT ATTORNEY DISTRICT 36 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1034",
+"title":"DISTRICT ATTORNEY DISTRICT 38 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1035",
+"title":"DISTRICT ATTORNEY DISTRICT 39 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1036",
+"title":"DISTRICT ATTORNEY DISTRICT 40 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1037",
+"title":"DISTRICT ATTORNEY DISTRICT 41 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1038",
+"title":"DISTRICT ATTORNEY DISTRICT 42 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1039",
+"title":"DISTRICT ATTORNEY DISTRICT 43 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1384",
+"title":"CONSTITUTIONAL AMENDMENT - REQUIRE PHOTO ID FOR VOTING",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1392",
+"title":"CONSTITUTIONAL AMENDMENT - MAXIMUM INCOME TAX RATE OF 3.5%",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"1393",
+"title":"CONSTITUTIONAL AMENDMENT - PROPERTY TAX LEVY LIMIT",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"760011",
+"title":"CITY OF ARCHDALE CITY COUNCIL AT-LARGE (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"760012",
+"title":"CITY OF ARCHDALE CITY COUNCIL WARD 01 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"760013",
+"title":"CITY OF ARCHDALE CITY COUNCIL WARD 04 (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"760010",
+"title":"CITY OF ARCHDALE MAYOR (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"800012",
+"title":"CITY OF KANNAPOLIS PARKS AND RECREATION BONDS REFERENDUM",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"840018",
+"title":"CITY OF LOCUST CITY COUNCIL (VOTE FOR 3)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"840017",
+"title":"CITY OF LOCUST MAYOR (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"920009",
+"title":"CITY OF RALEIGH CITY COUNCIL AT-LARGE (VOTE FOR 2)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"920014",
+"title":"CITY OF RALEIGH CITY COUNCIL DISTRICT E (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"920022",
+"title":"CITY OF RALEIGH HOUSING BONDS REFERENDUM",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"920008",
+"title":"CITY OF RALEIGH MAYOR (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"920021",
+"title":"CITY OF RALEIGH TRANSPORTATION BONDS REFERENDUM",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"750012",
+"title":"CITY OF SALUDA CITY COMMISSIONER (VOTE FOR 2)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"750011",
+"title":"CITY OF SALUDA MAYOR (VOTE FOR 1)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"290007",
+"title":"HANDY SANITARY DISTRICT SUPERVISOR (VOTE FOR 3)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"860020",
+"title":"TOWN OF ELKIN COMMISSIONER (VOTE FOR 3)",
+"why":"not a contest these pages read (local office, question or other)"
+},
+{
+"id":"740016",
+"title":"TOWN OF GRIFTON MIXED BEVERAGE ELECTION",
+"why":"not a contest these pages read (local office, question or other)"
+}
+]
+}

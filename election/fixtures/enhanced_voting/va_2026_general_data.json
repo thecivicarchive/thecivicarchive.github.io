@@ -1,0 +1,7942 @@
+{
+"election": {
+"name": [
+{
+"languageId": "en",
+"text": "2026 November General"
+}
+],
+"isOfficialResults": false,
+"electionDate": "2026-11-03",
+"isProduction": true,
+"lastUpdated": "2026-10-07T17:54:22.8002483Z",
+"isPrimary": false
+},
+"ballotItems": [
+{
+"id": "01000000-f030-c43d-d69c-08df1fee529a",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Member, United States Senate"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for only one"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 133
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Mark R. Warner"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Democratic"
+}
+],
+"abbreviation": "D"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Bert Mizusawa"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Republican"
+}
+],
+"abbreviation": "R"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Write-In"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": true,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-abd6-08df1fee5328",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Member, House of Representatives (1st District)"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for only one"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 18
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Shannon L. Taylor"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Democratic"
+}
+],
+"abbreviation": "D"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Robert J. \"Rob\" Wittman"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Republican"
+}
+],
+"abbreviation": "R"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Write-In"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": true,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-fd71-08df1fee52e7",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Member, House of Representatives (2nd District)"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for only one"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 8
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Elaine G. Luria"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Democratic"
+}
+],
+"abbreviation": "D"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Jen A. Kiggans"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Republican"
+}
+],
+"abbreviation": "R"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Geral D. \"Bishop\" Staten"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Independent"
+}
+],
+"abbreviation": "I"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "J. Matt Baker"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Independent"
+}
+],
+"abbreviation": "I"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Write-In"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": true,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-a8a1-08df1fee5325",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Member, House of Representatives (3rd District)"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for only one"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 5
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Robert C. \"Bobby\" Scott"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Democratic"
+}
+],
+"abbreviation": "D"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Edwin Rivera, Jr."
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Republican"
+}
+],
+"abbreviation": "R"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Makiba A. Gaines"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Independent"
+}
+],
+"abbreviation": "I"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Stephen C. Woll"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Independent"
+}
+],
+"abbreviation": "I"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Write-In"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": true,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-0c7d-08df1fee52ee",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Member, House of Representatives (4th District)"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for only one"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 15
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Jennifer L. McClellan"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Democratic"
+}
+],
+"abbreviation": "D"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Robert P. \"Family Man\" Murray, Jr."
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Republican"
+}
+],
+"abbreviation": "R"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Joan E. \"Andrews\" Bell"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Independent"
+}
+],
+"abbreviation": "I"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Write-In"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": true,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-608c-08df1fee52fa",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Member, House of Representatives (5th District)"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for only one"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 24
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Tom S. P. Perriello"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Democratic"
+}
+],
+"abbreviation": "D"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "John J. McGuire III"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Republican"
+}
+],
+"abbreviation": "R"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Cooke C. Harvey"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Independent"
+}
+],
+"abbreviation": "I"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Write-In"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": true,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-fb41-08df1fee5319",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Member, House of Representatives (6th District)"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for only one"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 23
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Beth A. Macy"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Democratic"
+}
+],
+"abbreviation": "D"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Ben L. Cline"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Republican"
+}
+],
+"abbreviation": "R"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Write-In"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": true,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-3092-08df1fee52f4",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Member, House of Representatives (7th District)"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for only one"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 11
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Eugene S. Vindman"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Democratic"
+}
+],
+"abbreviation": "D"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Doug A. Ollivant"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Republican"
+}
+],
+"abbreviation": "R"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Taner E. Demirci Lopez"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Libertarian"
+}
+],
+"abbreviation": "L"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Alaha Ahrar"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Independent"
+}
+],
+"abbreviation": "I"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Joshua E. Ertle"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Independent"
+}
+],
+"abbreviation": "I"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Randall A. Terry"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Independent"
+}
+],
+"abbreviation": "I"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Write-In"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": true,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-317a-08df1fee52e5",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Member, House of Representatives (8th District)"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for only one"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 4
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Donald S. Beyer, Jr."
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Democratic"
+}
+],
+"abbreviation": "D"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Tony A. Sabio"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Republican"
+}
+],
+"abbreviation": "R"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Shelly M. Arnoldi"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Libertarian"
+}
+],
+"abbreviation": "L"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Tim S. Sharman"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Independent"
+}
+],
+"abbreviation": "I"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Write-In"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": true,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-e187-08df1fee5306",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Member, House of Representatives (9th District)"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for only one"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 28
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Joy A. Powers"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Democratic"
+}
+],
+"abbreviation": "D"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "H. Morgan Griffith"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Republican"
+}
+],
+"abbreviation": "R"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Write-In"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": true,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-7d2f-08df1fee5314",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Member, House of Representatives (10th District)"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for only one"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 7
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Suhas Subramanyam"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Democratic"
+}
+],
+"abbreviation": "D"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Dave T. Beckwith"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Republican"
+}
+],
+"abbreviation": "R"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Ahsen Mujeeb Malik"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Independent"
+}
+],
+"abbreviation": "I"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Write-In"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": true,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-c993-08df1fee52e3",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Member, House of Representatives (11th District)"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for only one"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 2
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "James R. Walkinshaw"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Democratic"
+}
+],
+"abbreviation": "D"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Arthur G. Purves"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Republican"
+}
+],
+"abbreviation": "R"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Dianne L. Blais"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Green"
+}
+],
+"abbreviation": "G"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Write-In"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": true,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-73f4-08df1fee5331",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Member, House of Delegates (20th District)"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for only one"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 3
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Sonia Ruth Vasquez Luna"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Democratic"
+}
+],
+"abbreviation": "D"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Nathaniel \"Nate\" Fritzen"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Republican"
+}
+],
+"abbreviation": "R"
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Write-In"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": true,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-8efb-08df1fee5332",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Sheriff (Galax City, Grayson County)"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for only one"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 2
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Gary C. Hash"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Write-In"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": true,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-0b6f-08df1fee5338",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Mayor - Belle Haven (Town of Belle Haven)"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for only one"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 2
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "David A. McCaleb"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Lawrence Burr Willcox II"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Write-In"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": true,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-0bcb-08df1fee533b",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Mayor - Farmville (Town of Farmville)"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for only one"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 2
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Brian Richard Vincent"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "W. Christian Fox"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Write-In"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": true,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-bb00-08df1fee5333",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Mayor - Jarratt (Town of Jarratt)"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for only one"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 2
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Brandon M. Rawlings"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Write-In"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": true,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-bfec-08df1fee5335",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Mayor - Kilmarnock (Town of Kilmarnock)"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for only one"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 2
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Shawn E. Donahue"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Write-In"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": true,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-434c-08df1fee5339",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Mayor - Pamplin City (Town of Pamplin City)"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for only one"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 2
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Sarah Hamlett Blackwell"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Write-In"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": true,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-8a7e-08df1fee5334",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Mayor - Saltville (Town of Saltville)"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for only one"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 2
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "R. Eugene Call, Jr."
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Suzanne Carter Abramson"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Write-In"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": true,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-4477-08df1fee533d",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Member Town Council - At Large - Farmville (Town of Farmville)"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for only one"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 2
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "John D. Miller"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Write-In"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": true,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-1e77-08df1fee5347",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Member Town Council - Belle Haven (Town of Belle Haven)"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for not more than five"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 2
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Edwin R. Long"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Cecil Mears Ashby"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Douglas R. Wehner"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Larry S. Baxter"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Troy A. Brown"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Write-In"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": true,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-309b-08df1fee5341",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Member Town Council - Jarratt (Town of Jarratt)"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for not more than six"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 2
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Anne F. Brown"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Dana Y. Kinsley"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Eric B. Schmack"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Gregory Adam Byers"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Y. Omar Smith"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Write-In"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": true,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-ec5a-08df1fee5343",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Member Town Council - Kilmarnock (Town of Kilmarnock)"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for not more than three"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 2
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Sean T. Bowles"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Cynthia L. Scott"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Matthew A. Cunningham"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "M. Cameron \"Cammie\" Smith"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Paul J. \"PJ\" Jones"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Write-In"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": true,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-2dd4-08df1fee5343",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Member Town Council - Pamplin City (Town of Pamplin City)"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for not more than three"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 2
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "John R. Marks"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Shannon Franklin Reed"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Ken L. Swanson"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Write-In"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": true,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-4b93-08df1fee534a",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Member Town Council - Pamplin City - Special (Town of Pamplin City)"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for only one"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 2
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Jessica L. Arnold"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Write-In"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": true,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-9f44-08df1fee5345",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Member Town Council - Saltville (Town of Saltville)"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for not more than three"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 2
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Cary D. Sauls"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Stephen A. Hennegar"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Ryan Jeffrey Comer"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Tracy Stephenson Prater"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Write-In"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": true,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-812f-08df1fee533f",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Member Town Council - Scottsville (Town of Scottsville)"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for not more than three"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 2
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "R. Daniel Gritsko"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Edward A. Payne Jr."
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Molly Jordan Angevine"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Meredith C. Hynes"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Write-In"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": true,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-0679-08df1fee5349",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Recorder - Belle Haven (Town of Belle Haven)"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for only one"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 2
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Write-In"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": true,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-2e5b-08df1fee534b",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Proposed Constitutional Amendment Question 1"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for only one"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 133
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Yes"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "No"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-b8b3-08df1fee537b",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Proposed Constitutional Amendment Question 2"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for only one"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 133
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Yes"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "No"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-f030-c43d-591a-08df1fee53bd",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Proposed Constitutional Amendment Question 3"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for only one"
+}
+],
+"voteTotal": 0,
+"reportingStatus": {
+"reportingUnits": 0,
+"totalUnits": 133
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Yes"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "No"
+}
+],
+"party": {
+"name": null,
+"abbreviation": null
+},
+"voteCount": 0,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Early Voting"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Mailed Absentee"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 0
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Post-Election"
+}
+],
+"voteCount": 0
+}
+]
+}
+]
+}
+}
+]
+}

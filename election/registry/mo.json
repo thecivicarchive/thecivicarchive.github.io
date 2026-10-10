@@ -16,7 +16,8 @@
   "url": "https://www.sos.mo.gov/elections/results",
   "label": "Missouri Secretary of State: election results",
   "checked": "2026-10-10",
-  "source": "answered one request with the kit's User-Agent (N4, 2026-10-10)"
+  "source": "answered one request with the kit's User-Agent (N4, 2026-10-10)",
+  "confirmed": "2026-10-10: answered N4's request the same morning; N12's one request was cut short by the server (incomplete answer), not refused"
  },
  "other_pages": [],
  "election": {
@@ -101,11 +102,21 @@
  "terms": "Not seen.",
  "scout_blocked": "enr.sos.mo.gov (Cloudflare captcha, 403, 2026-10-09). Precinct files are sold, not published (mo_place_votes.py).",
  "scout_plan": "Blocked for scripts on the night: the live site sits behind a Cloudflare captcha, which must not be worked around. Show Missouri with a link to the Secretary's live page, or have John save its pages or exports by hand if he wants numbers; official totals come later from the Grand Totals PDF, which scripts can read. Check the biggest local authorities' results pages in late October for anything a script may read.",
- "notes": [],
+ "notes": [
+  "2026-10-10 (N12): confirmed as a link state; certified results source recorded under certified_results."
+ ],
  "to_do": [],
  "sources": [
   "election/scout/results_mn.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
   "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+ ],
+ "certified_results": {
+  "what": "the Secretary's Grand Totals and Results by County PDFs",
+  "address": "https://www.sos.mo.gov/elections/results",
+  "script_ok": true,
+  "when": "weeks after the canvass",
+  "how": "sos.mo.gov answers scripts (enr.sos.mo.gov, the live site, is on the never list)",
+  "checked": "2026-10-10"
+ }
 }

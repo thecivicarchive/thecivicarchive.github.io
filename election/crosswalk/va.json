@@ -1,0 +1,923 @@
+{
+ "built": "2026-10-10",
+ "checked": [
+  {
+   "by_level": {
+    "federal": 5
+   },
+   "certified_primary": {
+    "candidates": 22,
+    "contests": 5,
+    "differences": []
+   },
+   "contests_tied": 5,
+   "election": "2026-August-Democratic-Primary",
+   "lines_tied": "22 of 22",
+   "notes": [],
+   "nov3": false,
+   "problems": [],
+   "read": "2026-10-10",
+   "store": "ok",
+   "unmatched_by_reason": {}
+  },
+  {
+   "by_level": {
+    "federal": 4
+   },
+   "certified_primary": {
+    "candidates": 12,
+    "contests": 4,
+    "differences": []
+   },
+   "contests_tied": 4,
+   "election": "2026-August-Republican-Primary",
+   "lines_tied": "12 of 12",
+   "notes": [],
+   "nov3": false,
+   "problems": [],
+   "read": "2026-10-10",
+   "store": "ok",
+   "unmatched_by_reason": {}
+  },
+  {
+   "by_level": {
+    "federal": 12,
+    "legislature": 1
+   },
+   "certified_primary": {
+    "candidates": 0,
+    "contests": 0,
+    "differences": []
+   },
+   "contests_tied": 13,
+   "election": "2026-November-General",
+   "lines_not_tied": [],
+   "lines_tied": "40 of 40",
+   "notes": [],
+   "nov3": true,
+   "problems": [],
+   "read": "2026-10-10",
+   "store": "ok",
+   "unmatched": [
+    [
+     "Sheriff (Galax City, Grayson County)",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Mayor - Belle Haven (Town of Belle Haven)",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Mayor - Farmville (Town of Farmville)",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Mayor - Jarratt (Town of Jarratt)",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Mayor - Kilmarnock (Town of Kilmarnock)",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Mayor - Pamplin City (Town of Pamplin City)",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Mayor - Saltville (Town of Saltville)",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Member Town Council - At Large - Farmville (Town of Farmville)",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Member Town Council - Belle Haven (Town of Belle Haven)",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Member Town Council - Jarratt (Town of Jarratt)",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Member Town Council - Kilmarnock (Town of Kilmarnock)",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Member Town Council - Pamplin City (Town of Pamplin City)",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Member Town Council - Pamplin City - Special (Town of Pamplin City)",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Member Town Council - Saltville (Town of Saltville)",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Member Town Council - Scottsville (Town of Scottsville)",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Recorder - Belle Haven (Town of Belle Haven)",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Proposed Constitutional Amendment Question 1",
+     "a ballot question, not a contest between people"
+    ],
+    [
+     "Proposed Constitutional Amendment Question 2",
+     "a ballot question, not a contest between people"
+    ],
+    [
+     "Proposed Constitutional Amendment Question 3",
+     "a ballot question, not a contest between people"
+    ]
+   ]
+  }
+ ],
+ "contests": {},
+ "counties": {
+  "accomack": "51001",
+  "accomack county": "51001",
+  "albemarle": "51003",
+  "albemarle county": "51003",
+  "alexandria city": "51510",
+  "alleghany": "51005",
+  "alleghany county": "51005",
+  "amelia": "51007",
+  "amelia county": "51007",
+  "amherst": "51009",
+  "amherst county": "51009",
+  "appomattox": "51011",
+  "appomattox county": "51011",
+  "arlington": "51013",
+  "arlington county": "51013",
+  "augusta": "51015",
+  "augusta county": "51015",
+  "bath": "51017",
+  "bath county": "51017",
+  "bedford": "51019",
+  "bedford county": "51019",
+  "bland": "51021",
+  "bland county": "51021",
+  "botetourt": "51023",
+  "botetourt county": "51023",
+  "bristol city": "51520",
+  "brunswick": "51025",
+  "brunswick county": "51025",
+  "buchanan": "51027",
+  "buchanan county": "51027",
+  "buckingham": "51029",
+  "buckingham county": "51029",
+  "buena vista city": "51530",
+  "campbell": "51031",
+  "campbell county": "51031",
+  "caroline": "51033",
+  "caroline county": "51033",
+  "carroll": "51035",
+  "carroll county": "51035",
+  "charles city": "51036",
+  "charles city county": "51036",
+  "charlotte": "51037",
+  "charlotte county": "51037",
+  "charlottesville city": "51540",
+  "chesapeake city": "51550",
+  "chesterfield": "51041",
+  "chesterfield county": "51041",
+  "clarke": "51043",
+  "clarke county": "51043",
+  "colonial heights city": "51570",
+  "covington city": "51580",
+  "craig": "51045",
+  "craig county": "51045",
+  "culpeper": "51047",
+  "culpeper county": "51047",
+  "cumberland": "51049",
+  "cumberland county": "51049",
+  "danville city": "51590",
+  "dickenson": "51051",
+  "dickenson county": "51051",
+  "dinwiddie": "51053",
+  "dinwiddie county": "51053",
+  "emporia city": "51595",
+  "essex": "51057",
+  "essex county": "51057",
+  "fairfax": "51059",
+  "fairfax city": "51600",
+  "fairfax county": "51059",
+  "falls church city": "51610",
+  "fauquier": "51061",
+  "fauquier county": "51061",
+  "floyd": "51063",
+  "floyd county": "51063",
+  "fluvanna": "51065",
+  "fluvanna county": "51065",
+  "franklin": "51067",
+  "franklin city": "51620",
+  "franklin county": "51067",
+  "frederick": "51069",
+  "frederick county": "51069",
+  "fredericksburg city": "51630",
+  "galax city": "51640",
+  "giles": "51071",
+  "giles county": "51071",
+  "gloucester": "51073",
+  "gloucester county": "51073",
+  "goochland": "51075",
+  "goochland county": "51075",
+  "grayson": "51077",
+  "grayson county": "51077",
+  "greene": "51079",
+  "greene county": "51079",
+  "greensville": "51081",
+  "greensville county": "51081",
+  "halifax": "51083",
+  "halifax county": "51083",
+  "hampton city": "51650",
+  "hanover": "51085",
+  "hanover county": "51085",
+  "harrisonburg city": "51660",
+  "henrico": "51087",
+  "henrico county": "51087",
+  "henry": "51089",
+  "henry county": "51089",
+  "highland": "51091",
+  "highland county": "51091",
+  "hopewell city": "51670",
+  "isle of wight": "51093",
+  "isle of wight county": "51093",
+  "james city": "51095",
+  "james city county": "51095",
+  "king and queen": "51097",
+  "king and queen county": "51097",
+  "king george": "51099",
+  "king george county": "51099",
+  "king william": "51101",
+  "king william county": "51101",
+  "lancaster": "51103",
+  "lancaster county": "51103",
+  "lee": "51105",
+  "lee county": "51105",
+  "lexington city": "51678",
+  "loudoun": "51107",
+  "loudoun county": "51107",
+  "louisa": "51109",
+  "louisa county": "51109",
+  "lunenburg": "51111",
+  "lunenburg county": "51111",
+  "lynchburg city": "51680",
+  "madison": "51113",
+  "madison county": "51113",
+  "manassas city": "51683",
+  "manassas park city": "51685",
+  "martinsville city": "51690",
+  "mathews": "51115",
+  "mathews county": "51115",
+  "mecklenburg": "51117",
+  "mecklenburg county": "51117",
+  "middlesex": "51119",
+  "middlesex county": "51119",
+  "montgomery": "51121",
+  "montgomery county": "51121",
+  "nelson": "51125",
+  "nelson county": "51125",
+  "new kent": "51127",
+  "new kent county": "51127",
+  "newport news city": "51700",
+  "norfolk city": "51710",
+  "northampton": "51131",
+  "northampton county": "51131",
+  "northumberland": "51133",
+  "northumberland county": "51133",
+  "norton city": "51720",
+  "nottoway": "51135",
+  "nottoway county": "51135",
+  "orange": "51137",
+  "orange county": "51137",
+  "page": "51139",
+  "page county": "51139",
+  "patrick": "51141",
+  "patrick county": "51141",
+  "petersburg city": "51730",
+  "pittsylvania": "51143",
+  "pittsylvania county": "51143",
+  "poquoson city": "51735",
+  "portsmouth city": "51740",
+  "powhatan": "51145",
+  "powhatan county": "51145",
+  "prince edward": "51147",
+  "prince edward county": "51147",
+  "prince george": "51149",
+  "prince george county": "51149",
+  "prince william": "51153",
+  "prince william county": "51153",
+  "pulaski": "51155",
+  "pulaski county": "51155",
+  "radford city": "51750",
+  "rappahannock": "51157",
+  "rappahannock county": "51157",
+  "richmond": "51159",
+  "richmond city": "51760",
+  "richmond county": "51159",
+  "roanoke": "51161",
+  "roanoke city": "51770",
+  "roanoke county": "51161",
+  "rockbridge": "51163",
+  "rockbridge county": "51163",
+  "rockingham": "51165",
+  "rockingham county": "51165",
+  "russell": "51167",
+  "russell county": "51167",
+  "salem city": "51775",
+  "scott": "51169",
+  "scott county": "51169",
+  "shenandoah": "51171",
+  "shenandoah county": "51171",
+  "smyth": "51173",
+  "smyth county": "51173",
+  "southampton": "51175",
+  "southampton county": "51175",
+  "spotsylvania": "51177",
+  "spotsylvania county": "51177",
+  "stafford": "51179",
+  "stafford county": "51179",
+  "staunton city": "51790",
+  "suffolk city": "51800",
+  "surry": "51181",
+  "surry county": "51181",
+  "sussex": "51183",
+  "sussex county": "51183",
+  "tazewell": "51185",
+  "tazewell county": "51185",
+  "virginia beach city": "51810",
+  "warren": "51187",
+  "warren county": "51187",
+  "washington": "51191",
+  "washington county": "51191",
+  "waynesboro city": "51820",
+  "westmoreland": "51193",
+  "westmoreland county": "51193",
+  "williamsburg city": "51830",
+  "winchester city": "51840",
+  "wise": "51195",
+  "wise county": "51195",
+  "wythe": "51197",
+  "wythe county": "51197",
+  "york": "51199",
+  "york county": "51199"
+ },
+ "races": {
+  "2026-VA-H01": {
+   "cands": {
+    "general": [
+     [
+      "Robert J. \"Rob\" Wittman",
+      "Republican",
+      0
+     ],
+     [
+      "Shannon L. Taylor",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Elizabeth Dempsey Beggs",
+      "Democratic",
+      0
+     ],
+     [
+      "Ericka W. Kopp",
+      "Democratic",
+      0
+     ],
+     [
+      "Jason S. Knapp",
+      "Democratic",
+      0
+     ],
+     [
+      "Mel E. Tull, III",
+      "Democratic",
+      0
+     ],
+     [
+      "Salaam Bhatti",
+      "Democratic",
+      0
+     ],
+     [
+      "Shannon L. Taylor",
+      "Democratic",
+      0
+     ],
+     [
+      "Tim S. Cywinski",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "01",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-VA-H02": {
+   "cands": {
+    "general": [
+     [
+      "Elaine G. Luria",
+      "Democratic",
+      0
+     ],
+     [
+      "Geral D. \"Bishop\" Staten",
+      "Independent",
+      0
+     ],
+     [
+      "J. Matt Baker",
+      "Independent",
+      0
+     ],
+     [
+      "Jen A. Kiggans",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Elaine G. Luria",
+      "Democratic",
+      0
+     ],
+     [
+      "Patrick B. Mosolf",
+      "Democratic",
+      0
+     ],
+     [
+      "S. \"Dr. Nila\" Devanath",
+      "Democratic",
+      0
+     ],
+     [
+      "William W. \"Bill\" Fleming",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "02",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-VA-H03": {
+   "cands": {
+    "general": [
+     [
+      "Edwin Rivera, Jr.",
+      "Republican",
+      0
+     ],
+     [
+      "Makiba A. Gaines",
+      "Independent",
+      0
+     ],
+     [
+      "Robert C. \"Bobby\" Scott",
+      "Democratic",
+      0
+     ],
+     [
+      "Stephen C. Woll",
+      "Independent",
+      0
+     ]
+    ]
+   },
+   "district": "03",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-VA-H04": {
+   "cands": {
+    "general": [
+     [
+      "Jennifer L. McClellan",
+      "Democratic",
+      0
+     ],
+     [
+      "Joan E. \"Andrews\" Bell",
+      "Independent",
+      0
+     ],
+     [
+      "Robert P. \"Family Man\" Murray, Jr.",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "04",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-VA-H05": {
+   "cands": {
+    "general": [
+     [
+      "Cooke C. Harvey",
+      "Independent",
+      0
+     ],
+     [
+      "John J. McGuire III",
+      "Republican",
+      0
+     ],
+     [
+      "Tom S. P. Perriello",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Rob W. \"T-ski\" Tracinski",
+      "Democratic",
+      0
+     ],
+     [
+      "Suzanne K. \"Dr. K\" Krzyzanowski",
+      "Democratic",
+      0
+     ],
+     [
+      "Tom S. P. Perriello",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "John J. McGuire III",
+      "Republican",
+      0
+     ],
+     [
+      "Melanie V. Lucero",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "05",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-VA-H06": {
+   "cands": {
+    "general": [
+     [
+      "Ben L. Cline",
+      "Republican",
+      0
+     ],
+     [
+      "Beth A. Macy",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "06",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-VA-H07": {
+   "cands": {
+    "general": [
+     [
+      "Alaha Ahrar",
+      "Independent",
+      0
+     ],
+     [
+      "Doug A. Ollivant",
+      "Republican",
+      0
+     ],
+     [
+      "Eugene S. Vindman",
+      "Democratic",
+      0
+     ],
+     [
+      "Joshua E. Ertle",
+      "Independent",
+      0
+     ],
+     [
+      "Randall A. Terry",
+      "Independent",
+      0
+     ],
+     [
+      "Taner E. Demirci Lopez",
+      "Libertarian",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Doug A. Ollivant",
+      "Republican",
+      0
+     ],
+     [
+      "Philip A. Harding",
+      "Republican",
+      0
+     ],
+     [
+      "Rick S. Smithers",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "07",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-VA-H08": {
+   "cands": {
+    "general": [
+     [
+      "Donald S. Beyer, Jr.",
+      "Democratic",
+      0
+     ],
+     [
+      "Shelly M. Arnoldi",
+      "Libertarian",
+      0
+     ],
+     [
+      "Tim S. Sharman",
+      "Independent",
+      0
+     ],
+     [
+      "Tony A. Sabio",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Adam M. Dunigan",
+      "Democratic",
+      0
+     ],
+     [
+      "Donald S. Beyer, Jr.",
+      "Democratic",
+      0
+     ],
+     [
+      "Lorena Thorne Bruner",
+      "Democratic",
+      0
+     ],
+     [
+      "Michael Christian Duffin",
+      "Democratic",
+      0
+     ],
+     [
+      "Mo Seifeldein",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "08",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-VA-H09": {
+   "cands": {
+    "general": [
+     [
+      "H. Morgan Griffith",
+      "Republican",
+      0
+     ],
+     [
+      "Joy A. Powers",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Adam Grayson Murphy",
+      "Democratic",
+      0
+     ],
+     [
+      "Douglas E. Crockett",
+      "Democratic",
+      0
+     ],
+     [
+      "Joy A. Powers",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "09",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-VA-H10": {
+   "cands": {
+    "general": [
+     [
+      "Ahsen Mujeeb Malik",
+      "Independent",
+      0
+     ],
+     [
+      "Dave T. Beckwith",
+      "Republican",
+      0
+     ],
+     [
+      "Suhas Subramanyam",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Anthony L. Suttles",
+      "Republican",
+      0
+     ],
+     [
+      "Dave T. Beckwith",
+      "Republican",
+      0
+     ],
+     [
+      "Julie Anna Perry",
+      "Republican",
+      0
+     ],
+     [
+      "M. Sam Wong",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "10",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-VA-H11": {
+   "cands": {
+    "general": [
+     [
+      "Arthur G. Purves",
+      "Republican",
+      0
+     ],
+     [
+      "Dianne L. Blais",
+      "Green",
+      0
+     ],
+     [
+      "James R. Walkinshaw",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "11",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-VA-S2": {
+   "cands": {
+    "general": [
+     [
+      "Bert Mizusawa",
+      "Republican",
+      0
+     ],
+     [
+      "Mark R. Warner",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Bert Mizusawa",
+      "Republican",
+      0
+     ],
+     [
+      "David E. Williams",
+      "Republican",
+      0
+     ],
+     [
+      "Kim Farington",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "senate",
+   "level": "federal",
+   "office": "U.S. Senate",
+   "seat": null,
+   "special": 0
+  },
+  "2026-VA-SH20": {
+   "cands": {
+    "general": [
+     [
+      "Nathaniel \"Nate\" Fritzen",
+      "Republican",
+      0
+     ],
+     [
+      "Sonia Ruth Vasquez Luna",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "20",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Member, House of Delegates",
+   "partisan": 1,
+   "seat": null,
+   "special": 1
+  }
+ },
+ "rule": "A contest is tied to a race only when exactly one race of the same office and district (and seat) fits. A candidate line is tied to a name as filed only when exactly one fits: the family name and a given name that fits. Everything else is listed with the reason and never shown.",
+ "source": "The ballot databases (Congress, and state and local), read only; the races and the names as filed.",
+ "state": "VA",
+ "v": 1
+}

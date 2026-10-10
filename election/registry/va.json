@@ -3,7 +3,7 @@
  "code": "VA",
  "name": "Virginia",
  "written": "2026-10-10",
- "checked": "2026-10-09",
+ "checked": "2026-10-09; 2026-10-10 by N10 (the reader's own requests through election/source.py)",
  "status": "live",
  "status_why": "Enhanced Voting answered scripts; 2026-November-General is posted.",
  "approved": true,
@@ -25,7 +25,7 @@
   "date": "2026-11-03",
   "nov3_id": "2026-November-General",
   "posted": true,
-  "how_to_find": "Posted."
+  "how_to_find": "Posted (2026-November-General, every figure zero on 2026-10-10)."
  },
  "cadence": {
   "check_every_s": 180,
@@ -98,15 +98,18 @@
  "never": [],
  "never_why": {},
  "partial_sources": [],
- "rehearsal": "2024NovemberGeneral; 2025-November-General",
+ "rehearsal": "2026-August-Democratic-Primary and 2026-August-Republican-Primary (official), and the posted 2026-November-General, kept in election_cache/replay/sources/<code>-<id>/ (kept 2026-10-10 by N10 for rehearsals)",
  "terms": "None seen.",
  "scout_blocked": "Nothing refused scripts.",
  "scout_plan": "Live-readable, and the Nov 3 election is already registered. Share one Enhanced Voting reader with Georgia: on election night read .../2026-November-General/data every 3 minutes, compare lastUpdated, and read locality children for local contests. Rehearse on 2024NovemberGeneral and 2025-November-General.",
- "notes": [],
+ "notes": [
+  "Reader (N10, 2026-10-10): enhanced_voting. check() reads the election record's lastUpdated; fetch() reads <site>/results/public/api/elections/<j>/<id>/data (statewide totals, count groups, reporting units). The per-contest county breakdown (2.5 MB a contest) is not read."
+ ],
  "to_do": [],
  "sources": [
   "election/scout/results_la.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
-  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)",
+  "N10's own requests, 2026-10-10, through election/source.py with the kit's User-Agent: the addresses in the reader's notes answered a script"
  ]
 }

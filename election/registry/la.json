@@ -125,15 +125,22 @@
  "never": [],
  "never_why": {},
  "partial_sources": [],
- "rehearsal": "20241105 folder; 20260516 and 20260627 (Senate primaries)",
+ "rehearsal": "20241105@2024-11-05 (the 2024 general; run_night.py replay --election la=20241105@2024-11-05)",
  "terms": "None stated on the data files.",
  "scout_blocked": "Nothing refused scripts. The Candidate Inquiry pages on the same host also answer scripts.",
  "scout_plan": "Louisiana is the easiest state in this group: one host, JSON files, every level from the Senate to a parish school board. On election night the updater reads ElectionDates.htm once, then Votes_Multiparish.htm and the parish vote files for 20261103 every few minutes, maps RaceIDs to the races state_local_la.py already loaded, and marks every figure unofficial until ElectionDates.htm turns ResultsOfficial to 1. Rehearse on the 20241105 folder. Remember the House contest is an open primary with a Dec 12 runoff, so 'winner' on Nov 3 often means 'advances to the runoff'.",
- "notes": [],
+ "notes": [
+  "The three Supreme Court and four Court of Appeal seats on the ballot lists had one qualified candidate each and are elected unopposed; they are not in the results files."
+ ],
  "to_do": [],
  "sources": [
   "election/scout/results_la.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
   "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+ ],
+ "reader": {
+  "family": "la_portal",
+  "written": "2026-10-10",
+  "checked": "2026-10-10: the 2024 general read whole: the six House races; each statewide total equals its parish rows, every precinct in, and the Secretary marks the results official"
+ }
 }

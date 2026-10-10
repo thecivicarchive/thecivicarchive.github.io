@@ -1,0 +1,1712 @@
+{
+ "v": 1,
+ "state": "OR",
+ "family": "resultssw",
+ "built": "2026-10-10",
+ "from": [
+  "ballot_2026.sqlite: races, candidates (general list)",
+  "ballot_local_2026.sqlite: sl_races, sl_candidates (statewide and legislature), sl_places (county names, from the Census Bureau's county file)"
+ ],
+ "rule": "A feed contest is tied to a race by its title (office words, district number, unexpired or special) and, in a primary, its party; a contest that fits no race or more than one is listed, never shown. Names as printed are tied to names as filed by family name and first initial, one fit only.",
+ "counties": {
+  "baker": "41001",
+  "benton": "41003",
+  "clackamas": "41005",
+  "clatsop": "41007",
+  "columbia": "41009",
+  "coos": "41011",
+  "crook": "41013",
+  "curry": "41015",
+  "deschutes": "41017",
+  "douglas": "41019",
+  "gilliam": "41021",
+  "grant": "41023",
+  "harney": "41025",
+  "hoodriver": "41027",
+  "jackson": "41029",
+  "jefferson": "41031",
+  "josephine": "41033",
+  "klamath": "41035",
+  "lake": "41037",
+  "lane": "41039",
+  "lincoln": "41041",
+  "linn": "41043",
+  "malheur": "41045",
+  "marion": "41047",
+  "morrow": "41049",
+  "multnomah": "41051",
+  "polk": "41053",
+  "sherman": "41055",
+  "tillamook": "41057",
+  "umatilla": "41059",
+  "union": "41061",
+  "wallowa": "41063",
+  "wasco": "41065",
+  "washington": "41067",
+  "wheeler": "41069",
+  "yamhill": "41071"
+ },
+ "races": [
+  {
+   "id": "2026-OR-H01",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "1",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Suzanne Bonamici",
+     "Democrat, Working Families"
+    ],
+    [
+     "Barbara J Kahl",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-H02",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "2",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Chris Beck",
+     "Democrat, Independent"
+    ],
+    [
+     "Cliff Bentz",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-H03",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "3",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Loran Ayles",
+     "Republican"
+    ],
+    [
+     "Maxine E Dexter",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-H04",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "4",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Monique DeSpain",
+     "Republican, Libertarian"
+    ],
+    [
+     "Justin Filip",
+     "Pacific Green, Progressive"
+    ],
+    [
+     "Val Hoyle",
+     "Democrat, Working Families"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-H05",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "5",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Patti Adair",
+     "Republican, Libertarian"
+    ],
+    [
+     "Janelle S Bynum",
+     "Democrat"
+    ],
+    [
+     "Andrea Townsend",
+     "Pacific Green"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-H06",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "6",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "David Russ",
+     "Republican"
+    ],
+    [
+     "Andrea Salinas",
+     "Democrat, Independent"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-S2",
+   "level": "federal",
+   "kind": "S",
+   "office": "U.S. Senate",
+   "district": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Gary Lyndon Dye",
+     "Libertarian"
+    ],
+    [
+     "Chris Henry",
+     "Progressive, Pacific Green"
+    ],
+    [
+     "Jeff Merkley",
+     "Democrat, Working Families"
+    ],
+    [
+     "David Brock Smith",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-GOV",
+   "level": "statewide",
+   "kind": "statewide:governor",
+   "office": "Governor",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brett Smith",
+     "Pacific Green"
+    ],
+    [
+     "Christine Drazan",
+     "Republican, Libertarian"
+    ],
+    [
+     "Tina Kotek",
+     "Democrat, Working Families"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH1",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "1",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Bret Cecil",
+     "Democrat"
+    ],
+    [
+     "Court Boice",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH10",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "10",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "David Gomberg",
+     "Democrat, Republican, Independent"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH11",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "11",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Ivan Maluski",
+     "Democrat, Independent, Working Families"
+    ],
+    [
+     "Ken Jackola",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH12",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "12",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Amber Smith",
+     "Democrat"
+    ],
+    [
+     "Darin Harbick",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH13",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "13",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jonathan T Abrahamsen",
+     "Republican"
+    ],
+    [
+     "Nancy Nathanson",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH14",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "14",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Julie Fahey",
+     "Democrat"
+    ],
+    [
+     "Kevin T Burton",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH15",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "15",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Joanna Robinson",
+     "Democrat, Independent, Working Families"
+    ],
+    [
+     "Shelly Boshart Davis",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH16",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "16",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Sarah Finger McDonald",
+     "Democrat, Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH17",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "17",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dan Farrington",
+     "Republican"
+    ],
+    [
+     "David Nelson",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH18",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "18",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Amanda Staehely",
+     "Republican"
+    ],
+    [
+     "Patrick Marnell",
+     "Libertarian"
+    ],
+    [
+     "Roy Kaufmann",
+     "Democrat, Independent, Working Families, Progressive"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH19",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "19",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Anna Munson",
+     "Republican, Libertarian"
+    ],
+    [
+     "Tom Andersen",
+     "Democrat, Independent, Working Families"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH2",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "2",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Virgle J Osborne",
+     "Republican, Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH20",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "20",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Andrew Fudge",
+     "Republican, Independent"
+    ],
+    [
+     "Paul Evans",
+     "Democrat, Working Families"
+    ],
+    [
+     "Taylor A Rickey",
+     "Libertarian"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH21",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "21",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kevin L Mannix",
+     "Republican"
+    ],
+    [
+     "Michael Welsh",
+     "Democrat, Working Families"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH22",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "22",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Lesly M Munoz",
+     "Democrat, Independent, Working Families"
+    ],
+    [
+     "Noemi Legaspi",
+     "Republican, Libertarian"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH23",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "23",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Anna M Scharf",
+     "Republican"
+    ],
+    [
+     "Kriss Wright",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH24",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "24",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Lucetta A Elmer",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH25",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "25",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Ben Bowman",
+     "Democrat, Working Families"
+    ],
+    [
+     "Bob Niemeyer",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH26",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "26",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Steph Terrio",
+     "Progressive, Pacific Green"
+    ],
+    [
+     "Stephanie Carkin",
+     "Republican, Libertarian"
+    ],
+    [
+     "Sue R Rieke Smith",
+     "Democrat, Independent"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH27",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "27",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "G Mark Norman",
+     "Republican"
+    ],
+    [
+     "Tammy Carpenter",
+     "Democrat, Progressive, Working Families"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH28",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "28",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dacia Grayber",
+     "Democrat, Independent, Working Families"
+    ],
+    [
+     "Randall Fryer",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH29",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "29",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brian Schimmel",
+     "Republican, Independent"
+    ],
+    [
+     "Susan McLain",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH3",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "3",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dwayne Yunker",
+     "Republican"
+    ],
+    [
+     "Susan Fischer-Maki",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH30",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "30",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Charles A Ross",
+     "Republican"
+    ],
+    [
+     "Nathan Sosa",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH31",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "31",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Darcey Edwards",
+     "Republican"
+    ],
+    [
+     "Tom L Forest",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH32",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "32",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Cyrus Javadi",
+     "Democrat, Independent"
+    ],
+    [
+     "Max Sherman",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH33",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "33",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Ciatta R Thompson",
+     "Republican"
+    ],
+    [
+     "Shannon Jones Isadore",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH34",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "34",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mari Watanabe",
+     "Democrat"
+    ],
+    [
+     "Shaunie Cousins",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH35",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "35",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dan Martin",
+     "Republican"
+    ],
+    [
+     "Farrah Chaichi",
+     "Democrat, Working Families"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH36",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "36",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Hai Pham",
+     "Democrat"
+    ],
+    [
+     "Michael Orth",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH37",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "37",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Chad Parker",
+     "Republican"
+    ],
+    [
+     "Jules Walters",
+     "Democrat, Independent, Working Families"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH38",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "38",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Daniel Loc Nguyen",
+     "Democrat, Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH39",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "39",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "April Dobson",
+     "Democrat, Republican, Independent"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH4",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "4",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Alek Skarlatos",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH40",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "40",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Adam Baker",
+     "Republican"
+    ],
+    [
+     "Michael W Sugar",
+     "Democrat, Working Families"
+    ],
+    [
+     "Pat Hubbell",
+     "Independent"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH41",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "41",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Elvis Clark",
+     "Republican"
+    ],
+    [
+     "Mark Gamba",
+     "Democrat, Working Families"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH42",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "42",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Morey Straus",
+     "Libertarian"
+    ],
+    [
+     "Rob Nosse",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH43",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "43",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Tawna Sanchez",
+     "Democrat"
+    ],
+    [
+     "Tim LeMaster",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH44",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "44",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Margo Logan",
+     "Republican"
+    ],
+    [
+     "Travis Nelson",
+     "Democrat, Working Families"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH45",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "45",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jason Boyce",
+     "Republican"
+    ],
+    [
+     "Thuy Tran",
+     "Democrat, Working Families, Independent"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH46",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "46",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Leo Morley",
+     "Republican"
+    ],
+    [
+     "Willy Chotzen",
+     "Democrat, Working Families"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH47",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "47",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Andrea Valderrama",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH48",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "48",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Andrew Morrison",
+     "Republican"
+    ],
+    [
+     "Lamar Wise",
+     "Democrat, Independent, Working Families"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH49",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "49",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Ann Walker",
+     "Republican"
+    ],
+    [
+     "Zach Hudson",
+     "Democrat, Working Families"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH5",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "5",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Alexander Krigsvold",
+     "Republican"
+    ],
+    [
+     "Pam Marsh",
+     "Democrat, Independent"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH50",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "50",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brian Gray",
+     "Republican"
+    ],
+    [
+     "Ricki Ruiz",
+     "Democrat, Independent"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH51",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "51",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Darla Mead",
+     "Democrat, Working Families"
+    ],
+    [
+     "Matt Bunch",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH52",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "52",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Hank Sanders",
+     "Democrat, Independent"
+    ],
+    [
+     "Scott C Hege",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH53",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "53",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Emerson Levy",
+     "Democrat, Independent"
+    ],
+    [
+     "Michael Summers",
+     "Republican, Libertarian"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH54",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "54",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jason Kropf",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH55",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "55",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Colby M Simmons",
+     "Democrat"
+    ],
+    [
+     "E Werner Reschke",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH56",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "56",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Emily G McIntire",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH57",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "57",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Greg Smith",
+     "Republican"
+    ],
+    [
+     "Josiah Dean",
+     "Pacific Green"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH58",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "58",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Bobby Levy",
+     "Republican"
+    ],
+    [
+     "Brian Campbell",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH59",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "59",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Lawrence Jones",
+     "Democrat"
+    ],
+    [
+     "Vikki Breese-Iverson",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH6",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "6",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "John P Holm",
+     "Democrat"
+    ],
+    [
+     "Kim Wallan",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH60",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "60",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Beth Spell",
+     "Democrat"
+    ],
+    [
+     "Mark Owens",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH7",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "7",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Adam Wilson",
+     "Republican, Libertarian"
+    ],
+    [
+     "Kori Rodley",
+     "Democrat, Working Families"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH8",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "8",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Bill Vivian",
+     "Republican"
+    ],
+    [
+     "Lisa Fragala",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SH9",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "9",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Claire Lynn",
+     "Republican"
+    ],
+    [
+     "John Ezra Scheirman",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SS10",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "10",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Angela Plowhead",
+     "Republican, Libertarian"
+    ],
+    [
+     "Deb Patterson",
+     "Democrat, Working Families"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SS11",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "11",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Tracy M Cramer",
+     "Republican"
+    ],
+    [
+     "Virginia Stapleton",
+     "Democrat, Working Families"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SS13",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "13",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Courtney Neron Misslin",
+     "Democrat, Working Families"
+    ],
+    [
+     "Glenn Lancaster",
+     "Republican"
+    ],
+    [
+     "Tim E Nelson",
+     "Libertarian"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SS15",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "15",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Harold Hutchison",
+     "Republican"
+    ],
+    [
+     "Myrna A Munoz",
+     "Democrat, Working Families"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SS16",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "16",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Courtney Bangs",
+     "Republican"
+    ],
+    [
+     "Melisa Finkle",
+     "Independent"
+    ],
+    [
+     "Rachel Armitage",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SS17",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "17",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "John A N Chee",
+     "Republican"
+    ],
+    [
+     "Lisa Reynolds",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SS19",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "19",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mary Dirksen",
+     "Republican"
+    ],
+    [
+     "Rob Wagner",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SS20",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "20",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mark Meek",
+     "Democrat"
+    ],
+    [
+     "Michele Stroh",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SS24",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "24",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kayse Jama",
+     "Democrat, Working Families"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SS26",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "26",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jeff Helfrich",
+     "Republican"
+    ],
+    [
+     "Nicole Bassett",
+     "Democrat, Independent, Working Families"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SS3",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "3",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brad Hicks",
+     "Republican, Libertarian"
+    ],
+    [
+     "Clay Bearnson",
+     "Independent, Pacific Green"
+    ],
+    [
+     "Denise D Krause",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SS4",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "4",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Floyd Prozanski",
+     "Democrat, Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SS6",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "6",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Caleb Ticer",
+     "Libertarian"
+    ],
+    [
+     "Jack Tibbetts",
+     "Republican"
+    ],
+    [
+     "Sierrah Williams",
+     "Democrat, Working Families"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SS7",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "7",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jack (Jake) D Huff",
+     "Republican"
+    ],
+    [
+     "James I Manning Jr",
+     "Democrat, Independent, Working Families"
+    ]
+   ]
+  },
+  {
+   "id": "2026-OR-SS8",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "8",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Sara Gelser Blouin",
+     "Democrat"
+    ],
+    [
+     "Valerie Draper Woldeit",
+     "Republican"
+    ]
+   ]
+  }
+ ],
+ "aliases": {},
+ "elections": {},
+ "checked": {},
+ "notes": []
+}

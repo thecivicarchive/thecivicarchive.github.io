@@ -1,0 +1,1469 @@
+{
+"election": {
+"name": [
+{
+"languageId": "en",
+"text": "November General Election"
+}
+],
+"isOfficialResults": true,
+"electionDate": "2024-11-05",
+"isProduction": true,
+"lastUpdated": "2025-01-07T16:55:00.6358836Z",
+"isPrimary": false
+},
+"ballotItems": [
+{
+"id": "01000000-d884-2e72-6367-08dcda4b86b5",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "President of the US"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for 1"
+}
+],
+"voteTotal": 5250047,
+"reportingStatus": {
+"reportingUnits": 159,
+"totalUnits": 159
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Donald J. Trump (Rep)"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Rep"
+}
+],
+"abbreviation": "Rep"
+},
+"voteCount": 2663117,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 647080
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Absentee by Mail"
+}
+],
+"voteCount": 98151
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 1444
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Advanced Voting"
+}
+],
+"voteCount": 1916442
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Kamala D. Harris (Dem)"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Dem"
+}
+],
+"abbreviation": "Dem"
+},
+"voteCount": 2548017,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 558607
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Absentee by Mail"
+}
+],
+"voteCount": 183133
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 2164
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Advanced Voting"
+}
+],
+"voteCount": 1804113
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Chase Oliver (Lib)"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Lib"
+}
+],
+"abbreviation": "Lib"
+},
+"voteCount": 20684,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 8290
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Absentee by Mail"
+}
+],
+"voteCount": 1027
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 13
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Advanced Voting"
+}
+],
+"voteCount": 11354
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Jill Stein (Grn)"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Grn"
+}
+],
+"abbreviation": "Grn"
+},
+"voteCount": 18229,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 7280
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Absentee by Mail"
+}
+],
+"voteCount": 1047
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 24
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Advanced Voting"
+}
+],
+"voteCount": 9878
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-d884-2e72-d102-08dcda4b86d5",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "US House of Representatives - District 1"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for 1"
+}
+],
+"voteTotal": 355857,
+"reportingStatus": {
+"reportingUnits": 15,
+"totalUnits": 15
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Earl L. \"Buddy\" Carter (I) (Rep)"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Rep"
+}
+],
+"abbreviation": "Rep"
+},
+"voteCount": 220576,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 56186
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Absentee by Mail"
+}
+],
+"voteCount": 8262
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 83
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Advanced Voting"
+}
+],
+"voteCount": 156045
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Patti Hewitt (Dem)"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Dem"
+}
+],
+"abbreviation": "Dem"
+},
+"voteCount": 135281,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 35127
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Absentee by Mail"
+}
+],
+"voteCount": 12282
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 87
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Advanced Voting"
+}
+],
+"voteCount": 87785
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-d884-2e72-591a-08dcda4b8737",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "US House of Representatives - District 2"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for 1"
+}
+],
+"voteTotal": 312501,
+"reportingStatus": {
+"reportingUnits": 30,
+"totalUnits": 30
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "A. Wayne Johnson (Rep)"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Rep"
+}
+],
+"abbreviation": "Rep"
+},
+"voteCount": 136473,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 37343
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Absentee by Mail"
+}
+],
+"voteCount": 5114
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 69
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Advanced Voting"
+}
+],
+"voteCount": 93947
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Sanford Bishop (I) (Dem)"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Dem"
+}
+],
+"abbreviation": "Dem"
+},
+"voteCount": 176028,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 50850
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Absentee by Mail"
+}
+],
+"voteCount": 13958
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 137
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Advanced Voting"
+}
+],
+"voteCount": 111083
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-d884-2e72-563f-08dcda4b8b12",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "US House of Representatives - District 3"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for 1"
+}
+],
+"voteTotal": 411785,
+"reportingStatus": {
+"reportingUnits": 15,
+"totalUnits": 15
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Brian Jack (Rep)"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Rep"
+}
+],
+"abbreviation": "Rep"
+},
+"voteCount": 273036,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 69220
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Absentee by Mail"
+}
+],
+"voteCount": 9350
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 77
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Advanced Voting"
+}
+],
+"voteCount": 194389
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "Maura Keller (Dem)"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Dem"
+}
+],
+"abbreviation": "Dem"
+},
+"voteCount": 138749,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 32646
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Absentee by Mail"
+}
+],
+"voteCount": 10903
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 51
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Advanced Voting"
+}
+],
+"voteCount": 95149
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-d884-2e72-e290-08dcda4b89b0",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "State Senate - District 1"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for 1"
+}
+],
+"voteTotal": 76992,
+"reportingStatus": {
+"reportingUnits": 3,
+"totalUnits": 3
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Ben Watson (I) (Rep)"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Rep"
+}
+],
+"abbreviation": "Rep"
+},
+"voteCount": 76992,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 18990
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Absentee by Mail"
+}
+],
+"voteCount": 3769
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 24
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Advanced Voting"
+}
+],
+"voteCount": 54209
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-d884-2e72-324b-08dcda4b8cb1",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "State Senate - District 2"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for 1"
+}
+],
+"voteTotal": 65049,
+"reportingStatus": {
+"reportingUnits": 1,
+"totalUnits": 1
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Derek Mallow (I) (Dem)"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Dem"
+}
+],
+"abbreviation": "Dem"
+},
+"voteCount": 65049,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 21141
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Absentee by Mail"
+}
+],
+"voteCount": 4719
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 56
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Advanced Voting"
+}
+],
+"voteCount": 39133
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-d884-2e72-2a2d-08dcda4b8969",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "State Senate - District 3"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for 1"
+}
+],
+"voteTotal": 77114,
+"reportingStatus": {
+"reportingUnits": 6,
+"totalUnits": 6
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Mike Hodges (I) (Rep)"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Rep"
+}
+],
+"abbreviation": "Rep"
+},
+"voteCount": 77114,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 17725
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Absentee by Mail"
+}
+],
+"voteCount": 3300
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 31
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Advanced Voting"
+}
+],
+"voteCount": 56058
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-d884-2e72-0c5f-08dcda4b96ef",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "State House of Representatives - District 1"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for 1"
+}
+],
+"voteTotal": 26422,
+"reportingStatus": {
+"reportingUnits": 2,
+"totalUnits": 2
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Mike Cameron (I) (Rep)"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Rep"
+}
+],
+"abbreviation": "Rep"
+},
+"voteCount": 21227,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 6460
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Absentee by Mail"
+}
+],
+"voteCount": 724
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 15
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Advanced Voting"
+}
+],
+"voteCount": 14028
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "John B. Zibluk (Dem)"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Dem"
+}
+],
+"abbreviation": "Dem"
+},
+"voteCount": 5195,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 1437
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Absentee by Mail"
+}
+],
+"voteCount": 491
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 2
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Advanced Voting"
+}
+],
+"voteCount": 3265
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-d884-2e72-cbbe-08dcda4b8b6a",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "State House of Representatives - District 2"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for 1"
+}
+],
+"voteTotal": 27194,
+"reportingStatus": {
+"reportingUnits": 3,
+"totalUnits": 3
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Steve Tarvin (I) (Rep)"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Rep"
+}
+],
+"abbreviation": "Rep"
+},
+"voteCount": 27194,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 8188
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Absentee by Mail"
+}
+],
+"voteCount": 803
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 5
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Advanced Voting"
+}
+],
+"voteCount": 18198
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-d884-2e72-0d9b-08dcda4b8b65",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "State House of Representatives - District 3"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for 1"
+}
+],
+"voteTotal": 25884,
+"reportingStatus": {
+"reportingUnits": 1,
+"totalUnits": 1
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Mitchell Horner (I) (Rep)"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Rep"
+}
+],
+"abbreviation": "Rep"
+},
+"voteCount": 25884,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 5415
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Absentee by Mail"
+}
+],
+"voteCount": 794
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 5
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Advanced Voting"
+}
+],
+"voteCount": 19670
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-d884-2e72-9944-08dcda4be26d",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "District Attorney - Alcovy Judicial Circuit"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for 1"
+}
+],
+"voteTotal": 91005,
+"reportingStatus": {
+"reportingUnits": 2,
+"totalUnits": 2
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Randal Matthew McGinley (I) (Rep)"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": "Rep"
+}
+],
+"abbreviation": "Rep"
+},
+"voteCount": 91005,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 23929
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Absentee by Mail"
+}
+],
+"voteCount": 3344
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 21
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Advanced Voting"
+}
+],
+"voteCount": 63711
+}
+]
+}
+]
+}
+},
+{
+"id": "01000000-d884-2e72-e2b5-08dcda4b86da",
+"parentId": null,
+"name": [
+{
+"languageId": "en",
+"text": "Proposed Constitutional Amendment 1"
+}
+],
+"voteFor": [
+{
+"languageId": "en",
+"text": "Vote for 1"
+}
+],
+"voteTotal": 4917851,
+"reportingStatus": {
+"reportingUnits": 159,
+"totalUnits": 159
+},
+"partyName": null,
+"summaryResults": {
+"ballotOptions": [
+{
+"name": [
+{
+"languageId": "en",
+"text": "Yes"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": ""
+}
+],
+"abbreviation": ""
+},
+"voteCount": 3094322,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 776053
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Absentee by Mail"
+}
+],
+"voteCount": 145136
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 1918
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Advanced Voting"
+}
+],
+"voteCount": 2171215
+}
+]
+},
+{
+"name": [
+{
+"languageId": "en",
+"text": "No"
+}
+],
+"party": {
+"name": [
+{
+"languageId": "en",
+"text": ""
+}
+],
+"abbreviation": ""
+},
+"voteCount": 1823529,
+"isWriteIn": false,
+"groupResults": [
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Election Day"
+}
+],
+"voteCount": 368642
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Absentee by Mail"
+}
+],
+"voteCount": 104215
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Provisional"
+}
+],
+"voteCount": 1047
+},
+{
+"groupName": [
+{
+"languageId": "en",
+"text": "Advanced Voting"
+}
+],
+"voteCount": 1349625
+}
+]
+}
+]
+}
+}
+]
+}

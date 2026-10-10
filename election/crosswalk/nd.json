@@ -1,0 +1,1674 @@
+{
+ "v": 1,
+ "state": "ND",
+ "family": "tally",
+ "built": "2026-10-10",
+ "from": [
+  "ballot_2026.sqlite: races, candidates (general list)",
+  "ballot_local_2026.sqlite: sl_races, sl_candidates (statewide and legislature), sl_places (county names, from the Census Bureau's county file)"
+ ],
+ "rule": "A feed contest is tied to a race by its title (office words, district number, unexpired or special) and, in a primary, its party; a contest that fits no race or more than one is listed, never shown. Names as printed are tied to names as filed by family name and first initial, one fit only.",
+ "counties": {
+  "adams": "38001",
+  "barnes": "38003",
+  "benson": "38005",
+  "billings": "38007",
+  "bottineau": "38009",
+  "bowman": "38011",
+  "burke": "38013",
+  "burleigh": "38015",
+  "cass": "38017",
+  "cavalier": "38019",
+  "dickey": "38021",
+  "divide": "38023",
+  "dunn": "38025",
+  "eddy": "38027",
+  "emmons": "38029",
+  "foster": "38031",
+  "goldenvalley": "38033",
+  "grandforks": "38035",
+  "grant": "38037",
+  "griggs": "38039",
+  "hettinger": "38041",
+  "kidder": "38043",
+  "lamoure": "38045",
+  "logan": "38047",
+  "mchenry": "38049",
+  "mcintosh": "38051",
+  "mckenzie": "38053",
+  "mclean": "38055",
+  "mercer": "38057",
+  "morton": "38059",
+  "mountrail": "38061",
+  "nelson": "38063",
+  "oliver": "38065",
+  "pembina": "38067",
+  "pierce": "38069",
+  "ramsey": "38071",
+  "ransom": "38073",
+  "renville": "38075",
+  "richland": "38077",
+  "rolette": "38079",
+  "sargent": "38081",
+  "sheridan": "38083",
+  "sioux": "38085",
+  "slope": "38087",
+  "stark": "38089",
+  "steele": "38091",
+  "stutsman": "38093",
+  "towner": "38095",
+  "traill": "38097",
+  "walsh": "38099",
+  "ward": "38101",
+  "wells": "38103",
+  "williams": "38105"
+ },
+ "races": [
+  {
+   "id": "2026-ND-H00",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Julie Fedorchak",
+     "Republican"
+    ],
+    [
+     "Trygve Hammer",
+     "Democratic-NPL"
+    ],
+    [
+     "Helene Neville",
+     "independent nomination"
+    ],
+    [
+     "Charles Tuttle",
+     "independent nomination"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-AG",
+   "level": "statewide",
+   "kind": "statewide:attorney_general",
+   "office": "Attorney General",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Drew Wrigley",
+     "Republican"
+    ],
+    [
+     "Tim Lamb",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-AGR",
+   "level": "statewide",
+   "kind": "statewide:agriculture_commissioner",
+   "office": "Agriculture Commissioner",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Doug Goehring",
+     "Republican"
+    ],
+    [
+     "Vern Thompson",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-PSC",
+   "level": "statewide",
+   "kind": "statewide:public_service_commissioner",
+   "office": "Public Service Commissioner",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "John M Pederson",
+     "Democratic-NPL"
+    ],
+    [
+     "Sheri Haugen-Hoffart",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-PSC-UNEXP",
+   "level": "statewide",
+   "kind": "statewide:public_service_commissioner",
+   "office": "Public Service Commissioner",
+   "district": null,
+   "seat": null,
+   "special": 1,
+   "seats": 1,
+   "names": [
+    [
+     "Jill Kringstad",
+     "Republican"
+    ],
+    [
+     "Scot Kelsh",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SH1",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "1",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Alex Johnson",
+     "Democratic-NPL"
+    ],
+    [
+     "David Richter",
+     "Republican"
+    ],
+    [
+     "Laurie Garbel",
+     "Republican"
+    ],
+    [
+     "Steve Thoring",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SH11",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "11",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Anastassiya (Stass) Andrianova",
+     "Democratic-NPL"
+    ],
+    [
+     "Cara Cody-Braun",
+     "independent nomination"
+    ],
+    [
+     "Doug Sharbono",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SH13",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "13",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Austen Schauer",
+     "Republican"
+    ],
+    [
+     "Brenda Jo Gillund",
+     "Democratic-NPL"
+    ],
+    [
+     "Jim Jonas",
+     "Republican"
+    ],
+    [
+     "Maggi Gadaire",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SH15",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "15",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Corry Kenner",
+     "Republican"
+    ],
+    [
+     "Frances Drury",
+     "Democratic-NPL"
+    ],
+    [
+     "Kathy Frelich",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SH17",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "17",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Don Aandal",
+     "Democratic-NPL"
+    ],
+    [
+     "Mark Sanford",
+     "Republican"
+    ],
+    [
+     "Reed Johnson",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SH19",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "19",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "David Monson",
+     "Republican"
+    ],
+    [
+     "Jolene L Hermanson",
+     "Democratic-NPL"
+    ],
+    [
+     "Karen A Anderson",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SH20",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "20",
+   "seat": null,
+   "special": 1,
+   "seats": 1,
+   "names": [
+    [
+     "David Rustebakke",
+     "Republican"
+    ],
+    [
+     "Nikolaus Groenewold",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SH21",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "21",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Laura Dronen",
+     "Democratic-NPL"
+    ],
+    [
+     "LaurieBeth Hager",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SH23",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "23",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Corey Johnson",
+     "Republican"
+    ],
+    [
+     "Dennis Nehring",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SH25",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "25",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Alisa Mitskog",
+     "Democratic-NPL"
+    ],
+    [
+     "Kathy Skroch",
+     "Republican"
+    ],
+    [
+     "Terry Goerger",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SH26",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "26",
+   "seat": null,
+   "special": 1,
+   "seats": 1,
+   "names": [
+    [
+     "Brent Schwan",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SH27",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "27",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Greg Stemen",
+     "Republican"
+    ],
+    [
+     "Jolene Bruce",
+     "independent nomination"
+    ],
+    [
+     "Shawn Kessel",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SH29",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "29",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Craig Headland",
+     "Republican"
+    ],
+    [
+     "Dianne Norris",
+     "Democratic-NPL"
+    ],
+    [
+     "Kevin Wolsky",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SH3",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "3",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Blaine DesLauriers",
+     "Republican"
+    ],
+    [
+     "Natalie Mclaughlin",
+     "Democratic-NPL"
+    ],
+    [
+     "Tara Hiatt",
+     "Democratic-NPL"
+    ],
+    [
+     "Timothy Mihalick",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SH31",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "31",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dawson Holle",
+     "Republican"
+    ],
+    [
+     "Karen Rohr",
+     "Republican"
+    ],
+    [
+     "Rissa M Williams",
+     "Democratic-NPL"
+    ],
+    [
+     "Tim Spilman",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SH33",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "33",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Anna S (Garrett) Novak",
+     "Republican"
+    ],
+    [
+     "Kimball Banks",
+     "Democratic-NPL"
+    ],
+    [
+     "Mike Heger",
+     "Republican"
+    ],
+    [
+     "Stacie Kruckenberg",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SH35",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "35",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Bob Martinson",
+     "Republican"
+    ],
+    [
+     "Karen Karls",
+     "Republican"
+    ],
+    [
+     "Lynne M Lafer-Halvorson",
+     "Democratic-NPL"
+    ],
+    [
+     "Taylor Johnson",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SH37",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "37",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kylan Klauzer",
+     "Republican"
+    ],
+    [
+     "Shelley Lenz",
+     "Democratic-NPL"
+    ],
+    [
+     "Susan Josephson",
+     "Democratic-NPL"
+    ],
+    [
+     "Vicky Steiner",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SH39",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "39",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Keith Kempenich",
+     "Republican"
+    ],
+    [
+     "Mike Schatz",
+     "Republican"
+    ],
+    [
+     "Sandy Baertsch",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SH41",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "41",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Chris Tiongson",
+     "Democratic-NPL"
+    ],
+    [
+     "Jennifer Benson",
+     "Republican"
+    ],
+    [
+     "Rich Slagle",
+     "Republican"
+    ],
+    [
+     "Stacy Heidenreich",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SH42",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "42",
+   "seat": null,
+   "special": 1,
+   "seats": 1,
+   "names": [
+    [
+     "Connie Osowski",
+     "Republican"
+    ],
+    [
+     "Nicole Derenne",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SH43",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "43",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jill T Chandler",
+     "Republican"
+    ],
+    [
+     "Lukas Arthur Maughan",
+     "Democratic-NPL"
+    ],
+    [
+     "Mike Holmes",
+     "Republican"
+    ],
+    [
+     "Tyler York",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SH45",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "45",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Carrie McLeod",
+     "Republican"
+    ],
+    [
+     "Don Lippert",
+     "Democratic-NPL"
+    ],
+    [
+     "Ross Lockhart",
+     "Democratic-NPL"
+    ],
+    [
+     "Scott Wagner",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SH47",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "47",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Andrew Alexis Varvel",
+     "independent nomination"
+    ],
+    [
+     "Cole Montoya",
+     "Democratic-NPL"
+    ],
+    [
+     "Jon Lee",
+     "Republican"
+    ],
+    [
+     "Michael Motschenbacher",
+     "Republican"
+    ],
+    [
+     "Rosann Jacobs-Fode",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SH5",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "5",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kyle Erickson",
+     "Democratic-NPL"
+    ],
+    [
+     "Roger Brabandt",
+     "Republican"
+    ],
+    [
+     "Scott Louser",
+     "Republican"
+    ],
+    [
+     "Zach Raknerud",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SH7",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "7",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Greg Vetter",
+     "Republican"
+    ],
+    [
+     "Jason Thoms",
+     "Democratic-NPL"
+    ],
+    [
+     "Steve Sauter",
+     "Republican"
+    ],
+    [
+     "Tiffany Williams-Rice",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SH9",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "9",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Collette Brown",
+     "Democratic-NPL"
+    ],
+    [
+     "Duane Poitra",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SOS",
+   "level": "statewide",
+   "kind": "statewide:secretary_of_state",
+   "office": "Secretary of State",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Michael Howe",
+     "Republican"
+    ],
+    [
+     "Ryan Braunberger",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SPI-UNEXP",
+   "level": "statewide",
+   "kind": "statewide:superintendent_of_public_instruction",
+   "office": "Superintendent of Public Instruction",
+   "district": null,
+   "seat": null,
+   "special": 1,
+   "seats": 1,
+   "names": [
+    [
+     "Levi Bachmeier",
+     "Nonpartisan office"
+    ],
+    [
+     "Tracy Layne Foss",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SS1",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "1",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brad Bekkedahl",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SS11",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "11",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Christine O'Riley",
+     "Republican"
+    ],
+    [
+     "Tim Mathern",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SS13",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "13",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Judy Lee",
+     "Republican"
+    ],
+    [
+     "Landis Larson",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SS15",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "15",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kristin Kenner",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SS17",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "17",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jonathan Sickler",
+     "Republican"
+    ],
+    [
+     "Katie Benton",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SS19",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "19",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Janne Myrdal",
+     "Republican"
+    ],
+    [
+     "Jefferey E Hermanson",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SS21",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "21",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mary Schneider",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SS23",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "23",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Todd Beard",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SS25",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "25",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Bob Heitkamp",
+     "Democratic-NPL"
+    ],
+    [
+     "Larry Luick",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SS27",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "27",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kristin Roers",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SS29",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "29",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "John Kelly",
+     "Democratic-NPL"
+    ],
+    [
+     "Terry M Wanzek",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SS3",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "3",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Bob Paulson",
+     "Republican"
+    ],
+    [
+     "Michael Thiesen",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SS31",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "31",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Donald Schaible",
+     "Republican"
+    ],
+    [
+     "Kelly Spilman",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SS33",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "33",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Keith Boehm",
+     "Republican"
+    ],
+    [
+     "Signe Snortland",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SS35",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "35",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dale Pittman",
+     "Democratic-NPL"
+    ],
+    [
+     "Sean Cleary",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SS37",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "37",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dean Rummel",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SS39",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "39",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Greg Kessel",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SS41",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "41",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kyle Davison",
+     "Republican"
+    ],
+    [
+     "Nyamal Dei",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SS43",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "43",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jeff Barta",
+     "Republican"
+    ],
+    [
+     "Mary K Adams",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SS45",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "45",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dan Mitchell",
+     "Democratic-NPL"
+    ],
+    [
+     "Ronald Sorvaag",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SS47",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "47",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Bill Patrie",
+     "Democratic-NPL"
+    ],
+    [
+     "Mike Dwyer",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SS5",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "5",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jay Fisher",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SS7",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "7",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kevin Horneman",
+     "Democratic-NPL"
+    ],
+    [
+     "Michelle Axtman",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-SS9",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "9",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jayme Davis",
+     "Democratic-NPL"
+    ]
+   ]
+  },
+  {
+   "id": "2026-ND-TAX",
+   "level": "statewide",
+   "kind": "statewide:tax_commissioner",
+   "office": "Tax Commissioner",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brian Kroshus",
+     "Republican"
+    ],
+    [
+     "Mark Nelson",
+     "Democratic-NPL"
+    ]
+   ]
+  }
+ ],
+ "aliases": {},
+ "elections": {
+  "346": {
+   "kind": "primary",
+   "date": "2026-06-09",
+   "use": "rehearsal and the replay check"
+  }
+ },
+ "checked": {
+  "election": "348",
+  "on": "2026-10-10",
+  "tied": {
+   "2026-ND-AG": "Attorney General",
+   "2026-ND-AGR": "Agriculture Commissioner",
+   "2026-ND-H00": "Representative in Congress",
+   "2026-ND-PSC": "Public Service Commissioner",
+   "2026-ND-PSC-UNEXP": "Public Service Commissioner Unexpired 2-Year Term",
+   "2026-ND-SH1": "State Representative District 01",
+   "2026-ND-SH11": "State Representative District 11",
+   "2026-ND-SH13": "State Representative District 13",
+   "2026-ND-SH15": "State Representative District 15",
+   "2026-ND-SH17": "State Representative District 17",
+   "2026-ND-SH19": "State Representative District 19",
+   "2026-ND-SH20": "State Representative Unexpired 2-Year Term District 20",
+   "2026-ND-SH21": "State Representative District 21",
+   "2026-ND-SH23": "State Representative District 23",
+   "2026-ND-SH25": "State Representative District 25",
+   "2026-ND-SH26": "State Representative Unexpired 2-Year Term District 26",
+   "2026-ND-SH27": "State Representative District 27",
+   "2026-ND-SH29": "State Representative District 29",
+   "2026-ND-SH3": "State Representative District 03",
+   "2026-ND-SH31": "State Representative District 31",
+   "2026-ND-SH33": "State Representative District 33",
+   "2026-ND-SH35": "State Representative District 35",
+   "2026-ND-SH37": "State Representative District 37",
+   "2026-ND-SH39": "State Representative District 39",
+   "2026-ND-SH41": "State Representative District 41",
+   "2026-ND-SH42": "State Representative Unexpired 2-Year Term District 42",
+   "2026-ND-SH43": "State Representative District 43",
+   "2026-ND-SH45": "State Representative District 45",
+   "2026-ND-SH47": "State Representative District 47",
+   "2026-ND-SH5": "State Representative District 05",
+   "2026-ND-SH7": "State Representative District 07",
+   "2026-ND-SH9": "State Representative District 09",
+   "2026-ND-SOS": "Secretary of State",
+   "2026-ND-SPI-UNEXP": "Superintendent of Public Instruction Unexpired 2-Year Term",
+   "2026-ND-SS1": "State Senator District 01",
+   "2026-ND-SS11": "State Senator District 11",
+   "2026-ND-SS13": "State Senator District 13",
+   "2026-ND-SS15": "State Senator District 15",
+   "2026-ND-SS17": "State Senator District 17",
+   "2026-ND-SS19": "State Senator District 19",
+   "2026-ND-SS21": "State Senator District 21",
+   "2026-ND-SS23": "State Senator District 23",
+   "2026-ND-SS25": "State Senator District 25",
+   "2026-ND-SS27": "State Senator District 27",
+   "2026-ND-SS29": "State Senator District 29",
+   "2026-ND-SS3": "State Senator District 03",
+   "2026-ND-SS31": "State Senator District 31",
+   "2026-ND-SS33": "State Senator District 33",
+   "2026-ND-SS35": "State Senator District 35",
+   "2026-ND-SS37": "State Senator District 37",
+   "2026-ND-SS39": "State Senator District 39",
+   "2026-ND-SS41": "State Senator District 41",
+   "2026-ND-SS43": "State Senator District 43",
+   "2026-ND-SS45": "State Senator District 45",
+   "2026-ND-SS47": "State Senator District 47",
+   "2026-ND-SS5": "State Senator District 05",
+   "2026-ND-SS7": "State Senator District 07",
+   "2026-ND-SS9": "State Senator District 09",
+   "2026-ND-TAX": "Tax Commissioner"
+  },
+  "listed": [
+   {
+    "office": "Constitutional Measure No. 1 relating to the threshold for approving a constitutional amendment from a simple majority to sixty percent ",
+    "why": "not an office this reader ties to a race (statewide, Congress or the Legislature)"
+   },
+   {
+    "office": "Initiated Constitutional Measure No. 2 relating to funding of school lunches ",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Justice of the Supreme Court",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Justice of the Supreme Court Unexpired 8-Year Term",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  James River Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Turtle Mountain District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Wells County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Unexpired 4-Year Term McKenzie County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  McKenzie County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Unexpired 2-Year Term Adams County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Barnes County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Emmons County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Bowman/Slope Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Burke County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Burleigh County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Cass County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Cavalier County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Cedar Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Divide County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Dunn County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Eddy County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Foster County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Golden Valley County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Grand Forks County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Grant County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Griggs County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Kidder County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  LaMoure County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Logan County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  McIntosh County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Mercer County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Morton County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Mountrail County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Nelson County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  North Central Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  North McHenry Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Oliver County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Pembina County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Pierce County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Ramsey County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Ransom County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Renville County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Richland County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Rolette County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Sheridan County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Slope/Hettinger Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  South McHenry Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  South McLean Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Stark Billings Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Steele County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Stutsman County Soil Conservation County",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Towner County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Traill County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Walsh County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Ward County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  West McLean Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Wild Rice Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Williams County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Unexpired 2-Year Term Morton County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   },
+   {
+    "office": "Supervisor, Soil Conservation District  Adams County Soil Conservation District",
+    "why": "a local, judicial or party contest: this feed is read for statewide, congressional and legislative races"
+   }
+  ],
+  "missing": [],
+  "names_not_tied": [],
+  "note": "Races for Congress and statewide races on the 2026 list that the posted Nov 3 contest list does not carry are 'missing'; printed names with no name as filed are 'names_not_tied' (kept as printed)."
+ },
+ "notes": []
+}

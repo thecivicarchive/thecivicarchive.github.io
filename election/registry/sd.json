@@ -103,14 +103,17 @@
  "scout_blocked": "Certificate expired (script, 2026-10-09). No bot wall seen earlier by the kit.",
  "scout_plan": "Readable with care once the certificate is renewed: poll the statewide and legislative pages for eid 774 every 5 minutes and parse the HTML the way sd_place_votes.py does; county offices from the same pages. If the certificate is still expired in late October, show South Dakota as 'state site not reachable securely' and link out; never skip certificate checks. Election-night numbers stay labelled unofficial; certified figures come from the canvass PDF.",
  "notes": [
-  "certificate expired on 2026-10-09; recheck in late October"
+  "certificate expired on 2026-10-09; still expired on 2026-10-10 (checked once, checking left on)"
  ],
  "to_do": [
-  "Recheck the certificate in late October; if still expired, set status to link."
+  "Recheck the certificate in late October; if still expired, set status to link.",
+  "Once it is renewed, read the 2026 primary (eid 773) or the 2024 general (eid 684) once for the replay check."
  ],
  "sources": [
   "election/scout/results_mn.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
-  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)",
+  "N9 reader checks, 2026-10-10: the state's own results service, read through election/source.py"
+ ],
+ "reader_note": "Reader election/readers/resultssw.py written 2026-10-10 (N9): self-test on its fixture passes; crosswalk election/crosswalk/sd.json ties feed contests to the ballot databases' race ids."
 }

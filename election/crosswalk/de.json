@@ -1,0 +1,1715 @@
+{
+ "built": "2026-10-10",
+ "checked": [
+  {
+   "by_level": {
+    "federal": 3,
+    "legislature": 24,
+    "statewide": 2
+   },
+   "certified_primary": {
+    "candidates": 71,
+    "contests": 29,
+    "differences": []
+   },
+   "contests_tied": 29,
+   "election": "PR2026",
+   "lines_tied": "71 of 71",
+   "notes": [],
+   "nov3": false,
+   "problems": [],
+   "read": "2026-10-10",
+   "store": "ok",
+   "unmatched_by_reason": {
+    "a county, city or district office; not read here yet": 4
+   }
+  }
+ ],
+ "contests": {},
+ "counties": {
+  "kent": "10001",
+  "kent county": "10001",
+  "new castle": "10003",
+  "new castle county": "10003",
+  "sussex": "10005",
+  "sussex county": "10005"
+ },
+ "races": {
+  "2026-DE-AG": {
+   "cands": {
+    "general": [
+     [
+      "David C. \"Dave\" Graham",
+      "Republican",
+      0
+     ],
+     [
+      "Kathy Jennings",
+      "Democratic",
+      0
+     ],
+     [
+      "Phil Dyer, Jr.",
+      "Write-in",
+      1
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Dwayne J. Bensing",
+      "Democratic",
+      0
+     ],
+     [
+      "Kathy Jennings",
+      "Democratic",
+      0
+     ],
+     [
+      "Patty Rickman",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "attorney_general",
+   "level": "statewide",
+   "office": "Attorney General",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-AUD": {
+   "cands": {
+    "general": [
+     [
+      "April Callaway",
+      "Republican",
+      0
+     ],
+     [
+      "Austin Cassidy",
+      "Independent Party of Delaware",
+      0
+     ],
+     [
+      "Lydia York",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "state_auditor",
+   "level": "statewide",
+   "office": "Auditor of Accounts",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-H00": {
+   "cands": {
+    "general": [
+     [
+      "Earl Cooper",
+      "Write-in",
+      1
+     ],
+     [
+      "Joseph \"Dr. Joe\" Arminio",
+      "Republican",
+      0
+     ],
+     [
+      "Sarah McBride",
+      "Democratic",
+      0
+     ],
+     [
+      "Scott Walker",
+      "Write-in",
+      1
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Earl L. Cooper",
+      "Republican",
+      0
+     ],
+     [
+      "John J. Whalen",
+      "Republican",
+      0
+     ],
+     [
+      "Joseph \"Dr. Joe\" Arminio",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "00",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-S2": {
+   "cands": {
+    "general": [
+     [
+      "Chris Coons",
+      "Democratic",
+      0
+     ],
+     [
+      "John Shulli",
+      "Write-in",
+      1
+     ],
+     [
+      "Michael \"Dr. Mike\" Katz",
+      "Republican",
+      0
+     ],
+     [
+      "Travis Jack Stevens",
+      "Write-in",
+      1
+     ],
+     [
+      "William McVay",
+      "Write-in",
+      1
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Chris Coons",
+      "Democratic",
+      0
+     ],
+     [
+      "E. No-Trump Hansen",
+      "Democratic",
+      0
+     ],
+     [
+      "Jeff Appelhans",
+      "Democratic",
+      0
+     ],
+     [
+      "Mary Louve",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "John Shulli",
+      "Republican",
+      0
+     ],
+     [
+      "Michael \"Dr. Mike\" Katz",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "senate",
+   "level": "federal",
+   "office": "U.S. Senate",
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH1": {
+   "cands": {
+    "general": [
+     [
+      "Lisa McInnis",
+      "Republican",
+      0
+     ],
+     [
+      "Nnamdi O. Chukwuocha",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Nnamdi O. Chukwuocha",
+      "Democratic",
+      0
+     ],
+     [
+      "Shane Nicole Darby",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "1",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH10": {
+   "cands": {
+    "general": [
+     [
+      "Dolores Dunleavy",
+      "Republican",
+      0
+     ],
+     [
+      "Melanie Ross Levin",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "10",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH11": {
+   "cands": {
+    "general": [
+     [
+      "Jeffrey N. Spiegelman",
+      "Republican",
+      0
+     ],
+     [
+      "Tori Parker",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "11",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH12": {
+   "cands": {
+    "general": [
+     [
+      "Krista Griffith",
+      "Democratic",
+      0
+     ],
+     [
+      "Steve Pickering",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Krista Griffith",
+      "Democratic",
+      0
+     ],
+     [
+      "Robert F. Bahnsen Jr.",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "12",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH13": {
+   "cands": {
+    "general": [
+     [
+      "DeShanna U. Neal",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "13",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH14": {
+   "cands": {
+    "general": [
+     [
+      "Claire Snyder-Hall",
+      "Democratic",
+      0
+     ],
+     [
+      "Mike Simpler",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "14",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH15": {
+   "cands": {
+    "general": [
+     [
+      "Kamela T. Smith",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "15",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH16": {
+   "cands": {
+    "general": [
+     [
+      "Enala A. Mwashitete",
+      "Republican",
+      0
+     ],
+     [
+      "Pamela Salaam",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Franklin D. Cooke, Jr.",
+      "Democratic",
+      0
+     ],
+     [
+      "Pamela Salaam",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "16",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH17": {
+   "cands": {
+    "general": [
+     [
+      "Melissa Minor Brown",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "17",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH18": {
+   "cands": {
+    "general": [
+     [
+      "Sophie Phillips",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "18",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH19": {
+   "cands": {
+    "general": [
+     [
+      "Janyce Colmery",
+      "Republican",
+      0
+     ],
+     [
+      "Kim Williams",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Kim Williams",
+      "Democratic",
+      0
+     ],
+     [
+      "Will Imbrie-Moore",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "19",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH2": {
+   "cands": {
+    "general": [
+     [
+      "Michelle H. Booker",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Michelle H. Booker",
+      "Democratic",
+      0
+     ],
+     [
+      "Stephanie T. Bolden",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "2",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH20": {
+   "cands": {
+    "general": [
+     [
+      "Alonna Berry",
+      "Democratic",
+      0
+     ],
+     [
+      "Gene Dvornick",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Alonna Berry",
+      "Democratic",
+      0
+     ],
+     [
+      "Ruby Keeler Schaeffer",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "20",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH21": {
+   "cands": {
+    "general": [
+     [
+      "Frank Burns",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "21",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH22": {
+   "cands": {
+    "general": [
+     [
+      "Alex Green",
+      "Democratic",
+      0
+     ],
+     [
+      "Mike Smith",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "22",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH23": {
+   "cands": {
+    "general": [
+     [
+      "Dave Redlawsk",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Dan Seador",
+      "Democratic",
+      0
+     ],
+     [
+      "Dave Redlawsk",
+      "Democratic",
+      0
+     ],
+     [
+      "Joe Jasper",
+      "Democratic",
+      0
+     ],
+     [
+      "Luann D'Agostino",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "23",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH24": {
+   "cands": {
+    "general": [
+     [
+      "Ed Osienski",
+      "Democratic",
+      0
+     ],
+     [
+      "Stephen P. Ondich",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "24",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH25": {
+   "cands": {
+    "general": [
+     [
+      "Cyndie Romer",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "25",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH26": {
+   "cands": {
+    "general": [
+     [
+      "Madinah Wilson-Anton",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "26",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH27": {
+   "cands": {
+    "general": [
+     [
+      "Eric Morrison",
+      "Democratic",
+      0
+     ],
+     [
+      "Mary \"Penny\" Kubin",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Christopher W. Muntz",
+      "Democratic",
+      0
+     ],
+     [
+      "Eric Morrison",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "27",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH28": {
+   "cands": {
+    "general": [
+     [
+      "Tyeisha \"Tye\" Grier",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Tyeisha \"Tye\" Grier",
+      "Democratic",
+      0
+     ],
+     [
+      "William Carson Jr",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "28",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH29": {
+   "cands": {
+    "general": [
+     [
+      "William Bush",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "29",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH3": {
+   "cands": {
+    "general": [
+     [
+      "Branden Fletcher-Dominguez",
+      "Democratic",
+      0
+     ],
+     [
+      "Dexter \"Dizzy\" Bland",
+      "Independent Party of Delaware",
+      0
+     ],
+     [
+      "Shawn L. Dottery",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Branden Fletcher-Dominguez",
+      "Democratic",
+      0
+     ],
+     [
+      "Josue O. Ortega",
+      "Democratic",
+      0
+     ],
+     [
+      "LaDonna Graham",
+      "Democratic",
+      0
+     ],
+     [
+      "Yolanda M. McCoy",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "3",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH30": {
+   "cands": {
+    "general": [
+     [
+      "Wm Shannon Morris",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "30",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH31": {
+   "cands": {
+    "general": [
+     [
+      "Anton Brogden",
+      "Republican",
+      0
+     ],
+     [
+      "Sean M. Lynn",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "31",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH32": {
+   "cands": {
+    "general": [
+     [
+      "Kerri Evelyn Harris",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Kerri Evelyn Harris",
+      "Democratic",
+      0
+     ],
+     [
+      "LaChelle Paul",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "32",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH33": {
+   "cands": {
+    "general": [
+     [
+      "Joshua Pennington",
+      "Democratic",
+      0
+     ],
+     [
+      "Morgan Hudson",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Matt Bucher",
+      "Republican",
+      0
+     ],
+     [
+      "Morgan Hudson",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "33",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH34": {
+   "cands": {
+    "general": [
+     [
+      "Annie Norman",
+      "Democratic",
+      0
+     ],
+     [
+      "Lyndon D. Yearick",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "34",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH35": {
+   "cands": {
+    "general": [
+     [
+      "Jeremy Breeding",
+      "Write-in",
+      1
+     ],
+     [
+      "Jesse R. Vanderwende",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "35",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH36": {
+   "cands": {
+    "general": [
+     [
+      "Andrew \"Andy\" Gorlich",
+      "Democratic",
+      0
+     ],
+     [
+      "Bryan William Shupe",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Bryan William Shupe",
+      "Republican",
+      0
+     ],
+     [
+      "Patrick Smith",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "36",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH37": {
+   "cands": {
+    "general": [
+     [
+      "Valerie Jones Giltner",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "37",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH38": {
+   "cands": {
+    "general": [
+     [
+      "Carlie Carey",
+      "Republican",
+      0
+     ],
+     [
+      "Maureen Madden",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "38",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH39": {
+   "cands": {
+    "general": [
+     [
+      "Daniel B. Short",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "39",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH4": {
+   "cands": {
+    "general": [
+     [
+      "Dan Zitofsky",
+      "Republican",
+      0
+     ],
+     [
+      "Gregg Lindner",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "4",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH40": {
+   "cands": {
+    "general": [
+     [
+      "Timothy Dale Dukes",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "40",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH41": {
+   "cands": {
+    "general": [
+     [
+      "John Atkins",
+      "Republican",
+      0
+     ],
+     [
+      "Ryan Stuckey",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Doug Conaway",
+      "Republican",
+      0
+     ],
+     [
+      "Jacki Slonin",
+      "Republican",
+      0
+     ],
+     [
+      "John Atkins",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "41",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH5": {
+   "cands": {
+    "general": [
+     [
+      "Kendra Johnson",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "5",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH6": {
+   "cands": {
+    "general": [
+     [
+      "Rachel \"Rae\" Krantz",
+      "Democratic",
+      0
+     ],
+     [
+      "Tanya Hettler",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Ed Mulvihill",
+      "Democratic",
+      0
+     ],
+     [
+      "Rachel \"Rae\" Krantz",
+      "Democratic",
+      0
+     ],
+     [
+      "Ralf Santana",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "6",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH7": {
+   "cands": {
+    "general": [
+     [
+      "Larry Lambert",
+      "Democratic",
+      0
+     ],
+     [
+      "Shane Stoneman",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "7",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH8": {
+   "cands": {
+    "general": [
+     [
+      "Gary Taylor",
+      "Republican",
+      0
+     ],
+     [
+      "Sherae'a \"Rae\" Moore",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Lissa Brutus",
+      "Democratic",
+      0
+     ],
+     [
+      "Matt Powell",
+      "Democratic",
+      0
+     ],
+     [
+      "Sherae'a \"Rae\" Moore",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Gary Taylor",
+      "Republican",
+      0
+     ],
+     [
+      "Watara T.F. Heath",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "8",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SH9": {
+   "cands": {
+    "general": [
+     [
+      "Ayanna Khan-Flowers",
+      "Democratic",
+      0
+     ],
+     [
+      "Jamar Money",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Ayanna Khan-Flowers",
+      "Democratic",
+      0
+     ],
+     [
+      "Gemma E. Lowery",
+      "Democratic",
+      0
+     ],
+     [
+      "Michelle Wall",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "9",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SS1": {
+   "cands": {
+    "general": [
+     [
+      "Dan Cruce",
+      "Democratic",
+      0
+     ],
+     [
+      "Hildi Bachtle",
+      "Republican",
+      0
+     ],
+     [
+      "Steven Washington",
+      "Independent Party of Delaware",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Adriana Leela Bohm",
+      "Democratic",
+      0
+     ],
+     [
+      "Dan Cruce",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "1",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SS12": {
+   "cands": {
+    "general": [
+     [
+      "Mark Esposito",
+      "Republican",
+      0
+     ],
+     [
+      "Nicole Poore",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Keonna Watson",
+      "Democratic",
+      0
+     ],
+     [
+      "Nicole Poore",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "12",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SS13": {
+   "cands": {
+    "general": [
+     [
+      "Marie Pinkney",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "13",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SS14": {
+   "cands": {
+    "general": [
+     [
+      "Kyra L. Hoffner",
+      "Democratic",
+      0
+     ],
+     [
+      "Mark Pugh",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Chris Beardsley",
+      "Democratic",
+      0
+     ],
+     [
+      "Kyra L Hoffner",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "14",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SS15": {
+   "cands": {
+    "general": [
+     [
+      "Emily A. Thompson",
+      "Republican",
+      0
+     ],
+     [
+      "Nisha Lodhavia",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "15",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SS19": {
+   "cands": {
+    "general": [
+     [
+      "Brian G. Pettyjohn",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "19",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SS20": {
+   "cands": {
+    "general": [
+     [
+      "Gerald W. Hocker",
+      "Republican",
+      0
+     ],
+     [
+      "Harry S. Gold",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "20",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SS5": {
+   "cands": {
+    "general": [
+     [
+      "Brent Burdge",
+      "Republican",
+      0
+     ],
+     [
+      "Carolyn Frank",
+      "Independent Party of Delaware",
+      0
+     ],
+     [
+      "Shay Frisby",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Ray Seigfried",
+      "Democratic",
+      0
+     ],
+     [
+      "Shay Frisby",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "5",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SS7": {
+   "cands": {
+    "general": [
+     [
+      "Chris Rowe",
+      "Republican",
+      0
+     ],
+     [
+      "Spiros Mantzavinos",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Jose A. Lopez",
+      "Democratic",
+      0
+     ],
+     [
+      "Spiros Mantzavinos",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "7",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SS8": {
+   "cands": {
+    "general": [
+     [
+      "Mara Gorman",
+      "Democratic",
+      0
+     ],
+     [
+      "Shane Cavanaugh",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "8",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-SS9": {
+   "cands": {
+    "general": [
+     [
+      "Jack Walsh",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Dawn Briggs",
+      "Democratic",
+      0
+     ],
+     [
+      "Jack Walsh",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "9",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-DE-TREAS": {
+   "cands": {
+    "general": [
+     [
+      "Michael Ramone",
+      "Republican",
+      0
+     ],
+     [
+      "Ted Lauzen",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Michael Alexander Smith",
+      "Democratic",
+      0
+     ],
+     [
+      "Mike Miller",
+      "Democratic",
+      0
+     ],
+     [
+      "Ted Lauzen",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "state_treasurer",
+   "level": "statewide",
+   "office": "State Treasurer",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  }
+ },
+ "rule": "A contest is tied to a race only when exactly one race of the same office and district (and seat) fits. A candidate line is tied to a name as filed only when exactly one fits: the family name and a given name that fits. Everything else is listed with the reason and never shown.",
+ "source": "The ballot databases (Congress, and state and local), read only; the races and the names as filed.",
+ "state": "DE",
+ "v": 1
+}

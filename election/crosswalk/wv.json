@@ -1,0 +1,2557 @@
+{
+ "v": 1,
+ "state": "WV",
+ "family": "clarity",
+ "built": "2026-10-10",
+ "from": [
+  "ballot_2026.sqlite: races, candidates (general list)",
+  "ballot_local_2026.sqlite: sl_races, sl_candidates (statewide and legislature), sl_places (county names, from the Census Bureau's county file)"
+ ],
+ "rule": "A feed contest is tied to a race by its title (office words, district number, unexpired or special) and, in a primary, its party; a contest that fits no race or more than one is listed, never shown. Names as printed are tied to names as filed by family name and first initial, one fit only.",
+ "counties": {
+  "barbour": "54001",
+  "berkeley": "54003",
+  "boone": "54005",
+  "braxton": "54007",
+  "brooke": "54009",
+  "cabell": "54011",
+  "calhoun": "54013",
+  "clay": "54015",
+  "doddridge": "54017",
+  "fayette": "54019",
+  "gilmer": "54021",
+  "grant": "54023",
+  "greenbrier": "54025",
+  "hampshire": "54027",
+  "hancock": "54029",
+  "hardy": "54031",
+  "harrison": "54033",
+  "jackson": "54035",
+  "jefferson": "54037",
+  "kanawha": "54039",
+  "lewis": "54041",
+  "lincoln": "54043",
+  "logan": "54045",
+  "mcdowell": "54047",
+  "marion": "54049",
+  "marshall": "54051",
+  "mason": "54053",
+  "mercer": "54055",
+  "mineral": "54057",
+  "mingo": "54059",
+  "monongalia": "54061",
+  "monroe": "54063",
+  "morgan": "54065",
+  "nicholas": "54067",
+  "ohio": "54069",
+  "pendleton": "54071",
+  "pleasants": "54073",
+  "pocahontas": "54075",
+  "preston": "54077",
+  "putnam": "54079",
+  "raleigh": "54081",
+  "randolph": "54083",
+  "ritchie": "54085",
+  "roane": "54087",
+  "summers": "54089",
+  "taylor": "54091",
+  "tucker": "54093",
+  "tyler": "54095",
+  "upshur": "54097",
+  "wayne": "54099",
+  "webster": "54101",
+  "wetzel": "54103",
+  "wirt": "54105",
+  "wood": "54107",
+  "wyoming": "54109"
+ },
+ "races": [
+  {
+   "id": "2026-WV-H01",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "1",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Carol Miller",
+     "Republican"
+    ],
+    [
+     "Vince George",
+     "Democrat"
+    ],
+    [
+     "Belinda Fox-Spencer",
+     "Constitution"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-H02",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "2",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Riley Moore",
+     "Republican"
+    ],
+    [
+     "Ace Parsi",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-S2",
+   "level": "federal",
+   "kind": "S",
+   "office": "U.S. Senate",
+   "district": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Shelley Moore Capito",
+     "Republican"
+    ],
+    [
+     "Rachel Fetty Anderson",
+     "Democrat"
+    ],
+    [
+     "S. Marshall Wilson",
+     "Constitution"
+    ],
+    [
+     "Rio Phillips",
+     "Write-in"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH1",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "1",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Pat McGeehan",
+     "Republican"
+    ],
+    [
+     "Quincy Wilson",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH10",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "10",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Christopher Jones",
+     "Democrat"
+    ],
+    [
+     "Justin Beanard",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH100",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "100",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jenny Thacker",
+     "Democrat"
+    ],
+    [
+     "William Ridenour",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH11",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "11",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Daniel Miller",
+     "Democrat"
+    ],
+    [
+     "Jeff S. Sandy",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH12",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "12",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Charles D. Hartzog",
+     "Republican"
+    ],
+    [
+     "Dennis V. Rempel",
+     "Democrat"
+    ],
+    [
+     "Stephen Thomas Smith",
+     "Libertarian"
+    ],
+    [
+     "Vernon Criss",
+     "Write-in"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH13",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "13",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "James Hendershot Jr",
+     "Independent"
+    ],
+    [
+     "Marley Umensetter",
+     "Democrat"
+    ],
+    [
+     "Melissa McCrady",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH14",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "14",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Crystal Butcher",
+     "Democrat"
+    ],
+    [
+     "Dave Foggin",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH15",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "15",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Erica J. Moore",
+     "Republican"
+    ],
+    [
+     "Tye Ward",
+     "Libertarian"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH16",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "16",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Frederick Happy Joe Parsons",
+     "Republican"
+    ],
+    [
+     "Jason M. Barr",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH17",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "17",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jonathan Adam Pinson",
+     "Republican"
+    ],
+    [
+     "Kathryn \"Kat\" Weiland",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH18",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "18",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jim Butler",
+     "Republican"
+    ],
+    [
+     "Jonathan Hersman",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH19",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "19",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kathie Hess Crouse",
+     "Republican"
+    ],
+    [
+     "Nolan Rose",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH2",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "2",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Daniel Joseph Day",
+     "Democrat"
+    ],
+    [
+     "Tony Viola",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH20",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "20",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Sarah Drennan",
+     "Republican"
+    ],
+    [
+     "Tonya Patrick Shuler",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH21",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "21",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "C. D. Caldwell",
+     "Republican"
+    ],
+    [
+     "Michael G. Mosteller II",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH22",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "22",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Aaron Holley",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH23",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "23",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Amanda Beth Beach-Burge",
+     "Democrat"
+    ],
+    [
+     "Evan Worrell",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH24",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "24",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Patrick Lucas",
+     "Republican"
+    ],
+    [
+     "Steve Williams",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH25",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "25",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Sean Hornbuckle",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH26",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "26",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Matthew Rohrbach",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH27",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "27",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Gordon Ramey II",
+     "Republican"
+    ],
+    [
+     "Ric Griffith",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH28",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "28",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brooke Smith",
+     "Democrat"
+    ],
+    [
+     "Ryan Browning",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH29",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "29",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Henry Corby Dillon",
+     "Republican"
+    ],
+    [
+     "Wendy Coleman",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH3",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "3",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dave Cantrell",
+     "Independent"
+    ],
+    [
+     "Jimmy Willis",
+     "Republican"
+    ],
+    [
+     "Mike Robinson",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH30",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "30",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jeff Eldridge",
+     "Republican"
+    ],
+    [
+     "Ryan Cledith Elkins",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH31",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "31",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "George C. Barker",
+     "Democrat"
+    ],
+    [
+     "Margitta Mazzocchi",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH32",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "32",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jennifer Bias Bryant",
+     "Democrat"
+    ],
+    [
+     "Josh Holstein",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH33",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "33",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Chris Tipton",
+     "Republican"
+    ],
+    [
+     "Leroy Dehart",
+     "Independent"
+    ],
+    [
+     "Michael B. (Mickey) Browning",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH34",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "34",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Barry C. Marcum",
+     "Republican"
+    ],
+    [
+     "Tara \"Babyt\" Sexton",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH35",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "35",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "John Morgan",
+     "Republican"
+    ],
+    [
+     "Rachael Hawkins-Church",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH36",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "36",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "David Green",
+     "Republican"
+    ],
+    [
+     "Katelynn Jordan",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH37",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "37",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Marty Gearheart",
+     "Republican"
+    ],
+    [
+     "Treyvon Simmons",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH38",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "38",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Joe C. Ellington Jr",
+     "Republican"
+    ],
+    [
+     "Randa D Faulkner",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH39",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "39",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brianna A Pearcy",
+     "Democrat"
+    ],
+    [
+     "Ronnie Oakley",
+     "No Party Affiliation"
+    ],
+    [
+     "Samuel Lusk",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH4",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "4",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Derek Ennis",
+     "Republican"
+    ],
+    [
+     "Joe Jividen",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH40",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "40",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jennifer Gilkerson",
+     "Democrat"
+    ],
+    [
+     "Roy G. Cooper",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH41",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "41",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Curtis Shaver",
+     "Democrat"
+    ],
+    [
+     "Jordan Allen Maynor",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH42",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "42",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Courtney Vandall",
+     "Democrat"
+    ],
+    [
+     "John K Jordan",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH43",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "43",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Christopher W Toney",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH44",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "44",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Carl Bill Roop",
+     "Republican"
+    ],
+    [
+     "Christina Baisden",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH45",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "45",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Christopher Ratliff",
+     "Write-in"
+    ],
+    [
+     "Eric Brooks",
+     "Republican"
+    ],
+    [
+     "Joseph Golden",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH46",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "46",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jeff Campbell",
+     "Republican"
+    ],
+    [
+     "Sarah Umberger",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH47",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "47",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Ray Canterbury",
+     "Republican"
+    ],
+    [
+     "Sarah Morris",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH48",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "48",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jourdan Deitz",
+     "Democrat"
+    ],
+    [
+     "Mackenzie Holdren",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH49",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "49",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Byron Tucker Jr",
+     "Democrat"
+    ],
+    [
+     "Newt McCutcheon",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH5",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "5",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Beth Hinebaugh",
+     "Republican"
+    ],
+    [
+     "Karen Shuler Stakem",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH50",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "50",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Eric Walton",
+     "Write-in"
+    ],
+    [
+     "J. Pino",
+     "Democrat"
+    ],
+    [
+     "Mathew Anderson",
+     "Democrat"
+    ],
+    [
+     "Stacey L Hensley",
+     "Constitution"
+    ],
+    [
+     "Tom Louisos",
+     "Independent"
+    ],
+    [
+     "William Jennings Vest",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH51",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "51",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Colby A. Lopez",
+     "Democrat"
+    ],
+    [
+     "Cy Persinger",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH52",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "52",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Joyce Brown",
+     "Democrat"
+    ],
+    [
+     "Tresa Howell",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH53",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "53",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Keena Mullins",
+     "Democrat"
+    ],
+    [
+     "Tristan Leavitt",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH54",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "54",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mike Pushkin",
+     "Democrat"
+    ],
+    [
+     "Tara Martinez",
+     "Independent"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH55",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "55",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Anthony Dasaro",
+     "Democrat"
+    ],
+    [
+     "J.B. Akers",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH56",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "56",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kayla Young",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH57",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "57",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Hollis T. Lewis",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH58",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "58",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Marisa Jackson",
+     "Democrat"
+    ],
+    [
+     "Walter Hall",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH59",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "59",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Andy Shamblin",
+     "Republican"
+    ],
+    [
+     "Howard \"Cookie\" Claytor III",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH6",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "6",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Cody Cumpston",
+     "Democrat"
+    ],
+    [
+     "Don Dewitt",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH60",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "60",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dana J. Ferrell",
+     "Republican"
+    ],
+    [
+     "Lynette Shaw",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH61",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "61",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dean Jeffries",
+     "Republican"
+    ],
+    [
+     "Sue Crawford",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH62",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "62",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Roger Hanshaw",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH63",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "63",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kevin Westley Carpenter",
+     "Democrat"
+    ],
+    [
+     "Lori Cowger Dittman",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH64",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "64",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Adam Burkhammer",
+     "Republican"
+    ],
+    [
+     "Nate Stansberry",
+     "Constitution"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH65",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "65",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Carl \"Robbie\" Martin",
+     "Republican"
+    ],
+    [
+     "Mira Tanner-Hughes",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH66",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "66",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Danielle M. Dougherty",
+     "Democrat"
+    ],
+    [
+     "Jonathan B. Kyle",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH67",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "67",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Les Mallow",
+     "Republican"
+    ],
+    [
+     "Mandy Weirich",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH68",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "68",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Chris Phillips",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH69",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "69",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Danny Hamrick",
+     "Republican"
+    ],
+    [
+     "Jocelyn Blackwell",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH7",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "7",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Charles R. Sheedy Sr",
+     "Republican"
+    ],
+    [
+     "Sarah Reggi",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH70",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "70",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Paul J. Howe III",
+     "Republican"
+    ],
+    [
+     "Shannon Welsh",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH71",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "71",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Robert \"Rob\" Garcia",
+     "Democrat"
+    ],
+    [
+     "Tim McNeely",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH72",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "72",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Clay Riley",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH73",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "73",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Frank Sturm",
+     "Republican"
+    ],
+    [
+     "Kit (Kathleen) Ford",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH74",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "74",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Frankie Delapas",
+     "Democrat"
+    ],
+    [
+     "Guy Ward",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH75",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "75",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Linda Longstreth",
+     "Democrat"
+    ],
+    [
+     "Phil Mallow",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH76",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "76",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jon Dodds",
+     "Republican"
+    ],
+    [
+     "Rick Garcia",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH77",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "77",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Joe Statler",
+     "Republican"
+    ],
+    [
+     "Patricia Andrea Bunner",
+     "Democrat"
+    ],
+    [
+     "Susan M Buchser",
+     "Write-in"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH78",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "78",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Geno Chiarelli",
+     "Republican"
+    ],
+    [
+     "Michael Wendell",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH79",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "79",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Evan Hansen",
+     "Democrat"
+    ],
+    [
+     "Paige Reiring",
+     "Mountain"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH8",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "8",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Steven L. Smith",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH80",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "80",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Melissa Ann Deserio",
+     "Constitution"
+    ],
+    [
+     "Olivia Miller",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH81",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "81",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Anitra Hamilton",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH82",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "82",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "David McCormick",
+     "Republican"
+    ],
+    [
+     "Eddie Wagoner",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH83",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "83",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "George Street",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH84",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "84",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Colin Savage",
+     "Democrat"
+    ],
+    [
+     "D.R. Buck Jennings",
+     "Republican"
+    ],
+    [
+     "Joshua Lee Haskiell",
+     "No Party Affiliation"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH85",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "85",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Alex D. Bosley",
+     "Republican"
+    ],
+    [
+     "Deborah K Stiles",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH86",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "86",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Betsy Orndoff-Sayers",
+     "Democrat"
+    ],
+    [
+     "Steven Schetrom",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH87",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "87",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Gary G. Howell",
+     "Republican"
+    ],
+    [
+     "Rebecca Holler",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH88",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "88",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dorothy L. Kengla",
+     "Democrat"
+    ],
+    [
+     "Rick Hillenbrand",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH89",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "89",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "David Cannon",
+     "Republican"
+    ],
+    [
+     "J R Hepworth",
+     "Democrat"
+    ],
+    [
+     "Walter S. Long Sr",
+     "Constitution"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH9",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "9",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kerry G. Murphy",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH90",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "90",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Ashley Braner",
+     "Democrat"
+    ],
+    [
+     "George Miller",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH91",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "91",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Chris Clagett",
+     "Republican"
+    ],
+    [
+     "David Michaels",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH92",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "92",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brad Noll",
+     "Democrat"
+    ],
+    [
+     "Michael Hite",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH93",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "93",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mike Hornby",
+     "Republican"
+    ],
+    [
+     "Tara B McCoy",
+     "Constitution"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH94",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "94",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Donald Lee Bennett",
+     "Republican"
+    ],
+    [
+     "Elizabeth Sanchez",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH95",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "95",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Charles \"Chuck\" Horst",
+     "Republican"
+    ],
+    [
+     "Daniel Walls",
+     "Constitution"
+    ],
+    [
+     "Kara Waldeck",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH96",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "96",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Becky Jane Dunmire",
+     "Constitution"
+    ],
+    [
+     "Katie Rose",
+     "Republican"
+    ],
+    [
+     "Lisa Cathro",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH97",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "97",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Lucia Valentine",
+     "Democrat"
+    ],
+    [
+     "S. Chris Anders",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH98",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "98",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Joe Funkhouser",
+     "Republican"
+    ],
+    [
+     "Marta Beck",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SH99",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Member of the House of Delegates",
+   "district": "99",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Regina Dyer",
+     "Democrat"
+    ],
+    [
+     "Wayne M. Clark",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SS1",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "1",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Laura Wakim Chapman",
+     "Republican"
+    ],
+    [
+     "Shawn Fluharty",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SS10",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "10",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kent Gilkerson",
+     "Democrat"
+    ],
+    [
+     "Vince Deeds",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SS11",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "11",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Bill Hamilton",
+     "Republican"
+    ],
+    [
+     "Kevin Leon Carpenter",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SS12",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "12",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Ben Queen",
+     "Republican"
+    ],
+    [
+     "Lynette Murray",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SS13",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "13",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "John Williams",
+     "Democrat"
+    ],
+    [
+     "Mike Oliverio",
+     "Republican"
+    ],
+    [
+     "Taylor Richmond",
+     "Libertarian"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SS14",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "14",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jason Armentrout",
+     "Democrat"
+    ],
+    [
+     "Jay Taylor",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SS15",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "15",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Darren J Thorne",
+     "Republican"
+    ],
+    [
+     "Elizabeth Ferris",
+     "Democrat"
+    ],
+    [
+     "Ken Reed",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SS16",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "16",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jason Barrett",
+     "Republican"
+    ],
+    [
+     "Travis L. Bost",
+     "Libertarian"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SS17",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "17",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Tom Takubo",
+     "Republican"
+    ],
+    [
+     "Wes Holden",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SS17-UNEXP",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "17",
+   "seat": "Unexpired term",
+   "special": 1,
+   "seats": 1,
+   "names": [
+    [
+     "Anne B. Charnock",
+     "Republican"
+    ],
+    [
+     "Richie Robb",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SS2",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "2",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Chris Claypole",
+     "Democrat"
+    ],
+    [
+     "Toby Heaney",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SS3",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "3",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Caci Petrehn",
+     "Democrat"
+    ],
+    [
+     "Mike Azinger",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SS3-UNEXP",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "3",
+   "seat": "Unexpired term",
+   "special": 1,
+   "seats": 1,
+   "names": [
+    [
+     "Ronnie Green",
+     "Constitution"
+    ],
+    [
+     "Trenton Carl Barnhart",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SS4",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "4",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Eric J. Tarr",
+     "Republican"
+    ],
+    [
+     "Stephanie E Butcher",
+     "Libertarian"
+    ],
+    [
+     "Zachary Abbott",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SS5",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "5",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Chris Miller",
+     "Republican"
+    ],
+    [
+     "Duron Jackson",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SS6",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "6",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mark R Maynard",
+     "Republican"
+    ],
+    [
+     "Wyatt Lilly",
+     "Democrat"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SS7",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "7",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Cindy Brake",
+     "Democrat"
+    ],
+    [
+     "Shawn Legg",
+     "Independent"
+    ],
+    [
+     "Zack Maynard",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SS8",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "8",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kim Hundley",
+     "Democrat"
+    ],
+    [
+     "Lance Wheeler",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-WV-SS9",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "9",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Christy Cardwell",
+     "Democrat"
+    ],
+    [
+     "Rollan Roberts",
+     "Republican"
+    ]
+   ]
+  }
+ ],
+ "aliases": {},
+ "elections": {
+  "126209": {
+   "kind": "primary",
+   "date": "2026-05-12",
+   "use": "rehearsal and the replay check"
+  }
+ },
+ "checked": {},
+ "notes": []
+}

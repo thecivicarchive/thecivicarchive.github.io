@@ -1,0 +1,2807 @@
+{
+"_about": "Wyoming's 2026 races for Congress, statewide offices, the Legislature and judges' retention (read only from the ballot databases) and what ties a table of the Secretary of State's summaries to each: the office class, the district, a retention's judge, the candidates' names as filed for each 2026 election; and the counties' FIPS codes by name.",
+"built": "2026-10-10",
+"counties": {
+"Albany": "56001",
+"Big Horn": "56003",
+"Campbell": "56005",
+"Carbon": "56007",
+"Converse": "56009",
+"Crook": "56011",
+"Fremont": "56013",
+"Goshen": "56015",
+"Hot Springs": "56017",
+"Johnson": "56019",
+"Laramie": "56021",
+"Lincoln": "56023",
+"Natrona": "56025",
+"Niobrara": "56027",
+"Park": "56029",
+"Platte": "56031",
+"Sheridan": "56033",
+"Sublette": "56035",
+"Sweetwater": "56037",
+"Teton": "56039",
+"Uinta": "56041",
+"Washakie": "56043",
+"Weston": "56045"
+},
+"races": {
+"2026-WY-AUD": {
+"cls": "state_auditor",
+"district": null,
+"judge": null,
+"level": "statewide",
+"names": {
+"general": [
+[
+"Kristi Racines",
+"Republican",
+0
+]
+]
+},
+"office": "State Auditor"
+},
+"2026-WY-CCRET1-CHAMBERS": {
+"cls": "circuit_court_retention",
+"district": "1",
+"judge": "CHAMBERS",
+"level": "court",
+"names": {
+"general": [
+[
+"Sean C. Chambers",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Circuit Court Judge (retention vote)"
+},
+"2026-WY-CCRET1-FORWOOD": {
+"cls": "circuit_court_retention",
+"district": "1",
+"judge": "FORWOOD",
+"level": "court",
+"names": {
+"general": [
+[
+"Timothy (TJ) Forwood",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Circuit Court Judge (retention vote)"
+},
+"2026-WY-CCRET2-SANFORD": {
+"cls": "circuit_court_retention",
+"district": "2",
+"judge": "SANFORD",
+"level": "court",
+"names": {
+"general": [
+[
+"Robert J. Sanford",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Circuit Court Judge (retention vote)"
+},
+"2026-WY-CCRET3-PROKOS": {
+"cls": "circuit_court_retention",
+"district": "3",
+"judge": "PROKOS",
+"level": "court",
+"names": {
+"general": [
+[
+"John R. Prokos",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Circuit Court Judge (retention vote)"
+},
+"2026-WY-CCRET6-STEWARD": {
+"cls": "circuit_court_retention",
+"district": "6",
+"judge": "STEWARD",
+"level": "court",
+"names": {
+"general": [
+[
+"Greg R. Steward",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Circuit Court Judge (retention vote)"
+},
+"2026-WY-CCRET7-SWEET": {
+"cls": "circuit_court_retention",
+"district": "7",
+"judge": "SWEET",
+"level": "court",
+"names": {
+"general": [
+[
+"Cynthia Sweet",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Circuit Court Judge (retention vote)"
+},
+"2026-WY-CCRET8-ALLAN": {
+"cls": "circuit_court_retention",
+"district": "8",
+"judge": "ALLAN",
+"level": "court",
+"names": {
+"general": [
+[
+"Clark C. Allan",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Circuit Court Judge (retention vote)"
+},
+"2026-WY-CCRET8-BROWN": {
+"cls": "circuit_court_retention",
+"district": "8",
+"judge": "BROWN",
+"level": "court",
+"names": {
+"general": [
+[
+"Jacqueline K. Brown",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Circuit Court Judge (retention vote)"
+},
+"2026-WY-CCRET9-COOMBS": {
+"cls": "circuit_court_retention",
+"district": "9",
+"judge": "COOMBS",
+"level": "court",
+"names": {
+"general": [
+[
+"Jefferson Boone Coombs",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Circuit Court Judge (retention vote)"
+},
+"2026-WY-CCRET9-WEISMAN": {
+"cls": "circuit_court_retention",
+"district": "9",
+"judge": "WEISMAN",
+"level": "court",
+"names": {
+"general": [
+[
+"Erin E. Weisman",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Circuit Court Judge (retention vote)"
+},
+"2026-WY-CHCRET-BURNINGHAM": {
+"cls": "chancery_court_retention",
+"district": null,
+"judge": "BURNINGHAM",
+"level": "court",
+"names": {
+"general": [
+[
+"Ben Burningham",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Judge of the Chancery Court (retention vote)"
+},
+"2026-WY-DCRET1-COOLEY": {
+"cls": "district_court_retention",
+"district": "1",
+"judge": "COOLEY",
+"level": "court",
+"names": {
+"general": [
+[
+"Robin S. Cooley",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Judge of the District Court (retention vote)"
+},
+"2026-WY-DCRET1-HIBBEN": {
+"cls": "district_court_retention",
+"district": "1",
+"judge": "HIBBEN",
+"level": "court",
+"names": {
+"general": [
+[
+"Nathaniel S. Hibben",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Judge of the District Court (retention vote)"
+},
+"2026-WY-DCRET3-ROBINSON": {
+"cls": "district_court_retention",
+"district": "3",
+"judge": "ROBINSON",
+"level": "court",
+"names": {
+"general": [
+[
+"Suzannah G. Robinson",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Judge of the District Court (retention vote)"
+},
+"2026-WY-DCRET5-OVERFIELD": {
+"cls": "district_court_retention",
+"district": "5",
+"judge": "OVERFIELD",
+"level": "court",
+"names": {
+"general": [
+[
+"Bobbi Overfield",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Judge of the District Court (retention vote)"
+},
+"2026-WY-DCRET6-MCGRADY": {
+"cls": "district_court_retention",
+"district": "6",
+"judge": "MCGRADY",
+"level": "court",
+"names": {
+"general": [
+[
+"Michael J. McGrady",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Judge of the District Court (retention vote)"
+},
+"2026-WY-DCRET7-FORGEY": {
+"cls": "district_court_retention",
+"district": "7",
+"judge": "FORGEY",
+"level": "court",
+"names": {
+"general": [
+[
+"Daniel Forgey",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Judge of the District Court (retention vote)"
+},
+"2026-WY-DCRET7-JOHNSON": {
+"cls": "district_court_retention",
+"district": "7",
+"judge": "JOHNSON",
+"level": "court",
+"names": {
+"general": [
+[
+"Kerri M. Johnson",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Judge of the District Court (retention vote)"
+},
+"2026-WY-DCRET9-CONDER": {
+"cls": "district_court_retention",
+"district": "9",
+"judge": "CONDER",
+"level": "court",
+"names": {
+"general": [
+[
+"Jason M. Conder",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Judge of the District Court (retention vote)"
+},
+"2026-WY-GOV": {
+"cls": "governor",
+"district": null,
+"judge": null,
+"level": "statewide",
+"names": {
+"general": [
+[
+"Eric Barlow",
+"Republican",
+0
+],
+[
+"Kenneth R. Casner",
+"Democratic",
+0
+],
+[
+"Rebecca Bextel",
+"Constitution",
+0
+]
+],
+"primary-REP": [
+[
+"Eric Barlow",
+"Republican",
+0
+],
+[
+"Brent Bien",
+"Republican",
+0
+],
+[
+"Curt Blake",
+"Republican",
+0
+],
+[
+"Megan Degenfelder",
+"Republican",
+0
+]
+]
+},
+"office": "Governor"
+},
+"2026-WY-H00": {
+"cls": "us_house",
+"district": null,
+"judge": null,
+"level": "congress",
+"names": {
+"general": [
+[
+"Chuck Gray",
+"Republican",
+0
+],
+[
+"Lisa Kinney",
+"Democratic",
+0
+],
+[
+"Shawn Johnson",
+"Libertarian",
+0
+],
+[
+"Jeffrey Haggit",
+"Constitution",
+0
+]
+],
+"primary-DEM": [
+[
+"Elena Del Real",
+"Democratic",
+0
+],
+[
+"Lisa Kinney",
+"Democratic",
+0
+]
+],
+"primary-REP": [
+[
+"Jillian Balow",
+"Republican",
+0
+],
+[
+"Bo Biteman",
+"Republican",
+0
+],
+[
+"Kevin Christensen",
+"Republican",
+0
+],
+[
+"Richard Dodson",
+"Republican",
+0
+],
+[
+"Steve Friess",
+"Republican",
+0
+],
+[
+"David Giralt",
+"Republican",
+0
+],
+[
+"Keith B. Goodenough",
+"Republican",
+0
+],
+[
+"Chuck Gray",
+"Republican",
+0
+],
+[
+"Reid Rasner",
+"Republican",
+0
+],
+[
+"Frank Chapman",
+"Republican",
+0
+]
+]
+},
+"office": "U.S. House"
+},
+"2026-WY-S2": {
+"cls": "us_senate",
+"district": null,
+"judge": null,
+"level": "congress",
+"names": {
+"general": [
+[
+"Harriet Hageman",
+"Republican",
+0
+],
+[
+"James Byrd",
+"Democratic",
+0
+]
+],
+"primary-DEM": [
+[
+"Billy Benavidez",
+"Democratic",
+0
+],
+[
+"James Byrd",
+"Democratic",
+0
+]
+],
+"primary-REP": [
+[
+"Jill M Edwards",
+"Republican",
+0
+],
+[
+"Harriet Hageman",
+"Republican",
+0
+],
+[
+"John Holtz",
+"Republican",
+0
+],
+[
+"Sam Mead",
+"Republican",
+0
+],
+[
+"Jimmy Skovgard",
+"Republican",
+0
+]
+]
+},
+"office": "U.S. Senate"
+},
+"2026-WY-SCRET-HILL": {
+"cls": "supreme_court_retention",
+"district": null,
+"judge": "HILL",
+"level": "court",
+"names": {
+"general": [
+[
+"Bridget Hill",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Justice of the Supreme Court (retention vote)"
+},
+"2026-WY-SCRET-JAROSH": {
+"cls": "supreme_court_retention",
+"district": null,
+"judge": "JAROSH",
+"level": "court",
+"names": {
+"general": [
+[
+"Robert C. Jarosh",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Justice of the Supreme Court (retention vote)"
+},
+"2026-WY-SH1": {
+"cls": "state_house",
+"district": "1",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Troy Claycomb",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Troy Claycomb",
+"Republican",
+0
+],
+[
+"Zeta Nuckolls Anderson",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH10": {
+"cls": "state_house",
+"district": "10",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Justin Fornstrom",
+"Republican",
+0
+],
+[
+"Tony Perry",
+"Constitution",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH11": {
+"cls": "state_house",
+"district": "11",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Dan McIntosh",
+"Republican",
+0
+],
+[
+"Britney Tennant",
+"Democratic",
+0
+],
+[
+"Ryan Shollenberger",
+"Libertarian",
+0
+]
+],
+"primary-REP": [
+[
+"Dan McIntosh",
+"Republican",
+0
+],
+[
+"Paul Wing",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH12": {
+"cls": "state_house",
+"district": "12",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Clarence Styvar",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH13": {
+"cls": "state_house",
+"district": "13",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Shane Swett",
+"Republican",
+0
+],
+[
+"Ken Chestek",
+"Democratic",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH14": {
+"cls": "state_house",
+"district": "14",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Emily Study",
+"Republican",
+0
+],
+[
+"Trey Sherwood",
+"Democratic",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH15": {
+"cls": "state_house",
+"district": "15",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Pamela Thayer",
+"Republican",
+0
+],
+[
+"Cheryl Hulme",
+"Constitution",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH16": {
+"cls": "state_house",
+"district": "16",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Mike Yin",
+"Democratic",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH17": {
+"cls": "state_house",
+"district": "17",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Elizabeth Bingham",
+"Republican",
+0
+],
+[
+"Rah Reinholz",
+"Democratic",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH18": {
+"cls": "state_house",
+"district": "18",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Kenneth D Roberts",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Scott Heiner",
+"Republican",
+0
+],
+[
+"Kenneth D Roberts",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH19": {
+"cls": "state_house",
+"district": "19",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Chad Stephens",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Chad Stephens",
+"Republican",
+0
+],
+[
+"Joe Webb",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH2": {
+"cls": "state_house",
+"district": "2",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"JD Williams",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH20": {
+"cls": "state_house",
+"district": "20",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Albert Sommers",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Matt McGinnis",
+"Republican",
+0
+],
+[
+"Albert Sommers",
+"Republican",
+0
+],
+[
+"Bill Winney",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH21": {
+"cls": "state_house",
+"district": "21",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"McKay L. Erickson",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH22": {
+"cls": "state_house",
+"district": "22",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Andrew Byron",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH23": {
+"cls": "state_house",
+"district": "23",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Shannon A. Brennan",
+"Republican",
+0
+],
+[
+"Liz Storer",
+"Democratic",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH24": {
+"cls": "state_house",
+"district": "24",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Quin Blair",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Quin Blair",
+"Republican",
+0
+],
+[
+"Nina Webber",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH25": {
+"cls": "state_house",
+"district": "25",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"John Wetzel",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Matthew R Legler",
+"Republican",
+0
+],
+[
+"John Wetzel",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH26": {
+"cls": "state_house",
+"district": "26",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Dalton Banks",
+"Republican",
+0
+],
+[
+"Ralph Nieder-Westermann",
+"Democratic",
+0
+]
+],
+"primary-REP": [
+[
+"J. Addison Aagard",
+"Republican",
+0
+],
+[
+"Dalton Banks",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH27": {
+"cls": "state_house",
+"district": "27",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Martha Lawley",
+"Republican",
+0
+],
+[
+"Theresa Livingston",
+"Democratic",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH28": {
+"cls": "state_house",
+"district": "28",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Allen Hogg",
+"Republican",
+0
+],
+[
+"Larry Alwin",
+"Democratic",
+0
+]
+],
+"primary-REP": [
+[
+"Allen Hogg",
+"Republican",
+0
+],
+[
+"Carlin Jones",
+"Republican",
+0
+],
+[
+"Marshall Keller",
+"Republican",
+0
+],
+[
+"Roland Luehne",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH29": {
+"cls": "state_house",
+"district": "29",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Myca Sturtevant",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Noll Roberts",
+"Republican",
+0
+],
+[
+"Myca Sturtevant",
+"Republican",
+0
+],
+[
+"James Temple",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH3": {
+"cls": "state_house",
+"district": "3",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Earl Collier",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Earl Collier",
+"Republican",
+0
+],
+[
+"Anne Ziegenhorn",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH30": {
+"cls": "state_house",
+"district": "30",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Ryan Koltiska",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Mark Jennings",
+"Republican",
+0
+],
+[
+"Ryan Koltiska",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH31": {
+"cls": "state_house",
+"district": "31",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Douglas Moore",
+"Republican",
+0
+],
+[
+"Dave Hardesty",
+"Independent",
+0
+]
+],
+"primary-REP": [
+[
+"John W. Bear",
+"Republican",
+0
+],
+[
+"Douglas Moore",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH32": {
+"cls": "state_house",
+"district": "32",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Ken Clouston",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH33": {
+"cls": "state_house",
+"district": "33",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Justin Morgan",
+"Republican",
+0
+],
+[
+"Ivan D. Posey",
+"Democratic",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH34": {
+"cls": "state_house",
+"district": "34",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Pepper L Ottman",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH35": {
+"cls": "state_house",
+"district": "35",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Christopher Dresang",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Christopher Dresang",
+"Republican",
+0
+],
+[
+"Tony Locke",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH36": {
+"cls": "state_house",
+"district": "36",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Art Washut",
+"Republican",
+0
+],
+[
+"Stewart McAdoo",
+"Democratic",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH37": {
+"cls": "state_house",
+"district": "37",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Brian Costello",
+"Republican",
+0
+],
+[
+"Betsy Erickson",
+"Democratic",
+0
+]
+],
+"primary-REP": [
+[
+"Brian Costello",
+"Republican",
+0
+],
+[
+"Donna Rice",
+"Republican",
+0
+],
+[
+"Ross Schriftman",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH38": {
+"cls": "state_house",
+"district": "38",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Robert L. Hendry",
+"Republican",
+0
+],
+[
+"Catherine McQueen",
+"Democratic",
+0
+]
+],
+"primary-REP": [
+[
+"Robert L. Hendry",
+"Republican",
+0
+],
+[
+"Jayme Lien",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH39": {
+"cls": "state_house",
+"district": "39",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Cody Wylie",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH4": {
+"cls": "state_house",
+"district": "4",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jeremy Haroldson",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH40": {
+"cls": "state_house",
+"district": "40",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Marilyn Connolly",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Marilyn Connolly",
+"Republican",
+0
+],
+[
+"Mark Jones",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH41": {
+"cls": "state_house",
+"district": "41",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Erin Edwards",
+"Republican",
+0
+],
+[
+"Stacy Becker",
+"Democratic",
+0
+]
+],
+"primary-REP": [
+[
+"Gary Brown",
+"Republican",
+0
+],
+[
+"Erin Edwards",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH42": {
+"cls": "state_house",
+"district": "42",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Rob Geringer",
+"Republican",
+0
+],
+[
+"Jim VanDyke",
+"Democratic",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH43": {
+"cls": "state_house",
+"district": "43",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jessica Crowder",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Jessica Crowder",
+"Republican",
+0
+],
+[
+"Ann Lucas",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH44": {
+"cls": "state_house",
+"district": "44",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Lee Filer",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH45": {
+"cls": "state_house",
+"district": "45",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Ross Davenport",
+"Republican",
+0
+],
+[
+"Karlee Provenza",
+"Democratic",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH46": {
+"cls": "state_house",
+"district": "46",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Cam Wright",
+"Republican",
+0
+],
+[
+"Gary Wilken",
+"Democratic",
+0
+]
+],
+"primary-REP": [
+[
+"Ocean Andrew",
+"Republican",
+0
+],
+[
+"Cam Wright",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH47": {
+"cls": "state_house",
+"district": "47",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Eamon O'Toole",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH48": {
+"cls": "state_house",
+"district": "48",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"James Wamsley",
+"Republican",
+0
+],
+[
+"Suzie Schmid",
+"Democratic",
+0
+]
+],
+"primary-REP": [
+[
+"Darin McCann",
+"Republican",
+0
+],
+[
+"James Wamsley",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH49": {
+"cls": "state_house",
+"district": "49",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"David Walton",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"David Walton",
+"Republican",
+0
+],
+[
+"Robert Wharff",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH5": {
+"cls": "state_house",
+"district": "5",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Joe Speckner",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Joe Speckner",
+"Republican",
+0
+],
+[
+"Karen Weber",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH50": {
+"cls": "state_house",
+"district": "50",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"David Hill",
+"Republican",
+0
+],
+[
+"Carrie Satterwhite",
+"Libertarian",
+0
+]
+],
+"primary-REP": [
+[
+"Levi Asay",
+"Republican",
+0
+],
+[
+"David Hill",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH51": {
+"cls": "state_house",
+"district": "51",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Laurie Bratten",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Susan Bigelow",
+"Republican",
+0
+],
+[
+"Laurie Bratten",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH52": {
+"cls": "state_house",
+"district": "52",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Ronda Boller",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Ronda Boller",
+"Republican",
+0
+],
+[
+"Bill Fortner",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH53": {
+"cls": "state_house",
+"district": "53",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Christopher R Knapp",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Christopher R Knapp",
+"Republican",
+0
+],
+[
+"Greg Schreurs",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH54": {
+"cls": "state_house",
+"district": "54",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Lloyd Charles Larsen",
+"Republican",
+0
+],
+[
+"Holly M. Butler",
+"Libertarian",
+0
+]
+],
+"primary-REP": [
+[
+"Lloyd Charles Larsen",
+"Republican",
+0
+],
+[
+"Jeff Martin",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH55": {
+"cls": "state_house",
+"district": "55",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Carl Manning",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH56": {
+"cls": "state_house",
+"district": "56",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Elissa Campbell",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Elissa Campbell",
+"Republican",
+0
+],
+[
+"Pete Fox",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH57": {
+"cls": "state_house",
+"district": "57",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Julie Jarvis",
+"Republican",
+0
+],
+[
+"Luc Colgrove",
+"Democratic",
+0
+]
+],
+"primary-REP": [
+[
+"Julie Jarvis",
+"Republican",
+0
+],
+[
+"Jeanette Ward",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH58": {
+"cls": "state_house",
+"district": "58",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Bill Allemand",
+"Republican",
+0
+],
+[
+"Keenan Morgan",
+"Democratic",
+0
+],
+[
+"Joseph Porambo",
+"Libertarian",
+0
+]
+],
+"primary-REP": [
+[
+"Bill Allemand",
+"Republican",
+0
+],
+[
+"Peter Boyer",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH59": {
+"cls": "state_house",
+"district": "59",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"J.R. Riggins",
+"Republican",
+0
+],
+[
+"Laurie Longtine",
+"Democratic",
+0
+]
+],
+"primary-REP": [
+[
+"Neil Jeske",
+"Republican",
+0
+],
+[
+"J.R. Riggins",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH6": {
+"cls": "state_house",
+"district": "6",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Tomi Strock",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Tomi Strock",
+"Republican",
+0
+],
+[
+"Jim Willox",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH60": {
+"cls": "state_house",
+"district": "60",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Tony Niemiec",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Marlene Brady",
+"Republican",
+0
+],
+[
+"Tony Niemiec",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH61": {
+"cls": "state_house",
+"district": "61",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Andrew Server",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Seth Bard",
+"Republican",
+0
+],
+[
+"Andrew Server",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH62": {
+"cls": "state_house",
+"district": "62",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Kevin J. Campbell",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Edis Allen",
+"Republican",
+0
+],
+[
+"Kevin J. Campbell",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH7": {
+"cls": "state_house",
+"district": "7",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Bob Nicholas",
+"Republican",
+0
+],
+[
+"Gavin Lobmeyer",
+"Democratic",
+0
+]
+],
+"primary-REP": [
+[
+"Deb Mutter Shamley",
+"Republican",
+0
+],
+[
+"Bob Nicholas",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH8": {
+"cls": "state_house",
+"district": "8",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Luke Reiner",
+"Republican",
+0
+],
+[
+"Brenda J Lyttle",
+"Democratic",
+0
+]
+],
+"primary-REP": [
+[
+"Steve Johnson",
+"Republican",
+0
+],
+[
+"Luke Reiner",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SH9": {
+"cls": "state_house",
+"district": "9",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Boyd O. Wiggam",
+"Republican",
+0
+],
+[
+"Stephen D. Latham",
+"Democratic",
+0
+]
+],
+"primary-REP": [
+[
+"Exie R. Brown, Jr.",
+"Republican",
+0
+],
+[
+"Boyd O. Wiggam",
+"Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-WY-SOS": {
+"cls": "secretary_of_state",
+"district": null,
+"judge": null,
+"level": "statewide",
+"names": {
+"general": [
+[
+"Robert Short",
+"Republican",
+0
+],
+[
+"Bryan McCarty",
+"Democratic",
+0
+],
+[
+"Tamara Trujillo",
+"Constitution",
+0
+]
+],
+"primary-REP": [
+[
+"Qwenton Eagle Oviatt",
+"Republican",
+0
+],
+[
+"Robert Short",
+"Republican",
+0
+],
+[
+"Rachel Williams",
+"Republican",
+0
+],
+[
+"CJ Young",
+"Republican",
+0
+],
+[
+"Jason Fearneyhough",
+"Republican",
+0
+]
+]
+},
+"office": "Secretary of State"
+},
+"2026-WY-SPI": {
+"cls": "superintendent_of_public_instruction",
+"district": null,
+"judge": null,
+"level": "statewide",
+"names": {
+"general": [
+[
+"Steve Harshman",
+"Republican",
+0
+],
+[
+"Ana Cordova",
+"Democratic",
+0
+]
+],
+"primary-DEM": [
+[
+"Ana Cordova",
+"Democratic",
+0
+],
+[
+"Sergio A. Maldonado, Sr.",
+"Democratic",
+0
+]
+],
+"primary-REP": [
+[
+"Chad Auer",
+"Republican",
+0
+],
+[
+"Steve Harshman",
+"Republican",
+0
+],
+[
+"Tom Kelly",
+"Republican",
+0
+]
+]
+},
+"office": "Superintendent of Public Instruction"
+},
+"2026-WY-SS1": {
+"cls": "state_senate",
+"district": "1",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Ogden Driskill",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Ogden Driskill",
+"Republican",
+0
+],
+[
+"Chip Neiman",
+"Republican",
+0
+]
+]
+},
+"office": "State Senator"
+},
+"2026-WY-SS11": {
+"cls": "state_senate",
+"district": "11",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Bob Davis",
+"Republican",
+0
+],
+[
+"Jim Wilson",
+"Democratic",
+0
+],
+[
+"Don VanMatre",
+"Constitution",
+0
+]
+]
+},
+"office": "State Senator"
+},
+"2026-WY-SS13": {
+"cls": "state_senate",
+"district": "13",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Stacy Jones",
+"Republican",
+0
+]
+]
+},
+"office": "State Senator"
+},
+"2026-WY-SS15": {
+"cls": "state_senate",
+"district": "15",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Wendy Davis Schuler",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Jen Hegeman",
+"Republican",
+0
+],
+[
+"Tina Johnson",
+"Republican",
+0
+],
+[
+"Chris Katzl",
+"Republican",
+0
+],
+[
+"Wendy Davis Schuler",
+"Republican",
+0
+]
+]
+},
+"office": "State Senator"
+},
+"2026-WY-SS17": {
+"cls": "state_senate",
+"district": "17",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Mike Gierau",
+"Democratic",
+0
+]
+]
+},
+"office": "State Senator"
+},
+"2026-WY-SS19": {
+"cls": "state_senate",
+"district": "19",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"R. J. Kost",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Paul Hoeft",
+"Republican",
+0
+],
+[
+"R. J. Kost",
+"Republican",
+0
+]
+]
+},
+"office": "State Senator"
+},
+"2026-WY-SS21": {
+"cls": "state_senate",
+"district": "21",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Melissa Butcher",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Melissa Butcher",
+"Republican",
+0
+],
+[
+"Ken Pendergraft",
+"Republican",
+0
+]
+]
+},
+"office": "State Senator"
+},
+"2026-WY-SS23": {
+"cls": "state_senate",
+"district": "23",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Abby Angelos",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Abby Angelos",
+"Republican",
+0
+],
+[
+"Dwayne Dillinger",
+"Republican",
+0
+]
+]
+},
+"office": "State Senator"
+},
+"2026-WY-SS25": {
+"cls": "state_senate",
+"district": "25",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Cale Case",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Cale Case",
+"Republican",
+0
+],
+[
+"Lisa Wilson",
+"Republican",
+0
+]
+]
+},
+"office": "State Senator"
+},
+"2026-WY-SS27": {
+"cls": "state_senate",
+"district": "27",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Kevin Helling",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Jim Corkery",
+"Republican",
+0
+],
+[
+"Kevin Helling",
+"Republican",
+0
+],
+[
+"Marcia Neumiller",
+"Republican",
+0
+]
+]
+},
+"office": "State Senator"
+},
+"2026-WY-SS29": {
+"cls": "state_senate",
+"district": "29",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Lisa Engebretsen",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Lisa Engebretsen",
+"Republican",
+0
+],
+[
+"Bob Ide",
+"Republican",
+0
+]
+]
+},
+"office": "State Senator"
+},
+"2026-WY-SS3": {
+"cls": "state_senate",
+"district": "3",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Cheri E Steinmetz",
+"Republican",
+0
+]
+]
+},
+"office": "State Senator"
+},
+"2026-WY-SS31": {
+"cls": "state_senate",
+"district": "31",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Evie Brennan",
+"Republican",
+0
+],
+[
+"Shifa Hamid",
+"Democratic",
+0
+]
+],
+"primary-REP": [
+[
+"Evie Brennan",
+"Republican",
+0
+],
+[
+"Daniel J. Singh",
+"Republican",
+0
+]
+]
+},
+"office": "State Senator"
+},
+"2026-WY-SS5": {
+"cls": "state_senate",
+"district": "5",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Lauren Schoenfeld",
+"Republican",
+0
+],
+[
+"Ted Hanlon",
+"Democratic",
+0
+]
+],
+"primary-REP": [
+[
+"Meagan Herrington",
+"Republican",
+0
+],
+[
+"Ben Hornok",
+"Republican",
+0
+],
+[
+"Ronald D. McCleary",
+"Republican",
+0
+],
+[
+"Lauren Schoenfeld",
+"Republican",
+0
+]
+]
+},
+"office": "State Senator"
+},
+"2026-WY-SS6": {
+"cls": "state_senate",
+"district": "6",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Taft Love",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Roy Birt",
+"Republican",
+0
+],
+[
+"Taft Love",
+"Republican",
+0
+]
+]
+},
+"office": "State Senator"
+},
+"2026-WY-SS7": {
+"cls": "state_senate",
+"district": "7",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Mark Rinne",
+"Republican",
+0
+],
+[
+"Jim Lee",
+"Democratic",
+0
+]
+]
+},
+"office": "State Senator"
+},
+"2026-WY-SS9": {
+"cls": "state_senate",
+"district": "9",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Chris Rothfuss",
+"Democratic",
+0
+]
+]
+},
+"office": "State Senator"
+},
+"2026-WY-TREAS": {
+"cls": "state_treasurer",
+"district": null,
+"judge": null,
+"level": "statewide",
+"names": {
+"general": [
+[
+"Curt Meier",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Curt Meier",
+"Republican",
+0
+],
+[
+"Scott Smith",
+"Republican",
+0
+]
+]
+},
+"office": "State Treasurer"
+}
+},
+"state": "WY"
+}

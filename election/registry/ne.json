@@ -136,17 +136,21 @@
  "never": [],
  "never_why": {},
  "partial_sources": [],
- "rehearsal": "The posted zero-vote pages; New Mexico's twin system for past elections",
+ "rehearsal": "The posted zero-vote exports (structure and crosswalk); no past election is served by this site. New Mexico's twin system is replayed for the reader.",
  "terms": "None stated on the pages read.",
  "scout_blocked": "Nothing refused scripts (IIS, HTTP 200).",
  "scout_plan": "Nebraska is one of the easiest. On election night the updater can read the CSV exports for SW, CG, LD and the other type codes every few minutes (a handful of small files) and match RaceID and CandidateID to the ballot rows already loaded. County-by-county numbers for the map come from the per-county exports (a form postback) or the map service. Local city and school results are county by county: start with the state-hosted county files and Douglas and Lancaster's own sites.",
  "notes": [
-  "Nov 3 already loaded with zeros: a zero report is not a result."
+  "Nov 3 already loaded with zeros: a zero report is not a result.",
+  "The CSV's CurrentDateTime column is the server's clock when asked, not the time of the figures; the reader leaves it out of the version and the figures carry the time they were fetched."
  ],
  "to_do": [],
  "sources": [
   "election/scout/results_ne.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
-  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)",
+  "N9 reader checks, 2026-10-10: the state's own results service, read through election/source.py"
+ ],
+ "nov3_checked": "Nov 3 exports read 2026-10-10 (zero votes): all 17 federal and statewide races (CG, SW, PS, SE, RG) and all 25 legislative races (LD) tied; every printed name tied to the name as filed.",
+ "reader_note": "Reader election/readers/resultssw.py written 2026-10-10 (N9): self-test on its fixture passes; crosswalk election/crosswalk/ne.json ties feed contests to the ballot databases' race ids."
 }

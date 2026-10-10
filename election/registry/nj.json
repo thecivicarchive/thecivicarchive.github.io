@@ -16,7 +16,8 @@
   "url": "https://www.nj.gov/state/elections/election-information-2026.shtml",
   "label": "New Jersey Division of Elections: 2026",
   "checked": "2026-10-10",
-  "source": "answered one request with the kit's User-Agent (N4, 2026-10-10)"
+  "source": "answered one request with the kit's User-Agent (N4, 2026-10-10)",
+  "confirmed": "2026-10-10: answered one request with the kit's User-Agent (200)"
  },
  "other_pages": [],
  "election": {
@@ -89,11 +90,21 @@
  "terms": "none seen",
  "scout_blocked": "nj.gov answered scripts (200). elec.nj.gov (campaign finance) is behind Incapsula (CLAUDE.md), not the results.",
  "scout_plan": "Readable with care, county by county. New Jersey has no statewide election-night feed, so the U.S. Senate and twelve House races must be summed from the 21 county clerks' unofficial pages; a scout pass in October should find each county's results address and vendor (some are likely Clarity, which has a JSON feed) and write one small reader per layout, largest counties first. Where a county cannot be read, the page shows that county as 'not reporting here' rather than a partial sum. Official totals come from the Division's PDFs after certification. Local races ride on the same county pages.",
- "notes": [],
+ "notes": [
+  "2026-10-10 (N12): confirmed as a link state; certified results source recorded under certified_results."
+ ],
  "to_do": [],
  "sources": [
   "election/scout/results_pa.json (checked 2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts))",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
   "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+ ],
+ "certified_results": {
+  "what": "the Division of Elections' official general election results PDFs, by office",
+  "address": "https://www.nj.gov/state/elections/election-information-2026.shtml",
+  "script_ok": true,
+  "when": "after the counties certify, late November",
+  "how": "nj.gov answers scripts (elec.nj.gov, the campaign finance host, is on the never list)",
+  "checked": "2026-10-10"
+ }
 }

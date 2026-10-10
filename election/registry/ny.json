@@ -16,7 +16,8 @@
   "url": "https://nyenr.elections.ny.gov/",
   "label": "New York State Board of Elections: unofficial results",
   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
-  "source": "results_pa.json"
+  "source": "results_pa.json",
+  "confirmed": "2026-10-10: not asked: nyenr.elections.ny.gov is on the never list (it refuses scripts), so no program asks it; the page is for readers' own browsers, as the scout found it (2026-10-09)"
  },
  "other_pages": [
   {
@@ -113,11 +114,21 @@
  "terms": "the page's 'Statement on the Unofficial Nature of Election Night Results'; no terms of use for reuse",
  "scout_blocked": "nyenr.elections.ny.gov and elections.ny.gov answer scripts with a Cloudflare challenge (403); must not be worked around. The Browser pane passes it like any browser.",
  "scout_plan": "Blocked to scripts on the night. Options, in order: (1) John keeps the state ENR page open in his own browser and saves it (Save as, HTML) into a watched folder every few minutes, or the Browser pane on his computer saves it, and the updater parses the saved copy; this works the same way as Minnesota's hand-saved files; (2) read New York City's enr.boenyc.gov directly (it answered scripts) for the city's congressional and legislative districts; (3) final figures from the Board's certified workbook weeks later. Ask John whether reading the state page through the Browser pane on election night is acceptable; it is a public page a browser opens normally.",
- "notes": [],
+ "notes": [
+  "2026-10-10 (N12): confirmed as a link state; certified results source recorded under certified_results."
+ ],
  "to_do": [],
  "sources": [
   "election/scout/results_pa.json (checked 2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts))",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
   "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+ ],
+ "certified_results": {
+  "what": "the State Board's certified results",
+  "address": "https://www.elections.ny.gov/",
+  "script_ok": false,
+  "when": "after the Board of Canvassers certifies",
+  "how": "elections.ny.gov sits behind Cloudflare (on the never list): John saves the certified workbook, as for the June primary",
+  "checked": "2026-10-10"
+ }
 }

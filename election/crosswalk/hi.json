@@ -1,0 +1,2370 @@
+{
+ "built": "2026-10-10",
+ "checked": [
+  {
+   "by_level": {
+    "federal": 2,
+    "legislature": 54,
+    "statewide": 2
+   },
+   "certified_primary": {
+    "candidates": 0,
+    "contests": 0,
+    "differences": []
+   },
+   "contests_tied": 58,
+   "election": "2022-general",
+   "lines_tied": "49 of 131",
+   "notes": [],
+   "nov3": false,
+   "problems": [],
+   "read": "2026-10-10",
+   "store": "ok",
+   "unmatched_by_reason": {
+    "a ballot question, not a contest between people": 7,
+    "a county, city or district office; not read here yet": 9,
+    "no 2026 race on the ballot lists for this office": 1,
+    "no 2026 race on the ballot lists for this office and district 1": 1,
+    "no 2026 race on the ballot lists for this office and district 12": 1,
+    "no 2026 race on the ballot lists for this office and district 16": 1,
+    "no 2026 race on the ballot lists for this office and district 22": 1,
+    "no 2026 race on the ballot lists for this office and district 23": 1,
+    "no 2026 race on the ballot lists for this office and district 24": 1,
+    "no 2026 race on the ballot lists for this office and district 4": 1,
+    "no 2026 race on the ballot lists for this office and district 6": 1,
+    "no 2026 race on the ballot lists for this office and district 7": 1,
+    "no 2026 trustee race on the ballot lists for this seat": 1,
+    "not an office this reader ties to a race (Congress, statewide, Legislature)": 27
+   }
+  },
+  {
+   "by_level": {
+    "federal": 7,
+    "legislature": 104,
+    "statewide": 7
+   },
+   "certified_primary": {
+    "candidates": 114,
+    "contests": 42,
+    "differences": []
+   },
+   "contests_tied": 118,
+   "election": "2026 Primary",
+   "lines_tied": "114 of 204",
+   "notes": [],
+   "nov3": false,
+   "problems": [],
+   "read": "2026-10-10",
+   "store": "ok",
+   "unmatched_by_reason": {
+    "a county, city or district office; not read here yet": 2,
+    "not an office this reader ties to a race (Congress, statewide, Legislature)": 16
+   }
+  }
+ ],
+ "contests": {},
+ "counties": {
+  "hawaii": "15001",
+  "hawaii county": "15001",
+  "honolulu": "15003",
+  "honolulu county": "15003",
+  "kalawao": "15005",
+  "kalawao county": "15005",
+  "kauai": "15007",
+  "kauai county": "15007",
+  "maui": "15009",
+  "maui county": "15009"
+ },
+ "races": {
+  "2026-HI-GOV": {
+   "cands": {
+    "general": [
+     [
+      "Gary Cordery and Daniel Anthony",
+      "Republican",
+      0
+     ],
+     [
+      "Josh Green and Derek S.K. Kawakami",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Duke Bourgoin",
+      "Democratic",
+      0
+     ],
+     [
+      "George (Teva) Lucas-Tadeo",
+      "Democratic",
+      0
+     ],
+     [
+      "Josh Green",
+      "Democratic",
+      0
+     ],
+     [
+      "Lauren Kapoliahi'iaka Shim",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-NP": [
+     [
+      "Bu Laia Hill",
+      "Nonpartisan",
+      0
+     ],
+     [
+      "Calvert A. Williamson",
+      "Nonpartisan",
+      0
+     ],
+     [
+      "Clyde McClain (Mac) Lewman",
+      "Nonpartisan",
+      0
+     ],
+     [
+      "John M. (Raghu) Giuffre",
+      "Nonpartisan",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Gary Cordery",
+      "Republican",
+      0
+     ],
+     [
+      "Ken Fujiyama",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "governor",
+   "level": "statewide",
+   "office": "Governor and Lieutenant Governor",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-H01": {
+   "cands": {
+    "general": [
+     [
+      "Adriel C. Lam",
+      "Republican",
+      0
+     ],
+     [
+      "Ed Case",
+      "Democratic",
+      0
+     ],
+     [
+      "Jordan S. Conley",
+      "Green",
+      0
+     ],
+     [
+      "Nathan M. Berning",
+      "Nonpartisan",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Ben Fatula",
+      "Democratic",
+      0
+     ],
+     [
+      "Ed Case",
+      "Democratic",
+      0
+     ],
+     [
+      "Jarrett K. Keohokalole",
+      "Democratic",
+      0
+     ],
+     [
+      "Jennifer Booker",
+      "Democratic",
+      0
+     ],
+     [
+      "Nicholas (Nick) Kiswanto",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "01",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-H02": {
+   "cands": {
+    "general": [
+     [
+      "Brenton Awa",
+      "Republican",
+      0
+     ],
+     [
+      "Jill N. Tokuda",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Greg Guithues",
+      "Democratic",
+      0
+     ],
+     [
+      "Jill N. Tokuda",
+      "Democratic",
+      0
+     ],
+     [
+      "Kirill Basin",
+      "Democratic",
+      0
+     ],
+     [
+      "Steven King",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-NP": [
+     [
+      "Edward A. Codelia",
+      "Nonpartisan",
+      0
+     ],
+     [
+      "Randall Terry",
+      "Nonpartisan",
+      0
+     ]
+    ]
+   },
+   "district": "02",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-LTG": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Della Au Belatti",
+      "Democratic",
+      0
+     ],
+     [
+      "Derek S.K. Kawakami",
+      "Democratic",
+      0
+     ],
+     [
+      "John Choi",
+      "Democratic",
+      0
+     ],
+     [
+      "Ku L. (Bobby) Cuadra",
+      "Democratic",
+      0
+     ],
+     [
+      "Sam Puletasi",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Daniel Anthony",
+      "Republican",
+      0
+     ],
+     [
+      "Hopelin (Hope) Cresencia",
+      "Republican",
+      0
+     ],
+     [
+      "Margaret Rose Mejia",
+      "Republican",
+      0
+     ],
+     [
+      "Robert E. Peters",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "lieutenant_governor",
+   "level": "statewide",
+   "office": "Lieutenant Governor",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-OHA-AL": {
+   "cands": {
+    "general": [
+     [
+      "Adrian (Kealii) Akina",
+      "Nonpartisan office",
+      0
+     ],
+     [
+      "Brickwood M. Galuteria",
+      "Nonpartisan office",
+      0
+     ],
+     [
+      "Ikaika Anderson",
+      "Nonpartisan office",
+      0
+     ],
+     [
+      "John Waihee IV",
+      "Nonpartisan office",
+      0
+     ],
+     [
+      "Kanekoa (Koa) Crabbe",
+      "Nonpartisan office",
+      0
+     ],
+     [
+      "Keoni Souza",
+      "Nonpartisan office",
+      0
+     ]
+    ],
+    "primary-NP": [
+     [
+      "Adrian (Kealii) Akina",
+      "Nonpartisan office",
+      0
+     ],
+     [
+      "Brendon Kalei'aina Lee",
+      "Nonpartisan office",
+      0
+     ],
+     [
+      "Brickwood M. Galuteria",
+      "Nonpartisan office",
+      0
+     ],
+     [
+      "Clifford K. Kauaula",
+      "Nonpartisan office",
+      0
+     ],
+     [
+      "Ikaika Anderson",
+      "Nonpartisan office",
+      0
+     ],
+     [
+      "Jackie Kahookele Burke",
+      "Nonpartisan office",
+      0
+     ],
+     [
+      "John Waihee IV",
+      "Nonpartisan office",
+      0
+     ],
+     [
+      "Kalena A. Parish",
+      "Nonpartisan office",
+      0
+     ],
+     [
+      "Kanekoa (Koa) Crabbe",
+      "Nonpartisan office",
+      0
+     ],
+     [
+      "Karl Veto Baker",
+      "Nonpartisan office",
+      0
+     ],
+     [
+      "Keoni Souza",
+      "Nonpartisan office",
+      0
+     ],
+     [
+      "Michelle (Mikala) Costello",
+      "Nonpartisan office",
+      0
+     ],
+     [
+      "Philip (Kawika) Martin",
+      "Nonpartisan office",
+      0
+     ],
+     [
+      "R. Kunani Nihipali Sr.",
+      "Nonpartisan office",
+      0
+     ],
+     [
+      "Shelby Pikachu Billionaire",
+      "Nonpartisan office",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "oha_trustee",
+   "level": "statewide",
+   "office": "Office of Hawaiian Affairs Trustee, At-Large",
+   "partisan": 0,
+   "seat": "At-Large",
+   "special": 0
+  },
+  "2026-HI-OHA-MAUI": {
+   "cands": {
+    "general": [
+     [
+      "Carmen Hulu Lindsey",
+      "Nonpartisan office",
+      0
+     ],
+     [
+      "Ke'eaumoku Kapu",
+      "Nonpartisan office",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "oha_trustee",
+   "level": "statewide",
+   "office": "Office of Hawaiian Affairs Trustee, Maui Resident",
+   "partisan": 0,
+   "seat": "Resident of Maui",
+   "special": 0
+  },
+  "2026-HI-OHA-OAHU": {
+   "cands": {
+    "general": [
+     [
+      "Hinaleimoana (Hina) Wong",
+      "Nonpartisan office",
+      0
+     ],
+     [
+      "Kalei Akaka",
+      "Nonpartisan office",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "oha_trustee",
+   "level": "statewide",
+   "office": "Office of Hawaiian Affairs Trustee, Oahu Resident",
+   "partisan": 0,
+   "seat": "Resident of Oahu",
+   "special": 0
+  },
+  "2026-HI-SH1": {
+   "cands": {
+    "general": [
+     [
+      "Matthias Kusch",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "1",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH10": {
+   "cands": {
+    "general": [
+     [
+      "Travis Bumanglag",
+      "Republican",
+      0
+     ],
+     [
+      "Tyson K. Miyake",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Ki'i Kaho'ohanohano",
+      "Democratic",
+      0
+     ],
+     [
+      "Tyson K. Miyake",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "10",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH11": {
+   "cands": {
+    "general": [
+     [
+      "Sheila Walker",
+      "Republican",
+      0
+     ],
+     [
+      "Terez (T.Amato) Amato",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "11",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH12": {
+   "cands": {
+    "general": [
+     [
+      "Dan Johnson",
+      "Republican",
+      0
+     ],
+     [
+      "Kyle T. Yamashita",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Keoni Kuoha",
+      "Democratic",
+      0
+     ],
+     [
+      "Kyle T. Yamashita",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "12",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH13": {
+   "cands": {
+    "general": [
+     [
+      "Mahina Poepoe",
+      "Democratic",
+      0
+     ],
+     [
+      "Robin D. Vanderpool",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "13",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH14": {
+   "cands": {
+    "general": [
+     [
+      "Elle Cochran",
+      "Republican",
+      0
+     ],
+     [
+      "Pa'ele Kiakona",
+      "Green",
+      0
+     ],
+     [
+      "Sne Patel",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Ashley Olson",
+      "Democratic",
+      0
+     ],
+     [
+      "Kanamu Balinbin",
+      "Democratic",
+      0
+     ],
+     [
+      "Sne Patel",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "14",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH15": {
+   "cands": {
+    "general": [
+     [
+      "Nadine K. Nakamura",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "15",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH16": {
+   "cands": {
+    "general": [
+     [
+      "David Hazlebeck",
+      "Republican",
+      0
+     ],
+     [
+      "Luke A. Evslin",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "16",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH17": {
+   "cands": {
+    "general": [
+     [
+      "Daynette (Dee) Morikawa",
+      "Democratic",
+      0
+     ],
+     [
+      "Misty Cluett",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Chad K. Schimmelfennig",
+      "Democratic",
+      0
+     ],
+     [
+      "Daynette (Dee) Morikawa",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "17",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH18": {
+   "cands": {
+    "general": [
+     [
+      "James (Jamie) Wataru",
+      "Democratic",
+      0
+     ],
+     [
+      "Joe Gedeon",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "18",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH19": {
+   "cands": {
+    "general": [
+     [
+      "Mark Jun Hashem",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Kahi Pacarro",
+      "Democratic",
+      0
+     ],
+     [
+      "Mark Jun Hashem",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "19",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH2": {
+   "cands": {
+    "general": [
+     [
+      "Jonathan Kennealy",
+      "Republican",
+      0
+     ],
+     [
+      "Sue Keohokapu Lee Loy",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Cristina (Tina) Holt",
+      "Democratic",
+      0
+     ],
+     [
+      "Sue Keohokapu Lee Loy",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "2",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH20": {
+   "cands": {
+    "general": [
+     [
+      "David Asing",
+      "Republican",
+      0
+     ],
+     [
+      "Tina Nakada Grandinetti",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "20",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH21": {
+   "cands": {
+    "general": [
+     [
+      "Derek Turbin",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Andrew Phomsouvanh",
+      "Democratic",
+      0
+     ],
+     [
+      "Angie Knight",
+      "Democratic",
+      0
+     ],
+     [
+      "Derek Turbin",
+      "Democratic",
+      0
+     ],
+     [
+      "Jake Takaya Morrow",
+      "Democratic",
+      0
+     ],
+     [
+      "Ranell Asuega-Fualaau",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "21",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH22": {
+   "cands": {
+    "general": [
+     [
+      "Andrew Takuya Garrett",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "22",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH23": {
+   "cands": {
+    "general": [
+     [
+      "Ikaika M. Olds",
+      "Democratic",
+      0
+     ],
+     [
+      "Victor Muh",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "23",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH24": {
+   "cands": {
+    "general": [
+     [
+      "Adrian Tam",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Adrian Tam",
+      "Democratic",
+      0
+     ],
+     [
+      "Bulla Eastman",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "24",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH25": {
+   "cands": {
+    "general": [
+     [
+      "Kim Coco Iwamoto",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "25",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH26": {
+   "cands": {
+    "general": [
+     [
+      "Ian M.A. Ross",
+      "Democratic",
+      0
+     ],
+     [
+      "Tony Silva",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Arjuna Heim",
+      "Democratic",
+      0
+     ],
+     [
+      "Ian M.A. Ross",
+      "Democratic",
+      0
+     ],
+     [
+      "Janel S. Fujinaka",
+      "Democratic",
+      0
+     ],
+     [
+      "Nathan Kenichi Char",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Robin C. (Robyn) McCreary",
+      "Republican",
+      0
+     ],
+     [
+      "Tony Silva",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "26",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH27": {
+   "cands": {
+    "general": [
+     [
+      "Jenna W.Y.C. Takenouchi",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "27",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH28": {
+   "cands": {
+    "general": [
+     [
+      "Michael (Cov) Ratcliffe",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Anthony A. (Tony) Nagatani",
+      "Democratic",
+      0
+     ],
+     [
+      "Ernest Caravalho",
+      "Democratic",
+      0
+     ],
+     [
+      "Michael (Cov) Ratcliffe",
+      "Democratic",
+      0
+     ],
+     [
+      "Nadia Alves",
+      "Democratic",
+      0
+     ],
+     [
+      "Reno Abihai",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "28",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH29": {
+   "cands": {
+    "general": [
+     [
+      "Ikaika Hussey",
+      "Democratic",
+      0
+     ],
+     [
+      "Tess Abalos",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Ikaika Hussey",
+      "Democratic",
+      0
+     ],
+     [
+      "John M. Mizuno",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "29",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH3": {
+   "cands": {
+    "general": [
+     [
+      "Austin Martin",
+      "Libertarian",
+      0
+     ],
+     [
+      "Christopher L.T. Todd",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Christopher L.T. Todd",
+      "Democratic",
+      0
+     ],
+     [
+      "Kuulei (Kiana) Keawekane",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "3",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH30": {
+   "cands": {
+    "general": [
+     [
+      "Amanda Ybanez",
+      "Republican",
+      0
+     ],
+     [
+      "Shirley Ann Templo",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Faatea S. Faatea",
+      "Democratic",
+      0
+     ],
+     [
+      "Kekoa O Pololu Kealoha",
+      "Democratic",
+      0
+     ],
+     [
+      "Shirley Ann Templo",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Amanda Ybanez",
+      "Republican",
+      0
+     ],
+     [
+      "Angela Melody Young",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "30",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH31": {
+   "cands": {
+    "general": [
+     [
+      "Linda Ichiyama",
+      "Democratic",
+      0
+     ],
+     [
+      "Nancy Valdez",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "31",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH32": {
+   "cands": {
+    "general": [
+     [
+      "Garner M. Shimizu",
+      "Republican",
+      0
+     ],
+     [
+      "Micah Pookela Kim Aiu",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "32",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH33": {
+   "cands": {
+    "general": [
+     [
+      "Sam Satoru Kong",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "33",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH34": {
+   "cands": {
+    "general": [
+     [
+      "Gaius Dupio II (Kipi)",
+      "Republican",
+      0
+     ],
+     [
+      "Gregg Takayama",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "34",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH35": {
+   "cands": {
+    "general": [
+     [
+      "Cory M. Chun",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "35",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH36": {
+   "cands": {
+    "general": [
+     [
+      "Daisy Balais Hartsfield",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Daisy Balais Hartsfield",
+      "Democratic",
+      0
+     ],
+     [
+      "Eric C. Barsatan",
+      "Democratic",
+      0
+     ],
+     [
+      "Maurice Morita",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "36",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH37": {
+   "cands": {
+    "general": [
+     [
+      "Trish La Chica",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Trevor T. Nagamine",
+      "Democratic",
+      0
+     ],
+     [
+      "Trish La Chica",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "37",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH38": {
+   "cands": {
+    "general": [
+     [
+      "Lauren Cheape Matsumoto",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "38",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH39": {
+   "cands": {
+    "general": [
+     [
+      "Corey Rosenlee",
+      "Democratic",
+      0
+     ],
+     [
+      "Daniel (Danny) Degracia",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Corey Rosenlee",
+      "Democratic",
+      0
+     ],
+     [
+      "Loren Keola Doctolero",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Daniel (Danny) Degracia",
+      "Republican",
+      0
+     ],
+     [
+      "Wayne Kaiwi",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "39",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH4": {
+   "cands": {
+    "general": [
+     [
+      "Greggor Ilagan",
+      "Democratic",
+      0
+     ],
+     [
+      "Zak Wittenhagen",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Greggor Ilagan",
+      "Democratic",
+      0
+     ],
+     [
+      "Tamlyn (Tam) Hunt",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "4",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH40": {
+   "cands": {
+    "general": [
+     [
+      "Julie Reyes Oda",
+      "Republican",
+      0
+     ],
+     [
+      "Rose Martinez",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "40",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH41": {
+   "cands": {
+    "general": [
+     [
+      "David A. Alcos III",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "41",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH42": {
+   "cands": {
+    "general": [
+     [
+      "Anthony Makana Paris",
+      "Democratic",
+      0
+     ],
+     [
+      "Diamond Garcia",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "42",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH43": {
+   "cands": {
+    "general": [
+     [
+      "Sheila Medeiros",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Kanani Souza",
+      "Republican",
+      0
+     ],
+     [
+      "Sheila Medeiros",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "43",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH44": {
+   "cands": {
+    "general": [
+     [
+      "Charla (Kahealani) Weaver",
+      "Republican",
+      0
+     ],
+     [
+      "Darius K. Kila",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Darius K. Kila",
+      "Democratic",
+      0
+     ],
+     [
+      "Michael P. Kahikina",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "44",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH45": {
+   "cands": {
+    "general": [
+     [
+      "Chris Muraoka",
+      "Republican",
+      0
+     ],
+     [
+      "Kalehua Kaopua",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "45",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH46": {
+   "cands": {
+    "general": [
+     [
+      "Amy A. Perruso",
+      "Democratic",
+      0
+     ],
+     [
+      "Daniel Michael Gabriel",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Daniel Michael Gabriel",
+      "Republican",
+      0
+     ],
+     [
+      "Rocklin Youngstrom",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "46",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH47": {
+   "cands": {
+    "general": [
+     [
+      "Mark Talaeai",
+      "Republican",
+      0
+     ],
+     [
+      "Sean Quinlan",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "47",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH48": {
+   "cands": {
+    "general": [
+     [
+      "Lisa C. Kitagawa",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "48",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH49": {
+   "cands": {
+    "general": [
+     [
+      "'Ale Rodas",
+      "Republican",
+      0
+     ],
+     [
+      "Scot Matayoshi",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "49",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH5": {
+   "cands": {
+    "general": [
+     [
+      "Dalene McCormick",
+      "Republican",
+      0
+     ],
+     [
+      "Jeanné Kapela",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Jeanné Kapela",
+      "Democratic",
+      0
+     ],
+     [
+      "Matt Kaneali'i-Kleinfelder",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "5",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH50": {
+   "cands": {
+    "general": [
+     [
+      "Jesse W.M. Fitzgerald",
+      "Green",
+      0
+     ],
+     [
+      "Mike Lee",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "50",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH51": {
+   "cands": {
+    "general": [
+     [
+      "Lisa Marten",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Lisa Marten",
+      "Democratic",
+      0
+     ],
+     [
+      "Micah C.K. Kalama",
+      "Democratic",
+      0
+     ],
+     [
+      "Steve Haumschild",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "51",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH6": {
+   "cands": {
+    "general": [
+     [
+      "Kirstin Kahaloa",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "6",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH7": {
+   "cands": {
+    "general": [
+     [
+      "Nicole Lowen",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "7",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH8": {
+   "cands": {
+    "general": [
+     [
+      "David A. Tarnas",
+      "Democratic",
+      0
+     ],
+     [
+      "Monique Perreira",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Hope Alohalani Cermelj",
+      "Republican",
+      0
+     ],
+     [
+      "Monique Perreira",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "8",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SH9": {
+   "cands": {
+    "general": [
+     [
+      "Justin H. Woodson",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "9",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SS10": {
+   "cands": {
+    "general": [
+     [
+      "Jackson D. Sayama",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Jackson D. Sayama",
+      "Democratic",
+      0
+     ],
+     [
+      "Les Ihara Jr.",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "10",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SS11": {
+   "cands": {
+    "general": [
+     [
+      "Carol Fukunaga",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "11",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SS13": {
+   "cands": {
+    "general": [
+     [
+      "Tricia Kwai Lin Nakamatsu",
+      "Democratic",
+      0
+     ],
+     [
+      "Wallyn Kanoelani Christian",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "James Logue",
+      "Democratic",
+      0
+     ],
+     [
+      "Jordan K. Nakamura",
+      "Democratic",
+      0
+     ],
+     [
+      "Lei Ahu Isa",
+      "Democratic",
+      0
+     ],
+     [
+      "Lynn Vasquez",
+      "Democratic",
+      0
+     ],
+     [
+      "Tricia Kwai Lin Nakamatsu",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "13",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SS14": {
+   "cands": {
+    "general": [
+     [
+      "Donna Mercado Kim",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Christy Kikue Macpherson",
+      "Democratic",
+      0
+     ],
+     [
+      "Donna Mercado Kim",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "14",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SS15": {
+   "cands": {
+    "general": [
+     [
+      "Glenn Wakai",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "15",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SS17": {
+   "cands": {
+    "general": [
+     [
+      "Donovan Dela Cruz",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Donovan Dela Cruz",
+      "Democratic",
+      0
+     ],
+     [
+      "Nani H. Brown",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "17",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SS18": {
+   "cands": {
+    "general": [
+     [
+      "Danielle Maliekekai Bass",
+      "Democratic",
+      0
+     ],
+     [
+      "Kelly Puamailani Kitashima",
+      "Republican",
+      0
+     ],
+     [
+      "Max G. Hanna",
+      "Nonpartisan",
+      0
+     ]
+    ]
+   },
+   "district": "18",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 1
+  },
+  "2026-HI-SS19": {
+   "cands": {
+    "general": [
+     [
+      "Elijah Pierick",
+      "Republican",
+      0
+     ],
+     [
+      "Rachele F. Lamosao",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Inam Ikeda Perreira Rahman",
+      "Democratic",
+      0
+     ],
+     [
+      "Rachele F. Lamosao",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "19",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 1
+  },
+  "2026-HI-SS2": {
+   "cands": {
+    "general": [
+     [
+      "Frederick F. Fogel",
+      "Libertarian",
+      0
+     ],
+     [
+      "Joy San Buenaventura",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Joy San Buenaventura",
+      "Democratic",
+      0
+     ],
+     [
+      "Tanya Yamanaka Aynessazian",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "2",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SS20": {
+   "cands": {
+    "general": [
+     [
+      "Bob McDermott",
+      "Republican",
+      0
+     ],
+     [
+      "Markus Owens",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Bob McDermott",
+      "Republican",
+      0
+     ],
+     [
+      "Kurt Fevella",
+      "Republican",
+      0
+     ],
+     [
+      "Rida Cabanilla Arakawa",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "20",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SS21": {
+   "cands": {
+    "general": [
+     [
+      "Mike Gabbard",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "21",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SS25": {
+   "cands": {
+    "general": [
+     [
+      "Chris Lee",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Bobby Silva",
+      "Democratic",
+      0
+     ],
+     [
+      "Chris Lee",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "25",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SS5": {
+   "cands": {
+    "general": [
+     [
+      "Troy N. Hashimoto",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "5",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SS8": {
+   "cands": {
+    "general": [
+     [
+      "Ronald D. Kouchi",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "8",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-HI-SS9": {
+   "cands": {
+    "general": [
+     [
+      "David A. Croswell",
+      "Republican",
+      0
+     ],
+     [
+      "Stanley Chang",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "9",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  }
+ },
+ "rule": "A contest is tied to a race only when exactly one race of the same office and district (and seat) fits. A candidate line is tied to a name as filed only when exactly one fits: the family name and a given name that fits. Everything else is listed with the reason and never shown.",
+ "source": "The ballot databases (Congress, and state and local), read only; the races and the names as filed.",
+ "state": "HI",
+ "v": 1
+}

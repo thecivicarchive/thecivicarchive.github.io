@@ -480,7 +480,7 @@ __PAGE_JS__
 PAGE_JS = r"""
 /* ---------- one state's results at every level ---------- */
 const ST = BOOT.st, NM = esc(ST.name), UNIT = ST.unit || "precinct", app = $("#app");
-let D = null, R = {}, LEGR = {house: {}, senate: {}}, MAP = null, SPEC = null, IDX = null, kitP = null, idxP = null, MINE = null;
+let D = null, R = {}, LEGR = {house: {}, senate: {}}, MAP = null, SPEC = null, IDX = null, kitP = null, idxP = null, MINE = null, LASTPICK = null, TABLES = [];
 const MKEY = "night:" + ST.lc;
 const getJSON = url => fetch(url).then(r => r.ok ? r.json() : Promise.reject(new Error(String(r.status))));
 const addScript = src => new Promise((ok, no) => { const s = document.createElement("script"); s.src = src; s.onload = ok; s.onerror = () => no(new Error(src)); document.head.appendChild(s); });
@@ -564,7 +564,7 @@ function resultHTML(r, o = {}) {
   const e = E(r.id), n = seatsOf(r), unopp = r.cs.length <= n, where = raceWhere(r);
   const head = o.link === false ? esc(raceTitle(r)) : `<a href="${hrefRace(r)}">${esc(raceTitle(r))}</a>`;
   const notes = [n > 1 ? `Voters choose ${num(n)}.` : "", unopp ? (r.cs.length === 1 ? "One candidate is on the ballot." : "As many candidates as seats are on the ballot.") : "", r.pt ? "" : "Nonpartisan office."].filter(Boolean).join(" ");
-  return `<article class="res${o.small ? " small" : ""}"><h3>${head}</h3>${where && !o.noWhere ? `<p class="where">${esc(where)}</p>` : ""}
+  return `<article class="res${o.small ? " small" : ""}" data-res="${esc(r.id)}" data-o="${esc(JSON.stringify(o))}"><h3>${head}</h3>${where && !o.noWhere ? `<p class="where">${esc(where)}</p>` : ""}
     <p class="nrep">${repHTML(r, e)}</p>${linesHTML(r, e)}${notes ? `<p class="one">${notes}</p>` : ""}
     ${LIVE.st && e ? `<p class="asof"><span class="tag fact">Fact</span> ${stampHTML(e)} ${finalHTML(r, e)}</p>` : ""}
     ${o.foot === false ? "" : `<div class="rfoot">${o.link === false ? "" : `<a href="${hrefRace(r)}">The map and every ${UNIT}</a>`}<a href="${esc(ballotHref(r))}">Who is running</a></div>`}</article>`;
@@ -578,30 +578,42 @@ function rowHTML(r, o = {}) {
   else if (ah.size) lead = [...ah].map(who).join(", ") + `<small>ahead in the count so far</small>`;
   else lead = who(nm[0]) + `<small>${nm[1] && nm[1].votes === nm[0].votes ? "tied in the count so far" : "the count so far"}</small>`;
   const u = e && e.u && e.u[1] ? `${num(e.u[0])} of ${num(e.u[1])}<br>${UNIT}s in` : "";
-  return `<a class="nrow" href="${hrefRace(r)}"><span class="t">${esc(raceTitle(r))}${o.where !== false && raceWhere(r) ? `<small>${esc(raceWhere(r))}</small>` : ""}</span><span class="l">${lead}</span><span class="u">${u}</span>${o.mine ? `<span class="nmine" data-mine="${esc(r.id)}">${o.mine}</span>` : ""}</a>`;
+  return `<a class="nrow" href="${hrefRace(r)}" data-row="${esc(r.id)}" data-o="${esc(JSON.stringify(o))}"><span class="t">${esc(raceTitle(r))}${o.where !== false && raceWhere(r) ? `<small>${esc(raceWhere(r))}</small>` : ""}</span><span class="l">${lead}</span><span class="u">${u}</span>${o.mine && LIVE.st ? `<span class="nmine" data-mine="${esc(r.id)}">Loading your ${UNIT}&rsquo;s figures&hellip;</span>` : ""}</a>`;
 }
 
 /* ---------- the state of the count ---------- */
+/* The words follow the state's word in now.json (counting, done, official, held, stale, refused, link, none, wait) and
+   whether the updates have paused (livePause: now.json's own "next" decides, never a fixed number of minutes). The block
+   is redrawn after every look at now.json; the page's one announcement of new figures is NIGHTLIVE's, so the block is no
+   live region of its own. */
 function statusHTML() {
-  const P = ST.polls, pn = pollsNow(P), st = LIVE.st;
+  const P = ST.polls, pn = pollsNow(P), st = LIVE.st, w = liveStatus(), pause = stale() ? livePause() : null;
+  const own = `<a href="${esc(ST.results)}" target="_blank" rel="noopener">its own results</a>`, AG = esc(ST.agency);
   let word, body = "", small = [];
   if (st && st.units) {
-    word = stale() ? "stale" : liveStatus() || "counting";
+    word = pause ? "stale" : w || "counting";
     const [a, b] = st.units;
-    body = word === "official" ? "Certified results." : b && a >= b ? `All ${num(b)} ${UNIT}s have reported. Not final until certified.` : a ? `${num(a)} of ${num(b)} ${UNIT}s have reported.` : "No votes reported yet.";
-    if (ST.hand && st.saved) small.push(`Copied from the ${esc(ST.agency)}&rsquo;s results files, saved from the state&rsquo;s site at ${esc(fmtTime(st.saved))}. The state&rsquo;s own site is the authority: <a href="${esc(ST.results)}" target="_blank" rel="noopener">its results</a>.`);
+    body = w === "official" ? "Certified results." : b && a >= b ? `All ${num(b)} ${UNIT}s have reported. Not final until certified.` : a ? `${num(a)} of ${num(b)} ${UNIT}s have reported.` : "No votes reported yet.";
+    if (ST.hand && st.saved) small.push(`Copied from the ${AG}&rsquo;s results files, saved from the state&rsquo;s site at ${esc(fmtTime(st.saved))}. The state&rsquo;s own site is the authority: <a href="${esc(ST.results)}" target="_blank" rel="noopener">its results</a>.`);
     else body += " " + stampHTML(st);
-    if (word === "stale") small.push(`Updates have paused since ${esc(fmtTime(LIVE.now.at))}. The last figures stay, with their time. The state&rsquo;s own results: <a href="${esc(ST.results)}" target="_blank" rel="noopener">its site</a>.`);
-    if (word === "held") small.push(`The state&rsquo;s file changed tonight, so these are the last figures read cleanly, as of ${esc(fmtTime(st.t))}.`);
+    if (pause) small.push(`Updates have paused since ${esc(fmtTime(pause.since))}. The last figures stay, with their time. The state&rsquo;s own results: <a href="${esc(ST.results)}" target="_blank" rel="noopener">its site</a>.`);
+    if (w === "stale") small.push(`The ${AG}&rsquo;s site has not answered since ${esc(fmtTime(st.t))}. The last figures stay, with their time. The state&rsquo;s own results: ${own}.`);
+    if (w === "held") small.push(`The state&rsquo;s file changed tonight, so these are the last figures read cleanly, as of ${esc(fmtTime(st.t))}.`);
+    if (w === "refused") small.push(`The ${AG}&rsquo;s site refused this site&rsquo;s requests tonight, so the figures here stop at ${esc(fmtTime(st.t))}. The state&rsquo;s own results: ${own}.`);
   } else if (isPreview() && LIVE.why) {
     word = "none"; body = "This preview serves the draft site alone, so there are no live figures here.";
     small.push("On election night the figures come from the live site beside the draft.");
+  } else if (w === "link" || w === "refused") {
+    word = w;
+    body = w === "link" ? `${NM} does not publish a live count this site may read. The state&rsquo;s own results: ${own}. Official totals are added when the state certifies them.`
+      : `The ${AG}&rsquo;s site refused this site&rsquo;s requests tonight, so its count is not read here. The state&rsquo;s own results: ${own}. Official totals are added when the state certifies them.`;
   } else {
     word = pn && pn.state === "open" ? "wait" : "none";
     body = !pn || pn.state === "closed" ? "No votes reported yet." : `No votes reported yet. Polls close at ${esc(fmtTime(pn.close, true))}. The state releases no results before then.`;
+    if (pause && (!pn || pn.state === "closed")) small.push(`Updates have paused since ${esc(fmtTime(pause.since))}. The state&rsquo;s own results: ${own}.`);
   }
   if (ST.counting) small.push(esc(ST.counting));
-  return `${pollsHTML(P, ST.name)}<div class="nstat" role="status">${statusChip(word)}<p>${body}${small.map(t => `<small>${t}</small>`).join("")}</p></div>`;
+  return `<div class="nstatus" data-nstat>${pollsHTML(P, ST.name)}<div class="nstat">${statusChip(word)}<p>${body}${small.map(t => `<small>${t}</small>`).join("")}</p></div></div>`;
 }
 
 /* ---------- the map: BallotMap, with the count painted on it ---------- */
@@ -693,7 +705,9 @@ function precinctOf(pid) {      // a precinct's shape and properties, from the c
   const c = String(pid).slice(2, 5), meta = IDX && IDX.counties.find(x => x.id === c);
   return meta && MAP ? MAP.load(meta.file).then(f => f.objects.precincts.geometries.find(g => g.id === pid) || null) : Promise.resolve(null);
 }
-function picked(p) {
+function picked(p, again) {      // again: redrawn for new figures, not picked by the reader (so not read out again)
+  const sd = $("#nside"); if (sd && !again) sd.setAttribute("aria-live", "polite");
+  LASTPICK = p && !p.cleared && !p.loading ? p : null;
   if (p.cleared) { side(sideHome()); return; }
   if (p.loading) { side(`<p class="held">The lines for this part of the map are still loading. Tap again in a moment.</p>${BACK}`); return; }
   if (!SPEC) return;
@@ -746,7 +760,7 @@ function wireMap() {
   sec.addEventListener("click", e => { const b = e.target.closest("button"); if (!b || !MAP) return;
     if (b.dataset.z === "in") MAP.zoomIn(); else if (b.dataset.z === "out") MAP.zoomOut(); else if (b.dataset.z === "fit") MAP.whole();
     else if (b.dataset.z === "me" && MINE && MINE.at) MAP.goTo(MINE.at[0], MINE.at[1], 13);
-    else if (b.dataset.side === "home") { MAP.select(null); side(sideHome()); } });
+    else if (b.dataset.side === "home") { MAP.select(null); LASTPICK = null; const sd = $("#nside"); if (sd) sd.setAttribute("aria-live", "polite"); side(sideHome()); } });
 }
 const raceSpec = r => ({race: r});
 function focusOn(kind, id, counties) { if (!MAP) return; MAP.focus(kind, id, counties).then(() => { if (MAP) MAP.select(null); }, () => {}); }
@@ -778,7 +792,7 @@ function mineHTML(z) {
   const notes = [z.split ? `Your ${UNIT} is split between school districts, and which one your spot is in could not be settled here: both are listed, and only one is on your ballot.` : "",
     rs.some(r => r.lv === "hospital" && r.s && !/^at large$/i.test(r.s)) ? "A hospital district seat named for one part of the district is voted on only there." : ""].filter(Boolean);
   return `<div class="lvl"><h3>Where you are</h3><p>${esc(capital(UNIT))} ${esc(z.pn)}, ${esc(cName(z.c))}. ${plural(rs.length, "contest")} on your ballot, level by level. Your county&rsquo;s sample ballot is the authority on your exact ballot.</p>${notes.map(t => `<p>${t}</p>`).join("")}</div>`
-    + ORDER.filter(lv => by[lv]).map(lv => { const rows = `<div class="nrows">${by[lv].map(r => rowHTML(r, {mine: LIVE.st ? `Loading your ${UNIT}&rsquo;s figures&hellip;` : ""})).join("")}</div>`;
+    + ORDER.filter(lv => by[lv]).map(lv => { const rows = `<div class="nrows">${by[lv].map(r => rowHTML(r, {mine: 1})).join("")}</div>`;
       return `<div class="lvl"><h3>${esc(LV[lv])}</h3>${by[lv].length > 6 ? `<details class="nfold"><summary>${plural(by[lv].length, "contest")}: show them</summary>${rows}</details>` : rows}</div>`; }).join("");      /* a long level (the judges, often) folded, so the rest of the ballot stays in reach */
 }
 function mineLine(r, row) {
@@ -877,7 +891,8 @@ function countyCards() {
   const c = {}; D.races.forEach(r => (r.c || []).forEach(f => { c[f] = (c[f] || 0) + 1; }));
   return counties().map(f => `<a class="scard2" href="#county=${esc(f)}"><b>${esc(cName(f))}</b><span>${plural(c[f] || 0, "contest")}${countyRep(f)}</span></a>`).join("");
 }
-function countyRep(f) { const e = E(topRace().id), ce = e && e.c && e.c[f]; return ce && ce.u && ce.u[1] ? ` &middot; ${num(ce.u[0])} of ${num(ce.u[1])} ${UNIT}s in` : ""; }
+function countyRep(f) { const e = E(topRace().id), ce = e && e.c && e.c[f]; return `<span data-crep="${esc(f)}">${ce && ce.u && ce.u[1] ? ` &middot; ${num(ce.u[0])} of ${num(ce.u[1])} ${UNIT}s in` : ""}</span>`; }
+function countyLede(f) { const t = topRace(), te = E(t.id), ce = te && te.c && te.c[f]; return `<span data-clede="${esc(f)}">${ce && ce.u ? ` ${num(ce.u[0])} of ${num(ce.u[1])} ${UNIT}s in the county have reported.` : ""}</span>`; }
 function home(focus) {
   document.title = `Election Night: ${ST.name} · The Civic Archive`;
   const top = topOfBallot();
@@ -916,14 +931,15 @@ function legislature() {
   $$("[data-leg]").forEach(b => b.addEventListener("click", () => { $$("[data-leg]").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
     SPEC = {leg: b.dataset.leg}; $("#nlegend").innerHTML = legendHTML(); if (MAP) { MAP.setLayer(b.dataset.leg); MAP.redraw(); side(sideHome()); } }));
   ["senate", "house"].forEach(key => {
-    const rows = Object.values(LEGR[key]).map(r => { const e = E(r.id), L = lines(r, e), nm = L.lines.filter(x => !x.wl);
-      return {r, d: r.d, e, L, top: L.total ? nm[0] : null, lead: L.total && nm[1] ? (nm[0].votes - nm[1].votes) / L.total * 100 : L.total ? 100 : null}; });
-    gridTable($("#tbl-" + key), {rows, page: 70, sort: [{key: "d", dir: "asc"}], rowId: x => x.r.id,
-      cols: [{key: "d", label: "District", val: x => natural(x.d), html: x => `<a href="${hrefRace(x.r)}">${esc(x.d)}</a>`},
+    const build = () => Object.values(LEGR[key]).map(r => { const e = E(r.id), L = lines(r, e), nm = L.lines.filter(x => !x.wl);
+      return {id: r.id, r, d: r.d, e, L, top: L.total ? nm[0] : null, lead: L.total && nm[1] ? (nm[0].votes - nm[1].votes) / L.total * 100 : L.total ? 100 : null}; });
+    const cols = [{key: "d", label: "District", val: x => natural(x.d), html: x => `<a href="${hrefRace(x.r)}">${esc(x.d)}</a>`},
         {key: "who", label: "Ahead in the count so far", val: x => x.top ? x.top.name : null, html: x => x.top ? `<span class="nsw" style="--c:${x.top.c}" data-p="${x.top.p}" aria-hidden="true"></span>${esc(x.top.name)}${x.top.party ? ` <small class="muted">${esc(pShort(x.top.party))}</small>` : ""}` : `<span class="muted">${x.r.cs.length <= 1 ? "One candidate" : "No votes yet"}</span>`},
         {key: "lead", label: "Lead", num: true, first: "asc", val: x => x.lead == null ? null : Math.round(x.lead * 10) / 10, html: x => x.lead == null ? "" : x.r.cs.length <= 1 ? "Unopposed" : x.lead.toFixed(1) + " pts"},
-        {key: "rep", label: `${capital(UNIT)}s in`, num: true, val: x => x.e && x.e.u && x.e.u[1] ? x.e.u[0] / x.e.u[1] : null, html: x => x.e && x.e.u ? `${num(x.e.u[0])} of ${num(x.e.u[1])}` : ""}],
-      count: rs => `${plural(rs.length, "district")}`});
+        {key: "rep", label: `${capital(UNIT)}s in`, num: true, val: x => x.e && x.e.u && x.e.u[1] ? x.e.u[0] / x.e.u[1] : null, html: x => x.e && x.e.u ? `${num(x.e.u[0])} of ${num(x.e.u[1])}` : ""}];
+    const host = $("#tbl-" + key);
+    TABLES.push({host, cols, build, grid: gridTable(host, {rows: build(), page: 70, sort: [{key: "d", dir: "asc"}], rowId: x => x.id, cols,
+      count: rs => `${plural(rs.length, "district")}`})});
   });
 }
 function courts() {
@@ -950,8 +966,8 @@ function countyPage(f) {
     }
     return `<div class="nrows">${list.sort((a, b) => natural(a.d) - natural(b.d) || natural(a.s) - natural(b.s)).map(r => rowHTML(r, {where: lv !== "county"})).join("")}</div>`;
   };
-  const t = topRace(), te = E(t.id), ce = te && te.c && te.c[f];
-  app.innerHTML = crumbs([`<a href="#counties">County by county</a>`, esc(cName(f))]) + heroHTML(`Election Night &middot; ${NM}`, esc(cName(f)), `${plural(rs.length, "contest")} reaching ${esc(cName(f))}, from the Legislature to the school boards.${ce && ce.u ? ` ${num(ce.u[0])} of ${num(ce.u[1])} ${UNIT}s in the county have reported.` : ""}`) + statusHTML()
+  const t = topRace();
+  app.innerHTML = crumbs([`<a href="#counties">County by county</a>`, esc(cName(f))]) + heroHTML(`Election Night &middot; ${NM}`, esc(cName(f)), `${plural(rs.length, "contest")} reaching ${esc(cName(f))}, from the Legislature to the school boards.${countyLede(f)}`) + statusHTML()
     + `<section class="bsec"><h2>The map</h2><p class="sub">${esc(raceTitle(t))}, ${UNIT} by ${UNIT}. Pick another race on the home page&rsquo;s map.</p>${mapHTML(`<span class="kick">${esc(raceTitle(t))}</span>`)}</section>`
     + ORDER.filter(lv => by[lv]).map(lv => `<section class="bsec"><h2>${esc(LV[lv])}</h2>${group(lv, by[lv])}</section>`).join("") + sourcesHTML();
   wireMap();
@@ -969,44 +985,114 @@ function racePage(id) {
   if (r.g) { wireMap(); mountMap(raceSpec(r)).then(() => { if (k !== "state") focusOn(k, idOf(r), r.c); refreshSources(); }); }
   tableFor(r, wide);
 }
-function tableFor(r, wide) {
-  const host = $("#ntbl"); if (!host) return;
-  const e = E(r.id);
-  if (!LIVE.st) { host.innerHTML = `<p class="held" style="padding:14px">No votes reported yet.</p>`; return; }
-  if (!e) { host.innerHTML = `<p class="held" style="padding:14px">This contest is not in the state&rsquo;s results file yet.</p>`; return; }
+/* a race's table: county by county for a wide race, else every precinct of its area. tableRows gives {msg} or {rows, cols,
+   opt}, so that new figures can be put into the table already on show (refreshTables) */
+function tableRows(r, wide) {
+  const e = E(r.id), msg = t => Promise.resolve({msg: `<p class="held" style="padding:14px">${t}</p>`});
+  if (!LIVE.st) return msg("No votes reported yet.");
+  if (!e) return msg("This contest is not in the state&rsquo;s results file yet.");
   const L0 = lines(r, e), heads = L0.lines.filter(x => !x.wl).slice(0, 4), cols0 = (unitName, val, html) => [{key: "n", label: unitName, val, html}]
     .concat(heads.map(x => ({key: "c" + x.i, label: x.name, num: true, val: o => o.L ? (o.L.lines.find(y => y.i === x.i) || {}).votes || 0 : null, html: o => o.L ? num((o.L.lines.find(y => y.i === x.i) || {}).votes || 0) : ""})))
     .concat([{key: "t", label: "All votes", num: true, val: o => o.L ? o.L.total : null, html: o => o.L ? num(o.L.total) : ""},
       {key: "s", label: "Reported", val: o => o.in ? 1 : 0, html: o => o.in ? "Yes" : `<span class="muted">Not yet</span>`}]);
   if (wide) {
-    const rows = counties().filter(f => !r.c || r.c.includes(f)).map(f => { const ce = e.c && e.c[f];
-      return {f, name: cName(f), L: ce ? lines(r, entryOf(r, e, ce.v, ce.x, ce.w)) : null, in: !!(ce && ce.u && ce.u[0]), u: ce && ce.u}; });
-    if (!e.c) { host.innerHTML = `<p class="held" style="padding:14px">The state&rsquo;s file gives no county figures for this race.</p>`; return; }
+    if (!e.c) return msg("The state&rsquo;s file gives no county figures for this race.");
+    const rows = counties().filter(f => !r.c || r.c.includes(f)).map(f => { const ce = e.c[f];
+      return {id: f, f, name: cName(f), L: ce ? lines(r, entryOf(r, e, ce.v, ce.x, ce.w)) : null, in: !!(ce && ce.u && ce.u[0]), u: ce && ce.u}; });
     const cols = cols0("County", o => o.name, o => `<a href="#county=${esc(o.f)}">${esc(o.name)}</a>`);
     cols[cols.length - 1] = {key: "s", label: `${capital(UNIT)}s in`, num: true, val: o => o.u && o.u[1] ? o.u[0] / o.u[1] : null, html: o => o.u ? `${num(o.u[0])} of ${num(o.u[1])}` : ""};
-    gridTable(host, {rows, cols, page: 100, sort: [{key: "n", dir: "asc"}], count: rs => plural(rs.length, "county", "counties")});
-    return;
+    return Promise.resolve({rows, cols, opt: {page: 100, sort: [{key: "n", dir: "asc"}], count: rs => plural(rs.length, "county", "counties")}});
   }
-  Promise.all([needIdx(), needKit()]).then(([idx]) => {
+  return Promise.all([needIdx(), needKit()]).then(([idx]) => {
     const cs = (r.c || []).filter(c => idx.counties.some(x => x.id === c));
     const geoFile = c => { const meta = idx.counties.find(x => x.id === c); return MAP ? MAP.load(meta.file) : getJSON(BOOT.geo.base + meta.file + "?v=" + BOOT.geo.v); };
     return Promise.all(cs.map(c => Promise.all([geoFile(c), liveCounty(c, partOf(r)).catch(() => null)]).then(([g, f]) => [c, g, f])));
   }).then(list => {
-    if (!$("#ntbl")) return;
     const rows = [];
     list.forEach(([c, g, f]) => g.objects.precincts.geometries.forEach(p => { if (!inArea(r, p.properties || {})) return;
       const row = f && ((f.p || {})[r.id] || {})[p.id];
-      rows.push({c, name: (p.properties || {}).name || p.id, L: row ? lines(r, rowEntry(r, row)) : null, in: !!row}); }));
+      rows.push({id: c + ":" + p.id, c, name: (p.properties || {}).name || p.id, L: row ? lines(r, rowEntry(r, row)) : null, in: !!row}); }));
     const multi = new Set(rows.map(x => x.c)).size > 1;
     const cols = cols0(capital(UNIT), o => o.name, o => esc(o.name) + (multi ? ` <small class="muted">${esc(D.counties[o.c] || "")}</small>` : ""));
-    gridTable(host, {rows, cols, page: 60, sort: [{key: "n", dir: "asc"}], count: rs => `${plural(rs.length, UNIT)}; ${num(rs.filter(x => x.in).length)} reported`});
-  }).catch(() => { const h = $("#ntbl"); if (h) h.innerHTML = `<p class="held" style="padding:14px">The ${UNIT} figures could not be loaded just now.</p>`; });
+    return {rows, cols, opt: {page: 60, sort: [{key: "n", dir: "asc"}], count: rs => `${plural(rs.length, UNIT)}; ${num(rs.filter(x => x.in).length)} reported`}};
+  }, () => ({msg: `<p class="held" style="padding:14px">The ${UNIT} figures could not be loaded just now.</p>`}));
+}
+function tableFor(r, wide) {
+  const host = $("#ntbl"); if (!host) return;
+  host._race = [r, wide];
+  tableRows(r, wide).then(t => {
+    if (!host.isConnected) return;
+    NIGHTLIVE.ready(host);
+    TABLES = TABLES.filter(T => T.host !== host);
+    if (t.msg) { host.innerHTML = t.msg; return; }
+    /* a table with the same columns as before keeps the reader's sort */
+    TABLES.push({host, cols: t.cols, race: r, wide, build: () => tableRows(r, wide).then(x => x.rows ? x : null),
+      grid: gridTable(host, Object.assign({rows: t.rows, cols: t.cols, rowId: x => x.id}, t.opt))});
+  });
+}
+/* New figures into a table on show: in place when its order under the reader's sort stays the same, else behind "New
+   figures are ready: show them" (a list must not re-sort under the reader). The comparison is the table's own. */
+function orderOf(rows, sort, cols) {
+  const col = Object.fromEntries(cols.map(c => [c.key, c]));
+  const cmp = (a, b) => { for (const s of sort) { const c = col[s.key]; if (!c) continue; const x = c.val(a), y = c.val(b);
+      if (x == null || y == null) { if (x == null && y == null) continue; return x == null ? 1 : -1; }
+      const d = (typeof x === "number" && typeof y === "number") ? x - y : String(x).localeCompare(String(y), "en", {numeric: true, sensitivity: "base"});
+      if (d) return s.dir === "desc" ? -d : d; } return 0; };
+  return (sort.length ? rows.slice().sort(cmp) : rows).map(x => x.id).join("\n");
+}
+function refreshTables() {
+  TABLES = TABLES.filter(T => T.host.isConnected);
+  TABLES.forEach(T => Promise.resolve(T.build()).then(nu => {
+    if (!nu || !T.host.isConnected || !TABLES.includes(T)) return;
+    if (nu.cols && nu.cols.map(c => c.key + c.label).join("|") !== T.cols.map(c => c.key + c.label).join("|")) { NIGHTLIVE.ready(T.host, () => tableFor(T.race, T.wide)); return; }      /* other candidates head the columns now */
+    const rows = nu.rows || nu, cur = T.grid.rows, by = new Map(rows.map(x => [x.id, x]));
+    const same = cur.length === rows.length && cur.every(x => by.has(x.id));
+    const apply = () => { if (same) { cur.forEach(x => Object.assign(x, by.get(x.id))); T.grid.redraw(); } else T.grid.setRows(rows); };
+    if (same && orderOf(cur.map(x => by.get(x.id)), T.grid.sort, T.cols) === cur.map(x => x.id).join("\n")) { NIGHTLIVE.ready(T.host); apply(); }
+    else NIGHTLIVE.ready(T.host, apply);
+  }, () => {}));
+}
+
+/* ---------- new figures, put in place (NIGHTLIVE calls refresh for a new snapshot, refreshStatus after every other look) ----------
+   Nothing is drawn again from the top: each result, row, count and table on show is swapped for its new self, the map
+   keeps its view and repaints, the side panel keeps what the reader picked, open folds stay open and the reader's focus
+   stays where it was. */
+const FOCUSABLE = "a[href],button,summary,select,input,[tabindex]";
+function swap(el, html) {
+  const a = document.activeElement, inside = !!a && a !== document.body && el.contains(a);
+  const k = inside ? [...el.querySelectorAll(FOCUSABLE)].indexOf(a) : -1, open = [...el.querySelectorAll("details")].map(d => d.open);
+  const t = document.createElement("template"); t.innerHTML = html.trim();
+  const n = t.content.firstElementChild; if (!n) return el;
+  [...n.querySelectorAll("details")].forEach((d, i) => { if (open[i] != null) d.open = open[i]; });
+  el.replaceWith(n); n._h = html;
+  if (inside) { const f = k < 0 ? n : [...n.querySelectorAll(FOCUSABLE)][k] || n; try { f.focus({preventScroll: true}); } catch (e) {} }
+  return n;
+}
+function refreshStatus() {
+  $$("[data-nstat]").forEach(el => { const h = statusHTML(); if (el._h !== h) swap(el, h); });
+}
+function refresh() {
+  if (!D) return;
+  if (LIVE.rehearsal) { const b = $("#nreh"); if (b) b.innerHTML = `<b>Rehearsal:</b> replayed figures from ${esc((LIVE.now && LIVE.now.label) || "a past election")}. Not 2026 results.`; }
+  refreshStatus();
+  $$("[data-res]", app).forEach(el => { const r = R[el.dataset.res]; if (r && !el.closest("#nside")) swap(el, resultHTML(r, JSON.parse(el.dataset.o || "{}"))); });
+  $$("[data-row]", app).forEach(el => { const r = R[el.dataset.row]; if (r) swap(el, rowHTML(r, JSON.parse(el.dataset.o || "{}"))); });
+  $$("[data-crep]", app).forEach(el => { el.outerHTML = countyRep(el.dataset.crep); });
+  $$("[data-clede]", app).forEach(el => { el.outerHTML = countyLede(el.dataset.clede); });
+  const lg = $("#nlegend"); if (lg && SPEC) lg.innerHTML = legendHTML();
+  if (MAP) MAP.redraw();
+  const sd = $("#nside");
+  if (sd && SPEC) { sd.setAttribute("aria-live", "off");      /* the one announcement is NIGHTLIVE's; the panel is not read out again */
+    if (LASTPICK) picked(LASTPICK, true); else side(sideHome()); }
+  if (MINE && $("#yres")) fillMine(MINE);
+  const h = $("#ntbl"); if (h && h._race && !TABLES.some(T => T.host === h)) tableFor(h._race[0], h._race[1]);
+  refreshTables();
 }
 
 /* ---------- the address ---------- */
 function route() {
   if (MAP) { MAP.destroy(); MAP = null; }
-  SPEC = null;
+  SPEC = null; LASTPICK = null; TABLES = [];
   const h = decodeURIComponent(location.hash.replace(/^#/, ""));
   if (!h || h === "mine" || h === "yours") home(h);
   else if (h === "statewide") statewide();
@@ -1028,6 +1114,7 @@ Promise.all([getJSON(BOOT.data), liveFetch()]).then(([d]) => {
   route();
   addEventListener("hashchange", route);
   document.addEventListener("night:look", () => { if (MAP) MAP.redraw(); const l = $("#nlegend"); if (l) l.innerHTML = legendHTML(); });
+  NIGHTLIVE.start({onNew: refresh, onTick: refreshStatus});
 }, () => { app.innerHTML = `<p class="nempty">${NM}&rsquo;s races could not be loaded. Check your connection and open the page again.</p>`; });
 """
 

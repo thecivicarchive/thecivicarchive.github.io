@@ -29,7 +29,7 @@
  },
  "cadence": {
   "check_every_s": 180,
-  "signal": "https://api.sos.ca.gov/returns/status (and each office's ReportingTime)",
+  "signal": "https://api.sos.ca.gov/returns/governor (ReportingTime)",
   "data_on_change": true,
   "from": "the state's first poll closing",
   "hosts": [
@@ -123,19 +123,24 @@
   "cal-access.sos.ca.gov": "Incapsula bot wall (CLAUDE.md)"
  },
  "partial_sources": [],
- "rehearsal": "The live test feed itself (Nov 3 contests with test numbers); the June 2, 2026 Statement of Vote.",
+ "rehearsal": "the service's current figures (its test numbers for the November 3 contests); it serves no past election",
  "terms": "none seen on the API responses",
  "scout_blocked": "nothing on the Secretary's feed; Riverside and Santa Clara county sites refuse scripts (Cloudflare 403, per local_scout.json)",
  "scout_plan": "Poll api.sos.ca.gov/returns/governor, the other statewide offices and /returns/us-rep/district/all every few minutes from 8 p.m. Pacific, keyed on ReportingTime, with /returns/status for county reporting; rehearse against the test numbers it serves now. Because California counts for weeks, keep updating daily until certification and label the reporting share. Local results: one reader per county, Los Angeles first (results.lavote.gov), then San Diego, Orange and San Bernardino, which answered scripts in September.",
  "notes": [
-  "The feed serves TEST numbers today (2026-10-09). Nothing before 8 p.m. Pacific on Nov 3 is real."
+  "The feed serves TEST numbers today (2026-10-09). Nothing before 8 p.m. Pacific on Nov 3 is real.",
+  "Paths confirmed 2026-10-10: returns/<office>/county/all for the eight statewide offices; returns/us-rep, state-senate, state-assembly and board-of-equalization /district/all (districtwide only).",
+  "The Supreme Court and Court of Appeal retention votes are not read (no address for them found on the service); the pages link to the Secretary's own results for them."
  ],
- "to_do": [
-  "Confirm the legislature and measure paths (/returns/state-senate/district/all and the like)."
- ],
+ "to_do": [],
  "sources": [
   "election/scout/results_az.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
   "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+ ],
+ "reader": {
+  "family": "ca_api",
+  "written": "2026-10-10",
+  "checked": "2026-10-10: the service's test figures read whole: 164 contests (8 statewide offices with all 58 counties, 52 House, 20 Senate, 80 Assembly, 4 Board of Equalization); each statewide line equals its counties' sums, precincts too; every contest and name tied to the lists"
+ }
 }

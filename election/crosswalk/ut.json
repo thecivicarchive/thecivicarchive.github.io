@@ -1,0 +1,2925 @@
+{
+ "built": "2026-10-10",
+ "checked": [
+  {
+   "by_level": {
+    "federal": 3,
+    "legislature": 7,
+    "statewide": 2
+   },
+   "certified_primary": {
+    "candidates": 27,
+    "contests": 12,
+    "differences": []
+   },
+   "contests_tied": 12,
+   "election": "Primary06232026",
+   "lines_tied": "27 of 27",
+   "notes": [],
+   "nov3": false,
+   "problems": [],
+   "read": "2026-10-10",
+   "store": "ok",
+   "unmatched_by_reason": {}
+  },
+  {
+   "by_level": {
+    "federal": 4,
+    "legislature": 76,
+    "statewide": 1
+   },
+   "certified_primary": {
+    "candidates": 0,
+    "contests": 0,
+    "differences": []
+   },
+   "contests_tied": 81,
+   "election": "general11052024",
+   "lines_tied": "64 of 152",
+   "notes": [],
+   "nov3": false,
+   "problems": [],
+   "read": "2026-10-10",
+   "store": "ok",
+   "unmatched_by_reason": {
+    "a ballot question, not a contest between people": 37,
+    "a county, city or district office; not read here yet": 5,
+    "no 2026 race on the ballot lists for this office": 5,
+    "no 2026 race on the ballot lists for this office and district": 2,
+    "no 2026 race on the ballot lists for this office and district 10": 1,
+    "no 2026 race on the ballot lists for this office and district 15": 1,
+    "no 2026 race on the ballot lists for this office and district 16": 1,
+    "no 2026 race on the ballot lists for this office and district 17": 1,
+    "no 2026 race on the ballot lists for this office and district 2": 1,
+    "no 2026 race on the ballot lists for this office and district 22": 1,
+    "no 2026 race on the ballot lists for this office and district 24": 1,
+    "no 2026 race on the ballot lists for this office and district 25": 1,
+    "no 2026 race on the ballot lists for this office and district 26": 1,
+    "no 2026 race on the ballot lists for this office and district 27": 1,
+    "no 2026 race on the ballot lists for this office and district 29": 1,
+    "no 2026 race on the ballot lists for this office and district 3": 1,
+    "no 2026 race on the ballot lists for this office and district 4": 1,
+    "no 2026 race on the ballot lists for this office and district 8": 1,
+    "no race for President in 2026": 1
+   }
+  }
+ ],
+ "contests": {},
+ "counties": {
+  "beaver": "49001",
+  "beaver county": "49001",
+  "box elder": "49003",
+  "box elder county": "49003",
+  "cache": "49005",
+  "cache county": "49005",
+  "carbon": "49007",
+  "carbon county": "49007",
+  "daggett": "49009",
+  "daggett county": "49009",
+  "davis": "49011",
+  "davis county": "49011",
+  "duchesne": "49013",
+  "duchesne county": "49013",
+  "emery": "49015",
+  "emery county": "49015",
+  "garfield": "49017",
+  "garfield county": "49017",
+  "grand": "49019",
+  "grand county": "49019",
+  "iron": "49021",
+  "iron county": "49021",
+  "juab": "49023",
+  "juab county": "49023",
+  "kane": "49025",
+  "kane county": "49025",
+  "millard": "49027",
+  "millard county": "49027",
+  "morgan": "49029",
+  "morgan county": "49029",
+  "piute": "49031",
+  "piute county": "49031",
+  "rich": "49033",
+  "rich county": "49033",
+  "salt lake": "49035",
+  "salt lake county": "49035",
+  "san juan": "49037",
+  "san juan county": "49037",
+  "sanpete": "49039",
+  "sanpete county": "49039",
+  "sevier": "49041",
+  "sevier county": "49041",
+  "summit": "49043",
+  "summit county": "49043",
+  "tooele": "49045",
+  "tooele county": "49045",
+  "uintah": "49047",
+  "uintah county": "49047",
+  "utah": "49049",
+  "utah county": "49049",
+  "wasatch": "49051",
+  "wasatch county": "49051",
+  "washington": "49053",
+  "washington county": "49053",
+  "wayne": "49055",
+  "wayne county": "49055",
+  "weber": "49057",
+  "weber county": "49057"
+ },
+ "races": {
+  "2026-UT-H01": {
+   "cands": {
+    "general": [
+     [
+      "Babak \"Bobby\" Darvish",
+      null,
+      1
+     ],
+     [
+      "Ben McAdams",
+      "Democratic",
+      0
+     ],
+     [
+      "Elias Henry Montgomery",
+      "Unaffiliated",
+      0
+     ],
+     [
+      "Jesse West",
+      "Libertarian",
+      0
+     ],
+     [
+      "Riley Owen",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Ben McAdams",
+      "Democratic",
+      0
+     ],
+     [
+      "Liban Mohamed",
+      "Democratic",
+      0
+     ],
+     [
+      "Michael Farrell",
+      "Democratic",
+      0
+     ],
+     [
+      "Nate Blouin",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "01",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-H02": {
+   "cands": {
+    "general": [
+     [
+      "Blake D. Moore",
+      "Republican",
+      0
+     ],
+     [
+      "Carlton E. Bowen",
+      "Independent American",
+      0
+     ],
+     [
+      "Daniel Cottam",
+      "Libertarian",
+      0
+     ],
+     [
+      "Peter Crosby",
+      "Democratic",
+      0
+     ],
+     [
+      "Robert M. Moesinger",
+      "Unaffiliated",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Blake D. Moore",
+      "Republican",
+      0
+     ],
+     [
+      "Karianne Lisonbee",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "02",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-H03": {
+   "cands": {
+    "general": [
+     [
+      "Adonis Hooslyn",
+      "Unaffiliated",
+      0
+     ],
+     [
+      "Ayden Scott",
+      "Unaffiliated",
+      0
+     ],
+     [
+      "Cassie Easley",
+      "Constitution",
+      0
+     ],
+     [
+      "Celeste Maloy",
+      "Republican",
+      0
+     ],
+     [
+      "Kent S. Udell",
+      "Democratic",
+      0
+     ],
+     [
+      "Michael R. Stoddard",
+      "Libertarian",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Celeste Maloy",
+      "Republican",
+      0
+     ],
+     [
+      "Phil Lyman",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "03",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-H04": {
+   "cands": {
+    "general": [
+     [
+      "Jonny Larsen",
+      "Democratic",
+      0
+     ],
+     [
+      "Mike Kennedy",
+      "Republican",
+      0
+     ],
+     [
+      "Steven Burt",
+      "Unaffiliated",
+      0
+     ],
+     [
+      "Taylor Wright",
+      "Libertarian",
+      0
+     ]
+    ]
+   },
+   "district": "04",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SBOE1": {
+   "cands": {
+    "general": [
+     [
+      "Cathy Callow-Heusser",
+      "Democratic",
+      0
+     ],
+     [
+      "Jennie Earl",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "1",
+   "kind": "state_board_of_education",
+   "level": "statewide",
+   "office": "Member of the State Board of Education",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SBOE11": {
+   "cands": {
+    "general": [
+     [
+      "Lacey Peterson",
+      "Democratic",
+      0
+     ],
+     [
+      "Tracy J. Nuttall",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Terry L. Hutchinson",
+      "Republican",
+      0
+     ],
+     [
+      "Tracy J. Nuttall",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "11",
+   "kind": "state_board_of_education",
+   "level": "statewide",
+   "office": "Member of the State Board of Education",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SBOE14": {
+   "cands": {
+    "general": [
+     [
+      "Linda Hanks",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Linda Hanks",
+      "Republican",
+      0
+     ],
+     [
+      "Nichole Beecher Isom",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "14",
+   "kind": "state_board_of_education",
+   "level": "statewide",
+   "office": "Member of the State Board of Education",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SBOE2": {
+   "cands": {
+    "general": [
+     [
+      "Joseph Kerry",
+      "Republican",
+      0
+     ],
+     [
+      "Kacee Weaver",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "2",
+   "kind": "state_board_of_education",
+   "level": "statewide",
+   "office": "Member of the State Board of Education",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SBOE4": {
+   "cands": {
+    "general": [
+     [
+      "Leann Wood",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "4",
+   "kind": "state_board_of_education",
+   "level": "statewide",
+   "office": "Member of the State Board of Education",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SBOE5": {
+   "cands": {
+    "general": [
+     [
+      "Sarah Reale",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "5",
+   "kind": "state_board_of_education",
+   "level": "statewide",
+   "office": "Member of the State Board of Education",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SBOE7": {
+   "cands": {
+    "general": [
+     [
+      "Erin Longacre",
+      "Republican",
+      0
+     ],
+     [
+      "James Martin",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "7",
+   "kind": "state_board_of_education",
+   "level": "statewide",
+   "office": "Member of the State Board of Education",
+   "partisan": 1,
+   "seat": null,
+   "special": 1
+  },
+  "2026-UT-SBOE8": {
+   "cands": {
+    "general": [
+     [
+      "Araueni Olivares",
+      "Democratic",
+      0
+     ],
+     [
+      "Nicole McDermott",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Nicole McDermott",
+      "Republican",
+      0
+     ],
+     [
+      "Trina Christensen",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "8",
+   "kind": "state_board_of_education",
+   "level": "statewide",
+   "office": "Member of the State Board of Education",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH1": {
+   "cands": {
+    "general": [
+     [
+      "Chris Reid",
+      "Democratic",
+      0
+     ],
+     [
+      "Jason O'Dell",
+      "Constitution",
+      0
+     ],
+     [
+      "Thomas Peterson",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "1",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH10": {
+   "cands": {
+    "general": [
+     [
+      "Jim Alvey",
+      "Republican",
+      0
+     ],
+     [
+      "Rosemary T Lesser",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "10",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH11": {
+   "cands": {
+    "general": [
+     [
+      "Dave Calder",
+      "Democratic",
+      0
+     ],
+     [
+      "Katy Hall",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "11",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH12": {
+   "cands": {
+    "general": [
+     [
+      "Anna Graff",
+      "Democratic",
+      0
+     ],
+     [
+      "Mike Schultz",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "12",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH13": {
+   "cands": {
+    "general": [
+     [
+      "Erik R. Craythorne",
+      "Republican",
+      0
+     ],
+     [
+      "Jeffrey Anderson",
+      "Democratic",
+      0
+     ],
+     [
+      "Tony De Mille",
+      "Forward",
+      0
+     ]
+    ]
+   },
+   "district": "13",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH14": {
+   "cands": {
+    "general": [
+     [
+      "Brandon Young",
+      "Democratic",
+      0
+     ],
+     [
+      "John Taylor",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "John Taylor",
+      "Republican",
+      0
+     ],
+     [
+      "Kara Toone",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "14",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH15": {
+   "cands": {
+    "general": [
+     [
+      "Anne Berbert",
+      "Democratic",
+      0
+     ],
+     [
+      "Ariel Defay",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "15",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH16": {
+   "cands": {
+    "general": [
+     [
+      "Abigail Treasure",
+      "Democratic",
+      0
+     ],
+     [
+      "Bob J Stevenson",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Bob J Stevenson",
+      "Republican",
+      0
+     ],
+     [
+      "Trevor Lee",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "16",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH17": {
+   "cands": {
+    "general": [
+     [
+      "Eric Last",
+      "Democratic",
+      0
+     ],
+     [
+      "Lili Bitner",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Lili Bitner",
+      "Republican",
+      0
+     ],
+     [
+      "Sam Barlow",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "17",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH18": {
+   "cands": {
+    "general": [
+     [
+      "Paul Cutler",
+      "Republican",
+      0
+     ],
+     [
+      "Scott Troxel",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "18",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH19": {
+   "cands": {
+    "general": [
+     [
+      "Raymond P. Ward",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "19",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH2": {
+   "cands": {
+    "general": [
+     [
+      "Barbara J. Haggerty",
+      "Democratic",
+      0
+     ],
+     [
+      "Mike Petersen",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "2",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH20": {
+   "cands": {
+    "general": [
+     [
+      "Melissa Ballard",
+      "Republican",
+      0
+     ],
+     [
+      "Phil Graves",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "20",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH21": {
+   "cands": {
+    "general": [
+     [
+      "Stephen Otterstrom",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Aaron Wiley",
+      "Democratic",
+      0
+     ],
+     [
+      "Stephen Otterstrom",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "21",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH22": {
+   "cands": {
+    "general": [
+     [
+      "Char Varga",
+      "Republican",
+      0
+     ],
+     [
+      "Jen Dailey-Provost",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "22",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH23": {
+   "cands": {
+    "general": [
+     [
+      "Cabot W Nelson",
+      "Forward",
+      0
+     ],
+     [
+      "Franklin D. Robinson",
+      "Republican",
+      0
+     ],
+     [
+      "Hoang Nguyen",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "23",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH24": {
+   "cands": {
+    "general": [
+     [
+      "Braeden J. Oswald",
+      "Republican",
+      0
+     ],
+     [
+      "Grant Amjad Miller",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "24",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH25": {
+   "cands": {
+    "general": [
+     [
+      "Angela Romero",
+      "Democratic",
+      0
+     ],
+     [
+      "Richard T Nowak",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "25",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH26": {
+   "cands": {
+    "general": [
+     [
+      "Matt MacPherson",
+      "Republican",
+      0
+     ],
+     [
+      "Michael E Finch",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "26",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH27": {
+   "cands": {
+    "general": [
+     [
+      "Anthony Loubet",
+      "Republican",
+      0
+     ],
+     [
+      "Liz Oates",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "27",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH28": {
+   "cands": {
+    "general": [
+     [
+      "Anita Dalrymple",
+      "Democratic",
+      0
+     ],
+     [
+      "Nicholeen Peck",
+      "Republican",
+      0
+     ],
+     [
+      "Wales Nematollahi",
+      "Forward",
+      0
+     ]
+    ]
+   },
+   "district": "28",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH29": {
+   "cands": {
+    "general": [
+     [
+      "Jonathan Garrard",
+      "Constitution",
+      0
+     ],
+     [
+      "Sara Snow",
+      "Democratic",
+      0
+     ],
+     [
+      "Sheldon Birch",
+      "Republican",
+      0
+     ],
+     [
+      "Tynley Bean",
+      "Forward",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Alexis Wheeler",
+      "Republican",
+      0
+     ],
+     [
+      "Sheldon Birch",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "29",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH3": {
+   "cands": {
+    "general": [
+     [
+      "Jason E. Thompson",
+      "Republican",
+      0
+     ],
+     [
+      "Patrick Belmont",
+      "Unaffiliated",
+      0
+     ]
+    ]
+   },
+   "district": "3",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH30": {
+   "cands": {
+    "general": [
+     [
+      "Dave Parke",
+      "Republican",
+      0
+     ],
+     [
+      "Jake Fitisemanu",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "30",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH31": {
+   "cands": {
+    "general": [
+     [
+      "Melody Jones",
+      "Republican",
+      0
+     ],
+     [
+      "Verona Mauga",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "31",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH32": {
+   "cands": {
+    "general": [
+     [
+      "Aileen Hampton",
+      "Republican",
+      0
+     ],
+     [
+      "Sahara Hayes",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "32",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH33": {
+   "cands": {
+    "general": [
+     [
+      "Anna Reeves",
+      "Republican",
+      0
+     ],
+     [
+      "Doug Owens",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "33",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH34": {
+   "cands": {
+    "general": [
+     [
+      "Julie Jackson",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Erin Jemison",
+      "Democratic",
+      0
+     ],
+     [
+      "Julie Jackson",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "34",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH35": {
+   "cands": {
+    "general": [
+     [
+      "Monique I. Ketcham",
+      "Republican",
+      0
+     ],
+     [
+      "Rosalba Dominguez",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "35",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH36": {
+   "cands": {
+    "general": [
+     [
+      "Blake Townsend",
+      "Democratic",
+      0
+     ],
+     [
+      "Jim Dunnigan",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "36",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH37": {
+   "cands": {
+    "general": [
+     [
+      "Ashlee Matthews",
+      "Democratic",
+      0
+     ],
+     [
+      "Casey Saxton",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "37",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH38": {
+   "cands": {
+    "general": [
+     [
+      "Chris McConnehey",
+      "Republican",
+      0
+     ],
+     [
+      "Sergio Sotelo",
+      "Unaffiliated",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Chris McConnehey",
+      "Republican",
+      0
+     ],
+     [
+      "Gloria Vindas",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "38",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH39": {
+   "cands": {
+    "general": [
+     [
+      "Drew Howells",
+      "Democratic",
+      0
+     ],
+     [
+      "Ken Ivory",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "39",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH4": {
+   "cands": {
+    "general": [
+     [
+      "Tiara Auxier",
+      "Republican",
+      0
+     ],
+     [
+      "Zane Woolstenhulme",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "4",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH40": {
+   "cands": {
+    "general": [
+     [
+      "Andrew Stoddard",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Andrew Stoddard",
+      "Democratic",
+      0
+     ],
+     [
+      "Wendy Davis",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "40",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH41": {
+   "cands": {
+    "general": [
+     [
+      "Darren Croft",
+      "Republican",
+      0
+     ],
+     [
+      "John Arthur",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Darren Croft",
+      "Republican",
+      0
+     ],
+     [
+      "Eryn A Russo",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "41",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH42": {
+   "cands": {
+    "general": [
+     [
+      "Clint Okerlund",
+      "Republican",
+      0
+     ],
+     [
+      "Iva Williams",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "42",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH43": {
+   "cands": {
+    "general": [
+     [
+      "Ofa Matagi",
+      "Democratic",
+      0
+     ],
+     [
+      "Steve Eliason",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "43",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH44": {
+   "cands": {
+    "general": [
+     [
+      "Jess Birtcher",
+      "Democratic",
+      0
+     ],
+     [
+      "Jordan Teuscher",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Jordan Teuscher",
+      "Republican",
+      0
+     ],
+     [
+      "Scott Stephenson",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "44",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH45": {
+   "cands": {
+    "general": [
+     [
+      "Rod Moser",
+      "Democratic",
+      0
+     ],
+     [
+      "Tracy Miller",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "45",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH46": {
+   "cands": {
+    "general": [
+     [
+      "Braxten Rutherford",
+      "Democratic",
+      0
+     ],
+     [
+      "Cal Roberts",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "46",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH47": {
+   "cands": {
+    "general": [
+     [
+      "Mark A. Strong",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "47",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH48": {
+   "cands": {
+    "general": [
+     [
+      "Benyde Walker",
+      "Democratic",
+      0
+     ],
+     [
+      "Jake Hunsaker",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Jake Hunsaker",
+      "Republican",
+      0
+     ],
+     [
+      "Nik Anderson",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "48",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH49": {
+   "cands": {
+    "general": [
+     [
+      "Candice B. Pierucci",
+      "Republican",
+      0
+     ],
+     [
+      "Lillian Bowles",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "49",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH5": {
+   "cands": {
+    "general": [
+     [
+      "Casey Snider",
+      "Republican",
+      0
+     ],
+     [
+      "Kendra Penry",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "5",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH50": {
+   "cands": {
+    "general": [
+     [
+      "Kristin Meyer",
+      "Democratic",
+      0
+     ],
+     [
+      "Stephanie Gricius",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "50",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH51": {
+   "cands": {
+    "general": [
+     [
+      "Brett Nielsen",
+      "Democratic",
+      0
+     ],
+     [
+      "Leah Hansen",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "51",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH52": {
+   "cands": {
+    "general": [
+     [
+      "Charlie Tautuaa",
+      null,
+      1
+     ],
+     [
+      "Cory Maloy",
+      "Republican",
+      0
+     ],
+     [
+      "Nicole Melling",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "52",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH53": {
+   "cands": {
+    "general": [
+     [
+      "John Boyd",
+      "Forward",
+      0
+     ],
+     [
+      "Kay J. Christofferson",
+      "Republican",
+      0
+     ],
+     [
+      "Kevin R Slater",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "53",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH54": {
+   "cands": {
+    "general": [
+     [
+      "Kristen S. Chevrier",
+      "Republican",
+      0
+     ],
+     [
+      "Kristina Robinson",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "54",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH55": {
+   "cands": {
+    "general": [
+     [
+      "Jon Hawkins",
+      "Republican",
+      0
+     ],
+     [
+      "Travis Hysell",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "55",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH56": {
+   "cands": {
+    "general": [
+     [
+      "Natassja Grossman",
+      "Democratic",
+      0
+     ],
+     [
+      "Val L. Peterson",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "56",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH57": {
+   "cands": {
+    "general": [
+     [
+      "Nancy Lee Peterson",
+      null,
+      1
+     ],
+     [
+      "Nelson Abbott",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "57",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH58": {
+   "cands": {
+    "general": [
+     [
+      "David Shallenberger",
+      "Republican",
+      0
+     ],
+     [
+      "Karli Black",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "58",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH59": {
+   "cands": {
+    "general": [
+     [
+      "Celeste T. Johnson",
+      "Democratic",
+      0
+     ],
+     [
+      "Luke Searle",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Jeffrey Pierce",
+      "Republican",
+      0
+     ],
+     [
+      "Luke Searle",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "59",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH6": {
+   "cands": {
+    "general": [
+     [
+      "James Rich",
+      "Forward",
+      0
+     ],
+     [
+      "Rob Bishop",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "6",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH60": {
+   "cands": {
+    "general": [
+     [
+      "Grant Pace",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "60",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH61": {
+   "cands": {
+    "general": [
+     [
+      "Alan Jimenez",
+      "Democratic",
+      0
+     ],
+     [
+      "Jennifer K Doud",
+      "Constitution",
+      0
+     ],
+     [
+      "Lisa Shepherd",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "61",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH62": {
+   "cands": {
+    "general": [
+     [
+      "David Chappell",
+      "Democratic",
+      0
+     ],
+     [
+      "Norm Thurston",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "62",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH63": {
+   "cands": {
+    "general": [
+     [
+      "Julie Smith",
+      "Forward",
+      0
+     ],
+     [
+      "Mark Youngquist",
+      "Democratic",
+      0
+     ],
+     [
+      "Stephen L. Whyte",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "63",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH64": {
+   "cands": {
+    "general": [
+     [
+      "Alan Wessman",
+      "Unaffiliated",
+      0
+     ],
+     [
+      "Jackie Larson",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "64",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH65": {
+   "cands": {
+    "general": [
+     [
+      "Doug Welton",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "65",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH66": {
+   "cands": {
+    "general": [
+     [
+      "Breanne Mashek",
+      "Democratic",
+      0
+     ],
+     [
+      "Russ Hatch",
+      "Constitution",
+      0
+     ],
+     [
+      "Troy Shelley",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "66",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH67": {
+   "cands": {
+    "general": [
+     [
+      "Carl Ingwell",
+      "Democratic",
+      0
+     ],
+     [
+      "JR Bird",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "JR Bird",
+      "Republican",
+      0
+     ],
+     [
+      "Yvonne H Jensen",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "67",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH68": {
+   "cands": {
+    "general": [
+     [
+      "Scott H Chew",
+      "Republican",
+      0
+     ],
+     [
+      "Sonya Ray",
+      "Constitution",
+      0
+     ]
+    ]
+   },
+   "district": "68",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH69": {
+   "cands": {
+    "general": [
+     [
+      "Logan J. Monson",
+      "Republican",
+      0
+     ],
+     [
+      "Tracie Yellowman Tso",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Daniel Gardner",
+      "Republican",
+      0
+     ],
+     [
+      "Logan J. Monson",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "69",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH7": {
+   "cands": {
+    "general": [
+     [
+      "Bianca Mittendorf",
+      "Democratic",
+      0
+     ],
+     [
+      "Ryan D. Wilcox",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "7",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH70": {
+   "cands": {
+    "general": [
+     [
+      "Carl R. Albrecht",
+      "Republican",
+      0
+     ],
+     [
+      "Stacey D. Pendergraft",
+      "Democratic",
+      0
+     ],
+     [
+      "Zeno B. Parry",
+      "Forward",
+      0
+     ]
+    ]
+   },
+   "district": "70",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH71": {
+   "cands": {
+    "general": [
+     [
+      "Rex P Shipp",
+      "Republican",
+      0
+     ],
+     [
+      "Thomas Loveheart",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "71",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH72": {
+   "cands": {
+    "general": [
+     [
+      "April A Pinkston",
+      "Constitution",
+      0
+     ],
+     [
+      "Eva M Weldon",
+      "Democratic",
+      0
+     ],
+     [
+      "Joseph Elison",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "72",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH73": {
+   "cands": {
+    "general": [
+     [
+      "Colin W. Jack",
+      "Republican",
+      0
+     ],
+     [
+      "Glenn D Webb",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "73",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH74": {
+   "cands": {
+    "general": [
+     [
+      "Jeffrey N Lipe",
+      "Democratic",
+      0
+     ],
+     [
+      "R. Neil Walter",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "74",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH75": {
+   "cands": {
+    "general": [
+     [
+      "Rebecca Winsor",
+      "Democratic",
+      0
+     ],
+     [
+      "Walt Brooks",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "75",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH8": {
+   "cands": {
+    "general": [
+     [
+      "Jason B Kyle",
+      "Republican",
+      0
+     ],
+     [
+      "Kim James",
+      "Democratic",
+      0
+     ],
+     [
+      "Libby Shelton",
+      "Forward",
+      0
+     ]
+    ]
+   },
+   "district": "8",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SH9": {
+   "cands": {
+    "general": [
+     [
+      "Angela Choberka",
+      "Democratic",
+      0
+     ],
+     [
+      "Jake Sawyer",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "9",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SS1": {
+   "cands": {
+    "general": [
+     [
+      "Claudia Bigler",
+      "Democratic",
+      0
+     ],
+     [
+      "Julie Quinlan",
+      "Forward",
+      0
+     ],
+     [
+      "Scott Sandall",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "1",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SS11": {
+   "cands": {
+    "general": [
+     [
+      "Brooks Benson",
+      "Republican",
+      0
+     ],
+     [
+      "Emily Buss",
+      "Forward",
+      0
+     ]
+    ]
+   },
+   "district": "11",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SS12": {
+   "cands": {
+    "general": [
+     [
+      "Deidre Tyler",
+      "Republican",
+      0
+     ],
+     [
+      "Karen Kwan",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "12",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SS13": {
+   "cands": {
+    "general": [
+     [
+      "Colin Smith",
+      "Forward",
+      0
+     ],
+     [
+      "Ryan L. Mahoney",
+      "Republican",
+      0
+     ],
+     [
+      "Silvia Catten",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Evan Done",
+      "Democratic",
+      0
+     ],
+     [
+      "Silvia Catten",
+      "Democratic",
+      0
+     ],
+     [
+      "Taylor J Paden",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "13",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SS14": {
+   "cands": {
+    "general": [
+     [
+      "Stephanie Pitcher",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Stephanie Pitcher",
+      "Democratic",
+      0
+     ],
+     [
+      "Tayler Khater",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "14",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SS18": {
+   "cands": {
+    "general": [
+     [
+      "A Dane Anderson",
+      "Democratic",
+      0
+     ],
+     [
+      "Doug Fiefia",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Daniel McCay",
+      "Republican",
+      0
+     ],
+     [
+      "Doug Fiefia",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "18",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SS19": {
+   "cands": {
+    "general": [
+     [
+      "Kirk Cullimore",
+      "Republican",
+      0
+     ],
+     [
+      "Shana Anderson",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "19",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SS20": {
+   "cands": {
+    "general": [
+     [
+      "Annette McRae",
+      "Forward",
+      0
+     ],
+     [
+      "Ronald M Winterton",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "20",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SS21": {
+   "cands": {
+    "general": [
+     [
+      "Brady Brammer",
+      "Republican",
+      0
+     ],
+     [
+      "Kandee Myers",
+      "Democratic",
+      0
+     ],
+     [
+      "Wayne Woodfield",
+      "Forward",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Brady Brammer",
+      "Republican",
+      0
+     ],
+     [
+      "Kelly Smith",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "21",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SS23": {
+   "cands": {
+    "general": [
+     [
+      "Keith Grover",
+      "Republican",
+      0
+     ],
+     [
+      "Tucker Smith",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "23",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SS28": {
+   "cands": {
+    "general": [
+     [
+      "Evan J Vickers",
+      "Republican",
+      0
+     ],
+     [
+      "Richard S Robillard",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "28",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SS5": {
+   "cands": {
+    "general": [
+     [
+      "\"CJ\" Christina Hernandez",
+      "Democratic",
+      0
+     ],
+     [
+      "Jill F. Koford",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "\"CJ\" Christina Hernandez",
+      "Democratic",
+      0
+     ],
+     [
+      "Dakota Wurth",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "5",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SS6": {
+   "cands": {
+    "general": [
+     [
+      "Jared Neal",
+      "Democratic",
+      0
+     ],
+     [
+      "Josh Smith",
+      "Forward",
+      0
+     ],
+     [
+      "Tami Tran",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Robert Wanlass",
+      "Republican",
+      0
+     ],
+     [
+      "Tami Tran",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "6",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SS7": {
+   "cands": {
+    "general": [
+     [
+      "Garret Rushforth",
+      "Democratic",
+      0
+     ],
+     [
+      "Jeffrey Ostler",
+      "Constitution",
+      0
+     ],
+     [
+      "Stephanie Hollist",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Braden Hess",
+      "Republican",
+      0
+     ],
+     [
+      "Stephanie Hollist",
+      "Republican",
+      0
+     ],
+     [
+      "Stuart Adams",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "7",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-UT-SS9": {
+   "cands": {
+    "general": [
+     [
+      "J. Lowry Snow",
+      "Forward",
+      0
+     ],
+     [
+      "Jen Plumb",
+      "Democratic",
+      0
+     ],
+     [
+      "Thaddeus A Evans",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "9",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  }
+ },
+ "rule": "A contest is tied to a race only when exactly one race of the same office and district (and seat) fits. A candidate line is tied to a name as filed only when exactly one fits: the family name and a given name that fits. Everything else is listed with the reason and never shown.",
+ "source": "The ballot databases (Congress, and state and local), read only; the races and the names as filed.",
+ "state": "UT",
+ "v": 1
+}

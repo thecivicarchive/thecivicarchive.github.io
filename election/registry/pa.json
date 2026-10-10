@@ -29,7 +29,7 @@
  },
  "cadence": {
   "check_every_s": 180,
-  "signal": "https://www.electionreturns.pa.gov/api/ElectionReturn/GetOfficeData?officeId=<o>&...&electionid=<id>",
+  "signal": "https://www.electionreturns.pa.gov/api/ElectionReturn/GetUpdatedTimeStamp?methodName=LastUpdatedTimeStamp (the site's own last-updated time)",
   "data_on_change": true,
   "from": "the state's first poll closing",
   "hosts": [
@@ -127,17 +127,25 @@
  "never": [],
  "never_why": {},
  "partial_sources": [],
- "rehearsal": "Electionid 105 (2024 general); 117 (2026 primary)",
+ "rehearsal": "105G@2024-11-05 (the 2024 general, election 105 type G; run_night.py replay --election pa=105G@2024-11-05)",
  "terms": "none stated on the API; the site is the Department's public returns",
  "scout_blocked": "nothing refused scripts on 2026-10-09",
  "scout_plan": "Live-readable. On the night, read GetElectionList once to find the 2026 General's id, then poll GetOfficeData for offices 3, 11, 12 and 13 every few minutes (four calls a round), and GetCountyBreak only for the races on the map that are open, to fill the county shading. Pull the Reporting Center CSV once an hour for the Election Day/Mail/Provisional split that feeds count order. Rehearse on election 105 (2024) in October. Local results are a handful of specials: take them from the county sites only where one is on the ballot, otherwise say Pennsylvania holds its local elections in odd years.",
- "notes": [],
+ "notes": [
+  "The answers carry no precincts reporting; the pages show votes and counties without a precinct count.",
+  "County breakdowns: every statewide office on each change; congressional districts at most every 10 minutes; legislative districts never (district totals only), to keep requests few."
+ ],
  "to_do": [
-  "Find the Nov 3 Electionid."
+  "Find the Nov 3 Electionid: run_night.py discover reads the Department's election list (a 2026 General dated 11/03/2026)."
  ],
  "sources": [
   "election/scout/results_pa.json (checked 2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts))",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
   "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+ ],
+ "reader": {
+  "family": "pa_returns",
+  "written": "2026-10-10",
+  "checked": "2026-10-10: the 2024 general (105 G, Official) read whole: 220 contests; the 17 congressional districts' statewide lines equal their county breakdowns in all four counts (total, Election Day, mail, provisional)"
+ }
 }

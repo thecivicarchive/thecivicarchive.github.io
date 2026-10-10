@@ -59,6 +59,13 @@ as they are and turns them into its own shape (normState and normCounty in NIGHT
     A precinct not listed for a race has not reported. Every county has both files in every snapshot (store.
     county_units), so that a page can tell "none in yet" from a file it could not fetch.
 
+How a page reads them (NIGHTLIVE in NIGHT_JS below): now.json every 2 minutes while the page is visible, none while it
+is hidden; the state's file and the county files only when "seq" is new, all from that one folder, before anything on the
+page changes; numbers put in place, a list that would re-sort under the reader held behind "New figures are ready: show
+them", one polite announcement a snapshot. Updates count as paused when now.json says "run": "paused" or "stopped", or
+when "next" is more than 20 minutes past by the reader's clock (25 minutes after "at" when there is no "next"); the
+updater sets "next" by its publishing cadence, so the pages need no rule of their own about it.
+
 The race ids are the ballot databases' own; a precinct id is the map's own (Minnesota: the VTDID).
 check_state_live() and check_county_live() test the files against this account.
 """
@@ -446,6 +453,9 @@ details.nfold>summary:focus-visible{outline:2px solid var(--accent);outline-offs
 .ynote{font-size:13.5px;color:var(--muted);margin:10px 0 0;max-width:80ch;line-height:1.45}
 .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:12px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
 .tblwrap .gt-wrap{border:0;margin:0}
+/* a list that new figures would re-sort waits for the reader: "New figures are ready: show them" */
+.nready{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;min-height:44px;margin:12px 0 0;padding:0 16px;border-radius:999px;border:2px solid var(--verd);background:var(--verd-soft);color:var(--ink);font:700 14px var(--sans);max-width:100%}
+.nready:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .loading{padding:60px 0;text-align:center}
 .crumbs a{min-height:32px;display:inline-flex;align-items:center}
 .backlink{display:inline-flex;align-items:center;min-height:44px;color:var(--accent-ink);font-weight:600}
@@ -518,26 +528,51 @@ const STATUS_WORDS = {wait: "Polls open", none: "No votes yet", counting: "Count
 const statusChip = s => `<span class="stw ${esc(s)}"><i aria-hidden="true"></i>${esc(STATUS_WORDS[s] || "Waiting")}</span>`;
 
 /* ---------- the live figures: now.json, then only the files a page shows, all from one snapshot ---------- */
-const LIVE = {now: null, raw: null, st: null, cty: {}, got: {}, wait: {}, base: "", seq: null, why: "", rehearsal: false};
+const LIVE = {now: null, raw: null, st: null, cty: {}, got: {}, wait: {}, base: "", seq: null, why: "", rehearsal: false, raceOf: null, skew: 0};
 (function () {      /* #rehearsal in the address reads the rehearsal folder, for the whole visit, with its banner */
   try { if (/^#rehearsal\b/.test(location.hash)) { sessionStorage.setItem("night:rehearsal", "1"); history.replaceState(null, "", location.pathname + location.search + "#" + location.hash.replace(/^#rehearsal&?/, "")); }
     LIVE.rehearsal = sessionStorage.getItem("night:rehearsal") === "1"; } catch (e) {}
 })();
 const liveRoot = () => BOOT.live.base + (LIVE.rehearsal ? "rehearsal/" : "");
-/* now.json and the state's file as the store wrote them (raw); liveReady turns the file into the page's own shape once the
-   page has its races. The two are separate so that the page can fetch its races and the figures side by side. */
-function liveFetch() {
+/* Reading the figures comes in two steps, so that nothing on the page changes until a whole snapshot is in hand:
+   liveGet asks for now.json and, only when its snapshot (seq) is new, the state's file from that snapshot's folder, and
+   hands back what it found without touching the page; liveCommit then makes it the page's. A failed request leaves the
+   figures already shown as they are. liveFetch does both (the first load); liveReady turns the state's file into the
+   page's own shape once the page has its races, and is run again by liveCommit for every new snapshot. */
+function liveGet() {
   const root = liveRoot();
-  return fetch(root + "now.json", {cache: "no-store"}).then(r => r.ok ? r.json() : Promise.reject(new Error("now " + r.status))).then(now => {
-    LIVE.now = now; const s = (now.st || {})[CODE];
-    if (!s || !s.f) { LIVE.raw = null; LIVE.why = "nostate"; return null; }
-    if (LIVE.seq === now.seq && LIVE.raw) return LIVE.raw;
+  return fetch(root + "now.json", {cache: "no-store"}).then(r => {
+    if (!r.ok) throw new Error("now " + r.status);
+    /* the server's own clock, so that a reader whose clock is far off is not told that updates have paused */
+    const d = Date.parse(r.headers.get("Date") || "");
+    if (!BOOT.practice && !isNaN(d)) { const k = d - Date.now(); LIVE.skew = Math.abs(k) > 180000 ? k : 0; }
+    return r.json();
+  }).then(now => {
+    if (!now || typeof now !== "object" || now.v !== 1) throw new Error("now unreadable");
+    const s = (now.st || {})[CODE];
+    if (!s || !s.f || !now.base) return {now, raw: null, why: "nostate"};
+    if (LIVE.raw && LIVE.seq === now.seq) return {now, same: true};
     const base = root + now.base;
-    return fetch(base + s.f, {cache: "force-cache"}).then(r => r.ok ? r.json() : Promise.reject(new Error("state " + r.status))).then(raw => {
-      LIVE.raw = raw; LIVE.seq = now.seq; LIVE.base = base; LIVE.cty = {}; LIVE.got = {}; LIVE.wait = {}; LIVE.why = ""; return raw; });
-  }).catch(e => { LIVE.raw = null; LIVE.why = /^now /.test(String(e && e.message)) || e instanceof TypeError ? "nofile" : "broken"; return null; });
+    return fetch(base + s.f, {cache: "force-cache"}).then(r => r.ok ? r.json() : Promise.reject(new Error("state " + r.status)))
+      .then(raw => ({now, raw, base, seq: now.seq}));
+  });
 }
-function liveReady(raceOf) { LIVE.st = LIVE.raw ? normState(LIVE.raw, raceOf) : null; return LIVE.st; }
+function liveCommit(g) {      // true when the page has new figures
+  if (g.same) { LIVE.now = g.now; return false; }
+  if (!g.raw) {      /* no figures for this state in the snapshot: figures already shown stay (a count is never taken back) */
+    if (LIVE.raw) return false;
+    LIVE.now = g.now; LIVE.why = g.why || ""; return false;
+  }
+  LIVE.now = g.now; LIVE.raw = g.raw; LIVE.seq = g.seq; LIVE.base = g.base; LIVE.cty = {}; LIVE.got = {}; LIVE.wait = {}; LIVE.why = "";
+  if (LIVE.raceOf) liveReady(LIVE.raceOf);
+  (g.cty || []).forEach(([c, p, d]) => liveTakeCounty(c, p, d));      /* the counties the reader had open, from the same snapshot */
+  return true;
+}
+function liveFetch() {
+  return liveGet().then(g => { liveCommit(g); return LIVE.raw; },
+    e => { if (!LIVE.raw) LIVE.why = /^now /.test(String(e && e.message)) || e instanceof TypeError ? "nofile" : "broken"; return LIVE.raw; });
+}
+function liveReady(raceOf) { LIVE.raceOf = raceOf; LIVE.st = LIVE.raw ? normState(LIVE.raw, raceOf) : null; return LIVE.st; }
 /* the store's lines (ch) against the page's own list: each line is a candidate on the list (its index), the race's
    write-ins ("w"), or a line the list does not have (-1), shown as printed. Names compared as letters and digits only. */
 const nameKey = s => String(s || "").normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
@@ -605,17 +640,102 @@ function liveCounty(c, part) {      // a county's precinct rows: the file a race
     if (!LIVE.wait[key]) LIVE.wait[key] = fetch(LIVE.base + BOOT.live.dir + "c/" + countyFile(c, p), {cache: "force-cache"})
       .then(r => r.ok ? r.json() : Promise.reject(new Error(String(r.status))))
       .then(d => { if (LIVE.seq !== seq) return;      /* a newer snapshot arrived meanwhile: never mix two */
-        const f = normCounty(d), have = LIVE.cty[c] || (LIVE.cty[c] = {county: String(c), t: null, tp: {}, p: {}});
-        Object.assign(have.p, f.p); have.tp[p] = f.t; if (f.t && (!have.t || f.t > have.t)) have.t = f.t; LIVE.got[key] = 1; },
+        liveTakeCounty(c, p, d); },
         e => { delete LIVE.wait[key]; throw e; });
     return LIVE.wait[key];
   })).then(() => { if (!LIVE.cty[c]) throw new Error("no county file"); return LIVE.cty[c]; });
 }
-const stale = () => LIVE.now && LIVE.now.at && (NOW() - new Date(LIVE.now.at)) > 25 * 60000 && !["done", "official"].includes(liveStatus());
-function liveStatus() {
-  const s = LIVE.now && (LIVE.now.st || {})[CODE];
-  return LIVE.st ? (LIVE.st.s || (s && s.s) || "counting") : (s && s.s) || "";
+function liveTakeCounty(c, p, d) {
+  const f = normCounty(d), have = LIVE.cty[c] || (LIVE.cty[c] = {county: String(c), t: null, tp: {}, p: {}});
+  Object.assign(have.p, f.p); have.tp[p] = f.t; if (f.t && (!have.t || f.t > have.t)) have.t = f.t; LIVE.got[c + "|" + p] = 1;
 }
+/* ---------- have the updates paused? ----------
+   now.json says when the next one is due ("next"): every 10 minutes on the night, every 30 after 3 a.m., hourly after
+   8 a.m. A page says that updates have paused when the updater said so itself ("run": paused or stopped), or when the
+   next one is more than 20 minutes late by the reader's clock (set by the server's clock where the two differ by more than
+   three minutes): a new now.json can take that long to reach a reader (the push, GitHub's build, its 10-minute cache and
+   the page's own 2-minute look). With no "next", 25 minutes after the last. A count that is complete is never "paused". */
+const LIVE_GRACE = 20 * 60000, LIVE_NONEXT = 25 * 60000;
+const liveClock = () => BOOT.practice && BOOT.practice.now ? NOW().getTime() : Date.now() + (LIVE.skew || 0);
+function livePause() {      // null, or {why: "paused" | "stopped" | "late", since: the last pointer's time}
+  const n = LIVE.now, at = n && Date.parse(n.at || "");
+  if (!n || isNaN(at)) return null;
+  if (n.run === "paused" || n.run === "stopped") return {why: n.run, since: n.at};
+  const nx = Date.parse(n.next || ""), due = isNaN(nx) ? at + LIVE_NONEXT : Math.max(nx, at) + LIVE_GRACE;
+  return liveClock() > due ? {why: "late", since: n.at} : null;
+}
+const stale = () => !!livePause() && !["done", "official"].includes(liveStatus());
+function liveStatus() {      // the state's word: now.json's (the newest), else the state's file's
+  const s = LIVE.now && (LIVE.now.st || {})[CODE];
+  return (s && s.s) || (LIVE.st && LIVE.st.s) || (LIVE.st ? "counting" : "");
+}
+
+/* ---------- NIGHTLIVE: the live poller ----------
+   NIGHTLIVE.start({onNew, onTick}) once the page is drawn. While the page is visible it asks for now.json every 2 minutes
+   (none while it is hidden; at once on coming back after longer), and only when the snapshot is new the state's file and
+   the county files the reader already had open, all from that one snapshot, before anything changes (liveGet, then
+   liveCommit). Then onNew() (the page puts the new numbers in place) and one polite announcement, "New figures as of
+   9:52 p.m."; after any other look, onTick() (the page brings its "paused" words up to date). NIGHTLIVE.ready(host, apply)
+   puts "New figures are ready: show them" before a list that would re-sort under the reader; NIGHTLIVE.ready(host) takes
+   it away. On the usual preview (127.0.0.1:8790, the draft alone) there are no live figures, so it asks for nothing.
+   Options for a page that reads other files: get (a function like liveGet), commit (like liveCommit), when (the time
+   the announcement gives). */
+const NIGHTLIVE = (function () {
+  const EVERY = 2 * 60000, KEEP_CTY = 24;
+  let o = {}, timer = 0, last = 0, busy = null, on = false, said = "";
+  const off = () => /^(127\.0\.0\.1|localhost)$/.test(location.hostname) && location.port === "8790";
+  function region() {
+    let el = document.getElementById("nlive");
+    if (!el) { el = document.createElement("div"); el.id = "nlive"; el.className = "sr"; el.setAttribute("role", "status"); el.setAttribute("aria-live", "polite"); document.body.appendChild(el); }
+    return el;
+  }
+  function announce(text) { const el = region(); el.textContent = ""; setTimeout(() => { el.textContent = text; }, 80); }
+  function counties(g) {      // the county files the reader had open, from the new snapshot (a file that fails is fetched again when needed)
+    if (!g || !g.raw || !g.base || !BOOT.live || !BOOT.live.dir) return Promise.resolve(g);
+    const keys = Object.keys(LIVE.got).slice(-KEEP_CTY);
+    return Promise.all(keys.map(k => { const [c, p] = k.split("|");
+      return fetch(g.base + BOOT.live.dir + "c/" + countyFile(c, p), {cache: "force-cache"}).then(r => r.ok ? r.json() : null).then(d => d ? [c, p, d] : null, () => null); }))
+      .then(list => { g.cty = list.filter(Boolean); return g; });
+  }
+  function poll() {
+    if (busy) return busy;
+    busy = (o.get || liveGet)().then(g => o.get ? g : counties(g)).then(g => {
+      last = Date.now();
+      const fresh = (o.commit || liveCommit)(g);
+      if (fresh) {
+        try { if (o.onNew) o.onNew(); } finally {
+          const t = o.when ? o.when() : (LIVE.raw && LIVE.raw.at), text = t ? `New figures as of ${fmtTime(t)}.` : "New figures.";
+          if (text !== said) { said = text; announce(text); } }
+      } else if (o.onTick) o.onTick();
+      return fresh;
+    }, () => { last = Date.now(); if (o.onTick) o.onTick(); return false; }).finally(() => { busy = null; });
+    return busy;
+  }
+  function schedule() {
+    clearTimeout(timer);
+    if (!on || document.hidden) return;
+    timer = setTimeout(() => { poll().then(schedule, schedule); }, Math.max(1000, last + EVERY - Date.now()));
+  }
+  function start(opt) {
+    o = opt || {};
+    if (on || off()) return;
+    on = true; last = Date.now(); region();
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) { clearTimeout(timer); return; }
+      if (Date.now() - last >= EVERY) poll().then(schedule, schedule); else schedule();
+    });
+    schedule();
+  }
+  function ready(host, apply) {
+    if (!host || !host.parentNode) return;
+    let b = host.previousElementSibling;
+    if (!(b && b.classList.contains("nready"))) b = null;
+    if (!apply) { if (b) b.remove(); return; }
+    if (!b) { b = document.createElement("button"); b.type = "button"; b.className = "nready"; b.textContent = "New figures are ready: show them"; host.parentNode.insertBefore(b, host); }
+    b.onclick = () => { b.remove(); apply(); if (!host.hasAttribute("tabindex")) host.setAttribute("tabindex", "-1"); try { host.focus({preventScroll: true}); } catch (e) {} };
+  }
+  return {start, poll, ready, off, get on() { return on; }};
+})();
 
 /* ---------- a race's figures ---------- */
 const E = id => (LIVE.st && LIVE.st.r && LIVE.st.r[id]) || null;

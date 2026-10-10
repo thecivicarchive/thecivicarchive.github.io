@@ -7,7 +7,7 @@
  "status": "link",
  "status_why": "The official results page shows scripts a challenge, and John chose not to read its data host. The page links to Arizona's own results.",
  "approved": false,
- "approval_note": "John said no (2026-10-10, D2): never read cdn1.arizona.vote; Arizona links out to its own page.",
+ "approval_note": "John said no (D2, 2026-10-10): the updater does not read cdn1.arizona.vote; Arizona links out to its own results page. No reader is written.",
  "office": "the Arizona Secretary of State",
  "system": "Arizona Secretary of State's own election-night results site (AngularJS app, results.arizona.vote) fed by static JSON on a data CDN (cdn1.arizona.vote); counties upload, each upload numbered",
  "family": null,
@@ -113,11 +113,18 @@
  "terms": "none seen",
  "scout_blocked": "results.arizona.vote: 403 Cloudflare challenge to scripts (passes in the Browser pane); azsos.gov, apps.azsos.gov and my.arizona.vote also challenge scripts (CLAUDE.md, 2026-09-30)",
  "scout_plan": "With John's approval, poll cdn1.arizona.vote's election_<id>_0.json every few minutes and, when the uploadId changes, fetch the featured and all-county race files for the statewide and nine House contests; take the election id from the front page link John or the Browser pane reads on Nov 3. If John says no, Arizona waits for him to save the official canvass. Local results come from Maricopa's tab-delimited file (about six in ten Arizonans) and then Pima and Pinal one at a time.",
- "notes": [],
+ "notes": [
+  "2026-10-10 (N12): confirmed as a link state: cdn1.arizona.vote, results.arizona.vote and azsos.gov stay on the never list."
+ ],
  "to_do": [],
  "sources": [
   "election/scout/results_az.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
   "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+ ],
+ "reader": {
+  "module": null,
+  "written": "2026-10-10",
+  "why": "John's answer D2: link out"
+ }
 }

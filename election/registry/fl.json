@@ -124,15 +124,23 @@
  "never": [],
  "never_why": {},
  "partial_sources": [],
- "rehearsal": "20241105_ElecResultsFL.txt; 20260818_ElecResultsFL.txt",
+ "rehearsal": "20241105@2024-11-05 (the 2024 general; run_night.py replay --election fl=20241105@2024-11-05)",
  "terms": "None stated on the Downloads page.",
  "scout_blocked": "Nothing refused scripts. The candidate download (dos.elections.myflorida.com) also answers scripts.",
  "scout_plan": "Live-readable. On election night fetch 20261103_ElecResultsFL.txt every 3 to 5 minutes from 8:00 p.m. Eastern; it gives every federal, statewide and legislative race by county with precincts reporting. Local races: start with the counties on enr.electionsfl.org (find each county's election id the week before) and add the large self-hosted supervisors one at a time. Use the counties' vote-type columns for the count-order model, since Florida's mail and early votes come first.",
- "notes": [],
+ "notes": [
+  "The file gives county rows only; a contest's whole figure is the sum of its counties. The address answers 404 until the night's file is posted.",
+  "certified(): the Division's Summary Report (results.elections.myflorida.com SummaryRpt.asp, Race=FED) once it says Official Results."
+ ],
  "to_do": [],
  "sources": [
   "election/scout/results_la.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
   "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+ ],
+ "reader": {
+  "family": "fl_watch",
+  "written": "2026-10-10",
+  "checked": "2026-10-10: the 2024 general's file read whole: 135 contests; the 28 federal races' county sums equal the Division's Summary Report marked Official Results"
+ }
 }

@@ -3,7 +3,7 @@
  "code": "DE",
  "name": "Delaware",
  "written": "2026-10-10",
- "checked": "2026-10-09",
+ "checked": "2026-10-09; 2026-10-10 by N10 (the reader's own requests through election/source.py)",
  "status": "live",
  "status_why": "The Department's JSON files answered scripts; the kit already reads them.",
  "approved": true,
@@ -23,9 +23,9 @@
   "id": "2026-11-03",
   "kind": "general",
   "date": "2026-11-03",
-  "nov3_id": "GE2026 (expected)",
+  "nov3_id": "GE2026",
   "posted": false,
-  "how_to_find": "Confirm the GE2026 file names from the results index on the afternoon of Nov 3."
+  "how_to_find": "Expected GE2026 (PR2026 for the primary); the reader asks for the statewide file and finds nothing until it is posted."
  },
  "cadence": {
   "check_every_s": 180,
@@ -76,17 +76,20 @@
  "never": [],
  "never_why": {},
  "partial_sources": [],
- "rehearsal": "PR2026 (the Sept 15 primary); GE2024 (to confirm from the archive)",
+ "rehearsal": "PR2026 (the Sept 15 primary, official), kept in election_cache/replay/sources/<code>-<id>/ (kept 2026-10-10 by N10 for rehearsals). The 2024 general's files are not under GE2024 (404 on 2026-10-10).",
  "terms": "None stated.",
  "scout_blocked": "Nothing refused scripts.",
  "scout_plan": "Live-readable. Confirm the GE2026 file names from the results index on Nov 3 afternoon, then read the two JSON files every 3 to 5 minutes; they already split machine, early and absentee votes, which feeds the count-order predictor directly.",
- "notes": [],
+ "notes": [
+  "Reader (N10, 2026-10-10): de_json. check() asks for the statewide file (conditional); fetch() it and the county file. Machine, absentee and early votes are kept apart and must add to the total."
+ ],
  "to_do": [
-  "Confirm GE2026."
+  "GE2026 is the expected code (the primary's was PR2026); until it is posted the reader's check finds nothing and asks again. Confirm it from the results index on Nov 3."
  ],
  "sources": [
   "election/scout/results_la.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
-  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)",
+  "N10's own requests, 2026-10-10, through election/source.py with the kit's User-Agent: the addresses in the reader's notes answered a script"
  ]
 }

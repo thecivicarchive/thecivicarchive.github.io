@@ -16,7 +16,8 @@
   "url": "https://elections.tn.gov/",
   "label": "Tennessee Secretary of State: election results",
   "checked": "2026-10-09",
-  "source": "results_az.json"
+  "source": "results_az.json",
+  "confirmed": "2026-10-10: not asked: elections.tn.gov is on the never list (it refuses scripts), so no program asks it; the page is for readers' own browsers, as the scout found it (2026-10-09)"
  },
  "other_pages": [],
  "election": {
@@ -80,11 +81,21 @@
  "terms": "none seen",
  "scout_blocked": "elections.tn.gov, sos.tn.gov and sos-prod.tnsosgovfiles.com: CloudFront 403 to scripts",
  "scout_plan": "Tennessee cannot be read live. Show the Senate, Governor and nine House races with a link to elections.tn.gov and ask John whether he will save the results page at intervals on election night, as he does for Minnesota. A follow-up scout should check whether Shelby's and Davidson's commissions post results files scripts can read (they cover TN-9 and TN-5/6/7 partly). Official results: John's saved certification files.",
- "notes": [],
+ "notes": [
+  "2026-10-10 (N12): confirmed as a link state; certified results source recorded under certified_results."
+ ],
  "to_do": [],
  "sources": [
   "election/scout/results_az.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
   "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+ ],
+ "certified_results": {
+  "what": "the Secretary's official results PDFs by county",
+  "address": "https://elections.tn.gov/",
+  "script_ok": false,
+  "when": "after certification",
+  "how": "sos.tn.gov answers scripts with a CloudFront refusal (on the never list): John saves the PDFs into ballot_cache/tn/, as for the August primary; the exact address of the certified file is to be confirmed when it is posted",
+  "checked": "2026-10-10"
+ }
 }

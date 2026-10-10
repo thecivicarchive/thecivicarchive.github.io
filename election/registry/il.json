@@ -16,7 +16,8 @@
   "url": "https://www.elections.il.gov/ElectionOperations/ElectionVoteTotals.aspx",
   "label": "Illinois State Board of Elections: vote totals",
   "checked": "2026-10-09",
-  "source": "results_mn.json"
+  "source": "results_mn.json",
+  "confirmed": "2026-10-10: answered one request with the kit's User-Agent (200)"
  },
  "other_pages": [
   {
@@ -113,7 +114,9 @@
  "terms": "Not found.",
  "scout_blocked": "chicagoelections.gov (Cloudflare captcha, 403, 2026-10-09).",
  "scout_plan": "Readable with care for parts only. No statewide total exists on the night; a statewide race must be summed from 108 authorities, which is not realistic by Nov 3. Recommend: show Illinois statewide and congressional races as 'counting by county; official totals from the State Board after the canvass', read the Cook County Clerk's results (find its data endpoint in the Browser pane in late October) for suburban Cook races, link to Chicago's page, and load the State Board's official totals when posted.",
- "notes": [],
+ "notes": [
+  "2026-10-10 (N12): confirmed as a link state; certified results source recorded under certified_results."
+ ],
  "to_do": [
   "Later: Cook County Clerk's results, if a data address answers scripts."
  ],
@@ -121,5 +124,13 @@
   "election/scout/results_mn.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
   "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+ ],
+ "certified_results": {
+  "what": "the State Board's official vote totals (and their downloads)",
+  "address": "https://www.elections.il.gov/ElectionOperations/ElectionVoteTotals.aspx",
+  "script_ok": true,
+  "when": "after the canvass, early December",
+  "how": "elections.il.gov answers scripts",
+  "checked": "2026-10-10"
+ }
 }

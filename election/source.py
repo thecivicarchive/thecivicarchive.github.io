@@ -59,9 +59,58 @@ SPACING = 1.0                  # seconds between requests to one host
 SMALL_SPACING = 2.0            # for small state sites
 MAX_HOSTS = 4
 STOP_HOURS = 18                # "for the night"
-CHALLENGE = re.compile(rb"(just a moment\.\.\.|cf-chl|challenge-platform|_incapsula_resource|incapsula incident|"
-                       rb"captcha|attention required! \| cloudflare|radware|perfdrive|request unsuccessful\. incapsula|"
-                       rb"access denied</title>|bot detection|are you a robot|human verification)", re.I)
+# What makes an answer a challenge page (mended 2026-10-10). Ordinary pages carry these vendors' scripts all the time:
+# a contact form's reCAPTCHA or hCaptcha, Cloudflare's background script under /cdn-cgi/challenge-platform/, an
+# Imperva script. The mere presence of a script is never a refusal (that test stopped 983 campaign and state sites for
+# 18 hours, vote.utah.gov and coloradosos.gov among them). A refusal is:
+#   1. the status (403, 429; see _refusal), or a header the vendor sets on its challenge (Cloudflare's
+#      cf-mitigated: challenge; AWS WAF's x-amzn-waf-action);
+#   2. the challenge page's own title ("Just a moment...", "Attention Required! | Cloudflare", "Human Verification" ...);
+#   3. a marker that only a challenge or block page carries (Cloudflare's challenge settings, Imperva's incident id, a
+#      redirect to Radware's validator);
+#   4. a page with next to no words of its own whose only content is a bot vendor's script (Imperva's 212-byte stub).
+CHALLENGE_TITLE = re.compile(
+    rb"\s*(just a moment\.*|attention required!? \| cloudflare|access denied|request unsuccessful.*|"
+    rb"pardon our interruption|human verification|are you a robot\??|verify(ing)? (that )?you are (a )?human.*|"
+    rb"security check|ddos-guard|.{0,40}\bcaptcha\b.{0,40}|radware.{0,60}|bot (manager|detection).{0,40})\s*", re.I | re.S)
+CHALLENGE_MARK = re.compile(
+    rb"(window\._cf_chl_opt|id=[\"']challenge-form[\"']|id=[\"']challenge-error-text[\"']|cf-browser-verification|"
+    rb"incapsula incident id|request unsuccessful\. incapsula|validate\.perfdrive\.com|"
+    rb"<h1[^>]*>\s*(verify you are human|human verification|are you a robot)\b)", re.I)
+# Bot walls' own scripts (never a form's reCAPTCHA): counted only on a page with next to no words (rule 4).
+VENDOR_SCRIPT = re.compile(rb"(_incapsula_resource|perfdrive|radware|cf-chl|captcha-delivery\.com|px-captcha)", re.I)
+# Kept for readers that test a body themselves: the challenge page's own markers, never a vendor's script alone.
+CHALLENGE = CHALLENGE_MARK
+_TITLE = re.compile(rb"<title[^>]*>(.{0,300}?)</title>", re.I | re.S)
+_DROP = re.compile(rb"<(script|style|noscript|template)\b.*?</\1\s*>|<!--.*?-->", re.I | re.S)
+_TAG = re.compile(rb"<[^>]*>")
+_ENTITY = re.compile(rb"&#?\w+;")
+
+
+def visible_text_len(body):
+    """How many characters of words a page shows a reader (scripts, styles, comments and tags taken out)."""
+    text = _ENTITY.sub(b" ", _TAG.sub(b" ", _DROP.sub(b" ", body)))
+    return len(b" ".join(text.split()))
+
+
+def challenge_reason(status, headers, body, looks_html=True):
+    """Why an answer is a real challenge or block page, or "" when it is not. Headers' names in lower case."""
+    headers = headers or {}
+    if "challenge" in (headers.get("cf-mitigated") or "").lower():
+        return "a challenge page (Cloudflare said so)"
+    if (headers.get("x-amzn-waf-action") or "").lower() in ("challenge", "captcha"):
+        return "a challenge page (the firewall said so)"
+    if not looks_html:
+        return ""
+    head = body[:200000]
+    t = _TITLE.search(head)
+    if t and CHALLENGE_TITLE.fullmatch(_ENTITY.sub(b" ", t.group(1))):
+        return "a challenge or CAPTCHA page"
+    if CHALLENGE_MARK.search(head):
+        return "a challenge or CAPTCHA page"
+    if len(body) < 20000 and VENDOR_SCRIPT.search(head) and visible_text_len(head) < 80:
+        return "a challenge page (a bot check's script and nothing else)"
+    return ""
 
 
 class Refused(Exception):
@@ -295,10 +344,9 @@ class Source:
         ctype = resp.headers.get("content-type", "")
         head = resp.body[:200000]
         looks_html = "html" in ctype or head.lstrip()[:15].lower().startswith((b"<!doctype", b"<html"))
-        if looks_html and CHALLENGE.search(head):
-            return "a challenge or CAPTCHA page"
-        if resp.status == 503 and CHALLENGE.search(head):
-            return "a challenge page (503)"
+        why = challenge_reason(resp.status, resp.headers, resp.body, looks_html or resp.status == 503)
+        if why:
+            return why
         if looks_html and not expect_html and resp.status == 200 and len(resp.body) < 600 and b"<script" in head.lower():
             return "a script-only page where data was expected"
         return ""

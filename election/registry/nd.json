@@ -120,7 +120,7 @@
  "never": [],
  "never_why": {},
  "partial_sources": [],
- "rehearsal": "electionID 346 (2026 primary)",
+ "rehearsal": "electionID 346 (2026 primary): replay check 2026-10-10, 21 of 21 races equal the official figures (the service marks it official)",
  "terms": "None found.",
  "scout_blocked": "Nothing seen.",
  "scout_plan": "Live-readable and the best-prepared state: election 348 is already posted. Poll GetElectionInfo every 2 to 5 minutes; when versionID changes, fetch the contest results by type (SW for statewide and Congress, LEG, county, MUN, SCH). Choices' winner flag is left unset even when official, so winners come from the counts and the official flag. Rehearse on 346.",
@@ -131,6 +131,15 @@
  "sources": [
   "election/scout/results_mn.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
-  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)",
+  "N9 reader checks, 2026-10-10: the state's own results service, read through election/source.py"
+ ],
+ "replay_check": {
+  "election": "346",
+  "checked": "2026-10-10",
+  "result": "21 races equal, 0 differ",
+  "kept": "election_cache/replay/sources/nd-346/"
+ },
+ "nov3_checked": "Election 348 read 2026-10-10 (version v1, zero votes): all 8 federal and statewide races and all 51 legislative races tied, every printed name tied to the name as filed.",
+ "reader_note": "Reader election/readers/tally.py written 2026-10-10 (N9): self-test on its fixture passes; crosswalk election/crosswalk/nd.json ties feed contests to the ballot databases' race ids."
 }

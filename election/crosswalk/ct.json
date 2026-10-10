@@ -1,0 +1,4676 @@
+{
+ "built": "2026-10-10",
+ "checked": [
+  {
+   "by_level": {
+    "federal": 5,
+    "legislature": 187,
+    "statewide": 5
+   },
+   "certified_primary": {
+    "candidates": 0,
+    "contests": 0,
+    "differences": []
+   },
+   "contests_tied": 197,
+   "election": "108",
+   "lines_not_tied": [
+    [
+     "2026-CT-GOV",
+     "Zenobia Adgers and Rick Adgers"
+    ],
+    [
+     "2026-CT-GOV",
+     "Christian Noe and Michael S. Grant"
+    ],
+    [
+     "2026-CT-GOV",
+     "L. Lee Whitnum and David Spirt"
+    ],
+    [
+     "2026-CT-H01",
+     "Mark Stewart Greenstein"
+    ],
+    [
+     "2026-CT-H02",
+     "Kyle Gauck"
+    ],
+    [
+     "2026-CT-H03",
+     "Andrew Rice"
+    ],
+    [
+     "2026-CT-H05",
+     "Jonathan DeBarros"
+    ],
+    [
+     "2026-CT-SS1",
+     "John W. Fonfara"
+    ],
+    [
+     "2026-CT-SS1",
+     "Luis Delgado"
+    ],
+    [
+     "2026-CT-SS3",
+     "Saud Anwar"
+    ],
+    [
+     "2026-CT-SS3",
+     "Eliott Hughes"
+    ],
+    [
+     "2026-CT-SS4",
+     "MD Rahman"
+    ],
+    [
+     "2026-CT-SS4",
+     "Jenn Jennings"
+    ],
+    [
+     "2026-CT-SS6",
+     "Rick Lopes"
+    ],
+    [
+     "2026-CT-SS6",
+     "Tremell Collins"
+    ],
+    [
+     "2026-CT-SS7",
+     "David W. Kiner"
+    ],
+    [
+     "2026-CT-SS7",
+     "John A. Kissel"
+    ],
+    [
+     "2026-CT-SS9",
+     "Matt Lesser"
+    ],
+    [
+     "2026-CT-SS9",
+     "Grant W. Polomsky"
+    ],
+    [
+     "2026-CT-SS9",
+     "Gwen Samuel"
+    ],
+    [
+     "2026-CT-SS10",
+     "Gary Winfield"
+    ],
+    [
+     "2026-CT-SS11",
+     "Rosa Aurelia Pepper-Macias"
+    ],
+    [
+     "2026-CT-SS11",
+     "Alphonse Paolillo, Jr."
+    ],
+    [
+     "2026-CT-SS13",
+     "Jack Fazzino"
+    ],
+    [
+     "2026-CT-SS13",
+     "Lamar Terrell"
+    ],
+    [
+     "2026-CT-SS15",
+     "Joan V. Hartley"
+    ],
+    [
+     "2026-CT-SS15",
+     "Ruben Rodriguez"
+    ],
+    [
+     "2026-CT-SS16",
+     "Jack Perry"
+    ],
+    [
+     "2026-CT-SS16",
+     "Rob Sampson"
+    ],
+    [
+     "2026-CT-SS18",
+     "Joe de la Cruz"
+    ],
+    [
+     "2026-CT-SS18",
+     "Heather Somers"
+    ],
+    [
+     "2026-CT-SS19",
+     "Catherine Osten"
+    ],
+    [
+     "2026-CT-SS19",
+     "Jason Guidone"
+    ],
+    [
+     "2026-CT-SS21",
+     "Carolann Reid"
+    ],
+    [
+     "2026-CT-SS21",
+     "Jason Perillo"
+    ],
+    [
+     "2026-CT-SS22",
+     "Sujata Gadkar-Wilcox"
+    ],
+    [
+     "2026-CT-SS22",
+     "Scott M. Modlin"
+    ],
+    [
+     "2026-CT-SS23",
+     "Natasha Williams"
+    ],
+    [
+     "2026-CT-SS23",
+     "Herron Keyon Gaston"
+    ],
+    [
+     "2026-CT-SS24",
+     "Julie Kushner"
+    ],
+    [
+     "2026-CT-SS24",
+     "Melissa Lindsey"
+    ],
+    [
+     "2026-CT-SS25",
+     "Bob Duff"
+    ],
+    [
+     "2026-CT-SS25",
+     "Justin Perry"
+    ],
+    [
+     "2026-CT-SS27",
+     "Pat Billie Miller"
+    ],
+    [
+     "2026-CT-SS28",
+     "Rob Blanchard"
+    ],
+    [
+     "2026-CT-SS28",
+     "Amybeth Laroche"
+    ],
+    [
+     "2026-CT-SH1",
+     "Matt Ritter"
+    ],
+    [
+     "2026-CT-SH2",
+     "Raghib Allie-Brennan"
+    ],
+    [
+     "2026-CT-SH2",
+     "Deborah K. Rizzo"
+    ],
+    [
+     "2026-CT-SH3",
+     "Minnie Gonzalez"
+    ],
+    [
+     "2026-CT-SH4",
+     "Julio Concepcion"
+    ],
+    [
+     "2026-CT-SH5",
+     "Kyle Anderson"
+    ],
+    [
+     "2026-CT-SH5",
+     "Charles Windsor Jackson, III"
+    ],
+    [
+     "2026-CT-SH6",
+     "James Jimmy Sanchez"
+    ],
+    [
+     "2026-CT-SH6",
+     "Nicole CoCo Roscoe"
+    ],
+    [
+     "2026-CT-SH7",
+     "Joshua Malik Hall"
+    ],
+    [
+     "2026-CT-SH7",
+     "Brandon Q. Gardener"
+    ],
+    [
+     "2026-CT-SH9",
+     "Jason Rojas"
+    ],
+    [
+     "2026-CT-SH10",
+     "Angie Parkinson"
+    ],
+    [
+     "2026-CT-SH10",
+     "Chris Tierinni"
+    ],
+    [
+     "2026-CT-SH10",
+     "Rebecca Maeve Connors"
+    ],
+    [
+     "2026-CT-SH11",
+     "Patrick Biggins"
+    ],
+    [
+     "2026-CT-SH11",
+     "Salema Davis"
+    ],
+    [
+     "2026-CT-SH12",
+     "Deena Steinberg"
+    ],
+    [
+     "2026-CT-SH12",
+     "Geoffrey Luxenberg"
+    ],
+    [
+     "2026-CT-SH13",
+     "Jason Doucette"
+    ],
+    [
+     "2026-CT-SH13",
+     "Bianca Stanescu"
+    ],
+    [
+     "2026-CT-SH13",
+     "Zenobia Adgers"
+    ],
+    [
+     "2026-CT-SH14",
+     "Harrison Amadasun"
+    ],
+    [
+     "2026-CT-SH14",
+     "Tom Delnicki"
+    ],
+    [
+     "2026-CT-SH16",
+     "Melissa Osborne"
+    ],
+    [
+     "2026-CT-SH17",
+     "Eleni Kavros DeGraw"
+    ],
+    [
+     "2026-CT-SH17",
+     "Andrew F. Ziemba"
+    ],
+    [
+     "2026-CT-SH18",
+     "Tiffani McGinnis"
+    ],
+    [
+     "2026-CT-SH18",
+     "Philip Tummescheit"
+    ],
+    [
+     "2026-CT-SH19",
+     "Olaleye Onikuyide"
+    ],
+    [
+     "2026-CT-SH20",
+     "Kate Farrar"
+    ],
+    [
+     "2026-CT-SH21",
+     "Mike Demicco"
+    ],
+    [
+     "2026-CT-SH21",
+     "Gary Palumbo"
+    ],
+    [
+     "2026-CT-SH22",
+     "Rebecca Martinez"
+    ],
+    [
+     "2026-CT-SH22",
+     "Richard Mette"
+    ],
+    [
+     "2026-CT-SH23",
+     "Jane Wisialowski"
+    ],
+    [
+     "2026-CT-SH23",
+     "Barbara Labriola"
+    ],
+    [
+     "2026-CT-SH24",
+     "Emmanuel \"Manny\" Sanchez"
+    ],
+    [
+     "2026-CT-SH24",
+     "Tina Santana"
+    ],
+    [
+     "2026-CT-SH25",
+     "Iris Noemi Sanchez"
+    ],
+    [
+     "2026-CT-SH25",
+     "Jamie Bubba Vaughan"
+    ],
+    [
+     "2026-CT-SH26",
+     "David DeFronzo"
+    ],
+    [
+     "2026-CT-SH26",
+     "Sal S. Simsek"
+    ],
+    [
+     "2026-CT-SH27",
+     "Gary Turco"
+    ],
+    [
+     "2026-CT-SH28",
+     "Amy Morrin Bello"
+    ],
+    [
+     "2026-CT-SH28",
+     "William S. Davidson"
+    ],
+    [
+     "2026-CT-SH29",
+     "Kerry Szeps Wood"
+    ],
+    [
+     "2026-CT-SH30",
+     "Linda Pierce"
+    ],
+    [
+     "2026-CT-SH30",
+     "Donna M. Veach"
+    ],
+    [
+     "2026-CT-SH31",
+     "Moise \"Moses\" Carelus"
+    ],
+    [
+     "2026-CT-SH31",
+     "Jill Barry"
+    ],
+    [
+     "2026-CT-SH32",
+     "Christie M. Carpino"
+    ],
+    [
+     "2026-CT-SH33",
+     "Brandon Chafee"
+    ],
+    [
+     "2026-CT-SH35",
+     "Cinzia Lettieri"
+    ],
+    [
+     "2026-CT-SH35",
+     "Chris Aniskovich"
+    ],
+    [
+     "2026-CT-SH38",
+     "Nick Gauthier"
+    ],
+    [
+     "2026-CT-SH38",
+     "John Doc Foley"
+    ],
+    [
+     "2026-CT-SH39",
+     "Anthony Nolan"
+    ],
+    [
+     "2026-CT-SH39",
+     "John W. Russell"
+    ],
+    [
+     "2026-CT-SH40",
+     "Dan Gaiewski"
+    ],
+    [
+     "2026-CT-SH40",
+     "Isabelle Roode"
+    ],
+    [
+     "2026-CT-SH41",
+     "Aundre Bumgardner"
+    ],
+    [
+     "2026-CT-SH41",
+     "Thaler Hefel"
+    ],
+    [
+     "2026-CT-SH42",
+     "Savet Constantine"
+    ],
+    [
+     "2026-CT-SH43",
+     "Bill Heughins"
+    ],
+    [
+     "2026-CT-SH43",
+     "Greg Howard"
+    ],
+    [
+     "2026-CT-SH44",
+     "Samantha Derenthal"
+    ],
+    [
+     "2026-CT-SH44",
+     "Anne Dubay Dauphinais"
+    ],
+    [
+     "2026-CT-SH45",
+     "Matt Danieluk"
+    ],
+    [
+     "2026-CT-SH45",
+     "Brian Lanoue"
+    ],
+    [
+     "2026-CT-SH46",
+     "Derell Q Wilson"
+    ],
+    [
+     "2026-CT-SH46",
+     "Marcia Wilbur"
+    ],
+    [
+     "2026-CT-SH48",
+     "Bob Fernandez"
+    ],
+    [
+     "2026-CT-SH48",
+     "Mark DeCaprio"
+    ],
+    [
+     "2026-CT-SH49",
+     "Susan Johnson"
+    ],
+    [
+     "2026-CT-SH49",
+     "Brian Saucier"
+    ],
+    [
+     "2026-CT-SH51",
+     "Lina Wagner"
+    ],
+    [
+     "2026-CT-SH51",
+     "Chris Stewart"
+    ],
+    [
+     "2026-CT-SH52",
+     "Vincent Tocci"
+    ],
+    [
+     "2026-CT-SH52",
+     "Kurt Vail"
+    ],
+    [
+     "2026-CT-SH53",
+     "Michelle Doucette Cunningham"
+    ],
+    [
+     "2026-CT-SH53",
+     "Tammy Nuccio"
+    ],
+    [
+     "2026-CT-SH54",
+     "Gregg Haddad"
+    ],
+    [
+     "2026-CT-SH55",
+     "Ellen Paul"
+    ],
+    [
+     "2026-CT-SH55",
+     "Steve Weir"
+    ],
+    [
+     "2026-CT-SH56",
+     "Kevin Brown"
+    ],
+    [
+     "2026-CT-SH56",
+     "Andy Tedford"
+    ],
+    [
+     "2026-CT-SH57",
+     "Jaime S. Foster"
+    ],
+    [
+     "2026-CT-SH58",
+     "John P. Santanella"
+    ],
+    [
+     "2026-CT-SH58",
+     "Marie Pyznar"
+    ],
+    [
+     "2026-CT-SH59",
+     "Rick LeBorious"
+    ],
+    [
+     "2026-CT-SH59",
+     "Carol Hall"
+    ],
+    [
+     "2026-CT-SH60",
+     "Jane Garibay"
+    ],
+    [
+     "2026-CT-SH60",
+     "Chantelle Ankerman"
+    ],
+    [
+     "2026-CT-SH61",
+     "James Mol"
+    ],
+    [
+     "2026-CT-SH61",
+     "Tami Zawistowski"
+    ],
+    [
+     "2026-CT-SH62",
+     "Kim Becker"
+    ],
+    [
+     "2026-CT-SH62",
+     "Mark W. Anderson"
+    ],
+    [
+     "2026-CT-SH63",
+     "Caitlin Hall"
+    ],
+    [
+     "2026-CT-SH63",
+     "Jay M. Case"
+    ],
+    [
+     "2026-CT-SH65",
+     "Edward M. Corey"
+    ],
+    [
+     "2026-CT-SH65",
+     "Joe Canino"
+    ],
+    [
+     "2026-CT-SH66",
+     "Suzanne Lovig"
+    ],
+    [
+     "2026-CT-SH66",
+     "Karen Reddington-Hughes"
+    ],
+    [
+     "2026-CT-SH67",
+     "Alexandra Thomas"
+    ],
+    [
+     "2026-CT-SH67",
+     "William Buckbee"
+    ],
+    [
+     "2026-CT-SH68",
+     "Joe Polletta"
+    ],
+    [
+     "2026-CT-SH69",
+     "Jason Buchsbaum"
+    ],
+    [
+     "2026-CT-SH70",
+     "Jeff Litke"
+    ],
+    [
+     "2026-CT-SH70",
+     "Seth Bronko"
+    ],
+    [
+     "2026-CT-SH71",
+     "Stephen R Ferrucci III"
+    ],
+    [
+     "2026-CT-SH71",
+     "William Pizzuto"
+    ],
+    [
+     "2026-CT-SH72",
+     "Larry B. Butler"
+    ],
+    [
+     "2026-CT-SH73",
+     "Ronald Napoli, Jr."
+    ],
+    [
+     "2026-CT-SH73",
+     "Terence Lott, Sr."
+    ],
+    [
+     "2026-CT-SH74",
+     "Michael DiGiovancarlo"
+    ],
+    [
+     "2026-CT-SH74",
+     "Ollie Gray III"
+    ],
+    [
+     "2026-CT-SH74",
+     "Domenic Davino Jr."
+    ],
+    [
+     "2026-CT-SH75",
+     "Geraldo Reyes, Jr."
+    ],
+    [
+     "2026-CT-SH75",
+     "Faithalee Goclowski"
+    ],
+    [
+     "2026-CT-SH77",
+     "DeWayne K. Wynn, Jr."
+    ],
+    [
+     "2026-CT-SH77",
+     "Cara C. Pavalock-D'Amato"
+    ],
+    [
+     "2026-CT-SH78",
+     "Nate Brown"
+    ],
+    [
+     "2026-CT-SH78",
+     "Joe Hoxha"
+    ],
+    [
+     "2026-CT-SH79",
+     "Mary B. Fortier"
+    ],
+    [
+     "2026-CT-SH79",
+     "Cheryl L. Thibeault"
+    ],
+    [
+     "2026-CT-SH80",
+     "Cheryl Hilton"
+    ],
+    [
+     "2026-CT-SH80",
+     "Gale L. Mastrofrancesco"
+    ],
+    [
+     "2026-CT-SH81",
+     "Chris Poulos"
+    ],
+    [
+     "2026-CT-SH81",
+     "Timothy J. Wilk"
+    ],
+    [
+     "2026-CT-SH82",
+     "Michael D. Quinn"
+    ],
+    [
+     "2026-CT-SH83",
+     "Chad Cardillo"
+    ],
+    [
+     "2026-CT-SH83",
+     "Bob Ham"
+    ],
+    [
+     "2026-CT-SH84",
+     "Hilda E. Santiago"
+    ],
+    [
+     "2026-CT-SH85",
+     "Samuel Carmody"
+    ],
+    [
+     "2026-CT-SH85",
+     "Tom Laffin"
+    ],
+    [
+     "2026-CT-SH87",
+     "Kathleen Kimball"
+    ],
+    [
+     "2026-CT-SH87",
+     "David W. Yaccarino"
+    ],
+    [
+     "2026-CT-SH88",
+     "Josh Elliott"
+    ],
+    [
+     "2026-CT-SH88",
+     "Hudson Molinari"
+    ],
+    [
+     "2026-CT-SH89",
+     "Lezlye Zupkus"
+    ],
+    [
+     "2026-CT-SH90",
+     "David J. Fritz"
+    ],
+    [
+     "2026-CT-SH90",
+     "Craig C. Fishbein"
+    ],
+    [
+     "2026-CT-SH91",
+     "Laurie Sweet"
+    ],
+    [
+     "2026-CT-SH92",
+     "Eli Sabin"
+    ],
+    [
+     "2026-CT-SH93",
+     "Toni E. Walker"
+    ],
+    [
+     "2026-CT-SH94",
+     "Steven Winter"
+    ],
+    [
+     "2026-CT-SH95",
+     "Juan Candelaria"
+    ],
+    [
+     "2026-CT-SH96",
+     "Roland J. Lemar"
+    ],
+    [
+     "2026-CT-SH97",
+     "Wildaliz Bermudez"
+    ],
+    [
+     "2026-CT-SH97",
+     "Anthony Acri"
+    ],
+    [
+     "2026-CT-SH98",
+     "Moira Rader"
+    ],
+    [
+     "2026-CT-SH98",
+     "Carlyle Ciccone"
+    ],
+    [
+     "2026-CT-SH99",
+     "Karen A. Martin"
+    ],
+    [
+     "2026-CT-SH99",
+     "Joe Zullo"
+    ],
+    [
+     "2026-CT-SH100",
+     "Kai Juanna Belton"
+    ],
+    [
+     "2026-CT-SH100",
+     "Susan Manke"
+    ],
+    [
+     "2026-CT-SH102",
+     "Robin Comey"
+    ],
+    [
+     "2026-CT-SH102",
+     "Paul Crisci"
+    ],
+    [
+     "2026-CT-SH103",
+     "Liz Linehan"
+    ],
+    [
+     "2026-CT-SH103",
+     "Jeff Weiss"
+    ],
+    [
+     "2026-CT-SH104",
+     "Kara Rochelle"
+    ],
+    [
+     "2026-CT-SH104",
+     "Daniel Sexton"
+    ],
+    [
+     "2026-CT-SH105",
+     "Josh James Beaupre"
+    ],
+    [
+     "2026-CT-SH105",
+     "Nicole Klarides-Ditria"
+    ],
+    [
+     "2026-CT-SH106",
+     "Michelle Embree Ku"
+    ],
+    [
+     "2026-CT-SH106",
+     "Mitch Bolinsky"
+    ],
+    [
+     "2026-CT-SH107",
+     "Julie Kerton"
+    ],
+    [
+     "2026-CT-SH107",
+     "Martin J. Foncello"
+    ],
+    [
+     "2026-CT-SH108",
+     "Anne Weisberg"
+    ],
+    [
+     "2026-CT-SH108",
+     "Patrick Callahan"
+    ],
+    [
+     "2026-CT-SH109",
+     "Farley A. Santos"
+    ],
+    [
+     "2026-CT-SH109",
+     "Ed Vachovetz"
+    ],
+    [
+     "2026-CT-SH110",
+     "Bob Godfrey"
+    ],
+    [
+     "2026-CT-SH110",
+     "Anthony Rongetti"
+    ],
+    [
+     "2026-CT-SH111",
+     "Aimee Berger-Girvalo"
+    ],
+    [
+     "2026-CT-SH111",
+     "Blake Consentino"
+    ],
+    [
+     "2026-CT-SH112",
+     "Wiley Mullins"
+    ],
+    [
+     "2026-CT-SH112",
+     "Tony Scott"
+    ],
+    [
+     "2026-CT-SH113",
+     "Bryan Lizotte"
+    ],
+    [
+     "2026-CT-SH113",
+     "Joe Lauretti"
+    ],
+    [
+     "2026-CT-SH115",
+     "Bill Heffernan"
+    ],
+    [
+     "2026-CT-SH115",
+     "Victor Borras"
+    ],
+    [
+     "2026-CT-SH115",
+     "Robert J. Barry"
+    ],
+    [
+     "2026-CT-SH116",
+     "Trenee McGee"
+    ],
+    [
+     "2026-CT-SH117",
+     "MJ Shannon"
+    ],
+    [
+     "2026-CT-SH117",
+     "Ray Collins"
+    ],
+    [
+     "2026-CT-SH118",
+     "Toni Lombardi"
+    ],
+    [
+     "2026-CT-SH118",
+     "Steve Visconti"
+    ],
+    [
+     "2026-CT-SH119",
+     "Alex Armstrong"
+    ],
+    [
+     "2026-CT-SH119",
+     "Kathy Kennedy"
+    ],
+    [
+     "2026-CT-SH120",
+     "Kaitlyn Shake"
+    ],
+    [
+     "2026-CT-SH120",
+     "Troy D. Gargiulo"
+    ],
+    [
+     "2026-CT-SH121",
+     "Joseph P. Gresko"
+    ],
+    [
+     "2026-CT-SH121",
+     "Rafael Irizarry"
+    ],
+    [
+     "2026-CT-SH122",
+     "Mandy Kilmartin"
+    ],
+    [
+     "2026-CT-SH122",
+     "Ben McGorty"
+    ],
+    [
+     "2026-CT-SH123",
+     "Bill Mecca"
+    ],
+    [
+     "2026-CT-SH123",
+     "David J. Rutigliano"
+    ],
+    [
+     "2026-CT-SH124",
+     "Alexander Leon"
+    ],
+    [
+     "2026-CT-SH124",
+     "Andre F. Baker, Jr."
+    ],
+    [
+     "2026-CT-SH125",
+     "Meredith Tobitsch"
+    ],
+    [
+     "2026-CT-SH125",
+     "Tom O'Dea"
+    ],
+    [
+     "2026-CT-SH126",
+     "Fred Gee, Jr."
+    ],
+    [
+     "2026-CT-SH127",
+     "Marcus A. Brown"
+    ],
+    [
+     "2026-CT-SH128",
+     "Christopher Rosario"
+    ],
+    [
+     "2026-CT-SH129",
+     "Steve Stafstrom"
+    ],
+    [
+     "2026-CT-SH130",
+     "Antonio \"Tone\" Felipe"
+    ],
+    [
+     "2026-CT-SH132",
+     "Jennifer Leeper"
+    ],
+    [
+     "2026-CT-SH132",
+     "Emily Hau"
+    ],
+    [
+     "2026-CT-SH133",
+     "Cristin McCarthy Vahey"
+    ],
+    [
+     "2026-CT-SH133",
+     "Lisa Miro"
+    ],
+    [
+     "2026-CT-SH134",
+     "Sarah Keitt"
+    ],
+    [
+     "2026-CT-SH134",
+     "Ken Astarita"
+    ],
+    [
+     "2026-CT-SH135",
+     "Anne M. Hughes"
+    ],
+    [
+     "2026-CT-SH135",
+     "Darrell Harris"
+    ],
+    [
+     "2026-CT-SH137",
+     "Kadeem Roberts"
+    ],
+    [
+     "2026-CT-SH137",
+     "Tricia Ciccone"
+    ],
+    [
+     "2026-CT-SH138",
+     "Kenneth Gucker"
+    ],
+    [
+     "2026-CT-SH138",
+     "Irving Fox"
+    ],
+    [
+     "2026-CT-SH139",
+     "Larry Pemberton, Jr."
+    ],
+    [
+     "2026-CT-SH139",
+     "Brandon Sabbag"
+    ],
+    [
+     "2026-CT-SH139",
+     "Mark Adams"
+    ],
+    [
+     "2026-CT-SH140",
+     "Travis Simms, Jr."
+    ],
+    [
+     "2026-CT-SH140",
+     "Enrique Santiago"
+    ],
+    [
+     "2026-CT-SH141",
+     "Tracy Marra"
+    ],
+    [
+     "2026-CT-SH142",
+     "Lucy Dathan"
+    ],
+    [
+     "2026-CT-SH142",
+     "Don Mastronardi"
+    ],
+    [
+     "2026-CT-SH144",
+     "Hubert D. Delany"
+    ],
+    [
+     "2026-CT-SH144",
+     "Layne Rodney"
+    ],
+    [
+     "2026-CT-SH145",
+     "Corey P. Paris"
+    ],
+    [
+     "2026-CT-SH146",
+     "Eilish Collins Main"
+    ],
+    [
+     "2026-CT-SH147",
+     "Matt Blumenthal"
+    ],
+    [
+     "2026-CT-SH148",
+     "Jonathan Jacobson"
+    ],
+    [
+     "2026-CT-SH148",
+     "Ensly Maizo"
+    ],
+    [
+     "2026-CT-SOS",
+     "Matthew Hallock"
+    ]
+   ],
+   "lines_tied": "88 of 370",
+   "notes": [],
+   "nov3": true,
+   "problems": [],
+   "read": "2026-10-10",
+   "store": "ok",
+   "unmatched": [
+    [
+     "Judge of Probate 01",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 02",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 03",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 04",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 05",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 06",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 07",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 08",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 09",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 10",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 11",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 12",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 13",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 14",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 15",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 16",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 17",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 18",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 19",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 20",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 21",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 22",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 23",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 24",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 25",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 26",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 27",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 28",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 29",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 30",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 31",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 32",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 33",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 34",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 35",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 36",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 37",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 38",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 39",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 40",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 41",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 42",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 43",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 44",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 45",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 46",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 47",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 48",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 49",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 50",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 51",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 52",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 53",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Judge of Probate 54",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Board of Education",
+     "a district office with no district number"
+    ],
+    [
+     "Representative Town Meeting District 1",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Representative Town Meeting District 2",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Representative Town Meeting District 3",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Representative Town Meeting District 4",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Representative Town Meeting District 5",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Representative Town Meeting District 6",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Registrar of Voters",
+     "a county, city or district office; not read here yet"
+    ],
+    [
+     "Board of Education Non Partisan",
+     "not an office this reader ties to a race (Congress, statewide, Legislature)"
+    ],
+    [
+     "Board of Education",
+     "a district office with no district number"
+    ]
+   ]
+  },
+  {
+   "by_level": {
+    "federal": 1,
+    "legislature": 8,
+    "statewide": 1
+   },
+   "certified_primary": {
+    "candidates": 24,
+    "contests": 10,
+    "differences": []
+   },
+   "contests_tied": 10,
+   "election": "111",
+   "lines_tied": "24 of 24",
+   "notes": [],
+   "nov3": false,
+   "problems": [],
+   "read": "2026-10-10",
+   "store": "ok",
+   "unmatched_by_reason": {
+    "a county, city or district office; not read here yet": 2
+   }
+  },
+  {
+   "by_level": {
+    "federal": 2,
+    "legislature": 3
+   },
+   "certified_primary": {
+    "candidates": 10,
+    "contests": 5,
+    "differences": []
+   },
+   "contests_tied": 5,
+   "election": "112",
+   "lines_tied": "10 of 10",
+   "notes": [],
+   "nov3": false,
+   "problems": [],
+   "read": "2026-10-10",
+   "store": "ok",
+   "unmatched_by_reason": {}
+  },
+  {
+   "by_level": {
+    "federal": 5,
+    "legislature": 187,
+    "statewide": 5
+   },
+   "certified_primary": {
+    "candidates": 0,
+    "contests": 0,
+    "differences": []
+   },
+   "contests_tied": 197,
+   "election": "80",
+   "lines_tied": "35 of 382",
+   "notes": [
+    "State Senate 14: the file says 20 of 18 reporting; that figure is left out, the votes are kept"
+   ],
+   "nov3": false,
+   "problems": [],
+   "read": "2026-10-10",
+   "store": "ok",
+   "unmatched_by_reason": {
+    "a county, city or district office; not read here yet": 164,
+    "a district office with no district number": 2,
+    "no 2026 race on the ballot lists for this office": 1,
+    "not an office this reader ties to a race (Congress, statewide, Legislature)": 1
+   }
+  }
+ ],
+ "contests": {},
+ "counties": {
+  "fairfield": "09001",
+  "fairfield county": "09001",
+  "hartford": "09003",
+  "hartford county": "09003",
+  "litchfield": "09005",
+  "litchfield county": "09005",
+  "middlesex": "09007",
+  "middlesex county": "09007",
+  "new haven": "09009",
+  "new haven county": "09009",
+  "new london": "09011",
+  "new london county": "09011",
+  "tolland": "09013",
+  "tolland county": "09013",
+  "windham": "09015",
+  "windham county": "09015"
+ },
+ "races": {
+  "2026-CT-AG": {
+   "cands": {
+    "general": [
+     [
+      "John Bolton",
+      "Republican Party",
+      0
+     ],
+     [
+      "William Tong",
+      "Democratic Party, Working Families Party",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "attorney_general",
+   "level": "statewide",
+   "office": "Attorney General",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-COMP": {
+   "cands": {
+    "general": [
+     [
+      "Jennifer S. Tooker",
+      "Republican Party",
+      0
+     ],
+     [
+      "Sean Scanlon",
+      "Democratic Party, Working Families Party, Independent Party",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "comptroller",
+   "level": "statewide",
+   "office": "Comptroller",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-GOV": {
+   "cands": {
+    "general": [
+     [
+      "Ned Lamont",
+      "Democratic Party, Working Families Party",
+      0
+     ],
+     [
+      "Ryan Fazio",
+      "Republican Party, Independent Party",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Josh Elliott",
+      "Democratic Party",
+      0
+     ],
+     [
+      "Ned Lamont",
+      "Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "governor",
+   "level": "statewide",
+   "office": "Governor and Lieutenant Governor",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-H01": {
+   "cands": {
+    "general": [
+     [
+      "Amy Chai",
+      "Republican Party",
+      0
+     ],
+     [
+      "Luke Bronin",
+      "Democratic Party",
+      0
+     ],
+     [
+      "Mary L. Sanders",
+      "Green Party",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Jillian Gilchrest",
+      "Democratic Party",
+      0
+     ],
+     [
+      "John B. Larson",
+      "Democratic Party",
+      0
+     ],
+     [
+      "Luke Bronin",
+      "Democratic Party",
+      0
+     ],
+     [
+      "Ruth Fortune",
+      "Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "01",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-H02": {
+   "cands": {
+    "general": [
+     [
+      "George Patrick Austin",
+      "Republican Party, Independent Party",
+      0
+     ],
+     [
+      "Joe Courtney",
+      "Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "02",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-H03": {
+   "cands": {
+    "general": [
+     [
+      "Christopher Lancia",
+      "Republican Party",
+      0
+     ],
+     [
+      "Rosa L. DeLauro",
+      "Democratic Party",
+      0
+     ],
+     [
+      "Thomas Egan",
+      "Independent Party",
+      0
+     ]
+    ]
+   },
+   "district": "03",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-H04": {
+   "cands": {
+    "general": [
+     [
+      "Benjamin Wesley",
+      "Independent Party",
+      0
+     ],
+     [
+      "Jim Himes",
+      "Democratic Party",
+      0
+     ],
+     [
+      "Michael Ted Goldstein",
+      "Republican Party",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Daniel Miressi",
+      "Republican Party",
+      0
+     ],
+     [
+      "Michael Ted Goldstein",
+      "Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "04",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-H05": {
+   "cands": {
+    "general": [
+     [
+      "Chris Shea",
+      "Republican Party",
+      0
+     ],
+     [
+      "Jahana Hayes",
+      "Democratic Party, Working Families Party",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Chris Shea",
+      "Republican Party",
+      0
+     ],
+     [
+      "Jonathan De Barros",
+      "Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "05",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH1": {
+   "cands": {},
+   "district": "1",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH10": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Angie Parkinson",
+      "Democratic Party",
+      0
+     ],
+     [
+      "Tyron V. Harris",
+      "Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "10",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH100": {
+   "cands": {},
+   "district": "100",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH101": {
+   "cands": {
+    "general": [
+     [
+      "John-Michael Parker",
+      "Democratic Party, Independent Party",
+      0
+     ],
+     [
+      "Mary Ann Connelly",
+      "Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "101",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH102": {
+   "cands": {},
+   "district": "102",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH103": {
+   "cands": {},
+   "district": "103",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH104": {
+   "cands": {},
+   "district": "104",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH105": {
+   "cands": {},
+   "district": "105",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH106": {
+   "cands": {},
+   "district": "106",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH107": {
+   "cands": {},
+   "district": "107",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH108": {
+   "cands": {},
+   "district": "108",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH109": {
+   "cands": {},
+   "district": "109",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH11": {
+   "cands": {},
+   "district": "11",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH110": {
+   "cands": {},
+   "district": "110",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH111": {
+   "cands": {},
+   "district": "111",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH112": {
+   "cands": {},
+   "district": "112",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH113": {
+   "cands": {},
+   "district": "113",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH114": {
+   "cands": {
+    "general": [
+     [
+      "Brooke Hopkins",
+      "Republican Party",
+      0
+     ],
+     [
+      "Mary Welander",
+      "Democratic Party, Independent Party",
+      0
+     ]
+    ]
+   },
+   "district": "114",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH115": {
+   "cands": {},
+   "district": "115",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH116": {
+   "cands": {},
+   "district": "116",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH117": {
+   "cands": {},
+   "district": "117",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH118": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Christopher Saley",
+      "Democratic Party",
+      0
+     ],
+     [
+      "Toni Lombardi",
+      "Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "118",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH119": {
+   "cands": {},
+   "district": "119",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH12": {
+   "cands": {},
+   "district": "12",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH120": {
+   "cands": {},
+   "district": "120",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH121": {
+   "cands": {},
+   "district": "121",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH122": {
+   "cands": {},
+   "district": "122",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH123": {
+   "cands": {},
+   "district": "123",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH124": {
+   "cands": {},
+   "district": "124",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH125": {
+   "cands": {},
+   "district": "125",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH126": {
+   "cands": {},
+   "district": "126",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH127": {
+   "cands": {},
+   "district": "127",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH128": {
+   "cands": {},
+   "district": "128",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH129": {
+   "cands": {},
+   "district": "129",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH13": {
+   "cands": {},
+   "district": "13",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH130": {
+   "cands": {},
+   "district": "130",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH131": {
+   "cands": {
+    "general": [
+     [
+      "Arnold Jensen",
+      "Republican Party, Independent Party",
+      0
+     ],
+     [
+      "Heather Stafford",
+      "Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "131",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH132": {
+   "cands": {},
+   "district": "132",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH133": {
+   "cands": {},
+   "district": "133",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH134": {
+   "cands": {},
+   "district": "134",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH135": {
+   "cands": {},
+   "district": "135",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH136": {
+   "cands": {
+    "general": [
+     [
+      "Douglas Ouellette",
+      "Republican Party",
+      0
+     ],
+     [
+      "Lee Goldstein",
+      "Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "136",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH137": {
+   "cands": {},
+   "district": "137",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH138": {
+   "cands": {},
+   "district": "138",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH139": {
+   "cands": {},
+   "district": "139",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH14": {
+   "cands": {},
+   "district": "14",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH140": {
+   "cands": {},
+   "district": "140",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH141": {
+   "cands": {},
+   "district": "141",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH142": {
+   "cands": {},
+   "district": "142",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH143": {
+   "cands": {
+    "general": [
+     [
+      "Dominique Johnson",
+      "Democratic Party, Working Families Party, Independent Party",
+      0
+     ],
+     [
+      "Greg Helms",
+      "Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "143",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH144": {
+   "cands": {},
+   "district": "144",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH145": {
+   "cands": {},
+   "district": "145",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH146": {
+   "cands": {},
+   "district": "146",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH147": {
+   "cands": {},
+   "district": "147",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH148": {
+   "cands": {},
+   "district": "148",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH149": {
+   "cands": {
+    "general": [
+     [
+      "Amiel Goldberg",
+      "Democratic Party",
+      0
+     ],
+     [
+      "Tina Courpas",
+      "Republican Party, Independent Party",
+      0
+     ]
+    ]
+   },
+   "district": "149",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH15": {
+   "cands": {
+    "general": [
+     [
+      "Bobby Gibson",
+      "Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "15",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH150": {
+   "cands": {
+    "general": [
+     [
+      "Jonathan Charles Goldstein",
+      "Republican Party",
+      0
+     ],
+     [
+      "Steve Meskers",
+      "Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "150",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH151": {
+   "cands": {
+    "general": [
+     [
+      "Hector Arzeno",
+      "Democratic Party, Independent Party",
+      0
+     ],
+     [
+      "Michael S. Mason",
+      "Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "151",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH16": {
+   "cands": {},
+   "district": "16",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH17": {
+   "cands": {},
+   "district": "17",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH18": {
+   "cands": {},
+   "district": "18",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH19": {
+   "cands": {},
+   "district": "19",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH2": {
+   "cands": {},
+   "district": "2",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH20": {
+   "cands": {},
+   "district": "20",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH21": {
+   "cands": {},
+   "district": "21",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH22": {
+   "cands": {},
+   "district": "22",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH23": {
+   "cands": {},
+   "district": "23",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH24": {
+   "cands": {},
+   "district": "24",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH25": {
+   "cands": {},
+   "district": "25",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH26": {
+   "cands": {},
+   "district": "26",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH27": {
+   "cands": {},
+   "district": "27",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH28": {
+   "cands": {},
+   "district": "28",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH29": {
+   "cands": {},
+   "district": "29",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH3": {
+   "cands": {},
+   "district": "3",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH30": {
+   "cands": {},
+   "district": "30",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH31": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Anthony DiLizia",
+      "Democratic Party",
+      0
+     ],
+     [
+      "Moise \"Moses\" Carelus",
+      "Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "31",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH32": {
+   "cands": {},
+   "district": "32",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH33": {
+   "cands": {},
+   "district": "33",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH34": {
+   "cands": {
+    "general": [
+     [
+      "Meghan Rosenfeld",
+      "Democratic Party",
+      0
+     ],
+     [
+      "Melissa Ziobron",
+      "Republican Party, Independent Party",
+      0
+     ]
+    ]
+   },
+   "district": "34",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH35": {
+   "cands": {},
+   "district": "35",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH36": {
+   "cands": {
+    "general": [
+     [
+      "Guy Tuccero",
+      "Republican Party",
+      0
+     ],
+     [
+      "Renee LaMark Muir",
+      "Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "36",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH37": {
+   "cands": {
+    "general": [
+     [
+      "Anne Santoro",
+      "Republican Party, Independent Party",
+      0
+     ],
+     [
+      "Nick Menapace",
+      "Democratic Party, Working Families Party",
+      0
+     ]
+    ]
+   },
+   "district": "37",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH38": {
+   "cands": {},
+   "district": "38",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH39": {
+   "cands": {},
+   "district": "39",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH4": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Julio Concepcion",
+      "Democratic Party",
+      0
+     ],
+     [
+      "Venice Sotomayor",
+      "Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "4",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH40": {
+   "cands": {},
+   "district": "40",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH41": {
+   "cands": {},
+   "district": "41",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH42": {
+   "cands": {},
+   "district": "42",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH43": {
+   "cands": {},
+   "district": "43",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH44": {
+   "cands": {},
+   "district": "44",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH45": {
+   "cands": {},
+   "district": "45",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH46": {
+   "cands": {},
+   "district": "46",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH47": {
+   "cands": {
+    "general": [
+     [
+      "Doug Dubitsky",
+      "Republican Party",
+      0
+     ],
+     [
+      "Marcus Palumbo",
+      "Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "47",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH48": {
+   "cands": {},
+   "district": "48",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH49": {
+   "cands": {},
+   "district": "49",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH5": {
+   "cands": {},
+   "district": "5",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH50": {
+   "cands": {
+    "general": [
+     [
+      "Anthony J. Emilio",
+      "Republican Party",
+      0
+     ],
+     [
+      "Pat Boyd",
+      "Democratic Party",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Anthony J. Emilio",
+      "Republican Party",
+      0
+     ],
+     [
+      "Jadon E. MacCormack",
+      "Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "50",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH51": {
+   "cands": {},
+   "district": "51",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH52": {
+   "cands": {},
+   "district": "52",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH53": {
+   "cands": {},
+   "district": "53",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH54": {
+   "cands": {},
+   "district": "54",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH55": {
+   "cands": {},
+   "district": "55",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH56": {
+   "cands": {},
+   "district": "56",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH57": {
+   "cands": {},
+   "district": "57",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH58": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "John P. Santanella",
+      "Democratic Party",
+      0
+     ],
+     [
+      "Thomas Tyler",
+      "Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "58",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH59": {
+   "cands": {},
+   "district": "59",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH6": {
+   "cands": {},
+   "district": "6",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH60": {
+   "cands": {},
+   "district": "60",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH61": {
+   "cands": {},
+   "district": "61",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH62": {
+   "cands": {},
+   "district": "62",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH63": {
+   "cands": {},
+   "district": "63",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH64": {
+   "cands": {
+    "general": [
+     [
+      "Katelynn Borraiz",
+      "Republican Party",
+      0
+     ],
+     [
+      "Maria Horn",
+      "Democratic Party, Working Families Party, Independent Party",
+      0
+     ]
+    ]
+   },
+   "district": "64",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH65": {
+   "cands": {},
+   "district": "65",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH66": {
+   "cands": {},
+   "district": "66",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH67": {
+   "cands": {},
+   "district": "67",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH68": {
+   "cands": {},
+   "district": "68",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH69": {
+   "cands": {},
+   "district": "69",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH7": {
+   "cands": {},
+   "district": "7",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH70": {
+   "cands": {},
+   "district": "70",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH71": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Michael Grosso",
+      "Republican Party",
+      0
+     ],
+     [
+      "William Pizzuto",
+      "Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "71",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH72": {
+   "cands": {},
+   "district": "72",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH73": {
+   "cands": {},
+   "district": "73",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH74": {
+   "cands": {},
+   "district": "74",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH75": {
+   "cands": {},
+   "district": "75",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH76": {
+   "cands": {
+    "general": [
+     [
+      "Jennifer E. Davis",
+      "Democratic Party",
+      0
+     ],
+     [
+      "John Piscopo",
+      "Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "76",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH77": {
+   "cands": {},
+   "district": "77",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH78": {
+   "cands": {},
+   "district": "78",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH79": {
+   "cands": {},
+   "district": "79",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH8": {
+   "cands": {
+    "general": [
+     [
+      "Francis Lombard",
+      "Democratic Party, Working Families Party",
+      0
+     ],
+     [
+      "William Gifford",
+      "Republican Party, Independent Party",
+      0
+     ]
+    ]
+   },
+   "district": "8",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH80": {
+   "cands": {},
+   "district": "80",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH81": {
+   "cands": {},
+   "district": "81",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH82": {
+   "cands": {},
+   "district": "82",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH83": {
+   "cands": {},
+   "district": "83",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH84": {
+   "cands": {},
+   "district": "84",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH85": {
+   "cands": {},
+   "district": "85",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH86": {
+   "cands": {
+    "general": [
+     [
+      "Vincent J. Candelora",
+      "Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "86",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH87": {
+   "cands": {},
+   "district": "87",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH88": {
+   "cands": {},
+   "district": "88",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH89": {
+   "cands": {},
+   "district": "89",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH9": {
+   "cands": {},
+   "district": "9",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH90": {
+   "cands": {},
+   "district": "90",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH91": {
+   "cands": {},
+   "district": "91",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH92": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Eli Sabin",
+      "Democratic Party",
+      0
+     ],
+     [
+      "Justin M. Farmer",
+      "Democratic Party",
+      0
+     ],
+     [
+      "Patricia A Dillon",
+      "Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "92",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH93": {
+   "cands": {},
+   "district": "93",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH94": {
+   "cands": {},
+   "district": "94",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH95": {
+   "cands": {},
+   "district": "95",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH96": {
+   "cands": {},
+   "district": "96",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH97": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Leland J. Moore",
+      "Democratic Party",
+      0
+     ],
+     [
+      "Wildaliz Bermudez",
+      "Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "97",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH98": {
+   "cands": {},
+   "district": "98",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SH99": {
+   "cands": {},
+   "district": "99",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SOS": {
+   "cands": {
+    "general": [
+     [
+      "Peter Lumaj",
+      "Republican Party",
+      0
+     ],
+     [
+      "Stephanie Thomas",
+      "Democratic Party, Working Families Party, Independent Party",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "secretary_of_state",
+   "level": "statewide",
+   "office": "Secretary of the State",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS1": {
+   "cands": {},
+   "district": "1",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS10": {
+   "cands": {},
+   "district": "10",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS11": {
+   "cands": {},
+   "district": "11",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS12": {
+   "cands": {
+    "general": [
+     [
+      "Christine Cohen",
+      "Democratic Party, Working Families Party, Independent Party",
+      0
+     ],
+     [
+      "Lisa Deane",
+      "Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "12",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS13": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Jack Fazzino",
+      "Democratic Party",
+      0
+     ],
+     [
+      "Jim Jinks",
+      "Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "13",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS14": {
+   "cands": {
+    "general": [
+     [
+      "James Maroney",
+      "Democratic Party, Independent Party",
+      0
+     ],
+     [
+      "Owen T. Weaver",
+      "Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "14",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS15": {
+   "cands": {},
+   "district": "15",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS16": {
+   "cands": {},
+   "district": "16",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS17": {
+   "cands": {
+    "general": [
+     [
+      "John-Paul Dorais",
+      "Republican Party, Independent Party",
+      0
+     ],
+     [
+      "Jorge Cabrera",
+      "Democratic Party, Working Families Party",
+      0
+     ]
+    ]
+   },
+   "district": "17",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS18": {
+   "cands": {},
+   "district": "18",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS19": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Jason Guidone",
+      "Republican Party",
+      0
+     ],
+     [
+      "Mike France",
+      "Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "19",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS2": {
+   "cands": {
+    "general": [
+     [
+      "Maryam Khan",
+      "Democratic Party",
+      0
+     ],
+     [
+      "Tim Knotts",
+      "Republican Party",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Ayana Taylor",
+      "Democratic Party",
+      0
+     ],
+     [
+      "Douglas McCrory",
+      "Democratic Party",
+      0
+     ],
+     [
+      "Maryam Khan",
+      "Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "2",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS20": {
+   "cands": {
+    "general": [
+     [
+      "Lee Elci",
+      "Republican Party, Independent Party",
+      0
+     ],
+     [
+      "Martha E. Marx",
+      "Democratic Party, Working Families Party",
+      0
+     ]
+    ]
+   },
+   "district": "20",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS21": {
+   "cands": {},
+   "district": "21",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS22": {
+   "cands": {},
+   "district": "22",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS23": {
+   "cands": {},
+   "district": "23",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS24": {
+   "cands": {},
+   "district": "24",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS25": {
+   "cands": {},
+   "district": "25",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS26": {
+   "cands": {
+    "general": [
+     [
+      "Alma Sarelli",
+      "Republican Party, Independent Party",
+      0
+     ],
+     [
+      "Samantha Nestor",
+      "Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "26",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS27": {
+   "cands": {},
+   "district": "27",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS28": {
+   "cands": {},
+   "district": "28",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS29": {
+   "cands": {
+    "general": [
+     [
+      "Chris Reddy",
+      "Republican Party",
+      0
+     ],
+     [
+      "Mae Flexer",
+      "Democratic Party, Working Families Party",
+      0
+     ]
+    ]
+   },
+   "district": "29",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS3": {
+   "cands": {},
+   "district": "3",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS30": {
+   "cands": {
+    "general": [
+     [
+      "Aaron Zimmer",
+      "Democratic Party",
+      0
+     ],
+     [
+      "Stephen G. Harding",
+      "Republican Party, Independent Party",
+      0
+     ]
+    ]
+   },
+   "district": "30",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS31": {
+   "cands": {
+    "general": [
+     [
+      "Henri Martin",
+      "Republican Party",
+      0
+     ],
+     [
+      "Laurel LaPorte-Grimes",
+      "Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "31",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS32": {
+   "cands": {
+    "general": [
+     [
+      "Eric C. Berthel",
+      "Republican Party",
+      0
+     ],
+     [
+      "Matt Knickerbocker",
+      "Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "32",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS33": {
+   "cands": {
+    "general": [
+     [
+      "Charles Ferraro",
+      "Republican Party",
+      0
+     ],
+     [
+      "Norm Needleman",
+      "Democratic Party, Independent Party",
+      0
+     ]
+    ]
+   },
+   "district": "33",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS34": {
+   "cands": {
+    "general": [
+     [
+      "Brandi Mandato",
+      "Democratic Party, Working Families Party",
+      0
+     ],
+     [
+      "Paul Cicarella",
+      "Republican Party, Independent Party",
+      0
+     ]
+    ]
+   },
+   "district": "34",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS35": {
+   "cands": {
+    "general": [
+     [
+      "Ethan Werstler",
+      "Democratic Party, Working Families Party",
+      0
+     ],
+     [
+      "Jeffrey Gordon",
+      "Republican Party, Independent Party",
+      0
+     ]
+    ]
+   },
+   "district": "35",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS36": {
+   "cands": {
+    "general": [
+     [
+      "Jill Oberlander",
+      "Democratic Party",
+      0
+     ],
+     [
+      "Joe Kelly",
+      "Republican Party, Independent Party",
+      0
+     ]
+    ]
+   },
+   "district": "36",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS4": {
+   "cands": {},
+   "district": "4",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS5": {
+   "cands": {
+    "general": [
+     [
+      "Derek Slap",
+      "Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "5",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS6": {
+   "cands": {},
+   "district": "6",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS7": {
+   "cands": {},
+   "district": "7",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS8": {
+   "cands": {
+    "general": [
+     [
+      "Michael R Criss",
+      "Republican Party",
+      0
+     ],
+     [
+      "Paul Honig",
+      "Democratic Party, Independent Party",
+      0
+     ]
+    ]
+   },
+   "district": "8",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-SS9": {
+   "cands": {},
+   "district": "9",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-CT-TREAS": {
+   "cands": {
+    "general": [
+     [
+      "Erick Russell",
+      "Democratic Party, Working Families Party",
+      0
+     ],
+     [
+      "Fred Wilms",
+      "Republican Party, Independent Party",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "state_treasurer",
+   "level": "statewide",
+   "office": "Treasurer",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  }
+ },
+ "rule": "A contest is tied to a race only when exactly one race of the same office and district (and seat) fits. A candidate line is tied to a name as filed only when exactly one fits: the family name and a given name that fits. Everything else is listed with the reason and never shown.",
+ "source": "The ballot databases (Congress, and state and local), read only; the races and the names as filed.",
+ "state": "CT",
+ "v": 1
+}

@@ -98,17 +98,25 @@
  "never": [],
  "never_why": {},
  "partial_sources": [],
- "rehearsal": "eid 2911 (2026 primary)",
+ "rehearsal": "eid 2911 (2026 primary): replay check 2026-10-10, 25 of 25 races equal the official figures",
  "terms": "None seen.",
  "scout_blocked": "Nothing refused. A missing eid redirects to www.sos.nm.gov.",
  "scout_plan": "Check once a week whether eid=2917 opens. On election night read the CSV exports for SW, FED, LGX and the court and county types every few minutes; the vote-type columns feed the count-order predictor directly. The reader in nm.py already handles this format.",
  "notes": [],
  "to_do": [
-  "Confirm eid 2917 opens."
+  "Confirm eid 2917 opens (on 2026-10-10 its export answered with the header only)."
  ],
  "sources": [
   "election/scout/results_ne.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
-  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)",
+  "N9 reader checks, 2026-10-10: the state's own results service, read through election/source.py"
+ ],
+ "replay_check": {
+  "election": "2911",
+  "checked": "2026-10-10",
+  "result": "25 races equal, 0 differ",
+  "kept": "election_cache/replay/sources/nm-2911/"
+ },
+ "reader_note": "Reader election/readers/resultssw.py written 2026-10-10 (N9): self-test on its fixture passes; crosswalk election/crosswalk/nm.json ties feed contests to the ballot databases' race ids."
 }

@@ -1,0 +1,1625 @@
+{
+ "v": 1,
+ "state": "NM",
+ "family": "resultssw",
+ "built": "2026-10-10",
+ "from": [
+  "ballot_2026.sqlite: races, candidates (general list)",
+  "ballot_local_2026.sqlite: sl_races, sl_candidates (statewide and legislature), sl_places (county names, from the Census Bureau's county file)"
+ ],
+ "rule": "A feed contest is tied to a race by its title (office words, district number, unexpired or special) and, in a primary, its party; a contest that fits no race or more than one is listed, never shown. Names as printed are tied to names as filed by family name and first initial, one fit only.",
+ "counties": {
+  "bernalillo": "35001",
+  "catron": "35003",
+  "chaves": "35005",
+  "cibola": "35006",
+  "colfax": "35007",
+  "curry": "35009",
+  "debaca": "35011",
+  "donaana": "35013",
+  "eddy": "35015",
+  "grant": "35017",
+  "guadalupe": "35019",
+  "harding": "35021",
+  "hidalgo": "35023",
+  "lea": "35025",
+  "lincoln": "35027",
+  "losalamos": "35028",
+  "luna": "35029",
+  "mckinley": "35031",
+  "mora": "35033",
+  "otero": "35035",
+  "quay": "35037",
+  "rioarriba": "35039",
+  "roosevelt": "35041",
+  "sandoval": "35043",
+  "sanjuan": "35045",
+  "sanmiguel": "35047",
+  "santafe": "35049",
+  "sierra": "35051",
+  "socorro": "35053",
+  "taos": "35055",
+  "torrance": "35057",
+  "union": "35059",
+  "valencia": "35061"
+ },
+ "races": [
+  {
+   "id": "2026-NM-H01",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "1",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Melanie Ann Stansbury",
+     "Democratic"
+    ],
+    [
+     "Ndidiamaka Ekwua Charlene Okpareke",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-H02",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "2",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Gregory G Cunningham",
+     "Republican"
+    ],
+    [
+     "Gabriel Vasquez",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-H03",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "3",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Teresa Leger Fernandez",
+     "Democratic"
+    ],
+    [
+     "Martin Zamora",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-S2",
+   "level": "federal",
+   "kind": "S",
+   "office": "U.S. Senate",
+   "district": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Ben R Lujan",
+     "Democratic"
+    ],
+    [
+     "Larry E Marker",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-AG",
+   "level": "statewide",
+   "kind": "statewide:attorney_general",
+   "office": "Attorney General",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Raúl Torrez",
+     "Democratic"
+    ],
+    [
+     "Samuel Isaiah Kane, Sr",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-AUD",
+   "level": "statewide",
+   "kind": "statewide:state_auditor",
+   "office": "State Auditor",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Joshua James Ryan Lawrence",
+     "Republican"
+    ],
+    [
+     "Joseph M Maestas",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-GOV",
+   "level": "statewide",
+   "kind": "statewide:governor",
+   "office": "Governor and Lieutenant Governor",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Greggory D Hull and David M Gallegos",
+     "Republican"
+    ],
+    [
+     "Deb Haaland and Stephanie Garcia Richard",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-LAND",
+   "level": "statewide",
+   "kind": "statewide:land_commissioner",
+   "office": "Commissioner of Public Lands",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Michael Jack Perry",
+     "Republican"
+    ],
+    [
+     "Juan de Jesus Sanchez, III",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-LTG",
+   "level": "statewide",
+   "kind": "statewide:lieutenant_governor",
+   "office": "Lieutenant Governor",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": []
+  },
+  {
+   "id": "2026-NM-PEC2",
+   "level": "statewide",
+   "kind": "statewide:public_education_commission",
+   "office": "Public Education Commissioner",
+   "district": "2",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kenneth James Pascoe",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-PEC3",
+   "level": "statewide",
+   "kind": "statewide:public_education_commission",
+   "office": "Public Education Commissioner",
+   "district": "3",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dennis C Dinge",
+     "Forward"
+    ],
+    [
+     "Jacob A Trujillo",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-PEC5",
+   "level": "statewide",
+   "kind": "statewide:public_education_commission",
+   "office": "Public Education Commissioner",
+   "district": "5",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Sharon E Clahchischilliage",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-PEC6",
+   "level": "statewide",
+   "kind": "statewide:public_education_commission",
+   "office": "Public Education Commissioner",
+   "district": "6",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Stewart Alan Ingham",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-PEC7",
+   "level": "statewide",
+   "kind": "statewide:public_education_commission",
+   "office": "Public Education Commissioner",
+   "district": "7",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Frederick Walton Parker",
+     "Democratic"
+    ],
+    [
+     "John Foreman",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH1",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "1",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Rod Montoya",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH10",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "10",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "G Andres Romero",
+     "Democratic"
+    ],
+    [
+     "Christopher P Crane",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH11",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "11",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Javier I Martinez",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH12",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "12",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Art De La Cruz",
+     "Democratic"
+    ],
+    [
+     "Steven E Tafoya",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH13",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "13",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Patricia A Roybal Caballero",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH14",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "14",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Miguel P Garcia",
+     "Democratic"
+    ],
+    [
+     "Richard Victor Zubia",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH15",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "15",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dayan \"Day\" Mercedes Hochman-Vigil",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH16",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "16",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Yanira Gurrola Valenzuela",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH17",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "17",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Cynthia D Borrego",
+     "Democratic"
+    ],
+    [
+     "Brenda Diane Boatman",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH18",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "18",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Marianna A Anaya",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH19",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "19",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Janelle I Anyanonu",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH2",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "2",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "P Mark Duncan",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH20",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "20",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Meredith A Dixon",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH21",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "21",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Robert L Mason",
+     "Republican"
+    ],
+    [
+     "Debra Marie Sarinana",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH22",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "22",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Stefani Lord",
+     "Republican"
+    ],
+    [
+     "Zachary P Withers",
+     "No Party/Declined to Select"
+    ],
+    [
+     "William (Bill) Scott",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH23",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "23",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Alan T Martinez",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH24",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "24",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Elizabeth L Thomson",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH25",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "25",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Denis Litvinenko",
+     "Republican"
+    ],
+    [
+     "Cristina S Parajon",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH26",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "26",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Eleanor Chávez",
+     "Democratic"
+    ],
+    [
+     "Corey Rubin Zimmerman",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH27",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "27",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jahnelle Louise Garcia",
+     "Republican"
+    ],
+    [
+     "Abby Christine Foster",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH28",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "28",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Pamelya Paulette Herndon",
+     "Democratic"
+    ],
+    [
+     "Brenda J Olson",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH29",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "29",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Joy I Garratt",
+     "Democratic"
+    ],
+    [
+     "Carolyn Stith",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH3",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "3",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "William A Hall, II",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH30",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "30",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jerry L Trujillo",
+     "Republican"
+    ],
+    [
+     "Elizabeth Diane Torres-Velasquez",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH31",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "31",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Nicole Chavez",
+     "Republican"
+    ],
+    [
+     "Lisa K Curtis",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH32",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "32",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jenifer Marie Jones",
+     "Republican"
+    ],
+    [
+     "Laura Mairel Parra",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH33",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "33",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Micaela Lara Cadena",
+     "Democratic"
+    ],
+    [
+     "Enrique Kiki Vigil",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH34",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "34",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Raymundo Lara",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH35",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "35",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Angelica Rubio",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH36",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "36",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Julia E Ruiz",
+     "Republican"
+    ],
+    [
+     "Nathan P Small",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH37",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "37",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Lori A Martinez",
+     "Democratic"
+    ],
+    [
+     "Isabella Solis",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH38",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "38",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "David L Mooney",
+     "Democratic"
+    ],
+    [
+     "Rebecca Dow",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH39",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "39",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Luis M Terrazas",
+     "Republican"
+    ],
+    [
+     "Raul S Turrieta",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH4",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "4",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Heather Scott Ellison",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH40",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "40",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Landon McGuire Dooley",
+     "Republican"
+    ],
+    [
+     "Joseph L Sanchez",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH41",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "41",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Yolanda R Jaramillo",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH42",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "42",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kristina Ortez",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH43",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "43",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Christine Chandler",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH44",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "44",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kathleen M Cates",
+     "Democratic"
+    ],
+    [
+     "Adam Stanley Prior",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH45",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "45",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Linda Michelle Serrato",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH46",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "46",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Andrea D Romero",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH47",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "47",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Reena C Szczepanski",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH48",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "48",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Tara L Lujan",
+     "Democratic"
+    ],
+    [
+     "Victoria May Garcia",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH49",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "49",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Gail \"Missy\" Armstrong",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH5",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "5",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Doreen Wonda Johnson",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH50",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "50",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kenneth Donald Brennan",
+     "Republican"
+    ],
+    [
+     "Sarah Boses",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH51",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "51",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "John Block",
+     "Republican"
+    ],
+    [
+     "Grace A Nagamine",
+     "No Party/Declined to Select"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH52",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "52",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Doreen Yvonne Gallegos",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH53",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "53",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Ben Luna, Jr",
+     "Republican"
+    ],
+    [
+     "Sarah Angelina Silva",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH54",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "54",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jonathan Allen Henry",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH55",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "55",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Cathrynn N Brown",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH56",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "56",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Harlan H Vincent",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH57",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "57",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Chriselle Verene Martinez",
+     "Democratic"
+    ],
+    [
+     "Catherine Jeanette Cullen",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH58",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "58",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Angelita Mejia",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH59",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "59",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Stephen Ryan Dodson",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH6",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "6",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Martha Garcia",
+     "Democratic"
+    ],
+    [
+     "Paul L Spencer",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH60",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "60",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Luke Nicholas Jungmann",
+     "Democratic"
+    ],
+    [
+     "Joshua N Hernandez",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH61",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "61",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Randall Thomas Pettigrew",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH62",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "62",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Elaine Sena Cortez",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH63",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "63",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Seth H Martin",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH64",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "64",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Andrea R Reeb",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH65",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "65",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Derrick J Lente",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH66",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "66",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Leanne Gandy",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH67",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "67",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jackey O Chatfield",
+     "Republican"
+    ],
+    [
+     "Vincent M Soule",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH68",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "68",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Charlotte L Little",
+     "Democratic"
+    ],
+    [
+     "David E Adkins",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH69",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "69",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Michelle Paulene Abeyta",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH7",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "7",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Rickie Allen Gonzales, II",
+     "Democratic"
+    ],
+    [
+     "Tanya R Mirabal Moya",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH70",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "70",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Anita Amalia Gonzales",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH8",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "8",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brian G Baca",
+     "Republican"
+    ],
+    [
+     "Katherine Joanna Gauer",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SH9",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "9",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Patricia 'Patty' A Lundstrom",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SOS",
+   "level": "statewide",
+   "kind": "statewide:secretary_of_state",
+   "office": "Secretary of State",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Amanda López Askin",
+     "Democratic"
+    ],
+    [
+     "Ramona L Goolsby",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-SS33",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "33",
+   "seat": null,
+   "special": 1,
+   "seats": 1,
+   "names": [
+    [
+     "Rex A Wilson",
+     "Republican"
+    ],
+    [
+     "William Neil Griffin",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NM-TREAS",
+   "level": "statewide",
+   "kind": "statewide:state_treasurer",
+   "office": "State Treasurer",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "James F Ellison",
+     "Republican"
+    ],
+    [
+     "Laura M Montoya",
+     "Democratic"
+    ]
+   ]
+  }
+ ],
+ "aliases": {},
+ "elections": {
+  "2911": {
+   "kind": "primary",
+   "date": "2026-06-02",
+   "use": "rehearsal and the replay check"
+  }
+ },
+ "checked": {},
+ "notes": []
+}

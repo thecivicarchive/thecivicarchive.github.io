@@ -96,7 +96,7 @@
  "never": [],
  "never_why": {},
  "partial_sources": [],
- "rehearsal": "EID 122598 (2024 general); 126592 (2026 primary)",
+ "rehearsal": "EID 126592 (2026 primary): replay check 2026-10-10, 38 races equal the certified abstract; the one difference is a write-in candidate for Governor (Republican) named in the abstract, whom the feed counts only as write-ins; 122598 (2024 general)",
  "terms": "None seen in the API answers.",
  "scout_blocked": "Nothing refused.",
  "scout_plan": "Rehearse on 122598. On election night poll current_ver.txt every couple of minutes and fetch detailxml.zip only when the version changes; that gives every statewide, Congress and legislative contest by county. Saving each version also feeds the count-order predictor (how each county's share moves upload by upload). Local results: the large counties' Clarity pages, same reader.",
@@ -107,6 +107,14 @@
  "sources": [
   "election/scout/results_ne.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
-  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)",
+  "N9 reader checks, 2026-10-10: the state's own results service, read through election/source.py"
+ ],
+ "replay_check": {
+  "election": "126592",
+  "checked": "2026-10-10",
+  "result": "38 races equal the certified abstract, 1 differs (a write-in the feed does not name)",
+  "kept": "election_cache/replay/sources/co-126592/"
+ },
+ "reader_note": "Reader election/readers/clarity.py written 2026-10-10 (N9): self-test on its fixture passes; crosswalk election/crosswalk/co.json ties feed contests to the ballot databases' race ids."
 }

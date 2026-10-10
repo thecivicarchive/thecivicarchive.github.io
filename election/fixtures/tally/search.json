@@ -1,0 +1,146 @@
+{
+"versionID": "v2097",
+"lastUpdated": "2026-10-08T18:13:38.5390961Z",
+"electionID": "346",
+"message": "",
+"isOfficial": true,
+"turnout": null,
+"response": {
+"contests": {
+"20042REP": {
+"contestId": "20042REP",
+"contestName": "Representative in Congress Republican",
+"contestTypeCode": "SW",
+"contestOrder": 1,
+"voteFor": 1,
+"locationType": null,
+"locationID": null,
+"message": "",
+"messageLink": "",
+"choices": {
+"34994": {
+"id": "34994",
+"name": "Alex  Balazs ",
+"partyID": "REP",
+"color": "#A02626",
+"order": 1,
+"isWriteIn": false,
+"isWinner": false
+},
+"35452": {
+"id": "35452",
+"name": "Julie  Fedorchak ",
+"partyID": "REP",
+"color": "#A02626",
+"order": 1,
+"isWriteIn": false,
+"isWinner": true
+},
+"9901": {
+"id": "9901",
+"name": "  write-in ",
+"partyID": "REP",
+"color": "#A02626",
+"order": 1,
+"isWriteIn": false,
+"isWinner": false
+}
+}
+},
+"20042DEM": {
+"contestId": "20042DEM",
+"contestName": "Representative in Congress Democratic-NPL",
+"contestTypeCode": "SW",
+"contestOrder": 2,
+"voteFor": 1,
+"locationType": null,
+"locationID": null,
+"message": "",
+"messageLink": "",
+"choices": {
+"35910": {
+"id": "35910",
+"name": "Trygve  Hammer ",
+"partyID": "DEM",
+"color": "#424B5B",
+"order": 2,
+"isWriteIn": false,
+"isWinner": true
+},
+"9901": {
+"id": "9901",
+"name": "  write-in ",
+"partyID": "DEM",
+"color": "#424B5B",
+"order": 2,
+"isWriteIn": false,
+"isWinner": false
+}
+}
+},
+"20283REP": {
+"contestId": "20283REP",
+"contestName": "Secretary of State Republican",
+"contestTypeCode": "SW",
+"contestOrder": 107,
+"voteFor": 1,
+"locationType": null,
+"locationID": null,
+"message": "",
+"messageLink": "",
+"choices": {
+"35012": {
+"id": "35012",
+"name": "Michael  Howe ",
+"partyID": "REP",
+"color": "#A02626",
+"order": 1,
+"isWriteIn": false,
+"isWinner": true
+},
+"9901": {
+"id": "9901",
+"name": "  write-in ",
+"partyID": "REP",
+"color": "#A02626",
+"order": 1,
+"isWriteIn": false,
+"isWinner": false
+}
+}
+},
+"20283DEM": {
+"contestId": "20283DEM",
+"contestName": "Secretary of State Democratic-NPL",
+"contestTypeCode": "SW",
+"contestOrder": 108,
+"voteFor": 1,
+"locationType": null,
+"locationID": null,
+"message": "",
+"messageLink": "",
+"choices": {
+"35316": {
+"id": "35316",
+"name": "Ryan  Braunberger ",
+"partyID": "DEM",
+"color": "#424B5B",
+"order": 2,
+"isWriteIn": false,
+"isWinner": true
+},
+"9901": {
+"id": "9901",
+"name": "  write-in ",
+"partyID": "DEM",
+"color": "#424B5B",
+"order": 2,
+"isWriteIn": false,
+"isWinner": false
+}
+}
+}
+}
+},
+"errorMessage": null
+}

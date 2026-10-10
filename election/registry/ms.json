@@ -16,7 +16,8 @@
   "url": "https://www.sos.ms.gov/elections-voting/election-results",
   "label": "Mississippi Secretary of State: results",
   "checked": "2026-10-10",
-  "source": "answered one request with the kit's User-Agent (N4, 2026-10-10)"
+  "source": "answered one request with the kit's User-Agent (N4, 2026-10-10)",
+  "confirmed": "2026-10-10: answered one request (200)"
  },
  "other_pages": [],
  "election": {
@@ -94,5 +95,18 @@
   "election/scout/results_la.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
   "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+ ],
+ "reader": {
+  "module": null,
+  "written": "2026-10-10",
+  "why": "the results frame host answered 503 on 2026-10-09; ms_frame is written only if it answers in late October"
+ },
+ "certified_results": {
+  "what": "the Secretary's official recapitulation PDFs",
+  "address": "https://www.sos.ms.gov/elections-voting/election-results",
+  "script_ok": true,
+  "when": "after certification",
+  "how": "linked from the results page; read by hand-checked PDF reading later",
+  "checked": "2026-10-10"
+ }
 }

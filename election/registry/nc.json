@@ -90,15 +90,23 @@
  "never": [],
  "never_why": {},
  "partial_sources": [],
- "rehearsal": "20241105 (county.txt and results files; precinct zip at dl.ncsbe.gov/ENRS/2024_11_05/)",
+ "rehearsal": "20241105@2024-11-05 (the 2024 general; run_night.py replay --election nc=20241105@2024-11-05)",
  "terms": "None stated.",
  "scout_blocked": "Nothing refused scripts.",
  "scout_plan": "Live-readable, one of the best feeds anywhere: the Nov 3 election is already registered. On election night read county.txt and the results files every 3 minutes, and the precinct zip every 15 minutes for vote types and roll-off. Local contests are in the same files.",
- "notes": [],
+ "notes": [
+  "Vote types: evc Election Day, ovc one-stop (early in person), avc absentee by mail, pvc provisional (they add up to vct on every line of the 2024 files).",
+  "A county's file is asked for only when its row in county.txt changed, at most 40 a cycle on the night."
+ ],
  "to_do": [],
  "sources": [
   "election/scout/results_la.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
   "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+ ],
+ "reader": {
+  "family": "nc_sbe",
+  "written": "2026-10-10",
+  "checked": "2026-10-10: the 2024 general read whole from the statewide file and all 100 county files: 184 contests; each statewide line equals its counties' sums and its votes by how they were cast; every precinct in; the Board's title says OFFICIAL"
+ }
 }

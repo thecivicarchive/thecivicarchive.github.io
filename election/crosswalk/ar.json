@@ -1,0 +1,2420 @@
+{
+ "v": 1,
+ "state": "AR",
+ "family": "tally",
+ "built": "2026-10-10",
+ "from": [
+  "ballot_2026.sqlite: races, candidates (general list)",
+  "ballot_local_2026.sqlite: sl_races, sl_candidates (statewide and legislature), sl_places (county names, from the Census Bureau's county file)"
+ ],
+ "rule": "A feed contest is tied to a race by its title (office words, district number, unexpired or special) and, in a primary, its party; a contest that fits no race or more than one is listed, never shown. Names as printed are tied to names as filed by family name and first initial, one fit only.",
+ "counties": {
+  "arkansas": "05001",
+  "ashley": "05003",
+  "baxter": "05005",
+  "benton": "05007",
+  "boone": "05009",
+  "bradley": "05011",
+  "calhoun": "05013",
+  "carroll": "05015",
+  "chicot": "05017",
+  "clark": "05019",
+  "clay": "05021",
+  "cleburne": "05023",
+  "cleveland": "05025",
+  "columbia": "05027",
+  "conway": "05029",
+  "craighead": "05031",
+  "crawford": "05033",
+  "crittenden": "05035",
+  "cross": "05037",
+  "dallas": "05039",
+  "desha": "05041",
+  "drew": "05043",
+  "faulkner": "05045",
+  "franklin": "05047",
+  "fulton": "05049",
+  "garland": "05051",
+  "grant": "05053",
+  "greene": "05055",
+  "hempstead": "05057",
+  "hotspring": "05059",
+  "howard": "05061",
+  "independence": "05063",
+  "izard": "05065",
+  "jackson": "05067",
+  "jefferson": "05069",
+  "johnson": "05071",
+  "lafayette": "05073",
+  "lawrence": "05075",
+  "lee": "05077",
+  "lincoln": "05079",
+  "littleriver": "05081",
+  "logan": "05083",
+  "lonoke": "05085",
+  "madison": "05087",
+  "marion": "05089",
+  "miller": "05091",
+  "mississippi": "05093",
+  "monroe": "05095",
+  "montgomery": "05097",
+  "nevada": "05099",
+  "newton": "05101",
+  "ouachita": "05103",
+  "perry": "05105",
+  "phillips": "05107",
+  "pike": "05109",
+  "poinsett": "05111",
+  "polk": "05113",
+  "pope": "05115",
+  "prairie": "05117",
+  "pulaski": "05119",
+  "randolph": "05121",
+  "saintfrancis": "05123",
+  "saline": "05125",
+  "scott": "05127",
+  "searcy": "05129",
+  "sebastian": "05131",
+  "sevier": "05133",
+  "sharp": "05135",
+  "stone": "05137",
+  "union": "05139",
+  "vanburen": "05141",
+  "washington": "05143",
+  "white": "05145",
+  "woodruff": "05147",
+  "yell": "05149"
+ },
+ "races": [
+  {
+   "id": "2026-AR-H01",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "1",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Congressman Rick Crawford",
+     "Republican"
+    ],
+    [
+     "Steve G. Parsons",
+     "Libertarian"
+    ],
+    [
+     "Terri Yarbrough Green",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-H02",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "2",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Chris Jones",
+     "Democratic"
+    ],
+    [
+     "Congressman French Hill",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-H03",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "3",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Bobby Wilson",
+     "Libertarian"
+    ],
+    [
+     "Congressman Steve Womack",
+     "Republican"
+    ],
+    [
+     "Robb Ryerse",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-H04",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "4",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Congressman Bruce Westerman",
+     "Republican"
+    ],
+    [
+     "James \"Rus\" Russell, III",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-S2",
+   "level": "federal",
+   "kind": "S",
+   "office": "U.S. Senate",
+   "district": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Hallie Shoffner",
+     "Democratic"
+    ],
+    [
+     "Jeff Wadlin",
+     "Libertarian"
+    ],
+    [
+     "Senator Tom Cotton",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-AG",
+   "level": "statewide",
+   "kind": "statewide:attorney_general",
+   "office": "Attorney General",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Attorney General Tim Griffin",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-AUD",
+   "level": "statewide",
+   "kind": "statewide:state_auditor",
+   "office": "Auditor of State",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Auditor of State Dennis Milligan",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-GOV",
+   "level": "statewide",
+   "kind": "statewide:governor",
+   "office": "Governor",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Colt Shelby",
+     "Libertarian"
+    ],
+    [
+     "Governor Sarah Huckabee Sanders",
+     "Republican"
+    ],
+    [
+     "State Senator Fred Love",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-LAND",
+   "level": "statewide",
+   "kind": "statewide:land_commissioner",
+   "office": "Commissioner of State Lands",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Christopher Olson",
+     "Libertarian"
+    ],
+    [
+     "Secretary of State Cole Jester",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-LTG",
+   "level": "statewide",
+   "kind": "statewide:lieutenant_governor",
+   "office": "Lieutenant Governor",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Lieutenant Governor Leslie Rutledge",
+     "Republican"
+    ],
+    [
+     "Michael Kalagias",
+     "Libertarian"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH1",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "1",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mark A. Nichols",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH10",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "10",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jacob Allen",
+     "Democratic"
+    ],
+    [
+     "State Representative Mindy McAlindon",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH100",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "100",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Representative Carol Dalby",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH11",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "11",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Rey Hernandez",
+     "Democratic"
+    ],
+    [
+     "State Representative Rebecca Burkes",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH12",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "12",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative Hope Hendren Duke",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH13",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "13",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mitchell Smith",
+     "Democratic"
+    ],
+    [
+     "State Representative Scott Richardson",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH14",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "14",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative Nick Burkes",
+     "Republican"
+    ],
+    [
+     "Timothy J. Heron, Jr.",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH15",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "15",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Daniel Holtmeyer",
+     "Democratic"
+    ],
+    [
+     "State Representative John P. Carr",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH16",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "16",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Letisha Hinds",
+     "Democratic"
+    ],
+    [
+     "State Representative Kendon Underwood",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH17",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "17",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Representative Randy Torres",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH18",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "18",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative Robin Lundstrum",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH19",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "19",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jamie Atkinson",
+     "Democratic"
+    ],
+    [
+     "Representative Steve Unger",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH2",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "2",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative Trey Steimel",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH20",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "20",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Max Deitchler",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH21",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "21",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Representative Nicole Clowney",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH22",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "22",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative David Whitaker",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH23",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "23",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Laura Marsh",
+     "Independent"
+    ],
+    [
+     "State Representative Kendra Moore",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH24",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "24",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Charlene Fite",
+     "Republican"
+    ],
+    [
+     "Ryan Intchauspe",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH25",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "25",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Courtney King",
+     "Democratic"
+    ],
+    [
+     "State Representative Chad Puryear",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH26",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "26",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative James Eaton",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH27",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "27",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative Steven Walker",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH28",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "28",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative Bart Schulz",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH29",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "29",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Deonna Morgan",
+     "Democratic"
+    ],
+    [
+     "State Representative Rick McClure",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH3",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "3",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Carrie Huddleston",
+     "Democratic"
+    ],
+    [
+     "State Representative Stetson Painter",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH30",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "30",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Josh Longmire",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH31",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "31",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative Jimmy Gazaway",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH32",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "32",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Erika Askeland",
+     "Democratic"
+    ],
+    [
+     "State Representative Jack Ladyman",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH33",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "33",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative Jon Milligan",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH34",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "34",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Michael Middlebrook",
+     "Democratic"
+    ],
+    [
+     "State Representative Joey L. Carr",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH35",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "35",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Audrey P. Willis",
+     "Democratic"
+    ],
+    [
+     "Robert Thorne, Jr.",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH36",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "36",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Representative Johnny Rye",
+     "Republican"
+    ],
+    [
+     "Shamal C. Carter",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH37",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "37",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Representative Steve Hollowell",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH38",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "38",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative Dwight Tosh",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH39",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "39",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative Wayne Long",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH4",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "4",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative Jason Nazarenko",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH40",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "40",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative Shad Pearce",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH41",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "41",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative Alyssa Brown",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH42",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "42",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jeremy Riddle",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH43",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "43",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Representative Rick Beck",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH44",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "44",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Bill Teeter",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH45",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "45",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Debra Hobbs",
+     "Independent"
+    ],
+    [
+     "Representative Aaron M. Pilkington",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH46",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "46",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Council Member Tonya Fletcher",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH47",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "47",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative Lee Johnson",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH48",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "48",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Orion Jackson",
+     "Libertarian"
+    ],
+    [
+     "State Representative Ryan A. Rose",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH49",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "49",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Rep. Jay Richardson",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH5",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "5",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mike Bishop",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH50",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "50",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative Zack Gramlich",
+     "Republican"
+    ],
+    [
+     "Wendy Peer",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH51",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "51",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jane-Ellen Udouj-Kutchka",
+     "Democratic"
+    ],
+    [
+     "State Representative Cindy Crawford",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH52",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "52",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Justice Brent Montgomery",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH53",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "53",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jennifer Lewter",
+     "Democratic"
+    ],
+    [
+     "State Representative Matt Duffield",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH54",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "54",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Doug Corbitt",
+     "Democratic"
+    ],
+    [
+     "State Representative Mary Bentley",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH55",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "55",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Cynthia Nations",
+     "Democratic"
+    ],
+    [
+     "State Representative Matt Brown",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH56",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "56",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mark Brannan",
+     "Republican"
+    ],
+    [
+     "State Representative Steve Magie",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH57",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "57",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative Cameron Cooper",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH58",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "58",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jocelyn Fry",
+     "Libertarian"
+    ],
+    [
+     "State Representative Les Eaves",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH59",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "59",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Representative Jim Wooten",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH6",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "6",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Cody Rogers",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH60",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "60",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Beverly Coleman-Keown",
+     "Democratic"
+    ],
+    [
+     "Quendy Gibbins Medlin",
+     "Independent"
+    ],
+    [
+     "State Representative Roger Dale Lynch",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH61",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "61",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Garrett Sheeks",
+     "Libertarian"
+    ],
+    [
+     "State Representative Jeremiah Moore",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH62",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "62",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dexter R. Miller",
+     "Democratic"
+    ],
+    [
+     "Representative Mark D. McElroy",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH63",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "63",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative Lincoln Barnett",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH64",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "64",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Representative Kenneth B. Ferguson",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH65",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "65",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Glenn Barnes",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH66",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "66",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Representative Mark W. Perry",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH67",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "67",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Andrew Cade Eberly",
+     "Democratic"
+    ],
+    [
+     "Representative Karilyn Brown",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH68",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "68",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative Brian S. Evans",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH69",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "69",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dean Hunter",
+     "Democratic"
+    ],
+    [
+     "State Representative David Ray",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH7",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "7",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Representative Brit McKenzie",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH70",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "70",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Alex Holladay",
+     "Democratic"
+    ],
+    [
+     "Bo Renshaw",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH71",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "71",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Cassandra Mayes",
+     "Democratic"
+    ],
+    [
+     "Stephen Bright",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH72",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "72",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Talesha Dokes",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH73",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "73",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Representative Andrew Collins",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH74",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "74",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Representative Tippi McCullough",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH75",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "75",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Hunter Sadler",
+     "Republican"
+    ],
+    [
+     "Representative Ashley Hudson",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH76",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "76",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Isbac Ceja",
+     "Republican"
+    ],
+    [
+     "Representative Joy Springer",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH77",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "77",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Justice of the Peace Steven Person",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH78",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "78",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative Keith Brooks",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH79",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "79",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Michael D. Mason",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH8",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "8",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Justice Brian Armas",
+     "Republican"
+    ],
+    [
+     "Kara Armas",
+     "Republican"
+    ],
+    [
+     "Parker John Stohlton",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH80",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "80",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Daniel Stuckey",
+     "Libertarian"
+    ],
+    [
+     "State Representative Denise Ennett",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH81",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "81",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Gina Thomas-Littlejohn",
+     "Democratic"
+    ],
+    [
+     "State Representative RJ Hawk",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH82",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "82",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative Tony Furman",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH83",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "83",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative Paul Childress",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH84",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "84",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Representative Les Warren",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH85",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "85",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative Richard McGrew",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH86",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "86",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative John Maddox",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH87",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "87",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative DeAnn Vaught",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH88",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "88",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Representative Dolly Henley",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH89",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "89",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative Justin Gonzales",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH9",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "9",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Matt Goff",
+     "Republican"
+    ],
+    [
+     "Representative Diana Gonzales Worthen",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH90",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "90",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Representative Richard Womack",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH91",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "91",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Representative Bruce Cozart",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH92",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "92",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dawn Creekmore",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH93",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "93",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Representative Mike Holcomb",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH94",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "94",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "John Kyle Day",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH95",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "95",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Representative Howard M. Beaty, Jr.",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH96",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "96",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative Sonia E. Barker",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH97",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "97",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jim Andrews",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH98",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "98",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative Wade Andrews",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SH99",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "99",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Beth Anne Rankin Baker",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SOS",
+   "level": "statewide",
+   "kind": "statewide:secretary_of_state",
+   "office": "Secretary of State",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kelly Grappe",
+     "Democratic"
+    ],
+    [
+     "Michael Pakko",
+     "Libertarian"
+    ],
+    [
+     "Senator Kim Hammer",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SS1",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "1",
+   "seat": null,
+   "special": 1,
+   "seats": 1,
+   "names": [
+    [
+     "Mayor Tomeka Butler",
+     "Democratic"
+    ],
+    [
+     "School Board Director Harrell Wilson",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SS10",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "10",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Senator Ronald Caldwell",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SS11",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "11",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Senator Ricky Hill",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SS13",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "13",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Allison Grigsby Sweatman",
+     "Democratic"
+    ],
+    [
+     "State Representative Brandon Achor",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SS14",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "14",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mark S. Foster",
+     "Libertarian"
+    ],
+    [
+     "Senator Clarke Tucker",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SS15",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "15",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative Tara Shephard",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SS16",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "16",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Joshua Irby",
+     "Democratic"
+    ],
+    [
+     "Sheriff Rodney Wright",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SS2",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "2",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Senator Matt Stone",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SS21",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "21",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Representative Jeremy Wooldridge",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SS24",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "24",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Senator Missy Thomas Irvin",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SS27",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "27",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Eduardo Guzman",
+     "Democratic"
+    ],
+    [
+     "State Senator Justin Boyd",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SS28",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "28",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Senator Bryan B. King",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SS30",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "30",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Representative Denise Garner",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SS31",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "31",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Senator Clint Penzo",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SS32",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "32",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Senator Joshua P. Bryant",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SS35",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "35",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Senator Tyler Dees",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SS7",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "7",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Senator Alan Clark",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-SS9",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "9",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kenny Phillips",
+     "Republican"
+    ],
+    [
+     "State Representative Jessie McGruder",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-AR-TREAS",
+   "level": "statewide",
+   "kind": "statewide:state_treasurer",
+   "office": "State Treasurer",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "State Treasurer John Thurston",
+     "Republican"
+    ]
+   ]
+  }
+ ],
+ "aliases": {},
+ "elections": {
+  "7f77a178-af02-40ec-92db-c5cc50882c68": {
+   "kind": "primary",
+   "date": "2026-03-03",
+   "use": "rehearsal and the replay check"
+  },
+  "1846": {
+   "kind": "general",
+   "date": "2024-11-05",
+   "use": "rehearsal and the replay check"
+  }
+ },
+ "checked": {},
+ "notes": []
+}

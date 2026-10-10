@@ -1,0 +1,2867 @@
+{
+ "v": 1,
+ "state": "SC",
+ "family": "clarity",
+ "built": "2026-10-10",
+ "from": [
+  "ballot_2026.sqlite: races, candidates (general list)",
+  "ballot_local_2026.sqlite: sl_races, sl_candidates (statewide and legislature), sl_places (county names, from the Census Bureau's county file)"
+ ],
+ "rule": "A feed contest is tied to a race by its title (office words, district number, unexpired or special) and, in a primary, its party; a contest that fits no race or more than one is listed, never shown. Names as printed are tied to names as filed by family name and first initial, one fit only.",
+ "counties": {
+  "abbeville": "45001",
+  "aiken": "45003",
+  "allendale": "45005",
+  "anderson": "45007",
+  "bamberg": "45009",
+  "barnwell": "45011",
+  "beaufort": "45013",
+  "berkeley": "45015",
+  "calhoun": "45017",
+  "charleston": "45019",
+  "cherokee": "45021",
+  "chester": "45023",
+  "chesterfield": "45025",
+  "clarendon": "45027",
+  "colleton": "45029",
+  "darlington": "45031",
+  "dillon": "45033",
+  "dorchester": "45035",
+  "edgefield": "45037",
+  "fairfield": "45039",
+  "florence": "45041",
+  "georgetown": "45043",
+  "greenville": "45045",
+  "greenwood": "45047",
+  "hampton": "45049",
+  "horry": "45051",
+  "jasper": "45053",
+  "kershaw": "45055",
+  "lancaster": "45057",
+  "laurens": "45059",
+  "lee": "45061",
+  "lexington": "45063",
+  "mccormick": "45065",
+  "marion": "45067",
+  "marlboro": "45069",
+  "newberry": "45071",
+  "oconee": "45073",
+  "orangeburg": "45075",
+  "pickens": "45077",
+  "richland": "45079",
+  "saluda": "45081",
+  "spartanburg": "45083",
+  "sumter": "45085",
+  "union": "45087",
+  "williamsburg": "45089",
+  "york": "45091"
+ },
+ "races": [
+  {
+   "id": "2026-SC-H01",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "1",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jenny Costa Honeycutt",
+     "Republican"
+    ],
+    [
+     "Nancy Lacore",
+     "Democratic"
+    ],
+    [
+     "Bill Reeside",
+     "Libertarian"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-H02",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "2",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Zyon Khalifa",
+     "Democratic"
+    ],
+    [
+     "Dayna Alane Smith",
+     "Workers"
+    ],
+    [
+     "Joe Wilson",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-H03",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "3",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Sheri Biggs",
+     "Republican"
+    ],
+    [
+     "Brian Corriea",
+     "Libertarian"
+    ],
+    [
+     "Eunice Lehmacher",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-H04",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "4",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jessica Ethridge",
+     "Libertarian"
+    ],
+    [
+     "Courtney McClain",
+     "Democratic"
+    ],
+    [
+     "William Timmons",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-H05",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "5",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Wes Climer",
+     "Republican"
+    ],
+    [
+     "Mallory Dittmer",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-H06",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "6",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "James E Jim Clyburn",
+     "Democratic"
+    ],
+    [
+     "John Peterson",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-H07",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "7",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Russell Fry",
+     "Republican"
+    ],
+    [
+     "John Gregory Vincent",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-S2",
+   "level": "federal",
+   "kind": "S",
+   "office": "U.S. Senate",
+   "district": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Annie Andrews",
+     "Democratic"
+    ],
+    [
+     "Darline Graham",
+     "Republican"
+    ],
+    [
+     "Mark Hackett",
+     "Constitution"
+    ],
+    [
+     "Kasie Whitener",
+     "Libertarian"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-AG",
+   "level": "statewide",
+   "kind": "statewide:attorney_general",
+   "office": "Attorney General",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "David Stumbo",
+     "Republican"
+    ],
+    [
+     "Richard Hricik",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-AGR",
+   "level": "statewide",
+   "kind": "statewide:agriculture_commissioner",
+   "office": "Commissioner of Agriculture",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Chris Nelums",
+     "United Citizens"
+    ],
+    [
+     "Cody Simpson",
+     "Republican"
+    ],
+    [
+     "DeShawn Blanding",
+     "Democratic"
+    ],
+    [
+     "Michael Sullens",
+     "Libertarian"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-COMP",
+   "level": "statewide",
+   "kind": "statewide:comptroller",
+   "office": "Comptroller General",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mike Burkhold",
+     "Republican"
+    ],
+    [
+     "Tiffany Boozer",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-GOV",
+   "level": "statewide",
+   "kind": "statewide:governor",
+   "office": "Governor and Lieutenant Governor",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Alan Wilson",
+     "Republican"
+    ],
+    [
+     "Jermaine Johnson",
+     "Democratic"
+    ],
+    [
+     "Michael Addison",
+     "United Citizens"
+    ],
+    [
+     "Walid Hakim",
+     "Green"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH1",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "1",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Bill Whitmire",
+     "Republican"
+    ],
+    [
+     "Jasmine Williams",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH10",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "10",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Thomas Beach",
+     "Republican"
+    ],
+    [
+     "Thomas Stewart",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH100",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "100",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Crystal Y Campbell",
+     "Democratic"
+    ],
+    [
+     "Sylleste Davis",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH101",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "101",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Arnie Borowsky",
+     "Republican"
+    ],
+    [
+     "Roger K Kirby",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH102",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "102",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Harriet Holman",
+     "Republican"
+    ],
+    [
+     "Montez Aiken",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH103",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "103",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Carl Anderson",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH104",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "104",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "George M Blumenthal",
+     "Democratic"
+    ],
+    [
+     "William Bailey",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH105",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "105",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "David Wilson",
+     "Democratic"
+    ],
+    [
+     "Kevin Hardee",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH106",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "106",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Marisa McCann",
+     "Democratic"
+    ],
+    [
+     "Val Guest",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH107",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "107",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Case Brittain",
+     "Republican"
+    ],
+    [
+     "Christine Giguere",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH108",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "108",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kathy Redwine",
+     "Democratic"
+    ],
+    [
+     "Lee Hewitt",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH109",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "109",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Tiffany Spann-Wilder",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH11",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "11",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Craig Gagnon",
+     "Republican"
+    ],
+    [
+     "E T Stone",
+     "United Citizens"
+    ],
+    [
+     "Jessica Beasley",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH110",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "110",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "KJ Atwood",
+     "Democratic"
+    ],
+    [
+     "Tom Hartnett",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH111",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "111",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Wendell G Gilliard",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH112",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "112",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jenna Arsenault",
+     "Democratic"
+    ],
+    [
+     "Joe Bustos",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH113",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "113",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Courtney Waters",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH114",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "114",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Gary Brewer",
+     "Republican"
+    ],
+    [
+     "Kelly Hough",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH115",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "115",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Johnnie Garmon",
+     "Republican"
+    ],
+    [
+     "Nick Uricchio",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH116",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "116",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Clay Middleton",
+     "Democratic"
+    ],
+    [
+     "James E Teeple",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH117",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "117",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Ashley Painter",
+     "Democratic"
+    ],
+    [
+     "Jordan Pace",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH118",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "118",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Bernie Scolaro",
+     "Democratic"
+    ],
+    [
+     "Bill Herbkersman",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH119",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "119",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Lee Edwards",
+     "Republican"
+    ],
+    [
+     "Leon Stavrinakis",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH12",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "12",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Daniel Gibson",
+     "Republican"
+    ],
+    [
+     "Jumelle Brooks",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH120",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "120",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Debbie Subera-Wiggin",
+     "Democratic"
+    ],
+    [
+     "Weston Newton",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH121",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "121",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Shannon N DeLoach",
+     "Democratic"
+    ],
+    [
+     "Shelley Gay Yuhas",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH122",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "122",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Bill Hager",
+     "Republican"
+    ],
+    [
+     "Korey Williams",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH123",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "123",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Ann C Shippy",
+     "Democratic"
+    ],
+    [
+     "Jeff Bradley",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH124",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "124",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Shannon Erickson",
+     "Republican"
+    ],
+    [
+     "Shauna Bishop",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH13",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "13",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "C Rauch Wise",
+     "Democratic"
+    ],
+    [
+     "John McCravy",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH14",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "14",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Henry D Jones",
+     "United Citizens"
+    ],
+    [
+     "Michanna Tate",
+     "Democratic"
+    ],
+    [
+     "Rick Shealy",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH15",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "15",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Heather Hickman",
+     "Republican"
+    ],
+    [
+     "JA Moore",
+     "Democratic"
+    ],
+    [
+     "Melissa Couture",
+     "Libertarian"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH16",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "16",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Lynn Ramirez",
+     "Democratic"
+    ],
+    [
+     "Mark N Willis",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH17",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "17",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mike Burns",
+     "Republican"
+    ],
+    [
+     "Rich Nicoloff",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH18",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "18",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Alan Morgan",
+     "Republican"
+    ],
+    [
+     "Virginia B Maclure",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH19",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "19",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Patrick B Haddon",
+     "Republican"
+    ],
+    [
+     "Rachel Smith",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH2",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "2",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Adam Duncan",
+     "Republican"
+    ],
+    [
+     "Candace Schutt",
+     "Democratic"
+    ],
+    [
+     "Christopher Damian Des Marais",
+     "Libertarian"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH20",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "20",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Polly Elbertse",
+     "Democratic"
+    ],
+    [
+     "Stephen D Frank",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH21",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "21",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dexter Reaves",
+     "Democratic"
+    ],
+    [
+     "Dianne Mitchell",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH22",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "22",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Josh Kendrick",
+     "Democratic"
+    ],
+    [
+     "Paul Wickensimer",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH23",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "23",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Chandra Dillard",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH24",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "24",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Bruce Bannister",
+     "Republican"
+    ],
+    [
+     "Caroline Avinger",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH25",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "25",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Wendell Jones",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH26",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "26",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "David W Martin",
+     "Republican"
+    ],
+    [
+     "Jenny Desch",
+     "Democratic"
+    ],
+    [
+     "Kiral Mace",
+     "Workers"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH27",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "27",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "David Vaughan",
+     "Republican"
+    ],
+    [
+     "John MacCarthy",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH28",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "28",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Alan G Buckalew",
+     "Democratic"
+    ],
+    [
+     "Chris Huff",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH29",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "29",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dennis Moss",
+     "Republican"
+    ],
+    [
+     "Marina Franco",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH3",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "3",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Claiborne Linvill",
+     "Democratic"
+    ],
+    [
+     "Phillip Bowers",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH30",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "30",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brian Lawson",
+     "Republican"
+    ],
+    [
+     "Stephanie Holstein",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH31",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "31",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "James A Jones Sr",
+     "United Citizens"
+    ],
+    [
+     "Rosalyn Henderson-Myers",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH32",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "32",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Irene Benson",
+     "Democratic"
+    ],
+    [
+     "Scott Montgomery",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH33",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "33",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Clemson G Turregano",
+     "Democratic"
+    ],
+    [
+     "Travis A Moore",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH34",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "34",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Sarita Edgerton",
+     "Republican"
+    ],
+    [
+     "Saville Williams",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH35",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "35",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Bill Chumley",
+     "Republican"
+    ],
+    [
+     "Tatiana Skipper",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH36",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "36",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Rob Harris",
+     "Republican"
+    ],
+    [
+     "Virginia McLean",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH37",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "37",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Seth Sauer-Hart",
+     "Democratic"
+    ],
+    [
+     "Steven Long",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH38",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "38",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Josiah Magnuson",
+     "Republican"
+    ],
+    [
+     "Tammy Hahn",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH39",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "39",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Cally R Cal Forrest",
+     "Republican"
+    ],
+    [
+     "Sherman Lott",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH4",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "4",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Clay Counts",
+     "Republican"
+    ],
+    [
+     "Derrick Kruse",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH40",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "40",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Engle Thompson",
+     "Democratic"
+    ],
+    [
+     "Joe White",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH41",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "41",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Annie E McDaniel",
+     "Democratic"
+    ],
+    [
+     "Tibi Czentye",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH42",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "42",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Doug Gilliam",
+     "Republican"
+    ],
+    [
+     "Robert Larry Williams",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH43",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "43",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Alex Clark",
+     "Democratic"
+    ],
+    [
+     "Randy Ligon",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH44",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "44",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Katie Crosby",
+     "Democratic"
+    ],
+    [
+     "Mike Neese",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH45",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "45",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brandon Newton",
+     "Republican"
+    ],
+    [
+     "Nicole Ventour",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH46",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "46",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Heath Sessions",
+     "Republican"
+    ],
+    [
+     "Omar L McCrorey",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH47",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "47",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Justin Bennett",
+     "Democratic"
+    ],
+    [
+     "Tommy Pope",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH48",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "48",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brandon Guffey",
+     "Republican"
+    ],
+    [
+     "Rustin Terry",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH49",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "49",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "John R King",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH5",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "5",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "David F Jones",
+     "Democratic"
+    ],
+    [
+     "Neal Collins",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH50",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "50",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Keishan M Scott",
+     "Democratic"
+    ],
+    [
+     "William Oden",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH51",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "51",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "David Weeks",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH52",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "52",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Malcolm Taylor",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH53",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "53",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Bruce M Wallace",
+     "Democratic"
+    ],
+    [
+     "Richard Richie Yow",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH54",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "54",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jason Luck",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH55",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "55",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jackie Hayes",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH56",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "56",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jacqualyn Meadow",
+     "Democratic"
+    ],
+    [
+     "Tim McGinnis",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH57",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "57",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Cynthia O Ford",
+     "Democratic"
+    ],
+    [
+     "Lucas Atkinson",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH58",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "58",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jeff Johnson",
+     "Republican"
+    ],
+    [
+     "Sha-Ron E Jones",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH59",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "59",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Terry Alexander",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH6",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "6",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "April Cromer",
+     "Republican"
+    ],
+    [
+     "Jennifer Bachner",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH60",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "60",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Adrian Peguese Carter",
+     "Democratic"
+    ],
+    [
+     "Phillip Lowe",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH61",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "61",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Carla Schuessler",
+     "Republican"
+    ],
+    [
+     "Carol Goodman",
+     "Democratic"
+    ],
+    [
+     "David Herndon",
+     "Libertarian"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH62",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "62",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Robert Williams",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH63",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "63",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jay Jordan",
+     "Republican"
+    ],
+    [
+     "Kory Haskins",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH64",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "64",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Fawn Pedalino",
+     "Republican"
+    ],
+    [
+     "Michele Demery",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH65",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "65",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Cody T Mitchell",
+     "Republican"
+    ],
+    [
+     "Tanisha Baskin",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH66",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "66",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Heather Hart",
+     "Democratic"
+    ],
+    [
+     "Jackie Terribile",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH67",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "67",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Lisa Davey",
+     "Democratic"
+    ],
+    [
+     "Murrell Smith",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH68",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "68",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Heather Ammons Crawford",
+     "Republican"
+    ],
+    [
+     "Judy Davies",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH69",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "69",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Allen Broadus",
+     "Libertarian"
+    ],
+    [
+     "Chris Wooten",
+     "Republican"
+    ],
+    [
+     "Emery K Chaplin",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH7",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "7",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Elizabeth W Cooley",
+     "Democratic"
+    ],
+    [
+     "Lee Gilreath",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH70",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "70",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Robert Reese",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH71",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "71",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Julie Zimmerman",
+     "Democratic"
+    ],
+    [
+     "Nathan Ballentine",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH72",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "72",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dixie Kvatek",
+     "Republican"
+    ],
+    [
+     "Seth Rose",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH73",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "73",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Allen Robertson",
+     "Republican"
+    ],
+    [
+     "Chris Hart",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH74",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "74",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Collin Shelton",
+     "Republican"
+    ],
+    [
+     "J Todd Rutherford",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH75",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "75",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Heather Bauer",
+     "Democratic"
+    ],
+    [
+     "Joshua Parks",
+     "Libertarian"
+    ],
+    [
+     "Tracy Robins",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH76",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "76",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Leon Howard",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH77",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "77",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kambrell Houston Garvin",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH78",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "78",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Angelo Joyner Sr",
+     "Libertarian"
+    ],
+    [
+     "Beth Bernstein",
+     "Democratic"
+    ],
+    [
+     "Sonia Pollard",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH79",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "79",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Hamilton R Grant",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH8",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "8",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Demetrius Carson",
+     "Democratic"
+    ],
+    [
+     "Don Chapman",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH80",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "80",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Benjamin E Brown",
+     "Democratic"
+    ],
+    [
+     "Kathy Landing",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH81",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "81",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Charles Hartz",
+     "Republican"
+    ],
+    [
+     "Pete Swales",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH82",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "82",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Suzy Spurgeon",
+     "Republican"
+    ],
+    [
+     "William Bill Clyburn",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH83",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "83",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Bill Hixon",
+     "Republican"
+    ],
+    [
+     "Jason Payne",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH84",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "84",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Darnell Holston",
+     "Democratic"
+    ],
+    [
+     "Melissa Oremus",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH85",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "85",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jay Kilmartin",
+     "Republican"
+    ],
+    [
+     "Steven J Asbill Jr",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH86",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "86",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Malcolm Green",
+     "Democratic"
+    ],
+    [
+     "Tommy Paradise",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH87",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "87",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Paula Rawl Calhoon",
+     "Republican"
+    ],
+    [
+     "Reid Beaman",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH88",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "88",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jeremy Jones",
+     "Democratic"
+    ],
+    [
+     "John Lastinger",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH89",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "89",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Joe Madge",
+     "Democratic"
+    ],
+    [
+     "Micah Caskey",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH9",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "9",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Blake Sanders",
+     "Republican"
+    ],
+    [
+     "Johnny Estrich",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH90",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "90",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Justin Bamberg",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH91",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "91",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Daniel Alexander",
+     "Republican"
+    ],
+    [
+     "Lonnie Hosey",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH92",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "92",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brandon Cox",
+     "Republican"
+    ],
+    [
+     "Byron Walters",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH93",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "93",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Alex Morris",
+     "Republican"
+    ],
+    [
+     "Jerry Govan",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH94",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "94",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Gil Gatch",
+     "Republican"
+    ],
+    [
+     "Sally Hebert",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH95",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "95",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Gilda Cobb-Hunter",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH96",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "96",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Hunter Hackett",
+     "Republican"
+    ],
+    [
+     "Vivian Elston",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH97",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "97",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Cathy A Jaggars",
+     "Democratic"
+    ],
+    [
+     "Robby Robbins",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH98",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "98",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Greg Ford",
+     "Republican"
+    ],
+    [
+     "Sonja Ogletree Satani",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SH99",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "99",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jarrod Brooks",
+     "Republican"
+    ],
+    [
+     "Samuel Price",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SOS",
+   "level": "statewide",
+   "kind": "statewide:secretary_of_state",
+   "office": "Secretary of State",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jason Belton",
+     "Democratic"
+    ],
+    [
+     "Mark Hammond",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SPI",
+   "level": "statewide",
+   "kind": "statewide:superintendent_of_public_instruction",
+   "office": "State Superintendent of Education",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Baba Amin Ojuok",
+     "United Citizens"
+    ],
+    [
+     "Ellen Weaver",
+     "Republican"
+    ],
+    [
+     "Sylvia Wright",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-SS15",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "15",
+   "seat": null,
+   "special": 1,
+   "seats": 1,
+   "names": [
+    [
+     "Chad Williams",
+     "Democratic"
+    ],
+    [
+     "James Burns",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SC-TREAS",
+   "level": "statewide",
+   "kind": "statewide:state_treasurer",
+   "office": "State Treasurer",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Curtis Loftis",
+     "Republican"
+    ],
+    [
+     "Vincent Coe",
+     "Democratic"
+    ]
+   ]
+  }
+ ],
+ "aliases": {},
+ "elections": {
+  "126294": {
+   "kind": "primary",
+   "date": "2026-06-09",
+   "use": "rehearsal and the replay check"
+  }
+ },
+ "checked": {},
+ "notes": []
+}

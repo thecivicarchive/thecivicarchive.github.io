@@ -40,7 +40,10 @@
    "20261103_StateResults.csv",
    "20261103_CountyResults_csv.zip"
   ],
-  "how": "John uses the site's own Export menu in his browser and saves both files into the folder; the updater reads the newest copy. A figure's time is the file's own time, or else when he saved it."
+  "how": "John uses the site's own Export menu in his browser and saves both files into the folder (any name: the reader recognises each file by its first line); the updater reads the newest copy of each. The exports state no time of their own, so a figure's time is when he saved it. A file for another election saved into the night's folder is held.",
+  "optional": [
+   "20261103_PrecinctResults_csv.zip (the same Export menu; read when saved, never required)"
+  ]
  },
  "feeds": [
   {
@@ -69,7 +72,7 @@
   }
  ],
  "units": "county",
- "precinct_level": "unknown (county file seen; precinct export not confirmed)",
+ "precinct_level": "yes, when John also saves the PrecinctResults export (optional)",
  "races_in_feed": [
   "statewide",
   "Congress",
@@ -81,7 +84,7 @@
  "local": "Mostly no: county election boards report into the state system. Oklahoma County and Tulsa County election boards post their own notices (not requested).",
  "how_counted": "County election boards report to the State Election Board through the night.",
  "count_order": "OKER is known to show early, absentee and Election Day columns (not seen from here).",
- "vote_types": "Unknown; OKER is known to show early, absentee and election-day columns but this was not seen from here.",
+ "vote_types": "Yes: each row carries absentee-by-mail, early and Election Day votes beside the total (the 2022 and 2024 general and 2026 primary exports).",
  "decision": {
   "default": "plurality",
   "rules": []
@@ -115,5 +118,11 @@
   "election/scout/results_ne.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
   "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+ ],
+ "reader": {
+  "module": "ok_export",
+  "written": "2026-10-10",
+  "selftest": "pass (fixture: three contests of the 2026 runoff)",
+  "replay": "pass: 2026 primary 215 contests and runoff 44 contests equal the official totals stored by the ballot loader (the Board's final export: the source's own final totals); county files add up to the state file in every contest; the 2024 and 2022 general exports' precincts add up to their counties in every contest"
+ }
 }

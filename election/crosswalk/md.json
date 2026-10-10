@@ -1,0 +1,4505 @@
+{
+"_about": "Maryland's 2026 races for Congress, the statewide offices and the General Assembly (read only from the ballot databases) and what ties a table of the Board's results pages to each: the office class, the district, and the candidates' names as filed for each 2026 election.",
+"built": "2026-10-10",
+"races": {
+"2026-MD-AG": {
+"cls": "attorney_general",
+"district": null,
+"level": "statewide",
+"names": {
+"general": [
+[
+"Anthony G. Brown",
+"Democratic",
+0
+],
+[
+"James B. Rutledge, III",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-COMP": {
+"cls": "comptroller",
+"district": null,
+"level": "statewide",
+"names": {
+"general": [
+[
+"Brooke Elizabeth Lierman",
+"Democratic",
+0
+],
+[
+"Sonya Dunn",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-GOV": {
+"cls": "governor",
+"district": null,
+"level": "statewide",
+"names": {
+"general": [
+[
+"Wes Moore",
+"Democratic",
+0
+],
+[
+"Dan Cox",
+"Republican",
+0
+],
+[
+"Andy Ellis",
+"Green",
+0
+],
+[
+"Cathy White",
+"Working Class Party",
+0
+]
+],
+"primary-DEM": [
+[
+"Wes Moore",
+"Democratic",
+0
+],
+[
+"Eric S. Felber",
+"Democratic",
+0
+]
+],
+"primary-REP": [
+[
+"Dan Cox",
+"Republican",
+0
+],
+[
+"Ed Hale",
+"Republican",
+0
+],
+[
+"John A. Myrick",
+"Republican",
+0
+],
+[
+"Carl A. Brunner, Jr.",
+"Republican",
+0
+],
+[
+"Shannon Wright",
+"Republican",
+0
+],
+[
+"L. D. Burkindine",
+"Republican",
+0
+],
+[
+"Nancy Jane Taylor",
+"Republican",
+0
+],
+[
+"Michael Oakes",
+"Republican",
+0
+],
+[
+"Douglas Larcomb",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-H01": {
+"cls": "us_house",
+"district": "1",
+"level": "congress",
+"names": {
+"general": [
+[
+"Dan Schwartz",
+"Democratic",
+0
+],
+[
+"Andy Harris",
+"Republican",
+0
+],
+[
+"Edward Shlikas",
+"Unaffiliated",
+1
+]
+],
+"primary-DEM": [
+[
+"Dan Schwartz",
+"Democratic",
+0
+],
+[
+"Randi White",
+"Democratic",
+0
+],
+[
+"Victor Allen Guidice",
+"Democratic",
+0
+],
+[
+"George Walish",
+"Democratic",
+0
+]
+],
+"primary-REP": [
+[
+"Andy Harris",
+"Republican",
+0
+],
+[
+"Chris Bruneau",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-H02": {
+"cls": "us_house",
+"district": "2",
+"level": "congress",
+"names": {
+"general": [
+[
+"John \"Johnny O\" Olszewski, Jr.",
+"Democratic",
+0
+],
+[
+"Dave Wallace",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"John \"Johnny O\" Olszewski, Jr.",
+"Democratic",
+0
+],
+[
+"Clint Spellman, Jr.",
+"Democratic",
+0
+]
+],
+"primary-REP": [
+[
+"Dave Wallace",
+"Republican",
+0
+],
+[
+"Nnabu Eze",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-H03": {
+"cls": "us_house",
+"district": "3",
+"level": "congress",
+"names": {
+"general": [
+[
+"Sarah Elfreth",
+"Democratic",
+0
+],
+[
+"Berney Flowers",
+"Republican",
+0
+],
+[
+"Robert L. Coffman",
+"Republican",
+1
+]
+],
+"primary-DEM": [
+[
+"Sarah Elfreth",
+"Democratic",
+0
+],
+[
+"Austin Dyches",
+"Democratic",
+0
+],
+[
+"Jennifer Cross",
+"Democratic",
+0
+],
+[
+"Sean Hammond",
+"Democratic",
+0
+],
+[
+"Robert Gerald Morrison",
+"Democratic",
+0
+]
+],
+"primary-REP": [
+[
+"Berney Flowers",
+"Republican",
+0
+],
+[
+"John White",
+"Republican",
+0
+],
+[
+"Ray Bly",
+"Republican",
+0
+],
+[
+"Felix M. Seier",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-H04": {
+"cls": "us_house",
+"district": "4",
+"level": "congress",
+"names": {
+"general": [
+[
+"Glenn F. Ivey",
+"Democratic",
+0
+],
+[
+"George E. McDermott",
+"Republican",
+0
+],
+[
+"Sam Husseini",
+"Green",
+0
+]
+],
+"primary-DEM": [
+[
+"Glenn F. Ivey",
+"Democratic",
+0
+],
+[
+"Jakeya Johnson",
+"Democratic",
+0
+],
+[
+"Shavonne N. Hedgepeth",
+"Democratic",
+0
+],
+[
+"Jonathan D. White",
+"Democratic",
+0
+],
+[
+"Joseph Gomes",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-H05": {
+"cls": "us_house",
+"district": "5",
+"level": "congress",
+"names": {
+"general": [
+[
+"Adrian Boafo",
+"Democratic",
+0
+],
+[
+"Chris Chaffee",
+"Republican",
+0
+],
+[
+"Mildred Marie Hall",
+"Other Candidates",
+1
+]
+],
+"primary-DEM": [
+[
+"Adrian Boafo",
+"Democratic",
+0
+],
+[
+"Quincy Bareebe",
+"Democratic",
+0
+],
+[
+"Harry Anthony Dunn",
+"Democratic",
+0
+],
+[
+"Wala Blegay",
+"Democratic",
+0
+],
+[
+"Rushern L. Baker, III",
+"Democratic",
+0
+],
+[
+"Arthur Ellis",
+"Democratic",
+0
+],
+[
+"Reuben B. Collins, II",
+"Democratic",
+0
+],
+[
+"Harry Jarin",
+"Democratic",
+0
+],
+[
+"Nicole A. Williams",
+"Democratic",
+0
+],
+[
+"Alexis S. Solis",
+"Democratic",
+0
+],
+[
+"Dave Sundberg",
+"Democratic",
+0
+],
+[
+"Leigha Messick",
+"Democratic",
+0
+],
+[
+"Mark Arness",
+"Democratic",
+0
+],
+[
+"Walter Kirkland",
+"Democratic",
+0
+],
+[
+"Tracy Starr",
+"Democratic",
+0
+],
+[
+"Jerry Lightfoot",
+"Democratic",
+0
+],
+[
+"Terry Antonio Jackson, II",
+"Democratic",
+0
+],
+[
+"Heather Luper",
+"Democratic",
+0
+],
+[
+"Harold Tolbert",
+"Democratic",
+0
+],
+[
+"Ellis D. Colvin",
+"Democratic",
+0
+],
+[
+"Elldwnia English",
+"Democratic",
+0
+],
+[
+"Keith Salkowski",
+"Democratic",
+0
+],
+[
+"Kenneth Simons",
+"Democratic",
+0
+],
+[
+"James Anderson Makle, Jr.",
+"Democratic",
+0
+]
+],
+"primary-REP": [
+[
+"Chris Chaffee",
+"Republican",
+0
+],
+[
+"Michelle Talkington",
+"Republican",
+0
+],
+[
+"Bryan DuVal",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-H06": {
+"cls": "us_house",
+"district": "6",
+"level": "congress",
+"names": {
+"general": [
+[
+"April McClain Delaney",
+"Democratic",
+0
+],
+[
+"Robin Ficker",
+"Republican",
+0
+],
+[
+"Moshe Y. Landman",
+"Green",
+0
+]
+],
+"primary-DEM": [
+[
+"April McClain Delaney",
+"Democratic",
+0
+],
+[
+"David J. Trone",
+"Democratic",
+0
+],
+[
+"Alexis Goldstein",
+"Democratic",
+0
+],
+[
+"Ethan P. Wechtaluk",
+"Democratic",
+0
+],
+[
+"George Gluck",
+"Democratic",
+0
+],
+[
+"Kiambo \"Bo\" White",
+"Democratic",
+0
+],
+[
+"A. Mark Wilks",
+"Democratic",
+0
+],
+[
+"Daniel M. Krakower",
+"Democratic",
+0
+]
+],
+"primary-REP": [
+[
+"Robin Ficker",
+"Republican",
+0
+],
+[
+"Chris Burnett",
+"Republican",
+0
+],
+[
+"Mariela Roca",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-H07": {
+"cls": "us_house",
+"district": "7",
+"level": "congress",
+"names": {
+"general": [
+[
+"Kweisi Mfume",
+"Democratic",
+0
+],
+[
+"Scott M. Collier",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Kweisi Mfume",
+"Democratic",
+0
+],
+[
+"Mark S. Conway, Jr.",
+"Democratic",
+0
+],
+[
+"Tashi K. Davis",
+"Democratic",
+0
+],
+[
+"Theo R. Gillespie",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-H08": {
+"cls": "us_house",
+"district": "8",
+"level": "congress",
+"names": {
+"general": [
+[
+"Jamie Raskin",
+"Democratic",
+0
+],
+[
+"Cheryl Riley",
+"Republican",
+0
+],
+[
+"Nancy Wallace",
+"Green",
+0
+]
+],
+"primary-DEM": [
+[
+"Jamie Raskin",
+"Democratic",
+0
+],
+[
+"Boris Kabel Velasquez",
+"Democratic",
+0
+],
+[
+"J. D. Kumar",
+"Democratic",
+0
+],
+[
+"Stephen Alan Leon",
+"Democratic",
+0
+]
+],
+"primary-REP": [
+[
+"Cheryl Riley",
+"Republican",
+0
+],
+[
+"Anita Mpambara Cox",
+"Republican",
+0
+],
+[
+"Donald L. Lech",
+"Republican",
+0
+],
+[
+"Michael Yadeta",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH10": {
+"cls": "state_house",
+"district": "10",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Robin Harvey",
+"Democratic",
+0
+],
+[
+"N. Scott Phillips",
+"Democratic",
+0
+],
+[
+"Jennifer White Holland",
+"Democratic",
+0
+]
+],
+"primary-DEM": [
+[
+"Jennifer White Holland",
+"Democratic",
+0
+],
+[
+"Robin Harvey",
+"Democratic",
+0
+],
+[
+"N. Scott Phillips",
+"Democratic",
+0
+],
+[
+"Michael Tyrone Brown, Sr.",
+"Democratic",
+0
+],
+[
+"Jay Jalisi",
+"Democratic",
+0
+],
+[
+"T. George Newton",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH11A": {
+"cls": "state_house",
+"district": "11A",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Cheryl E. Pasteur",
+"Democratic",
+0
+]
+],
+"primary-DEM": [
+[
+"Cheryl E. Pasteur",
+"Democratic",
+0
+],
+[
+"Nico Sanders",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH11B": {
+"cls": "state_house",
+"district": "11B",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jon S. Cardin",
+"Democratic",
+0
+],
+[
+"Dana Stein",
+"Democratic",
+0
+],
+[
+"John C. Gordon",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH12A": {
+"cls": "state_house",
+"district": "12A",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jessica Feldmark",
+"Democratic",
+0
+],
+[
+"Terri Hill",
+"Democratic",
+0
+],
+[
+"Frank Glover",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Jessica Feldmark",
+"Democratic",
+0
+],
+[
+"Terri Hill",
+"Democratic",
+0
+],
+[
+"Joshua M. Heard",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH12B": {
+"cls": "state_house",
+"district": "12B",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Gary Simmons",
+"Democratic",
+0
+],
+[
+"Blair L. Brannock",
+"Republican",
+0
+],
+[
+"Timothy McGarrahan",
+"Republican",
+1
+]
+]
+}
+},
+"2026-MD-SH13": {
+"cls": "state_house",
+"district": "13",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Amy Brooks",
+"Democratic",
+0
+],
+[
+"Pam Lanman Guzzone",
+"Democratic",
+0
+],
+[
+"Gabriel Maximilian Moreno",
+"Democratic",
+0
+],
+[
+"Mark Fisher",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH14": {
+"cls": "state_house",
+"district": "14",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Anne R. Kaiser",
+"Democratic",
+0
+],
+[
+"Bernice Mireku-North",
+"Democratic",
+0
+],
+[
+"Matt Post",
+"Democratic",
+0
+]
+],
+"primary-DEM": [
+[
+"Anne R. Kaiser",
+"Democratic",
+0
+],
+[
+"Matt Post",
+"Democratic",
+0
+],
+[
+"Bernice Mireku-North",
+"Democratic",
+0
+],
+[
+"Alicia Contreras-Donello",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH15": {
+"cls": "state_house",
+"district": "15",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Linda Foley",
+"Democratic",
+0
+],
+[
+"David V. Fraser-Hidalgo",
+"Democratic",
+0
+],
+[
+"Lily Qi",
+"Democratic",
+0
+],
+[
+"Peter Chan",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Lily Qi",
+"Democratic",
+0
+],
+[
+"Linda Foley",
+"Democratic",
+0
+],
+[
+"David V. Fraser-Hidalgo",
+"Democratic",
+0
+],
+[
+"Asher E. Beckwitt",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH16": {
+"cls": "state_house",
+"district": "16",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Marc Korman",
+"Democratic",
+0
+],
+[
+"Sarah Wolek",
+"Democratic",
+0
+],
+[
+"Teresa Saavedra Woorman",
+"Democratic",
+0
+],
+[
+"Ann Guthrie Hingston",
+"Republican",
+0
+],
+[
+"Bob White",
+"Working Class Party",
+0
+]
+],
+"primary-DEM": [
+[
+"Marc Korman",
+"Democratic",
+0
+],
+[
+"Sarah Wolek",
+"Democratic",
+0
+],
+[
+"Teresa Saavedra Woorman",
+"Democratic",
+0
+],
+[
+"Tazeen Ahmad",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH17": {
+"cls": "state_house",
+"district": "17",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Julie Palakovich Carr",
+"Democratic",
+0
+],
+[
+"Ryan Spiegel",
+"Democratic",
+0
+],
+[
+"Joe Vogel",
+"Democratic",
+0
+]
+],
+"primary-DEM": [
+[
+"Julie Palakovich Carr",
+"Democratic",
+0
+],
+[
+"Joe Vogel",
+"Democratic",
+0
+],
+[
+"Ryan Spiegel",
+"Democratic",
+0
+],
+[
+"Christopher S. Reed",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH18": {
+"cls": "state_house",
+"district": "18",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Aaron M. Kaufman",
+"Democratic",
+0
+],
+[
+"Emily Shetty",
+"Democratic",
+0
+],
+[
+"Jared Solomon",
+"Democratic",
+0
+]
+],
+"primary-DEM": [
+[
+"Emily Shetty",
+"Democratic",
+0
+],
+[
+"Jared Solomon",
+"Democratic",
+0
+],
+[
+"Aaron M. Kaufman",
+"Democratic",
+0
+],
+[
+"Kate Stein",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH19": {
+"cls": "state_house",
+"district": "19",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Charlotte Crutchfield",
+"Democratic",
+0
+],
+[
+"Vaughn Stewart",
+"Democratic",
+0
+],
+[
+"Christa Tichy",
+"Democratic",
+0
+]
+],
+"primary-DEM": [
+[
+"Charlotte Crutchfield",
+"Democratic",
+0
+],
+[
+"Vaughn Stewart",
+"Democratic",
+0
+],
+[
+"Christa Tichy",
+"Democratic",
+0
+],
+[
+"Sebastian Johnson",
+"Democratic",
+0
+],
+[
+"Alec Stone",
+"Democratic",
+0
+],
+[
+"Sunil Dasgupta",
+"Democratic",
+0
+],
+[
+"Gabriel Sorrel",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH1A": {
+"cls": "state_house",
+"district": "1A",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jason M. Jobe",
+"Democratic",
+0
+],
+[
+"Dan Duggan",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Dan Duggan",
+"Republican",
+0
+],
+[
+"Tim Thomas",
+"Republican",
+0
+],
+[
+"Edward E. Clemons, Jr.",
+"Republican",
+0
+],
+[
+"Andy Adams",
+"Republican",
+0
+],
+[
+"Lisa Lowe",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH1B": {
+"cls": "state_house",
+"district": "1B",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Rhiannon C. Brown",
+"Democratic",
+0
+],
+[
+"Jason C. Buckel",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH1C": {
+"cls": "state_house",
+"district": "1C",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Seth Funk",
+"Democratic",
+0
+],
+[
+"Terry Baker",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH20": {
+"cls": "state_house",
+"district": "20",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Lorig Charkoudian",
+"Democratic",
+0
+],
+[
+"David Moon",
+"Democratic",
+0
+],
+[
+"Jheanelle K. Wilkins",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH21": {
+"cls": "state_house",
+"district": "21",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Ben Barnes",
+"Democratic",
+0
+],
+[
+"Mary A. Lehman",
+"Democratic",
+0
+],
+[
+"Joseline A. Peña-Melnyk",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH22": {
+"cls": "state_house",
+"district": "22",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Tracy Gant",
+"Democratic",
+0
+],
+[
+"Ashanti Martinez",
+"Democratic",
+0
+],
+[
+"Molly McKee-Seabrook",
+"Democratic",
+0
+]
+],
+"primary-DEM": [
+[
+"Ashanti Martinez",
+"Democratic",
+0
+],
+[
+"Tracy Gant",
+"Democratic",
+0
+],
+[
+"Molly McKee-Seabrook",
+"Democratic",
+0
+],
+[
+"Craig Hayes",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH23": {
+"cls": "state_house",
+"district": "23",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Marvin E. Holmes, Jr.",
+"Democratic",
+0
+],
+[
+"Keenon James",
+"Democratic",
+0
+],
+[
+"Kym Taylor",
+"Democratic",
+0
+],
+[
+"Michael Riker",
+"Republican",
+0
+],
+[
+"Kimberly Simmons Robinson",
+"Republican",
+0
+],
+[
+"Lisa Russell",
+"Unaffiliated",
+1
+]
+],
+"primary-DEM": [
+[
+"Kym Taylor",
+"Democratic",
+0
+],
+[
+"Marvin E. Holmes, Jr.",
+"Democratic",
+0
+],
+[
+"Keenon James",
+"Democratic",
+0
+],
+[
+"Le Shaun Quander-Mosley",
+"Democratic",
+0
+],
+[
+"Kris Natesan",
+"Democratic",
+0
+],
+[
+"Tambei Chiawah",
+"Democratic",
+0
+],
+[
+"Rebecca M. Stallworth",
+"Democratic",
+0
+],
+[
+"Michael Bance",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH24": {
+"cls": "state_house",
+"district": "24",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Derrick L. Coley",
+"Democratic",
+0
+],
+[
+"Andrea Fletcher Harrison",
+"Democratic",
+0
+],
+[
+"LaTasha R. Ward",
+"Democratic",
+0
+]
+],
+"primary-DEM": [
+[
+"Andrea Fletcher Harrison",
+"Democratic",
+0
+],
+[
+"LaTasha R. Ward",
+"Democratic",
+0
+],
+[
+"Derrick L. Coley",
+"Democratic",
+0
+],
+[
+"Crystal Carpenter",
+"Democratic",
+0
+],
+[
+"Bobby Henry",
+"Democratic",
+0
+],
+[
+"Stanford Fraser",
+"Democratic",
+0
+],
+[
+"Jordan McFarland",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH25": {
+"cls": "state_house",
+"district": "25",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Kent Roberson",
+"Democratic",
+0
+],
+[
+"Denise Roberts",
+"Democratic",
+0
+],
+[
+"Karen Toles",
+"Democratic",
+0
+]
+],
+"primary-DEM": [
+[
+"Denise Roberts",
+"Democratic",
+0
+],
+[
+"Karen Toles",
+"Democratic",
+0
+],
+[
+"Kent Roberson",
+"Democratic",
+0
+],
+[
+"Angela M. Angel",
+"Democratic",
+0
+],
+[
+"Anthony Tilghman",
+"Democratic",
+0
+],
+[
+"Antoine M. Thompson",
+"Democratic",
+0
+],
+[
+"Joseph Tolbert, III",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH26": {
+"cls": "state_house",
+"district": "26",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Veronica Turner",
+"Democratic",
+0
+],
+[
+"Kriselda Valderrama",
+"Democratic",
+0
+],
+[
+"Jamila J. Woods",
+"Democratic",
+0
+],
+[
+"JoAnn Y. Fisher",
+"Republican",
+0
+],
+[
+"Ike Puzon",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Jamila J. Woods",
+"Democratic",
+0
+],
+[
+"Veronica Turner",
+"Democratic",
+0
+],
+[
+"Kriselda Valderrama",
+"Democratic",
+0
+],
+[
+"Dani E. Moore-King",
+"Democratic",
+0
+],
+[
+"Reginald Martin",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH27A": {
+"cls": "state_house",
+"district": "27A",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Darrell C. Odom, Sr.",
+"Democratic",
+0
+],
+[
+"Jim Crawford",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Darrell C. Odom, Sr.",
+"Democratic",
+0
+],
+[
+"Yonelle Moore Lee",
+"Democratic",
+0
+],
+[
+"Clifton Crosby, Jr.",
+"Democratic",
+0
+],
+[
+"Shawn Maldon",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH27B": {
+"cls": "state_house",
+"district": "27B",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jeffrie E. Long, Jr.",
+"Democratic",
+0
+],
+[
+"Dan L. Thomas",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Jeffrie E. Long, Jr.",
+"Democratic",
+0
+],
+[
+"Rachel R. Jones",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH27C": {
+"cls": "state_house",
+"district": "27C",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jennifer M. Davidson",
+"Democratic",
+0
+],
+[
+"Mark N. Fisher",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Jennifer M. Davidson",
+"Democratic",
+0
+],
+[
+"Rocio Mercado Garcia",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH28": {
+"cls": "state_house",
+"district": "28",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Abena Affum-McAllister",
+"Democratic",
+0
+],
+[
+"Debra Davis",
+"Democratic",
+0
+],
+[
+"Edith J. Patterson",
+"Democratic",
+0
+],
+[
+"James Emerson Ashburn",
+"Republican",
+0
+],
+[
+"Winfield W. Clark, Jr.",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Debra Davis",
+"Democratic",
+0
+],
+[
+"Edith J. Patterson",
+"Democratic",
+0
+],
+[
+"Abena Affum-McAllister",
+"Democratic",
+0
+],
+[
+"Evan Smith",
+"Democratic",
+0
+],
+[
+"Tarinna N. Terrell",
+"Democratic",
+0
+],
+[
+"John D. Jones, Jr.",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH29A": {
+"cls": "state_house",
+"district": "29A",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jennifer Lynn Clancy",
+"Democratic",
+0
+],
+[
+"Matt Morgan",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH29B": {
+"cls": "state_house",
+"district": "29B",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Adrianne M. Mathis",
+"Democratic",
+0
+],
+[
+"BJ Hall",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Adrianne M. Mathis",
+"Democratic",
+0
+],
+[
+"Kris McDonald",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH29C": {
+"cls": "state_house",
+"district": "29C",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Shaara Watts",
+"Democratic",
+0
+],
+[
+"Todd B. Morgan",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Shaara Watts",
+"Democratic",
+0
+],
+[
+"J. W. Abney",
+"Democratic",
+0
+],
+[
+"Mike Fechtmann",
+"Democratic",
+0
+],
+[
+"Eric F. Immler",
+"Democratic",
+0
+]
+],
+"primary-REP": [
+[
+"Todd B. Morgan",
+"Republican",
+0
+],
+[
+"James McQueen",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH2A": {
+"cls": "state_house",
+"district": "2A",
+"level": "legislature",
+"names": {
+"general": [
+[
+"John D. Leonard",
+"Democratic",
+0
+],
+[
+"Brandon Thompson",
+"Democratic",
+0
+],
+[
+"William Valentine",
+"Republican",
+0
+],
+[
+"William J. Wivell",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"William J. Wivell",
+"Republican",
+0
+],
+[
+"William Valentine",
+"Republican",
+0
+],
+[
+"Dianna Palmer",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH2B": {
+"cls": "state_house",
+"district": "2B",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Matthew J. Schindler",
+"Democratic",
+0
+],
+[
+"Brenda J. Thiam",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Matthew J. Schindler",
+"Democratic",
+0
+],
+[
+"Ocewana E. Baker",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH3": {
+"cls": "state_house",
+"district": "3",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Kris Fair",
+"Democratic",
+0
+],
+[
+"Ken Kerr",
+"Democratic",
+0
+],
+[
+"Karen Simpson",
+"Democratic",
+0
+],
+[
+"Angela McIntosh",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH30A": {
+"cls": "state_house",
+"district": "30A",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Dylan Behler",
+"Democratic",
+0
+],
+[
+"Dana Jones",
+"Democratic",
+0
+]
+],
+"primary-DEM": [
+[
+"Dana Jones",
+"Democratic",
+0
+],
+[
+"Dylan Behler",
+"Democratic",
+0
+],
+[
+"Bradley K. O'Neal",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH30B": {
+"cls": "state_house",
+"district": "30B",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Matt Johnston",
+"Democratic",
+0
+],
+[
+"Seth Howard",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Matt Johnston",
+"Democratic",
+0
+],
+[
+"Blake Wintermute",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH31": {
+"cls": "state_house",
+"district": "31",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Joan Barone Cole",
+"Democratic",
+0
+],
+[
+"Heidi Buchanan Schmidt",
+"Democratic",
+0
+],
+[
+"Ryan Kelly Shaban",
+"Democratic",
+0
+],
+[
+"LaToya Marie Caldwell-Nkongolo",
+"Republican",
+0
+],
+[
+"Brian A. Chisholm",
+"Republican",
+0
+],
+[
+"Mike Jacobs",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH32": {
+"cls": "state_house",
+"district": "32",
+"level": "legislature",
+"names": {
+"general": [
+[
+"J. Sandy Bartlett",
+"Democratic",
+0
+],
+[
+"Spencer F. Dixon",
+"Democratic",
+0
+],
+[
+"Mike Rogers",
+"Democratic",
+0
+],
+[
+"Colin McEvers",
+"Republican",
+0
+],
+[
+"Mary Phelps",
+"Republican",
+0
+],
+[
+"Marcus Damon Snipes, Jr.",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"J. Sandy Bartlett",
+"Democratic",
+0
+],
+[
+"Mike Rogers",
+"Democratic",
+0
+],
+[
+"Spencer F. Dixon",
+"Democratic",
+0
+],
+[
+"Steven Thomas",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH33A": {
+"cls": "state_house",
+"district": "33A",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Andrew C. Pruski",
+"Democratic",
+0
+]
+],
+"primary-DEM": [
+[
+"Andrew C. Pruski",
+"Democratic",
+0
+],
+[
+"Connor P. Roche",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH33B": {
+"cls": "state_house",
+"district": "33B",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Chuck Cook",
+"Democratic",
+0
+],
+[
+"Stuart M. Schmidt, Jr.",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH33C": {
+"cls": "state_house",
+"district": "33C",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Heather A. Bagnall",
+"Democratic",
+0
+],
+[
+"Kristin M. Norris",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH34A": {
+"cls": "state_house",
+"district": "34A",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Andre V. Johnson, Jr.",
+"Democratic",
+0
+],
+[
+"Steve Johnson",
+"Democratic",
+0
+],
+[
+"Elliott Joseph Herneker",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH34B": {
+"cls": "state_house",
+"district": "34B",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Anthony Lyon",
+"Democratic",
+0
+],
+[
+"Jake Taylor",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Jake Taylor",
+"Republican",
+0
+],
+[
+"Sheariah Yousefi",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH35A": {
+"cls": "state_house",
+"district": "35A",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Gregory V. Anderson",
+"Democratic",
+0
+],
+[
+"Michael A. Eckels, Jr.",
+"Democratic",
+0
+],
+[
+"Mike Griffith",
+"Republican",
+0
+],
+[
+"Teresa Reilly",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Mike Griffith",
+"Republican",
+0
+],
+[
+"Teresa Reilly",
+"Republican",
+0
+],
+[
+"Michelle Christman",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH35B": {
+"cls": "state_house",
+"district": "35B",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Blessing T. Oluwadare",
+"Democratic",
+0
+],
+[
+"Derek J. Howell",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Derek J. Howell",
+"Republican",
+0
+],
+[
+"Erica Berge",
+"Republican",
+0
+],
+[
+"Kevin B. Hornberger",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH36": {
+"cls": "state_house",
+"district": "36",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Nevin Crouse",
+"Democratic",
+0
+],
+[
+"Michelle Ravert",
+"Democratic",
+0
+],
+[
+"Crystal Woodward",
+"Democratic",
+0
+],
+[
+"Steve Arentz",
+"Republican",
+0
+],
+[
+"Jeff Ghrist",
+"Republican",
+0
+],
+[
+"Jay A. Jacobs",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH37A": {
+"cls": "state_house",
+"district": "37A",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Sheree Sample-Hughes",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH37B": {
+"cls": "state_house",
+"district": "37B",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Edmund J. Barrett",
+"Democratic",
+0
+],
+[
+"Michele W. Johnson",
+"Democratic",
+0
+],
+[
+"Chris Adams",
+"Republican",
+0
+],
+[
+"Tom Hutchinson",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH38A": {
+"cls": "state_house",
+"district": "38A",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Shelley Johnson",
+"Democratic",
+0
+],
+[
+"C. L. Marshall, III",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"C. L. Marshall, III",
+"Republican",
+0
+],
+[
+"Timothy H. Howlett",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH38B": {
+"cls": "state_house",
+"district": "38B",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Josh Hastings",
+"Democratic",
+0
+],
+[
+"Barry S. Beauchamp",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH38C": {
+"cls": "state_house",
+"district": "38C",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Wayne A. Hartman",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH39": {
+"cls": "state_house",
+"district": "39",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Gabriel Acevero",
+"Democratic",
+0
+],
+[
+"Lesley J. Lopez",
+"Democratic",
+0
+],
+[
+"Greg Wims",
+"Democratic",
+0
+]
+],
+"primary-DEM": [
+[
+"Lesley J. Lopez",
+"Democratic",
+0
+],
+[
+"Gabriel Acevero",
+"Democratic",
+0
+],
+[
+"Greg Wims",
+"Democratic",
+0
+],
+[
+"Robert T. Wu",
+"Democratic",
+0
+],
+[
+"George Lluberes",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH4": {
+"cls": "state_house",
+"district": "4",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jerry Donald",
+"Democratic",
+0
+],
+[
+"Andrew Duck",
+"Democratic",
+0
+],
+[
+"Alleria Stanley",
+"Democratic",
+0
+],
+[
+"Jason E. Keckler",
+"Republican",
+0
+],
+[
+"April Fleming Miller",
+"Republican",
+0
+],
+[
+"Jesse T. Pippy",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Andrew Duck",
+"Democratic",
+0
+],
+[
+"Jerry Donald",
+"Democratic",
+0
+],
+[
+"Alleria Stanley",
+"Democratic",
+0
+],
+[
+"Paul Gilligan",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH40": {
+"cls": "state_house",
+"district": "40",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Marlon D. Amprey",
+"Democratic",
+0
+],
+[
+"Tiffany Welch",
+"Democratic",
+0
+],
+[
+"Melissa Wells",
+"Democratic",
+0
+]
+],
+"primary-DEM": [
+[
+"Marlon D. Amprey",
+"Democratic",
+0
+],
+[
+"Melissa Wells",
+"Democratic",
+0
+],
+[
+"Tiffany Welch",
+"Democratic",
+0
+],
+[
+"Crystal Jackson Parker",
+"Democratic",
+0
+],
+[
+"Frank M. Conaway, Jr.",
+"Democratic",
+0
+],
+[
+"Dianté Edwards",
+"Democratic",
+0
+],
+[
+"Anderson Jean",
+"Democratic",
+0
+],
+[
+"Kevin Legacy",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH41": {
+"cls": "state_house",
+"district": "41",
+"level": "legislature",
+"names": {
+"general": [
+[
+"S. I. \"Sandy\" Rosenberg",
+"Democratic",
+0
+],
+[
+"Sean A. Stinnett",
+"Democratic",
+0
+],
+[
+"Ryan Turner",
+"Democratic",
+0
+]
+],
+"primary-DEM": [
+[
+"S. I. \"Sandy\" Rosenberg",
+"Democratic",
+0
+],
+[
+"Sean A. Stinnett",
+"Democratic",
+0
+],
+[
+"Ryan Turner",
+"Democratic",
+0
+],
+[
+"Shannice Anderson",
+"Democratic",
+0
+],
+[
+"Chezia Cager",
+"Democratic",
+0
+],
+[
+"Matt Menter",
+"Democratic",
+0
+],
+[
+"Adrian Muldrow",
+"Democratic",
+0
+],
+[
+"Reuven Amos",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH42A": {
+"cls": "state_house",
+"district": "42A",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jyoti Mohan",
+"Democratic",
+0
+],
+[
+"Charles Edward Murphy, III",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Charles Edward Murphy, III",
+"Republican",
+0
+],
+[
+"Dan Katz",
+"Republican",
+0
+],
+[
+"Alexander Harlan",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH42B": {
+"cls": "state_house",
+"district": "42B",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Michele Guyton",
+"Democratic",
+0
+],
+[
+"Jeffry K. McDonald",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Jeffry K. McDonald",
+"Republican",
+0
+],
+[
+"Larry A. Novak",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH42C": {
+"cls": "state_house",
+"district": "42C",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Corynne Courpas",
+"Democratic",
+0
+],
+[
+"Steve Patten",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH43A": {
+"cls": "state_house",
+"district": "43A",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Regina T. Boyce",
+"Democratic",
+0
+],
+[
+"Elizabeth Embry",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH43B": {
+"cls": "state_house",
+"district": "43B",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Cathi Forbes",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH44A": {
+"cls": "state_house",
+"district": "44A",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Eric Ebersole",
+"Democratic",
+0
+],
+[
+"Chuck Linton",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH44B": {
+"cls": "state_house",
+"district": "44B",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Aletheia McCaskill",
+"Democratic",
+0
+],
+[
+"Sheila Ruth",
+"Democratic",
+0
+],
+[
+"Domonic Martin",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Aletheia McCaskill",
+"Democratic",
+0
+],
+[
+"Sheila Ruth",
+"Democratic",
+0
+],
+[
+"Bishop Barry Chapman",
+"Democratic",
+0
+],
+[
+"Sherry Scipio",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH45": {
+"cls": "state_house",
+"district": "45",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jackie Addison",
+"Democratic",
+0
+],
+[
+"Chanel A. Branch",
+"Democratic",
+0
+],
+[
+"Caylin Young",
+"Democratic",
+0
+],
+[
+"Renaud De'Aundre Brown",
+"Green",
+0
+]
+],
+"primary-DEM": [
+[
+"Jackie Addison",
+"Democratic",
+0
+],
+[
+"Caylin Young",
+"Democratic",
+0
+],
+[
+"Chanel A. Branch",
+"Democratic",
+0
+],
+[
+"Stephanie Smith",
+"Democratic",
+0
+],
+[
+"Robert Stokes, Sr.",
+"Democratic",
+0
+],
+[
+"George Johnson",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH46": {
+"cls": "state_house",
+"district": "46",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Luke Clippinger",
+"Democratic",
+0
+],
+[
+"Mark Edelson",
+"Democratic",
+0
+],
+[
+"Robbyn Lewis",
+"Democratic",
+0
+],
+[
+"Jeremy L. Amason",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH47A": {
+"cls": "state_house",
+"district": "47A",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Diana M. Fennell",
+"Democratic",
+0
+],
+[
+"Robert Julian Ivey",
+"Democratic",
+0
+],
+[
+"Fred M. Price, Jr.",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Robert Julian Ivey",
+"Democratic",
+0
+],
+[
+"Diana M. Fennell",
+"Democratic",
+0
+],
+[
+"Rocio Treminio-Lopez",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH47B": {
+"cls": "state_house",
+"district": "47B",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Deni Taveras",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH5": {
+"cls": "state_house",
+"district": "5",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Dayana Bergman",
+"Democratic",
+0
+],
+[
+"Alison Rudolph",
+"Democratic",
+0
+],
+[
+"Courtney Alexa Welch",
+"Democratic",
+0
+],
+[
+"April R. Rose",
+"Republican",
+0
+],
+[
+"Chris Tomlinson",
+"Republican",
+0
+],
+[
+"Steve Whisler",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"April R. Rose",
+"Republican",
+0
+],
+[
+"Chris Tomlinson",
+"Republican",
+0
+],
+[
+"Steve Whisler",
+"Republican",
+0
+],
+[
+"Sallie B. Taylor",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH6": {
+"cls": "state_house",
+"district": "6",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Artus W. Huffman",
+"Democratic",
+0
+],
+[
+"Megan Ann Mioduszewski",
+"Democratic",
+0
+],
+[
+"Rayneika Robinson",
+"Democratic",
+0
+],
+[
+"Robin L. Grammer",
+"Republican",
+0
+],
+[
+"Bob Long",
+"Republican",
+0
+],
+[
+"Ric Metzgar",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Bob Long",
+"Republican",
+0
+],
+[
+"Robin L. Grammer",
+"Republican",
+0
+],
+[
+"Ric Metzgar",
+"Republican",
+0
+],
+[
+"Henry J. Ciezkowski",
+"Republican",
+0
+],
+[
+"Bobby Al Jolson Berger",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH7A": {
+"cls": "state_house",
+"district": "7A",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Ly Xinzhen Brown",
+"Democratic",
+0
+],
+[
+"Satish Chapagain",
+"Democratic",
+0
+],
+[
+"Ryan Nawrocki",
+"Republican",
+0
+],
+[
+"Kathy Szeliga",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Ly Xinzhen Brown",
+"Democratic",
+0
+],
+[
+"Satish Chapagain",
+"Democratic",
+0
+],
+[
+"Tom Baker",
+"Democratic",
+0
+],
+[
+"Cleveland M. Reynolds, Jr.",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SH7B": {
+"cls": "state_house",
+"district": "7B",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Candace Hart",
+"Democratic",
+0
+],
+[
+"Lauren Arikan",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH8": {
+"cls": "state_house",
+"district": "8",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Nick Allen",
+"Democratic",
+0
+],
+[
+"Harry Bhandari",
+"Democratic",
+0
+],
+[
+"Kim L. Ross",
+"Democratic",
+0
+],
+[
+"Brian A. Campbell",
+"Republican",
+0
+],
+[
+"Glen Geelhaar",
+"Republican",
+0
+],
+[
+"Steven J. Riemer",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Kim L. Ross",
+"Democratic",
+0
+],
+[
+"Harry Bhandari",
+"Democratic",
+0
+],
+[
+"Nick Allen",
+"Democratic",
+0
+],
+[
+"Marsha Briley-Savage",
+"Democratic",
+0
+],
+[
+"Kumasi J. Barnett",
+"Democratic",
+0
+]
+],
+"primary-REP": [
+[
+"Brian A. Campbell",
+"Republican",
+0
+],
+[
+"Steven J. Riemer",
+"Republican",
+0
+],
+[
+"Glen Geelhaar",
+"Republican",
+0
+],
+[
+"Jacqueline Stevenson",
+"Republican",
+0
+],
+[
+"Zulieka A. Baysmore",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SH9A": {
+"cls": "state_house",
+"district": "9A",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Chao Wu",
+"Democratic",
+0
+],
+[
+"Natalie Ziegler",
+"Democratic",
+0
+],
+[
+"Fitzgerald Mofor",
+"Republican",
+0
+],
+[
+"Spencer Rhoda",
+"Republican",
+0
+],
+[
+"Saif Rehman",
+"Unaffiliated",
+0
+]
+]
+}
+},
+"2026-MD-SH9B": {
+"cls": "state_house",
+"district": "9B",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Courtney Watson",
+"Democratic",
+0
+]
+],
+"primary-DEM": [
+[
+"Courtney Watson",
+"Democratic",
+0
+],
+[
+"Abdun Matin",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SS1": {
+"cls": "state_senate",
+"district": "1",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Ashley Emerick",
+"Democratic",
+0
+],
+[
+"Mike McKay",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SS10": {
+"cls": "state_senate",
+"district": "10",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Ben Brooks",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SS11": {
+"cls": "state_senate",
+"district": "11",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Shelly L. Hettleman",
+"Democratic",
+0
+],
+[
+"Jim Simpson",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SS12": {
+"cls": "state_senate",
+"district": "12",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Clarence Lam",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SS13": {
+"cls": "state_senate",
+"district": "13",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Guy Guzzone",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SS14": {
+"cls": "state_senate",
+"district": "14",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Craig J. Zucker",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SS15": {
+"cls": "state_senate",
+"district": "15",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Brian J. Feldman",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SS16": {
+"cls": "state_senate",
+"district": "16",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Sara N. Love",
+"Democratic",
+0
+]
+],
+"primary-DEM": [
+[
+"Sara N. Love",
+"Democratic",
+0
+],
+[
+"Lou James Bartolo",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SS17": {
+"cls": "state_senate",
+"district": "17",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Cheryl C. Kagan",
+"Democratic",
+0
+],
+[
+"Helene Meister",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Cheryl C. Kagan",
+"Democratic",
+0
+],
+[
+"Philip Cook",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SS18": {
+"cls": "state_senate",
+"district": "18",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jeff Waldstreicher",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SS19": {
+"cls": "state_senate",
+"district": "19",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Ben Kramer",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SS2": {
+"cls": "state_senate",
+"district": "2",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Eric Martin Van Buren",
+"Democratic",
+0
+],
+[
+"Paul D. Corderman",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SS20": {
+"cls": "state_senate",
+"district": "20",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Will Smith",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SS21": {
+"cls": "state_senate",
+"district": "21",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jim Rosapepe",
+"Democratic",
+0
+],
+[
+"Lee Havis",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SS22": {
+"cls": "state_senate",
+"district": "22",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Alonzo T. Washington",
+"Democratic",
+0
+],
+[
+"Jim Wass",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SS23": {
+"cls": "state_senate",
+"district": "23",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Ron Watson",
+"Democratic",
+0
+],
+[
+"James A. T. Amah",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Ron Watson",
+"Democratic",
+0
+],
+[
+"Raaheela Ahmed",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SS24": {
+"cls": "state_senate",
+"district": "24",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Tiffany Alston",
+"Democratic",
+0
+]
+],
+"primary-DEM": [
+[
+"Tiffany Alston",
+"Democratic",
+0
+],
+[
+"Kevin Ford, Jr.",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SS25": {
+"cls": "state_senate",
+"district": "25",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Nick Charles",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SS26": {
+"cls": "state_senate",
+"district": "26",
+"level": "legislature",
+"names": {
+"general": [
+[
+"C. Anthony Muse",
+"Democratic",
+0
+]
+],
+"primary-DEM": [
+[
+"C. Anthony Muse",
+"Democratic",
+0
+],
+[
+"Antonio Driver",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SS27": {
+"cls": "state_senate",
+"district": "27",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Kevin M. Harris",
+"Democratic",
+0
+],
+[
+"Al Larsen",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Kevin M. Harris",
+"Democratic",
+0
+],
+[
+"Jason T. Fowler",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SS28": {
+"cls": "state_senate",
+"district": "28",
+"level": "legislature",
+"names": {
+"general": [
+[
+"C. T. Wilson",
+"Democratic",
+0
+]
+],
+"primary-DEM": [
+[
+"C. T. Wilson",
+"Democratic",
+0
+],
+[
+"Aaron Corbin",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SS29": {
+"cls": "state_senate",
+"district": "29",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Chuck Borges",
+"Democratic",
+0
+],
+[
+"Jack Bailey",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SS3": {
+"cls": "state_senate",
+"district": "3",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Karen Lewis Young",
+"Democratic",
+0
+],
+[
+"Shelley Aloi",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SS30": {
+"cls": "state_senate",
+"district": "30",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Shaneka T. Henson",
+"Democratic",
+0
+],
+[
+"Jessica Haire",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SS31": {
+"cls": "state_senate",
+"district": "31",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Brent Mulrooney",
+"Democratic",
+0
+],
+[
+"Nicholaus Kipke",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SS32": {
+"cls": "state_senate",
+"district": "32",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Mark S. Chang",
+"Democratic",
+0
+],
+[
+"Justin Gallucci",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Mark S. Chang",
+"Democratic",
+0
+],
+[
+"Stephen A. Tillett",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SS33": {
+"cls": "state_senate",
+"district": "33",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Dawn D. Gile",
+"Democratic",
+0
+],
+[
+"Amy Leahy",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SS34": {
+"cls": "state_senate",
+"district": "34",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Mary-Dulany James",
+"Democratic",
+0
+],
+[
+"Raj Goel",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Mary-Dulany James",
+"Democratic",
+0
+],
+[
+"Blane H. Miller, III",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SS35": {
+"cls": "state_senate",
+"district": "35",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Neil Jennings",
+"Democratic",
+0
+],
+[
+"Jason C. Gallion",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SS36": {
+"cls": "state_senate",
+"district": "36",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Nivek Johnson",
+"Democratic",
+0
+],
+[
+"Steve Hershey",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Nivek Johnson",
+"Democratic",
+0
+],
+[
+"John Queen",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SS37": {
+"cls": "state_senate",
+"district": "37",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Katie G. Clendaniel",
+"Democratic",
+0
+],
+[
+"Johnny Mautz",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Katie G. Clendaniel",
+"Democratic",
+0
+],
+[
+"Edmund J. Barrett",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SS38": {
+"cls": "state_senate",
+"district": "38",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Lino V. Cressotti",
+"Democratic",
+0
+],
+[
+"Mary Beth Carozza",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SS39": {
+"cls": "state_senate",
+"district": "39",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Amar Mukunda",
+"Democratic",
+0
+]
+],
+"primary-DEM": [
+[
+"Amar Mukunda",
+"Democratic",
+0
+],
+[
+"Nancy J. King",
+"Democratic",
+0
+],
+[
+"Destiny Drake West",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SS4": {
+"cls": "state_senate",
+"district": "4",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Lara Westdorp",
+"Democratic",
+0
+],
+[
+"William \"Bill\" Folden",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SS40": {
+"cls": "state_senate",
+"district": "40",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Antonio Hayes",
+"Democratic",
+0
+],
+[
+"Alan Rebar",
+"Working Class Party",
+0
+]
+],
+"primary-DEM": [
+[
+"Antonio Hayes",
+"Democratic",
+0
+],
+[
+"Steven Messmer",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SS41": {
+"cls": "state_senate",
+"district": "41",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Malcolm P. Ruff",
+"Democratic",
+0
+]
+],
+"primary-DEM": [
+[
+"Malcolm P. Ruff",
+"Democratic",
+0
+],
+[
+"Dalya Attar",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SS42": {
+"cls": "state_senate",
+"district": "42",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Stephanie Popescu",
+"Democratic",
+0
+],
+[
+"Kevin Ford",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Stephanie Popescu",
+"Democratic",
+0
+],
+[
+"Paul Henderson",
+"Democratic",
+0
+],
+[
+"Paul V. Konka",
+"Democratic",
+0
+]
+],
+"primary-REP": [
+[
+"Kevin Ford",
+"Republican",
+0
+],
+[
+"Adam Wood",
+"Republican",
+0
+],
+[
+"Matt Fox",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SS43": {
+"cls": "state_senate",
+"district": "43",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Mary Washington",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SS44": {
+"cls": "state_senate",
+"district": "44",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Charles E. Sydnor, III",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SS45": {
+"cls": "state_senate",
+"district": "45",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Cory V. McCray",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SS46": {
+"cls": "state_senate",
+"district": "46",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Bill Ferguson",
+"Democratic",
+0
+],
+[
+"Emmanuel Digman",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Bill Ferguson",
+"Democratic",
+0
+],
+[
+"Bobby LaPin",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SS47": {
+"cls": "state_senate",
+"district": "47",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Malcolm Augustine",
+"Democratic",
+0
+]
+]
+}
+},
+"2026-MD-SS5": {
+"cls": "state_senate",
+"district": "5",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Gary Foote",
+"Democratic",
+0
+],
+[
+"Justin Ready",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SS6": {
+"cls": "state_senate",
+"district": "6",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Justin Holliday",
+"Democratic",
+0
+],
+[
+"Johnny Ray Salling",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Johnny Ray Salling",
+"Republican",
+0
+],
+[
+"Daniel Eisenhart",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SS7": {
+"cls": "state_senate",
+"district": "7",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Bill Geibler",
+"Democratic",
+0
+],
+[
+"J. B. Jennings",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SS8": {
+"cls": "state_senate",
+"district": "8",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Carl Jackson",
+"Democratic",
+0
+],
+[
+"Yahu Blackwell",
+"Republican",
+0
+]
+]
+}
+},
+"2026-MD-SS9": {
+"cls": "state_senate",
+"district": "9",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Katie Fry Hester",
+"Democratic",
+0
+],
+[
+"Ben Hightower",
+"Republican",
+0
+]
+]
+}
+}
+},
+"state": "MD"
+}

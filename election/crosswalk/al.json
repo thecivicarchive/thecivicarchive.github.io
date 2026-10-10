@@ -1,0 +1,4109 @@
+{
+"_about": "Alabama's 2026 races for Congress, the statewide offices and the Legislature (read only from the ballot databases) and what ties a contest title of the Secretary's results to each: the office class, the district or place, the candidates' names as filed for each 2026 election; and the counties' FIPS codes.",
+"built": "2026-10-10",
+"counties": {
+"autauga": "01001",
+"baldwin": "01003",
+"barbour": "01005",
+"bibb": "01007",
+"blount": "01009",
+"bullock": "01011",
+"butler": "01013",
+"calhoun": "01015",
+"chambers": "01017",
+"cherokee": "01019",
+"chilton": "01021",
+"choctaw": "01023",
+"clarke": "01025",
+"clay": "01027",
+"cleburne": "01029",
+"coffee": "01031",
+"colbert": "01033",
+"conecuh": "01035",
+"coosa": "01037",
+"covington": "01039",
+"crenshaw": "01041",
+"cullman": "01043",
+"dale": "01045",
+"dallas": "01047",
+"dekalb": "01049",
+"elmore": "01051",
+"escambia": "01053",
+"etowah": "01055",
+"fayette": "01057",
+"franklin": "01059",
+"geneva": "01061",
+"greene": "01063",
+"hale": "01065",
+"henry": "01067",
+"houston": "01069",
+"jackson": "01071",
+"jefferson": "01073",
+"lamar": "01075",
+"lauderdale": "01077",
+"lawrence": "01079",
+"lee": "01081",
+"limestone": "01083",
+"lowndes": "01085",
+"macon": "01087",
+"madison": "01089",
+"marengo": "01091",
+"marion": "01093",
+"marshall": "01095",
+"mobile": "01097",
+"monroe": "01099",
+"montgomery": "01101",
+"morgan": "01103",
+"perry": "01105",
+"pickens": "01107",
+"pike": "01109",
+"randolph": "01111",
+"russell": "01113",
+"shelby": "01117",
+"stclair": "01115",
+"sumter": "01119",
+"talladega": "01121",
+"tallapoosa": "01123",
+"tuscaloosa": "01125",
+"walker": "01127",
+"washington": "01129",
+"wilcox": "01131",
+"winston": "01133"
+},
+"races": {
+"2026-AL-AG": {
+"cls": "attorney_general",
+"district": null,
+"level": "statewide",
+"names": {
+"general": [
+[
+"Jeff McLaughlin",
+"Democrat",
+0
+],
+[
+"Katherine Robertson",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Katherine Robertson",
+"Republican",
+0
+],
+[
+"Jay Mitchell",
+"Republican",
+0
+],
+[
+"Pamela L. Casey",
+"Republican",
+0
+]
+],
+"runoff-REP": [
+[
+"Katherine Robertson",
+"Republican",
+0
+],
+[
+"Jay Mitchell",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-AGR": {
+"cls": "agriculture_commissioner",
+"district": null,
+"level": "statewide",
+"names": {
+"general": [
+[
+"Ron Sparks",
+"Democrat",
+0
+],
+[
+"Corey Hill",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Corey Hill",
+"Republican",
+0
+],
+[
+"Christina Woerner McInnis",
+"Republican",
+0
+],
+[
+"Jack Williams",
+"Republican",
+0
+]
+],
+"runoff-REP": [
+[
+"Corey Hill",
+"Republican",
+0
+],
+[
+"Christina Woerner McInnis",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-AUD": {
+"cls": "state_auditor",
+"district": null,
+"level": "statewide",
+"names": {
+"general": [
+[
+"Violet Edwards",
+"Democrat",
+0
+],
+[
+"Andrew Sorrell",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Andrew Sorrell",
+"Republican",
+0
+],
+[
+"Derek Chen",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-GOV": {
+"cls": "governor",
+"district": null,
+"level": "statewide",
+"names": {
+"general": [
+[
+"Doug Jones",
+"Democrat",
+0
+],
+[
+"Tommy Tuberville",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Doug Jones",
+"Democrat",
+0
+],
+[
+"Will Boyd",
+"Democrat",
+0
+],
+[
+"Yolanda Rochelle Flowers",
+"Democrat",
+0
+],
+[
+"Jamel J. Brown",
+"Democrat",
+0
+],
+[
+"Chad \"Chig\" Martin",
+"Democrat",
+0
+],
+[
+"Nathan \"Nate\" Mathis",
+"Democrat",
+0
+]
+],
+"primary-REP": [
+[
+"Thomas Tuberville",
+"Republican",
+0
+],
+[
+"Ken McFeeters",
+"Republican",
+0
+],
+[
+"\"Alabama\" Will Santivasci",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-H01": {
+"cls": "us_house",
+"district": "1",
+"level": "congress",
+"names": {
+"general": [
+[
+"Clyde Jones",
+"Democrat",
+0
+],
+[
+"Jerry Carl",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Jerry Carl",
+"Republican",
+0
+],
+[
+"Austin Sidwell",
+"Republican",
+0
+],
+[
+"John Mills",
+"Republican",
+0
+],
+[
+"Lucas Burger",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-H02": {
+"cls": "us_house",
+"district": "2",
+"level": "congress",
+"names": {
+"general": [
+[
+"Shomari C. Figures",
+"Democrat",
+0
+],
+[
+"Rhett Marques",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Rhett Marques",
+"Republican",
+0
+],
+[
+"Hampton Harris",
+"Republican",
+0
+],
+[
+"David Matthews",
+"Republican",
+0
+],
+[
+"Joshua McKee",
+"Republican",
+0
+],
+[
+"James Richardson",
+"Republican",
+0
+],
+[
+"Christian Horn",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-H03": {
+"cls": "us_house",
+"district": "3",
+"level": "congress",
+"names": {
+"general": [
+[
+"Lee McInnis",
+"Democrat",
+0
+],
+[
+"Mike Rogers",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Mike Rogers",
+"Republican",
+0
+],
+[
+"Terri LaPoint",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-H04": {
+"cls": "us_house",
+"district": "4",
+"level": "congress",
+"names": {
+"general": [
+[
+"Amanda N. Pusczek",
+"Democrat",
+0
+],
+[
+"Robert B. Aderholt",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Amanda N. Pusczek",
+"Democrat",
+0
+],
+[
+"Shane Weaver",
+"Democrat",
+0
+]
+],
+"primary-REP": [
+[
+"Robert B. Aderholt",
+"Republican",
+0
+],
+[
+"Tommy Barnes",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-H05": {
+"cls": "us_house",
+"district": "5",
+"level": "congress",
+"names": {
+"general": [
+[
+"Andrew Sneed",
+"Democrat",
+0
+],
+[
+"Dale W. Strong",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Andrew Sneed",
+"Democrat",
+0
+],
+[
+"Candice Dollar Duvieilh",
+"Democrat",
+0
+],
+[
+"Jeremy Devito",
+"Democrat",
+0
+]
+],
+"runoff-DEM": [
+[
+"Andrew Sneed",
+"Democrat",
+0
+],
+[
+"Candice Dollar Duvieilh",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-H06": {
+"cls": "us_house",
+"district": "6",
+"level": "congress",
+"names": {
+"general": [
+[
+"Maurice Mercer",
+"Democrat",
+0
+],
+[
+"Gary Palmer",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Jacob Bouma-Sims",
+"Democrat",
+0
+],
+[
+"Ashtyn Kennedy",
+"Democrat",
+0
+],
+[
+"Maurice Mercer",
+"Democrat",
+0
+],
+[
+"Keith Pilkington",
+"Democrat",
+0
+]
+],
+"primary-REP": [
+[
+"Gary Palmer",
+"Republican",
+0
+],
+[
+"Case Dixon",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-H07": {
+"cls": "us_house",
+"district": "7",
+"level": "congress",
+"names": {
+"general": [
+[
+"Terri Sewell",
+"Democrat",
+0
+],
+[
+"Ammie Akin",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Ammie Akin",
+"Republican",
+0
+],
+[
+"David Perry",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-LTG": {
+"cls": "lieutenant_governor",
+"district": null,
+"level": "statewide",
+"names": {
+"general": [
+[
+"Phillip Ensler",
+"Democrat",
+0
+],
+[
+"John Wahl",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Phillip Ensler",
+"Democrat",
+0
+],
+[
+"Darryl D. Perryman",
+"Democrat",
+0
+]
+],
+"primary-REP": [
+[
+"John Wahl",
+"Republican",
+0
+],
+[
+"Wes Allen",
+"Republican",
+0
+],
+[
+"Rick Pate",
+"Republican",
+0
+],
+[
+"Nicole Jones Wadsworth",
+"Republican",
+0
+],
+[
+"Pat Bishop",
+"Republican",
+0
+],
+[
+"Stewart Hill Tankersley",
+"Republican",
+0
+],
+[
+"George Childress",
+"Republican",
+0
+]
+],
+"runoff-REP": [
+[
+"John Wahl",
+"Republican",
+0
+],
+[
+"Wes Allen",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-PSC1": {
+"cls": "public_service_commissioner",
+"district": null,
+"level": "statewide",
+"names": {
+"general": [
+[
+"James O. Gordon",
+"Democrat",
+0
+],
+[
+"Matt Gentry",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"James O. Gordon",
+"Democrat",
+0
+],
+[
+"Jeff Ramsey",
+"Democrat",
+0
+],
+[
+"John Northrop",
+"Democrat",
+0
+]
+],
+"primary-REP": [
+[
+"Matt Gentry",
+"Republican",
+0
+],
+[
+"Jeremy H. Oden",
+"Republican",
+0
+]
+]
+},
+"seat": "1"
+},
+"2026-AL-PSC2": {
+"cls": "public_service_commissioner",
+"district": null,
+"level": "statewide",
+"names": {
+"general": [
+[
+"Sheila D. McNeil",
+"Democrat",
+0
+],
+[
+"Jim Zig Zeigler",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Jim Zig Zeigler",
+"Republican",
+0
+],
+[
+"Chris Beeker",
+"Republican",
+0
+],
+[
+"Brent Woodall",
+"Republican",
+0
+],
+[
+"Priscilla Andrews",
+"Republican",
+0
+]
+],
+"runoff-REP": [
+[
+"Jim Zig Zeigler",
+"Republican",
+0
+],
+[
+"Chris Beeker",
+"Republican",
+0
+]
+]
+},
+"seat": "2"
+},
+"2026-AL-S2": {
+"cls": "us_senate",
+"district": null,
+"level": "congress",
+"names": {
+"general": [
+[
+"Everett Wess",
+"Democrat",
+0
+],
+[
+"Barry Moore",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Everett Wess",
+"Democrat",
+0
+],
+[
+"Dakarai Larriett",
+"Democrat",
+0
+],
+[
+"Mark S. Wheeler II",
+"Democrat",
+0
+],
+[
+"Kyle Sweetser",
+"Democrat",
+0
+]
+],
+"primary-REP": [
+[
+"Barry Moore",
+"Republican",
+0
+],
+[
+"Jared Hudson",
+"Republican",
+0
+],
+[
+"Steve Marshall",
+"Republican",
+0
+],
+[
+"Rodney Walker",
+"Republican",
+0
+],
+[
+"Seth Burton",
+"Republican",
+0
+],
+[
+"Dale Shelton Deas Jr.",
+"Republican",
+0
+],
+[
+"Morgan Murphy",
+"Republican",
+0
+]
+],
+"runoff-DEM": [
+[
+"Everett Wess",
+"Democrat",
+0
+],
+[
+"Dakarai Larriett",
+"Democrat",
+0
+]
+],
+"runoff-REP": [
+[
+"Barry Moore",
+"Republican",
+0
+],
+[
+"Jared Hudson",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SBOE2": {
+"cls": "state_board_of_education",
+"district": "2",
+"level": "statewide",
+"names": {
+"general": [
+[
+"Jamie McCurry",
+"Democrat",
+0
+],
+[
+"Tracie West",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SBOE4": {
+"cls": "state_board_of_education",
+"district": "4",
+"level": "statewide",
+"names": {
+"general": [
+[
+"Yvette M. Richardson",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SBOE6": {
+"cls": "state_board_of_education",
+"district": "6",
+"level": "statewide",
+"names": {
+"general": [
+[
+"Angela Morgan",
+"Democrat",
+0
+],
+[
+"Cathi Bradford",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Cathi Bradford",
+"Republican",
+0
+],
+[
+"Marie Manning",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SBOE8": {
+"cls": "state_board_of_education",
+"district": "8",
+"level": "statewide",
+"names": {
+"general": [
+[
+"Shatika Armstrong",
+"Democrat",
+0
+],
+[
+"Emily Jones",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Emily Jones",
+"Republican",
+0
+],
+[
+"William Matthews",
+"Republican",
+0
+],
+[
+"Connie Spears",
+"Republican",
+0
+]
+],
+"runoff-REP": [
+[
+"Emily Jones",
+"Republican",
+0
+],
+[
+"William Matthews",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH1": {
+"cls": "state_house",
+"district": "1",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Maurice McCaney",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Maurice McCaney",
+"Republican",
+0
+],
+[
+"Phillip Pettus",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH10": {
+"cls": "state_house",
+"district": "10",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Marilyn Lands",
+"Democrat",
+0
+],
+[
+"Aaron Thomas",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH100": {
+"cls": "state_house",
+"district": "100",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Mark Shirey",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH101": {
+"cls": "state_house",
+"district": "101",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Joan Friedlander",
+"Democrat",
+0
+],
+[
+"Chris Pringle",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Chris Pringle",
+"Republican",
+0
+],
+[
+"Tim Manning",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH102": {
+"cls": "state_house",
+"district": "102",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Shane Stringer",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH103": {
+"cls": "state_house",
+"district": "103",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Barbara Drummond",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH104": {
+"cls": "state_house",
+"district": "104",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Margie Wilcox",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH105": {
+"cls": "state_house",
+"district": "105",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Chip Brown",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH11": {
+"cls": "state_house",
+"district": "11",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Heath Allbright",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH12": {
+"cls": "state_house",
+"district": "12",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Cindy Myrex",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH13": {
+"cls": "state_house",
+"district": "13",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Mike Elliott",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Mike Elliott",
+"Republican",
+0
+],
+[
+"Greg Barnes",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH14": {
+"cls": "state_house",
+"district": "14",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Tim R. Wadsworth",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH15": {
+"cls": "state_house",
+"district": "15",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Nell Brown",
+"Democrat",
+0
+],
+[
+"Leigh Hulsey",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH16": {
+"cls": "state_house",
+"district": "16",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Christian Martin",
+"Democrat",
+0
+],
+[
+"Bryan Brinyark",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH17": {
+"cls": "state_house",
+"district": "17",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Phil Segraves",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Phil Segraves",
+"Republican",
+0
+],
+[
+"Micheal Beck",
+"Republican",
+0
+],
+[
+"Kevin Bradford",
+"Republican",
+0
+]
+],
+"runoff-REP": [
+[
+"Phil Segraves",
+"Republican",
+0
+],
+[
+"Micheal Beck",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH18": {
+"cls": "state_house",
+"district": "18",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jamie Kiel",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH19": {
+"cls": "state_house",
+"district": "19",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Laura Hall",
+"Democrat",
+0
+],
+[
+"Donald Barnes",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH2": {
+"cls": "state_house",
+"district": "2",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Rick Pressnell",
+"Democrat",
+0
+],
+[
+"Ben Harrison",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH20": {
+"cls": "state_house",
+"district": "20",
+"level": "legislature",
+"names": {
+"general": [
+[
+"James Linderholm",
+"Democrat",
+0
+],
+[
+"James Lomax",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"James Lomax",
+"Republican",
+0
+],
+[
+"Mo Brooks",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH21": {
+"cls": "state_house",
+"district": "21",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Forrest Satterfield",
+"Democrat",
+0
+],
+[
+"Rex Reynolds",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH22": {
+"cls": "state_house",
+"district": "22",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Ritchie Whorton",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH23": {
+"cls": "state_house",
+"district": "23",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Mike Kirkland",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH24": {
+"cls": "state_house",
+"district": "24",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Nathaniel Ledbetter",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH25": {
+"cls": "state_house",
+"district": "25",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Allison T Montgomery",
+"Democrat",
+0
+],
+[
+"Phillip K. Rigsby",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Allison T Montgomery",
+"Democrat",
+0
+],
+[
+"Damon Eubanks",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH26": {
+"cls": "state_house",
+"district": "26",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Brock Colvin",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH27": {
+"cls": "state_house",
+"district": "27",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jeana Ross",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH28": {
+"cls": "state_house",
+"district": "28",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Robert Louis Hunter",
+"Democrat",
+0
+],
+[
+"Mack N Butler",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH29": {
+"cls": "state_house",
+"district": "29",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Mark A. Gidley",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH3": {
+"cls": "state_house",
+"district": "3",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Kerry Bubba Underwood",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH30": {
+"cls": "state_house",
+"district": "30",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Craig Lipscomb",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH31": {
+"cls": "state_house",
+"district": "31",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Troy B. Stubbs",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH32": {
+"cls": "state_house",
+"district": "32",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Debra D Foster",
+"Democrat",
+0
+],
+[
+"Joey Callahan",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Debra D Foster",
+"Democrat",
+0
+],
+[
+"David E. Reddick",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH33": {
+"cls": "state_house",
+"district": "33",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Ben Robbins",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH34": {
+"cls": "state_house",
+"district": "34",
+"level": "legislature",
+"names": {
+"general": [
+[
+"David Standridge",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH35": {
+"cls": "state_house",
+"district": "35",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Steve Hurst",
+"Republican",
+0
+],
+[
+"Joseph Cleveland",
+"Independent",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH36": {
+"cls": "state_house",
+"district": "36",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Randy Wood",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH37": {
+"cls": "state_house",
+"district": "37",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Michelle French",
+"Democrat",
+0
+],
+[
+"Jeff Monroe",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Jeff Monroe",
+"Republican",
+0
+],
+[
+"John Jacobs",
+"Republican",
+0
+],
+[
+"Donna Bailey McKay",
+"Republican",
+0
+]
+],
+"runoff-REP": [
+[
+"Jeff Monroe",
+"Republican",
+0
+],
+[
+"John Jacobs",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH38": {
+"cls": "state_house",
+"district": "38",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Hazel Floyd",
+"Democrat",
+0
+],
+[
+"Kristin Nelson",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Hazel Floyd",
+"Democrat",
+0
+],
+[
+"Christopher F. Davis",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH39": {
+"cls": "state_house",
+"district": "39",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Ginny Shaver",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH4": {
+"cls": "state_house",
+"district": "4",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Hanu Karlapalem",
+"Democrat",
+0
+],
+[
+"Parker Duncan Moore",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH40": {
+"cls": "state_house",
+"district": "40",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Pam Howard",
+"Democrat",
+0
+],
+[
+"Chad Robertson",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Chad Robertson",
+"Republican",
+0
+],
+[
+"Kaycee Cavender",
+"Republican",
+0
+],
+[
+"Bill McAdams",
+"Republican",
+0
+],
+[
+"Bill Lester",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH41": {
+"cls": "state_house",
+"district": "41",
+"level": "legislature",
+"names": {
+"general": [
+[
+"David J. A. Morgan",
+"Democrat",
+0
+],
+[
+"Corley Ellis",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH42": {
+"cls": "state_house",
+"district": "42",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Van Smith",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH43": {
+"cls": "state_house",
+"district": "43",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Taylor Cook",
+"Democrat",
+0
+],
+[
+"Arnold Mooney",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH44": {
+"cls": "state_house",
+"district": "44",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Danny Garrett",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH45": {
+"cls": "state_house",
+"district": "45",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Toni Kornegay Vaughn",
+"Democrat",
+0
+],
+[
+"Susan Dubose",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Susan DuBose",
+"Republican",
+0
+],
+[
+"John Dawson",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH46": {
+"cls": "state_house",
+"district": "46",
+"level": "legislature",
+"names": {
+"general": [
+[
+"David L. Faulkner",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH47": {
+"cls": "state_house",
+"district": "47",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jim Toomey",
+"Democrat",
+0
+],
+[
+"Mike Shaw",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH48": {
+"cls": "state_house",
+"district": "48",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Lloyd Peeples",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Lloyd Peeples",
+"Republican",
+0
+],
+[
+"Jim Carns",
+"Republican",
+0
+],
+[
+"William Wentowski",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH49": {
+"cls": "state_house",
+"district": "49",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Russell Bedsole",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH5": {
+"cls": "state_house",
+"district": "5",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jessie Barcala",
+"Democrat",
+0
+],
+[
+"Danny F. Crawford",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH50": {
+"cls": "state_house",
+"district": "50",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Alan Thomas",
+"Democrat",
+0
+],
+[
+"Bill Morris",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Bill Morris",
+"Republican",
+0
+],
+[
+"Bryan K. Newell",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH51": {
+"cls": "state_house",
+"district": "51",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Allen Treadaway",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH52": {
+"cls": "state_house",
+"district": "52",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Gigi Hayes",
+"Democrat",
+0
+]
+],
+"primary-DEM": [
+[
+"Gigi Hayes",
+"Democrat",
+0
+],
+[
+"Latanya Millhouse",
+"Democrat",
+0
+],
+[
+"Kelvin Datcher",
+"Democrat",
+0
+]
+],
+"runoff-DEM": [
+[
+"Gigi Hayes",
+"Democrat",
+0
+],
+[
+"Latanya Millhouse",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH53": {
+"cls": "state_house",
+"district": "53",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Anthony Daniels",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH54": {
+"cls": "state_house",
+"district": "54",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Neil Rafferty",
+"Democrat",
+0
+]
+],
+"primary-DEM": [
+[
+"Neil Rafferty",
+"Democrat",
+0
+],
+[
+"Joseph J. Holt",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH55": {
+"cls": "state_house",
+"district": "55",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Travis Hendrix",
+"Democrat",
+0
+]
+],
+"primary-DEM": [
+[
+"Travis Hendrix",
+"Democrat",
+0
+],
+[
+"Jennifer \"Jenny\" Craig",
+"Democrat",
+0
+],
+[
+"Eric Major",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH56": {
+"cls": "state_house",
+"district": "56",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Ontario J Tillman",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH57": {
+"cls": "state_house",
+"district": "57",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Patrick Sellers",
+"Democrat",
+0
+]
+],
+"primary-DEM": [
+[
+"Patrick Sellers",
+"Democrat",
+0
+],
+[
+"Mara Ruffin Blackmon",
+"Democrat",
+0
+],
+[
+"Shamyia Atkins",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH58": {
+"cls": "state_house",
+"district": "58",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Rolanda Hollis",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH59": {
+"cls": "state_house",
+"district": "59",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Mary Moore",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH6": {
+"cls": "state_house",
+"district": "6",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Andy Whitt",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH60": {
+"cls": "state_house",
+"district": "60",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Alicia Escott Lumpkin",
+"Democrat",
+0
+]
+],
+"primary-DEM": [
+[
+"Alicia Escott Lumpkin",
+"Democrat",
+0
+],
+[
+"Juandalynn Givan",
+"Democrat",
+0
+],
+[
+"Nina Taylor",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH61": {
+"cls": "state_house",
+"district": "61",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Ron Bolton",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH62": {
+"cls": "state_house",
+"district": "62",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Bill Lamb",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH63": {
+"cls": "state_house",
+"district": "63",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Judith Taylor",
+"Democrat",
+0
+],
+[
+"Norman Crow",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH64": {
+"cls": "state_house",
+"district": "64",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Donna Givens",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH65": {
+"cls": "state_house",
+"district": "65",
+"level": "legislature",
+"names": {
+"general": [
+[
+"John Knapp",
+"Republican",
+0
+],
+[
+"Elaine Beech",
+"Independent",
+0
+]
+],
+"primary-REP": [
+[
+"John Knapp",
+"Republican",
+0
+],
+[
+"Dee Ann Campbell",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH66": {
+"cls": "state_house",
+"district": "66",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Alan Baker",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH67": {
+"cls": "state_house",
+"district": "67",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Prince Chestnut",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH68": {
+"cls": "state_house",
+"district": "68",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Thomas E \"Action\" Jackson",
+"Democrat",
+0
+],
+[
+"Fred Kelley",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH69": {
+"cls": "state_house",
+"district": "69",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Kelvin J Lawrence",
+"Democrat",
+0
+],
+[
+"Josh Pendergrass",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Kelvin J Lawrence",
+"Democrat",
+0
+],
+[
+"Marshae R. Madison",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH7": {
+"cls": "state_house",
+"district": "7",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Ernie Yarbrough",
+"Republican",
+0
+],
+[
+"Trent Ford",
+"Independent",
+0
+],
+[
+"Angelo \"Doc\" Mancuso",
+"Independent",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH70": {
+"cls": "state_house",
+"district": "70",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Christopher John England",
+"Democrat",
+0
+],
+[
+"Ian M. Chwatuk",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH71": {
+"cls": "state_house",
+"district": "71",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Artis \"A.j.\" McCampbell",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH72": {
+"cls": "state_house",
+"district": "72",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Curtis L Travis",
+"Democrat",
+0
+]
+],
+"primary-DEM": [
+[
+"Curtis L Travis",
+"Democrat",
+0
+],
+[
+"Michael Williams",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH73": {
+"cls": "state_house",
+"district": "73",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Kenneth Paschal",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH74": {
+"cls": "state_house",
+"district": "74",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jasmyne Crimiel",
+"Democrat",
+0
+],
+[
+"Alva Lambert",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Jasmyne Crimiel",
+"Democrat",
+0
+],
+[
+"Austin Smith",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH75": {
+"cls": "state_house",
+"district": "75",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Tisha Dickson Nickson",
+"Democrat",
+0
+],
+[
+"Reed Ingram",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH76": {
+"cls": "state_house",
+"district": "76",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Patrice \"Penni\" McClammy",
+"Democrat",
+0
+]
+],
+"primary-DEM": [
+[
+"Patrice \"Penni\" McClammy",
+"Democrat",
+0
+],
+[
+"Terance \"Watchdog\" Dawson",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH77": {
+"cls": "state_house",
+"district": "77",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Tashina Morris",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH78": {
+"cls": "state_house",
+"district": "78",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Kenyatté Hassell",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH79": {
+"cls": "state_house",
+"district": "79",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Joe Lovvorn",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH8": {
+"cls": "state_house",
+"district": "8",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Janine Maria Jordan",
+"Democrat",
+0
+],
+[
+"Patrick Johnson",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Patrick Johnson",
+"Republican",
+0
+],
+[
+"Kevin Davenport",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH80": {
+"cls": "state_house",
+"district": "80",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Manfred Malone",
+"Democrat",
+0
+],
+[
+"Chris Blackshear",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH81": {
+"cls": "state_house",
+"district": "81",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Ed Oliver",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH82": {
+"cls": "state_house",
+"district": "82",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Pebblin W. Warren",
+"Democrat",
+0
+],
+[
+"Kinsley Hammons",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Pebblin W. Warren",
+"Democrat",
+0
+],
+[
+"Sidney \"Doc\" Brown",
+"Democrat",
+0
+],
+[
+"Terrence K. Johnson",
+"Democrat",
+0
+],
+[
+"Jamie Lowe",
+"Democrat",
+0
+]
+],
+"runoff-DEM": [
+[
+"Pebblin W. Warren",
+"Democrat",
+0
+],
+[
+"Sidney \"Doc\" Brown",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH83": {
+"cls": "state_house",
+"district": "83",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jeremy A. Gray",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH84": {
+"cls": "state_house",
+"district": "84",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Berry Forte",
+"Democrat",
+0
+]
+],
+"primary-DEM": [
+[
+"Berry Forte",
+"Democrat",
+0
+],
+[
+"Brittani O'Hara-Grant",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH85": {
+"cls": "state_house",
+"district": "85",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Aristotle Onassis Kirkland",
+"Democrat",
+0
+],
+[
+"Rick Rehm",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Rick Rehm",
+"Republican",
+0
+],
+[
+"David Money",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH86": {
+"cls": "state_house",
+"district": "86",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Paul Lee",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH87": {
+"cls": "state_house",
+"district": "87",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jeff Sorrells",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH88": {
+"cls": "state_house",
+"district": "88",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jerry Starnes",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH89": {
+"cls": "state_house",
+"district": "89",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Marcus B. Paramore",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH9": {
+"cls": "state_house",
+"district": "9",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Scott Stadthagen",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH90": {
+"cls": "state_house",
+"district": "90",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Chris Sells",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH91": {
+"cls": "state_house",
+"district": "91",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jody Linton",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Jody Linton",
+"Republican",
+0
+],
+[
+"Rod Morgan",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH92": {
+"cls": "state_house",
+"district": "92",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Matthew Hammett",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH93": {
+"cls": "state_house",
+"district": "93",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Steve Clouse",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Steve Clouse",
+"Republican",
+0
+],
+[
+"\"Stormin\" Norman Horton",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH94": {
+"cls": "state_house",
+"district": "94",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jennifer Fidler",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH95": {
+"cls": "state_house",
+"district": "95",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Frances Holk-Jones",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Frances Holk-Jones",
+"Republican",
+0
+],
+[
+"Joe Freeman",
+"Republican",
+0
+],
+[
+"Elijah Davidson",
+"Republican",
+0
+]
+],
+"runoff-REP": [
+[
+"Frances Holk-Jones",
+"Republican",
+0
+],
+[
+"Joe Freeman",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH96": {
+"cls": "state_house",
+"district": "96",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Terri Osborne",
+"Democrat",
+0
+],
+[
+"Danielle Duggar",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Danielle Duggar",
+"Republican",
+0
+],
+[
+"Matt Simpson",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH97": {
+"cls": "state_house",
+"district": "97",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Adline C. Clarke",
+"Democrat",
+0
+]
+],
+"primary-DEM": [
+[
+"Adline C. Clarke",
+"Democrat",
+0
+],
+[
+"Shalela Dowdy",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH98": {
+"cls": "state_house",
+"district": "98",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Napoleon Bracy, Jr.",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SH99": {
+"cls": "state_house",
+"district": "99",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Sam Jones",
+"Democrat",
+0
+],
+[
+"Charlie Watts",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Sam Jones",
+"Democrat",
+0
+],
+[
+"Levi Wright, Jr.",
+"Democrat",
+0
+],
+[
+"Jyl Hughes",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SOS": {
+"cls": "secretary_of_state",
+"district": null,
+"level": "statewide",
+"names": {
+"general": [
+[
+"Wayne Rogers",
+"Democrat",
+0
+],
+[
+"Caroleene Dobson",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Caroleene Dobson",
+"Republican",
+0
+],
+[
+"Christopher Christian Horn",
+"Republican",
+0
+],
+[
+"Glenda S. Jackson",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS1": {
+"cls": "state_senate",
+"district": "1",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Tim Melson",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS10": {
+"cls": "state_senate",
+"district": "10",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Andrew Jones",
+"Republican",
+0
+],
+[
+"Jesse Battles",
+"Independent",
+0
+]
+],
+"primary-REP": [
+[
+"Andrew Jones",
+"Republican",
+0
+],
+[
+"Amy Dozier Minton",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS11": {
+"cls": "state_senate",
+"district": "11",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Donald J. Mottern",
+"Democrat",
+0
+],
+[
+"Lance Bell",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS12": {
+"cls": "state_senate",
+"district": "12",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Keith Kelley",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS13": {
+"cls": "state_senate",
+"district": "13",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jamie Forsyth",
+"Democrat",
+0
+],
+[
+"Randy Price",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Randy Price",
+"Republican",
+0
+],
+[
+"Gerald Dial",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS14": {
+"cls": "state_senate",
+"district": "14",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Mandie Ledkins",
+"Democrat",
+0
+],
+[
+"April Weaver",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS15": {
+"cls": "state_senate",
+"district": "15",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Scott Ortis",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Scott Ortis",
+"Republican",
+0
+],
+[
+"Dan Roberts",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS16": {
+"cls": "state_senate",
+"district": "16",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Spencer Stone",
+"Democrat",
+0
+],
+[
+"J.t. \"Jabo\" Waggoner",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"J.T. \"Jabo\" Waggoner",
+"Republican",
+0
+],
+[
+"Nate Carlson",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS17": {
+"cls": "state_senate",
+"district": "17",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Shay Shelnutt",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS18": {
+"cls": "state_senate",
+"district": "18",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Rodger M. Smitherman",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS19": {
+"cls": "state_senate",
+"district": "19",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Merika Coleman",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS2": {
+"cls": "state_senate",
+"district": "2",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Rudolph Valentino Drake",
+"Democrat",
+0
+],
+[
+"John Roberts",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Rudolph Valentino Drake",
+"Democrat",
+0
+],
+[
+"Alex House",
+"Democrat",
+0
+],
+[
+"Guy Sotomayor",
+"Democrat",
+0
+]
+],
+"runoff-DEM": [
+[
+"Rudolph Valentino Drake",
+"Democrat",
+0
+],
+[
+"Alex House",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS20": {
+"cls": "state_senate",
+"district": "20",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Linda Coleman-Madison",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS21": {
+"cls": "state_senate",
+"district": "21",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Gerald Allen",
+"Republican",
+0
+],
+[
+"Jodie Woodrow Minor, Jr.",
+"Independent",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS22": {
+"cls": "state_senate",
+"district": "22",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Ashley Sharpe",
+"Democrat",
+0
+],
+[
+"Terry L. Waters",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Terry L. Waters",
+"Republican",
+0
+],
+[
+"Greg Albritton",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS23": {
+"cls": "state_senate",
+"district": "23",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Robert Stewart",
+"Democrat",
+0
+],
+[
+"Thayer \"Bear\" Havard Spencer",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS24": {
+"cls": "state_senate",
+"district": "24",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Bobby Singleton",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS25": {
+"cls": "state_senate",
+"district": "25",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Phadra Carson Foster",
+"Democrat",
+0
+],
+[
+"Will Barfoot",
+"Republican",
+0
+]
+],
+"primary-DEM": [
+[
+"Kirk Hatcher",
+"Democrat",
+0
+],
+[
+"Phadra Carson Foster",
+"Democrat",
+0
+],
+[
+"KK Middleton",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS26": {
+"cls": "state_senate",
+"district": "26",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Kirk Hatcher",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS27": {
+"cls": "state_senate",
+"district": "27",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jay Hovey",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Jay Hovey",
+"Republican",
+0
+],
+[
+"Doug Cannon",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS28": {
+"cls": "state_senate",
+"district": "28",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Billy Beasley",
+"Democrat",
+0
+],
+[
+"Brent Comer",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS29": {
+"cls": "state_senate",
+"district": "29",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Donnie Chesteen",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Donnie Chesteen",
+"Republican",
+0
+],
+[
+"Zachary J. Hurst",
+"Republican",
+0
+],
+[
+"Val Glasgow Paul",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS3": {
+"cls": "state_senate",
+"district": "3",
+"level": "legislature",
+"names": {
+"general": [
+[
+"John Dickey",
+"Democrat",
+0
+],
+[
+"Arthur Orr",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS30": {
+"cls": "state_senate",
+"district": "30",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Clyde Chambliss, Jr.",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS31": {
+"cls": "state_senate",
+"district": "31",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Josh Carnley",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS32": {
+"cls": "state_senate",
+"district": "32",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Janet Appleby",
+"Democrat",
+0
+],
+[
+"Chris Elliott",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Chris Elliott",
+"Republican",
+0
+],
+[
+"Mike Vandenheuvel",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS33": {
+"cls": "state_senate",
+"district": "33",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Vivian Davis Figures",
+"Democrat",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS34": {
+"cls": "state_senate",
+"district": "34",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Rusty Glover",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Rusty Glover",
+"Republican",
+0
+],
+[
+"Doug Harwell",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS35": {
+"cls": "state_senate",
+"district": "35",
+"level": "legislature",
+"names": {
+"general": [
+[
+"David Sessions",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS4": {
+"cls": "state_senate",
+"district": "4",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Garlan Gudger",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Garlan Gudger",
+"Republican",
+0
+],
+[
+"J.R. Bowling",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS5": {
+"cls": "state_senate",
+"district": "5",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Matt Woods",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS6": {
+"cls": "state_senate",
+"district": "6",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Bobby Martin",
+"Democrat",
+0
+],
+[
+"Larry Stutts",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS7": {
+"cls": "state_senate",
+"district": "7",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jared Sluss",
+"Democrat",
+0
+],
+[
+"Sam Givhan",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS8": {
+"cls": "state_senate",
+"district": "8",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Katie Kramer",
+"Democrat",
+0
+],
+[
+"Steve Livingston",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-SS9": {
+"cls": "state_senate",
+"district": "9",
+"level": "legislature",
+"names": {
+"general": [
+[
+"Wes Kitchens",
+"Republican",
+0
+]
+]
+},
+"seat": null
+},
+"2026-AL-TREAS": {
+"cls": "state_treasurer",
+"district": null,
+"level": "statewide",
+"names": {
+"general": [
+[
+"Rosilyn Houston",
+"Democrat",
+0
+],
+[
+"Young Boozer",
+"Republican",
+0
+]
+],
+"primary-REP": [
+[
+"Young Boozer",
+"Republican",
+0
+],
+[
+"Steve Lolley",
+"Republican",
+0
+]
+]
+},
+"seat": null
+}
+},
+"state": "AL"
+}

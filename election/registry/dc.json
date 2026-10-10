@@ -3,7 +3,7 @@
  "code": "DC",
  "name": "District of Columbia",
  "written": "2026-10-10",
- "checked": "2026-10-09",
+ "checked": "2026-10-09; 2026-10-10 by N10 (the reader's own requests through election/source.py)",
  "status": "live",
  "status_why": "The Board's JSON endpoints answered scripts.",
  "approved": true,
@@ -25,7 +25,7 @@
   "date": "2026-11-03",
   "nov3_id": null,
   "posted": false,
-  "how_to_find": "/electionResults/getElectionResultsId in late October for the Nov 3 UrlText."
+  "how_to_find": "electionResults/getElectionResultsId (run_night.py discover) in late October for the Nov 3 UrlText."
  },
  "cadence": {
   "check_every_s": 180,
@@ -96,17 +96,21 @@
  "never": [],
  "never_why": {},
  "partial_sources": [],
- "rehearsal": "ElectionResultsId 1132 (2024 general); 1158 (2026 primary)",
+ "rehearsal": "2024-General-Election (certified), kept in election_cache/replay/sources/<code>-<id>/ (kept 2026-10-10 by N10 for rehearsals)",
  "terms": "None stated.",
  "scout_blocked": "Nothing refused scripts.",
  "scout_plan": "Live-readable. Read getElectionResultsId in late October for the Nov 3 UrlText, then poll getElectionInfo and getCityWide every 3 minutes on the night, getWardPrecinct and GetANC less often. Ranked-choice rounds, where published, need their own display. DC needs a candidate list and district shapes (wards, ANC single-member districts) before its map can show local results.",
- "notes": [],
+ "notes": [
+  "Reader (N10, 2026-10-10): dc_boe. check() reads getElectionInfo; fetch() it and getCityWide. Over and under votes are not candidates."
+ ],
  "to_do": [
-  "Find the Nov 3 UrlText."
+  "Run `python run_night.py discover` from Oct 20 for the Nov 3 UrlText; then put it in election.nov3_id.",
+  "The District has no races on the ballot lists (neither ballot database holds one), so its contests are read and checked but listed, not shown, until a District candidate list is loaded."
  ],
  "sources": [
   "election/scout/results_la.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
-  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)",
+  "N10's own requests, 2026-10-10, through election/source.py with the kit's User-Agent: the addresses in the reader's notes answered a script"
  ]
 }

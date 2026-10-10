@@ -3,7 +3,7 @@
  "code": "HI",
  "name": "Hawaii",
  "written": "2026-10-10",
- "checked": "2026-10-09",
+ "checked": "2026-10-09; 2026-10-10 by N10 (the reader's own requests through election/source.py)",
  "status": "live",
  "status_why": "The Office's summary text file answered scripts.",
  "approved": true,
@@ -23,9 +23,9 @@
   "id": "2026-11-03",
   "kind": "general",
   "date": "2026-11-03",
-  "nov3_id": "folder '2026 General' (expected)",
+  "nov3_id": "2026 General",
   "posted": false,
-  "how_to_find": "Watch the results page for the 2026 General folder."
+  "how_to_find": "Expected folder '2026 General' beside '2026 Primary'; the reader asks for its summary.txt and finds nothing until it is posted."
  },
  "cadence": {
   "check_every_s": 180,
@@ -76,17 +76,20 @@
  "never": [],
  "never_why": {},
  "partial_sources": [],
- "rehearsal": "2026 Primary summary.txt; files.hawaii.gov 2022 general summary.txt",
+ "rehearsal": "2026 Primary (certified) and 2022-general (files.hawaii.gov, certified), kept in election_cache/replay/sources/<code>-<id>/ (kept 2026-10-10 by N10 for rehearsals)",
  "terms": "none seen",
  "scout_blocked": "nothing",
  "scout_plan": "Poll summary.txt in the 2026 General folder every few minutes from 7 p.m. HST (midnight Central): it carries every contest at every level with a mail and in-person split, so one small file covers statewide, Congress and local. Add media.txt for precinct results once the night's readouts settle.",
- "notes": [],
+ "notes": [
+  "Reader (N10, 2026-10-10): hi_text. check() asks for summary.txt (conditional); mail and in-person votes kept apart."
+ ],
  "to_do": [
-  "Confirm the folder name."
+  "'2026 General' is the expected folder (the primary's is '2026 Primary'); until it is posted the reader's check finds nothing and asks again. Confirm it on the results page in election week."
  ],
  "sources": [
   "election/scout/results_az.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
-  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)",
+  "N10's own requests, 2026-10-10, through election/source.py with the kit's User-Agent: the addresses in the reader's notes answered a script"
  ]
 }

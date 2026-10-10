@@ -1,0 +1,105 @@
+{
+"versionID": "v2097",
+"lastUpdated": "2026-10-08T18:13:38.5390961Z",
+"electionID": "346",
+"message": "",
+"isOfficial": true,
+"turnout": null,
+"response": {
+"id": "346",
+"name": "2026 Primary Election",
+"date": "2026-06-09T00:00:00",
+"parties": {
+"ADP": {
+"partyID": "ADP",
+"abbreviation": null,
+"partyName": "American Delta"
+},
+"CON": {
+"partyID": "CON",
+"abbreviation": null,
+"partyName": "Constitution"
+},
+"DEM": {
+"partyID": "DEM",
+"abbreviation": null,
+"partyName": "Democratic-NPL"
+},
+"GRE": {
+"partyID": "GRE",
+"abbreviation": null,
+"partyName": "Green"
+},
+"IND": {
+"partyID": "IND",
+"abbreviation": null,
+"partyName": "independent nomination"
+},
+"LIB": {
+"partyID": "LIB",
+"abbreviation": null,
+"partyName": "Libertarian"
+},
+"NON": {
+"partyID": "NON",
+"abbreviation": null,
+"partyName": "Nonpartisan"
+},
+"OTH": {
+"partyID": "OTH",
+"abbreviation": null,
+"partyName": "Other"
+},
+"REP": {
+"partyID": "REP",
+"abbreviation": null,
+"partyName": "Republican"
+}
+},
+"contestTypes": {
+"SW": {
+"code": "SW",
+"description": "State",
+"locationTypeCode": "counties",
+"order": 0
+},
+"LEG": {
+"code": "LEG",
+"description": "Legislative",
+"locationTypeCode": "legislative-districts",
+"order": 0
+},
+"JUD": {
+"code": "JUD",
+"description": "Judicial",
+"locationTypeCode": "counties",
+"order": 0
+},
+"CW": {
+"code": "CW",
+"description": "County",
+"locationTypeCode": "counties",
+"order": 0
+},
+"MUN": {
+"code": "MUN",
+"description": "City",
+"locationTypeCode": "counties",
+"order": 0
+},
+"SCH": {
+"code": "SCH",
+"description": "School",
+"locationTypeCode": "counties",
+"order": 0
+}
+},
+"voteTypes": {
+"1": {
+"voteTypeID": "1",
+"description": "All"
+}
+}
+},
+"errorMessage": null
+}

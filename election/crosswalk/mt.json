@@ -1,0 +1,2659 @@
+{
+ "v": 1,
+ "state": "MT",
+ "family": "resultssw",
+ "built": "2026-10-10",
+ "from": [
+  "ballot_2026.sqlite: races, candidates (general list)",
+  "ballot_local_2026.sqlite: sl_races, sl_candidates (statewide and legislature), sl_places (county names, from the Census Bureau's county file)"
+ ],
+ "rule": "A feed contest is tied to a race by its title (office words, district number, unexpired or special) and, in a primary, its party; a contest that fits no race or more than one is listed, never shown. Names as printed are tied to names as filed by family name and first initial, one fit only.",
+ "counties": {
+  "beaverhead": "30001",
+  "bighorn": "30003",
+  "blaine": "30005",
+  "broadwater": "30007",
+  "carbon": "30009",
+  "carter": "30011",
+  "cascade": "30013",
+  "chouteau": "30015",
+  "custer": "30017",
+  "daniels": "30019",
+  "dawson": "30021",
+  "deerlodge": "30023",
+  "fallon": "30025",
+  "fergus": "30027",
+  "flathead": "30029",
+  "gallatin": "30031",
+  "garfield": "30033",
+  "glacier": "30035",
+  "goldenvalley": "30037",
+  "granite": "30039",
+  "hill": "30041",
+  "jefferson": "30043",
+  "judithbasin": "30045",
+  "lake": "30047",
+  "lewisandclark": "30049",
+  "liberty": "30051",
+  "lincoln": "30053",
+  "mccone": "30055",
+  "madison": "30057",
+  "meagher": "30059",
+  "mineral": "30061",
+  "missoula": "30063",
+  "musselshell": "30065",
+  "park": "30067",
+  "petroleum": "30069",
+  "phillips": "30071",
+  "pondera": "30073",
+  "powderriver": "30075",
+  "powell": "30077",
+  "prairie": "30079",
+  "ravalli": "30081",
+  "richland": "30083",
+  "roosevelt": "30085",
+  "rosebud": "30087",
+  "sanders": "30089",
+  "sheridan": "30091",
+  "silverbow": "30093",
+  "stillwater": "30095",
+  "sweetgrass": "30097",
+  "teton": "30099",
+  "toole": "30101",
+  "treasure": "30103",
+  "valley": "30105",
+  "wheatland": "30107",
+  "wibaux": "30109",
+  "yellowstone": "30111"
+ },
+ "races": [
+  {
+   "id": "2026-MT-H01",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "1",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Aaron Flint",
+     "Republican"
+    ],
+    [
+     "Sam Forstag",
+     "Democratic"
+    ],
+    [
+     "Nick Sheedy",
+     "Libertarian"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-H02",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "2",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Troy Downing",
+     "Republican"
+    ],
+    [
+     "Patrick McCracken",
+     "Libertarian"
+    ],
+    [
+     "Brian J Miller",
+     "Democratic"
+    ],
+    [
+     "Michael D Eisenhauer",
+     "Independent"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-S2",
+   "level": "federal",
+   "kind": "S",
+   "office": "U.S. Senate",
+   "district": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kurt Alme",
+     "Republican"
+    ],
+    [
+     "Kyle Austin",
+     "Libertarian"
+    ],
+    [
+     "Alani Bankhead",
+     "Democratic"
+    ],
+    [
+     "Seth Bodnar",
+     "Independent"
+    ],
+    [
+     "Jami Dee Woodman",
+     "Non Partisan"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-PSC1",
+   "level": "statewide",
+   "kind": "statewide:public_service_commissioner",
+   "office": "Public Service Commissioner",
+   "district": "1",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Angeline Cheek",
+     "Democratic"
+    ],
+    [
+     "Jeff Pattison",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-PSC5",
+   "level": "statewide",
+   "kind": "statewide:public_service_commissioner",
+   "office": "Public Service Commissioner",
+   "district": "5",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Annie Bukacek",
+     "Republican"
+    ],
+    [
+     "Kevin Hamm",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH1",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "1",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dakota V Adams",
+     "Democratic"
+    ],
+    [
+     "Michelle Bianco",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH10",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "10",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Catherine C Allen",
+     "Democratic"
+    ],
+    [
+     "Terry Falk",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH100",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "100",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jc Windmueller",
+     "Libertarian"
+    ],
+    [
+     "Michael Daniel Bowles",
+     "Republican"
+    ],
+    [
+     "S.J. Howell",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH11",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "11",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Ed Byrne",
+     "Republican"
+    ],
+    [
+     "Maeve Kintzler",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH12",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "12",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Cindy L Bruckner",
+     "Democratic"
+    ],
+    [
+     "Tracy A Sharp",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH13",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "13",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dalton Bradford",
+     "Democratic"
+    ],
+    [
+     "Finley Warden",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH14",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "14",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Colleen Hinds",
+     "Democratic"
+    ],
+    [
+     "Paul Fielder",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH15",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "15",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Ralph Foster",
+     "Republican"
+    ],
+    [
+     "Thedis B Crowe",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH16",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "16",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Lona R Running Wolf",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH17",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "17",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Chris Bechtold",
+     "Democratic"
+    ],
+    [
+     "Justin W Cleveland",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH18",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "18",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Bruce \"Butch\" Gillespie",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH19",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "19",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Hannah Trebas",
+     "Republican"
+    ],
+    [
+     "Jane Weber",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH2",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "2",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jane Maahs",
+     "Democratic"
+    ],
+    [
+     "Tom Millett",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH20",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "20",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Melissa Nikolakakos",
+     "Republican"
+    ],
+    [
+     "Steve Keller",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH21",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "21",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Lela Graham",
+     "Democratic"
+    ],
+    [
+     "Trevor P Funseth",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH22",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "22",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jason Lorang",
+     "Republican"
+    ],
+    [
+     "Neal Miller",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH23",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "23",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Eric Tilleman",
+     "Republican"
+    ],
+    [
+     "Rebecca Bogden-Richards",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH24",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "24",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Pam Carroll",
+     "Democratic"
+    ],
+    [
+     "Steve Fitzpatrick",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH25",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "25",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jerry Ferderer",
+     "Democratic"
+    ],
+    [
+     "Steve Gist",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH26",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "26",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Paul Jefferson",
+     "Democratic"
+    ],
+    [
+     "Russel Miner",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH27",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "27",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jordan Ophus",
+     "Libertarian"
+    ],
+    [
+     "Paul Tuss",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH28",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "28",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Chisholm B Christensen",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH29",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "29",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Tess Fahlgren",
+     "Democratic"
+    ],
+    [
+     "Valerie Moore",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH3",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "3",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Debo Powers",
+     "Democratic"
+    ],
+    [
+     "Derek Peachey",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH30",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "30",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jason Boeshore",
+     "Democratic"
+    ],
+    [
+     "Morgan Thiel",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH31",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "31",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Natalie Oneal",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH32",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "32",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mike Fox",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH33",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "33",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brandon Ler",
+     "Republican"
+    ],
+    [
+     "Tristan Veverka",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH34",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "34",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jasmine Erickson",
+     "Democratic"
+    ],
+    [
+     "Jerry Schillinger",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH35",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "35",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Gary Parry",
+     "Republican"
+    ],
+    [
+     "Natalie Parker",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH36",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "36",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Benjamin Keyes",
+     "Democratic"
+    ],
+    [
+     "Ty Linger",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH37",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "37",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Shane Klakken",
+     "Republican"
+    ],
+    [
+     "Tracey Miller Karcher",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH38",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "38",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Greg Oblander",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH39",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "39",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kerri Seekins-Crowe",
+     "Republican"
+    ],
+    [
+     "Melissa Smith",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH4",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "4",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Paula Koch",
+     "Democratic"
+    ],
+    [
+     "Shaun Pandina",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH40",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "40",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Gabriel Bradshaw",
+     "Democratic"
+    ],
+    [
+     "Mike Vinton",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH41",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "41",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jade Sooktis",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH42",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "42",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jeremiah Jabs",
+     "Republican"
+    ],
+    [
+     "Sidney Chip Fitzpatrick",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH43",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "43",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Larry Brewster",
+     "Republican"
+    ],
+    [
+     "Rudolf Haden",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH44",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "44",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Katie Zolnikov",
+     "Republican"
+    ],
+    [
+     "Mike Eaton",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH45",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "45",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Bryce Walston",
+     "Republican"
+    ],
+    [
+     "Denise Baum",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH46",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "46",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Denise Joy",
+     "Democratic"
+    ],
+    [
+     "Kim Welzenbach",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH47",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "47",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "James Reavis",
+     "Democratic"
+    ],
+    [
+     "John Maxwell",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH48",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "48",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Curtis Schomer",
+     "Republican"
+    ],
+    [
+     "Tucker Colvin",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH49",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "49",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Charlie Loveridge",
+     "Republican"
+    ],
+    [
+     "Rebecca Noell",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH5",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "5",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Braxton Mitchell",
+     "Republican"
+    ],
+    [
+     "Luca Welle",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH50",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "50",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mark Peters",
+     "Democratic"
+    ],
+    [
+     "Stewart Harris",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH51",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "51",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jodee Etchart",
+     "Republican"
+    ],
+    [
+     "Precious McKenzie",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH52",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "52",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Elizabeth Heald",
+     "Democratic"
+    ],
+    [
+     "Stacy Zinn",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH53",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "53",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Matthew J Hankins",
+     "Democratic"
+    ],
+    [
+     "Troy Charbonneau",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH54",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "54",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Janine Coole",
+     "Democratic"
+    ],
+    [
+     "Lee Deming",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH55",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "55",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brad Barker",
+     "Republican"
+    ],
+    [
+     "Richard Gessling",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH56",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "56",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Fiona B Nave",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH57",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "57",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Becky Edwards",
+     "Democratic"
+    ],
+    [
+     "Bob Crank",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH58",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "58",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jamie L Isaly",
+     "Democratic"
+    ],
+    [
+     "Joshua Congleton",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH59",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "59",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Katie Fire Thunder",
+     "Democratic"
+    ],
+    [
+     "Marc Greendorfer",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH6",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "6",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Darren Fix",
+     "Democratic"
+    ],
+    [
+     "Jim Riley",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH60",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "60",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Alanah Griffith",
+     "Democratic"
+    ],
+    [
+     "Greg Leman",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH61",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "61",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Eric Jacobs",
+     "Republican"
+    ],
+    [
+     "Rio Roland",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH62",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "62",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Esther Fishbaugh",
+     "Republican"
+    ],
+    [
+     "Joshua A Seckinger",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH63",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "63",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Lawrence R Moore",
+     "Republican"
+    ],
+    [
+     "Peter Strand",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH64",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "64",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brady Bremer",
+     "Democratic"
+    ],
+    [
+     "Daniel Ricardo Martinez",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH65",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "65",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brian Close",
+     "Democratic"
+    ],
+    [
+     "Joe Flynn",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH66",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "66",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Eric Matthews",
+     "Democratic"
+    ],
+    [
+     "Owen Lang",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH67",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "67",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jedediah Hinkle",
+     "Republican"
+    ],
+    [
+     "Logan Henke",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH68",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "68",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jocelyn Kent",
+     "Democratic"
+    ],
+    [
+     "Randy Chamberlin",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH69",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "69",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Trevor Walter",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH7",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "7",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Courtenay Sprunger",
+     "Republican"
+    ],
+    [
+     "Madison Evans",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH70",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "70",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kobi Craddock",
+     "Democratic"
+    ],
+    [
+     "Shannon Maness",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH71",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "71",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Scott DeMarois",
+     "Democratic"
+    ],
+    [
+     "Suzzann Nordwick",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH72",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "72",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Donavon Hawk",
+     "Democratic"
+    ],
+    [
+     "Michael Saul",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH73",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "73",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Gerry Kennedy",
+     "Republican"
+    ],
+    [
+     "Jennifer Lynch",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH74",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "74",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Marc J Lee",
+     "Democratic"
+    ],
+    [
+     "Trenin Bayless",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH75",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "75",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Greg Devries",
+     "Libertarian"
+    ],
+    [
+     "Mark Reinschmidt",
+     "Republican"
+    ],
+    [
+     "Patrick Sullivan",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH76",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "76",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Shayne Morgan",
+     "Independent"
+    ],
+    [
+     "Trish Schreiber",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH77",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "77",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jane Gillette",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH78",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "78",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mark White",
+     "Democratic"
+    ],
+    [
+     "Randyn Gregg",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH79",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "79",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Chiko Olson",
+     "Republican"
+    ],
+    [
+     "Luke Muszkiewicz",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH8",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "8",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Calvin Lime",
+     "Democratic"
+    ],
+    [
+     "Lukas Schubert",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH80",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "80",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Katie Fruits",
+     "Republican"
+    ],
+    [
+     "Megan Lane",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH81",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "81",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Janet Ellis",
+     "Democratic"
+    ],
+    [
+     "John J Looney Sr",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH82",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "82",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Clinton McKay",
+     "Republican"
+    ],
+    [
+     "Pete Elverum",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH83",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "83",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Aaron J Leas",
+     "Republican"
+    ],
+    [
+     "Joe Cohenour",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH84",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "84",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Roy Caldwell",
+     "Republican"
+    ],
+    [
+     "Tia Nelson",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH85",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "85",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kim Dailey",
+     "Republican"
+    ],
+    [
+     "Laura Jackson",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH86",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "86",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Archie Thomas",
+     "Democratic"
+    ],
+    [
+     "Wayne Rusk",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH87",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "87",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Bill Jones",
+     "Democratic"
+    ],
+    [
+     "Terry Nelson",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH88",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "88",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Evan Schroedel",
+     "Democratic"
+    ],
+    [
+     "Greg Overstreet",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH89",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "89",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Lyn Hellegaard",
+     "Republican"
+    ],
+    [
+     "Mark A Thane",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH9",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "9",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kate McLaughlin",
+     "Democratic"
+    ],
+    [
+     "Steven C Kelly",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH90",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "90",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jeff Stanek",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH91",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "91",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Charles Headley",
+     "Republican"
+    ],
+    [
+     "Shelly Fyant",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH92",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "92",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Monica Tranel",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH93",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "93",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Ben Davis",
+     "Democratic"
+    ],
+    [
+     "Roy Handley",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH94",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "94",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Greg Woodward",
+     "Republican"
+    ],
+    [
+     "Robin Kendall",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH95",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "95",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Zooey Zephyr",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH96",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "96",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Bob Carter",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH97",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "97",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Melody J Cunningham",
+     "Democratic"
+    ],
+    [
+     "Michael P Hagestad",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH98",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "98",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Bryan Muzzana",
+     "Republican"
+    ],
+    [
+     "Jonathan Karlen",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SH99",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "99",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Ryan Darling",
+     "Republican"
+    ],
+    [
+     "Tom France",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SS1",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "1",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jonathan Russell Jameson",
+     "Democratic"
+    ],
+    [
+     "Steve Gunderson",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SS10",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "10",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jessica Dyrdahl",
+     "Republican"
+    ],
+    [
+     "Margaret Mitchell",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SS11",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "11",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Steven Galloway",
+     "Republican"
+    ],
+    [
+     "Valynda Holland",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SS12",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "12",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "George Nikolakakos",
+     "Republican"
+    ],
+    [
+     "Mindy Leach",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SS14",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "14",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Blake Borst",
+     "Democratic"
+    ],
+    [
+     "Eric Albus",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SS18",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "18",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Greg Kmetz",
+     "Republican"
+    ],
+    [
+     "Stan Taylor",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SS19",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "19",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Chris Rindal",
+     "Republican"
+    ],
+    [
+     "Deanna J Daigrepont",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SS22",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "22",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Cari Lynn Olson",
+     "Non Partisan"
+    ],
+    [
+     "Daniel Zolnikov",
+     "Republican"
+    ],
+    [
+     "Elijah Tidswell",
+     "Non Partisan"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SS23",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "23",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Emma Kerr-Carpenter",
+     "Democratic"
+    ],
+    [
+     "Joanna Oblander",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SS25",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "25",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dennis Lenz",
+     "Republican"
+    ],
+    [
+     "Julie Hippler",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SS28",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "28",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Forrest J Mandeville",
+     "Republican"
+    ],
+    [
+     "Kelly Hale",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SS29",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "29",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jason Gunderson",
+     "Republican"
+    ],
+    [
+     "Scott Rosenzweig",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SS31",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "31",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kathleen Williams",
+     "Democratic"
+    ],
+    [
+     "Richard Aungier",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SS32",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "32",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kelly Kortum",
+     "Democratic"
+    ],
+    [
+     "Neal Ganser",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SS34",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "34",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Caleb Hinkle",
+     "Republican"
+    ],
+    [
+     "Carl Anderson",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SS4",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "4",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Amy Regier",
+     "Republican"
+    ],
+    [
+     "Kyle Waterman",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SS41",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "41",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dru Koester",
+     "Libertarian"
+    ],
+    [
+     "Erin Farris-Olsen",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SS42",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "42",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mary Ann Dunwell",
+     "Democratic"
+    ],
+    [
+     "Stephen Lapraim",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SS43",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "43",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "David Bedey",
+     "Republican"
+    ],
+    [
+     "Stephen Leuchtman",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SS48",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "48",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Andrea Olsen",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SS49",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "49",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brad Tschida",
+     "Republican"
+    ],
+    [
+     "Willis Curdy",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SS50",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "50",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Shane A Morigeau",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SS6",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "6",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mark Noland",
+     "Republican"
+    ],
+    [
+     "Patrick Fitzpatrick",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SS8",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "8",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Christopher Paul Buckles",
+     "Republican"
+    ],
+    [
+     "Tyson T Running Wolf",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MT-SS9",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "9",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Llew Jones",
+     "Republican"
+    ],
+    [
+     "Nate White",
+     "Non Partisan"
+    ],
+    [
+     "Noy Holland",
+     "Democratic"
+    ]
+   ]
+  }
+ ],
+ "aliases": {},
+ "elections": {
+  "450002928": {
+   "kind": "primary",
+   "date": "2026-06-02",
+   "use": "rehearsal and the replay check"
+  },
+  "450002785": {
+   "kind": "general",
+   "date": "2024-11-05",
+   "use": "rehearsal and the replay check"
+  }
+ },
+ "checked": {},
+ "notes": []
+}

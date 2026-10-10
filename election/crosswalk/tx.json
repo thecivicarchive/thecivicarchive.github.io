@@ -1,0 +1,5077 @@
+{
+"_about":"Texas's races on the November 3, 2026 ballot that the Election Night pages read (Congress from ballot_2026.sqlite; the statewide offices, the State Board of Education, the Legislature, the Supreme Court, the Court of Criminal Appeals and the courts of appeals from ballot_local_2026.sqlite), each with the key a race of the Secretary's election record is tied by (read from its name) and the candidates as filed. The record for November 3 holds nothing until the night, so no posted contest list is tied here yet. The two special elections the same day (House District 93, Senate District 22) are not in the ballot lists: their contests are listed, never tied to the regular races.",
+"state":"TX",
+"election":"2026-11-03",
+"built":"2026-10-10",
+"feed":"goelect.txelections.civixapps.com election/53815 (empty until the night)",
+"feed_note":"Ballot names are printed in capitals, with (I) after an incumbent; that mark is set aside.",
+"order":[
+"what the contest is (its kind and district, read from the state's own title)",
+"the candidates' family names"
+],
+"counts":{
+"races":253,
+"by_level":{
+"congress":39,
+"statewide":16,
+"legislature":166,
+"court":32
+},
+"posted_contests":0,
+"posted_tied":0,
+"posted_not_tied":0,
+"posted_out_of_scope":0,
+"races_not_in_posted_list":0,
+"printed_lines_not_tied":0
+},
+"races":{
+"2026-TX-AG":{
+"key":"attorney_general",
+"level":"statewide",
+"kind":"attorney_general",
+"office":"Attorney General",
+"district":null,
+"seat":null,
+"special":0,
+"names":[
+[
+"Mayes Middleton",
+"Republican"
+],
+[
+"Nathan Johnson",
+"Democratic"
+],
+[
+"Tom Oxford",
+"Libertarian"
+]
+]
+},
+"2026-TX-AGR":{
+"key":"agriculture_commissioner",
+"level":"statewide",
+"kind":"agriculture_commissioner",
+"office":"Commissioner of Agriculture",
+"district":null,
+"seat":null,
+"special":0,
+"names":[
+[
+"Nate Sheets",
+"Republican"
+],
+[
+"Clayton Tucker",
+"Democratic"
+],
+[
+"Austin R. Kelly",
+"Libertarian"
+]
+]
+},
+"2026-TX-CCA3":{
+"key":"court_of_criminal_appeals:3",
+"level":"court",
+"kind":"court_of_criminal_appeals",
+"office":"Judge, Court of Criminal Appeals",
+"district":null,
+"seat":"Place 3",
+"special":0,
+"names":[
+[
+"Thomas Smith",
+"Republican"
+],
+[
+"Okey Anyiam",
+"Democratic"
+],
+[
+"Mark Ash",
+"Libertarian"
+]
+]
+},
+"2026-TX-CCA4":{
+"key":"court_of_criminal_appeals:4",
+"level":"court",
+"kind":"court_of_criminal_appeals",
+"office":"Judge, Court of Criminal Appeals",
+"district":null,
+"seat":"Place 4",
+"special":0,
+"names":[
+[
+"Kevin Patrick Yeary",
+"Republican"
+],
+[
+"Audra Riley",
+"Democratic"
+]
+]
+},
+"2026-TX-CCA9":{
+"key":"court_of_criminal_appeals:9",
+"level":"court",
+"kind":"court_of_criminal_appeals",
+"office":"Judge, Court of Criminal Appeals",
+"district":null,
+"seat":"Place 9",
+"special":0,
+"names":[
+[
+"John Messinger",
+"Republican"
+],
+[
+"Holly Taylor",
+"Democratic"
+]
+]
+},
+"2026-TX-COA1-3":{
+"key":"court_of_appeals:1:place 3",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Justice, Court of Appeals",
+"district":"1",
+"seat":"Place 3",
+"special":0,
+"names":[
+[
+"Todd Frankfort",
+"Republican"
+],
+[
+"Veronica Rivas-Molloy",
+"Democratic"
+]
+]
+},
+"2026-TX-COA1-4-UNEXP":{
+"key":"court_of_appeals:1:place 4:unexpired",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Justice, Court of Appeals",
+"district":"1",
+"seat":"Place 4",
+"special":1,
+"names":[
+[
+"David Gunn",
+"Republican"
+],
+[
+"Julie Countiss",
+"Democratic"
+]
+]
+},
+"2026-TX-COA1-5":{
+"key":"court_of_appeals:1:place 5",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Justice, Court of Appeals",
+"district":"1",
+"seat":"Place 5",
+"special":0,
+"names":[
+[
+"Jessica Caird",
+"Republican"
+],
+[
+"Amy Guerra",
+"Democratic"
+]
+]
+},
+"2026-TX-COA10-2":{
+"key":"court_of_appeals:10:place 2",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Justice, Court of Appeals",
+"district":"10",
+"seat":"Place 2",
+"special":0,
+"names":[
+[
+"Lee Harris",
+"Republican"
+]
+]
+},
+"2026-TX-COA11-2":{
+"key":"court_of_appeals:11:place 2",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Justice, Court of Appeals",
+"district":"11",
+"seat":"Place 2",
+"special":0,
+"names":[
+[
+"Bruce Williams",
+"Republican"
+]
+]
+},
+"2026-TX-COA12-3-UNEXP":{
+"key":"court_of_appeals:12:place 3:unexpired",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Justice, Court of Appeals",
+"district":"12",
+"seat":"Place 3",
+"special":1,
+"names":[
+[
+"Michael Davis",
+"Republican"
+]
+]
+},
+"2026-TX-COA12-CJ":{
+"key":"court_of_appeals:12:chief justice",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Chief Justice, Court of Appeals",
+"district":"12",
+"seat":"Chief Justice",
+"special":0,
+"names":[
+[
+"Brian Hoyle",
+"Republican"
+]
+]
+},
+"2026-TX-COA13-6":{
+"key":"court_of_appeals:13:place 6",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Justice, Court of Appeals",
+"district":"13",
+"seat":"Place 6",
+"special":0,
+"names":[
+[
+"Clarissa Silva",
+"Republican"
+],
+[
+"John Ball",
+"Democratic"
+]
+]
+},
+"2026-TX-COA14-7":{
+"key":"court_of_appeals:14:place 7",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Justice, Court of Appeals",
+"district":"14",
+"seat":"Place 7",
+"special":0,
+"names":[
+[
+"Ken Wise",
+"Republican"
+],
+[
+"William Demond",
+"Democratic"
+]
+]
+},
+"2026-TX-COA14-CJ":{
+"key":"court_of_appeals:14:chief justice",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Chief Justice, Court of Appeals",
+"district":"14",
+"seat":"Chief Justice",
+"special":0,
+"names":[
+[
+"Kevin Jewell",
+"Republican"
+],
+[
+"Sarah Beth Landau",
+"Democratic"
+]
+]
+},
+"2026-TX-COA15-2":{
+"key":"court_of_appeals:15:place 2",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Justice, Court of Appeals",
+"district":"15",
+"seat":"Place 2",
+"special":0,
+"names":[
+[
+"Scott K. Field",
+"Republican"
+],
+[
+"Tom Baker",
+"Democratic"
+]
+]
+},
+"2026-TX-COA15-3":{
+"key":"court_of_appeals:15:place 3",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Justice, Court of Appeals",
+"district":"15",
+"seat":"Place 3",
+"special":0,
+"names":[
+[
+"April Farris",
+"Republican"
+],
+[
+"Marc M. Meyer",
+"Democratic"
+]
+]
+},
+"2026-TX-COA15-CJ":{
+"key":"court_of_appeals:15:chief justice",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Chief Justice, Court of Appeals",
+"district":"15",
+"seat":"Chief Justice",
+"special":0,
+"names":[
+[
+"Scott Brister",
+"Republican"
+],
+[
+"Jerry Zimmerer",
+"Democratic"
+]
+]
+},
+"2026-TX-COA2-2":{
+"key":"court_of_appeals:2:place 2",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Justice, Court of Appeals",
+"district":"2",
+"seat":"Place 2",
+"special":0,
+"names":[
+[
+"Chris Taylor",
+"Republican"
+]
+]
+},
+"2026-TX-COA2-7":{
+"key":"court_of_appeals:2:place 7",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Justice, Court of Appeals",
+"district":"2",
+"seat":"Place 7",
+"special":0,
+"names":[
+[
+"Brian Walker",
+"Republican"
+]
+]
+},
+"2026-TX-COA3-CJ":{
+"key":"court_of_appeals:3:chief justice",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Chief Justice, Court of Appeals",
+"district":"3",
+"seat":"Chief Justice",
+"special":0,
+"names":[
+[
+"Cory Liu",
+"Republican"
+],
+[
+"Darlene Byrne",
+"Democratic"
+]
+]
+},
+"2026-TX-COA4-CJ":{
+"key":"court_of_appeals:4:chief justice",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Chief Justice, Court of Appeals",
+"district":"4",
+"seat":"Chief Justice",
+"special":0,
+"names":[
+[
+"Bert Richardson",
+"Republican"
+],
+[
+"Antonia \"Toni\" Arteaga",
+"Democratic"
+]
+]
+},
+"2026-TX-COA5-3":{
+"key":"court_of_appeals:5:place 3",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Justice, Court of Appeals",
+"district":"5",
+"seat":"Place 3",
+"special":0,
+"names":[
+[
+"Matthew Kolodoski",
+"Republican"
+],
+[
+"Amanda Reichek",
+"Democratic"
+]
+]
+},
+"2026-TX-COA5-6":{
+"key":"court_of_appeals:5:place 6",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Justice, Court of Appeals",
+"district":"5",
+"seat":"Place 6",
+"special":0,
+"names":[
+[
+"Ben Smith",
+"Republican"
+],
+[
+"Monica Purdy",
+"Democratic"
+]
+]
+},
+"2026-TX-COA5-8":{
+"key":"court_of_appeals:5:place 8",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Justice, Court of Appeals",
+"district":"5",
+"seat":"Place 8",
+"special":0,
+"names":[
+[
+"Ashley Wysocki",
+"Republican"
+],
+[
+"Andrea D. Plumlee",
+"Democratic"
+]
+]
+},
+"2026-TX-COA6-3":{
+"key":"court_of_appeals:6:place 3",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Justice, Court of Appeals",
+"district":"6",
+"seat":"Place 3",
+"special":0,
+"names":[
+[
+"Charles van Cleef",
+"Republican"
+]
+]
+},
+"2026-TX-COA7-2-UNEXP":{
+"key":"court_of_appeals:7:place 2:unexpired",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Justice, Court of Appeals",
+"district":"7",
+"seat":"Place 2",
+"special":1,
+"names":[
+[
+"Laura Pratt",
+"Republican"
+]
+]
+},
+"2026-TX-COA7-CJ":{
+"key":"court_of_appeals:7:chief justice",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Chief Justice, Court of Appeals",
+"district":"7",
+"seat":"Chief Justice",
+"special":0,
+"names":[
+[
+"Judy Parker",
+"Republican"
+]
+]
+},
+"2026-TX-COA8-CJ":{
+"key":"court_of_appeals:8:chief justice",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Chief Justice, Court of Appeals",
+"district":"8",
+"seat":"Chief Justice",
+"special":0,
+"names":[
+[
+"Maria Salas Mendoza",
+"Democratic"
+]
+]
+},
+"2026-TX-COA9-CJ":{
+"key":"court_of_appeals:9:chief justice",
+"level":"court",
+"kind":"court_of_appeals",
+"office":"Chief Justice, Court of Appeals",
+"district":"9",
+"seat":"Chief Justice",
+"special":0,
+"names":[
+[
+"Scott Golemon",
+"Republican"
+]
+]
+},
+"2026-TX-COMP":{
+"key":"comptroller",
+"level":"statewide",
+"kind":"comptroller",
+"office":"Comptroller of Public Accounts",
+"district":null,
+"seat":null,
+"special":0,
+"names":[
+[
+"Don Huffines",
+"Republican"
+],
+[
+"Sarah Eckhardt",
+"Democratic"
+],
+[
+"V. Alonzo Echavarria-Garza",
+"Libertarian"
+],
+[
+"Shehla Faizi",
+"Green"
+]
+]
+},
+"2026-TX-GLO":{
+"key":"land_commissioner",
+"level":"statewide",
+"kind":"land_commissioner",
+"office":"Commissioner of the General Land Office",
+"district":null,
+"seat":null,
+"special":0,
+"names":[
+[
+"Dawn Buckingham",
+"Republican"
+],
+[
+"Benjamin Flores",
+"Democratic"
+],
+[
+"Neill Snider",
+"Libertarian"
+]
+]
+},
+"2026-TX-GOV":{
+"key":"governor",
+"level":"statewide",
+"kind":"governor",
+"office":"Governor",
+"district":null,
+"seat":null,
+"special":0,
+"names":[
+[
+"Greg Abbott",
+"Republican"
+],
+[
+"Gina Hinojosa",
+"Democratic"
+],
+[
+"Pat Dixon",
+"Libertarian"
+]
+]
+},
+"2026-TX-H01":{
+"key":"us_house:1",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"1",
+"seat":null,
+"special":0,
+"names":[
+[
+"Nathaniel Moran",
+"Republican"
+],
+[
+"Yolanda R. Prince",
+"Democratic"
+]
+]
+},
+"2026-TX-H02":{
+"key":"us_house:2",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"2",
+"seat":null,
+"special":0,
+"names":[
+[
+"Steve Toth",
+"Republican"
+],
+[
+"Shaun Finnie",
+"Democratic"
+]
+]
+},
+"2026-TX-H03":{
+"key":"us_house:3",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"3",
+"seat":null,
+"special":0,
+"names":[
+[
+"Keith Self",
+"Republican"
+],
+[
+"Evan Hunt",
+"Democratic"
+]
+]
+},
+"2026-TX-H04":{
+"key":"us_house:4",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"4",
+"seat":null,
+"special":0,
+"names":[
+[
+"Pat Fallon",
+"Republican"
+],
+[
+"Jason Pearce",
+"Democratic"
+]
+]
+},
+"2026-TX-H05":{
+"key":"us_house:5",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"5",
+"seat":null,
+"special":0,
+"names":[
+[
+"Lance Gooden",
+"Republican"
+],
+[
+"Chelsey Hockett",
+"Democratic"
+]
+]
+},
+"2026-TX-H06":{
+"key":"us_house:6",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"6",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jake Ellzey",
+"Republican"
+],
+[
+"Danny Minton",
+"Democratic"
+]
+]
+},
+"2026-TX-H07":{
+"key":"us_house:7",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"7",
+"seat":null,
+"special":0,
+"names":[
+[
+"Alexander Hale",
+"Republican"
+],
+[
+"Lizzie Pannill Fletcher",
+"Democratic"
+],
+[
+"Espoir Ngabo",
+"Green"
+]
+]
+},
+"2026-TX-H08":{
+"key":"us_house:8",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"8",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jessica Hart Steinmann",
+"Republican"
+],
+[
+"Laura Jones",
+"Democratic"
+]
+]
+},
+"2026-TX-H09":{
+"key":"us_house:9",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"9",
+"seat":null,
+"special":0,
+"names":[
+[
+"Alex Mealer",
+"Republican"
+],
+[
+"Leticia Gutierrez",
+"Democratic"
+]
+]
+},
+"2026-TX-H10":{
+"key":"us_house:10",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"10",
+"seat":null,
+"special":0,
+"names":[
+[
+"Chris Gober",
+"Republican"
+],
+[
+"Caitlin Rourk",
+"Democratic"
+]
+]
+},
+"2026-TX-H11":{
+"key":"us_house:11",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"11",
+"seat":null,
+"special":0,
+"names":[
+[
+"August Pfluger",
+"Republican"
+],
+[
+"Claire Reynolds",
+"Democratic"
+]
+]
+},
+"2026-TX-H12":{
+"key":"us_house:12",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"12",
+"seat":null,
+"special":0,
+"names":[
+[
+"Craig A. Goldman",
+"Republican"
+],
+[
+"Angela \"heli\" Rodriguez Prilliman",
+"Democratic"
+]
+]
+},
+"2026-TX-H13":{
+"key":"us_house:13",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"13",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ronny Jackson",
+"Republican"
+],
+[
+"Mark Nair",
+"Democratic"
+]
+]
+},
+"2026-TX-H14":{
+"key":"us_house:14",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"14",
+"seat":null,
+"special":0,
+"names":[
+[
+"Randy K. Weber, Sr.",
+"Republican"
+],
+[
+"Thurman Bill Bartie",
+"Democratic"
+]
+]
+},
+"2026-TX-H15":{
+"key":"us_house:15",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"15",
+"seat":null,
+"special":0,
+"names":[
+[
+"Monica De La Cruz",
+"Republican"
+],
+[
+"Bobby Pulido",
+"Democratic"
+]
+]
+},
+"2026-TX-H16":{
+"key":"us_house:16",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"16",
+"seat":null,
+"special":0,
+"names":[
+[
+"Adam Bauman",
+"Republican"
+],
+[
+"Veronica Escobar",
+"Democratic"
+]
+]
+},
+"2026-TX-H17":{
+"key":"us_house:17",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"17",
+"seat":null,
+"special":0,
+"names":[
+[
+"Pete Sessions",
+"Republican"
+],
+[
+"Casey Shepard",
+"Democratic"
+]
+]
+},
+"2026-TX-H18":{
+"key":"us_house:18",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"18",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ronald Dwayne Whitfield",
+"Republican"
+],
+[
+"Christian Dashaun Menefee",
+"Democratic"
+]
+]
+},
+"2026-TX-H19":{
+"key":"us_house:19",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"19",
+"seat":null,
+"special":0,
+"names":[
+[
+"Tom Sell",
+"Republican"
+],
+[
+"Kyle Rable",
+"Democratic"
+]
+]
+},
+"2026-TX-H20":{
+"key":"us_house:20",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"20",
+"seat":null,
+"special":0,
+"names":[
+[
+"Edgardo Rafael Baez",
+"Republican"
+],
+[
+"Joaquin Castro",
+"Democratic"
+]
+]
+},
+"2026-TX-H21":{
+"key":"us_house:21",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"21",
+"seat":null,
+"special":0,
+"names":[
+[
+"Mark Teixeira",
+"Republican"
+],
+[
+"Kristin Hook",
+"Democratic"
+]
+]
+},
+"2026-TX-H22":{
+"key":"us_house:22",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"22",
+"seat":null,
+"special":0,
+"names":[
+[
+"Trever Nehls",
+"Republican"
+],
+[
+"Marquette Greene-Scott",
+"Democratic"
+]
+]
+},
+"2026-TX-H23":{
+"key":"us_house:23",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"23",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brandon Herrera",
+"Republican"
+],
+[
+"Katy Padilla Stout",
+"Democratic"
+],
+[
+"Ben Mendoza",
+"Independent"
+]
+]
+},
+"2026-TX-H24":{
+"key":"us_house:24",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"24",
+"seat":null,
+"special":0,
+"names":[
+[
+"Beth Van Duyne",
+"Republican"
+],
+[
+"Kevin Burge",
+"Democratic"
+]
+]
+},
+"2026-TX-H25":{
+"key":"us_house:25",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"25",
+"seat":null,
+"special":0,
+"names":[
+[
+"Roger Williams",
+"Republican"
+],
+[
+"Dione Sims",
+"Democratic"
+]
+]
+},
+"2026-TX-H26":{
+"key":"us_house:26",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"26",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brandon Gill",
+"Republican"
+],
+[
+"Steven Shook",
+"Democratic"
+],
+[
+"Phil Gray",
+"Libertarian"
+]
+]
+},
+"2026-TX-H27":{
+"key":"us_house:27",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"27",
+"seat":null,
+"special":0,
+"names":[
+[
+"Michael Cloud",
+"Republican"
+],
+[
+"Tanya Lloyd",
+"Democratic"
+]
+]
+},
+"2026-TX-H28":{
+"key":"us_house:28",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"28",
+"seat":null,
+"special":0,
+"names":[
+[
+"Tano E. Tijerina",
+"Republican"
+],
+[
+"Henry Cuellar",
+"Democratic"
+],
+[
+"Marlón Durán",
+"Green"
+]
+]
+},
+"2026-TX-H29":{
+"key":"us_house:29",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"29",
+"seat":null,
+"special":0,
+"names":[
+[
+"Martha Fierro",
+"Republican"
+],
+[
+"Sylvia R. Garcia",
+"Democratic"
+]
+]
+},
+"2026-TX-H30":{
+"key":"us_house:30",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"30",
+"seat":null,
+"special":0,
+"names":[
+[
+"Everett Jackson",
+"Republican"
+],
+[
+"Frederick D. Haynes III",
+"Democratic"
+]
+]
+},
+"2026-TX-H31":{
+"key":"us_house:31",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"31",
+"seat":null,
+"special":0,
+"names":[
+[
+"John R. Carter",
+"Republican"
+],
+[
+"Justin Early",
+"Democratic"
+],
+[
+"Greg Stoker",
+"Green"
+]
+]
+},
+"2026-TX-H32":{
+"key":"us_house:32",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"32",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jace Yarbrough",
+"Republican"
+],
+[
+"Dan Barrios",
+"Democratic"
+]
+]
+},
+"2026-TX-H33":{
+"key":"us_house:33",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"33",
+"seat":null,
+"special":0,
+"names":[
+[
+"Patrick David Gillespie",
+"Republican"
+],
+[
+"Colin Allred",
+"Democratic"
+]
+]
+},
+"2026-TX-H34":{
+"key":"us_house:34",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"34",
+"seat":null,
+"special":0,
+"names":[
+[
+"Eric Flores",
+"Republican"
+],
+[
+"Vicente Gonzalez",
+"Democratic"
+],
+[
+"Chris Royal",
+"Libertarian"
+],
+[
+"Eddie Espinoza",
+"Green"
+]
+]
+},
+"2026-TX-H35":{
+"key":"us_house:35",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"35",
+"seat":null,
+"special":0,
+"names":[
+[
+"Carlos de La Cruz",
+"Republican"
+],
+[
+"Johnny C. Garcia",
+"Democratic"
+]
+]
+},
+"2026-TX-H36":{
+"key":"us_house:36",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"36",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brian Babin",
+"Republican"
+],
+[
+"Rhonda Hart",
+"Democratic"
+]
+]
+},
+"2026-TX-H37":{
+"key":"us_house:37",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"37",
+"seat":null,
+"special":0,
+"names":[
+[
+"Lauren B. Peña",
+"Republican"
+],
+[
+"Greg Casar",
+"Democratic"
+]
+]
+},
+"2026-TX-H38":{
+"key":"us_house:38",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"38",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jon Bonck",
+"Republican"
+],
+[
+"Melissa McDonough",
+"Democratic"
+],
+[
+"Alex McMenemy",
+"Green"
+]
+]
+},
+"2026-TX-LTG":{
+"key":"lieutenant_governor",
+"level":"statewide",
+"kind":"lieutenant_governor",
+"office":"Lieutenant Governor",
+"district":null,
+"seat":null,
+"special":0,
+"names":[
+[
+"Dan Patrick",
+"Republican"
+],
+[
+"Vikki Goodwin",
+"Democratic"
+],
+[
+"Anthony Cristo",
+"Libertarian"
+],
+[
+"Kevin McCormick",
+"Green"
+]
+]
+},
+"2026-TX-RRC":{
+"key":"railroad_commissioner",
+"level":"statewide",
+"kind":"railroad_commissioner",
+"office":"Railroad Commissioner",
+"district":null,
+"seat":null,
+"special":0,
+"names":[
+[
+"Bo French",
+"Republican"
+],
+[
+"Jon Rosenthal",
+"Democratic"
+],
+[
+"Arthur Dibianca",
+"Libertarian"
+]
+]
+},
+"2026-TX-S2":{
+"key":"us_senate",
+"level":"congress",
+"kind":"us_senate",
+"office":"U.S. Senate",
+"district":null,
+"seat":null,
+"special":0,
+"names":[
+[
+"Ken Paxton",
+"Republican"
+],
+[
+"James Talarico",
+"Democratic"
+],
+[
+"Ted Brown",
+"Libertarian"
+]
+]
+},
+"2026-TX-SBOE13":{
+"key":"state_board_of_education:13",
+"level":"statewide",
+"kind":"state_board_of_education",
+"office":"Member, State Board of Education",
+"district":"13",
+"seat":null,
+"special":0,
+"names":[
+[
+"Carlos (Charlie) Garza",
+"Republican"
+],
+[
+"Tiffany Clark",
+"Democratic"
+]
+]
+},
+"2026-TX-SBOE14":{
+"key":"state_board_of_education:14",
+"level":"statewide",
+"kind":"state_board_of_education",
+"office":"Member, State Board of Education",
+"district":"14",
+"seat":null,
+"special":0,
+"names":[
+[
+"Mindy Bumgarner",
+"Republican"
+],
+[
+"Amy Taylor",
+"Democratic"
+]
+]
+},
+"2026-TX-SBOE2":{
+"key":"state_board_of_education:2",
+"level":"statewide",
+"kind":"state_board_of_education",
+"office":"Member, State Board of Education",
+"district":"2",
+"seat":null,
+"special":0,
+"names":[
+[
+"Victoria Hinojosa",
+"Republican"
+],
+[
+"Thomas Ray Garcia",
+"Democratic"
+]
+]
+},
+"2026-TX-SBOE4-UNEXP":{
+"key":"state_board_of_education:4",
+"level":"statewide",
+"kind":"state_board_of_education",
+"office":"Member, State Board of Education",
+"district":"4",
+"seat":null,
+"special":1,
+"names":[
+[
+"Tammie Nielsen",
+"Republican"
+],
+[
+"Coretta Mallet-Fontenot",
+"Democratic"
+]
+]
+},
+"2026-TX-SBOE5":{
+"key":"state_board_of_education:5",
+"level":"statewide",
+"kind":"state_board_of_education",
+"office":"Member, State Board of Education",
+"district":"5",
+"seat":null,
+"special":0,
+"names":[
+[
+"Mica Arellano",
+"Republican"
+],
+[
+"Allison Bush",
+"Democratic"
+]
+]
+},
+"2026-TX-SBOE6":{
+"key":"state_board_of_education:6",
+"level":"statewide",
+"kind":"state_board_of_education",
+"office":"Member, State Board of Education",
+"district":"6",
+"seat":null,
+"special":0,
+"names":[
+[
+"Tiffany Nelson",
+"Republican"
+],
+[
+"Michelle Palmer",
+"Democratic"
+]
+]
+},
+"2026-TX-SBOE7":{
+"key":"state_board_of_education:7",
+"level":"statewide",
+"kind":"state_board_of_education",
+"office":"Member, State Board of Education",
+"district":"7",
+"seat":null,
+"special":0,
+"names":[
+[
+"Julie Pickren",
+"Republican"
+],
+[
+"Tiffany Perkinz",
+"Democratic"
+]
+]
+},
+"2026-TX-SBOE8":{
+"key":"state_board_of_education:8",
+"level":"statewide",
+"kind":"state_board_of_education",
+"office":"Member, State Board of Education",
+"district":"8",
+"seat":null,
+"special":0,
+"names":[
+[
+"Audrey G. Young",
+"Republican"
+],
+[
+"Dana van de Walker",
+"Democratic"
+]
+]
+},
+"2026-TX-SBOE9":{
+"key":"state_board_of_education:9",
+"level":"statewide",
+"kind":"state_board_of_education",
+"office":"Member, State Board of Education",
+"district":"9",
+"seat":null,
+"special":0,
+"names":[
+[
+"Kason Huddleston",
+"Republican"
+],
+[
+"Ericka Ledferd",
+"Democratic"
+]
+]
+},
+"2026-TX-SC2-UNEXP":{
+"key":"supreme_court:2:unexpired",
+"level":"court",
+"kind":"supreme_court",
+"office":"Justice, Supreme Court",
+"district":null,
+"seat":"Place 2",
+"special":1,
+"names":[
+[
+"James P. Sullivan",
+"Republican"
+],
+[
+"Chari Kelly",
+"Democratic"
+]
+]
+},
+"2026-TX-SC7":{
+"key":"supreme_court:7",
+"level":"court",
+"kind":"supreme_court",
+"office":"Justice, Supreme Court",
+"district":null,
+"seat":"Place 7",
+"special":0,
+"names":[
+[
+"Kyle Hawkins",
+"Republican"
+],
+[
+"Kristen Hawkins",
+"Democratic"
+]
+]
+},
+"2026-TX-SC8":{
+"key":"supreme_court:8",
+"level":"court",
+"kind":"supreme_court",
+"office":"Justice, Supreme Court",
+"district":null,
+"seat":"Place 8",
+"special":0,
+"names":[
+[
+"Brett Busby",
+"Republican"
+],
+[
+"Gisela D. Triana",
+"Democratic"
+]
+]
+},
+"2026-TX-SCCJ":{
+"key":"supreme_court:chief",
+"level":"court",
+"kind":"supreme_court",
+"office":"Chief Justice, Supreme Court",
+"district":null,
+"seat":"Chief Justice",
+"special":0,
+"names":[
+[
+"Jimmy Blacklock",
+"Republican"
+],
+[
+"Maggie Ellis",
+"Democratic"
+]
+]
+},
+"2026-TX-SH1":{
+"key":"state_house:1",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"1",
+"seat":null,
+"special":0,
+"names":[
+[
+"Chris Spencer",
+"Republican"
+],
+[
+"Sean Huffman",
+"Democratic"
+]
+]
+},
+"2026-TX-SH10":{
+"key":"state_house:10",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"10",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brian Harrison",
+"Republican"
+],
+[
+"Michael Myers",
+"Democratic"
+]
+]
+},
+"2026-TX-SH100":{
+"key":"state_house:100",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"100",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jordan Scott Hoffnagle",
+"Republican"
+],
+[
+"Venton Jones",
+"Democratic"
+]
+]
+},
+"2026-TX-SH101":{
+"key":"state_house:101",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"101",
+"seat":null,
+"special":0,
+"names":[
+[
+"Junior Ezeonu",
+"Democratic"
+]
+]
+},
+"2026-TX-SH102":{
+"key":"state_house:102",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"102",
+"seat":null,
+"special":0,
+"names":[
+[
+"Bonnie Abadie",
+"Republican"
+],
+[
+"Ana-Maria Rodriguez Ramos",
+"Democratic"
+]
+]
+},
+"2026-TX-SH103":{
+"key":"state_house:103",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"103",
+"seat":null,
+"special":0,
+"names":[
+[
+"Melanie Medley-Thomas",
+"Republican"
+],
+[
+"Rafael Anchía",
+"Democratic"
+]
+]
+},
+"2026-TX-SH104":{
+"key":"state_house:104",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"104",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jessica González",
+"Democratic"
+]
+]
+},
+"2026-TX-SH105":{
+"key":"state_house:105",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"105",
+"seat":null,
+"special":0,
+"names":[
+[
+"Terry Meza",
+"Democratic"
+]
+]
+},
+"2026-TX-SH106":{
+"key":"state_house:106",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"106",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jared Patterson",
+"Republican"
+],
+[
+"Joe Mayes",
+"Democratic"
+]
+]
+},
+"2026-TX-SH107":{
+"key":"state_house:107",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"107",
+"seat":null,
+"special":0,
+"names":[
+[
+"Linda Garcia",
+"Democratic"
+]
+]
+},
+"2026-TX-SH108":{
+"key":"state_house:108",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"108",
+"seat":null,
+"special":0,
+"names":[
+[
+"Morgan Meyer",
+"Republican"
+],
+[
+"Allison Mitchell",
+"Democratic"
+]
+]
+},
+"2026-TX-SH109":{
+"key":"state_house:109",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"109",
+"seat":null,
+"special":0,
+"names":[
+[
+"Will Campbell",
+"Republican"
+],
+[
+"Aicha Davis",
+"Democratic"
+]
+]
+},
+"2026-TX-SH11":{
+"key":"state_house:11",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"11",
+"seat":null,
+"special":0,
+"names":[
+[
+"Joanne Shofner",
+"Republican"
+],
+[
+"Roxanne Lathan",
+"Democratic"
+]
+]
+},
+"2026-TX-SH110":{
+"key":"state_house:110",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"110",
+"seat":null,
+"special":0,
+"names":[
+[
+"Toni Rose",
+"Democratic"
+]
+]
+},
+"2026-TX-SH111":{
+"key":"state_house:111",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"111",
+"seat":null,
+"special":0,
+"names":[
+[
+"Yvonne Davis",
+"Democratic"
+]
+]
+},
+"2026-TX-SH112":{
+"key":"state_house:112",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"112",
+"seat":null,
+"special":0,
+"names":[
+[
+"Angie Chen Button",
+"Republican"
+],
+[
+"Zach Herbert",
+"Democratic"
+]
+]
+},
+"2026-TX-SH113":{
+"key":"state_house:113",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"113",
+"seat":null,
+"special":0,
+"names":[
+[
+"Stephen W. Stanley",
+"Republican"
+],
+[
+"Rhetta Andrews Bowers",
+"Democratic"
+]
+]
+},
+"2026-TX-SH114":{
+"key":"state_house:114",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"114",
+"seat":null,
+"special":0,
+"names":[
+[
+"Tim McDonough",
+"Republican"
+],
+[
+"John Bryant",
+"Democratic"
+]
+]
+},
+"2026-TX-SH115":{
+"key":"state_house:115",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"115",
+"seat":null,
+"special":0,
+"names":[
+[
+"Danny Rosellini",
+"Republican"
+],
+[
+"Cassandra Hernandez",
+"Democratic"
+]
+]
+},
+"2026-TX-SH116":{
+"key":"state_house:116",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"116",
+"seat":null,
+"special":0,
+"names":[
+[
+"Rhett Rosenquest Smith",
+"Republican"
+],
+[
+"Trey Martinez Fischer",
+"Democratic"
+]
+]
+},
+"2026-TX-SH117":{
+"key":"state_house:117",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"117",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ben Mostyn",
+"Republican"
+],
+[
+"Philip Cortez",
+"Democratic"
+]
+]
+},
+"2026-TX-SH118":{
+"key":"state_house:118",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"118",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jorge Borrego",
+"Republican"
+],
+[
+"Kristian Carranza",
+"Democratic"
+]
+]
+},
+"2026-TX-SH119":{
+"key":"state_house:119",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"119",
+"seat":null,
+"special":0,
+"names":[
+[
+"Melva Perez",
+"Republican"
+],
+[
+"Elizabeth \"Liz\" Campos",
+"Democratic"
+]
+]
+},
+"2026-TX-SH12":{
+"key":"state_house:12",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"12",
+"seat":null,
+"special":0,
+"names":[
+[
+"Trey Wharton",
+"Republican"
+],
+[
+"Andie Ho",
+"Democratic"
+]
+]
+},
+"2026-TX-SH120":{
+"key":"state_house:120",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"120",
+"seat":null,
+"special":0,
+"names":[
+[
+"Barbara Gervin-Hawkins",
+"Democratic"
+]
+]
+},
+"2026-TX-SH121":{
+"key":"state_house:121",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"121",
+"seat":null,
+"special":0,
+"names":[
+[
+"Marc LaHood",
+"Republican"
+],
+[
+"Zack Dunn",
+"Democratic"
+]
+]
+},
+"2026-TX-SH122":{
+"key":"state_house:122",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"122",
+"seat":null,
+"special":0,
+"names":[
+[
+"Mark Dorazio",
+"Republican"
+],
+[
+"Shelly Nickels",
+"Democratic"
+]
+]
+},
+"2026-TX-SH123":{
+"key":"state_house:123",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"123",
+"seat":null,
+"special":0,
+"names":[
+[
+"Diego Bernal",
+"Democratic"
+]
+]
+},
+"2026-TX-SH124":{
+"key":"state_house:124",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"124",
+"seat":null,
+"special":0,
+"names":[
+[
+"Sylvia Soto",
+"Republican"
+],
+[
+"Josey Garcia",
+"Democratic"
+]
+]
+},
+"2026-TX-SH125":{
+"key":"state_house:125",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"125",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ricardo 'rick' Martinez",
+"Republican"
+],
+[
+"Adrian Reyna",
+"Democratic"
+]
+]
+},
+"2026-TX-SH126":{
+"key":"state_house:126",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"126",
+"seat":null,
+"special":0,
+"names":[
+[
+"Stan Stanart",
+"Republican"
+],
+[
+"Stefanie Bord",
+"Democratic"
+]
+]
+},
+"2026-TX-SH127":{
+"key":"state_house:127",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"127",
+"seat":null,
+"special":0,
+"names":[
+[
+"Charles Cunningham",
+"Republican"
+],
+[
+"Michelle Williams",
+"Democratic"
+]
+]
+},
+"2026-TX-SH128":{
+"key":"state_house:128",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"128",
+"seat":null,
+"special":0,
+"names":[
+[
+"Tom Butler",
+"Republican"
+],
+[
+"Desiree Klaus",
+"Democratic"
+]
+]
+},
+"2026-TX-SH129":{
+"key":"state_house:129",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"129",
+"seat":null,
+"special":0,
+"names":[
+[
+"Scott Bowen",
+"Republican"
+],
+[
+"Albert Wittliff",
+"Democratic"
+]
+]
+},
+"2026-TX-SH13":{
+"key":"state_house:13",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"13",
+"seat":null,
+"special":0,
+"names":[
+[
+"Angelia Orr",
+"Republican"
+],
+[
+"Albert Hunter",
+"Democratic"
+]
+]
+},
+"2026-TX-SH130":{
+"key":"state_house:130",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"130",
+"seat":null,
+"special":0,
+"names":[
+[
+"Tom Oliverson",
+"Republican"
+],
+[
+"Brett Robinson",
+"Democratic"
+]
+]
+},
+"2026-TX-SH131":{
+"key":"state_house:131",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"131",
+"seat":null,
+"special":0,
+"names":[
+[
+"Scott Whitmarsh",
+"Republican"
+],
+[
+"Staci Childs",
+"Democratic"
+]
+]
+},
+"2026-TX-SH132":{
+"key":"state_house:132",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"132",
+"seat":null,
+"special":0,
+"names":[
+[
+"Mike Schofield",
+"Republican"
+],
+[
+"Sara McGee",
+"Democratic"
+]
+]
+},
+"2026-TX-SH133":{
+"key":"state_house:133",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"133",
+"seat":null,
+"special":0,
+"names":[
+[
+"Mano DeAyala",
+"Republican"
+],
+[
+"Josh Wallenstein",
+"Democratic"
+]
+]
+},
+"2026-TX-SH134":{
+"key":"state_house:134",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"134",
+"seat":null,
+"special":0,
+"names":[
+[
+"Mike Michna",
+"Republican"
+],
+[
+"Ann Johnson",
+"Democratic"
+]
+]
+},
+"2026-TX-SH135":{
+"key":"state_house:135",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"135",
+"seat":null,
+"special":0,
+"names":[
+[
+"Liz Ramos",
+"Republican"
+],
+[
+"Odus E. Evbagharu",
+"Democratic"
+]
+]
+},
+"2026-TX-SH136":{
+"key":"state_house:136",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"136",
+"seat":null,
+"special":0,
+"names":[
+[
+"Theodore Schramm",
+"Republican"
+],
+[
+"John H. Bucy, III",
+"Democratic"
+]
+]
+},
+"2026-TX-SH137":{
+"key":"state_house:137",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"137",
+"seat":null,
+"special":0,
+"names":[
+[
+"Helen Zhou",
+"Republican"
+],
+[
+"Gene Wu",
+"Democratic"
+]
+]
+},
+"2026-TX-SH138":{
+"key":"state_house:138",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"138",
+"seat":null,
+"special":0,
+"names":[
+[
+"Lacey Hull",
+"Republican"
+],
+[
+"Tyler Smith",
+"Democratic"
+]
+]
+},
+"2026-TX-SH139":{
+"key":"state_house:139",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"139",
+"seat":null,
+"special":0,
+"names":[
+[
+"Kyle Harding",
+"Republican"
+],
+[
+"Charlene Ward Johnson",
+"Democratic"
+]
+]
+},
+"2026-TX-SH14":{
+"key":"state_house:14",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"14",
+"seat":null,
+"special":0,
+"names":[
+[
+"Paul Dyson",
+"Republican"
+],
+[
+"Janet Tycelia Dudding",
+"Democratic"
+],
+[
+"Jeff Miller",
+"Libertarian"
+]
+]
+},
+"2026-TX-SH140":{
+"key":"state_house:140",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"140",
+"seat":null,
+"special":0,
+"names":[
+[
+"Laura Garcia Deleon",
+"Republican"
+],
+[
+"Armando Lucio Walle",
+"Democratic"
+]
+]
+},
+"2026-TX-SH141":{
+"key":"state_house:141",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"141",
+"seat":null,
+"special":0,
+"names":[
+[
+"Julie Hunt",
+"Republican"
+],
+[
+"Senfronia Thompson",
+"Democratic"
+]
+]
+},
+"2026-TX-SH142":{
+"key":"state_house:142",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"142",
+"seat":null,
+"special":0,
+"names":[
+[
+"Heidi Hall",
+"Republican"
+],
+[
+"Harold V. Dutton, Jr",
+"Democratic"
+]
+]
+},
+"2026-TX-SH143":{
+"key":"state_house:143",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"143",
+"seat":null,
+"special":0,
+"names":[
+[
+"Frank Salazar",
+"Republican"
+],
+[
+"Ana Hernandez",
+"Democratic"
+]
+]
+},
+"2026-TX-SH144":{
+"key":"state_house:144",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"144",
+"seat":null,
+"special":0,
+"names":[
+[
+"David Flores",
+"Republican"
+],
+[
+"Mary Ann Perez",
+"Democratic"
+]
+]
+},
+"2026-TX-SH145":{
+"key":"state_house:145",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"145",
+"seat":null,
+"special":0,
+"names":[
+[
+"Inocensia Moreno",
+"Republican"
+],
+[
+"Christina Morales",
+"Democratic"
+]
+]
+},
+"2026-TX-SH146":{
+"key":"state_house:146",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"146",
+"seat":null,
+"special":0,
+"names":[
+[
+"Alexandria Nicole Butler",
+"Republican"
+],
+[
+"Lauren Ashley Simmons",
+"Democratic"
+]
+]
+},
+"2026-TX-SH147":{
+"key":"state_house:147",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"147",
+"seat":null,
+"special":0,
+"names":[
+[
+"Theodis Daniel",
+"Republican"
+],
+[
+"Jolanda Jones",
+"Democratic"
+]
+]
+},
+"2026-TX-SH148":{
+"key":"state_house:148",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"148",
+"seat":null,
+"special":0,
+"names":[
+[
+"Amanda Labrie",
+"Republican"
+],
+[
+"Penny Morales Shaw",
+"Democratic"
+]
+]
+},
+"2026-TX-SH149":{
+"key":"state_house:149",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"149",
+"seat":null,
+"special":0,
+"names":[
+[
+"Dave Bennett",
+"Republican"
+],
+[
+"Darlene Breaux",
+"Democratic"
+]
+]
+},
+"2026-TX-SH15":{
+"key":"state_house:15",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"15",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brad Bailey",
+"Republican"
+],
+[
+"Moniqua' S. Scott",
+"Democratic"
+],
+[
+"Jessi Cowart",
+"Libertarian"
+]
+]
+},
+"2026-TX-SH150":{
+"key":"state_house:150",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"150",
+"seat":null,
+"special":0,
+"names":[
+[
+"Valoree Swanson",
+"Republican"
+],
+[
+"A'yonna Kellum",
+"Democratic"
+]
+]
+},
+"2026-TX-SH16":{
+"key":"state_house:16",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"16",
+"seat":null,
+"special":0,
+"names":[
+[
+"Will Metcalf",
+"Republican"
+],
+[
+"Bobbie Clayton",
+"Democratic"
+]
+]
+},
+"2026-TX-SH17":{
+"key":"state_house:17",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"17",
+"seat":null,
+"special":0,
+"names":[
+[
+"Stan Gerdes",
+"Republican"
+],
+[
+"Mary Elizabeth Klenz",
+"Democratic"
+]
+]
+},
+"2026-TX-SH18":{
+"key":"state_house:18",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"18",
+"seat":null,
+"special":0,
+"names":[
+[
+"Janis Holt",
+"Republican"
+],
+[
+"Valorie Barton",
+"Democratic"
+]
+]
+},
+"2026-TX-SH19":{
+"key":"state_house:19",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"19",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ellen Troxclair",
+"Republican"
+],
+[
+"Tom Luck",
+"Democratic"
+]
+]
+},
+"2026-TX-SH2":{
+"key":"state_house:2",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"2",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brent A. Money",
+"Republican"
+],
+[
+"Fatima La'juan Muse",
+"Democratic"
+]
+]
+},
+"2026-TX-SH20":{
+"key":"state_house:20",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"20",
+"seat":null,
+"special":0,
+"names":[
+[
+"Terry M. Wilson",
+"Republican"
+],
+[
+"Matthias-Jonah Early",
+"Democratic"
+]
+]
+},
+"2026-TX-SH21":{
+"key":"state_house:21",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"21",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ray Callas",
+"Republican"
+],
+[
+"Jacqueline \"Jacky\" Hernandez",
+"Democratic"
+]
+]
+},
+"2026-TX-SH22":{
+"key":"state_house:22",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"22",
+"seat":null,
+"special":0,
+"names":[
+[
+"Christian Manuel",
+"Democratic"
+]
+]
+},
+"2026-TX-SH23":{
+"key":"state_house:23",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"23",
+"seat":null,
+"special":0,
+"names":[
+[
+"Terri Leo-Wilson",
+"Republican"
+],
+[
+"Cheryl Lynn Clark",
+"Democratic"
+]
+]
+},
+"2026-TX-SH24":{
+"key":"state_house:24",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"24",
+"seat":null,
+"special":0,
+"names":[
+[
+"Greg Bonnen",
+"Republican"
+],
+[
+"Frank N Carr",
+"Democratic"
+]
+]
+},
+"2026-TX-SH25":{
+"key":"state_house:25",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"25",
+"seat":null,
+"special":0,
+"names":[
+[
+"Cody Thane Vasut",
+"Republican"
+],
+[
+"Mike Meadors",
+"Democratic"
+]
+]
+},
+"2026-TX-SH26":{
+"key":"state_house:26",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"26",
+"seat":null,
+"special":0,
+"names":[
+[
+"Matt Morgan",
+"Republican"
+],
+[
+"Elizabeth \"Eliz\" Markowitz",
+"Democratic"
+]
+]
+},
+"2026-TX-SH27":{
+"key":"state_house:27",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"27",
+"seat":null,
+"special":0,
+"names":[
+[
+"Max Alalibo",
+"Republican"
+],
+[
+"Ron Reynolds",
+"Democratic"
+]
+]
+},
+"2026-TX-SH28":{
+"key":"state_house:28",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"28",
+"seat":null,
+"special":0,
+"names":[
+[
+"Gary Gates",
+"Republican"
+],
+[
+"Sandy Ibanez",
+"Democratic"
+]
+]
+},
+"2026-TX-SH29":{
+"key":"state_house:29",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"29",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jeff Barry",
+"Republican"
+],
+[
+"Karen Reeder",
+"Democratic"
+]
+]
+},
+"2026-TX-SH3":{
+"key":"state_house:3",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"3",
+"seat":null,
+"special":0,
+"names":[
+[
+"Kristen Plaisance",
+"Republican"
+],
+[
+"Nicole King",
+"Democratic"
+]
+]
+},
+"2026-TX-SH30":{
+"key":"state_house:30",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"30",
+"seat":null,
+"special":0,
+"names":[
+[
+"A.J. Louderback",
+"Republican"
+],
+[
+"Crystal Sedillo",
+"Democratic"
+]
+]
+},
+"2026-TX-SH31":{
+"key":"state_house:31",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"31",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ryan Guillen",
+"Republican"
+],
+[
+"Jennifer \"Jj\" Dominguez",
+"Democratic"
+]
+]
+},
+"2026-TX-SH32":{
+"key":"state_house:32",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"32",
+"seat":null,
+"special":0,
+"names":[
+[
+"Todd Hunter",
+"Republican"
+],
+[
+"Gabriel \"Gabe\" Lozano Marroquin",
+"Democratic"
+]
+]
+},
+"2026-TX-SH33":{
+"key":"state_house:33",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"33",
+"seat":null,
+"special":0,
+"names":[
+[
+"Katrina Pierson",
+"Republican"
+],
+[
+"Orlando Lopez",
+"Democratic"
+]
+]
+},
+"2026-TX-SH34":{
+"key":"state_house:34",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"34",
+"seat":null,
+"special":0,
+"names":[
+[
+"Denise Villalobos",
+"Republican"
+],
+[
+"Stephanie Guerrero Saenz",
+"Democratic"
+]
+]
+},
+"2026-TX-SH35":{
+"key":"state_house:35",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"35",
+"seat":null,
+"special":0,
+"names":[
+[
+"Oscar Rosa",
+"Republican"
+],
+[
+"Oscar Longoria",
+"Democratic"
+]
+]
+},
+"2026-TX-SH36":{
+"key":"state_house:36",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"36",
+"seat":null,
+"special":0,
+"names":[
+[
+"Sergio Muñoz, Jr",
+"Democratic"
+]
+]
+},
+"2026-TX-SH37":{
+"key":"state_house:37",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"37",
+"seat":null,
+"special":0,
+"names":[
+[
+"Janie Lopez",
+"Republican"
+],
+[
+"Oziel \"Ozzie\" Ochoa, Jr",
+"Democratic"
+]
+]
+},
+"2026-TX-SH38":{
+"key":"state_house:38",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"38",
+"seat":null,
+"special":0,
+"names":[
+[
+"Laura E. Cisneros",
+"Republican"
+],
+[
+"Erin Elizabeth Gamez",
+"Democratic"
+]
+]
+},
+"2026-TX-SH39":{
+"key":"state_house:39",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"39",
+"seat":null,
+"special":0,
+"names":[
+[
+"Armando Mando Martinez",
+"Democratic"
+]
+]
+},
+"2026-TX-SH4":{
+"key":"state_house:4",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"4",
+"seat":null,
+"special":0,
+"names":[
+[
+"Keith Bell",
+"Republican"
+],
+[
+"Mark A. Moseley",
+"Democratic"
+]
+]
+},
+"2026-TX-SH40":{
+"key":"state_house:40",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"40",
+"seat":null,
+"special":0,
+"names":[
+[
+"Celeste Cabrera-Huff",
+"Republican"
+],
+[
+"Terry Canales",
+"Democratic"
+]
+]
+},
+"2026-TX-SH41":{
+"key":"state_house:41",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"41",
+"seat":null,
+"special":0,
+"names":[
+[
+"Gary Groves",
+"Republican"
+],
+[
+"Julio Salinas",
+"Democratic"
+]
+]
+},
+"2026-TX-SH42":{
+"key":"state_house:42",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"42",
+"seat":null,
+"special":0,
+"names":[
+[
+"Teresa Johnson-Hernandez",
+"Republican"
+],
+[
+"Richard Pena Raymond",
+"Democratic"
+]
+]
+},
+"2026-TX-SH43":{
+"key":"state_house:43",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"43",
+"seat":null,
+"special":0,
+"names":[
+[
+"J.M. Lozano",
+"Republican"
+],
+[
+"Jeffrey T Jackson",
+"Democratic"
+]
+]
+},
+"2026-TX-SH44":{
+"key":"state_house:44",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"44",
+"seat":null,
+"special":0,
+"names":[
+[
+"Alan Schoolcraft",
+"Republican"
+],
+[
+"Eric Norman",
+"Democratic"
+]
+]
+},
+"2026-TX-SH45":{
+"key":"state_house:45",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"45",
+"seat":null,
+"special":0,
+"names":[
+[
+"Tennyson G. Moreno",
+"Republican"
+],
+[
+"Erin Zwiener",
+"Democratic"
+]
+]
+},
+"2026-TX-SH46":{
+"key":"state_house:46",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"46",
+"seat":null,
+"special":0,
+"names":[
+[
+"Sheryl Cole",
+"Democratic"
+]
+]
+},
+"2026-TX-SH47":{
+"key":"state_house:47",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"47",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jennifer Mushtaler",
+"Republican"
+],
+[
+"Pooja Sethi",
+"Democratic"
+]
+]
+},
+"2026-TX-SH48":{
+"key":"state_house:48",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"48",
+"seat":null,
+"special":0,
+"names":[
+[
+"Anthony Gupta",
+"Republican"
+],
+[
+"Donna Howard",
+"Democratic"
+]
+]
+},
+"2026-TX-SH49":{
+"key":"state_house:49",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"49",
+"seat":null,
+"special":0,
+"names":[
+[
+"Montserrat Garibay",
+"Democratic"
+],
+[
+"Arshia Papari",
+"Green"
+]
+]
+},
+"2026-TX-SH5":{
+"key":"state_house:5",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"5",
+"seat":null,
+"special":0,
+"names":[
+[
+"Cole Hefner",
+"Republican"
+],
+[
+"Hector Garza",
+"Democratic"
+]
+]
+},
+"2026-TX-SH50":{
+"key":"state_house:50",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"50",
+"seat":null,
+"special":0,
+"names":[
+[
+"Howard Olsen",
+"Republican"
+],
+[
+"Samantha Lopez-Resendez",
+"Democratic"
+]
+]
+},
+"2026-TX-SH51":{
+"key":"state_house:51",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"51",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jessica Martinez",
+"Republican"
+],
+[
+"Maria Luisa \"Lulu\" Flores",
+"Democratic"
+]
+]
+},
+"2026-TX-SH52":{
+"key":"state_house:52",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"52",
+"seat":null,
+"special":0,
+"names":[
+[
+"Caroline Harris Davila",
+"Republican"
+],
+[
+"Chris Jimenez",
+"Democratic"
+]
+]
+},
+"2026-TX-SH53":{
+"key":"state_house:53",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"53",
+"seat":null,
+"special":0,
+"names":[
+[
+"Wes Virdell",
+"Republican"
+],
+[
+"Kathryn Hartmann",
+"Democratic"
+]
+]
+},
+"2026-TX-SH54":{
+"key":"state_house:54",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"54",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brad Buckley",
+"Republican"
+],
+[
+"Dawn Richardson",
+"Democratic"
+]
+]
+},
+"2026-TX-SH55":{
+"key":"state_house:55",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"55",
+"seat":null,
+"special":0,
+"names":[
+[
+"Hillary Hickland",
+"Republican"
+],
+[
+"Amelia Rabroker",
+"Democratic"
+]
+]
+},
+"2026-TX-SH56":{
+"key":"state_house:56",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"56",
+"seat":null,
+"special":0,
+"names":[
+[
+"Pat Curry",
+"Republican"
+],
+[
+"Ashley Bean Thornton",
+"Democratic"
+]
+]
+},
+"2026-TX-SH57":{
+"key":"state_house:57",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"57",
+"seat":null,
+"special":0,
+"names":[
+[
+"Richard Hayes",
+"Republican"
+],
+[
+"Ray Stith",
+"Democratic"
+],
+[
+"Darren Hamilton",
+"Libertarian"
+]
+]
+},
+"2026-TX-SH58":{
+"key":"state_house:58",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"58",
+"seat":null,
+"special":0,
+"names":[
+[
+"Helen Kerwin",
+"Republican"
+],
+[
+"Chris Oldham",
+"Democratic"
+]
+]
+},
+"2026-TX-SH59":{
+"key":"state_house:59",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"59",
+"seat":null,
+"special":0,
+"names":[
+[
+"Shelby Slawson",
+"Republican"
+],
+[
+"Andrew Turner",
+"Democratic"
+]
+]
+},
+"2026-TX-SH6":{
+"key":"state_house:6",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"6",
+"seat":null,
+"special":0,
+"names":[
+[
+"Daniel Alders",
+"Republican"
+],
+[
+"Lorenzo Johnson",
+"Democratic"
+]
+]
+},
+"2026-TX-SH60":{
+"key":"state_house:60",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"60",
+"seat":null,
+"special":0,
+"names":[
+[
+"Mike Olcott",
+"Republican"
+],
+[
+"Krissy Guess",
+"Democratic"
+]
+]
+},
+"2026-TX-SH61":{
+"key":"state_house:61",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"61",
+"seat":null,
+"special":0,
+"names":[
+[
+"Keresa Richardson",
+"Republican"
+],
+[
+"Brittany Black",
+"Democratic"
+],
+[
+"Anissa Chilmeran",
+"Green"
+]
+]
+},
+"2026-TX-SH62":{
+"key":"state_house:62",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"62",
+"seat":null,
+"special":0,
+"names":[
+[
+"Shelley Luther",
+"Republican"
+],
+[
+"Catherine Thorne",
+"Democratic"
+]
+]
+},
+"2026-TX-SH63":{
+"key":"state_house:63",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"63",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ben Bumgarner",
+"Republican"
+],
+[
+"Denise Wooten",
+"Democratic"
+]
+]
+},
+"2026-TX-SH64":{
+"key":"state_house:64",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"64",
+"seat":null,
+"special":0,
+"names":[
+[
+"Andy Hopper",
+"Republican"
+],
+[
+"Julie Evans",
+"Democratic"
+]
+]
+},
+"2026-TX-SH65":{
+"key":"state_house:65",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"65",
+"seat":null,
+"special":0,
+"names":[
+[
+"Mitch Little",
+"Republican"
+],
+[
+"Detrick Deburr",
+"Democratic"
+]
+]
+},
+"2026-TX-SH66":{
+"key":"state_house:66",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"66",
+"seat":null,
+"special":0,
+"names":[
+[
+"Matt Shaheen",
+"Republican"
+],
+[
+"Sandeep Srivastava",
+"Democratic"
+]
+]
+},
+"2026-TX-SH67":{
+"key":"state_house:67",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"67",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jeff Leach",
+"Republican"
+],
+[
+"Jordan Wheatley",
+"Democratic"
+]
+]
+},
+"2026-TX-SH68":{
+"key":"state_house:68",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"68",
+"seat":null,
+"special":0,
+"names":[
+[
+"David Spiller",
+"Republican"
+],
+[
+"Jasmine Henderson",
+"Democratic"
+]
+]
+},
+"2026-TX-SH69":{
+"key":"state_house:69",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"69",
+"seat":null,
+"special":0,
+"names":[
+[
+"James B. Frank",
+"Republican"
+],
+[
+"Leilani Barnett",
+"Democratic"
+]
+]
+},
+"2026-TX-SH7":{
+"key":"state_house:7",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"7",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jay Dean",
+"Republican"
+],
+[
+"Fantasha Allen",
+"Democratic"
+]
+]
+},
+"2026-TX-SH70":{
+"key":"state_house:70",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"70",
+"seat":null,
+"special":0,
+"names":[
+[
+"George Flint",
+"Republican"
+],
+[
+"Mihaela Elizabeth Plesa",
+"Democratic"
+]
+]
+},
+"2026-TX-SH71":{
+"key":"state_house:71",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"71",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jay Hardaway",
+"Republican"
+],
+[
+"Diana Luna",
+"Democratic"
+]
+]
+},
+"2026-TX-SH72":{
+"key":"state_house:72",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"72",
+"seat":null,
+"special":0,
+"names":[
+[
+"Drew Darby",
+"Republican"
+],
+[
+"Shiloh Salazar",
+"Democratic"
+]
+]
+},
+"2026-TX-SH73":{
+"key":"state_house:73",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"73",
+"seat":null,
+"special":0,
+"names":[
+[
+"Carrie Isaac",
+"Republican"
+],
+[
+"Merrie Fox",
+"Democratic"
+]
+]
+},
+"2026-TX-SH74":{
+"key":"state_house:74",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"74",
+"seat":null,
+"special":0,
+"names":[
+[
+"Robert Garza",
+"Republican"
+],
+[
+"Eddie Morales, Jr",
+"Democratic"
+]
+]
+},
+"2026-TX-SH75":{
+"key":"state_house:75",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"75",
+"seat":null,
+"special":0,
+"names":[
+[
+"Mary E Gonzalez",
+"Democratic"
+]
+]
+},
+"2026-TX-SH76":{
+"key":"state_house:76",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"76",
+"seat":null,
+"special":0,
+"names":[
+[
+"Linda Howell",
+"Republican"
+],
+[
+"Suleman Lalani",
+"Democratic"
+]
+]
+},
+"2026-TX-SH77":{
+"key":"state_house:77",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"77",
+"seat":null,
+"special":0,
+"names":[
+[
+"Humberto Perez",
+"Republican"
+],
+[
+"Vincent \"Vince\" Perez",
+"Democratic"
+]
+]
+},
+"2026-TX-SH78":{
+"key":"state_house:78",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"78",
+"seat":null,
+"special":0,
+"names":[
+[
+"Joe Moody",
+"Democratic"
+]
+]
+},
+"2026-TX-SH79":{
+"key":"state_house:79",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"79",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jesse Romero",
+"Republican"
+],
+[
+"Claudia Ordaz",
+"Democratic"
+]
+]
+},
+"2026-TX-SH8":{
+"key":"state_house:8",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"8",
+"seat":null,
+"special":0,
+"names":[
+[
+"Cody Harris",
+"Republican"
+],
+[
+"Jeff Chavez",
+"Democratic"
+]
+]
+},
+"2026-TX-SH80":{
+"key":"state_house:80",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"80",
+"seat":null,
+"special":0,
+"names":[
+[
+"Don McLaughlin",
+"Republican"
+],
+[
+"Cecilia Castellano",
+"Democratic"
+]
+]
+},
+"2026-TX-SH81":{
+"key":"state_house:81",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"81",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brooks Landgraf",
+"Republican"
+],
+[
+"Ceasar Sanchez",
+"Democratic"
+]
+]
+},
+"2026-TX-SH82":{
+"key":"state_house:82",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"82",
+"seat":null,
+"special":0,
+"names":[
+[
+"Tom Craddick",
+"Republican"
+],
+[
+"Cathy Broadrick",
+"Democratic"
+]
+]
+},
+"2026-TX-SH83":{
+"key":"state_house:83",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"83",
+"seat":null,
+"special":0,
+"names":[
+[
+"Dustin Burrows",
+"Republican"
+],
+[
+"Malik Williams",
+"Democratic"
+]
+]
+},
+"2026-TX-SH84":{
+"key":"state_house:84",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"84",
+"seat":null,
+"special":0,
+"names":[
+[
+"Carl Tepper",
+"Republican"
+],
+[
+"Margaret Durham",
+"Democratic"
+]
+]
+},
+"2026-TX-SH85":{
+"key":"state_house:85",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"85",
+"seat":null,
+"special":0,
+"names":[
+[
+"Dennis \"Goose\" Geesaman",
+"Republican"
+],
+[
+"Lawrence Brandyburg",
+"Democratic"
+]
+]
+},
+"2026-TX-SH86":{
+"key":"state_house:86",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"86",
+"seat":null,
+"special":0,
+"names":[
+[
+"Holly Jeffreys",
+"Republican"
+],
+[
+"Cullin Knutson",
+"Democratic"
+]
+]
+},
+"2026-TX-SH87":{
+"key":"state_house:87",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"87",
+"seat":null,
+"special":0,
+"names":[
+[
+"Caroline Fairly",
+"Republican"
+],
+[
+"Diana Loya",
+"Democratic"
+]
+]
+},
+"2026-TX-SH88":{
+"key":"state_house:88",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"88",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ken King",
+"Republican"
+],
+[
+"Heather J. Wallace",
+"Democratic"
+]
+]
+},
+"2026-TX-SH89":{
+"key":"state_house:89",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"89",
+"seat":null,
+"special":0,
+"names":[
+[
+"Candy Noble",
+"Republican"
+],
+[
+"Angie Carraway",
+"Democratic"
+]
+]
+},
+"2026-TX-SH9":{
+"key":"state_house:9",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"9",
+"seat":null,
+"special":0,
+"names":[
+[
+"Rocky Thigpen",
+"Republican"
+],
+[
+"Shelley Tatum",
+"Democratic"
+]
+]
+},
+"2026-TX-SH90":{
+"key":"state_house:90",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"90",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ramon Romero, Jr",
+"Democratic"
+]
+]
+},
+"2026-TX-SH91":{
+"key":"state_house:91",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"91",
+"seat":null,
+"special":0,
+"names":[
+[
+"David Lowe",
+"Republican"
+],
+[
+"Yisak Worku",
+"Democratic"
+]
+]
+},
+"2026-TX-SH92":{
+"key":"state_house:92",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"92",
+"seat":null,
+"special":0,
+"names":[
+[
+"JP Woodruff",
+"Republican"
+],
+[
+"Salman Bhojani",
+"Democratic"
+]
+]
+},
+"2026-TX-SH93":{
+"key":"state_house:93",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"93",
+"seat":null,
+"special":0,
+"names":[
+[
+"Alan Blaylock",
+"Republican"
+],
+[
+"Ericka Lomick",
+"Democratic"
+]
+]
+},
+"2026-TX-SH94":{
+"key":"state_house:94",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"94",
+"seat":null,
+"special":0,
+"names":[
+[
+"Cheryl Bean",
+"Republican"
+],
+[
+"Katie O'Brien Duzan",
+"Democratic"
+]
+]
+},
+"2026-TX-SH95":{
+"key":"state_house:95",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"95",
+"seat":null,
+"special":0,
+"names":[
+[
+"Nicole Collier",
+"Democratic"
+]
+]
+},
+"2026-TX-SH96":{
+"key":"state_house:96",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"96",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ellen Fleischmann",
+"Republican"
+],
+[
+"Ebony M. Turner",
+"Democratic"
+]
+]
+},
+"2026-TX-SH97":{
+"key":"state_house:97",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"97",
+"seat":null,
+"special":0,
+"names":[
+[
+"John W. McQueeney",
+"Republican"
+],
+[
+"Beth Llewellyn McLaughlin",
+"Democratic"
+]
+]
+},
+"2026-TX-SH98":{
+"key":"state_house:98",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"98",
+"seat":null,
+"special":0,
+"names":[
+[
+"Armin Mizani",
+"Republican"
+],
+[
+"Cate Brennan",
+"Democratic"
+]
+]
+},
+"2026-TX-SH99":{
+"key":"state_house:99",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"99",
+"seat":null,
+"special":0,
+"names":[
+[
+"Charlie Geren",
+"Republican"
+],
+[
+"Michelle Winder",
+"Democratic"
+]
+]
+},
+"2026-TX-SS1":{
+"key":"state_senate:1",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"1",
+"seat":null,
+"special":0,
+"names":[
+[
+"Bryan Hughes",
+"Republican"
+],
+[
+"Laticia Ambroz",
+"Democratic"
+]
+]
+},
+"2026-TX-SS11":{
+"key":"state_senate:11",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"11",
+"seat":null,
+"special":0,
+"names":[
+[
+"Dennis Paul",
+"Republican"
+],
+[
+"Shannon Dicely",
+"Democratic"
+]
+]
+},
+"2026-TX-SS13":{
+"key":"state_senate:13",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"13",
+"seat":null,
+"special":0,
+"names":[
+[
+"Borris L. Miles",
+"Democratic"
+]
+]
+},
+"2026-TX-SS18":{
+"key":"state_senate:18",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"18",
+"seat":null,
+"special":0,
+"names":[
+[
+"Lois W. Kolkhorst",
+"Republican"
+],
+[
+"Erica Gillum",
+"Democratic"
+]
+]
+},
+"2026-TX-SS19":{
+"key":"state_senate:19",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"19",
+"seat":null,
+"special":0,
+"names":[
+[
+"Marcus Cardenas",
+"Republican"
+],
+[
+"Roland Gutierrez",
+"Democratic"
+]
+]
+},
+"2026-TX-SS2":{
+"key":"state_senate:2",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"2",
+"seat":null,
+"special":0,
+"names":[
+[
+"Bob Hall",
+"Republican"
+],
+[
+"Keenen Colbert",
+"Democratic"
+]
+]
+},
+"2026-TX-SS21":{
+"key":"state_senate:21",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"21",
+"seat":null,
+"special":0,
+"names":[
+[
+"Julie Dahlberg",
+"Republican"
+],
+[
+"Judith Zaffirini",
+"Democratic"
+]
+]
+},
+"2026-TX-SS22":{
+"key":"state_senate:22",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"22",
+"seat":null,
+"special":0,
+"names":[
+[
+"David Cook",
+"Republican"
+],
+[
+"Amy Martinez-Salas",
+"Democratic"
+]
+]
+},
+"2026-TX-SS24":{
+"key":"state_senate:24",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"24",
+"seat":null,
+"special":0,
+"names":[
+[
+"Pete Flores",
+"Republican"
+],
+[
+"Joe Paz Herrera",
+"Democratic"
+]
+]
+},
+"2026-TX-SS26":{
+"key":"state_senate:26",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"26",
+"seat":null,
+"special":0,
+"names":[
+[
+"José Menéndez",
+"Democratic"
+],
+[
+"Julián Villarreal",
+"Green"
+]
+]
+},
+"2026-TX-SS28":{
+"key":"state_senate:28",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"28",
+"seat":null,
+"special":0,
+"names":[
+[
+"Charles Perry",
+"Republican"
+],
+[
+"Riley Rodriquez",
+"Democratic"
+]
+]
+},
+"2026-TX-SS3":{
+"key":"state_senate:3",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"3",
+"seat":null,
+"special":0,
+"names":[
+[
+"Trent Ashby",
+"Republican"
+],
+[
+"Bobby Tillman",
+"Democratic"
+]
+]
+},
+"2026-TX-SS31":{
+"key":"state_senate:31",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"31",
+"seat":null,
+"special":0,
+"names":[
+[
+"Kevin Sparks",
+"Republican"
+],
+[
+"John Betancourt",
+"Democratic"
+]
+]
+},
+"2026-TX-SS4":{
+"key":"state_senate:4",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"4",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brett W. Ligon",
+"Republican"
+],
+[
+"Ron C. Angeletti",
+"Democratic"
+]
+]
+},
+"2026-TX-SS5":{
+"key":"state_senate:5",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"5",
+"seat":null,
+"special":0,
+"names":[
+[
+"Charles Schwertner",
+"Republican"
+],
+[
+"Paul Thomasson",
+"Democratic"
+]
+]
+},
+"2026-TX-SS9":{
+"key":"state_senate:9",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"9",
+"seat":null,
+"special":0,
+"names":[
+[
+"Leigh Wambsganss",
+"Republican"
+],
+[
+"Taylor Rehmet",
+"Democratic"
+]
+]
+}
+},
+"keys":{
+"agriculture_commissioner":"2026-TX-AGR",
+"attorney_general":"2026-TX-AG",
+"comptroller":"2026-TX-COMP",
+"court_of_appeals:10:place 2":"2026-TX-COA10-2",
+"court_of_appeals:11:place 2":"2026-TX-COA11-2",
+"court_of_appeals:12:chief justice":"2026-TX-COA12-CJ",
+"court_of_appeals:12:place 3:unexpired":"2026-TX-COA12-3-UNEXP",
+"court_of_appeals:13:place 6":"2026-TX-COA13-6",
+"court_of_appeals:14:chief justice":"2026-TX-COA14-CJ",
+"court_of_appeals:14:place 7":"2026-TX-COA14-7",
+"court_of_appeals:15:chief justice":"2026-TX-COA15-CJ",
+"court_of_appeals:15:place 2":"2026-TX-COA15-2",
+"court_of_appeals:15:place 3":"2026-TX-COA15-3",
+"court_of_appeals:1:place 3":"2026-TX-COA1-3",
+"court_of_appeals:1:place 4:unexpired":"2026-TX-COA1-4-UNEXP",
+"court_of_appeals:1:place 5":"2026-TX-COA1-5",
+"court_of_appeals:2:place 2":"2026-TX-COA2-2",
+"court_of_appeals:2:place 7":"2026-TX-COA2-7",
+"court_of_appeals:3:chief justice":"2026-TX-COA3-CJ",
+"court_of_appeals:4:chief justice":"2026-TX-COA4-CJ",
+"court_of_appeals:5:place 3":"2026-TX-COA5-3",
+"court_of_appeals:5:place 6":"2026-TX-COA5-6",
+"court_of_appeals:5:place 8":"2026-TX-COA5-8",
+"court_of_appeals:6:place 3":"2026-TX-COA6-3",
+"court_of_appeals:7:chief justice":"2026-TX-COA7-CJ",
+"court_of_appeals:7:place 2:unexpired":"2026-TX-COA7-2-UNEXP",
+"court_of_appeals:8:chief justice":"2026-TX-COA8-CJ",
+"court_of_appeals:9:chief justice":"2026-TX-COA9-CJ",
+"court_of_criminal_appeals:3":"2026-TX-CCA3",
+"court_of_criminal_appeals:4":"2026-TX-CCA4",
+"court_of_criminal_appeals:9":"2026-TX-CCA9",
+"governor":"2026-TX-GOV",
+"land_commissioner":"2026-TX-GLO",
+"lieutenant_governor":"2026-TX-LTG",
+"railroad_commissioner":"2026-TX-RRC",
+"state_board_of_education:13":"2026-TX-SBOE13",
+"state_board_of_education:14":"2026-TX-SBOE14",
+"state_board_of_education:2":"2026-TX-SBOE2",
+"state_board_of_education:4":"2026-TX-SBOE4-UNEXP",
+"state_board_of_education:5":"2026-TX-SBOE5",
+"state_board_of_education:6":"2026-TX-SBOE6",
+"state_board_of_education:7":"2026-TX-SBOE7",
+"state_board_of_education:8":"2026-TX-SBOE8",
+"state_board_of_education:9":"2026-TX-SBOE9",
+"state_house:1":"2026-TX-SH1",
+"state_house:10":"2026-TX-SH10",
+"state_house:100":"2026-TX-SH100",
+"state_house:101":"2026-TX-SH101",
+"state_house:102":"2026-TX-SH102",
+"state_house:103":"2026-TX-SH103",
+"state_house:104":"2026-TX-SH104",
+"state_house:105":"2026-TX-SH105",
+"state_house:106":"2026-TX-SH106",
+"state_house:107":"2026-TX-SH107",
+"state_house:108":"2026-TX-SH108",
+"state_house:109":"2026-TX-SH109",
+"state_house:11":"2026-TX-SH11",
+"state_house:110":"2026-TX-SH110",
+"state_house:111":"2026-TX-SH111",
+"state_house:112":"2026-TX-SH112",
+"state_house:113":"2026-TX-SH113",
+"state_house:114":"2026-TX-SH114",
+"state_house:115":"2026-TX-SH115",
+"state_house:116":"2026-TX-SH116",
+"state_house:117":"2026-TX-SH117",
+"state_house:118":"2026-TX-SH118",
+"state_house:119":"2026-TX-SH119",
+"state_house:12":"2026-TX-SH12",
+"state_house:120":"2026-TX-SH120",
+"state_house:121":"2026-TX-SH121",
+"state_house:122":"2026-TX-SH122",
+"state_house:123":"2026-TX-SH123",
+"state_house:124":"2026-TX-SH124",
+"state_house:125":"2026-TX-SH125",
+"state_house:126":"2026-TX-SH126",
+"state_house:127":"2026-TX-SH127",
+"state_house:128":"2026-TX-SH128",
+"state_house:129":"2026-TX-SH129",
+"state_house:13":"2026-TX-SH13",
+"state_house:130":"2026-TX-SH130",
+"state_house:131":"2026-TX-SH131",
+"state_house:132":"2026-TX-SH132",
+"state_house:133":"2026-TX-SH133",
+"state_house:134":"2026-TX-SH134",
+"state_house:135":"2026-TX-SH135",
+"state_house:136":"2026-TX-SH136",
+"state_house:137":"2026-TX-SH137",
+"state_house:138":"2026-TX-SH138",
+"state_house:139":"2026-TX-SH139",
+"state_house:14":"2026-TX-SH14",
+"state_house:140":"2026-TX-SH140",
+"state_house:141":"2026-TX-SH141",
+"state_house:142":"2026-TX-SH142",
+"state_house:143":"2026-TX-SH143",
+"state_house:144":"2026-TX-SH144",
+"state_house:145":"2026-TX-SH145",
+"state_house:146":"2026-TX-SH146",
+"state_house:147":"2026-TX-SH147",
+"state_house:148":"2026-TX-SH148",
+"state_house:149":"2026-TX-SH149",
+"state_house:15":"2026-TX-SH15",
+"state_house:150":"2026-TX-SH150",
+"state_house:16":"2026-TX-SH16",
+"state_house:17":"2026-TX-SH17",
+"state_house:18":"2026-TX-SH18",
+"state_house:19":"2026-TX-SH19",
+"state_house:2":"2026-TX-SH2",
+"state_house:20":"2026-TX-SH20",
+"state_house:21":"2026-TX-SH21",
+"state_house:22":"2026-TX-SH22",
+"state_house:23":"2026-TX-SH23",
+"state_house:24":"2026-TX-SH24",
+"state_house:25":"2026-TX-SH25",
+"state_house:26":"2026-TX-SH26",
+"state_house:27":"2026-TX-SH27",
+"state_house:28":"2026-TX-SH28",
+"state_house:29":"2026-TX-SH29",
+"state_house:3":"2026-TX-SH3",
+"state_house:30":"2026-TX-SH30",
+"state_house:31":"2026-TX-SH31",
+"state_house:32":"2026-TX-SH32",
+"state_house:33":"2026-TX-SH33",
+"state_house:34":"2026-TX-SH34",
+"state_house:35":"2026-TX-SH35",
+"state_house:36":"2026-TX-SH36",
+"state_house:37":"2026-TX-SH37",
+"state_house:38":"2026-TX-SH38",
+"state_house:39":"2026-TX-SH39",
+"state_house:4":"2026-TX-SH4",
+"state_house:40":"2026-TX-SH40",
+"state_house:41":"2026-TX-SH41",
+"state_house:42":"2026-TX-SH42",
+"state_house:43":"2026-TX-SH43",
+"state_house:44":"2026-TX-SH44",
+"state_house:45":"2026-TX-SH45",
+"state_house:46":"2026-TX-SH46",
+"state_house:47":"2026-TX-SH47",
+"state_house:48":"2026-TX-SH48",
+"state_house:49":"2026-TX-SH49",
+"state_house:5":"2026-TX-SH5",
+"state_house:50":"2026-TX-SH50",
+"state_house:51":"2026-TX-SH51",
+"state_house:52":"2026-TX-SH52",
+"state_house:53":"2026-TX-SH53",
+"state_house:54":"2026-TX-SH54",
+"state_house:55":"2026-TX-SH55",
+"state_house:56":"2026-TX-SH56",
+"state_house:57":"2026-TX-SH57",
+"state_house:58":"2026-TX-SH58",
+"state_house:59":"2026-TX-SH59",
+"state_house:6":"2026-TX-SH6",
+"state_house:60":"2026-TX-SH60",
+"state_house:61":"2026-TX-SH61",
+"state_house:62":"2026-TX-SH62",
+"state_house:63":"2026-TX-SH63",
+"state_house:64":"2026-TX-SH64",
+"state_house:65":"2026-TX-SH65",
+"state_house:66":"2026-TX-SH66",
+"state_house:67":"2026-TX-SH67",
+"state_house:68":"2026-TX-SH68",
+"state_house:69":"2026-TX-SH69",
+"state_house:7":"2026-TX-SH7",
+"state_house:70":"2026-TX-SH70",
+"state_house:71":"2026-TX-SH71",
+"state_house:72":"2026-TX-SH72",
+"state_house:73":"2026-TX-SH73",
+"state_house:74":"2026-TX-SH74",
+"state_house:75":"2026-TX-SH75",
+"state_house:76":"2026-TX-SH76",
+"state_house:77":"2026-TX-SH77",
+"state_house:78":"2026-TX-SH78",
+"state_house:79":"2026-TX-SH79",
+"state_house:8":"2026-TX-SH8",
+"state_house:80":"2026-TX-SH80",
+"state_house:81":"2026-TX-SH81",
+"state_house:82":"2026-TX-SH82",
+"state_house:83":"2026-TX-SH83",
+"state_house:84":"2026-TX-SH84",
+"state_house:85":"2026-TX-SH85",
+"state_house:86":"2026-TX-SH86",
+"state_house:87":"2026-TX-SH87",
+"state_house:88":"2026-TX-SH88",
+"state_house:89":"2026-TX-SH89",
+"state_house:9":"2026-TX-SH9",
+"state_house:90":"2026-TX-SH90",
+"state_house:91":"2026-TX-SH91",
+"state_house:92":"2026-TX-SH92",
+"state_house:93":"2026-TX-SH93",
+"state_house:94":"2026-TX-SH94",
+"state_house:95":"2026-TX-SH95",
+"state_house:96":"2026-TX-SH96",
+"state_house:97":"2026-TX-SH97",
+"state_house:98":"2026-TX-SH98",
+"state_house:99":"2026-TX-SH99",
+"state_senate:1":"2026-TX-SS1",
+"state_senate:11":"2026-TX-SS11",
+"state_senate:13":"2026-TX-SS13",
+"state_senate:18":"2026-TX-SS18",
+"state_senate:19":"2026-TX-SS19",
+"state_senate:2":"2026-TX-SS2",
+"state_senate:21":"2026-TX-SS21",
+"state_senate:22":"2026-TX-SS22",
+"state_senate:24":"2026-TX-SS24",
+"state_senate:26":"2026-TX-SS26",
+"state_senate:28":"2026-TX-SS28",
+"state_senate:3":"2026-TX-SS3",
+"state_senate:31":"2026-TX-SS31",
+"state_senate:4":"2026-TX-SS4",
+"state_senate:5":"2026-TX-SS5",
+"state_senate:9":"2026-TX-SS9",
+"supreme_court:2:unexpired":"2026-TX-SC2-UNEXP",
+"supreme_court:7":"2026-TX-SC7",
+"supreme_court:8":"2026-TX-SC8",
+"supreme_court:chief":"2026-TX-SCCJ",
+"us_house:1":"2026-TX-H01",
+"us_house:10":"2026-TX-H10",
+"us_house:11":"2026-TX-H11",
+"us_house:12":"2026-TX-H12",
+"us_house:13":"2026-TX-H13",
+"us_house:14":"2026-TX-H14",
+"us_house:15":"2026-TX-H15",
+"us_house:16":"2026-TX-H16",
+"us_house:17":"2026-TX-H17",
+"us_house:18":"2026-TX-H18",
+"us_house:19":"2026-TX-H19",
+"us_house:2":"2026-TX-H02",
+"us_house:20":"2026-TX-H20",
+"us_house:21":"2026-TX-H21",
+"us_house:22":"2026-TX-H22",
+"us_house:23":"2026-TX-H23",
+"us_house:24":"2026-TX-H24",
+"us_house:25":"2026-TX-H25",
+"us_house:26":"2026-TX-H26",
+"us_house:27":"2026-TX-H27",
+"us_house:28":"2026-TX-H28",
+"us_house:29":"2026-TX-H29",
+"us_house:3":"2026-TX-H03",
+"us_house:30":"2026-TX-H30",
+"us_house:31":"2026-TX-H31",
+"us_house:32":"2026-TX-H32",
+"us_house:33":"2026-TX-H33",
+"us_house:34":"2026-TX-H34",
+"us_house:35":"2026-TX-H35",
+"us_house:36":"2026-TX-H36",
+"us_house:37":"2026-TX-H37",
+"us_house:38":"2026-TX-H38",
+"us_house:4":"2026-TX-H04",
+"us_house:5":"2026-TX-H05",
+"us_house:6":"2026-TX-H06",
+"us_house:7":"2026-TX-H07",
+"us_house:8":"2026-TX-H08",
+"us_house:9":"2026-TX-H09",
+"us_senate":"2026-TX-S2"
+},
+"keys_shared":[],
+"posted":{},
+"posted_not_tied":[],
+"races_not_in_posted_list":[],
+"printed_lines_not_tied":[],
+"posted_out_of_scope":[]
+}

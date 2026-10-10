@@ -1,0 +1,5542 @@
+{
+ "built": "2026-10-10",
+ "checked": [
+  {
+   "by_level": {
+    "federal": 14,
+    "legislature": 236
+   },
+   "certified_primary": {
+    "candidates": 0,
+    "contests": 0,
+    "differences": []
+   },
+   "contests_tied": 250,
+   "election": "2024NovGen",
+   "lines_tied": "0 of 377",
+   "notes": [],
+   "nov3": false,
+   "problems": [],
+   "read": "2026-10-10",
+   "store": "ok",
+   "unmatched_by_reason": {
+    "a ballot question, not a contest between people": 3,
+    "a county, city or district office; not read here yet": 41,
+    "no race for President in 2026": 1
+   }
+  },
+  {
+   "by_level": {
+    "federal": 30,
+    "legislature": 392,
+    "statewide": 16
+   },
+   "certified_primary": {
+    "candidates": 367,
+    "contests": 129,
+    "differences": []
+   },
+   "contests_tied": 438,
+   "election": "GeneralPrimary51926",
+   "lines_tied": "367 of 678",
+   "notes": [],
+   "nov3": false,
+   "problems": [],
+   "read": "2026-10-10",
+   "store": "ok",
+   "unmatched_by_reason": {
+    "a ballot question, not a contest between people": 10,
+    "a county, city or district office; not read here yet": 10,
+    "a judicial contest; not read here yet": 92,
+    "not an office this reader ties to a race (Congress, statewide, Legislature)": 4
+   }
+  }
+ ],
+ "contests": {},
+ "counties": {
+  "appling": "13001",
+  "appling county": "13001",
+  "atkinson": "13003",
+  "atkinson county": "13003",
+  "bacon": "13005",
+  "bacon county": "13005",
+  "baker": "13007",
+  "baker county": "13007",
+  "baldwin": "13009",
+  "baldwin county": "13009",
+  "banks": "13011",
+  "banks county": "13011",
+  "barrow": "13013",
+  "barrow county": "13013",
+  "bartow": "13015",
+  "bartow county": "13015",
+  "ben hill": "13017",
+  "ben hill county": "13017",
+  "berrien": "13019",
+  "berrien county": "13019",
+  "bibb": "13021",
+  "bibb county": "13021",
+  "bleckley": "13023",
+  "bleckley county": "13023",
+  "brantley": "13025",
+  "brantley county": "13025",
+  "brooks": "13027",
+  "brooks county": "13027",
+  "bryan": "13029",
+  "bryan county": "13029",
+  "bulloch": "13031",
+  "bulloch county": "13031",
+  "burke": "13033",
+  "burke county": "13033",
+  "butts": "13035",
+  "butts county": "13035",
+  "calhoun": "13037",
+  "calhoun county": "13037",
+  "camden": "13039",
+  "camden county": "13039",
+  "candler": "13043",
+  "candler county": "13043",
+  "carroll": "13045",
+  "carroll county": "13045",
+  "catoosa": "13047",
+  "catoosa county": "13047",
+  "charlton": "13049",
+  "charlton county": "13049",
+  "chatham": "13051",
+  "chatham county": "13051",
+  "chattahoochee": "13053",
+  "chattahoochee county": "13053",
+  "chattooga": "13055",
+  "chattooga county": "13055",
+  "cherokee": "13057",
+  "cherokee county": "13057",
+  "clarke": "13059",
+  "clarke county": "13059",
+  "clay": "13061",
+  "clay county": "13061",
+  "clayton": "13063",
+  "clayton county": "13063",
+  "clinch": "13065",
+  "clinch county": "13065",
+  "cobb": "13067",
+  "cobb county": "13067",
+  "coffee": "13069",
+  "coffee county": "13069",
+  "colquitt": "13071",
+  "colquitt county": "13071",
+  "columbia": "13073",
+  "columbia county": "13073",
+  "cook": "13075",
+  "cook county": "13075",
+  "coweta": "13077",
+  "coweta county": "13077",
+  "crawford": "13079",
+  "crawford county": "13079",
+  "crisp": "13081",
+  "crisp county": "13081",
+  "dade": "13083",
+  "dade county": "13083",
+  "dawson": "13085",
+  "dawson county": "13085",
+  "decatur": "13087",
+  "decatur county": "13087",
+  "dekalb": "13089",
+  "dekalb county": "13089",
+  "dodge": "13091",
+  "dodge county": "13091",
+  "dooly": "13093",
+  "dooly county": "13093",
+  "dougherty": "13095",
+  "dougherty county": "13095",
+  "douglas": "13097",
+  "douglas county": "13097",
+  "early": "13099",
+  "early county": "13099",
+  "echols": "13101",
+  "echols county": "13101",
+  "effingham": "13103",
+  "effingham county": "13103",
+  "elbert": "13105",
+  "elbert county": "13105",
+  "emanuel": "13107",
+  "emanuel county": "13107",
+  "evans": "13109",
+  "evans county": "13109",
+  "fannin": "13111",
+  "fannin county": "13111",
+  "fayette": "13113",
+  "fayette county": "13113",
+  "floyd": "13115",
+  "floyd county": "13115",
+  "forsyth": "13117",
+  "forsyth county": "13117",
+  "franklin": "13119",
+  "franklin county": "13119",
+  "fulton": "13121",
+  "fulton county": "13121",
+  "gilmer": "13123",
+  "gilmer county": "13123",
+  "glascock": "13125",
+  "glascock county": "13125",
+  "glynn": "13127",
+  "glynn county": "13127",
+  "gordon": "13129",
+  "gordon county": "13129",
+  "grady": "13131",
+  "grady county": "13131",
+  "greene": "13133",
+  "greene county": "13133",
+  "gwinnett": "13135",
+  "gwinnett county": "13135",
+  "habersham": "13137",
+  "habersham county": "13137",
+  "hall": "13139",
+  "hall county": "13139",
+  "hancock": "13141",
+  "hancock county": "13141",
+  "haralson": "13143",
+  "haralson county": "13143",
+  "harris": "13145",
+  "harris county": "13145",
+  "hart": "13147",
+  "hart county": "13147",
+  "heard": "13149",
+  "heard county": "13149",
+  "henry": "13151",
+  "henry county": "13151",
+  "houston": "13153",
+  "houston county": "13153",
+  "irwin": "13155",
+  "irwin county": "13155",
+  "jackson": "13157",
+  "jackson county": "13157",
+  "jasper": "13159",
+  "jasper county": "13159",
+  "jeff davis": "13161",
+  "jeff davis county": "13161",
+  "jefferson": "13163",
+  "jefferson county": "13163",
+  "jenkins": "13165",
+  "jenkins county": "13165",
+  "johnson": "13167",
+  "johnson county": "13167",
+  "jones": "13169",
+  "jones county": "13169",
+  "lamar": "13171",
+  "lamar county": "13171",
+  "lanier": "13173",
+  "lanier county": "13173",
+  "laurens": "13175",
+  "laurens county": "13175",
+  "lee": "13177",
+  "lee county": "13177",
+  "liberty": "13179",
+  "liberty county": "13179",
+  "lincoln": "13181",
+  "lincoln county": "13181",
+  "long": "13183",
+  "long county": "13183",
+  "lowndes": "13185",
+  "lowndes county": "13185",
+  "lumpkin": "13187",
+  "lumpkin county": "13187",
+  "macon": "13193",
+  "macon county": "13193",
+  "madison": "13195",
+  "madison county": "13195",
+  "marion": "13197",
+  "marion county": "13197",
+  "mcduffie": "13189",
+  "mcduffie county": "13189",
+  "mcintosh": "13191",
+  "mcintosh county": "13191",
+  "meriwether": "13199",
+  "meriwether county": "13199",
+  "miller": "13201",
+  "miller county": "13201",
+  "mitchell": "13205",
+  "mitchell county": "13205",
+  "monroe": "13207",
+  "monroe county": "13207",
+  "montgomery": "13209",
+  "montgomery county": "13209",
+  "morgan": "13211",
+  "morgan county": "13211",
+  "murray": "13213",
+  "murray county": "13213",
+  "muscogee": "13215",
+  "muscogee county": "13215",
+  "newton": "13217",
+  "newton county": "13217",
+  "oconee": "13219",
+  "oconee county": "13219",
+  "oglethorpe": "13221",
+  "oglethorpe county": "13221",
+  "paulding": "13223",
+  "paulding county": "13223",
+  "peach": "13225",
+  "peach county": "13225",
+  "pickens": "13227",
+  "pickens county": "13227",
+  "pierce": "13229",
+  "pierce county": "13229",
+  "pike": "13231",
+  "pike county": "13231",
+  "polk": "13233",
+  "polk county": "13233",
+  "pulaski": "13235",
+  "pulaski county": "13235",
+  "putnam": "13237",
+  "putnam county": "13237",
+  "quitman": "13239",
+  "quitman county": "13239",
+  "rabun": "13241",
+  "rabun county": "13241",
+  "randolph": "13243",
+  "randolph county": "13243",
+  "richmond": "13245",
+  "richmond county": "13245",
+  "rockdale": "13247",
+  "rockdale county": "13247",
+  "schley": "13249",
+  "schley county": "13249",
+  "screven": "13251",
+  "screven county": "13251",
+  "seminole": "13253",
+  "seminole county": "13253",
+  "spalding": "13255",
+  "spalding county": "13255",
+  "stephens": "13257",
+  "stephens county": "13257",
+  "stewart": "13259",
+  "stewart county": "13259",
+  "sumter": "13261",
+  "sumter county": "13261",
+  "talbot": "13263",
+  "talbot county": "13263",
+  "taliaferro": "13265",
+  "taliaferro county": "13265",
+  "tattnall": "13267",
+  "tattnall county": "13267",
+  "taylor": "13269",
+  "taylor county": "13269",
+  "telfair": "13271",
+  "telfair county": "13271",
+  "terrell": "13273",
+  "terrell county": "13273",
+  "thomas": "13275",
+  "thomas county": "13275",
+  "tift": "13277",
+  "tift county": "13277",
+  "toombs": "13279",
+  "toombs county": "13279",
+  "towns": "13281",
+  "towns county": "13281",
+  "treutlen": "13283",
+  "treutlen county": "13283",
+  "troup": "13285",
+  "troup county": "13285",
+  "turner": "13287",
+  "turner county": "13287",
+  "twiggs": "13289",
+  "twiggs county": "13289",
+  "union": "13291",
+  "union county": "13291",
+  "upson": "13293",
+  "upson county": "13293",
+  "walker": "13295",
+  "walker county": "13295",
+  "walton": "13297",
+  "walton county": "13297",
+  "ware": "13299",
+  "ware county": "13299",
+  "warren": "13301",
+  "warren county": "13301",
+  "washington": "13303",
+  "washington county": "13303",
+  "wayne": "13305",
+  "wayne county": "13305",
+  "webster": "13307",
+  "webster county": "13307",
+  "wheeler": "13309",
+  "wheeler county": "13309",
+  "white": "13311",
+  "white county": "13311",
+  "whitfield": "13313",
+  "whitfield county": "13313",
+  "wilcox": "13315",
+  "wilcox county": "13315",
+  "wilkes": "13317",
+  "wilkes county": "13317",
+  "wilkinson": "13319",
+  "wilkinson county": "13319",
+  "worth": "13321",
+  "worth county": "13321"
+ },
+ "races": {
+  "2026-GA-AG": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Robert \"Bob\" Trammell",
+      "Democratic",
+      0
+     ],
+     [
+      "Tanya Miller",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Bill Cowsert",
+      "Republican",
+      0
+     ],
+     [
+      "Brian Strickland",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "attorney_general",
+   "level": "statewide",
+   "office": "Attorney General",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-AGR": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Katherine E. Juhan-Arnold",
+      "Democratic",
+      0
+     ],
+     [
+      "Sedrick Kent Rowe, Jr.",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "agriculture_commissioner",
+   "level": "statewide",
+   "office": "Commissioner of Agriculture",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-GOV": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Amanda Duffy",
+      "Democratic",
+      0
+     ],
+     [
+      "Derrick Jackson",
+      "Democratic",
+      0
+     ],
+     [
+      "Geoff Duncan",
+      "Democratic",
+      0
+     ],
+     [
+      "Jason Esteves",
+      "Democratic",
+      0
+     ],
+     [
+      "Keisha Lance Bottoms",
+      "Democratic",
+      0
+     ],
+     [
+      "Michael \"Mike\" Thurmond",
+      "Democratic",
+      0
+     ],
+     [
+      "Olu Brown",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Brad Raffensperger",
+      "Republican",
+      0
+     ],
+     [
+      "Burt Jones",
+      "Republican",
+      0
+     ],
+     [
+      "Chris Carr",
+      "Republican",
+      0
+     ],
+     [
+      "Clark Dean",
+      "Republican",
+      0
+     ],
+     [
+      "Gregg Kirkpatrick",
+      "Republican",
+      0
+     ],
+     [
+      "Ken Yasger",
+      "Republican",
+      0
+     ],
+     [
+      "Rick Jackson",
+      "Republican",
+      0
+     ],
+     [
+      "Tom Williams",
+      "Republican",
+      0
+     ]
+    ],
+    "runoff-REP": [
+     [
+      "Burt Jones",
+      "Republican",
+      0
+     ],
+     [
+      "Rick Jackson",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "governor",
+   "level": "statewide",
+   "office": "Governor",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-H01": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Amanda Hollowell",
+      "Democratic",
+      0
+     ],
+     [
+      "Defonsio Daniels",
+      "Democratic",
+      0
+     ],
+     [
+      "Joey Palimeno",
+      "Democratic",
+      0
+     ],
+     [
+      "Joyce Marie Griggs",
+      "Democratic",
+      0
+     ],
+     [
+      "Michael McCord",
+      "Democratic",
+      0
+     ],
+     [
+      "Patrick J. Wilver",
+      "Democratic",
+      0
+     ],
+     [
+      "Randy Zurcher",
+      "Democratic",
+      0
+     ],
+     [
+      "Sharon Stokes Williamson",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Brian Montgomery",
+      "Republican",
+      0
+     ],
+     [
+      "Eugene Yu",
+      "Republican",
+      0
+     ],
+     [
+      "James \"Jim\" Kingston",
+      "Republican",
+      0
+     ],
+     [
+      "Kandiss Taylor",
+      "Republican",
+      0
+     ],
+     [
+      "Krista Penn",
+      "Republican",
+      0
+     ],
+     [
+      "Pat Farrell",
+      "Republican",
+      0
+     ]
+    ],
+    "runoff-DEM": [
+     [
+      "Amanda Hollowell",
+      "Democratic",
+      0
+     ],
+     [
+      "Joyce Marie Griggs",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "01",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-H02": {
+   "cands": {},
+   "district": "02",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-H03": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "George Melville Johnson",
+      "Democratic",
+      0
+     ],
+     [
+      "Maura Keller",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "03",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-H04": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Ansel Postell",
+      "Democratic",
+      0
+     ],
+     [
+      "Ben Truman",
+      "Democratic",
+      0
+     ],
+     [
+      "Henry \"Hank\" Johnson, Jr.",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "04",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-H05": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Arnetress Beatty",
+      "Democratic",
+      0
+     ],
+     [
+      "Nikema Williams",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "05",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-H06": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Justin Pinker",
+      "Republican",
+      0
+     ],
+     [
+      "Kevin E. Martin",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "06",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-H07": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Case Norton",
+      "Democratic",
+      0
+     ],
+     [
+      "Jayson Toweh",
+      "Democratic",
+      0
+     ],
+     [
+      "Larry D. Long",
+      "Democratic",
+      0
+     ],
+     [
+      "Tony Kozycki",
+      "Democratic",
+      0
+     ]
+    ],
+    "runoff-DEM": [
+     [
+      "Case Norton",
+      "Democratic",
+      0
+     ],
+     [
+      "Tony Kozycki",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "07",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-H08": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Justin M. Lucas",
+      "Democratic",
+      0
+     ],
+     [
+      "Kelly Esti",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "08",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-H09": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Caitlyn Gegen",
+      "Democratic",
+      0
+     ],
+     [
+      "Nick Alex",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Andrew Clyde",
+      "Republican",
+      0
+     ],
+     [
+      "Gregg Poole",
+      "Republican",
+      0
+     ],
+     [
+      "Sam Couvillon",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "09",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-H10": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Alexandra \"Lexy\" Doherty",
+      "Democratic",
+      0
+     ],
+     [
+      "John Dority",
+      "Democratic",
+      0
+     ],
+     [
+      "Pamela \"Pam\" Delancy",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Houston Gaines",
+      "Republican",
+      0
+     ],
+     [
+      "Jeff Baker",
+      "Republican",
+      0
+     ],
+     [
+      "Ryan Millsap",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "10",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-H11": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Barry Wolfert",
+      "Democratic",
+      0
+     ],
+     [
+      "Chris Harden",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Chris Mora",
+      "Republican",
+      0
+     ],
+     [
+      "John Cowan",
+      "Republican",
+      0
+     ],
+     [
+      "John Hobbs",
+      "Republican",
+      0
+     ],
+     [
+      "Lisa Carlquist",
+      "Republican",
+      0
+     ],
+     [
+      "Rob Adkerson",
+      "Republican",
+      0
+     ],
+     [
+      "Tricia Pridemore",
+      "Republican",
+      0
+     ],
+     [
+      "Uloma Ekpete Kama",
+      "Republican",
+      0
+     ]
+    ],
+    "runoff-REP": [
+     [
+      "John Cowan",
+      "Republican",
+      0
+     ],
+     [
+      "Rob Adkerson",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "11",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-H12": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Brianna Woodson",
+      "Democratic",
+      0
+     ],
+     [
+      "Ceretta Smith",
+      "Democratic",
+      0
+     ],
+     [
+      "Chris Stephens",
+      "Democratic",
+      0
+     ],
+     [
+      "Tracell Peace-Nichols",
+      "Democratic",
+      0
+     ],
+     [
+      "Traci \"Acree\" George",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Rick W. Allen",
+      "Republican",
+      0
+     ],
+     [
+      "Tori Branum",
+      "Republican",
+      0
+     ]
+    ],
+    "runoff-DEM": [
+     [
+      "Ceretta Smith",
+      "Democratic",
+      0
+     ],
+     [
+      "Traci \"Acree\" George",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "12",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-H13": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Emanuel D Jones",
+      "Democratic",
+      0
+     ],
+     [
+      "Everton \"EJ\" Blair",
+      "Democratic",
+      0
+     ],
+     [
+      "Heavenly Kimes",
+      "Democratic",
+      0
+     ],
+     [
+      "Jasmine Clark",
+      "Democratic",
+      0
+     ],
+     [
+      "Jeff Fauntleroy Sr.",
+      "Democratic",
+      0
+     ],
+     [
+      "Joe N. Lester",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "13",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-H14": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Beau Brown",
+      "Republican",
+      0
+     ],
+     [
+      "Brian Stover",
+      "Republican",
+      0
+     ],
+     [
+      "Clay Fuller",
+      "Republican",
+      0
+     ],
+     [
+      "Colton Moore",
+      "Republican",
+      0
+     ],
+     [
+      "Nicky Lama",
+      "Republican",
+      0
+     ],
+     [
+      "Reagan Box",
+      "Republican",
+      0
+     ],
+     [
+      "Star Black",
+      "Republican",
+      0
+     ],
+     [
+      "Tom Gray",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "14",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-INS": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Ambuj \"AJ\" Jain",
+      "Democratic",
+      0
+     ],
+     [
+      "Clarence Blalock",
+      "Democratic",
+      0
+     ],
+     [
+      "DeAndre Mathis",
+      "Democratic",
+      0
+     ],
+     [
+      "Keisha Sean Waites",
+      "Democratic",
+      0
+     ],
+     [
+      "Thomas Dean",
+      "Democratic",
+      0
+     ]
+    ],
+    "runoff-DEM": [
+     [
+      "DeAndre Mathis",
+      "Democratic",
+      0
+     ],
+     [
+      "Keisha Sean Waites",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "insurance_commissioner",
+   "level": "statewide",
+   "office": "Commissioner of Insurance",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-LAB": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Brett A. Hulme",
+      "Democratic",
+      0
+     ],
+     [
+      "Christian Wise Smith",
+      "Democratic",
+      0
+     ],
+     [
+      "Jason Moon",
+      "Democratic",
+      0
+     ],
+     [
+      "Michelle Michi Sanchez",
+      "Democratic",
+      0
+     ],
+     [
+      "Nikki Porcher",
+      "Democratic",
+      0
+     ]
+    ],
+    "runoff-DEM": [
+     [
+      "Michelle Michi Sanchez",
+      "Democratic",
+      0
+     ],
+     [
+      "Nikki Porcher",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "labor_commissioner",
+   "level": "statewide",
+   "office": "Commissioner of Labor",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-LTG": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Josh McLaurin",
+      "Democratic",
+      0
+     ],
+     [
+      "Nabilah Parkes",
+      "Democratic",
+      0
+     ],
+     [
+      "Richard N. Wright",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Blake Tillery",
+      "Republican",
+      0
+     ],
+     [
+      "Brenda Lynn Nelson-Porter",
+      "Republican",
+      0
+     ],
+     [
+      "David Clark",
+      "Republican",
+      0
+     ],
+     [
+      "Greg Dolezal",
+      "Republican",
+      0
+     ],
+     [
+      "John F. Kennedy",
+      "Republican",
+      0
+     ],
+     [
+      "Steve Gooch",
+      "Republican",
+      0
+     ],
+     [
+      "Takosha Swan",
+      "Republican",
+      0
+     ]
+    ],
+    "runoff-DEM": [
+     [
+      "Josh McLaurin",
+      "Democratic",
+      0
+     ],
+     [
+      "Nabilah Parkes",
+      "Democratic",
+      0
+     ]
+    ],
+    "runoff-REP": [
+     [
+      "Greg Dolezal",
+      "Republican",
+      0
+     ],
+     [
+      "John F. Kennedy",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "lieutenant_governor",
+   "level": "statewide",
+   "office": "Lieutenant Governor",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-PSC3": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Brandon Martin",
+      "Republican",
+      0
+     ],
+     [
+      "Fitz Johnson",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "public_service_commissioner",
+   "level": "statewide",
+   "office": "Public Service Commissioner",
+   "partisan": 1,
+   "seat": "District 3",
+   "special": 0
+  },
+  "2026-GA-PSC5": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Angelia Pressley",
+      "Democratic",
+      0
+     ],
+     [
+      "Craig Cupid",
+      "Democratic",
+      0
+     ],
+     [
+      "Shelia Edwards",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Bobby Mehan",
+      "Republican",
+      0
+     ],
+     [
+      "Carolyn Tatum Roddy",
+      "Republican",
+      0
+     ],
+     [
+      "Josh Tolbert",
+      "Republican",
+      0
+     ]
+    ],
+    "runoff-REP": [
+     [
+      "Bobby Mehan",
+      "Republican",
+      0
+     ],
+     [
+      "Josh Tolbert",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "public_service_commissioner",
+   "level": "statewide",
+   "office": "Public Service Commissioner",
+   "partisan": 1,
+   "seat": "District 5",
+   "special": 0
+  },
+  "2026-GA-S2": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Derek Dooley",
+      "Republican",
+      0
+     ],
+     [
+      "Earl L. \"Buddy\" Carter",
+      "Republican",
+      0
+     ],
+     [
+      "John F. Coyne III",
+      "Republican",
+      0
+     ],
+     [
+      "Jonathan \"Jon\" McColumn",
+      "Republican",
+      0
+     ],
+     [
+      "Mike Collins",
+      "Republican",
+      0
+     ]
+    ],
+    "runoff-REP": [
+     [
+      "Derek Dooley",
+      "Republican",
+      0
+     ],
+     [
+      "Mike Collins",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "senate",
+   "level": "federal",
+   "office": "U.S. Senate",
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH1": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Mike Cameron",
+      "Republican",
+      0
+     ],
+     [
+      "Neal Howell",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "1",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH10": {
+   "cands": {},
+   "district": "10",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH100": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Edwin Duncan",
+      "Republican",
+      0
+     ],
+     [
+      "Josh Clark",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "100",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH101": {
+   "cands": {},
+   "district": "101",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH102": {
+   "cands": {},
+   "district": "102",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH103": {
+   "cands": {},
+   "district": "103",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH104": {
+   "cands": {},
+   "district": "104",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH105": {
+   "cands": {},
+   "district": "105",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH106": {
+   "cands": {},
+   "district": "106",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH107": {
+   "cands": {},
+   "district": "107",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH108": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Joshua C. Pressley",
+      "Democratic",
+      0
+     ],
+     [
+      "Rahim Asani",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "108",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH109": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Juan Estrada",
+      "Democratic",
+      0
+     ],
+     [
+      "Nico Parra",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "109",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH11": {
+   "cands": {},
+   "district": "11",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH110": {
+   "cands": {},
+   "district": "110",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH111": {
+   "cands": {},
+   "district": "111",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH112": {
+   "cands": {},
+   "district": "112",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH113": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Alana Sanders",
+      "Democratic",
+      0
+     ],
+     [
+      "Karla Daniels Hooper",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "113",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH114": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Brett Mauldin",
+      "Republican",
+      0
+     ],
+     [
+      "Wendell Delano McNeal",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "114",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH115": {
+   "cands": {},
+   "district": "115",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH116": {
+   "cands": {},
+   "district": "116",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH117": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Kim Thomas Smith",
+      "Democratic",
+      0
+     ],
+     [
+      "Mary Ann Santos",
+      "Democratic",
+      0
+     ],
+     [
+      "Tiffany N. Walker",
+      "Democratic",
+      0
+     ],
+     [
+      "Tony Brown",
+      "Democratic",
+      0
+     ],
+     [
+      "Vincent Williams",
+      "Democratic",
+      0
+     ]
+    ],
+    "runoff-DEM": [
+     [
+      "Kim Thomas Smith",
+      "Democratic",
+      0
+     ],
+     [
+      "Mary Ann Santos",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "117",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH118": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Jodi Lewis",
+      "Democratic",
+      0
+     ],
+     [
+      "Sharonda Bell",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "118",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH119": {
+   "cands": {},
+   "district": "119",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH12": {
+   "cands": {},
+   "district": "12",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH120": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Chad Paton",
+      "Republican",
+      0
+     ],
+     [
+      "Gary \"Ward\" Black, Jr.",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "120",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH121": {
+   "cands": {},
+   "district": "121",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH122": {
+   "cands": {},
+   "district": "122",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH123": {
+   "cands": {},
+   "district": "123",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH124": {
+   "cands": {},
+   "district": "124",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH125": {
+   "cands": {},
+   "district": "125",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH126": {
+   "cands": {},
+   "district": "126",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH127": {
+   "cands": {},
+   "district": "127",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH128": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Rameriz Lewis",
+      "Democratic",
+      0
+     ],
+     [
+      "Tyrone A. Evans",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "128",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH129": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Karlton L. Howard",
+      "Democratic",
+      0
+     ],
+     [
+      "Scott Cambers",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "129",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH13": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Katie Dempsey",
+      "Republican",
+      0
+     ],
+     [
+      "Kristie Miner",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "13",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH130": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Karen Gordon",
+      "Democratic",
+      0
+     ],
+     [
+      "LaFawn Pinkney-Mealing",
+      "Democratic",
+      0
+     ],
+     [
+      "Sha'Qunta Q. Calles",
+      "Democratic",
+      0
+     ],
+     [
+      "Sheila Clark Nelson",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "David Carson",
+      "Republican",
+      0
+     ],
+     [
+      "Thomas D. McAdams",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "130",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH131": {
+   "cands": {},
+   "district": "131",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH132": {
+   "cands": {},
+   "district": "132",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH133": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Danny Mathis",
+      "Republican",
+      0
+     ],
+     [
+      "Robert Pruitt",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "133",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH134": {
+   "cands": {},
+   "district": "134",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH135": {
+   "cands": {},
+   "district": "135",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH136": {
+   "cands": {},
+   "district": "136",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH137": {
+   "cands": {},
+   "district": "137",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH138": {
+   "cands": {},
+   "district": "138",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH139": {
+   "cands": {},
+   "district": "139",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH14": {
+   "cands": {},
+   "district": "14",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH140": {
+   "cands": {},
+   "district": "140",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH141": {
+   "cands": {},
+   "district": "141",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH142": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "George Thomas",
+      "Democratic",
+      0
+     ],
+     [
+      "Miriam Paris",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "142",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH143": {
+   "cands": {},
+   "district": "143",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH144": {
+   "cands": {},
+   "district": "144",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH145": {
+   "cands": {},
+   "district": "145",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH146": {
+   "cands": {},
+   "district": "146",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH147": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Renita A. Duncan",
+      "Democratic",
+      0
+     ],
+     [
+      "Tim Riley",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "147",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH148": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Cynthia Johnson",
+      "Democratic",
+      0
+     ],
+     [
+      "Lillie Bryant",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "148",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH149": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Floyd Griffin",
+      "Democratic",
+      0
+     ],
+     [
+      "Ross Sheppard",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "149",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH15": {
+   "cands": {},
+   "district": "15",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH150": {
+   "cands": {},
+   "district": "150",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH151": {
+   "cands": {},
+   "district": "151",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH152": {
+   "cands": {},
+   "district": "152",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH153": {
+   "cands": {},
+   "district": "153",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH154": {
+   "cands": {},
+   "district": "154",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH155": {
+   "cands": {
+    "primary-REP": [
+     [
+      "KC Cook",
+      "Republican",
+      0
+     ],
+     [
+      "Matt Hatchett",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "155",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH156": {
+   "cands": {},
+   "district": "156",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH157": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Bradley B. Anderson",
+      "Republican",
+      0
+     ],
+     [
+      "William \"Bill\" Werkheiser",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "157",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH158": {
+   "cands": {},
+   "district": "158",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH159": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Jon G. Burns",
+      "Republican",
+      0
+     ],
+     [
+      "Nathan Hooks",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "159",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH16": {
+   "cands": {},
+   "district": "16",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH160": {
+   "cands": {},
+   "district": "160",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH161": {
+   "cands": {},
+   "district": "161",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH162": {
+   "cands": {},
+   "district": "162",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH163": {
+   "cands": {},
+   "district": "163",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH164": {
+   "cands": {},
+   "district": "164",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH165": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Jaylen Jay Morris",
+      "Democratic",
+      0
+     ],
+     [
+      "Kendra Clark",
+      "Democratic",
+      0
+     ],
+     [
+      "MiQuan Green",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "165",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH166": {
+   "cands": {},
+   "district": "166",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH167": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Laurie Thompson",
+      "Democratic",
+      0
+     ],
+     [
+      "Nathaniel Hicks, Jr.",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "167",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH168": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Al Williams",
+      "Democratic",
+      0
+     ],
+     [
+      "Sabrina Newby",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "168",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH169": {
+   "cands": {},
+   "district": "169",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH17": {
+   "cands": {},
+   "district": "17",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH170": {
+   "cands": {},
+   "district": "170",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH171": {
+   "cands": {},
+   "district": "171",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH172": {
+   "cands": {},
+   "district": "172",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH173": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Adam Chitwood",
+      "Democratic",
+      0
+     ],
+     [
+      "Anue Thomas",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "173",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH174": {
+   "cands": {},
+   "district": "174",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH175": {
+   "cands": {},
+   "district": "175",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH176": {
+   "cands": {
+    "primary-REP": [
+     [
+      "James Burchett",
+      "Republican",
+      0
+     ],
+     [
+      "Michael R. Dockery",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "176",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH177": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Alvin Payton, Jr.",
+      "Democratic",
+      0
+     ],
+     [
+      "Blake Alexander Robinson",
+      "Democratic",
+      0
+     ],
+     [
+      "Elsie Cason Napier",
+      "Democratic",
+      0
+     ],
+     [
+      "Eric G Howard",
+      "Democratic",
+      0
+     ],
+     [
+      "Kristina Cheek McBride",
+      "Democratic",
+      0
+     ]
+    ],
+    "runoff-DEM": [
+     [
+      "Alvin Payton, Jr.",
+      "Democratic",
+      0
+     ],
+     [
+      "Elsie Cason Napier",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "177",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH178": {
+   "cands": {},
+   "district": "178",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH179": {
+   "cands": {},
+   "district": "179",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH18": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Frank Phillips",
+      "Republican",
+      0
+     ],
+     [
+      "Tyler Paul Smith",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "18",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH180": {
+   "cands": {},
+   "district": "180",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH19": {
+   "cands": {},
+   "district": "19",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH2": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Christian Michael Hurd",
+      "Republican",
+      0
+     ],
+     [
+      "Steve Tarvin",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "2",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH20": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Erik Zeil",
+      "Democratic",
+      0
+     ],
+     [
+      "Jason D. Tanner",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Charlice Byrd",
+      "Republican",
+      0
+     ],
+     [
+      "Mark Fernandez",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "20",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH21": {
+   "cands": {},
+   "district": "21",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH22": {
+   "cands": {},
+   "district": "22",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH23": {
+   "cands": {},
+   "district": "23",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH24": {
+   "cands": {},
+   "district": "24",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH25": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Elaine Padgett",
+      "Democratic",
+      0
+     ],
+     [
+      "Metin Vargonen",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Mathew Philip",
+      "Republican",
+      0
+     ],
+     [
+      "Todd Jones",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "25",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH26": {
+   "cands": {},
+   "district": "26",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH27": {
+   "cands": {},
+   "district": "27",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH28": {
+   "cands": {},
+   "district": "28",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH29": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Cody S. Ewing",
+      "Republican",
+      0
+     ],
+     [
+      "Matt Dubnik",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "29",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH3": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Mitchell Horner",
+      "Republican",
+      0
+     ],
+     [
+      "Nick Millwood",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "3",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH30": {
+   "cands": {},
+   "district": "30",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH31": {
+   "cands": {},
+   "district": "31",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH32": {
+   "cands": {},
+   "district": "32",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH33": {
+   "cands": {},
+   "district": "33",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH34": {
+   "cands": {},
+   "district": "34",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH35": {
+   "cands": {},
+   "district": "35",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH36": {
+   "cands": {},
+   "district": "36",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH37": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Graham Salter Bowers",
+      "Democratic",
+      0
+     ],
+     [
+      "Mary Frances Williams",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "37",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH38": {
+   "cands": {},
+   "district": "38",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH39": {
+   "cands": {},
+   "district": "39",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH4": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Jasper Manis",
+      "Republican",
+      0
+     ],
+     [
+      "Kasey Carpenter",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "4",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH40": {
+   "cands": {},
+   "district": "40",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH41": {
+   "cands": {},
+   "district": "41",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH42": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Carlos Vilela",
+      "Democratic",
+      0
+     ],
+     [
+      "Gabriel Sanchez",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "42",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH43": {
+   "cands": {},
+   "district": "43",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH44": {
+   "cands": {},
+   "district": "44",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH45": {
+   "cands": {},
+   "district": "45",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH46": {
+   "cands": {},
+   "district": "46",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH47": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Brian Cochran",
+      "Republican",
+      0
+     ],
+     [
+      "Jack Miller",
+      "Republican",
+      0
+     ],
+     [
+      "P. Phoebe Eckhardt",
+      "Republican",
+      0
+     ]
+    ],
+    "runoff-REP": [
+     [
+      "Brian Cochran",
+      "Republican",
+      0
+     ],
+     [
+      "Jack Miller",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "47",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH48": {
+   "cands": {},
+   "district": "48",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH49": {
+   "cands": {},
+   "district": "49",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH5": {
+   "cands": {},
+   "district": "5",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH50": {
+   "cands": {},
+   "district": "50",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH51": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Aaron Baker",
+      "Democratic",
+      0
+     ],
+     [
+      "Esther Panitch",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "51",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH52": {
+   "cands": {},
+   "district": "52",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH53": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Beth Fuller",
+      "Democratic",
+      0
+     ],
+     [
+      "Tim Dorr",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "53",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH54": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Betsy Holland",
+      "Democratic",
+      0
+     ],
+     [
+      "Derrick Tuff II",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "54",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH55": {
+   "cands": {},
+   "district": "55",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH56": {
+   "cands": {},
+   "district": "56",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH57": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Jeremiah Olney",
+      "Democratic",
+      0
+     ],
+     [
+      "Stacey Evans",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "57",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH58": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Demetria Henderson",
+      "Democratic",
+      0
+     ],
+     [
+      "Edith M. Ladipo",
+      "Democratic",
+      0
+     ],
+     [
+      "Kyle Lamont",
+      "Democratic",
+      0
+     ],
+     [
+      "Mathewos Samson",
+      "Democratic",
+      0
+     ]
+    ],
+    "runoff-DEM": [
+     [
+      "Demetria Henderson",
+      "Democratic",
+      0
+     ],
+     [
+      "Mathewos Samson",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "58",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH59": {
+   "cands": {},
+   "district": "59",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH6": {
+   "cands": {},
+   "district": "6",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH60": {
+   "cands": {},
+   "district": "60",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH61": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Grace McClain",
+      "Democratic",
+      0
+     ],
+     [
+      "Mekyah McQueen",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "61",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH62": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Kavon Arnold",
+      "Democratic",
+      0
+     ],
+     [
+      "Kenn Collier",
+      "Democratic",
+      0
+     ],
+     [
+      "Matt Rinker",
+      "Democratic",
+      0
+     ],
+     [
+      "W Horace Roseberry III",
+      "Democratic",
+      0
+     ]
+    ],
+    "runoff-DEM": [
+     [
+      "Kavon Arnold",
+      "Democratic",
+      0
+     ],
+     [
+      "Kenn Collier",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "62",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH63": {
+   "cands": {},
+   "district": "63",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH64": {
+   "cands": {},
+   "district": "64",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH65": {
+   "cands": {},
+   "district": "65",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH66": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Derrian Smith",
+      "Democratic",
+      0
+     ],
+     [
+      "Kimberly Alexander",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "66",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH67": {
+   "cands": {},
+   "district": "67",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH68": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Courtney Heard",
+      "Democratic",
+      0
+     ],
+     [
+      "Jane Williams",
+      "Democratic",
+      0
+     ],
+     [
+      "Jonathan Bonner",
+      "Democratic",
+      0
+     ],
+     [
+      "Mark Baker",
+      "Democratic",
+      0
+     ],
+     [
+      "Quentin \"Q\" Pullen",
+      "Democratic",
+      0
+     ],
+     [
+      "Timoria McQueen Saba",
+      "Democratic",
+      0
+     ]
+    ],
+    "runoff-DEM": [
+     [
+      "Mark Baker",
+      "Democratic",
+      0
+     ],
+     [
+      "Timoria McQueen Saba",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "68",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH69": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Cobie Lyrix Brown",
+      "Democratic",
+      0
+     ],
+     [
+      "Debra Bazemore",
+      "Democratic",
+      0
+     ],
+     [
+      "September R. Cooper",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "69",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH7": {
+   "cands": {},
+   "district": "7",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH70": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Diane Boulai",
+      "Democratic",
+      0
+     ],
+     [
+      "Pierre Whatley",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "70",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH71": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Anna Higgins",
+      "Democratic",
+      0
+     ],
+     [
+      "Brandolynn Yarbrough",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "71",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH72": {
+   "cands": {},
+   "district": "72",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH73": {
+   "cands": {},
+   "district": "73",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH74": {
+   "cands": {},
+   "district": "74",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH75": {
+   "cands": {},
+   "district": "75",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH76": {
+   "cands": {},
+   "district": "76",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH77": {
+   "cands": {},
+   "district": "77",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH78": {
+   "cands": {},
+   "district": "78",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH79": {
+   "cands": {},
+   "district": "79",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH8": {
+   "cands": {},
+   "district": "8",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH80": {
+   "cands": {},
+   "district": "80",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH81": {
+   "cands": {},
+   "district": "81",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH82": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Anthony Dickson",
+      "Democratic",
+      0
+     ],
+     [
+      "William Harris",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "82",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH83": {
+   "cands": {},
+   "district": "83",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH84": {
+   "cands": {},
+   "district": "84",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH85": {
+   "cands": {},
+   "district": "85",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH86": {
+   "cands": {},
+   "district": "86",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH87": {
+   "cands": {},
+   "district": "87",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH88": {
+   "cands": {},
+   "district": "88",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH89": {
+   "cands": {},
+   "district": "89",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH9": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Chris Dockery",
+      "Republican",
+      0
+     ],
+     [
+      "Doug Sherrill",
+      "Republican",
+      0
+     ],
+     [
+      "Wayne Rowan",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "9",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH90": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Bentley Hudgins",
+      "Democratic",
+      0
+     ],
+     [
+      "Leisa Stafford",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "90",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH91": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Angela Moore",
+      "Democratic",
+      0
+     ],
+     [
+      "Stacey Garel",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "91",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH92": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Arthur Demoine Kinney",
+      "Democratic",
+      0
+     ],
+     [
+      "Rhonda Taylor",
+      "Democratic",
+      0
+     ],
+     [
+      "Shawn Brown",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "92",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH93": {
+   "cands": {},
+   "district": "93",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH94": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Elmore Alexander",
+      "Democratic",
+      0
+     ],
+     [
+      "Ikenna Emmanuel Ugwumadu",
+      "Democratic",
+      0
+     ],
+     [
+      "Kelly Kautz",
+      "Democratic",
+      0
+     ],
+     [
+      "Venola Mason",
+      "Democratic",
+      0
+     ]
+    ],
+    "runoff-DEM": [
+     [
+      "Kelly Kautz",
+      "Democratic",
+      0
+     ],
+     [
+      "Venola Mason",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "94",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH95": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Darshun Nicole Kendrick",
+      "Democratic",
+      0
+     ],
+     [
+      "Stacy Jay Johnson",
+      "Democratic",
+      0
+     ],
+     [
+      "Zae Brewer",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "95",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH96": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Arlene Beckles",
+      "Democratic",
+      0
+     ],
+     [
+      "Tanjina Islam",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "96",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH97": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Jacques Laurent",
+      "Democratic",
+      0
+     ],
+     [
+      "Jyot Singh",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "97",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH98": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Brenda Lopez Romero",
+      "Democratic",
+      0
+     ],
+     [
+      "Marvin Lim",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "98",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SH99": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Michelle Kang",
+      "Democratic",
+      0
+     ],
+     [
+      "Shelly John Abraham",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "99",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SOS": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Adrian Consonery, Jr.",
+      "Democratic",
+      0
+     ],
+     [
+      "Cam Ashling",
+      "Democratic",
+      0
+     ],
+     [
+      "Dana Barrett",
+      "Democratic",
+      0
+     ],
+     [
+      "Penny Brown Reynolds",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Gabriel \"Gabe\" Sterling",
+      "Republican",
+      0
+     ],
+     [
+      "Kelvin King",
+      "Republican",
+      0
+     ],
+     [
+      "Ted Metz",
+      "Republican",
+      0
+     ],
+     [
+      "Tim Fleming",
+      "Republican",
+      0
+     ],
+     [
+      "Vernon Jones",
+      "Republican",
+      0
+     ]
+    ],
+    "runoff-DEM": [
+     [
+      "Dana Barrett",
+      "Democratic",
+      0
+     ],
+     [
+      "Penny Brown Reynolds",
+      "Democratic",
+      0
+     ]
+    ],
+    "runoff-REP": [
+     [
+      "Tim Fleming",
+      "Republican",
+      0
+     ],
+     [
+      "Vernon Jones",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "secretary_of_state",
+   "level": "statewide",
+   "office": "Secretary of State",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SPI": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Anton Anthony",
+      "Democratic",
+      0
+     ],
+     [
+      "Lydia Powell",
+      "Democratic",
+      0
+     ],
+     [
+      "Otha Thornton",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Fred \"Bubba\" Longgrear",
+      "Republican",
+      0
+     ],
+     [
+      "Mesha Mainor",
+      "Republican",
+      0
+     ],
+     [
+      "Nelva Lee",
+      "Republican",
+      0
+     ],
+     [
+      "Randell E. Trammell",
+      "Republican",
+      0
+     ],
+     [
+      "Richard Woods",
+      "Republican",
+      0
+     ]
+    ],
+    "runoff-REP": [
+     [
+      "Fred \"Bubba\" Longgrear",
+      "Republican",
+      0
+     ],
+     [
+      "Richard Woods",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "superintendent_of_public_instruction",
+   "level": "statewide",
+   "office": "State School Superintendent",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS1": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Barbara Gooby",
+      "Democratic",
+      0
+     ],
+     [
+      "Corey Foreman",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "1",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS10": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Gabrielle Rogers",
+      "Democratic",
+      0
+     ],
+     [
+      "Kate Denny",
+      "Democratic",
+      0
+     ],
+     [
+      "Larry Johnson",
+      "Democratic",
+      0
+     ],
+     [
+      "Sylvester Smith III",
+      "Democratic",
+      0
+     ]
+    ],
+    "runoff-DEM": [
+     [
+      "Gabrielle Rogers",
+      "Democratic",
+      0
+     ],
+     [
+      "Larry Johnson",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "10",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS11": {
+   "cands": {},
+   "district": "11",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS12": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Corey B. Morgan",
+      "Democratic",
+      0
+     ],
+     [
+      "Edward Brown",
+      "Democratic",
+      0
+     ],
+     [
+      "Tracy Taylor",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "12",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS13": {
+   "cands": {},
+   "district": "13",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS14": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Kay Howell",
+      "Democratic",
+      0
+     ],
+     [
+      "Kevin Abel",
+      "Democratic",
+      0
+     ],
+     [
+      "Nathalie J. Kanani",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Carson McQueen",
+      "Republican",
+      0
+     ],
+     [
+      "Mike Dvorscak",
+      "Republican",
+      0
+     ],
+     [
+      "Tamara Johnson-Shealey",
+      "Republican",
+      0
+     ]
+    ],
+    "runoff-DEM": [
+     [
+      "Kevin Abel",
+      "Democratic",
+      0
+     ],
+     [
+      "Nathalie J. Kanani",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "14",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS15": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Alyssa Nia Williams",
+      "Democratic",
+      0
+     ],
+     [
+      "Edward D Harbison",
+      "Democratic",
+      0
+     ],
+     [
+      "Tremaine \"Teddy\" Reese",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "15",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS16": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Pauline Henley",
+      "Democratic",
+      0
+     ],
+     [
+      "Sonya Wimberly Hawkins",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "16",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS17": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Duro Haynes",
+      "Democratic",
+      0
+     ],
+     [
+      "Gail Davenport",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "17",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS18": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Eugene Allison",
+      "Republican",
+      0
+     ],
+     [
+      "Steven McNeel",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "18",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS19": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Eddy Delgado",
+      "Democratic",
+      0
+     ],
+     [
+      "Joshua C. Wilkerson",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "David Sikes",
+      "Republican",
+      0
+     ],
+     [
+      "Dwayne Hamilton Gillis",
+      "Republican",
+      0
+     ],
+     [
+      "Travis Hodges",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "19",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS2": {
+   "cands": {},
+   "district": "2",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS20": {
+   "cands": {},
+   "district": "20",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS21": {
+   "cands": {},
+   "district": "21",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS22": {
+   "cands": {},
+   "district": "22",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS23": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Satoria \"Tony\" Ragin",
+      "Democratic",
+      0
+     ],
+     [
+      "Shayna Boston",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "23",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS24": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Catie Young",
+      "Democratic",
+      0
+     ],
+     [
+      "Lorraine V. Thomas",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "24",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS25": {
+   "cands": {},
+   "district": "25",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS26": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Nancy Hicks",
+      "Republican",
+      0
+     ],
+     [
+      "Tracy Wheeler",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "26",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS27": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Carter Patterson",
+      "Republican",
+      0
+     ],
+     [
+      "Klaus Buck",
+      "Republican",
+      0
+     ],
+     [
+      "Marc Martinelli",
+      "Republican",
+      0
+     ],
+     [
+      "Mike Dudgeon",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "27",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS28": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Donzella James",
+      "Democratic",
+      0
+     ],
+     [
+      "Mel Keyton",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "28",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS29": {
+   "cands": {},
+   "district": "29",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS3": {
+   "cands": {},
+   "district": "3",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS30": {
+   "cands": {},
+   "district": "30",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS31": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Alec Miller",
+      "Democratic",
+      0
+     ],
+     [
+      "Josh Plancher",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Daniel Davenport",
+      "Republican",
+      0
+     ],
+     [
+      "Jason R. Anavitarte",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "31",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS32": {
+   "cands": {},
+   "district": "32",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS33": {
+   "cands": {},
+   "district": "33",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS34": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Gabriel Martin",
+      "Democratic",
+      0
+     ],
+     [
+      "Kenya Wicks",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "34",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS35": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Elfreda Desvignes",
+      "Democratic",
+      0
+     ],
+     [
+      "Erica-Denise Solomon",
+      "Democratic",
+      0
+     ],
+     [
+      "Jaha V. Howard",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "35",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS36": {
+   "cands": {},
+   "district": "36",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS37": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Darcy Castro",
+      "Democratic",
+      0
+     ],
+     [
+      "Zachary Neville",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "37",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS38": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Eric Helvy",
+      "Republican",
+      0
+     ],
+     [
+      "Gregory \"Pop\" Thomas",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "38",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS39": {
+   "cands": {},
+   "district": "39",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS4": {
+   "cands": {},
+   "district": "4",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS40": {
+   "cands": {},
+   "district": "40",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS41": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Kim Jackson",
+      "Democratic",
+      0
+     ],
+     [
+      "Shenika Lavern Maddox",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "41",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS42": {
+   "cands": {},
+   "district": "42",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS43": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Donald \"Ferg\" Ferguson",
+      "Democratic",
+      0
+     ],
+     [
+      "Sharon Henderson",
+      "Democratic",
+      0
+     ],
+     [
+      "Tonya P. Anderson",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "43",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS44": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Nadine Thomas",
+      "Democratic",
+      0
+     ],
+     [
+      "Saira Draper",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "44",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS45": {
+   "cands": {},
+   "district": "45",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS46": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Ray Smith",
+      "Democratic",
+      0
+     ],
+     [
+      "William Gaulden",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Doug McKillip",
+      "Republican",
+      0
+     ],
+     [
+      "Marc McMain",
+      "Republican",
+      0
+     ],
+     [
+      "Michael Broun",
+      "Republican",
+      0
+     ]
+    ],
+    "runoff-REP": [
+     [
+      "Doug McKillip",
+      "Republican",
+      0
+     ],
+     [
+      "Marc McMain",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "46",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS47": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Frank Ginn",
+      "Republican",
+      0
+     ],
+     [
+      "Jason Black",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "47",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS48": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Laura Murvartian",
+      "Democratic",
+      0
+     ],
+     [
+      "Nathan Hombroek",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "48",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS49": {
+   "cands": {},
+   "district": "49",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS5": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Robin Emilia McCoy",
+      "Democratic",
+      0
+     ],
+     [
+      "Sheikh Rahman",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "5",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS50": {
+   "cands": {},
+   "district": "50",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS51": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Philip Milam",
+      "Republican",
+      0
+     ],
+     [
+      "Steve Shaw",
+      "Republican",
+      0
+     ],
+     [
+      "Will Wade",
+      "Republican",
+      0
+     ]
+    ],
+    "runoff-REP": [
+     [
+      "Philip Milam",
+      "Republican",
+      0
+     ],
+     [
+      "Will Wade",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "51",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS52": {
+   "cands": {},
+   "district": "52",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS53": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Blake Elsberry",
+      "Republican",
+      0
+     ],
+     [
+      "Denise Pierce Burns",
+      "Republican",
+      0
+     ],
+     [
+      "Lanny Thomas",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "53",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS54": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Chuck Payne",
+      "Republican",
+      0
+     ],
+     [
+      "Eddie Hall",
+      "Republican",
+      0
+     ],
+     [
+      "Marty Brown",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "54",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS55": {
+   "cands": {},
+   "district": "55",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS56": {
+   "cands": {},
+   "district": "56",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS6": {
+   "cands": {},
+   "district": "6",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS7": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Astrid S. Ross",
+      "Democratic",
+      0
+     ],
+     [
+      "Rahul Garabadu",
+      "Democratic",
+      0
+     ],
+     [
+      "Ruwa Romman",
+      "Democratic",
+      0
+     ]
+    ],
+    "runoff-DEM": [
+     [
+      "Rahul Garabadu",
+      "Democratic",
+      0
+     ],
+     [
+      "Ruwa Romman",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "7",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS8": {
+   "cands": {},
+   "district": "8",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-GA-SS9": {
+   "cands": {},
+   "district": "9",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  }
+ },
+ "rule": "A contest is tied to a race only when exactly one race of the same office and district (and seat) fits. A candidate line is tied to a name as filed only when exactly one fits: the family name and a given name that fits. Everything else is listed with the reason and never shown.",
+ "source": "The ballot databases (Congress, and state and local), read only; the races and the names as filed.",
+ "state": "GA",
+ "v": 1
+}

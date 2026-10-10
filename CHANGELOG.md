@@ -10,6 +10,12 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.108 — 2026-10-10 — Election Night: every state's results readers, the US map, live updates and Minnesota's first forecasts
+
+- Election Night can now read the official results of 26 states and the District of Columbia straight from each state's own results system, each tested by replaying a past election and checked against its certified totals. The other states link to their own results pages.
+- A results page updates itself while it is open: new figures appear in place, a table never re-sorts under your hands, and the page says plainly when updates are paused.
+- Minnesota's races have their first forecasts: a chance and a likely vote range for every contested race, labelled Analysis, tested against the 2022 and 2024 elections, with ballot position, roll-off and the order in which counties count built in.
+
 ## v4.0.107 — 2026-10-10 — Election Night: the door and the first pages
 
 - A third space opens beside On The Ballot and Legislation & Legislatures: Election Night, for results only. Its door is on the home page and in the top bar ("Follow the count, race by race."), and on phones it is the "Results" tab.

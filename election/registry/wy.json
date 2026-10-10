@@ -23,9 +23,9 @@
   "id": "2026-11-03",
   "kind": "general",
   "date": "2026-11-03",
-  "nov3_id": "the 2026GeneralResults page (link commented out today)",
+  "nov3_id": "2026GeneralResults",
   "posted": false,
-  "how_to_find": "Poll for the general results page."
+  "how_to_find": "The Secretary's page /Elections/Docs/2026/2026GeneralResults.aspx (the 2024 general's was 2024GeneralResults.aspx); the reader asks it each cycle and reads the summaries it links."
  },
  "cadence": {
   "check_every_s": 600,
@@ -105,5 +105,11 @@
   "election/scout/results_ne.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
   "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+ ],
+ "reader": {
+  "module": "wy_pdf",
+  "written": "2026-10-10",
+  "selftest": "pass (fixture: the 2026 primary's Statewide Candidates Summary)",
+  "replay": "pass: the 2026 primary's three summaries, 172 tables tied, the 59 with official figures stored all equal (the Secretary's official results workbook); the 2024 general's summaries (the general's layout, parties in brackets) read cleanly, every table's counties adding up to its Total row"
+ }
 }

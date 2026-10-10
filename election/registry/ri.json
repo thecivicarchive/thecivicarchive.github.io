@@ -3,7 +3,7 @@
  "code": "RI",
  "name": "Rhode Island",
  "written": "2026-10-10",
- "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+ "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts); 2026-10-10 by N10 (the reader's own requests through election/source.py)",
  "status": "live",
  "status_why": "Enhanced Voting answered scripts (the Board's own site does not; it is not read).",
  "approved": true,
@@ -25,7 +25,7 @@
   "date": "2026-11-03",
   "nov3_id": null,
   "posted": false,
-  "how_to_find": "results/public/api/jurisdictions/RhodeIsland once an hour until Nov 3 appears."
+  "how_to_find": "results/public/api/jurisdictions/RhodeIsland (run_night.py discover) until Nov 3 appears."
  },
  "cadence": {
   "check_every_s": 120,
@@ -115,17 +115,20 @@
   "vote.sos.ri.gov": "Cloudflare challenge (CLAUDE.md; scout)"
  },
  "partial_sources": [],
- "rehearsal": "RI2026StatewidePrimary",
+ "rehearsal": "RI2026StatewidePrimary (official), kept in election_cache/replay/sources/<code>-<id>/ (kept 2026-10-10 by N10 for rehearsals)",
  "terms": "none seen",
  "scout_blocked": "elections.ri.gov (the Board's own site) and vote.sos.ri.gov answer scripts with a Cloudflare challenge (403, checked 2026-10-09 on elections.ri.gov/elections/previous-election-results); electionresults.ri.gov does not",
  "scout_plan": "Live-readable. Read the jurisdiction file once an hour until the Nov 3 election appears, then poll .../elections/RhodeIsland/<id>/data every two minutes; take town figures from ballot-item for the races open on the map. The Election Day / Early Voting / Mail split feeds count order directly. Local city and town races come from the same feed. Rehearse on RI2026StatewidePrimary.",
- "notes": [],
+ "notes": [
+  "Reader (N10, 2026-10-10): enhanced_voting. check() reads the election record's lastUpdated; fetch() reads <site>/results/public/api/elections/<j>/<id>/data (statewide totals, count groups, reporting units). The per-contest county breakdown (2.5 MB a contest) is not read."
+ ],
  "to_do": [
-  "Find the publicElectionId (not guessed)."
+  "Run `python run_night.py discover` from Oct 20 for the Nov 3 publicElectionId (not guessed); then put it in election.nov3_id."
  ],
  "sources": [
   "election/scout/results_pa.json (checked 2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts))",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
-  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)",
+  "N10's own requests, 2026-10-10, through election/source.py with the kit's User-Agent: the addresses in the reader's notes answered a script"
  ]
 }

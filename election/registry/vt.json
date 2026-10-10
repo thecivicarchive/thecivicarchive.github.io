@@ -3,7 +3,7 @@
  "code": "VT",
  "name": "Vermont",
  "written": "2026-10-10",
- "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+ "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts); 2026-10-10 by N10 (the reader's own requests through election/source.py)",
  "status": "live",
  "status_why": "The Election Management System's static JSON answered scripts; Nov 3 is posted.",
  "approved": true,
@@ -23,9 +23,9 @@
   "id": "2026-11-03",
   "kind": "general",
   "date": "2026-11-03",
-  "nov3_id": "68d61e96-1d28-4210-8c1d-8e90512ae105 (electionId 7100)",
+  "nov3_id": "68d61e96-1d28-4210-8c1d-8e90512ae105",
   "posted": true,
-  "how_to_find": "Posted."
+  "how_to_find": "Posted (guid 68d61e96-1d28-4210-8c1d-8e90512ae105, electionId 7100)."
  },
  "cadence": {
   "check_every_s": 120,
@@ -126,15 +126,18 @@
  "never": [],
  "never_why": {},
  "partial_sources": [],
- "rehearsal": "67a35c79-05a2-4ae3-a77d-97812256188b (2024 general); a18f77e0-89f8-4a01-8d97-61a7c75ba200 (2026 primary)",
+ "rehearsal": "67a35c79-05a2-4ae3-a77d-97812256188b (2024 general), a18f77e0-89f8-4a01-8d97-61a7c75ba200 (2026 primary) and the posted Nov 3 index, kept in election_cache/replay/sources/<code>-<id>/ (kept 2026-10-10 by N10 for rehearsals)",
  "terms": "none seen",
  "scout_blocked": "nothing refused scripts",
  "scout_plan": "Live-readable. Poll the Nov 3 index (<guid>.json) every two minutes; when its part paths change, fetch the changed parts (f, s, sn, h, cty, t). Town figures shade the map; the town part covers justices of the peace, so Vermont's local level comes with it. Rehearse on the 2024 general guid.",
- "notes": [],
+ "notes": [
+  "Reader (N10, 2026-10-10): pcc_ems. check() reads the election's index; fetch() its federal, statewide, Senate and House parts. The index is rewritten at every publish, so a new version can carry the same figures."
+ ],
  "to_do": [],
  "sources": [
   "election/scout/results_pa.json (checked 2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts))",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
-  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)",
+  "N10's own requests, 2026-10-10, through election/source.py with the kit's User-Agent: the addresses in the reader's notes answered a script"
  ]
 }

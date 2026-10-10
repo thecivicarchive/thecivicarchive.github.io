@@ -418,12 +418,12 @@ def page_html(A, version, generated, places, main, boot):
 <head>
 {S.head(A, root, title, desc, version, extra=extra, og_image=f"{S.BASE_URL}/night/og/home.png", url=f"{S.BASE_URL}/night/")}</head>
 <body>
-{S.top_bar(root, None, places)}
+{S.top_bar(root, "night", places)}
 <main id="main">
 {main}
 </main>
 {H.footer(root, version, generated)}
-{S.tab_bar(root, None)}
+{S.tab_bar(root, "night")}
 {S.panels(root, A, faq_html())}
 <script>window.NIGHT_HOME={boot};</script>
 {SCRIPT}

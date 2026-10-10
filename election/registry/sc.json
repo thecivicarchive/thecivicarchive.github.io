@@ -89,7 +89,7 @@
  "never": [],
  "never_why": {},
  "partial_sources": [],
- "rehearsal": "126294 (June 9, 2026 primary)",
+ "rehearsal": "126294 (June 9, 2026 primary): replay check 2026-10-10, 72 races equal the official results; House 36 (Republican) differs by one vote because the ballot database holds the recount's figure",
  "terms": "None stated.",
  "scout_blocked": "Nothing refused scripts.",
  "scout_plan": "Live-readable, and the kit already has the reader. On election night poll current_ver.txt every 2 to 3 minutes; when it changes, fetch summary.zip for the totals and detailxml.zip (vote types, counties) less often. Read the county sub-sites for local contests. The same code serves West Virginia.",
@@ -100,6 +100,14 @@
  "sources": [
   "election/scout/results_la.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
-  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)",
+  "N9 reader checks, 2026-10-10: the state's own results service, read through election/source.py"
+ ],
+ "replay_check": {
+  "election": "126294",
+  "checked": "2026-10-10",
+  "result": "72 races equal, 1 differs (a recount changed one vote)",
+  "kept": "election_cache/replay/sources/sc-126294/"
+ },
+ "reader_note": "Reader election/readers/clarity.py written 2026-10-10 (N9): self-test on its fixture passes; crosswalk election/crosswalk/sc.json ties feed contests to the ballot databases' race ids."
 }

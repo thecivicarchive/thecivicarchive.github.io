@@ -16,7 +16,8 @@
   "url": "https://silverstateelection.nv.gov/",
   "label": "Nevada Secretary of State: election results",
   "checked": "2026-10-09",
-  "source": "results_az.json"
+  "source": "results_az.json",
+  "confirmed": "2026-10-10: not asked: silverstateelection.nv.gov is on the never list (it refuses scripts), so no program asks it; the page is for readers' own browsers, as the scout found it (2026-10-09)"
  },
  "other_pages": [],
  "election": {
@@ -94,11 +95,21 @@
  "terms": "none seen",
  "scout_blocked": "www.nvsos.gov and silverstateelection.nv.gov: Imperva Incapsula (212-byte stub to scripts; empty page in the Browser pane on 2026-10-09)",
  "scout_plan": "The state's own results cannot be read live. On election night Election Night could either show Nevada as 'results on the Secretary of State's site' with a link, or read Clark's and Washoe's own results files if a follow-up scout finds them answering scripts (Clark plus Washoe cover nearly every federal vote except NV-2's rural counties). Statewide totals then come from John's saved copy of the Secretary's page, or after the canvass (late November). Local results: Clark and Washoe first.",
- "notes": [],
+ "notes": [
+  "2026-10-10 (N12): confirmed as a link state; certified results source recorded under certified_results."
+ ],
  "to_do": [],
  "sources": [
   "election/scout/results_az.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
   "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+ ],
+ "certified_results": {
+  "what": "the Secretary of State's certified results",
+  "address": "https://silverstateelection.nv.gov/",
+  "script_ok": false,
+  "when": "after the canvass of the vote (late November)",
+  "how": "nvsos.gov sits behind Incapsula (on the never list): John saves the certified results; the exact address of the certified file is to be confirmed when it is posted",
+  "checked": "2026-10-10"
+ }
 }

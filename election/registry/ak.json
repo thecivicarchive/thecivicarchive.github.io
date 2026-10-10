@@ -88,11 +88,17 @@
  "scout_plan": "Poll the 26genr results page every few minutes on election night through states/net.get; when it links the precinct CSV, read it by column name and sum by race. Show first-choice totals as 'first choices' until the Division posts the ranked-choice tabulation (about Nov 18). Local: only the boroughs voting Nov 3 (Mat-Su, Kenai Peninsula), from their own postings.",
  "notes": [],
  "to_do": [
-  "Fill the Nov 3 file names once 26genr links them."
+  "The 26genr page links no files yet; the reader waits for its 'Results Per Precinct' link (no change needed if the Division keeps the primary's file names and columns)."
  ],
  "sources": [
   "election/scout/results_az.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
   "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+ ],
+ "reader": {
+  "module": "ak_csv",
+  "written": "2026-10-10",
+  "selftest": "pass (fixture: the 2026 primary's Senate and House District 1 rows)",
+  "replay": "pass: 2026 primary (26prim) 53 contests tied, 46 with official figures stored, all equal (the Division's official Summary); the Summary control passes"
+ }
 }

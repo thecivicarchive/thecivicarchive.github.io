@@ -16,7 +16,8 @@
   "url": "https://liveresults.ohiosos.gov/",
   "label": "Ohio Secretary of State: LiveResults",
   "checked": "2026-10-09",
-  "source": "results_mn.json"
+  "source": "results_mn.json",
+  "confirmed": "2026-10-10: not asked: liveresults.ohiosos.gov is on the never list (it refuses scripts), so no program asks it; the page is for readers' own browsers, as the scout found it (2026-10-09)"
  },
  "other_pages": [
   {
@@ -124,11 +125,21 @@
  "terms": "Not seen.",
  "scout_blocked": "liveresults.ohiosos.gov (Cloudflare 403 to the script, 2026-10-09), www.ohiosos.gov and publicfiles.ohiosos.gov (Cloudflare challenge, CLAUDE.md), boe.ohio.gov boards and votehamiltoncountyohio.gov (Cloudflare).",
  "scout_plan": "Blocked for scripts on the night. Options for John: (a) he keeps LiveResults open in his browser and saves its download (if LiveResults offers one; check on the night of a test or in early November) into a folder, as for Minnesota; (b) the page links out to LiveResults with no numbers until the official canvass. County and local results: the boards' pages in the Secretary's directory, a few of which may answer scripts (test Butler, Cuyahoga, Franklin, Montgomery, Stark politely in late October). The 'early votes first' rule should be built into the count-order predictor.",
- "notes": [],
+ "notes": [
+  "2026-10-10 (N12): confirmed as a link state; certified results source recorded under certified_results."
+ ],
  "to_do": [],
  "sources": [
   "election/scout/results_mn.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
   "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+ ],
+ "certified_results": {
+  "what": "the Secretary's official canvass workbooks ('Summary Level Official Results ...')",
+  "address": "https://publicfiles.ohiosos.gov/election-results/",
+  "script_ok": false,
+  "when": "after the canvass",
+  "how": "ohiosos.gov refuses scripts (on the never list): carried out of the Browser pane or saved by John, as for the 2026 primary (ballot_cache/oh/)",
+  "checked": "2026-10-10"
+ }
 }

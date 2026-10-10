@@ -16,7 +16,8 @@
   "url": "https://elections.wi.gov/elections/election-results",
   "label": "Wisconsin Elections Commission: election results",
   "checked": "2026-10-09",
-  "source": "results_mn.json"
+  "source": "results_mn.json",
+  "confirmed": "2026-10-10: not asked: elections.wi.gov is on the never list (it refuses scripts), so no program asks it; the page is for readers' own browsers, as the scout found it (2026-10-09)"
  },
  "other_pages": [],
  "election": {
@@ -117,11 +118,21 @@
  "terms": "Not found.",
  "scout_blocked": "elections.wi.gov (Cloudflare JS challenge, 403); county.milwaukee.gov files (Cloudflare JS challenge, 403); elections.danecounty.gov (Cloudflare captcha, 403). All checked 2026-10-09.",
  "scout_plan": "Wisconsin has no official live feed a script can read: the state publishes nothing until the canvass, and the big counties sit behind Cloudflare. Election Night should show Wisconsin as 'official count arrives with the canvass' and, on the night, either (a) John saves the Milwaukee and Dane summary PDFs by hand a few times (both are PDF reports, so a reader per county), or (b) the page links out to each county clerk's results page without numbers. Final results come from the WEC canvass workbook (Browser-pane carry-out, as the kit already does). Local races on Nov 3 are only three county offices, so the county PDFs cover them.",
- "notes": [],
+ "notes": [
+  "2026-10-10 (N12): confirmed as a link state; certified results source recorded under certified_results."
+ ],
  "to_do": [],
  "sources": [
   "election/scout/results_mn.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
   "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+ ],
+ "certified_results": {
+  "what": "the Elections Commission's canvass 'County by County Report' workbooks (one sheet per office)",
+  "address": "https://elections.wi.gov/elections/election-results",
+  "script_ok": false,
+  "when": "after the state canvass, late November",
+  "how": "elections.wi.gov refuses scripts (on the never list): John saves the workbook from his browser, as he did for the 2026 partisan primary (ballot/lists/wi.py reads that layout)",
+  "checked": "2026-10-10"
+ }
 }

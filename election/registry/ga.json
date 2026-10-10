@@ -3,7 +3,7 @@
  "code": "GA",
  "name": "Georgia",
  "written": "2026-10-10",
- "checked": "2026-10-09",
+ "checked": "2026-10-09; 2026-10-10 by N10 (the reader's own requests through election/source.py)",
  "status": "live",
  "status_why": "Enhanced Voting answered scripts behind Cloudflare without a challenge.",
  "approved": true,
@@ -25,7 +25,7 @@
   "date": "2026-11-03",
   "nov3_id": null,
   "posted": false,
-  "how_to_find": "results/public/api/jurisdictions/Georgia once a day in late October."
+  "how_to_find": "results/public/api/jurisdictions/Georgia (run_night.py discover) once a day from Oct 20."
  },
  "cadence": {
   "check_every_s": 180,
@@ -110,17 +110,20 @@
   "mvp.sos.ga.gov": "reCAPTCHA (CLAUDE.md)"
  },
  "partial_sources": [],
- "rehearsal": "2024NovGen; GeneralPrimary51926 and 06162026GeneralPrimaryRunoff",
+ "rehearsal": "2024NovGen (official general; Rehearsal 1) and GeneralPrimary51926 (2026 primary), both kept in election_cache/replay/sources/<code>-<id>/ (kept 2026-10-10 by N10 for rehearsals)",
  "terms": "None seen on the API.",
  "scout_blocked": "The results site answers scripts. The candidate list (mvp.sos.ga.gov) is behind reCAPTCHA (John's save).",
  "scout_plan": "Live-readable. In the last week of October read jurisdictions/Georgia once a day until the Nov 3 election appears, then note its publicElectionId. On election night read the election record every 3 to 5 minutes and fetch its summary data when lastUpdated changes; Georgia's runoff rule (majority required, Dec 1 runoff) means 'leading' and 'advances to a runoff' must both be possible outcomes. Local races come from the same election and the six county child sites.",
- "notes": [],
+ "notes": [
+  "Reader (N10, 2026-10-10): enhanced_voting. check() reads the election record's lastUpdated; fetch() reads <site>/results/public/api/elections/<j>/<id>/data (statewide totals, count groups, reporting units). The per-contest county breakdown (2.5 MB a contest) is not read."
+ ],
  "to_do": [
-  "Find the publicElectionId."
+  "Run `python run_night.py discover` from Oct 20: it reads results/public/api/jurisdictions/Georgia and names the Nov 3 publicElectionId; then put it in election.nov3_id."
  ],
  "sources": [
   "election/scout/results_la.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
-  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)",
+  "N10's own requests, 2026-10-10, through election/source.py with the kit's User-Agent: the addresses in the reader's notes answered a script"
  ]
 }

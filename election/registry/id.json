@@ -3,7 +3,7 @@
  "code": "ID",
  "name": "Idaho",
  "written": "2026-10-10",
- "checked": "2026-10-09",
+ "checked": "2026-10-09; 2026-10-10 by N10 (the reader's own requests through election/source.py)",
  "status": "live",
  "status_why": "Enhanced Voting answered scripts behind Cloudflare without a challenge.",
  "approved": true,
@@ -23,9 +23,9 @@
   "id": "2026-11-03",
   "kind": "general",
   "date": "2026-11-03",
-  "nov3_id": "nov2026 (likely, by the pattern)",
+  "nov3_id": null,
   "posted": false,
-  "how_to_find": "results/public/api/jurisdictions/id until the Nov 3 election appears."
+  "how_to_find": "results/public/api/jurisdictions/id (run_night.py discover) until the Nov 3 election appears; nov2026 by the pattern, not used until listed."
  },
  "cadence": {
   "check_every_s": 180,
@@ -95,17 +95,20 @@
  "never": [],
  "never_why": {},
  "partial_sources": [],
- "rehearsal": "may2026 (the 2026 primary)",
+ "rehearsal": "may2026 (2026 primary, official), kept in election_cache/replay/sources/<code>-<id>/ (kept 2026-10-10 by N10 for rehearsals)",
  "terms": "None seen.",
  "scout_blocked": "Nothing refused.",
  "scout_plan": "Same Enhanced Voting reader as Utah. Rehearse on may2026. On election night poll the Idaho record and the large counties' child records. Note that the canvass protects small counts ('**'), so precinct figures may be held back in places.",
- "notes": [],
+ "notes": [
+  "Reader (N10, 2026-10-10): enhanced_voting. check() reads the election record's lastUpdated; fetch() reads <site>/results/public/api/elections/<j>/<id>/data (statewide totals, count groups, reporting units). The per-contest county breakdown (2.5 MB a contest) is not read."
+ ],
  "to_do": [
-  "Confirm the publicElectionId."
+  "Run `python run_night.py discover` from Oct 20 for the Nov 3 publicElectionId (nov2026 by the pattern, not guessed); then put it in election.nov3_id."
  ],
  "sources": [
   "election/scout/results_ne.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
-  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)",
+  "N10's own requests, 2026-10-10, through election/source.py with the kit's User-Agent: the addresses in the reader's notes answered a script"
  ]
 }

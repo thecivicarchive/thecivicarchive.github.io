@@ -16,7 +16,8 @@
   "url": "https://ent.sos.ks.gov/kssos_ent.html",
   "label": "Kansas Secretary of State: unofficial election night results",
   "checked": "2026-10-09",
-  "source": "results_ne.json"
+  "source": "results_ne.json",
+  "confirmed": "2026-10-10: not asked: ent.sos.ks.gov is on the never list (it refuses scripts), so no program asks it; the page is for readers' own browsers, as the scout found it (2026-10-09)"
  },
  "other_pages": [
   {
@@ -101,11 +102,22 @@
  "terms": "The results page says unofficial and precinct results 'are available upon request' from the Elections Division.",
  "scout_blocked": "ent.sos.ks.gov answers scripts with 403 (Cloudflare). The candidate list page (elections_upcoming_candidate.aspx) also answers 403 (CloudFront), as recorded in ballot/lists/ks.py.",
  "scout_plan": "No live feed a script may read. Options: (1) John saves the election-night page from his browser every so often into a watched folder, as he does for Minnesota; (2) show Kansas through the news feed and the AP-free official sources only after canvass, using the precinct workbooks for the map. County sites (Johnson, Sedgwick) may publish readable election-night files; check them once each before November. Ask John which he prefers.",
- "notes": [],
+ "notes": [
+  "The official results page https://sos.ks.gov/elections/election-results.html answered one request on 2026-10-10 (200).",
+  "2026-10-10 (N12): confirmed as a link state; certified results source recorded under certified_results."
+ ],
  "to_do": [],
  "sources": [
   "election/scout/results_ne.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
   "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+ ],
+ "certified_results": {
+  "what": "the Secretary's precinct-level results workbooks, one per office",
+  "address": "https://sos.ks.gov/elections/election-results.html",
+  "script_ok": true,
+  "when": "after the State Board of Canvassers certifies",
+  "how": "sos.ks.gov answers scripts (ent.sos.ks.gov, the election-night page, is on the never list)",
+  "checked": "2026-10-10"
+ }
 }

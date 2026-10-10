@@ -16,7 +16,8 @@
   "url": "https://www.sos.nh.gov/2026-state-primary-election-results",
   "label": "New Hampshire Secretary of State: 2026 results (primary page; the general's page goes beside it)",
   "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
-  "source": "results_pa.json"
+  "source": "results_pa.json",
+  "confirmed": "2026-10-10: not asked: www.sos.nh.gov is on the never list (it refuses scripts), so no program asks it; the page is for readers' own browsers, as the scout found it (2026-10-09)"
  },
  "other_pages": [],
  "election": {
@@ -76,7 +77,9 @@
  "terms": "none seen",
  "scout_blocked": "www.sos.nh.gov and app.sos.nh.gov: Akamai 403 to scripts",
  "scout_plan": "Blocked, and there is nothing live to read anyway. On the night New Hampshire shows 'no official count tonight: the Secretary of State posts town returns in the following days'. As the workbooks appear, John saves them into ballot_cache/nh/ (as he does now) and the updater reads them. AP collects NH returns from towns, but that is not open.",
- "notes": [],
+ "notes": [
+  "2026-10-10 (N12): confirmed as a link state; certified results source recorded under certified_results."
+ ],
  "to_do": [
   "Replace the page with the general's results page once posted."
  ],
@@ -84,5 +87,13 @@
   "election/scout/results_pa.json (checked 2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts))",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
   "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+ ],
+ "certified_results": {
+  "what": "the Secretary of State's results workbooks by office (town returns)",
+  "address": "https://www.sos.nh.gov/",
+  "script_ok": false,
+  "when": "in the days after the election",
+  "how": "sos.nh.gov answers scripts with Akamai 403 (on the never list): John saves the workbooks into ballot_cache/nh/",
+  "checked": "2026-10-10"
+ }
 }

@@ -1,0 +1,3912 @@
+{
+ "v": 1,
+ "state": "MI",
+ "family": "clarity",
+ "built": "2026-10-10",
+ "from": [
+  "ballot_2026.sqlite: races, candidates (general list)",
+  "ballot_local_2026.sqlite: sl_races, sl_candidates (statewide and legislature), sl_places (county names, from the Census Bureau's county file)"
+ ],
+ "rule": "A feed contest is tied to a race by its title (office words, district number, unexpired or special) and, in a primary, its party; a contest that fits no race or more than one is listed, never shown. Names as printed are tied to names as filed by family name and first initial, one fit only.",
+ "counties": {
+  "alcona": "26001",
+  "alger": "26003",
+  "allegan": "26005",
+  "alpena": "26007",
+  "antrim": "26009",
+  "arenac": "26011",
+  "baraga": "26013",
+  "barry": "26015",
+  "bay": "26017",
+  "benzie": "26019",
+  "berrien": "26021",
+  "branch": "26023",
+  "calhoun": "26025",
+  "cass": "26027",
+  "charlevoix": "26029",
+  "cheboygan": "26031",
+  "chippewa": "26033",
+  "clare": "26035",
+  "clinton": "26037",
+  "crawford": "26039",
+  "delta": "26041",
+  "dickinson": "26043",
+  "eaton": "26045",
+  "emmet": "26047",
+  "genesee": "26049",
+  "gladwin": "26051",
+  "gogebic": "26053",
+  "grandtraverse": "26055",
+  "gratiot": "26057",
+  "hillsdale": "26059",
+  "houghton": "26061",
+  "huron": "26063",
+  "ingham": "26065",
+  "ionia": "26067",
+  "iosco": "26069",
+  "iron": "26071",
+  "isabella": "26073",
+  "jackson": "26075",
+  "kalamazoo": "26077",
+  "kalkaska": "26079",
+  "kent": "26081",
+  "keweenaw": "26083",
+  "lake": "26085",
+  "lapeer": "26087",
+  "leelanau": "26089",
+  "lenawee": "26091",
+  "livingston": "26093",
+  "luce": "26095",
+  "mackinac": "26097",
+  "macomb": "26099",
+  "manistee": "26101",
+  "marquette": "26103",
+  "mason": "26105",
+  "mecosta": "26107",
+  "menominee": "26109",
+  "midland": "26111",
+  "missaukee": "26113",
+  "monroe": "26115",
+  "montcalm": "26117",
+  "montmorency": "26119",
+  "muskegon": "26121",
+  "newaygo": "26123",
+  "oakland": "26125",
+  "oceana": "26127",
+  "ogemaw": "26129",
+  "ontonagon": "26131",
+  "osceola": "26133",
+  "oscoda": "26135",
+  "otsego": "26137",
+  "ottawa": "26139",
+  "presqueisle": "26141",
+  "roscommon": "26143",
+  "saginaw": "26145",
+  "saintclair": "26147",
+  "saintjoseph": "26149",
+  "sanilac": "26151",
+  "schoolcraft": "26153",
+  "shiawassee": "26155",
+  "tuscola": "26157",
+  "vanburen": "26159",
+  "washtenaw": "26161",
+  "wayne": "26163",
+  "wexford": "26165"
+ },
+ "races": [
+  {
+   "id": "2026-MI-H01",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "1",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Callie Barr",
+     "Democratic Party"
+    ],
+    [
+     "Jack Bergman",
+     "Republican Party"
+    ],
+    [
+     "Arnett Satterla",
+     "Libertarian Party"
+    ],
+    [
+     "Doc Kovaly",
+     "U.S. Taxpayers Party"
+    ],
+    [
+     "LaVeta Davenport",
+     "Green Party"
+    ],
+    [
+     "Liz Hakola",
+     "Working Class Party"
+    ],
+    [
+     "Zebulon Featherly",
+     "No Party Affiliation"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-H02",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "2",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Ben Ambrose",
+     "Democratic Party"
+    ],
+    [
+     "John Moolenaar",
+     "Republican Party"
+    ],
+    [
+     "Charlotte Magoon",
+     "Green Party"
+    ],
+    [
+     "Richard Sills",
+     "Natural Law Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-H03",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "3",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Hillary Scholten",
+     "Democratic Party"
+    ],
+    [
+     "Terri DeBoer",
+     "Republican Party"
+    ],
+    [
+     "Joe Jock",
+     "Green Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-H04",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "4",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Sean McCann",
+     "Democratic Party"
+    ],
+    [
+     "Bill Huizenga",
+     "Republican Party"
+    ],
+    [
+     "Shafina Che Barnett",
+     "Green Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-H05",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "5",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Christian Vukasovich",
+     "Democratic Party"
+    ],
+    [
+     "Tim Walberg",
+     "Republican Party"
+    ],
+    [
+     "Ronald A Muszynski",
+     "Libertarian Party"
+    ],
+    [
+     "Sharon Marie Renier",
+     "U.S. Taxpayers Party"
+    ],
+    [
+     "Jim Bronke",
+     "Green Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-H06",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "6",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Debbie Dingell",
+     "Democratic Party"
+    ],
+    [
+     "Heather Smiley",
+     "Republican Party"
+    ],
+    [
+     "Timothy A. Teagan",
+     "Libertarian Party"
+    ],
+    [
+     "Mike Mickevicius",
+     "U.S. Taxpayers Party"
+    ],
+    [
+     "Clyde Shabazz",
+     "Green Party"
+    ],
+    [
+     "Linda Rayburn",
+     "Working Class Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-H07",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "7",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "William Lawrence",
+     "Democratic Party"
+    ],
+    [
+     "Tom Barrett",
+     "Republican Party"
+    ],
+    [
+     "Shane Dedrick",
+     "Green Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-H08",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "8",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kristen McDonald Rivet",
+     "Democratic Party"
+    ],
+    [
+     "Thomas J. Smith",
+     "Republican Party"
+    ],
+    [
+     "C. Mia Pettus",
+     "Libertarian Party"
+    ],
+    [
+     "Jim Casha",
+     "Green Party"
+    ],
+    [
+     "Kathy Goodwin",
+     "Working Class Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-H09",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "9",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Ray Pooley",
+     "Democratic Party"
+    ],
+    [
+     "Lisa McClain",
+     "Republican Party"
+    ],
+    [
+     "Kevin Vayko",
+     "Libertarian Party"
+    ],
+    [
+     "John Vlahos",
+     "U.S. Taxpayers Party"
+    ],
+    [
+     "Destiny Clayton",
+     "Green Party"
+    ],
+    [
+     "Jim Walkowicz",
+     "Working Class Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-H10",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "10",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Christina Bertrand Hines",
+     "Democratic Party"
+    ],
+    [
+     "Michael Bouchard",
+     "Republican Party"
+    ],
+    [
+     "Mike Saliba",
+     "Libertarian Party"
+    ],
+    [
+     "Kwabena Nkromo",
+     "Green Party"
+    ],
+    [
+     "Andrea L. Kirby",
+     "Working Class Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-H11",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "11",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jeremy Moss",
+     "Democratic Party"
+    ],
+    [
+     "Ethan Baker",
+     "Republican Party"
+    ],
+    [
+     "Farid Ishac",
+     "Libertarian Party"
+    ],
+    [
+     "Ryan Teasdale",
+     "Green Party"
+    ],
+    [
+     "Anil Kumar",
+     "No Party Affiliation"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-H12",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "12",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Rashida Tlaib",
+     "Democratic Party"
+    ],
+    [
+     "James D. Hooper",
+     "Republican Party"
+    ],
+    [
+     "Marc Joseph Sosnowski",
+     "U.S. Taxpayers Party"
+    ],
+    [
+     "Brenda K. Sanders",
+     "Green Party"
+    ],
+    [
+     "Gary Walkowicz",
+     "Working Class Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-H13",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "13",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Donavan McKinney",
+     "Democratic Party"
+    ],
+    [
+     "T.P. Nykoriak",
+     "Republican Party"
+    ],
+    [
+     "Chris Dardzinski",
+     "U.S. Taxpayers Party"
+    ],
+    [
+     "Raelyn Light",
+     "Green Party"
+    ],
+    [
+     "Simone R. Coleman",
+     "Working Class Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-S2",
+   "level": "federal",
+   "kind": "S",
+   "office": "U.S. Senate",
+   "district": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Abdul El-Sayed",
+     "Democratic Party"
+    ],
+    [
+     "Mike Rogers",
+     "Republican Party"
+    ],
+    [
+     "Lydia Christensen",
+     "Libertarian Party"
+    ],
+    [
+     "Tim Long",
+     "U.S. Taxpayers Party"
+    ],
+    [
+     "Douglas P. Marsh",
+     "Green Party"
+    ],
+    [
+     "Walter P. Kristy",
+     "Natural Law Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-AG",
+   "level": "statewide",
+   "kind": "statewide:attorney_general",
+   "office": "Attorney General",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Eli Savit",
+     "Democratic Party"
+    ],
+    [
+     "Doug Lloyd",
+     "Republican Party"
+    ],
+    [
+     "Jason Dye",
+     "Libertarian Party"
+    ],
+    [
+     "John Perry Ludtke Jr.",
+     "U.S. Taxpayers Party"
+    ],
+    [
+     "Jeff Polonowski",
+     "Green Party"
+    ],
+    [
+     "Doug Dern",
+     "Natural Law Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-GOV",
+   "level": "statewide",
+   "kind": "statewide:governor",
+   "office": "Governor and Lieutenant Governor",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jocelyn Benson / Winnie Brinks",
+     "Democratic Party"
+    ],
+    [
+     "John James / Jay DeBoyer",
+     "Republican Party"
+    ],
+    [
+     "Anthony Hudson / Beau Parmenter",
+     "Libertarian Party"
+    ],
+    [
+     "Donna Brandenburg / Robert Donald Cowper II",
+     "U.S. Taxpayers Party"
+    ],
+    [
+     "Douglas Campbell / Bobbie Clay",
+     "Green Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-MSUTR",
+   "level": "statewide",
+   "kind": "statewide:university_board",
+   "office": "Trustee of Michigan State University",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brianna Scott",
+     "Democratic Party"
+    ],
+    [
+     "Kelly Tebay Zemke",
+     "Democratic Party"
+    ],
+    [
+     "Julie Maday",
+     "Republican Party"
+    ],
+    [
+     "Roger Victory",
+     "Republican Party"
+    ],
+    [
+     "Daniel R. Patterson",
+     "Libertarian Party"
+    ],
+    [
+     "Will Tyler White",
+     "Libertarian Party"
+    ],
+    [
+     "Janet Sanger",
+     "U.S. Taxpayers Party"
+    ],
+    [
+     "John Sanger",
+     "U.S. Taxpayers Party"
+    ],
+    [
+     "John Anthony La Pietra",
+     "Green Party"
+    ],
+    [
+     "Yaz Ozbek",
+     "Working Class Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SBOE",
+   "level": "statewide",
+   "kind": "statewide:state_board_of_education",
+   "office": "Member of the State Board of Education",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Judith Pritchett",
+     "Democratic Party"
+    ],
+    [
+     "Tiffany Tilley",
+     "Democratic Party"
+    ],
+    [
+     "Terence Collins",
+     "Republican Party"
+    ],
+    [
+     "Bree Moeggenberg",
+     "Republican Party"
+    ],
+    [
+     "Charles Essner",
+     "Libertarian Party"
+    ],
+    [
+     "William Mohr II",
+     "U.S. Taxpayers Party"
+    ],
+    [
+     "Christine C. Schwartz",
+     "U.S. Taxpayers Party"
+    ],
+    [
+     "Wissam Charafeddine",
+     "Green Party"
+    ],
+    [
+     "Mary Anne Hering",
+     "Working Class Party"
+    ],
+    [
+     "Kelli Monroe",
+     "Natural Law Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH1",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "1",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Tyrone Carter",
+     "Democratic Party"
+    ],
+    [
+     "Valerie Whittaker",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH10",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "10",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Veronica Paiz",
+     "Democratic Party"
+    ],
+    [
+     "Peter Ochs",
+     "Republican Party"
+    ],
+    [
+     "Piper Willow Smith",
+     "Working Class Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH100",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "100",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Tracy Ruell",
+     "Democratic Party"
+    ],
+    [
+     "Tom Kunse",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH101",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "101",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Christopher R. Crain",
+     "Democratic Party"
+    ],
+    [
+     "Jaxon Deur",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH102",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "102",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Angel Coon",
+     "Democratic Party"
+    ],
+    [
+     "Curt Vanderwall",
+     "Republican Party"
+    ],
+    [
+     "Shawn Orton",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH103",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "103",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Betsy Coffia",
+     "Democratic Party"
+    ],
+    [
+     "Edwin B. Dean",
+     "Republican Party"
+    ],
+    [
+     "Michael Gorbe",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH104",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "104",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mitchell Ryan Distin",
+     "Democratic Party"
+    ],
+    [
+     "John R. Roth",
+     "Republican Party"
+    ],
+    [
+     "Alexander Jarvis",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH105",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "105",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Rachel Longendyke Teeter",
+     "Democratic Party"
+    ],
+    [
+     "Ken Borton",
+     "Republican Party"
+    ],
+    [
+     "Frank Tillman",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH106",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "106",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mary Lucille Hamilton",
+     "Democratic Party"
+    ],
+    [
+     "Cam Cavitt",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH107",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "107",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Melissa Perron",
+     "Democratic Party"
+    ],
+    [
+     "Parker Fairbairn",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH108",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "108",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Rachel M. Keys",
+     "Democratic Party"
+    ],
+    [
+     "Larry Johnson",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH109",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "109",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Anna Aho Rink",
+     "Democratic Party"
+    ],
+    [
+     "Karl Bohnak",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH11",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "11",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kimberly Fisher",
+     "Democratic Party"
+    ],
+    [
+     "Matthew Stafford",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH110",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "110",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brian Irizarry",
+     "Democratic Party"
+    ],
+    [
+     "Gregory Markkanen",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH12",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "12",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kimberly L. Edwards",
+     "Democratic Party"
+    ],
+    [
+     "Randell J. Shafer",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH13",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "13",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mai Xiong",
+     "Democratic Party"
+    ],
+    [
+     "Mark Thomas Foster",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH14",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "14",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mike McFall",
+     "Democratic Party"
+    ],
+    [
+     "Larry Szyska",
+     "Republican Party"
+    ],
+    [
+     "Jeff Sparling",
+     "Green Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH15",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "15",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jalal Abdallah",
+     "Democratic Party"
+    ],
+    [
+     "Hassan H Nehme",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH16",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "16",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Stephanie A. Young",
+     "Democratic Party"
+    ],
+    [
+     "Brian M. Duggan",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH17",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "17",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Laurie Pohutsky",
+     "Democratic Party"
+    ],
+    [
+     "Ken Crider",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH18",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "18",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kelly Garrett",
+     "Democratic Party"
+    ],
+    [
+     "Ryan Foster",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH19",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "19",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Samantha Steckloff",
+     "Democratic Party"
+    ],
+    [
+     "Kevin J. Hammer",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH2",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "2",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Joanna Whaley",
+     "Democratic Party"
+    ],
+    [
+     "Ron Kokinda",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH20",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "20",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Noah Arbit",
+     "Democratic Party"
+    ],
+    [
+     "S. David Sullivan",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH21",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "21",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kelly Breen",
+     "Democratic Party"
+    ],
+    [
+     "Ross Barranco",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH22",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "22",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Lisa McIntyre",
+     "Democratic Party"
+    ],
+    [
+     "Casey J. Noce",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH23",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "23",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jason Morgan",
+     "Democratic Party"
+    ],
+    [
+     "Miriam Corvino",
+     "Republican Party"
+    ],
+    [
+     "Christina Marudas",
+     "Green Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH24",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "24",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Ranjeev Puri",
+     "Democratic Party"
+    ],
+    [
+     "Allison Kay Fuller",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH25",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "25",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Peter Herzberg",
+     "Democratic Party"
+    ],
+    [
+     "Dawn Udell",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH26",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "26",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dylan Wegela",
+     "Democratic Party"
+    ],
+    [
+     "Chris Dobis",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH27",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "27",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jaime Churches",
+     "Democratic Party"
+    ],
+    [
+     "Rylee Linting",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH28",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "28",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Sherry A. Berecz",
+     "Democratic Party"
+    ],
+    [
+     "Jamie Thompson",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH29",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "29",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Darian Counts",
+     "Democratic Party"
+    ],
+    [
+     "James DeSana",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH3",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "3",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Alabas Farhat",
+     "Democratic Party"
+    ],
+    [
+     "Gus Tarraf",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH30",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "30",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Omar G. Ferdin",
+     "Democratic Party"
+    ],
+    [
+     "William Bruck",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH31",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "31",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Shannon Dare Wayne",
+     "Democratic Party"
+    ],
+    [
+     "Laura M. Perry",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH32",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "32",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jimmie Wilson Jr.",
+     "Democratic Party"
+    ],
+    [
+     "Mike Eller",
+     "Republican Party"
+    ],
+    [
+     "John R. Tatar",
+     "U.S. Taxpayers Party"
+    ],
+    [
+     "Ryan Sample",
+     "Green Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH33",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "33",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Morgan Foreman",
+     "Democratic Party"
+    ],
+    [
+     "Catherine Rogers",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH34",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "34",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "John Dahlgren",
+     "Democratic Party"
+    ],
+    [
+     "Nancy Jenkins-Arno",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH35",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "35",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jeff Cooley",
+     "Democratic Party"
+    ],
+    [
+     "Jennifer Wortz",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH36",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "36",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Cole Slaski",
+     "Democratic Party"
+    ],
+    [
+     "Steve Carra",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH37",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "37",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Angela M. Jones",
+     "Democratic Party"
+    ],
+    [
+     "Brad Paquette",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH38",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "38",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Joey Andrews",
+     "Democratic Party"
+    ],
+    [
+     "Mark Krieger",
+     "Republican Party"
+    ],
+    [
+     "Jett Newton",
+     "Green Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH39",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "39",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kerry Tapper",
+     "Democratic Party"
+    ],
+    [
+     "Pauline Wendzel",
+     "Republican Party"
+    ],
+    [
+     "Jared Polonowski",
+     "Green Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH4",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "4",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Regina Ross",
+     "Democratic Party"
+    ],
+    [
+     "Everett Davis",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH40",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "40",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Matt Longjohn",
+     "Democratic Party"
+    ],
+    [
+     "Robert M. Sitarski",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH41",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "41",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jen Strebs",
+     "Democratic Party"
+    ],
+    [
+     "Nicole C. Sabel",
+     "Republican Party"
+    ],
+    [
+     "Rafael Wolf",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH42",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "42",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Nick Rowe",
+     "Democratic Party"
+    ],
+    [
+     "Matt Hall",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH43",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "43",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Alan Swank",
+     "Democratic Party"
+    ],
+    [
+     "Rachelle Smit",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH44",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "44",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jim Haadsma",
+     "Democratic Party"
+    ],
+    [
+     "Steve Frisbie",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH45",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "45",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Randy Davis",
+     "Democratic Party"
+    ],
+    [
+     "Sarah Lightner",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH46",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "46",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jan Maino",
+     "Democratic Party"
+    ],
+    [
+     "Kathy Schmaltz",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH47",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "47",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Carrie A. Rheingans",
+     "Democratic Party"
+    ],
+    [
+     "Justin Griffis",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH48",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "48",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jennifer A. Conlin",
+     "Democratic Party"
+    ],
+    [
+     "Brian Ignatowski",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH49",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "49",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dan Pelchat",
+     "Democratic Party"
+    ],
+    [
+     "Ann M. Bollin",
+     "Republican Party"
+    ],
+    [
+     "Trevor Step",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH5",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "5",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Candace Calloway",
+     "Democratic Party"
+    ],
+    [
+     "Chris Venable",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH50",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "50",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Cassie Canedo",
+     "Democratic Party"
+    ],
+    [
+     "Jason Woolford",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH51",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "51",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Stacey McDuffie",
+     "Democratic Party"
+    ],
+    [
+     "Matt Maddock",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH52",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "52",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brendan P. Leddy",
+     "Democratic Party"
+    ],
+    [
+     "Mike Harris",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH53",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "53",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brenda Carter",
+     "Democratic Party"
+    ],
+    [
+     "Melissa Schultz",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH54",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "54",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Sarah Pounds",
+     "Democratic Party"
+    ],
+    [
+     "Roman Gaskey",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH55",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "55",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Alex Hawkins",
+     "Democratic Party"
+    ],
+    [
+     "Mark Tisdel",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH56",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "56",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Sharon MacDonell",
+     "Democratic Party"
+    ],
+    [
+     "Ashok Baddi",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH57",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "57",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Tom Turner",
+     "Democratic Party"
+    ],
+    [
+     "Thomas E. Kuhn",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH58",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "58",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Katrina Manetta",
+     "Democratic Party"
+    ],
+    [
+     "Ron Robinson",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH59",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "59",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jason Robbins",
+     "Democratic Party"
+    ],
+    [
+     "Sylvia Grot",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH6",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "6",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Melanie Macey",
+     "Democratic Party"
+    ],
+    [
+     "Mike Steger",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH60",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "60",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Amy Gray",
+     "Democratic Party"
+    ],
+    [
+     "Joseph Aragona",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH61",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "61",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Denise Mentzer",
+     "Democratic Party"
+    ],
+    [
+     "Robert Wojtowicz",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH62",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "62",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Matthew Smith",
+     "Democratic Party"
+    ],
+    [
+     "Alicia St. Germaine",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH63",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "63",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jamie Sonneberger",
+     "Democratic Party"
+    ],
+    [
+     "Pamela Hornberger",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH64",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "64",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Ken Heuvelman",
+     "Democratic Party"
+    ],
+    [
+     "Joseph G. Pavlov",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH65",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "65",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "James M. O'Brien",
+     "Democratic Party"
+    ],
+    [
+     "Jaime Greene",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH66",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "66",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Ned Zimmer",
+     "Democratic Party"
+    ],
+    [
+     "Josh Schriver",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH67",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "67",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Leslie Getz",
+     "Democratic Party"
+    ],
+    [
+     "Phil Green",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH68",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "68",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Matt Schlinker",
+     "Democratic Party"
+    ],
+    [
+     "David W. Martin",
+     "Republican Party"
+    ],
+    [
+     "Deanna L Martin",
+     "Libertarian Party"
+    ],
+    [
+     "Joe McHugh",
+     "No Party Affiliation"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH69",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "69",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jasper Ryan Martus",
+     "Democratic Party"
+    ],
+    [
+     "Patrick Duvendeck",
+     "Republican Party"
+    ],
+    [
+     "Adam Blake Childress",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH7",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "7",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Tonya Myers Phillips",
+     "Democratic Party"
+    ],
+    [
+     "Reginald Moorer",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH70",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "70",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Cynthia R. Neeley",
+     "Democratic Party"
+    ],
+    [
+     "Larry Hutchinson",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH71",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "71",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Stephen Schlaack",
+     "Democratic Party"
+    ],
+    [
+     "Brian BeGole",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH72",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "72",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Thomas Ryan",
+     "Democratic Party"
+    ],
+    [
+     "Mike Mueller",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH73",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "73",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Julie Brixie",
+     "Democratic Party"
+    ],
+    [
+     "Joshua Jon Rockey",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH74",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "74",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Harold A. Pope",
+     "Democratic Party"
+    ],
+    [
+     "Clinton Tarver",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH75",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "75",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Penelope Tsernoglou",
+     "Democratic Party"
+    ],
+    [
+     "Frank Lambert",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH76",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "76",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Angela Witwer",
+     "Democratic Party"
+    ],
+    [
+     "Bill Kaiser",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH77",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "77",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Emily Dievendorf",
+     "Democratic Party"
+    ],
+    [
+     "Sally Jo Nelton",
+     "Republican Party"
+    ],
+    [
+     "Jennifer Long",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH78",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "78",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Rachel Gross",
+     "Democratic Party"
+    ],
+    [
+     "Brandon L. Strong",
+     "Republican Party"
+    ],
+    [
+     "Ben DeJong",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH79",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "79",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Zach Abbott",
+     "Democratic Party"
+    ],
+    [
+     "Angela Rigas",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH8",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "8",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Chris Gilmer-Hill",
+     "Democratic Party"
+    ],
+    [
+     "Bruce P. Langran",
+     "Republican Party"
+    ],
+    [
+     "Stephen Boyle",
+     "Green Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH80",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "80",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Lily Cheng-Schulting",
+     "Democratic Party"
+    ],
+    [
+     "Doug Lee",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH81",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "81",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Stephen Wooden",
+     "Democratic Party"
+    ],
+    [
+     "Holly DeBoer",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH82",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "82",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kristian C. Grant",
+     "Democratic Party"
+    ],
+    [
+     "Ryan Malinoski",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH83",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "83",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "John Fitzgerald",
+     "Democratic Party"
+    ],
+    [
+     "Cindy Ramirez",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH84",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "84",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Khristian Silvis",
+     "Democratic Party"
+    ],
+    [
+     "Drew Jake Robbins",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH85",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "85",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Richard Abraham",
+     "Democratic Party"
+    ],
+    [
+     "Bradley Slagh",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH86",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "86",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Joseph McClusky",
+     "Democratic Party"
+    ],
+    [
+     "Nancy DeBoer",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH87",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "87",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Will Snyder",
+     "Democratic Party"
+    ],
+    [
+     "Cody A. Chipman",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH88",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "88",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kiel Reid",
+     "Democratic Party"
+    ],
+    [
+     "Greg VanWoerkom",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH89",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "89",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Meegan Zickus",
+     "Democratic Party"
+    ],
+    [
+     "Joe Moss",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH9",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "9",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Willie Burton",
+     "Democratic Party"
+    ],
+    [
+     "Michele Lundgren",
+     "Republican Party"
+    ],
+    [
+     "Jahdante John Elijah Smith",
+     "Green Party"
+    ],
+    [
+     "Logan Ausherman",
+     "Working Class Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH90",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "90",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Rachel Crowther",
+     "Democratic Party"
+    ],
+    [
+     "Lynn Afendoulis",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH91",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "91",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Frank Lafata",
+     "Democratic Party"
+    ],
+    [
+     "Pat Outman",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH92",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "92",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Luke Del Castillo",
+     "Democratic Party"
+    ],
+    [
+     "Jerry Neyer",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH93",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "93",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Serenity Hope Salak",
+     "Democratic Party"
+    ],
+    [
+     "Tim Kelly",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH94",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "94",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Amos O'Neal",
+     "Democratic Party"
+    ],
+    [
+     "Don Sugg",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH95",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "95",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "AnnMarie Horseman",
+     "Democratic Party"
+    ],
+    [
+     "Bill G. Schuette",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH96",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "96",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Christopher R. Girard",
+     "Democratic Party"
+    ],
+    [
+     "Timothy Beson",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH97",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "97",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jack Bader",
+     "Democratic Party"
+    ],
+    [
+     "Briar Bearss",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH98",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "98",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Keith Brusseau",
+     "Democratic Party"
+    ],
+    [
+     "Gregory L. Alexander",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SH99",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "Representative in State Legislature",
+   "district": "99",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "David Forgione",
+     "Democratic Party"
+    ],
+    [
+     "Mike Hoadley",
+     "Republican Party"
+    ],
+    [
+     "Steven Jacob Lull",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SOS",
+   "level": "statewide",
+   "kind": "statewide:secretary_of_state",
+   "office": "Secretary of State",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Garlin Gilchrist II",
+     "Democratic Party"
+    ],
+    [
+     "Anthony G. Forlini",
+     "Republican Party"
+    ],
+    [
+     "Christine Sloan",
+     "Libertarian Party"
+    ],
+    [
+     "Scott E. Aughney",
+     "U.S. Taxpayers Party"
+    ],
+    [
+     "Eric Borregard",
+     "Green Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS1",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "1",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Justin Onwenu",
+     "Democratic Party"
+    ],
+    [
+     "Patrick O'Connell",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS10",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "10",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Natalie Price",
+     "Democratic Party"
+    ],
+    [
+     "Michelle Nard",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS11",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "11",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Veronica Klinefelt",
+     "Democratic Party"
+    ],
+    [
+     "Johnnie S. Townsend",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS12",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "12",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kevin Hertel",
+     "Democratic Party"
+    ],
+    [
+     "John Goldwater",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS13",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "13",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Sean Carlson",
+     "Democratic Party"
+    ],
+    [
+     "Ryan Berman",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS14",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "14",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Sue Shink",
+     "Democratic Party"
+    ],
+    [
+     "Tawn Shawnelle Beliger",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS15",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "15",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Felicia Brabec",
+     "Democratic Party"
+    ],
+    [
+     "Jason Rogers",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS16",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "16",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Deandre Barnes",
+     "Democratic Party"
+    ],
+    [
+     "Joseph Bellino Jr.",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS17",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "17",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Ashleigh Baker",
+     "Democratic Party"
+    ],
+    [
+     "Jonathan Lindsey",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS18",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "18",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Anthony Pennock",
+     "Democratic Party"
+    ],
+    [
+     "Thomas A. Albert",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS19",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "19",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Julie M. Rogers",
+     "Democratic Party"
+    ],
+    [
+     "Shaun Young",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS2",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "2",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Abbas Alawieh",
+     "Democratic Party"
+    ],
+    [
+     "Harry Sawicki",
+     "Republican Party"
+    ],
+    [
+     "Larry Darnell Betts",
+     "Working Class Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS20",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "20",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dale Murney",
+     "Democratic Party"
+    ],
+    [
+     "Chris Moraitis",
+     "Republican Party"
+    ],
+    [
+     "Shamara Clay",
+     "Green Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS21",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "21",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Sarah Anthony",
+     "Democratic Party"
+    ],
+    [
+     "Josh Burns",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS22",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "22",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Robert Hower",
+     "Democratic Party"
+    ],
+    [
+     "Mike Murphy",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS23",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "23",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Greg Hill",
+     "Democratic Party"
+    ],
+    [
+     "Donni Steele",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS24",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "24",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Edlira Sako",
+     "Democratic Party"
+    ],
+    [
+     "Douglas Chester Wozniak",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS25",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "25",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "April L. Osentoski",
+     "Democratic Party"
+    ],
+    [
+     "Andrew Beeler",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS26",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "26",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brendan J. Johnson",
+     "Democratic Party"
+    ],
+    [
+     "Matthew Bierlein",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS27",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "27",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "John D. Cherry",
+     "Democratic Party"
+    ],
+    [
+     "Bill Bain",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS28",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "28",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Rashida Harrison",
+     "Democratic Party"
+    ],
+    [
+     "Julie L. DeRose",
+     "Republican Party"
+    ],
+    [
+     "Brandon Crabill",
+     "Libertarian Party"
+    ],
+    [
+     "Wes Peterson",
+     "Working Class Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS29",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "29",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Abbie Groff-Blaszak",
+     "Democratic Party"
+    ],
+    [
+     "Brady A. Middleton",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS3",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "3",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "John Conyers III",
+     "Democratic Party"
+    ],
+    [
+     "Mark Ashley Price",
+     "Republican Party"
+    ],
+    [
+     "David Roehrig",
+     "Working Class Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS30",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "30",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Carol Glanville",
+     "Democratic Party"
+    ],
+    [
+     "Mark E. Huizenga",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS31",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "31",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Chris Kleinjans",
+     "Democratic Party"
+    ],
+    [
+     "John Wetzel",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS32",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "32",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Rebecca Amidon",
+     "Democratic Party"
+    ],
+    [
+     "Kim Cole",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS33",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "33",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Stan Opal",
+     "Democratic Party"
+    ],
+    [
+     "Gina Johnsen",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS34",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "34",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Tyler Landgraf",
+     "Democratic Party"
+    ],
+    [
+     "Roger Hauck",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS35",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "35",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Chedrick Greene",
+     "Democratic Party"
+    ],
+    [
+     "Jason Tunney",
+     "Republican Party"
+    ],
+    [
+     "Laurie Atwood",
+     "U.S. Taxpayers Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS36",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "36",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mark W. Yonkman",
+     "Democratic Party"
+    ],
+    [
+     "Michele Hoitenga",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS37",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "37",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kate Gallup",
+     "Democratic Party"
+    ],
+    [
+     "John Damoose",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS38",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "38",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kelli J. Van Ginhoven",
+     "Democratic Party"
+    ],
+    [
+     "David Prestin",
+     "Republican Party"
+    ],
+    [
+     "Sara Cambensy",
+     "No Party Affiliation"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS4",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "4",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Darrin Camilleri",
+     "Democratic Party"
+    ],
+    [
+     "Marcie Grzywacz",
+     "Republican Party"
+    ],
+    [
+     "Beth Ann Socia",
+     "U.S. Taxpayers Party"
+    ],
+    [
+     "Walter Willis",
+     "Working Class Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS5",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "5",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Matt Koleszar",
+     "Democratic Party"
+    ],
+    [
+     "Estelle Oliansky",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS6",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "6",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mary Cavanagh",
+     "Democratic Party"
+    ],
+    [
+     "Joi Pokerwinski",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS7",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "7",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jason Hoskins",
+     "Democratic Party"
+    ],
+    [
+     "Anthony Paesano",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS8",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "8",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dayna Polehanki",
+     "Democratic Party"
+    ],
+    [
+     "Kenneth D. Massey",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-SS9",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "9",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Theresa Brooks",
+     "Democratic Party"
+    ],
+    [
+     "Michael Webber",
+     "Republican Party"
+    ],
+    [
+     "Jacob R. Schodowski",
+     "Working Class Party"
+    ],
+    [
+     "Philippe M. Cicchini",
+     "No Party Affiliation"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-UMREG",
+   "level": "statewide",
+   "kind": "statewide:university_board",
+   "office": "Regent of the University of Michigan",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Paul Brown",
+     "Democratic Party"
+    ],
+    [
+     "Amir Makled",
+     "Democratic Party"
+    ],
+    [
+     "Lena Epstein",
+     "Republican Party"
+    ],
+    [
+     "Michael Schostak",
+     "Republican Party"
+    ],
+    [
+     "Andrew Chadderdon",
+     "Libertarian Party"
+    ],
+    [
+     "Kyle Maas",
+     "U.S. Taxpayers Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-MI-WSUGOV",
+   "level": "statewide",
+   "kind": "statewide:university_board",
+   "office": "Governor of Wayne State University",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Shereef Akeel",
+     "Democratic Party"
+    ],
+    [
+     "Richard Mack",
+     "Democratic Party"
+    ],
+    [
+     "Andy Anuzis",
+     "Republican Party"
+    ],
+    [
+     "Christa Murphy",
+     "Republican Party"
+    ],
+    [
+     "Alex Avery",
+     "Libertarian Party"
+    ],
+    [
+     "Jami Van Alstine",
+     "Libertarian Party"
+    ],
+    [
+     "Jeff McDonald",
+     "U.S. Taxpayers Party"
+    ],
+    [
+     "Paul M. Ragan",
+     "Green Party"
+    ],
+    [
+     "Suzanne Roehrig",
+     "Working Class Party"
+    ],
+    [
+     "Kathleen Oakford",
+     "Natural Law Party"
+    ]
+   ]
+  }
+ ],
+ "aliases": {},
+ "elections": {},
+ "checked": {},
+ "notes": []
+}

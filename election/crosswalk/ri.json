@@ -1,0 +1,1650 @@
+{
+ "built": "2026-10-10",
+ "checked": [
+  {
+   "by_level": {
+    "federal": 6,
+    "legislature": 133,
+    "statewide": 9
+   },
+   "certified_primary": {
+    "candidates": 63,
+    "contests": 27,
+    "differences": []
+   },
+   "contests_tied": 148,
+   "election": "RI2026StatewidePrimary",
+   "lines_tied": "63 of 184",
+   "notes": [],
+   "nov3": false,
+   "problems": [],
+   "read": "2026-10-10",
+   "store": "ok",
+   "unmatched_by_reason": {
+    "a county, city or district office; not read here yet": 23,
+    "a party office, not a public office": 21
+   }
+  }
+ ],
+ "contests": {},
+ "counties": {
+  "bristol": "44001",
+  "bristol county": "44001",
+  "kent": "44003",
+  "kent county": "44003",
+  "newport": "44005",
+  "newport county": "44005",
+  "providence": "44007",
+  "providence county": "44007",
+  "washington": "44009",
+  "washington county": "44009"
+ },
+ "races": {
+  "2026-RI-AG": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Jason P. Knight",
+      "Democrat",
+      0
+     ],
+     [
+      "Joseph J. Solomon, Jr.",
+      "Democrat",
+      0
+     ],
+     [
+      "Keith Hoffmann",
+      "Democrat",
+      0
+     ],
+     [
+      "Kimberly Ahern",
+      "Democrat",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "attorney_general",
+   "level": "statewide",
+   "office": "Attorney General",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-GOV": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Daniel J. McKee",
+      "Democrat",
+      0
+     ],
+     [
+      "Helena Buonanno Foulkes",
+      "Democrat",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Aaron C. Guckian",
+      "Republican",
+      0
+     ],
+     [
+      "Elaine M. Pelino",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "governor",
+   "level": "statewide",
+   "office": "Governor",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-H01": {
+   "cands": {},
+   "district": "01",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-H02": {
+   "cands": {
+    "primary-REP": [
+     [
+      "Stephen T. Skoly",
+      "Republican",
+      0
+     ],
+     [
+      "Victor Mellor",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "02",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-LTG": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Cynthia Armour Coyne",
+      "Democrat",
+      0
+     ],
+     [
+      "Ross McCurdy",
+      "Democrat",
+      0
+     ],
+     [
+      "Sabina Matos",
+      "Democrat",
+      0
+     ],
+     [
+      "Susan AnderBois",
+      "Democrat",
+      0
+     ],
+     [
+      "Xaykham Rexford Khamsyvoravong",
+      "Democrat",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "lieutenant_governor",
+   "level": "statewide",
+   "office": "Lieutenant Governor",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-S2": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Connor F. Burbridge",
+      "Democrat",
+      0
+     ],
+     [
+      "John F. Reed",
+      "Democrat",
+      0
+     ],
+     [
+      "Luis Daniel Muñoz",
+      "Democrat",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "senate",
+   "level": "federal",
+   "office": "U.S. Senate",
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH1": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Edith H. Ajello",
+      "Democrat",
+      0
+     ],
+     [
+      "Michael J. Garman",
+      "Democrat",
+      0
+     ]
+    ]
+   },
+   "district": "1",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH10": {
+   "cands": {},
+   "district": "10",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH11": {
+   "cands": {},
+   "district": "11",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH12": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Arlette Hidalgo",
+      "Democrat",
+      0
+     ],
+     [
+      "Carlos Cedeno",
+      "Democrat",
+      0
+     ]
+    ]
+   },
+   "district": "12",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH13": {
+   "cands": {},
+   "district": "13",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH14": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Charlene M. Lima",
+      "Democrat",
+      0
+     ],
+     [
+      "Naiommi Baret",
+      "Democrat",
+      0
+     ]
+    ]
+   },
+   "district": "14",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH15": {
+   "cands": {},
+   "district": "15",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH16": {
+   "cands": {},
+   "district": "16",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH17": {
+   "cands": {},
+   "district": "17",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH18": {
+   "cands": {},
+   "district": "18",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH19": {
+   "cands": {},
+   "district": "19",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH2": {
+   "cands": {},
+   "district": "2",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH20": {
+   "cands": {},
+   "district": "20",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH21": {
+   "cands": {},
+   "district": "21",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH22": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Janie Lee Segui",
+      "Democrat",
+      0
+     ],
+     [
+      "Zakary J. Pereira",
+      "Democrat",
+      0
+     ]
+    ]
+   },
+   "district": "22",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH23": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Timothy Howe",
+      "Democrat",
+      0
+     ],
+     [
+      "William Muto",
+      "Democrat",
+      0
+     ]
+    ]
+   },
+   "district": "23",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH24": {
+   "cands": {},
+   "district": "24",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH25": {
+   "cands": {},
+   "district": "25",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH26": {
+   "cands": {},
+   "district": "26",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH27": {
+   "cands": {},
+   "district": "27",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH28": {
+   "cands": {},
+   "district": "28",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH29": {
+   "cands": {},
+   "district": "29",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH3": {
+   "cands": {},
+   "district": "3",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH30": {
+   "cands": {},
+   "district": "30",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH31": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "James C. Sheehan",
+      "Democrat",
+      0
+     ],
+     [
+      "Matthew B. McCoy",
+      "Democrat",
+      0
+     ],
+     [
+      "Thomas N. Menec",
+      "Democrat",
+      0
+     ]
+    ]
+   },
+   "district": "31",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH32": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Kevin Hoyle",
+      "Democrat",
+      0
+     ],
+     [
+      "Robert E. Craven, Jr.",
+      "Democrat",
+      0
+     ]
+    ]
+   },
+   "district": "32",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH33": {
+   "cands": {},
+   "district": "33",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH34": {
+   "cands": {},
+   "district": "34",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH35": {
+   "cands": {},
+   "district": "35",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH36": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Leah J. Boisclair",
+      "Democrat",
+      0
+     ],
+     [
+      "Tina L. Spears",
+      "Democrat",
+      0
+     ]
+    ]
+   },
+   "district": "36",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH37": {
+   "cands": {},
+   "district": "37",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH38": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Brian Patrick Kennedy",
+      "Democrat",
+      0
+     ],
+     [
+      "Stephen C. Moffitt",
+      "Democrat",
+      0
+     ]
+    ]
+   },
+   "district": "38",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH39": {
+   "cands": {},
+   "district": "39",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH4": {
+   "cands": {},
+   "district": "4",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH40": {
+   "cands": {},
+   "district": "40",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH41": {
+   "cands": {},
+   "district": "41",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH42": {
+   "cands": {},
+   "district": "42",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH43": {
+   "cands": {},
+   "district": "43",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH44": {
+   "cands": {},
+   "district": "44",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH45": {
+   "cands": {},
+   "district": "45",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH46": {
+   "cands": {},
+   "district": "46",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH47": {
+   "cands": {},
+   "district": "47",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH48": {
+   "cands": {},
+   "district": "48",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH49": {
+   "cands": {},
+   "district": "49",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH5": {
+   "cands": {},
+   "district": "5",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH50": {
+   "cands": {},
+   "district": "50",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH51": {
+   "cands": {},
+   "district": "51",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH52": {
+   "cands": {},
+   "district": "52",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH53": {
+   "cands": {},
+   "district": "53",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH54": {
+   "cands": {},
+   "district": "54",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH55": {
+   "cands": {},
+   "district": "55",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH56": {
+   "cands": {},
+   "district": "56",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH57": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Brandon T. Voas",
+      "Democrat",
+      0
+     ],
+     [
+      "James McLaughlin",
+      "Democrat",
+      0
+     ]
+    ]
+   },
+   "district": "57",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH58": {
+   "cands": {},
+   "district": "58",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH59": {
+   "cands": {},
+   "district": "59",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH6": {
+   "cands": {},
+   "district": "6",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH60": {
+   "cands": {},
+   "district": "60",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH61": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Leonela Felix",
+      "Democrat",
+      0
+     ],
+     [
+      "Mark A. Theroux",
+      "Democrat",
+      0
+     ]
+    ]
+   },
+   "district": "61",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH62": {
+   "cands": {},
+   "district": "62",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH63": {
+   "cands": {},
+   "district": "63",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH64": {
+   "cands": {},
+   "district": "64",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH65": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Cameron St. Germain",
+      "Democrat",
+      0
+     ],
+     [
+      "Grant Webber Wosencroft",
+      "Democrat",
+      0
+     ],
+     [
+      "Matthew Dawson",
+      "Democrat",
+      0
+     ]
+    ]
+   },
+   "district": "65",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH66": {
+   "cands": {},
+   "district": "66",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH67": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Nicole P. Jellinek",
+      "Democrat",
+      0
+     ],
+     [
+      "Ronald Paul Jarvais, Jr.",
+      "Democrat",
+      0
+     ]
+    ]
+   },
+   "district": "67",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH68": {
+   "cands": {},
+   "district": "68",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH69": {
+   "cands": {},
+   "district": "69",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH7": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Amy J. Santiago",
+      "Democrat",
+      0
+     ],
+     [
+      "Jo-Ann Ryan",
+      "Democrat",
+      0
+     ]
+    ]
+   },
+   "district": "7",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH70": {
+   "cands": {},
+   "district": "70",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH71": {
+   "cands": {},
+   "district": "71",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH72": {
+   "cands": {},
+   "district": "72",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH73": {
+   "cands": {},
+   "district": "73",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH74": {
+   "cands": {},
+   "district": "74",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH75": {
+   "cands": {},
+   "district": "75",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH8": {
+   "cands": {},
+   "district": "8",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SH9": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Enrique George Sanchez",
+      "Democrat",
+      0
+     ],
+     [
+      "Santos Javier",
+      "Democrat",
+      0
+     ]
+    ]
+   },
+   "district": "9",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "Representative in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SOS": {
+   "cands": {},
+   "district": null,
+   "kind": "secretary_of_state",
+   "level": "statewide",
+   "office": "Secretary of State",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS1": {
+   "cands": {},
+   "district": "1",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS10": {
+   "cands": {},
+   "district": "10",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS11": {
+   "cands": {},
+   "district": "11",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS12": {
+   "cands": {},
+   "district": "12",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS13": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Angela Lima",
+      "Democrat",
+      0
+     ],
+     [
+      "Dawn Euer",
+      "Democrat",
+      0
+     ]
+    ]
+   },
+   "district": "13",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS14": {
+   "cands": {},
+   "district": "14",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS15": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Meghan E. Kallman",
+      "Democrat",
+      0
+     ],
+     [
+      "Vanessa Lopez",
+      "Democrat",
+      0
+     ]
+    ]
+   },
+   "district": "15",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS16": {
+   "cands": {},
+   "district": "16",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS17": {
+   "cands": {},
+   "district": "17",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS18": {
+   "cands": {},
+   "district": "18",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS19": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "James Metivier",
+      "Democrat",
+      0
+     ],
+     [
+      "Ryan W. Pearson",
+      "Democrat",
+      0
+     ]
+    ]
+   },
+   "district": "19",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS2": {
+   "cands": {},
+   "district": "2",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS20": {
+   "cands": {},
+   "district": "20",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS21": {
+   "cands": {},
+   "district": "21",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS22": {
+   "cands": {},
+   "district": "22",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS23": {
+   "cands": {},
+   "district": "23",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS24": {
+   "cands": {},
+   "district": "24",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS25": {
+   "cands": {},
+   "district": "25",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS26": {
+   "cands": {},
+   "district": "26",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS27": {
+   "cands": {},
+   "district": "27",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS28": {
+   "cands": {},
+   "district": "28",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS29": {
+   "cands": {},
+   "district": "29",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS3": {
+   "cands": {},
+   "district": "3",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS30": {
+   "cands": {},
+   "district": "30",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS31": {
+   "cands": {},
+   "district": "31",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS32": {
+   "cands": {},
+   "district": "32",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS33": {
+   "cands": {},
+   "district": "33",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS34": {
+   "cands": {},
+   "district": "34",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS35": {
+   "cands": {},
+   "district": "35",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS36": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Alana M. DiMario",
+      "Democrat",
+      0
+     ],
+     [
+      "Mark Mesrobian",
+      "Democrat",
+      0
+     ]
+    ]
+   },
+   "district": "36",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS37": {
+   "cands": {},
+   "district": "37",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS38": {
+   "cands": {},
+   "district": "38",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS4": {
+   "cands": {},
+   "district": "4",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS5": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Cameron Moquin",
+      "Democrat",
+      0
+     ],
+     [
+      "Samuel W. Bell",
+      "Democrat",
+      0
+     ],
+     [
+      "Theodore Newcomer, Jr.",
+      "Democrat",
+      0
+     ]
+    ]
+   },
+   "district": "5",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS6": {
+   "cands": {},
+   "district": "6",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS7": {
+   "cands": {},
+   "district": "7",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS8": {
+   "cands": {
+    "primary-DEM": [
+     [
+      "Gena Felix",
+      "Democrat",
+      0
+     ],
+     [
+      "Lori Urso",
+      "Democrat",
+      0
+     ]
+    ]
+   },
+   "district": "8",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-SS9": {
+   "cands": {},
+   "district": "9",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "Senator in General Assembly",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-RI-TREAS": {
+   "cands": {},
+   "district": null,
+   "kind": "state_treasurer",
+   "level": "statewide",
+   "office": "General Treasurer",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  }
+ },
+ "rule": "A contest is tied to a race only when exactly one race of the same office and district (and seat) fits. A candidate line is tied to a name as filed only when exactly one fits: the family name and a given name that fits. Everything else is listed with the reason and never shown.",
+ "source": "The ballot databases (Congress, and state and local), read only; the races and the names as filed.",
+ "state": "RI",
+ "v": 1
+}

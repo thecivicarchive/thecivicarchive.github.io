@@ -1,0 +1,4732 @@
+{
+"_about":"Pennsylvania's races on the November 3, 2026 ballot that the Election Night pages read (Congress from ballot_2026.sqlite; the Governor's ticket and the Legislature from ballot_local_2026.sqlite), each with the key a district of the Department's returns is tied by (its office and district number) and the candidates as filed. The Department posts the night's election only shortly before it, so no posted contest list is tied here yet. The Lieutenant Governor is elected on the Governor's ticket: its race holds the May primary only.",
+"state":"PA",
+"election":"2026-11-03",
+"built":"2026-10-10",
+"feed":"electionreturns.pa.gov GetOfficeData (offices 3 Governor, 11 Congress, 12 and 13 the Legislature)",
+"feed_note":"Ballot names are printed in capitals (JOSH SHAPIRO); a ticket's printed name is the Governor's and the running mate's.",
+"order":[
+"what the contest is (its kind and district, read from the state's own title)",
+"the candidates' family names"
+],
+"counts":{
+"races":247,
+"by_level":{
+"congress":17,
+"statewide":2,
+"legislature":228,
+"court":0
+},
+"posted_contests":0,
+"posted_tied":0,
+"posted_not_tied":0,
+"posted_out_of_scope":0,
+"races_not_in_posted_list":0,
+"printed_lines_not_tied":0
+},
+"races":{
+"2026-PA-GOV":{
+"key":"governor",
+"level":"statewide",
+"kind":"governor",
+"office":"Governor and Lieutenant Governor",
+"district":null,
+"seat":null,
+"special":0,
+"names":[
+[
+"Joshua D Shapiro / Austin Davis",
+"Democratic"
+],
+[
+"Kenneth V Krawchuk / John C Thomas",
+"Libertarian"
+],
+[
+"Stacy Lorraine Garrity / Jason L Richey",
+"Republican"
+]
+]
+},
+"2026-PA-H01":{
+"key":"us_house:1",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"1",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brian K. Fitzpatrick",
+"Republican"
+],
+[
+"Robert J Harvie Jr",
+"Democratic"
+]
+]
+},
+"2026-PA-H02":{
+"key":"us_house:2",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"2",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brendan F. Boyle",
+"Democratic"
+],
+[
+"Jessica Arriaga",
+"Republican"
+]
+]
+},
+"2026-PA-H03":{
+"key":"us_house:3",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"3",
+"seat":null,
+"special":0,
+"names":[
+[
+"Christopher M Rabb",
+"Democratic"
+],
+[
+"Dennis Joseph Mahoney",
+"The Independent Party"
+]
+]
+},
+"2026-PA-H04":{
+"key":"us_house:4",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"4",
+"seat":null,
+"special":0,
+"names":[
+[
+"Aurora Stuski",
+"Republican"
+],
+[
+"Madeleine Dean Cunnane",
+"Democratic"
+]
+]
+},
+"2026-PA-H05":{
+"key":"us_house:5",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"5",
+"seat":null,
+"special":0,
+"names":[
+[
+"Mary Gay Scanlon",
+"Democratic"
+],
+[
+"Nicholas W Manganaro",
+"Republican"
+]
+]
+},
+"2026-PA-H06":{
+"key":"us_house:6",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"6",
+"seat":null,
+"special":0,
+"names":[
+[
+"Chrissy Houlahan",
+"Democratic"
+],
+[
+"Martin Young",
+"Republican"
+]
+]
+},
+"2026-PA-H07":{
+"key":"us_house:7",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"7",
+"seat":null,
+"special":0,
+"names":[
+[
+"Robert R Brooks",
+"Democratic"
+],
+[
+"Ryan Mackenzie",
+"Republican"
+]
+]
+},
+"2026-PA-H08":{
+"key":"us_house:8",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"8",
+"seat":null,
+"special":0,
+"names":[
+[
+"Paige Cognetti",
+"Democratic"
+],
+[
+"Robert P. Bresnahan, Jr.",
+"Republican"
+]
+]
+},
+"2026-PA-H09":{
+"key":"us_house:9",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"9",
+"seat":null,
+"special":0,
+"names":[
+[
+"Daniel Meuser",
+"Republican"
+],
+[
+"Rachel Lillian Wallace",
+"Democratic"
+]
+]
+},
+"2026-PA-H10":{
+"key":"us_house:10",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"10",
+"seat":null,
+"special":0,
+"names":[
+[
+"Janelle Stelson",
+"Democratic"
+],
+[
+"Scott Perry",
+"Republican"
+]
+]
+},
+"2026-PA-H11":{
+"key":"us_house:11",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"11",
+"seat":null,
+"special":0,
+"names":[
+[
+"Lloyd Smucker",
+"Republican"
+],
+[
+"Nancy Ellen Mannion",
+"Democratic"
+]
+]
+},
+"2026-PA-H12":{
+"key":"us_house:12",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"12",
+"seat":null,
+"special":0,
+"names":[
+[
+"James Kevin Hayes",
+"Republican"
+],
+[
+"Summer L. Lee",
+"Democratic"
+]
+]
+},
+"2026-PA-H13":{
+"key":"us_house:13",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"13",
+"seat":null,
+"special":0,
+"names":[
+[
+"Elizabeth Rhoads Farnham",
+"Democratic"
+],
+[
+"John Joyce",
+"Republican"
+]
+]
+},
+"2026-PA-H14":{
+"key":"us_house:14",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"14",
+"seat":null,
+"special":0,
+"names":[
+[
+"David Alan Bradstock",
+"Democratic"
+],
+[
+"Guy Reschenthaler",
+"Republican"
+]
+]
+},
+"2026-PA-H15":{
+"key":"us_house:15",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"15",
+"seat":null,
+"special":0,
+"names":[
+[
+"Glenn Thompson",
+"Republican"
+],
+[
+"Ray Bilger",
+"Democratic"
+]
+]
+},
+"2026-PA-H16":{
+"key":"us_house:16",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"16",
+"seat":null,
+"special":0,
+"names":[
+[
+"George Joseph Kelly Jr.",
+"Republican"
+],
+[
+"Justin Reed Wagner",
+"Democratic"
+]
+]
+},
+"2026-PA-H17":{
+"key":"us_house:17",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"17",
+"seat":null,
+"special":0,
+"names":[
+[
+"Anthony G Guy",
+"Republican"
+],
+[
+"Christopher Raphael Deluzio",
+"Democratic"
+]
+]
+},
+"2026-PA-LTG":{
+"key":"lieutenant_governor",
+"level":"statewide",
+"kind":"lieutenant_governor",
+"office":"Lieutenant Governor",
+"district":null,
+"seat":null,
+"special":0,
+"names":[]
+},
+"2026-PA-SH1":{
+"key":"state_house:1",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"1",
+"seat":null,
+"special":0,
+"names":[
+[
+"Patrick J Harkins",
+"Democratic"
+]
+]
+},
+"2026-PA-SH10":{
+"key":"state_house:10",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"10",
+"seat":null,
+"special":0,
+"names":[
+[
+"Amen Brown",
+"Democratic"
+]
+]
+},
+"2026-PA-SH100":{
+"key":"state_house:100",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"100",
+"seat":null,
+"special":0,
+"names":[
+[
+"Dale Allen Hamby",
+"Independent"
+],
+[
+"David L Nissley",
+"Republican"
+]
+]
+},
+"2026-PA-SH101":{
+"key":"state_house:101",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"101",
+"seat":null,
+"special":0,
+"names":[
+[
+"John A Schlegel",
+"Republican"
+]
+]
+},
+"2026-PA-SH102":{
+"key":"state_house:102",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"102",
+"seat":null,
+"special":0,
+"names":[
+[
+"Matthew D Duvall",
+"Democratic"
+],
+[
+"Russell H Diamond",
+"Republican"
+]
+]
+},
+"2026-PA-SH103":{
+"key":"state_house:103",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"103",
+"seat":null,
+"special":0,
+"names":[
+[
+"Cynthia P Ward",
+"Republican"
+],
+[
+"Nathan William Davidson",
+"Democratic"
+]
+]
+},
+"2026-PA-SH104":{
+"key":"state_house:104",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"104",
+"seat":null,
+"special":0,
+"names":[
+[
+"David Adam Madsen",
+"Democratic"
+]
+]
+},
+"2026-PA-SH105":{
+"key":"state_house:105",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"105",
+"seat":null,
+"special":0,
+"names":[
+[
+"Justin Curtis Fleming",
+"Democratic"
+]
+]
+},
+"2026-PA-SH106":{
+"key":"state_house:106",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"106",
+"seat":null,
+"special":0,
+"names":[
+[
+"Anju Singh",
+"Democratic"
+],
+[
+"Thomas L Mehaffie",
+"Republican"
+]
+]
+},
+"2026-PA-SH107":{
+"key":"state_house:107",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"107",
+"seat":null,
+"special":0,
+"names":[
+[
+"Joanne C Stehr",
+"Republican"
+],
+[
+"Ryan T Coleman",
+"Democratic"
+]
+]
+},
+"2026-PA-SH108":{
+"key":"state_house:108",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"108",
+"seat":null,
+"special":0,
+"names":[
+[
+"Amber L Neidig",
+"Democratic"
+],
+[
+"Michael A K Stender Jr.",
+"Republican"
+]
+]
+},
+"2026-PA-SH109":{
+"key":"state_house:109",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"109",
+"seat":null,
+"special":0,
+"names":[
+[
+"Justin Hummel",
+"Democratic"
+],
+[
+"Robert Medin Leadbeter II",
+"Republican"
+]
+]
+},
+"2026-PA-SH11":{
+"key":"state_house:11",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"11",
+"seat":null,
+"special":0,
+"names":[
+[
+"Marci Mustello",
+"Republican"
+]
+]
+},
+"2026-PA-SH110":{
+"key":"state_house:110",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"110",
+"seat":null,
+"special":0,
+"names":[
+[
+"Pamela J Hemann",
+"Democratic"
+],
+[
+"Tina Pickett",
+"Republican"
+]
+]
+},
+"2026-PA-SH111":{
+"key":"state_house:111",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"111",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jonathan A Fritz",
+"Republican"
+],
+[
+"Kyle T Devlin",
+"Democratic"
+]
+]
+},
+"2026-PA-SH112":{
+"key":"state_house:112",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"112",
+"seat":null,
+"special":0,
+"names":[
+[
+"Joseph J Sabia Jr",
+"Republican"
+],
+[
+"Kyle James Mullins",
+"Democratic"
+]
+]
+},
+"2026-PA-SH113":{
+"key":"state_house:113",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"113",
+"seat":null,
+"special":0,
+"names":[
+[
+"Kyle T Donahue",
+"Democratic"
+],
+[
+"Lucas O'Brien",
+"Republican"
+]
+]
+},
+"2026-PA-SH114":{
+"key":"state_house:114",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"114",
+"seat":null,
+"special":0,
+"names":[
+[
+"Bridget Malloy Kosierowski",
+"Democratic"
+],
+[
+"Logan Robert Lombardo",
+"Republican"
+]
+]
+},
+"2026-PA-SH115":{
+"key":"state_house:115",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"115",
+"seat":null,
+"special":0,
+"names":[
+[
+"Maureen Madden",
+"Democratic"
+],
+[
+"Richard W Szabo",
+"Republican"
+]
+]
+},
+"2026-PA-SH116":{
+"key":"state_house:116",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"116",
+"seat":null,
+"special":0,
+"names":[
+[
+"Dane Jeffrey Watro Jr.",
+"Republican"
+]
+]
+},
+"2026-PA-SH117":{
+"key":"state_house:117",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"117",
+"seat":null,
+"special":0,
+"names":[
+[
+"James Patrick Walsh",
+"Republican"
+],
+[
+"Jeremy Benscoter",
+"Democratic"
+]
+]
+},
+"2026-PA-SH118":{
+"key":"state_house:118",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"118",
+"seat":null,
+"special":0,
+"names":[
+[
+"James L Haddock",
+"Democratic"
+],
+[
+"John F Lombardo",
+"Republican"
+]
+]
+},
+"2026-PA-SH119":{
+"key":"state_house:119",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"119",
+"seat":null,
+"special":0,
+"names":[
+[
+"Alec Joseph Ryncavage",
+"Republican"
+],
+[
+"Lauren Elizabeth McCurdy",
+"Democratic"
+]
+]
+},
+"2026-PA-SH12":{
+"key":"state_house:12",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"12",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brandon Michael Dukes",
+"Democratic"
+],
+[
+"Scott R Timko",
+"Republican"
+]
+]
+},
+"2026-PA-SH120":{
+"key":"state_house:120",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"120",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brenda M Pugh",
+"Republican"
+],
+[
+"Fern Leard",
+"Democratic"
+]
+]
+},
+"2026-PA-SH121":{
+"key":"state_house:121",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"121",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jessica McClay",
+"Democratic"
+],
+[
+"Michael D Harostock III",
+"Republican"
+]
+]
+},
+"2026-PA-SH122":{
+"key":"state_house:122",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"122",
+"seat":null,
+"special":0,
+"names":[
+[
+"Christian Michael Bartulovich",
+"Democratic"
+],
+[
+"Doyle Heffley",
+"Republican"
+]
+]
+},
+"2026-PA-SH123":{
+"key":"state_house:123",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"123",
+"seat":null,
+"special":0,
+"names":[
+[
+"John A Deatrich Jr",
+"Democratic"
+],
+[
+"Timothy F Twardzik",
+"Republican"
+]
+]
+},
+"2026-PA-SH124":{
+"key":"state_house:124",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"124",
+"seat":null,
+"special":0,
+"names":[
+[
+"James A Barton",
+"Republican"
+],
+[
+"Tina M Burns",
+"Democratic"
+]
+]
+},
+"2026-PA-SH125":{
+"key":"state_house:125",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"125",
+"seat":null,
+"special":0,
+"names":[
+[
+"Joseph P Kerwin",
+"Republican"
+],
+[
+"Kathryn L Waters",
+"Democratic"
+]
+]
+},
+"2026-PA-SH126":{
+"key":"state_house:126",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"126",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jacklyn H Rusnock",
+"Democratic"
+],
+[
+"Miguel A Vasquez",
+"Republican"
+]
+]
+},
+"2026-PA-SH127":{
+"key":"state_house:127",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"127",
+"seat":null,
+"special":0,
+"names":[
+[
+"Manuel Guzman Jr",
+"Democratic"
+]
+]
+},
+"2026-PA-SH128":{
+"key":"state_house:128",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"128",
+"seat":null,
+"special":0,
+"names":[
+[
+"Andrew Wagner",
+"Democratic"
+],
+[
+"Mark M Gillen",
+"Republican"
+]
+]
+},
+"2026-PA-SH129":{
+"key":"state_house:129",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"129",
+"seat":null,
+"special":0,
+"names":[
+[
+"Johanny Cepeda-Freytiz",
+"Democratic"
+]
+]
+},
+"2026-PA-SH13":{
+"key":"state_house:13",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"13",
+"seat":null,
+"special":0,
+"names":[
+[
+"John Adda Lawrence",
+"Republican"
+],
+[
+"Madelyn G Alvarino",
+"Democratic"
+]
+]
+},
+"2026-PA-SH130":{
+"key":"state_house:130",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"130",
+"seat":null,
+"special":0,
+"names":[
+[
+"Erik Bonnett",
+"Democratic"
+],
+[
+"Melissa G Brewer",
+"Republican"
+]
+]
+},
+"2026-PA-SH131":{
+"key":"state_house:131",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"131",
+"seat":null,
+"special":0,
+"names":[
+[
+"Meriam H Sabih",
+"Democratic"
+],
+[
+"V Milou Mackenzie",
+"Republican"
+]
+]
+},
+"2026-PA-SH132":{
+"key":"state_house:132",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"132",
+"seat":null,
+"special":0,
+"names":[
+[
+"Caren Lowrey",
+"Republican"
+],
+[
+"Michael Harry Schlossberg",
+"Democratic"
+]
+]
+},
+"2026-PA-SH133":{
+"key":"state_house:133",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"133",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jeanne McNeill",
+"Democratic"
+]
+]
+},
+"2026-PA-SH134":{
+"key":"state_house:134",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"134",
+"seat":null,
+"special":0,
+"names":[
+[
+"Miriam Alicia Maldonado",
+"Republican"
+],
+[
+"Peter Schweyer",
+"Democratic"
+]
+]
+},
+"2026-PA-SH135":{
+"key":"state_house:135",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"135",
+"seat":null,
+"special":0,
+"names":[
+[
+"Joseph F Poplawski",
+"Republican"
+],
+[
+"Stephen P Samuelson",
+"Democratic"
+]
+]
+},
+"2026-PA-SH136":{
+"key":"state_house:136",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"136",
+"seat":null,
+"special":0,
+"names":[
+[
+"Pilar M Campisi",
+"Republican"
+],
+[
+"Robert Freeman",
+"Democratic"
+]
+]
+},
+"2026-PA-SH137":{
+"key":"state_house:137",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"137",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jeffrey M Warren",
+"Democratic"
+],
+[
+"Joseph T Emrick",
+"Republican"
+]
+]
+},
+"2026-PA-SH138":{
+"key":"state_house:138",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"138",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ann L Flood",
+"Republican"
+],
+[
+"Jared Bitting",
+"Democratic"
+]
+]
+},
+"2026-PA-SH139":{
+"key":"state_house:139",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"139",
+"seat":null,
+"special":0,
+"names":[
+[
+"Dominique N Azzollini",
+"Democratic"
+],
+[
+"Jeffrey H Olsommer",
+"Republican"
+]
+]
+},
+"2026-PA-SH14":{
+"key":"state_house:14",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"14",
+"seat":null,
+"special":0,
+"names":[
+[
+"Bradley Jacob Young",
+"Democratic"
+],
+[
+"Roman Kozak Jr.",
+"Republican"
+]
+]
+},
+"2026-PA-SH140":{
+"key":"state_house:140",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"140",
+"seat":null,
+"special":0,
+"names":[
+[
+"James George Prokopiak",
+"Democratic"
+],
+[
+"Michael J Gettis",
+"Republican"
+]
+]
+},
+"2026-PA-SH141":{
+"key":"state_house:141",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"141",
+"seat":null,
+"special":0,
+"names":[
+[
+"Kenneth James Velez",
+"Republican"
+],
+[
+"Tina Marie Davis",
+"Democratic"
+]
+]
+},
+"2026-PA-SH142":{
+"key":"state_house:142",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"142",
+"seat":null,
+"special":0,
+"names":[
+[
+"Joseph F Hogan IV",
+"Republican"
+],
+[
+"Kristin Egan",
+"Democratic"
+]
+]
+},
+"2026-PA-SH143":{
+"key":"state_house:143",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"143",
+"seat":null,
+"special":0,
+"names":[
+[
+"Christopher D Gambino",
+"Forward Independent"
+],
+[
+"Shelby E Labs",
+"Republican"
+],
+[
+"Timothy J Hayes",
+"Democratic"
+]
+]
+},
+"2026-PA-SH144":{
+"key":"state_house:144",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"144",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brian Munroe",
+"Democratic"
+],
+[
+"Michael J Murphy",
+"Republican"
+]
+]
+},
+"2026-PA-SH145":{
+"key":"state_house:145",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"145",
+"seat":null,
+"special":0,
+"names":[
+[
+"Craig T Staats",
+"Republican"
+],
+[
+"Rebecca Catherine Prendergast",
+"Independent Party"
+]
+]
+},
+"2026-PA-SH146":{
+"key":"state_house:146",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"146",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jeffrey Thomas Fartro",
+"Republican"
+],
+[
+"Joseph Ciresi",
+"Democratic"
+]
+]
+},
+"2026-PA-SH147":{
+"key":"state_house:147",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"147",
+"seat":null,
+"special":0,
+"names":[
+[
+"Donna Marie Scheuren",
+"Republican"
+],
+[
+"Margaret Burke",
+"Democratic"
+]
+]
+},
+"2026-PA-SH148":{
+"key":"state_house:148",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"148",
+"seat":null,
+"special":0,
+"names":[
+[
+"Megan Griffin-Shelley",
+"Democratic"
+]
+]
+},
+"2026-PA-SH149":{
+"key":"state_house:149",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"149",
+"seat":null,
+"special":0,
+"names":[
+[
+"Timothy Patrick Briggs",
+"Democratic"
+]
+]
+},
+"2026-PA-SH15":{
+"key":"state_house:15",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"15",
+"seat":null,
+"special":0,
+"names":[
+[
+"Joshua Daniel Kail",
+"Republican"
+],
+[
+"Sydney Louise Speicher",
+"Democratic"
+]
+]
+},
+"2026-PA-SH150":{
+"key":"state_house:150",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"150",
+"seat":null,
+"special":0,
+"names":[
+[
+"Frank J Pastella",
+"Republican"
+],
+[
+"Joseph G Webster",
+"Democratic"
+]
+]
+},
+"2026-PA-SH151":{
+"key":"state_house:151",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"151",
+"seat":null,
+"special":0,
+"names":[
+[
+"Allen Arthur Anderson",
+"Republican"
+],
+[
+"Melissa Anne Cerrato",
+"Democratic"
+]
+]
+},
+"2026-PA-SH152":{
+"key":"state_house:152",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"152",
+"seat":null,
+"special":0,
+"names":[
+[
+"Eric William Maier Jr",
+"Republican"
+],
+[
+"Nancy Guenst",
+"Democratic"
+]
+]
+},
+"2026-PA-SH153":{
+"key":"state_house:153",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"153",
+"seat":null,
+"special":0,
+"names":[
+[
+"Benjamin V Sanchez",
+"Democratic"
+],
+[
+"Cory L Toner",
+"Republican"
+]
+]
+},
+"2026-PA-SH154":{
+"key":"state_house:154",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"154",
+"seat":null,
+"special":0,
+"names":[
+[
+"Napoleon J Nelson",
+"Democratic"
+],
+[
+"Stephanie Lynn Berardi",
+"Progress for Pennsylvania"
+]
+]
+},
+"2026-PA-SH155":{
+"key":"state_house:155",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"155",
+"seat":null,
+"special":0,
+"names":[
+[
+"Danielle Friel Otten",
+"Democratic"
+]
+]
+},
+"2026-PA-SH156":{
+"key":"state_house:156",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"156",
+"seat":null,
+"special":0,
+"names":[
+[
+"Christopher Pielli",
+"Democratic"
+],
+[
+"Kris R Vollrath",
+"Republican"
+]
+]
+},
+"2026-PA-SH157":{
+"key":"state_house:157",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"157",
+"seat":null,
+"special":0,
+"names":[
+[
+"Justin J Pak",
+"Republican"
+],
+[
+"Melissa Lynn Shusterman",
+"Democratic"
+]
+]
+},
+"2026-PA-SH158":{
+"key":"state_house:158",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"158",
+"seat":null,
+"special":0,
+"names":[
+[
+"Christina D Sappey",
+"Democratic"
+]
+]
+},
+"2026-PA-SH159":{
+"key":"state_house:159",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"159",
+"seat":null,
+"special":0,
+"names":[
+[
+"Carol Kazeem",
+"Democratic"
+],
+[
+"Michael George Bannon Jr",
+"Republican"
+]
+]
+},
+"2026-PA-SH16":{
+"key":"state_house:16",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"16",
+"seat":null,
+"special":0,
+"names":[
+[
+"John C Costanza",
+"Republican"
+],
+[
+"Robert F Matzie",
+"Democratic"
+]
+]
+},
+"2026-PA-SH160":{
+"key":"state_house:160",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"160",
+"seat":null,
+"special":0,
+"names":[
+[
+"Elizabeth Rhein Moro",
+"Democratic"
+],
+[
+"Wendell Craig Williams",
+"Republican"
+]
+]
+},
+"2026-PA-SH161":{
+"key":"state_house:161",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"161",
+"seat":null,
+"special":0,
+"names":[
+[
+"John A Mancinelli Jr",
+"Republican"
+],
+[
+"Leanne Theresa Krueger",
+"Democratic"
+]
+]
+},
+"2026-PA-SH162":{
+"key":"state_house:162",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"162",
+"seat":null,
+"special":0,
+"names":[
+[
+"David M Delloso",
+"Democratic"
+],
+[
+"Michael E Murphy",
+"Republican"
+]
+]
+},
+"2026-PA-SH163":{
+"key":"state_house:163",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"163",
+"seat":null,
+"special":0,
+"names":[
+[
+"Heather Boyd",
+"Democratic"
+]
+]
+},
+"2026-PA-SH164":{
+"key":"state_house:164",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"164",
+"seat":null,
+"special":0,
+"names":[
+[
+"Gina H Curry",
+"Democratic"
+]
+]
+},
+"2026-PA-SH165":{
+"key":"state_house:165",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"165",
+"seat":null,
+"special":0,
+"names":[
+[
+"Deirdre D McCleary",
+"Republican"
+],
+[
+"Jennifer O'Mara",
+"Democratic"
+]
+]
+},
+"2026-PA-SH166":{
+"key":"state_house:166",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"166",
+"seat":null,
+"special":0,
+"names":[
+[
+"Joseph William Walker",
+"Republican"
+],
+[
+"Judith Trombetta",
+"Democratic"
+]
+]
+},
+"2026-PA-SH167":{
+"key":"state_house:167",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"167",
+"seat":null,
+"special":0,
+"names":[
+[
+"Joseph M Lewis",
+"Republican"
+],
+[
+"Kristine C Howard",
+"Democratic"
+]
+]
+},
+"2026-PA-SH168":{
+"key":"state_house:168",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"168",
+"seat":null,
+"special":0,
+"names":[
+[
+"Kathryn M L Buckley",
+"Republican"
+],
+[
+"Lisa Anne Borowski",
+"Democratic"
+]
+]
+},
+"2026-PA-SH169":{
+"key":"state_house:169",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"169",
+"seat":null,
+"special":0,
+"names":[
+[
+"Austin L Graham",
+"Democratic"
+],
+[
+"Kate Anne Klunk",
+"Republican"
+]
+]
+},
+"2026-PA-SH17":{
+"key":"state_house:17",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"17",
+"seat":null,
+"special":0,
+"names":[
+[
+"Timothy R Bonner",
+"Republican"
+]
+]
+},
+"2026-PA-SH170":{
+"key":"state_house:170",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"170",
+"seat":null,
+"special":0,
+"names":[
+[
+"Martina A White",
+"Republican"
+],
+[
+"Robert N Gurtcheff II",
+"Democratic"
+]
+]
+},
+"2026-PA-SH171":{
+"key":"state_house:171",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"171",
+"seat":null,
+"special":0,
+"names":[
+[
+"John R Zangari",
+"Democratic"
+],
+[
+"Kerry A Benninghoff",
+"Republican"
+]
+]
+},
+"2026-PA-SH172":{
+"key":"state_house:172",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"172",
+"seat":null,
+"special":0,
+"names":[
+[
+"Sean Michael Dougherty",
+"Democratic"
+]
+]
+},
+"2026-PA-SH173":{
+"key":"state_house:173",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"173",
+"seat":null,
+"special":0,
+"names":[
+[
+"Patrick Gallagher",
+"Democratic"
+],
+[
+"William J Griffin Jr",
+"Republican"
+]
+]
+},
+"2026-PA-SH174":{
+"key":"state_house:174",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"174",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ed Neilson",
+"Democratic"
+]
+]
+},
+"2026-PA-SH175":{
+"key":"state_house:175",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"175",
+"seat":null,
+"special":0,
+"names":[
+[
+"Marylouise Isaacson",
+"Democratic"
+]
+]
+},
+"2026-PA-SH176":{
+"key":"state_house:176",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"176",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jack B Rader Jr",
+"Republican"
+],
+[
+"Thomas Kucer",
+"Democratic"
+]
+]
+},
+"2026-PA-SH177":{
+"key":"state_house:177",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"177",
+"seat":null,
+"special":0,
+"names":[
+[
+"Joseph C Hohenstein",
+"Democratic"
+],
+[
+"Robyn L Bird",
+"Republican"
+]
+]
+},
+"2026-PA-SH178":{
+"key":"state_house:178",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"178",
+"seat":null,
+"special":0,
+"names":[
+[
+"Kristin Marcell",
+"Republican"
+],
+[
+"Monica J Weninger",
+"Democratic"
+]
+]
+},
+"2026-PA-SH179":{
+"key":"state_house:179",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"179",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jason Dawkins",
+"Democratic"
+]
+]
+},
+"2026-PA-SH18":{
+"key":"state_house:18",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"18",
+"seat":null,
+"special":0,
+"names":[
+[
+"Bryan F Allen Jr",
+"Democratic"
+],
+[
+"Kathleen C Tomlinson",
+"Republican"
+]
+]
+},
+"2026-PA-SH180":{
+"key":"state_house:180",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"180",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jose A Giral",
+"Democratic"
+]
+]
+},
+"2026-PA-SH181":{
+"key":"state_house:181",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"181",
+"seat":null,
+"special":0,
+"names":[
+[
+"Malcolm Kenyatta",
+"Democratic"
+]
+]
+},
+"2026-PA-SH182":{
+"key":"state_house:182",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"182",
+"seat":null,
+"special":0,
+"names":[
+[
+"Benjamin R Waxman",
+"Democratic"
+]
+]
+},
+"2026-PA-SH183":{
+"key":"state_house:183",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"183",
+"seat":null,
+"special":0,
+"names":[
+[
+"Deirdre J Kamber",
+"Democratic"
+],
+[
+"Zachary Allen Mako",
+"Republican"
+]
+]
+},
+"2026-PA-SH184":{
+"key":"state_house:184",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"184",
+"seat":null,
+"special":0,
+"names":[
+[
+"Elizabeth Fiedler",
+"Democratic"
+]
+]
+},
+"2026-PA-SH185":{
+"key":"state_house:185",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"185",
+"seat":null,
+"special":0,
+"names":[
+[
+"Regina G Young",
+"Democratic"
+]
+]
+},
+"2026-PA-SH186":{
+"key":"state_house:186",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"186",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jordan Alexander Harris",
+"Democratic"
+]
+]
+},
+"2026-PA-SH187":{
+"key":"state_house:187",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"187",
+"seat":null,
+"special":0,
+"names":[
+[
+"Gary W Day",
+"Republican"
+],
+[
+"Rachel Marie Guynn-Cuevas",
+"Democratic"
+]
+]
+},
+"2026-PA-SH188":{
+"key":"state_house:188",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"188",
+"seat":null,
+"special":0,
+"names":[
+[
+"Rick C Krajewski",
+"Democratic"
+]
+]
+},
+"2026-PA-SH189":{
+"key":"state_house:189",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"189",
+"seat":null,
+"special":0,
+"names":[
+[
+"Danica L Hartenfels",
+"Republican"
+],
+[
+"Tarah Probst",
+"Democratic"
+]
+]
+},
+"2026-PA-SH19":{
+"key":"state_house:19",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"19",
+"seat":null,
+"special":0,
+"names":[
+[
+"Aerion Andrew Abney",
+"Democratic"
+]
+]
+},
+"2026-PA-SH190":{
+"key":"state_house:190",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"190",
+"seat":null,
+"special":0,
+"names":[
+[
+"Gwendolyn Green",
+"Democratic"
+]
+]
+},
+"2026-PA-SH191":{
+"key":"state_house:191",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"191",
+"seat":null,
+"special":0,
+"names":[
+[
+"Joanna Elizabeth McClinton",
+"Democratic"
+]
+]
+},
+"2026-PA-SH192":{
+"key":"state_house:192",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"192",
+"seat":null,
+"special":0,
+"names":[
+[
+"Morgan Cephas",
+"Democratic"
+],
+[
+"Tiffany Brown",
+"Republican"
+]
+]
+},
+"2026-PA-SH193":{
+"key":"state_house:193",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"193",
+"seat":null,
+"special":0,
+"names":[
+[
+"Catherine I Wallen",
+"Republican"
+],
+[
+"Todd Andrew Crawley",
+"Democratic"
+]
+]
+},
+"2026-PA-SH194":{
+"key":"state_house:194",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"194",
+"seat":null,
+"special":0,
+"names":[
+[
+"Tarik Sharif Khan",
+"Democratic"
+]
+]
+},
+"2026-PA-SH195":{
+"key":"state_house:195",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"195",
+"seat":null,
+"special":0,
+"names":[
+[
+"Sierra Denise McNeil",
+"Democratic"
+]
+]
+},
+"2026-PA-SH196":{
+"key":"state_house:196",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"196",
+"seat":null,
+"special":0,
+"names":[
+[
+"George Margetas",
+"Republican"
+],
+[
+"Ronald G Ruman",
+"Democratic"
+]
+]
+},
+"2026-PA-SH197":{
+"key":"state_house:197",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"197",
+"seat":null,
+"special":0,
+"names":[
+[
+"Danilo R Burgos",
+"Democratic"
+]
+]
+},
+"2026-PA-SH198":{
+"key":"state_house:198",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"198",
+"seat":null,
+"special":0,
+"names":[
+[
+"Darisha K Parker",
+"Democratic"
+]
+]
+},
+"2026-PA-SH199":{
+"key":"state_house:199",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"199",
+"seat":null,
+"special":0,
+"names":[
+[
+"Barbara Gleim",
+"Republican"
+],
+[
+"Tawanda Lynne Hunter Stallworth",
+"Democratic"
+]
+]
+},
+"2026-PA-SH2":{
+"key":"state_house:2",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"2",
+"seat":null,
+"special":0,
+"names":[
+[
+"Robert E Merski",
+"Democratic / Republican"
+]
+]
+},
+"2026-PA-SH20":{
+"key":"state_house:20",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"20",
+"seat":null,
+"special":0,
+"names":[
+[
+"Emily Kinkead",
+"Democratic"
+],
+[
+"Joseph Blaise Aguglia II",
+"Republican"
+]
+]
+},
+"2026-PA-SH200":{
+"key":"state_house:200",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"200",
+"seat":null,
+"special":0,
+"names":[
+[
+"Christopher Johnson",
+"Democratic"
+]
+]
+},
+"2026-PA-SH201":{
+"key":"state_house:201",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"201",
+"seat":null,
+"special":0,
+"names":[
+[
+"Andre Donte Carroll",
+"Democratic"
+]
+]
+},
+"2026-PA-SH202":{
+"key":"state_house:202",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"202",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jared G Solomon",
+"Democratic"
+]
+]
+},
+"2026-PA-SH203":{
+"key":"state_house:203",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"203",
+"seat":null,
+"special":0,
+"names":[
+[
+"Anthony A Bellmon",
+"Democratic"
+]
+]
+},
+"2026-PA-SH21":{
+"key":"state_house:21",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"21",
+"seat":null,
+"special":0,
+"names":[
+[
+"Lindsay Alexandra Powell",
+"Democratic"
+]
+]
+},
+"2026-PA-SH22":{
+"key":"state_house:22",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"22",
+"seat":null,
+"special":0,
+"names":[
+[
+"Cecilia Gerlach",
+"Democratic"
+],
+[
+"Robert E Smith Jr",
+"Republican"
+]
+]
+},
+"2026-PA-SH23":{
+"key":"state_house:23",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"23",
+"seat":null,
+"special":0,
+"names":[
+[
+"Dan Bernard Frankel",
+"Democratic"
+]
+]
+},
+"2026-PA-SH24":{
+"key":"state_house:24",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"24",
+"seat":null,
+"special":0,
+"names":[
+[
+"Latasha D Mayes",
+"Democratic"
+]
+]
+},
+"2026-PA-SH25":{
+"key":"state_house:25",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"25",
+"seat":null,
+"special":0,
+"names":[
+[
+"Amy Noone",
+"Republican"
+],
+[
+"Brandon Joseph Markosek",
+"Democratic"
+]
+]
+},
+"2026-PA-SH26":{
+"key":"state_house:26",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"26",
+"seat":null,
+"special":0,
+"names":[
+[
+"Paul Franklin Friel",
+"Democratic"
+],
+[
+"Samantha Lynn Horosky",
+"Republican"
+]
+]
+},
+"2026-PA-SH27":{
+"key":"state_house:27",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"27",
+"seat":null,
+"special":0,
+"names":[
+[
+"Daniel J Deasy",
+"Democratic"
+]
+]
+},
+"2026-PA-SH28":{
+"key":"state_house:28",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"28",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jeremy Ferderber",
+"Democratic"
+],
+[
+"Jeremy K Shaffer",
+"Republican"
+]
+]
+},
+"2026-PA-SH29":{
+"key":"state_house:29",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"29",
+"seat":null,
+"special":0,
+"names":[
+[
+"Sean Patrick Duffy",
+"Republican"
+],
+[
+"Timothy Patrick Brennan",
+"Democratic"
+]
+]
+},
+"2026-PA-SH3":{
+"key":"state_house:3",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"3",
+"seat":null,
+"special":0,
+"names":[
+[
+"Donna Rae Reese",
+"Republican"
+],
+[
+"Ryan A Bizzarro",
+"Democratic"
+]
+]
+},
+"2026-PA-SH30":{
+"key":"state_house:30",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"30",
+"seat":null,
+"special":0,
+"names":[
+[
+"Arvind Venkat",
+"Democratic"
+],
+[
+"Libby Blackburn",
+"Republican"
+]
+]
+},
+"2026-PA-SH31":{
+"key":"state_house:31",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"31",
+"seat":null,
+"special":0,
+"names":[
+[
+"Perry Sinclair Warren Jr.",
+"Democratic"
+]
+]
+},
+"2026-PA-SH32":{
+"key":"state_house:32",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"32",
+"seat":null,
+"special":0,
+"names":[
+[
+"Gary Eliot Motor",
+"Republican"
+],
+[
+"Joseph M McAndrew",
+"Democratic"
+]
+]
+},
+"2026-PA-SH33":{
+"key":"state_house:33",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"33",
+"seat":null,
+"special":0,
+"names":[
+[
+"Mandy Julia Steele",
+"Democratic"
+],
+[
+"Michael F Hammill",
+"Republican"
+]
+]
+},
+"2026-PA-SH34":{
+"key":"state_house:34",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"34",
+"seat":null,
+"special":0,
+"names":[
+[
+"Abigail Marie Salisbury",
+"Democratic"
+]
+]
+},
+"2026-PA-SH35":{
+"key":"state_house:35",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"35",
+"seat":null,
+"special":0,
+"names":[
+[
+"Daniel Goughnour",
+"Democratic"
+],
+[
+"James N Edwards",
+"Republican"
+]
+]
+},
+"2026-PA-SH36":{
+"key":"state_house:36",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"36",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jessica Lynn Benham",
+"Democratic"
+],
+[
+"Timothy Matthew McCune",
+"Republican"
+]
+]
+},
+"2026-PA-SH37":{
+"key":"state_house:37",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"37",
+"seat":null,
+"special":0,
+"names":[
+[
+"Chad William Gleissl",
+"Democratic"
+],
+[
+"Melinda S Fee",
+"Republican"
+]
+]
+},
+"2026-PA-SH38":{
+"key":"state_house:38",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"38",
+"seat":null,
+"special":0,
+"names":[
+[
+"John C Inglis III",
+"Democratic"
+],
+[
+"Stone Sobieralski",
+"Republican"
+]
+]
+},
+"2026-PA-SH39":{
+"key":"state_house:39",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"39",
+"seat":null,
+"special":0,
+"names":[
+[
+"Andrew M Kuzma",
+"Republican"
+],
+[
+"Dylan Anthony Altemara",
+"Democratic"
+]
+]
+},
+"2026-PA-SH4":{
+"key":"state_house:4",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"4",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jacob Banta",
+"Republican"
+],
+[
+"Kathryn A Divittorio",
+"Democratic"
+]
+]
+},
+"2026-PA-SH40":{
+"key":"state_house:40",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"40",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jonathan C Lloyd",
+"Democratic"
+],
+[
+"Natalie Nicole Stuck",
+"Republican"
+]
+]
+},
+"2026-PA-SH41":{
+"key":"state_house:41",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"41",
+"seat":null,
+"special":0,
+"names":[
+[
+"Bradford T Chambers",
+"Democratic"
+],
+[
+"Brett R Miller",
+"Republican"
+]
+]
+},
+"2026-PA-SH42":{
+"key":"state_house:42",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"42",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jennifer L Mazzocco",
+"Democratic"
+]
+]
+},
+"2026-PA-SH43":{
+"key":"state_house:43",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"43",
+"seat":null,
+"special":0,
+"names":[
+[
+"Bryan K Peirson",
+"Democratic"
+],
+[
+"Keith James Greiner",
+"Republican"
+]
+]
+},
+"2026-PA-SH44":{
+"key":"state_house:44",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"44",
+"seat":null,
+"special":0,
+"names":[
+[
+"Hadley B Haas",
+"Democratic"
+],
+[
+"Valerie S Gaydos",
+"Republican"
+]
+]
+},
+"2026-PA-SH45":{
+"key":"state_house:45",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"45",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brittany Marie Bloam",
+"Democratic"
+],
+[
+"James M Julius",
+"Republican"
+]
+]
+},
+"2026-PA-SH46":{
+"key":"state_house:46",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"46",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jason A Ortitay",
+"Republican"
+],
+[
+"Michael Crossey",
+"Democratic"
+]
+]
+},
+"2026-PA-SH47":{
+"key":"state_house:47",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"47",
+"seat":null,
+"special":0,
+"names":[
+[
+"Edward Lee Ritter",
+"Democratic"
+],
+[
+"Joseph Frank D'Orsie",
+"Republican"
+]
+]
+},
+"2026-PA-SH48":{
+"key":"state_house:48",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"48",
+"seat":null,
+"special":0,
+"names":[
+[
+"Rebecca Mactaggart",
+"Democratic"
+],
+[
+"Timothy Jon Oneal",
+"Republican"
+]
+]
+},
+"2026-PA-SH49":{
+"key":"state_house:49",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"49",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ismail Smith-Wade-El",
+"Democratic"
+],
+[
+"Vanessa Acosta",
+"Republican"
+]
+]
+},
+"2026-PA-SH5":{
+"key":"state_house:5",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"5",
+"seat":null,
+"special":0,
+"names":[
+[
+"Andres Ruben Flammer Santiago",
+"Democratic"
+],
+[
+"Eric J. Weaknecht",
+"Republican"
+]
+]
+},
+"2026-PA-SH50":{
+"key":"state_house:50",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"50",
+"seat":null,
+"special":0,
+"names":[
+[
+"Benjamin D Humble",
+"Republican"
+],
+[
+"Lois Bower-Bjornson",
+"Democratic"
+]
+]
+},
+"2026-PA-SH51":{
+"key":"state_house:51",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"51",
+"seat":null,
+"special":0,
+"names":[
+[
+"Charity Grimm Krupa",
+"Republican"
+]
+]
+},
+"2026-PA-SH52":{
+"key":"state_house:52",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"52",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ryan James Warner",
+"Republican"
+]
+]
+},
+"2026-PA-SH53":{
+"key":"state_house:53",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"53",
+"seat":null,
+"special":0,
+"names":[
+[
+"Konstantinos J Lambros",
+"Republican"
+],
+[
+"Steven R Malagari",
+"Democratic"
+]
+]
+},
+"2026-PA-SH54":{
+"key":"state_house:54",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"54",
+"seat":null,
+"special":0,
+"names":[
+[
+"Gregory Scott",
+"Democratic"
+]
+]
+},
+"2026-PA-SH55":{
+"key":"state_house:55",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"55",
+"seat":null,
+"special":0,
+"names":[
+[
+"Davon Tyrone Magwood",
+"Democratic"
+],
+[
+"Jill Nixon Cooper",
+"Republican"
+]
+]
+},
+"2026-PA-SH56":{
+"key":"state_house:56",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"56",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brian Casey Allen Rasel",
+"Republican"
+]
+]
+},
+"2026-PA-SH57":{
+"key":"state_house:57",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"57",
+"seat":null,
+"special":0,
+"names":[
+[
+"Eric R Nelson",
+"Republican"
+],
+[
+"Robert B Francis",
+"Democratic"
+]
+]
+},
+"2026-PA-SH58":{
+"key":"state_house:58",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"58",
+"seat":null,
+"special":0,
+"names":[
+[
+"Cherri Rogers",
+"Democratic"
+],
+[
+"Eric M. Davanzo",
+"Republican"
+]
+]
+},
+"2026-PA-SH59":{
+"key":"state_house:59",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"59",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jordan R Omlor",
+"Democratic"
+],
+[
+"Leslie Rossi",
+"Republican"
+]
+]
+},
+"2026-PA-SH6":{
+"key":"state_house:6",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"6",
+"seat":null,
+"special":0,
+"names":[
+[
+"Bradley T Roae",
+"Republican"
+],
+[
+"Michael C Walker",
+"Democratic"
+]
+]
+},
+"2026-PA-SH60":{
+"key":"state_house:60",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"60",
+"seat":null,
+"special":0,
+"names":[
+[
+"Abigail E Major",
+"Republican"
+],
+[
+"Dustyn A Dorn",
+"Democratic"
+]
+]
+},
+"2026-PA-SH61":{
+"key":"state_house:61",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"61",
+"seat":null,
+"special":0,
+"names":[
+[
+"Angela C Illingworth",
+"Republican"
+],
+[
+"Laura Elizabeth Frances Hanbidge",
+"Democratic"
+]
+]
+},
+"2026-PA-SH62":{
+"key":"state_house:62",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"62",
+"seat":null,
+"special":0,
+"names":[
+[
+"James B Struzzi II",
+"Republican"
+],
+[
+"Trajan William Jones",
+"Democratic"
+]
+]
+},
+"2026-PA-SH63":{
+"key":"state_house:63",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"63",
+"seat":null,
+"special":0,
+"names":[
+[
+"Andrew L Harbaugh",
+"Democratic"
+],
+[
+"Joshua Bashline",
+"Republican"
+]
+]
+},
+"2026-PA-SH64":{
+"key":"state_house:64",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"64",
+"seat":null,
+"special":0,
+"names":[
+[
+"Amanda Shaffer",
+"Democratic"
+],
+[
+"Robert Lee James",
+"Republican"
+]
+]
+},
+"2026-PA-SH65":{
+"key":"state_house:65",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"65",
+"seat":null,
+"special":0,
+"names":[
+[
+"Destiny Kay Patricia Howard",
+"Democratic"
+],
+[
+"Kathy L Rapp",
+"Republican"
+]
+]
+},
+"2026-PA-SH66":{
+"key":"state_house:66",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"66",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brian A Smith",
+"Republican"
+],
+[
+"Lisa M Gourley",
+"Democratic"
+]
+]
+},
+"2026-PA-SH67":{
+"key":"state_house:67",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"67",
+"seat":null,
+"special":0,
+"names":[
+[
+"Martin T Causer",
+"Republican"
+],
+[
+"Zachary R Ware",
+"Democratic"
+]
+]
+},
+"2026-PA-SH68":{
+"key":"state_house:68",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"68",
+"seat":null,
+"special":0,
+"names":[
+[
+"Clinton D Owlett",
+"Republican"
+],
+[
+"Quentin Joseph Gee",
+"Democratic"
+]
+]
+},
+"2026-PA-SH69":{
+"key":"state_house:69",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"69",
+"seat":null,
+"special":0,
+"names":[
+[
+"Carl Walker Metzgar",
+"Republican"
+]
+]
+},
+"2026-PA-SH7":{
+"key":"state_house:7",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"7",
+"seat":null,
+"special":0,
+"names":[
+[
+"Christopher Anthony-Michael Ford",
+"Democratic"
+],
+[
+"Parke H Wentling",
+"Republican"
+]
+]
+},
+"2026-PA-SH70":{
+"key":"state_house:70",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"70",
+"seat":null,
+"special":0,
+"names":[
+[
+"Matthew D Bradford",
+"Democratic"
+]
+]
+},
+"2026-PA-SH71":{
+"key":"state_house:71",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"71",
+"seat":null,
+"special":0,
+"names":[
+[
+"James Patrick Rigby",
+"Republican"
+]
+]
+},
+"2026-PA-SH72":{
+"key":"state_house:72",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"72",
+"seat":null,
+"special":0,
+"names":[
+[
+"Frank Burns",
+"Democratic"
+],
+[
+"Philip D Rice",
+"Republican"
+]
+]
+},
+"2026-PA-SH73":{
+"key":"state_house:73",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"73",
+"seat":null,
+"special":0,
+"names":[
+[
+"Dallas Paul Kephart",
+"Republican"
+]
+]
+},
+"2026-PA-SH74":{
+"key":"state_house:74",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"74",
+"seat":null,
+"special":0,
+"names":[
+[
+"Dan K Williams",
+"Democratic"
+],
+[
+"Lorenzo Kelley",
+"Republican"
+]
+]
+},
+"2026-PA-SH75":{
+"key":"state_house:75",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"75",
+"seat":null,
+"special":0,
+"names":[
+[
+"Kimberly Kohlhepp",
+"Democratic"
+],
+[
+"Michael J Armanini",
+"Republican"
+]
+]
+},
+"2026-PA-SH76":{
+"key":"state_house:76",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"76",
+"seat":null,
+"special":0,
+"names":[
+[
+"Sara Elizabeth Eggler",
+"Democratic"
+],
+[
+"Stephanie Paige Borowicz",
+"Republican"
+]
+]
+},
+"2026-PA-SH77":{
+"key":"state_house:77",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"77",
+"seat":null,
+"special":0,
+"names":[
+[
+"Harry Scott Conklin",
+"Democratic"
+],
+[
+"Michelle Marie Schellberg",
+"Republican"
+]
+]
+},
+"2026-PA-SH78":{
+"key":"state_house:78",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"78",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jesse W Topper",
+"Republican"
+]
+]
+},
+"2026-PA-SH79":{
+"key":"state_house:79",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"79",
+"seat":null,
+"special":0,
+"names":[
+[
+"Andrea C. Verobish",
+"Republican"
+],
+[
+"Charles Caleb McCoy",
+"Democratic"
+]
+]
+},
+"2026-PA-SH8":{
+"key":"state_house:8",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"8",
+"seat":null,
+"special":0,
+"names":[
+[
+"Aaron Joseph Bernstine",
+"Republican"
+],
+[
+"Richard E Telesz",
+"Democratic"
+]
+]
+},
+"2026-PA-SH80":{
+"key":"state_house:80",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"80",
+"seat":null,
+"special":0,
+"names":[
+[
+"Sarah Holland",
+"Democratic"
+],
+[
+"Scott D Barger",
+"Republican"
+]
+]
+},
+"2026-PA-SH81":{
+"key":"state_house:81",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"81",
+"seat":null,
+"special":0,
+"names":[
+[
+"Caleb Joshua Donahue",
+"Democratic"
+],
+[
+"Richard S Irvin",
+"Republican"
+]
+]
+},
+"2026-PA-SH82":{
+"key":"state_house:82",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"82",
+"seat":null,
+"special":0,
+"names":[
+[
+"Kirsten Lee McTernan",
+"Republican"
+],
+[
+"Paul R Takac Jr",
+"Democratic"
+]
+]
+},
+"2026-PA-SH83":{
+"key":"state_house:83",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"83",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jamie Lee Flick",
+"Republican"
+]
+]
+},
+"2026-PA-SH84":{
+"key":"state_house:84",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"84",
+"seat":null,
+"special":0,
+"names":[
+[
+"Joseph D Hamm",
+"Republican"
+]
+]
+},
+"2026-PA-SH85":{
+"key":"state_house:85",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"85",
+"seat":null,
+"special":0,
+"names":[
+[
+"David Hummer Rowe",
+"Republican"
+]
+]
+},
+"2026-PA-SH86":{
+"key":"state_house:86",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"86",
+"seat":null,
+"special":0,
+"names":[
+[
+"Perry A Stambaugh",
+"Republican"
+],
+[
+"Wendy Morgan",
+"Democratic"
+]
+]
+},
+"2026-PA-SH87":{
+"key":"state_house:87",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"87",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jessica Lynne St Clair",
+"Democratic"
+],
+[
+"Thomas Kutz",
+"Republican"
+]
+]
+},
+"2026-PA-SH88":{
+"key":"state_house:88",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"88",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jeffrey H Clark",
+"Republican"
+],
+[
+"Sara M Agerton",
+"Democratic"
+]
+]
+},
+"2026-PA-SH89":{
+"key":"state_house:89",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"89",
+"seat":null,
+"special":0,
+"names":[
+[
+"Robert W Kauffman",
+"Republican"
+],
+[
+"Shannon Michael Jackson",
+"Democratic"
+]
+]
+},
+"2026-PA-SH9":{
+"key":"state_house:9",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"9",
+"seat":null,
+"special":0,
+"names":[
+[
+"Marla Ann Brown",
+"Republican"
+],
+[
+"Shay Micco",
+"Democratic"
+]
+]
+},
+"2026-PA-SH90":{
+"key":"state_house:90",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"90",
+"seat":null,
+"special":0,
+"names":[
+[
+"Chad G Reichard",
+"Republican"
+]
+]
+},
+"2026-PA-SH91":{
+"key":"state_house:91",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"91",
+"seat":null,
+"special":0,
+"names":[
+[
+"Daniel P Moul",
+"Republican"
+],
+[
+"Kathleen Adams Pratt",
+"Democratic"
+]
+]
+},
+"2026-PA-SH92":{
+"key":"state_house:92",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"92",
+"seat":null,
+"special":0,
+"names":[
+[
+"Krista Jean Anderson",
+"Democratic"
+],
+[
+"Marc S Anderson",
+"Republican"
+]
+]
+},
+"2026-PA-SH93":{
+"key":"state_house:93",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"93",
+"seat":null,
+"special":0,
+"names":[
+[
+"Melissa Ann Barnes",
+"Democratic"
+],
+[
+"Paul Michael Jones",
+"Republican"
+]
+]
+},
+"2026-PA-SH94":{
+"key":"state_house:94",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"94",
+"seat":null,
+"special":0,
+"names":[
+[
+"Konnor John-Richard Grimek",
+"Democratic"
+],
+[
+"Wendy Fink",
+"Republican"
+]
+]
+},
+"2026-PA-SH95":{
+"key":"state_house:95",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"95",
+"seat":null,
+"special":0,
+"names":[
+[
+"Carol D Hill-Evans",
+"Democratic"
+],
+[
+"Jasmine Rivera",
+"Republican"
+]
+]
+},
+"2026-PA-SH96":{
+"key":"state_house:96",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"96",
+"seat":null,
+"special":0,
+"names":[
+[
+"Babita L Rusyn",
+"Republican"
+],
+[
+"Stephanie Nichole Rivera",
+"Democratic"
+]
+]
+},
+"2026-PA-SH97":{
+"key":"state_house:97",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"97",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jessica Lee Branas",
+"Democratic"
+],
+[
+"Steven Curtis Mentzer",
+"Republican"
+]
+]
+},
+"2026-PA-SH98":{
+"key":"state_house:98",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"98",
+"seat":null,
+"special":0,
+"names":[
+[
+"Hugh Stockton Hyder-Darlington",
+"Democratic"
+],
+[
+"Joshua L Deering",
+"Independent"
+],
+[
+"Nicole Lin Woods",
+"Republican"
+]
+]
+},
+"2026-PA-SH99":{
+"key":"state_house:99",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"99",
+"seat":null,
+"special":0,
+"names":[
+[
+"David H Zimmerman",
+"Republican"
+],
+[
+"Ethan Gabrick",
+"Democratic"
+]
+]
+},
+"2026-PA-SS10":{
+"key":"state_senate:10",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"10",
+"seat":null,
+"special":0,
+"names":[
+[
+"Gregory J Bankos Jr",
+"Republican"
+],
+[
+"Steven J Santarsiero",
+"Democratic"
+]
+]
+},
+"2026-PA-SS12":{
+"key":"state_senate:12",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"12",
+"seat":null,
+"special":0,
+"names":[
+[
+"Maria Collett",
+"Democratic"
+],
+[
+"Robert F Costello III",
+"Republican"
+]
+]
+},
+"2026-PA-SS14":{
+"key":"state_senate:14",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"14",
+"seat":null,
+"special":0,
+"names":[
+[
+"Nicholas Miller",
+"Democratic"
+],
+[
+"Omy Juriel Maldonado",
+"Republican"
+]
+]
+},
+"2026-PA-SS16":{
+"key":"state_senate:16",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"16",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jarrett Charles Coleman",
+"Republican"
+],
+[
+"Mark E Pinsley",
+"Democratic"
+]
+]
+},
+"2026-PA-SS18":{
+"key":"state_senate:18",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"18",
+"seat":null,
+"special":0,
+"names":[
+[
+"Lisa M Boscola",
+"Democratic"
+],
+[
+"Scott Janney",
+"Republican"
+]
+]
+},
+"2026-PA-SS2":{
+"key":"state_senate:2",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"2",
+"seat":null,
+"special":0,
+"names":[
+[
+"Christine M Tartaglione",
+"Democratic"
+]
+]
+},
+"2026-PA-SS20":{
+"key":"state_senate:20",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"20",
+"seat":null,
+"special":0,
+"names":[
+[
+"Elisabeth J Baker",
+"Republican"
+],
+[
+"Jaclyn Estelle Baker",
+"Democratic"
+]
+]
+},
+"2026-PA-SS22":{
+"key":"state_senate:22",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"22",
+"seat":null,
+"special":0,
+"names":[
+[
+"Martin B Flynn",
+"Democratic"
+],
+[
+"Sharon Soltis",
+"Republican"
+]
+]
+},
+"2026-PA-SS24":{
+"key":"state_senate:24",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"24",
+"seat":null,
+"special":0,
+"names":[
+[
+"Christopher David Thomas",
+"Democratic"
+],
+[
+"Michael Anthony Schonewolf Jr",
+"Green"
+],
+[
+"Tracy E Pennycuick",
+"Republican"
+]
+]
+},
+"2026-PA-SS26":{
+"key":"state_senate:26",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"26",
+"seat":null,
+"special":0,
+"names":[
+[
+"Gail R Scott",
+"Republican"
+],
+[
+"Timothy Patrick Kearney",
+"Democratic"
+]
+]
+},
+"2026-PA-SS28":{
+"key":"state_senate:28",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"28",
+"seat":null,
+"special":0,
+"names":[
+[
+"Kristin Lee Phillips-Hill",
+"Republican"
+],
+[
+"Thomas S Johnson",
+"Democratic"
+]
+]
+},
+"2026-PA-SS30":{
+"key":"state_senate:30",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"30",
+"seat":null,
+"special":0,
+"names":[
+[
+"Judith F Ward",
+"Republican"
+],
+[
+"Sean C Steeg",
+"Democratic"
+]
+]
+},
+"2026-PA-SS32":{
+"key":"state_senate:32",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"32",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jacob H Cecil",
+"Democratic"
+],
+[
+"Patrick J Stefano",
+"Republican"
+]
+]
+},
+"2026-PA-SS34":{
+"key":"state_senate:34",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"34",
+"seat":null,
+"special":0,
+"names":[
+[
+"Nathan Wood",
+"Democratic"
+],
+[
+"William Gregory Rothman",
+"Republican"
+]
+]
+},
+"2026-PA-SS36":{
+"key":"state_senate:36",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"36",
+"seat":null,
+"special":0,
+"names":[
+[
+"James Andrew Malone",
+"Democratic"
+],
+[
+"Thomas Matthew Jones",
+"Republican"
+]
+]
+},
+"2026-PA-SS38":{
+"key":"state_senate:38",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"38",
+"seat":null,
+"special":0,
+"names":[
+[
+"Lindsey M Williams",
+"Democratic"
+],
+[
+"Thomas West",
+"Republican"
+]
+]
+},
+"2026-PA-SS4":{
+"key":"state_senate:4",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"4",
+"seat":null,
+"special":0,
+"names":[
+[
+"Arthur Haywood",
+"Democratic"
+],
+[
+"Todd Johnson",
+"Republican"
+]
+]
+},
+"2026-PA-SS40":{
+"key":"state_senate:40",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"40",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brian A Wrightson",
+"Democratic"
+],
+[
+"Rosemary Maula Brown",
+"Republican"
+]
+]
+},
+"2026-PA-SS42":{
+"key":"state_senate:42",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"42",
+"seat":null,
+"special":0,
+"names":[
+[
+"Wayne D Fontana",
+"Democratic"
+]
+]
+},
+"2026-PA-SS44":{
+"key":"state_senate:44",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"44",
+"seat":null,
+"special":0,
+"names":[
+[
+"Katie J Muth",
+"Democratic"
+],
+[
+"Melissa C Dicranian",
+"Republican"
+]
+]
+},
+"2026-PA-SS46":{
+"key":"state_senate:46",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"46",
+"seat":null,
+"special":0,
+"names":[
+[
+"Camera Bartolotta",
+"Republican"
+],
+[
+"Jodi Marie Borello",
+"Independent Party"
+]
+]
+},
+"2026-PA-SS48":{
+"key":"state_senate:48",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"48",
+"seat":null,
+"special":0,
+"names":[
+[
+"Christopher Gebhard",
+"Republican"
+],
+[
+"Wayne R Moyer Jr",
+"Democratic"
+]
+]
+},
+"2026-PA-SS50":{
+"key":"state_senate:50",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"50",
+"seat":null,
+"special":0,
+"names":[
+[
+"Michele Brooks",
+"Republican"
+],
+[
+"Sue Ann Mulvey",
+"Democratic"
+]
+]
+},
+"2026-PA-SS6":{
+"key":"state_senate:6",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"6",
+"seat":null,
+"special":0,
+"names":[
+[
+"Eileen T Hartnett Albillar",
+"Democratic"
+],
+[
+"Frank Farry",
+"Republican"
+]
+]
+},
+"2026-PA-SS8":{
+"key":"state_senate:8",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"8",
+"seat":null,
+"special":0,
+"names":[
+[
+"Anthony Hardy Williams",
+"Democratic"
+]
+]
+}
+},
+"keys":{
+"governor":"2026-PA-GOV",
+"lieutenant_governor":"2026-PA-LTG",
+"state_house:1":"2026-PA-SH1",
+"state_house:10":"2026-PA-SH10",
+"state_house:100":"2026-PA-SH100",
+"state_house:101":"2026-PA-SH101",
+"state_house:102":"2026-PA-SH102",
+"state_house:103":"2026-PA-SH103",
+"state_house:104":"2026-PA-SH104",
+"state_house:105":"2026-PA-SH105",
+"state_house:106":"2026-PA-SH106",
+"state_house:107":"2026-PA-SH107",
+"state_house:108":"2026-PA-SH108",
+"state_house:109":"2026-PA-SH109",
+"state_house:11":"2026-PA-SH11",
+"state_house:110":"2026-PA-SH110",
+"state_house:111":"2026-PA-SH111",
+"state_house:112":"2026-PA-SH112",
+"state_house:113":"2026-PA-SH113",
+"state_house:114":"2026-PA-SH114",
+"state_house:115":"2026-PA-SH115",
+"state_house:116":"2026-PA-SH116",
+"state_house:117":"2026-PA-SH117",
+"state_house:118":"2026-PA-SH118",
+"state_house:119":"2026-PA-SH119",
+"state_house:12":"2026-PA-SH12",
+"state_house:120":"2026-PA-SH120",
+"state_house:121":"2026-PA-SH121",
+"state_house:122":"2026-PA-SH122",
+"state_house:123":"2026-PA-SH123",
+"state_house:124":"2026-PA-SH124",
+"state_house:125":"2026-PA-SH125",
+"state_house:126":"2026-PA-SH126",
+"state_house:127":"2026-PA-SH127",
+"state_house:128":"2026-PA-SH128",
+"state_house:129":"2026-PA-SH129",
+"state_house:13":"2026-PA-SH13",
+"state_house:130":"2026-PA-SH130",
+"state_house:131":"2026-PA-SH131",
+"state_house:132":"2026-PA-SH132",
+"state_house:133":"2026-PA-SH133",
+"state_house:134":"2026-PA-SH134",
+"state_house:135":"2026-PA-SH135",
+"state_house:136":"2026-PA-SH136",
+"state_house:137":"2026-PA-SH137",
+"state_house:138":"2026-PA-SH138",
+"state_house:139":"2026-PA-SH139",
+"state_house:14":"2026-PA-SH14",
+"state_house:140":"2026-PA-SH140",
+"state_house:141":"2026-PA-SH141",
+"state_house:142":"2026-PA-SH142",
+"state_house:143":"2026-PA-SH143",
+"state_house:144":"2026-PA-SH144",
+"state_house:145":"2026-PA-SH145",
+"state_house:146":"2026-PA-SH146",
+"state_house:147":"2026-PA-SH147",
+"state_house:148":"2026-PA-SH148",
+"state_house:149":"2026-PA-SH149",
+"state_house:15":"2026-PA-SH15",
+"state_house:150":"2026-PA-SH150",
+"state_house:151":"2026-PA-SH151",
+"state_house:152":"2026-PA-SH152",
+"state_house:153":"2026-PA-SH153",
+"state_house:154":"2026-PA-SH154",
+"state_house:155":"2026-PA-SH155",
+"state_house:156":"2026-PA-SH156",
+"state_house:157":"2026-PA-SH157",
+"state_house:158":"2026-PA-SH158",
+"state_house:159":"2026-PA-SH159",
+"state_house:16":"2026-PA-SH16",
+"state_house:160":"2026-PA-SH160",
+"state_house:161":"2026-PA-SH161",
+"state_house:162":"2026-PA-SH162",
+"state_house:163":"2026-PA-SH163",
+"state_house:164":"2026-PA-SH164",
+"state_house:165":"2026-PA-SH165",
+"state_house:166":"2026-PA-SH166",
+"state_house:167":"2026-PA-SH167",
+"state_house:168":"2026-PA-SH168",
+"state_house:169":"2026-PA-SH169",
+"state_house:17":"2026-PA-SH17",
+"state_house:170":"2026-PA-SH170",
+"state_house:171":"2026-PA-SH171",
+"state_house:172":"2026-PA-SH172",
+"state_house:173":"2026-PA-SH173",
+"state_house:174":"2026-PA-SH174",
+"state_house:175":"2026-PA-SH175",
+"state_house:176":"2026-PA-SH176",
+"state_house:177":"2026-PA-SH177",
+"state_house:178":"2026-PA-SH178",
+"state_house:179":"2026-PA-SH179",
+"state_house:18":"2026-PA-SH18",
+"state_house:180":"2026-PA-SH180",
+"state_house:181":"2026-PA-SH181",
+"state_house:182":"2026-PA-SH182",
+"state_house:183":"2026-PA-SH183",
+"state_house:184":"2026-PA-SH184",
+"state_house:185":"2026-PA-SH185",
+"state_house:186":"2026-PA-SH186",
+"state_house:187":"2026-PA-SH187",
+"state_house:188":"2026-PA-SH188",
+"state_house:189":"2026-PA-SH189",
+"state_house:19":"2026-PA-SH19",
+"state_house:190":"2026-PA-SH190",
+"state_house:191":"2026-PA-SH191",
+"state_house:192":"2026-PA-SH192",
+"state_house:193":"2026-PA-SH193",
+"state_house:194":"2026-PA-SH194",
+"state_house:195":"2026-PA-SH195",
+"state_house:196":"2026-PA-SH196",
+"state_house:197":"2026-PA-SH197",
+"state_house:198":"2026-PA-SH198",
+"state_house:199":"2026-PA-SH199",
+"state_house:2":"2026-PA-SH2",
+"state_house:20":"2026-PA-SH20",
+"state_house:200":"2026-PA-SH200",
+"state_house:201":"2026-PA-SH201",
+"state_house:202":"2026-PA-SH202",
+"state_house:203":"2026-PA-SH203",
+"state_house:21":"2026-PA-SH21",
+"state_house:22":"2026-PA-SH22",
+"state_house:23":"2026-PA-SH23",
+"state_house:24":"2026-PA-SH24",
+"state_house:25":"2026-PA-SH25",
+"state_house:26":"2026-PA-SH26",
+"state_house:27":"2026-PA-SH27",
+"state_house:28":"2026-PA-SH28",
+"state_house:29":"2026-PA-SH29",
+"state_house:3":"2026-PA-SH3",
+"state_house:30":"2026-PA-SH30",
+"state_house:31":"2026-PA-SH31",
+"state_house:32":"2026-PA-SH32",
+"state_house:33":"2026-PA-SH33",
+"state_house:34":"2026-PA-SH34",
+"state_house:35":"2026-PA-SH35",
+"state_house:36":"2026-PA-SH36",
+"state_house:37":"2026-PA-SH37",
+"state_house:38":"2026-PA-SH38",
+"state_house:39":"2026-PA-SH39",
+"state_house:4":"2026-PA-SH4",
+"state_house:40":"2026-PA-SH40",
+"state_house:41":"2026-PA-SH41",
+"state_house:42":"2026-PA-SH42",
+"state_house:43":"2026-PA-SH43",
+"state_house:44":"2026-PA-SH44",
+"state_house:45":"2026-PA-SH45",
+"state_house:46":"2026-PA-SH46",
+"state_house:47":"2026-PA-SH47",
+"state_house:48":"2026-PA-SH48",
+"state_house:49":"2026-PA-SH49",
+"state_house:5":"2026-PA-SH5",
+"state_house:50":"2026-PA-SH50",
+"state_house:51":"2026-PA-SH51",
+"state_house:52":"2026-PA-SH52",
+"state_house:53":"2026-PA-SH53",
+"state_house:54":"2026-PA-SH54",
+"state_house:55":"2026-PA-SH55",
+"state_house:56":"2026-PA-SH56",
+"state_house:57":"2026-PA-SH57",
+"state_house:58":"2026-PA-SH58",
+"state_house:59":"2026-PA-SH59",
+"state_house:6":"2026-PA-SH6",
+"state_house:60":"2026-PA-SH60",
+"state_house:61":"2026-PA-SH61",
+"state_house:62":"2026-PA-SH62",
+"state_house:63":"2026-PA-SH63",
+"state_house:64":"2026-PA-SH64",
+"state_house:65":"2026-PA-SH65",
+"state_house:66":"2026-PA-SH66",
+"state_house:67":"2026-PA-SH67",
+"state_house:68":"2026-PA-SH68",
+"state_house:69":"2026-PA-SH69",
+"state_house:7":"2026-PA-SH7",
+"state_house:70":"2026-PA-SH70",
+"state_house:71":"2026-PA-SH71",
+"state_house:72":"2026-PA-SH72",
+"state_house:73":"2026-PA-SH73",
+"state_house:74":"2026-PA-SH74",
+"state_house:75":"2026-PA-SH75",
+"state_house:76":"2026-PA-SH76",
+"state_house:77":"2026-PA-SH77",
+"state_house:78":"2026-PA-SH78",
+"state_house:79":"2026-PA-SH79",
+"state_house:8":"2026-PA-SH8",
+"state_house:80":"2026-PA-SH80",
+"state_house:81":"2026-PA-SH81",
+"state_house:82":"2026-PA-SH82",
+"state_house:83":"2026-PA-SH83",
+"state_house:84":"2026-PA-SH84",
+"state_house:85":"2026-PA-SH85",
+"state_house:86":"2026-PA-SH86",
+"state_house:87":"2026-PA-SH87",
+"state_house:88":"2026-PA-SH88",
+"state_house:89":"2026-PA-SH89",
+"state_house:9":"2026-PA-SH9",
+"state_house:90":"2026-PA-SH90",
+"state_house:91":"2026-PA-SH91",
+"state_house:92":"2026-PA-SH92",
+"state_house:93":"2026-PA-SH93",
+"state_house:94":"2026-PA-SH94",
+"state_house:95":"2026-PA-SH95",
+"state_house:96":"2026-PA-SH96",
+"state_house:97":"2026-PA-SH97",
+"state_house:98":"2026-PA-SH98",
+"state_house:99":"2026-PA-SH99",
+"state_senate:10":"2026-PA-SS10",
+"state_senate:12":"2026-PA-SS12",
+"state_senate:14":"2026-PA-SS14",
+"state_senate:16":"2026-PA-SS16",
+"state_senate:18":"2026-PA-SS18",
+"state_senate:2":"2026-PA-SS2",
+"state_senate:20":"2026-PA-SS20",
+"state_senate:22":"2026-PA-SS22",
+"state_senate:24":"2026-PA-SS24",
+"state_senate:26":"2026-PA-SS26",
+"state_senate:28":"2026-PA-SS28",
+"state_senate:30":"2026-PA-SS30",
+"state_senate:32":"2026-PA-SS32",
+"state_senate:34":"2026-PA-SS34",
+"state_senate:36":"2026-PA-SS36",
+"state_senate:38":"2026-PA-SS38",
+"state_senate:4":"2026-PA-SS4",
+"state_senate:40":"2026-PA-SS40",
+"state_senate:42":"2026-PA-SS42",
+"state_senate:44":"2026-PA-SS44",
+"state_senate:46":"2026-PA-SS46",
+"state_senate:48":"2026-PA-SS48",
+"state_senate:50":"2026-PA-SS50",
+"state_senate:6":"2026-PA-SS6",
+"state_senate:8":"2026-PA-SS8",
+"us_house:1":"2026-PA-H01",
+"us_house:10":"2026-PA-H10",
+"us_house:11":"2026-PA-H11",
+"us_house:12":"2026-PA-H12",
+"us_house:13":"2026-PA-H13",
+"us_house:14":"2026-PA-H14",
+"us_house:15":"2026-PA-H15",
+"us_house:16":"2026-PA-H16",
+"us_house:17":"2026-PA-H17",
+"us_house:2":"2026-PA-H02",
+"us_house:3":"2026-PA-H03",
+"us_house:4":"2026-PA-H04",
+"us_house:5":"2026-PA-H05",
+"us_house:6":"2026-PA-H06",
+"us_house:7":"2026-PA-H07",
+"us_house:8":"2026-PA-H08",
+"us_house:9":"2026-PA-H09"
+},
+"keys_shared":[],
+"posted":{},
+"posted_not_tied":[],
+"races_not_in_posted_list":[],
+"printed_lines_not_tied":[],
+"posted_out_of_scope":[]
+}

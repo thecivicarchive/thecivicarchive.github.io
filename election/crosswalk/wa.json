@@ -1,0 +1,5116 @@
+{
+ "built": "2026-10-10",
+ "checked": [
+  {
+   "by_level": {
+    "federal": 10,
+    "legislature": 122
+   },
+   "certified_primary": {
+    "candidates": 339,
+    "contests": 112,
+    "differences": []
+   },
+   "contests_tied": 132,
+   "election": "20260804",
+   "lines_tied": "339 of 361",
+   "notes": [],
+   "nov3": false,
+   "problems": [],
+   "read": "2026-10-10",
+   "store": "ok",
+   "unmatched_by_reason": {
+    "a ballot question, not a contest between people": 9,
+    "a county, city or district office; not read here yet": 2,
+    "a judicial contest; not read here yet": 4
+   }
+  },
+  {
+   "by_level": {
+    "federal": 10,
+    "legislature": 122
+   },
+   "certified_primary": {
+    "candidates": 0,
+    "contests": 0,
+    "differences": []
+   },
+   "contests_tied": 132,
+   "election": "20261103",
+   "lines_not_tied": [],
+   "lines_tied": "245 of 245",
+   "notes": [],
+   "nov3": true,
+   "problems": [],
+   "read": "2026-10-10",
+   "store": "ok",
+   "unmatched": [
+    [
+     "Initiative Measure No. IL26-638",
+     "a ballot question, not a contest between people"
+    ],
+    [
+     "Initiative Measure No. IP26-645",
+     "a ballot question, not a contest between people"
+    ],
+    [
+     "Initiative Measure No. IL26-001",
+     "a ballot question, not a contest between people"
+    ],
+    [
+     "PUBLIC HOSPITAL DISTRICT NO. 1 - Public Hospital District No. 1, Proposition 1",
+     "a ballot question, not a contest between people"
+    ],
+    [
+     "Justice Position #01 - Supreme Court",
+     "a judicial contest; not read here yet"
+    ],
+    [
+     "Justice Position #03 - Supreme Court",
+     "a judicial contest; not read here yet"
+    ],
+    [
+     "Justice Position #04 - Supreme Court",
+     "a judicial contest; not read here yet"
+    ],
+    [
+     "Justice Position #05 - Supreme Court",
+     "a judicial contest; not read here yet"
+    ],
+    [
+     "Justice Position #07 - Supreme Court",
+     "a judicial contest; not read here yet"
+    ],
+    [
+     "TIMBERLAND REGIONAL LIBRARY DISTRICT - Regular Property Tax Levy Lid Lift for Library Services, Operations and Maintenance",
+     "a ballot question, not a contest between people"
+    ],
+    [
+     "Court of Appeals, Division 1, District 1 - Judge Position 5",
+     "a judicial contest; not read here yet"
+    ],
+    [
+     "Court of Appeals, Division 1, District 1 - Judge Position 6",
+     "a judicial contest; not read here yet"
+    ],
+    [
+     "COURT OF APPEALS, DIVISION 1, DISTRICT 2 - Judge Position 2",
+     "a judicial contest; not read here yet"
+    ],
+    [
+     "Court of Appeals, Division 2, District 1 - Judge Position 2",
+     "a judicial contest; not read here yet"
+    ],
+    [
+     "Court of Appeals, Division 2, District 2 - Judge Position 1",
+     "a judicial contest; not read here yet"
+    ],
+    [
+     "Court of Appeals, Division 3, District 1 - Judge Position 2",
+     "a judicial contest; not read here yet"
+    ],
+    [
+     "Court of Appeals, Division 3, District 2 - Judge Position 1",
+     "a judicial contest; not read here yet"
+    ],
+    [
+     "Court of Appeals, Division 3, District 3 - Judge Position 1",
+     "a judicial contest; not read here yet"
+    ],
+    [
+     "CHENEY SCHOOL DISTRICT - Proposition No. 1",
+     "a ballot question, not a contest between people"
+    ],
+    [
+     "CHENEY SCHOOL DISTRICT - Proposition No. 2",
+     "a ballot question, not a contest between people"
+    ],
+    [
+     "NINE MILE FALLS SCHOOL DISTRICT - Proposition No. 1",
+     "a ballot question, not a contest between people"
+    ],
+    [
+     "NINE MILE FALLS SCHOOL DISTRICT - Proposition No. 2",
+     "a ballot question, not a contest between people"
+    ],
+    [
+     "RIVERSIDE SCHOOL DISTRICT - Proposition No. 1",
+     "a ballot question, not a contest between people"
+    ],
+    [
+     "Ferry, Pend Oreille, Stevens Superior Court - Judge Position 2",
+     "a judicial contest; not read here yet"
+    ],
+    [
+     "Prescott Joint Park and Recreation District - PROPOSITION NO. 1",
+     "a ballot question, not a contest between people"
+    ],
+    [
+     "CITY OF MILTON - Proposition No. 1",
+     "a ballot question, not a contest between people"
+    ],
+    [
+     "CITY OF BOTHELL - Proposition No. 1",
+     "a ballot question, not a contest between people"
+    ],
+    [
+     "Sch Dist 65 - McCleary - McCleary School District No. 65 - Bonds",
+     "a ballot question, not a contest between people"
+    ],
+    [
+     "QUILLAYUTE VALLEY SCHOOL DISTRICT 402 - Proposition 1",
+     "a ballot question, not a contest between people"
+    ],
+    [
+     "Auburn School District No. 408 - Proposition No. 1",
+     "a ballot question, not a contest between people"
+    ],
+    [
+     "YELM COMMUNITY SCHOOLS - Proposition No. 1 - Educational Programs and Operations Maintenance Levy",
+     "a ballot question, not a contest between people"
+    ],
+    [
+     "Fire Protection District No. 1 - Proposition 1",
+     "a ballot question, not a contest between people"
+    ]
+   ]
+  }
+ ],
+ "contests": {},
+ "counties": {
+  "adams": "53001",
+  "adams county": "53001",
+  "asotin": "53003",
+  "asotin county": "53003",
+  "benton": "53005",
+  "benton county": "53005",
+  "chelan": "53007",
+  "chelan county": "53007",
+  "clallam": "53009",
+  "clallam county": "53009",
+  "clark": "53011",
+  "clark county": "53011",
+  "columbia": "53013",
+  "columbia county": "53013",
+  "cowlitz": "53015",
+  "cowlitz county": "53015",
+  "douglas": "53017",
+  "douglas county": "53017",
+  "ferry": "53019",
+  "ferry county": "53019",
+  "franklin": "53021",
+  "franklin county": "53021",
+  "garfield": "53023",
+  "garfield county": "53023",
+  "grant": "53025",
+  "grant county": "53025",
+  "grays harbor": "53027",
+  "grays harbor county": "53027",
+  "island": "53029",
+  "island county": "53029",
+  "jefferson": "53031",
+  "jefferson county": "53031",
+  "king": "53033",
+  "king county": "53033",
+  "kitsap": "53035",
+  "kitsap county": "53035",
+  "kittitas": "53037",
+  "kittitas county": "53037",
+  "klickitat": "53039",
+  "klickitat county": "53039",
+  "lewis": "53041",
+  "lewis county": "53041",
+  "lincoln": "53043",
+  "lincoln county": "53043",
+  "mason": "53045",
+  "mason county": "53045",
+  "okanogan": "53047",
+  "okanogan county": "53047",
+  "pacific": "53049",
+  "pacific county": "53049",
+  "pend oreille": "53051",
+  "pend oreille county": "53051",
+  "pierce": "53053",
+  "pierce county": "53053",
+  "san juan": "53055",
+  "san juan county": "53055",
+  "skagit": "53057",
+  "skagit county": "53057",
+  "skamania": "53059",
+  "skamania county": "53059",
+  "snohomish": "53061",
+  "snohomish county": "53061",
+  "spokane": "53063",
+  "spokane county": "53063",
+  "stevens": "53065",
+  "stevens county": "53065",
+  "thurston": "53067",
+  "thurston county": "53067",
+  "wahkiakum": "53069",
+  "wahkiakum county": "53069",
+  "walla walla": "53071",
+  "walla walla county": "53071",
+  "whatcom": "53073",
+  "whatcom county": "53073",
+  "whitman": "53075",
+  "whitman county": "53075",
+  "yakima": "53077",
+  "yakima county": "53077"
+ },
+ "races": {
+  "2026-WA-H01": {
+   "cands": {
+    "general": [
+     [
+      "Mary Silva",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Suzan DelBene",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Benjamin Kincaid",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Bryce Nickel",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Catherine Hildebrand",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Hunter Gordon",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "James Etzkorn",
+      "Prefers Independent Party",
+      0
+     ],
+     [
+      "Mary Silva",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Suzan DelBene",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "01",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-H02": {
+   "cands": {
+    "general": [
+     [
+      "Edwin H. Feller",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Rick Larsen",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Devin Hermanson",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Edwin H. Feller",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Rick Larsen",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Tomas Scheel",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "02",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-H03": {
+   "cands": {
+    "general": [
+     [
+      "John Braun",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Marie Gluesenkamp Perez",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Antony Barran",
+      "Prefers Cascade Party",
+      0
+     ],
+     [
+      "Austin Braswell",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Brent Hennrich",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "John Braun",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "John P. Roco",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "John Saulie-Rohman",
+      "Prefers Independent Party",
+      0
+     ],
+     [
+      "Lawrence Kellogg",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Marie Gluesenkamp Perez",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Troy Rasband",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "03",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-H04": {
+   "cands": {
+    "general": [
+     [
+      "Amanda McKinney",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "John Duresky",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Amanda McKinney",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Devin Poore",
+      "Prefers Cascade Party",
+      0
+     ],
+     [
+      "Elpidia Saavedra",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Favian Valencia",
+      "Prefers Independent Party",
+      0
+     ],
+     [
+      "Jacek \"Jack\" Kobiesa",
+      "States No Party Preference",
+      0
+     ],
+     [
+      "Jerrod Sessler",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "John C. Hughs",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "John Duresky",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Ken Vaz",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Matt Boehnke",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Zac Rossi",
+      "States No Party Preference",
+      0
+     ]
+    ]
+   },
+   "district": "04",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-H05": {
+   "cands": {
+    "general": [
+     [
+      "Carmela Conroy",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Michael Baumgartner",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Andrew Bartleson",
+      "Prefers Independent Party",
+      0
+     ],
+     [
+      "Ann Marie Danimus",
+      "Prefers Independent Party",
+      0
+     ],
+     [
+      "Bajun R. Mavalwalla",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Carmela Conroy",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "David Womack",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Kevin Fagan",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Kyle Usrey",
+      "Prefers Independent Party",
+      0
+     ],
+     [
+      "Matthew Hayes",
+      "Prefers Independent Party",
+      0
+     ],
+     [
+      "Michael Baumgartner",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Michael McGarr",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Nate Powell",
+      "Prefers Independent Party",
+      0
+     ],
+     [
+      "Richard Freudenberg",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "05",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-H06": {
+   "cands": {
+    "general": [
+     [
+      "Emily Randall",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Teresa Fox",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Brian P. O'Gorman",
+      "Prefers Independent Party",
+      0
+     ],
+     [
+      "Emily Randall",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Leon Lawson",
+      "Prefers Trump Republican Party",
+      0
+     ],
+     [
+      "Macy Jones",
+      "States No Party Preference",
+      0
+     ],
+     [
+      "Teresa Fox",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "06",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-H07": {
+   "cands": {
+    "general": [
+     [
+      "Nirav Sheth",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Pramila Jayapal",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "David W. Blomstrom",
+      "Prefers Fifth Republic Party",
+      0
+     ],
+     [
+      "Gwen Kirkland",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Nirav Sheth",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Pramila Jayapal",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "07",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-H08": {
+   "cands": {
+    "general": [
+     [
+      "Kim Schrier",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Spencer Meline",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Andres Valleza",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Bob Hagglund",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Keith Arnold",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Kim Schrier",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Spencer Meline",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Trinh Ha",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "08",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-H09": {
+   "cands": {
+    "general": [
+     [
+      "Adam Smith",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Doug Basler",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Adam Smith",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Doug Basler",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Jacob Perasso",
+      "Prefers Socialist Workers Party",
+      0
+     ],
+     [
+      "Kshama Sawant",
+      "Prefers Independent Party",
+      0
+     ],
+     [
+      "Melissa Chaudhry",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "09",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-H10": {
+   "cands": {
+    "general": [
+     [
+      "Chris D. Chung",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Marilyn Strickland",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Adam Arafat",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Alex Scheel",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Chris D. Chung",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Derek Maynes",
+      "States No Party Preference",
+      0
+     ],
+     [
+      "Kurtis Engle",
+      "Prefers Union Party",
+      0
+     ],
+     [
+      "Marilyn Strickland",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "10",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-SH1-1": {
+   "cands": {
+    "general": [
+     [
+      "Davina Duerr",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Maggie Wang",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Davina Duerr",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Maggie Wang",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "1",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH1-2": {
+   "cands": {
+    "general": [
+     [
+      "Cliff Moon",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Shelley Kloba",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Cliff Moon",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Jeff Lyon",
+      "Prefers Libertarian Party",
+      0
+     ],
+     [
+      "Jenne Alderks",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Shelley Kloba",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "1",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH10-1": {
+   "cands": {
+    "general": [
+     [
+      "Clyde Shavers",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Robert (Chili) Hicks",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Clyde Shavers",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Robert (Chili) Hicks",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "10",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH10-2": {
+   "cands": {
+    "general": [
+     [
+      "Dave Paul",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Tim Hazelo",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Carrie R. Kennedy",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Dave Paul",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Tim Hazelo",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "10",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH11-1": {
+   "cands": {
+    "general": [
+     [
+      "Ashley Fedan",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "David Hackney",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Ashley Fedan",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Christian Rombough",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "David Hackney",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "11",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH11-2": {
+   "cands": {
+    "general": [
+     [
+      "Steve Bergquist",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "11",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH12-1": {
+   "cands": {
+    "general": [
+     [
+      "Brian Burnett",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Stacy Willoughby",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Brian Burnett",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Stacy Willoughby",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "12",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH12-2": {
+   "cands": {
+    "general": [
+     [
+      "Maggie Adams",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Mike Steele",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Adam James",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Maggie Adams",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Mike Steele",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "12",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH13-1": {
+   "cands": {
+    "general": [
+     [
+      "Juan \"Jerry\" Garcia",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Tom Dent",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Juan \"Jerry\" Garcia",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Tom Dent",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "13",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH13-2": {
+   "cands": {
+    "general": [
+     [
+      "Deanna Martinez",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Joshua Thompson",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Deanna Martinez",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Don Myers",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Joshua Thompson",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "13",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH14-1": {
+   "cands": {
+    "general": [
+     [
+      "Chelsea Dimas",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Gloria Mendoza",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Chelsea Dimas",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Gloria Mendoza",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "William Chichenoff",
+      "States No Party Preference",
+      0
+     ]
+    ]
+   },
+   "district": "14",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH14-2": {
+   "cands": {
+    "general": [
+     [
+      "Deb Manjarrez",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Ezequiel Morfin",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Deb Manjarrez",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Ezequiel Morfin",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Tony G Sandoval",
+      "Prefers Democrat Party",
+      0
+     ]
+    ]
+   },
+   "district": "14",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH15-1": {
+   "cands": {
+    "general": [
+     [
+      "Chris Corry",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Jack McEntire",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Chris Corry",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Jack McEntire",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "15",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH15-2": {
+   "cands": {
+    "general": [
+     [
+      "Liz Hallock",
+      "Prefers No Kings Party",
+      0
+     ],
+     [
+      "Reedy Berg",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Chase Foster",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Liz Hallock",
+      "Prefers No Kings Party",
+      0
+     ],
+     [
+      "Reedy Berg",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "15",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH16-1": {
+   "cands": {
+    "general": [
+     [
+      "Kyle Palmer",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Mark Klicker",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Kyle Palmer",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Mark Klicker",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "16",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH16-2": {
+   "cands": {
+    "general": [
+     [
+      "Derek Sarley",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Skyler Rude",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Derek Sarley",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Skyler Rude",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "16",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH17-1": {
+   "cands": {
+    "general": [
+     [
+      "Ben Christly",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Kevin Waters",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Ben Christly",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Kevin Waters",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Thomas Everett Haynes",
+      "Prefers Pro Gun Liberal Party",
+      0
+     ]
+    ]
+   },
+   "district": "17",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH17-2": {
+   "cands": {
+    "general": [
+     [
+      "David Stuebe",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Diana H. Perez",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "David Stuebe",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Diana H. Perez",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "17",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH18-1": {
+   "cands": {
+    "general": [
+     [
+      "Randi L. Knott",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Stephanie McClintock",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Randi L. Knott",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Stephanie McClintock",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "18",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH18-2": {
+   "cands": {
+    "general": [
+     [
+      "Deken Letinich",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "John Ley",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Deken Letinich",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "John Ley",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "18",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH19-1": {
+   "cands": {
+    "general": [
+     [
+      "Jim Walsh",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Kevin Moynihan",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Jim Walsh",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Kevin Moynihan",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "19",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH19-2": {
+   "cands": {
+    "general": [
+     [
+      "Joel McEntire",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Terry Carlson",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Daniel William Bradley",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Jimi O'Hagan",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Joel McEntire",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Terry Carlson",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "19",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH2-1": {
+   "cands": {
+    "general": [
+     [
+      "Andrew Barkis",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "William Dehnel",
+      "Prefers Labor Democrat Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Andrew Barkis",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "William Dehnel",
+      "Prefers Labor Democrat Party",
+      0
+     ]
+    ]
+   },
+   "district": "2",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH2-2": {
+   "cands": {
+    "general": [
+     [
+      "Angela Taylor",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Matt Marshall",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Angela Taylor",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Martin L Miller",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Matt Marshall",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "2",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH20-1": {
+   "cands": {
+    "general": [
+     [
+      "Andy Zahn",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Peter Abbarno",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Andy Zahn",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Peter Abbarno",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "20",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH20-2": {
+   "cands": {
+    "general": [
+     [
+      "Ed Orcutt",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Evan Jones",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Ed Orcutt",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Evan Jones",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "20",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH21-1": {
+   "cands": {
+    "general": [
+     [
+      "Jason Moon",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Strom Peterson",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Jason Moon",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Strom Peterson",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "21",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH21-2": {
+   "cands": {
+    "general": [
+     [
+      "Bruce Guthrie",
+      "Prefers Libertarian Party",
+      0
+     ],
+     [
+      "Lillian Ortiz-Self",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Bruce Guthrie",
+      "Prefers Libertarian Party",
+      0
+     ],
+     [
+      "Lillian Ortiz-Self",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "21",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH22-1": {
+   "cands": {
+    "general": [
+     [
+      "Beth Doglio",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Don Hewett",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Beth Doglio",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Don Hewett",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "22",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH22-2": {
+   "cands": {
+    "general": [
+     [
+      "Jamie Keenan-deVargas",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Lisa Parshley",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Jamie Keenan-deVargas",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Lisa Parshley",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "22",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH23-1": {
+   "cands": {
+    "general": [
+     [
+      "Daria Ilgen",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Tarra Simmons",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Daria Ilgen",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Tarra Simmons",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "23",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH23-2": {
+   "cands": {
+    "general": [
+     [
+      "Greg Nance",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Lance Byrd",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Greg Nance",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Kristin Lillegard",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Lance Byrd",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "23",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH24-1": {
+   "cands": {
+    "general": [
+     [
+      "Adam Bernbaum",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Eric W. Pratt",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Adam Bernbaum",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Aiden I.R. Hamilton",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Eric W. Pratt",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Ted Bowen",
+      "Prefers Independent Party",
+      0
+     ]
+    ]
+   },
+   "district": "24",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH24-2": {
+   "cands": {
+    "general": [
+     [
+      "Kaylee Kuehn",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Marcia Kelbon",
+      "States No Party Preference",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Bradley Nemo Callaway",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Kaylee Kuehn",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Marcia Kelbon",
+      "States No Party Preference",
+      0
+     ],
+     [
+      "Mark Hodgson",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Patrick DePoe",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "24",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH25-1": {
+   "cands": {
+    "general": [
+     [
+      "David Berg",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Michael Keaton",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "David Berg",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Michael Keaton",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Nick Oloo",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "25",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH25-2": {
+   "cands": {
+    "general": [
+     [
+      "Cyndy Jacobsen",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Jenn Marie Strickling",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Cyndy Jacobsen",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Jenn Marie Strickling",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Ren Fanony",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "25",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH26-1": {
+   "cands": {
+    "general": [
+     [
+      "Adison Richards",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "David Olson",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Adison Richards",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "David Olson",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Natalie Bornfleth",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "26",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH26-2": {
+   "cands": {
+    "general": [
+     [
+      "Katy Cornell",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Renee Hernandez Greenfield",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Katy Cornell",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Randy Phillips",
+      "States No Party Preference",
+      0
+     ],
+     [
+      "Renee Hernandez Greenfield",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Tedd Wetherbee",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "26",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH27-1": {
+   "cands": {
+    "general": [
+     [
+      "Carole Sue Braaten",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Laurie Jinkins",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Carole Sue Braaten",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Laurie Jinkins",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "27",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH27-2": {
+   "cands": {
+    "general": [
+     [
+      "Jake Fey",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "27",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH28-1": {
+   "cands": {
+    "general": [
+     [
+      "Kathy Richardson",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Mari Leavitt",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Kathy Richardson",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Mari Leavitt",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "28",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH28-2": {
+   "cands": {
+    "general": [
+     [
+      "Dan Bronoske",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Kerry Hills",
+      "Nonpartisan",
+      0
+     ]
+    ]
+   },
+   "district": "28",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH29-1": {
+   "cands": {
+    "general": [
+     [
+      "Krista Perez",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Melanie Morgan",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Krista Perez",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Melanie Morgan",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "29",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH29-2": {
+   "cands": {
+    "general": [
+     [
+      "Joe Bushnell",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Patrick Stickney",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Darek Blum",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Erin Chapman-Smith",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Joe Bushnell",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Natasha Laitila",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Patrick Stickney",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Sheri Hayes",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "29",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH3-1": {
+   "cands": {
+    "general": [
+     [
+      "Natasha Hill",
+      "Prefers Democrat Party",
+      0
+     ],
+     [
+      "Tony Kiepe",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "John Kness",
+      "States No Party Preference",
+      0
+     ],
+     [
+      "Natasha Hill",
+      "Prefers Democrat Party",
+      0
+     ],
+     [
+      "Tony Kiepe",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "3",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH3-2": {
+   "cands": {
+    "general": [
+     [
+      "Luc Jasmin III",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Natalie Poulson",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Donovan Arnold DeLeon",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Luc Jasmin III",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Natalie Poulson",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Pam Kohlmeier",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "3",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH30-1": {
+   "cands": {
+    "general": [
+     [
+      "Jamila E. Taylor",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Tiffany Bowyer",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Jamila E. Taylor",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Tiffany Bowyer",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "30",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH30-2": {
+   "cands": {
+    "general": [
+     [
+      "Kristine Reeves",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Paul McDaniel",
+      "Prefers Independent Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Kristine Reeves",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Paul McDaniel",
+      "Prefers Independent Party",
+      0
+     ]
+    ]
+   },
+   "district": "30",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH31-1": {
+   "cands": {
+    "general": [
+     [
+      "Drew Stokesbary",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Stephen Szczurko-Walton",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Drew Stokesbary",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Stephen Szczurko-Walton",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "31",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH31-2": {
+   "cands": {
+    "general": [
+     [
+      "John Bielka",
+      "Prefers Democrat Party",
+      0
+     ],
+     [
+      "Joshua Penner",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "John Bielka",
+      "Prefers Democrat Party",
+      0
+     ],
+     [
+      "Joshua Penner",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "31",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH32-1": {
+   "cands": {
+    "general": [
+     [
+      "Danica Noble",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Keith Scully",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Chris Bloomquist",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Danica Noble",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Jenna Nand",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Keith Scully",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Lisa Rezac",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Will Chen",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "32",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH32-2": {
+   "cands": {
+    "general": [
+     [
+      "Imraan Siddiqi",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Lauren Davis",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Imraan Siddiqi",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Lauren Davis",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "32",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH33-1": {
+   "cands": {
+    "general": [
+     [
+      "Chris Martinez",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Edwin Obras",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Chris Martinez",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Darryl K. Jones",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Edwin Obras",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "33",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH33-2": {
+   "cands": {
+    "general": [
+     [
+      "Mia Su-Ling Gregerson",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Yuri Marinchik",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Alex Andrade",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Mia Su-Ling Gregerson",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Yuri Marinchik",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "33",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH34-1": {
+   "cands": {
+    "general": [
+     [
+      "Brianna K. Thomas",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "34",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH34-2": {
+   "cands": {
+    "general": [
+     [
+      "Joe Fitzgibbon",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Mary Anito",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Joe Fitzgibbon",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Mary Anito",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "34",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH35-1": {
+   "cands": {
+    "general": [
+     [
+      "Dan Griffey",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Jim Pierson",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Dan Griffey",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Jim Pierson",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Shaena Garberich",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "35",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH35-2": {
+   "cands": {
+    "general": [
+     [
+      "Maria Littlesun",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Travis Couture",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Maria Littlesun",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Travis Couture",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "35",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH36-1": {
+   "cands": {
+    "general": [
+     [
+      "Julia Grant Reed",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "36",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH36-2": {
+   "cands": {
+    "general": [
+     [
+      "Liz Berry",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "36",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH37-1": {
+   "cands": {
+    "general": [
+     [
+      "Kelabe Tewolde",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Sharon Tomiko Santos",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Kelabe Tewolde",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Sharon Tomiko Santos",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "37",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH37-2": {
+   "cands": {
+    "general": [
+     [
+      "Evon McCorkle",
+      "Prefers Independent Party",
+      0
+     ],
+     [
+      "Jaelynn Scott",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Evon McCorkle",
+      "Prefers Independent Party",
+      0
+     ],
+     [
+      "Jaelynn Scott",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "37",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH38-1": {
+   "cands": {
+    "general": [
+     [
+      "Julio Cortes",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Thomas (Jeff) Kelly",
+      "Prefers Cascade Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Annie Fitzgerald",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Julio Cortes",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Thomas (Jeff) Kelly",
+      "Prefers Cascade Party",
+      0
+     ]
+    ]
+   },
+   "district": "38",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH38-2": {
+   "cands": {
+    "general": [
+     [
+      "Mary Fosse",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "38",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH39-1": {
+   "cands": {
+    "general": [
+     [
+      "Kathryn Lewandowsky",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Sam Low",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Dusty Wisniew",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Kathryn Lewandowsky",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Sam Low",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "39",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH39-2": {
+   "cands": {
+    "general": [
+     [
+      "Ida Keeley",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Steve Ewing",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Ida Keeley",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Lacey Sauvageau",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Robert J Sutherland",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Steve Ewing",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "39",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH4-1": {
+   "cands": {
+    "general": [
+     [
+      "Hillary Q. Pham",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Trent Maier",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Debra Long",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "George Wagner",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Hillary Q. Pham",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Trent Maier",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "4",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH4-2": {
+   "cands": {
+    "general": [
+     [
+      "Rob Chase",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Rob Tupper",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Bob Curtis",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Rob Chase",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Rob Tupper",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "4",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH40-1": {
+   "cands": {
+    "general": [
+     [
+      "Cindy Carter",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Debra Lekanoff",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Cindy Carter",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Debra Lekanoff",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "40",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH40-2": {
+   "cands": {
+    "general": [
+     [
+      "Alex Ramel",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Joseph Segault",
+      "States No Party Preference",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Alex Ramel",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Joseph Segault",
+      "States No Party Preference",
+      0
+     ],
+     [
+      "Monte Jay Mahan",
+      "Prefers Independent Party",
+      0
+     ],
+     [
+      "Salomon Rodrigue Mbouombouo",
+      "Prefers Independent Party",
+      0
+     ]
+    ]
+   },
+   "district": "40",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH41-1": {
+   "cands": {
+    "general": [
+     [
+      "Elle Nguyen",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Janice Zahn",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Alex Tsimerman",
+      "Prefers StandUp America Party",
+      0
+     ],
+     [
+      "Elle Nguyen",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Janice Zahn",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "41",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH41-2": {
+   "cands": {
+    "general": [
+     [
+      "Michael Rosen",
+      "Prefers Independent Party",
+      0
+     ],
+     [
+      "My-Linh T Thai",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Michael Rosen",
+      "Prefers Independent Party",
+      0
+     ],
+     [
+      "My-Linh T Thai",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "41",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH42-1": {
+   "cands": {
+    "general": [
+     [
+      "Alicia Rule",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Misty Flowers",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Alicia Rule",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Misty Flowers",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "42",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH42-2": {
+   "cands": {
+    "general": [
+     [
+      "Joe Timmons",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Justin Pike",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Joe Timmons",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Justin Pike",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "42",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH43-1": {
+   "cands": {
+    "general": [
+     [
+      "Alby Clendennin",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Nicole Macri",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Alby Clendennin",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Nicole Macri",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "43",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH43-2": {
+   "cands": {
+    "general": [
+     [
+      "Shaun Scott",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "43",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH44-1": {
+   "cands": {
+    "general": [
+     [
+      "Brandy Donaghy",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Chris Elder",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Brandy Donaghy",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Chris Elder",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "44",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH44-2": {
+   "cands": {
+    "general": [
+     [
+      "April Berg",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Tonya Stadlman",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "April Berg",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Tonya Stadlman",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "44",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH45-1": {
+   "cands": {
+    "general": [
+     [
+      "JoAnn Tolentino",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Roger Goodman",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "JoAnn Tolentino",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Roger Goodman",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "45",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH45-2": {
+   "cands": {
+    "general": [
+     [
+      "John P Gibbons",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Vanessa Kritzer",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Chandler Torbett",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "John P Gibbons",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Vanessa Kritzer",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "45",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH46-1": {
+   "cands": {
+    "general": [
+     [
+      "Gerry Pollet",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Will Dreher",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Gerry Pollet",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Ron Davis",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Will Dreher",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "46",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH46-2": {
+   "cands": {
+    "general": [
+     [
+      "Darya Farivar",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Rodney 'Star' Thornley",
+      "Prefers Independent Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Darya Farivar",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Rodney 'Star' Thornley",
+      "Prefers Independent Party",
+      0
+     ]
+    ]
+   },
+   "district": "46",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH47-1": {
+   "cands": {
+    "general": [
+     [
+      "Cobi Clark",
+      "Prefers Libertarian Party",
+      0
+     ],
+     [
+      "Debra Jean Entenman",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Cobi Clark",
+      "Prefers Libertarian Party",
+      0
+     ],
+     [
+      "Debra Jean Entenman",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Jasnoor Kaur Hans",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Logan Evans",
+      "Prefers Cascade Democrat Party",
+      0
+     ]
+    ]
+   },
+   "district": "47",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH47-2": {
+   "cands": {
+    "general": [
+     [
+      "Chris Stearns",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Ted Cooke",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Chris Stearns",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Ted Cooke",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "47",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH48-1": {
+   "cands": {
+    "general": [
+     [
+      "Jeffery Poppe",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Osman Salahuddin",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Jeffery Poppe",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Osman Salahuddin",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "48",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH48-2": {
+   "cands": {
+    "general": [
+     [
+      "Amy Walen",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Jessica Forsythe",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Amy Walen",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Jessica Forsythe",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "48",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH49-1": {
+   "cands": {
+    "general": [
+     [
+      "Kim D. Harless",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Sarah Mittelman",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Kim D. Harless",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Mike Pond",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Sarah Mittelman",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "49",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH49-2": {
+   "cands": {
+    "general": [
+     [
+      "Derek Thompson",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Monica Jurado Stonier",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Derek Thompson",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Monica Jurado Stonier",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "49",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH5-1": {
+   "cands": {
+    "general": [
+     [
+      "Michelle Bennett",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Zach Hall",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Aimee Warmerdam",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Michelle Bennett",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Topher Leritz",
+      "States No Party Preference",
+      0
+     ],
+     [
+      "Zach Hall",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "5",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH5-2": {
+   "cands": {
+    "general": [
+     [
+      "Lisa Callan",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Patrick Peacock",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Lisa Callan",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Patrick Peacock",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "5",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH6-1": {
+   "cands": {
+    "general": [
+     [
+      "Alan Nolan",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Michaela Kelso",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Alan Nolan",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Isaiah Paine",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Jennifer Morton",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Michaela Kelso",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Nicolette Ocheltree",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Sueann Davis",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "6",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH6-2": {
+   "cands": {
+    "general": [
+     [
+      "Jonathan Bingle",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Julia Payne",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Aaron M. Croft",
+      "Prefers Independent Party",
+      0
+     ],
+     [
+      "Jonathan Bingle",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Julia Payne",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "6",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH7-1": {
+   "cands": {
+    "general": [
+     [
+      "Andrew Engell",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "7",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH7-2": {
+   "cands": {
+    "general": [
+     [
+      "Hunter Abell",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "7",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH8-1": {
+   "cands": {
+    "general": [
+     [
+      "Stephanie Barnard",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "8",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH8-2": {
+   "cands": {
+    "general": [
+     [
+      "April Connors",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "8",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SH9-1": {
+   "cands": {
+    "general": [
+     [
+      "Mary Dye",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "9",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 1",
+   "special": 0
+  },
+  "2026-WA-SH9-2": {
+   "cands": {
+    "general": [
+     [
+      "Joe Schmick",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Karina Wallace",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Joe Schmick",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Karina Wallace",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "9",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": "Position 2",
+   "special": 0
+  },
+  "2026-WA-SS13": {
+   "cands": {
+    "general": [
+     [
+      "Alex Ybarra",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "13",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-SS15": {
+   "cands": {
+    "general": [
+     [
+      "Jeremie Dufault",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "15",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-SS21": {
+   "cands": {
+    "general": [
+     [
+      "Marko Liias",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Riaz Khan",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Marko Liias",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Riaz Khan",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "21",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-SS26": {
+   "cands": {
+    "general": [
+     [
+      "Deborah Krishnadasan",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Gary Parker",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Deborah Krishnadasan",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Gary Parker",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "26",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-SS29": {
+   "cands": {
+    "general": [
+     [
+      "David Anderson",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Sharlett Mena",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "David Anderson",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Sharlett Mena",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "29",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-SS30": {
+   "cands": {
+    "general": [
+     [
+      "Claire Wilson",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Michael Rutland",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Claire Wilson",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Michael Rutland",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "30",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-SS31": {
+   "cands": {
+    "general": [
+     [
+      "Phil Fortunato",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Tamara Stramel",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Phil Fortunato",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Tamara Stramel",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "31",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-SS32": {
+   "cands": {
+    "general": [
+     [
+      "Cindy Ryu",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Jesse Salomon",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Cindy Ryu",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Ira McBee",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Jesse Salomon",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "32",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-SS33": {
+   "cands": {
+    "general": [
+     [
+      "Tina L. Orwall",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "33",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-SS34": {
+   "cands": {
+    "general": [
+     [
+      "Emily Alvarado",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "34",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-SS35": {
+   "cands": {
+    "general": [
+     [
+      "Carolina Mejia",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Drew C MacEwen",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Carolina Mejia",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Drew C MacEwen",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "35",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-SS36": {
+   "cands": {
+    "general": [
+     [
+      "Jillian England",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Noel C. Frame",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Jillian England",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Noel C. Frame",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "36",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-SS37": {
+   "cands": {
+    "general": [
+     [
+      "Chipalo Street",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Tatiana Brown",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Chipalo Street",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Tatiana Brown",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "37",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-SS38": {
+   "cands": {
+    "general": [
+     [
+      "Brad Bender",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "June Robinson",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Brad Bender",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "June Robinson",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "38",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-SS42": {
+   "cands": {
+    "general": [
+     [
+      "Erika Creydt",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Michael Alvarez Shepard",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Eamonn Collins",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Erika Creydt",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Michael Alvarez Shepard",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Ryan Bowman",
+      "States No Party Preference",
+      0
+     ]
+    ]
+   },
+   "district": "42",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-SS43": {
+   "cands": {
+    "general": [
+     [
+      "Hannah Sabio-Howell",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Jamie Pedersen",
+      "Prefers Democratic Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Hannah Sabio-Howell",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Heather-Marie Wilson",
+      "States No Party Preference",
+      0
+     ],
+     [
+      "Jamie Pedersen",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "43",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-SS44": {
+   "cands": {
+    "general": [
+     [
+      "John Lovick",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Sherri Larkin",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "John Lovick",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Sherri Larkin",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "44",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-SS45": {
+   "cands": {
+    "general": [
+     [
+      "Manka Dhingra",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "45",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-SS46": {
+   "cands": {
+    "general": [
+     [
+      "Javier Valdez",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Sandra Stephens",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Javier Valdez",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Sandra Stephens",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "46",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-SS47": {
+   "cands": {
+    "general": [
+     [
+      "Claudia Kauffman",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Kristina Soltys",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Claudia Kauffman",
+      "Prefers Democratic Party",
+      0
+     ],
+     [
+      "Kristina Soltys",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "47",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-SS48": {
+   "cands": {
+    "general": [
+     [
+      "Vandana Slatter",
+      "Prefers Democratic Party",
+      0
+     ]
+    ]
+   },
+   "district": "48",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-SS6": {
+   "cands": {
+    "general": [
+     [
+      "Jeff Holy",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "6",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-SS7": {
+   "cands": {
+    "general": [
+     [
+      "Ronald L McCoy",
+      "Prefers Independent Party",
+      0
+     ],
+     [
+      "Shelly Short",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Brandon Ray Medina",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "David Swoap",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Ronald L McCoy",
+      "Prefers Independent Party",
+      0
+     ],
+     [
+      "Shelly Short",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "7",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-WA-SS8": {
+   "cands": {
+    "general": [
+     [
+      "Gabe Galbraith",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Nikki Torres",
+      "Prefers Republican Party",
+      0
+     ]
+    ],
+    "primary": [
+     [
+      "Gabe Galbraith",
+      "Prefers Republican Party",
+      0
+     ],
+     [
+      "Nikki Torres",
+      "Prefers Republican Party",
+      0
+     ]
+    ]
+   },
+   "district": "8",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  }
+ },
+ "rule": "A contest is tied to a race only when exactly one race of the same office and district (and seat) fits. A candidate line is tied to a name as filed only when exactly one fits: the family name and a given name that fits. Everything else is listed with the reason and never shown.",
+ "source": "The ballot databases (Congress, and state and local), read only; the races and the names as filed.",
+ "state": "WA",
+ "v": 1
+}

@@ -29,7 +29,7 @@
  },
  "cadence": {
   "check_every_s": 300,
-  "signal": "https://electionresults.mt.gov/ResultsSW.aspx?type=<code>&eid=450002987",
+  "signal": "https://electionresults.mt.gov/resultsSW.aspx?type=FED&map=CTY&eid=450002987",
   "data_on_change": true,
   "from": "the state's first poll closing",
   "hosts": [
@@ -104,21 +104,29 @@
   "local_rule": "County canvass within 14 days (Mont. Code 13-15-401).",
   "source": "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself"
  },
- "condition": "The county exports are form postbacks not yet tried; the data service's method is not pinned down.",
+ "condition": "Read from the results pages (resultsSW.aspx, one per contest type), never the export postbacks or the data service. The Nov 3 pages answer the site's error page until contests are loaded (2026-10-10).",
  "never": [],
  "never_why": {},
  "partial_sources": [],
- "rehearsal": "eid 450002785 (2024 general); 450002928 (2026 primary)",
+ "rehearsal": "eid 450002928 (2026 primary): replay check 2026-10-10, 33 of 33 races equal the official figures; eid 450002785 (2024 general) read cleanly",
  "terms": "None seen.",
  "scout_blocked": "Nothing refused.",
  "scout_plan": "Rehearse on eid 450002785. On election night read the statewide, legislative and county exports (a form post each) or the esersws.mt.gov service the pages call, every few minutes. Local races are on the same site, so Montana can be covered at every level once the export or service format is pinned down.",
  "notes": [],
  "to_do": [
-  "Pin down the export postback or the data service the pages call."
+  "Check in election week that the Nov 3 pages load (FED, STATE, PSC, SENATE, HOUSE)."
  ],
  "sources": [
   "election/scout/results_ne.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
-  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)",
+  "N9 reader checks, 2026-10-10: the state's own results service, read through election/source.py"
+ ],
+ "replay_check": {
+  "election": "450002928",
+  "checked": "2026-10-10",
+  "result": "33 races equal, 0 differ",
+  "kept": "election_cache/replay/sources/mt-450002928/"
+ },
+ "reader_note": "Reader election/readers/resultssw.py written 2026-10-10 (N9): self-test on its fixture passes; crosswalk election/crosswalk/mt.json ties feed contests to the ballot databases' race ids."
 }

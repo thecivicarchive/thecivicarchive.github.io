@@ -1,0 +1,31 @@
+{
+ "built": "2026-10-10",
+ "checked": [
+  {
+   "by_level": {},
+   "certified_primary": {
+    "candidates": 0,
+    "contests": 0,
+    "differences": []
+   },
+   "contests_tied": 0,
+   "election": "2024-General-Election",
+   "lines_tied": "0 of 0",
+   "notes": [],
+   "nov3": false,
+   "problems": [],
+   "read": "2026-10-10",
+   "store": "ok",
+   "unmatched_by_reason": {
+    "the District of Columbia has no races on the ballot lists yet": 15
+   }
+  }
+ ],
+ "contests": {},
+ "counties": {},
+ "races": {},
+ "rule": "A contest is tied to a race only when exactly one race of the same office and district (and seat) fits. A candidate line is tied to a name as filed only when exactly one fits: the family name and a given name that fits. Everything else is listed with the reason and never shown.",
+ "source": "The ballot databases (Congress, and state and local), read only; the races and the names as filed.",
+ "state": "DC",
+ "v": 1
+}

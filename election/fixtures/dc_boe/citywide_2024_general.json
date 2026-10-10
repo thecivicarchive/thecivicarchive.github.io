@@ -1,0 +1,557 @@
+[
+{
+"ContestNumber": 4,
+"OfficeName": "ELECTORS OF PRESIDENT AND VICE PRESIDENT OF THE UNITED STATES",
+"IsRCV": false,
+"ElectionData": [
+{
+"Contestant": "IND Robert F. Kennedy Jr.- Nicole Shanahan",
+"Votes": 2778,
+"TotalVotes": 325869,
+"PartyCode": "IND"
+},
+{
+"Contestant": "REP Donald J. Trump - JD Vance",
+"Votes": 21076,
+"TotalVotes": 325869,
+"PartyCode": "REP"
+},
+{
+"Contestant": "DEM Kamala D. Harris - Tim Walz",
+"Votes": 294185,
+"TotalVotes": 325869,
+"PartyCode": "DEM"
+},
+{
+"Contestant": "Write-in",
+"Votes": 7830,
+"TotalVotes": 325869,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "OVER VOTES",
+"Votes": 460,
+"TotalVotes": 325869,
+"PartyCode": "IND"
+},
+{
+"Contestant": "UNDER VOTES",
+"Votes": 2075,
+"TotalVotes": 325869,
+"PartyCode": "IND"
+}
+]
+},
+{
+"ContestNumber": 5,
+"OfficeName": "DELEGATE TO THE HOUSE OF REPRESENTATIVES FROM THE DISTRICT OF COLUMBIA",
+"IsRCV": false,
+"ElectionData": [
+{
+"Contestant": "STG Kymone Freeman",
+"Votes": 21873,
+"TotalVotes": 314069,
+"PartyCode": "STG"
+},
+{
+"Contestant": "REP Myrtle Patricia Alexander",
+"Votes": 19765,
+"TotalVotes": 314069,
+"PartyCode": "REP"
+},
+{
+"Contestant": "IND Michael A. Brown",
+"Votes": 19033,
+"TotalVotes": 314069,
+"PartyCode": "IND"
+},
+{
+"Contestant": "DEM Eleanor Holmes Norton",
+"Votes": 251540,
+"TotalVotes": 314069,
+"PartyCode": "DEM"
+},
+{
+"Contestant": "Write-in",
+"Votes": 1858,
+"TotalVotes": 314069,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "OVER VOTES",
+"Votes": 561,
+"TotalVotes": 314069,
+"PartyCode": "STG"
+},
+{
+"Contestant": "UNDER VOTES",
+"Votes": 13774,
+"TotalVotes": 314069,
+"PartyCode": "STG"
+}
+]
+},
+{
+"ContestNumber": 6,
+"OfficeName": "AT-LARGE MEMBER OF THE COUNCIL OF THE DISTRICT OF COLUMBIA",
+"IsRCV": false,
+"ElectionData": [
+{
+"Contestant": "STG Darryl Moch",
+"Votes": 29789,
+"TotalVotes": 391637,
+"PartyCode": "STG"
+},
+{
+"Contestant": "IND Christina D. Henderson",
+"Votes": 90814,
+"TotalVotes": 391637,
+"PartyCode": "IND"
+},
+{
+"Contestant": "REP Rob Simmons",
+"Votes": 24760,
+"TotalVotes": 391637,
+"PartyCode": "REP"
+},
+{
+"Contestant": "DEM Robert White",
+"Votes": 243528,
+"TotalVotes": 391637,
+"PartyCode": "DEM"
+},
+{
+"Contestant": "Write-in",
+"Votes": 2746,
+"TotalVotes": 391637,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "OVER VOTES",
+"Votes": 386,
+"TotalVotes": 391637,
+"PartyCode": "STG"
+},
+{
+"Contestant": "UNDER VOTES",
+"Votes": 260139,
+"TotalVotes": 391637,
+"PartyCode": "STG"
+}
+]
+},
+{
+"ContestNumber": 7,
+"OfficeName": "WARD TWO MEMBER OF THE COUNCIL OF THE DISTRICT OF COLUMBIA",
+"IsRCV": false,
+"ElectionData": [
+{
+"Contestant": "DEM Brooke Pinto",
+"Votes": 29839,
+"TotalVotes": 31955,
+"PartyCode": "DEM"
+},
+{
+"Contestant": "Write-in",
+"Votes": 2116,
+"TotalVotes": 31955,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "OVER VOTES",
+"Votes": 27,
+"TotalVotes": 31955,
+"PartyCode": "DEM"
+},
+{
+"Contestant": "UNDER VOTES",
+"Votes": 5702,
+"TotalVotes": 31955,
+"PartyCode": "DEM"
+}
+]
+},
+{
+"ContestNumber": 8,
+"OfficeName": "WARD FOUR MEMBER OF THE COUNCIL OF THE DISTRICT OF COLUMBIA",
+"IsRCV": false,
+"ElectionData": [
+{
+"Contestant": "DEM Janeese Lewis George",
+"Votes": 36319,
+"TotalVotes": 37581,
+"PartyCode": "DEM"
+},
+{
+"Contestant": "Write-in",
+"Votes": 1262,
+"TotalVotes": 37581,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "OVER VOTES",
+"Votes": 46,
+"TotalVotes": 37581,
+"PartyCode": "DEM"
+},
+{
+"Contestant": "UNDER VOTES",
+"Votes": 4917,
+"TotalVotes": 37581,
+"PartyCode": "DEM"
+}
+]
+},
+{
+"ContestNumber": 9,
+"OfficeName": "WARD SEVEN MEMBER OF THE COUNCIL OF THE DISTRICT OF COLUMBIA",
+"IsRCV": false,
+"ElectionData": [
+{
+"Contestant": "DEM Wendell Felder",
+"Votes": 32673,
+"TotalVotes": 35216,
+"PartyCode": "DEM"
+},
+{
+"Contestant": "REP Noah Montgomery",
+"Votes": 2105,
+"TotalVotes": 35216,
+"PartyCode": "REP"
+},
+{
+"Contestant": "Write-in",
+"Votes": 438,
+"TotalVotes": 35216,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "OVER VOTES",
+"Votes": 49,
+"TotalVotes": 35216,
+"PartyCode": "DEM"
+},
+{
+"Contestant": "UNDER VOTES",
+"Votes": 2047,
+"TotalVotes": 35216,
+"PartyCode": "DEM"
+}
+]
+},
+{
+"ContestNumber": 10,
+"OfficeName": "WARD EIGHT MEMBER OF THE COUNCIL OF THE DISTRICT OF COLUMBIA",
+"IsRCV": false,
+"ElectionData": [
+{
+"Contestant": "DEM Trayon White Sr.",
+"Votes": 20371,
+"TotalVotes": 26861,
+"PartyCode": "DEM"
+},
+{
+"Contestant": "REP Nate Derenge",
+"Votes": 3981,
+"TotalVotes": 26861,
+"PartyCode": "REP"
+},
+{
+"Contestant": "Write-in",
+"Votes": 2509,
+"TotalVotes": 26861,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "OVER VOTES",
+"Votes": 74,
+"TotalVotes": 26861,
+"PartyCode": "DEM"
+},
+{
+"Contestant": "UNDER VOTES",
+"Votes": 2929,
+"TotalVotes": 26861,
+"PartyCode": "DEM"
+}
+]
+},
+{
+"ContestNumber": 11,
+"OfficeName": "UNITED STATES SENATOR",
+"IsRCV": false,
+"ElectionData": [
+{
+"Contestant": "REP Nelson Rimensnyder",
+"Votes": 26968,
+"TotalVotes": 295033,
+"PartyCode": "REP"
+},
+{
+"Contestant": "DEM Ankit Jain",
+"Votes": 265360,
+"TotalVotes": 295033,
+"PartyCode": "DEM"
+},
+{
+"Contestant": "Write-in",
+"Votes": 2705,
+"TotalVotes": 295033,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "OVER VOTES",
+"Votes": 340,
+"TotalVotes": 295033,
+"PartyCode": "REP"
+},
+{
+"Contestant": "UNDER VOTES",
+"Votes": 30241,
+"TotalVotes": 295033,
+"PartyCode": "REP"
+}
+]
+},
+{
+"ContestNumber": 12,
+"OfficeName": "UNITED STATES REPRESENTATIVE",
+"IsRCV": false,
+"ElectionData": [
+{
+"Contestant": "DEM Oye Owolewa",
+"Votes": 267661,
+"TotalVotes": 294954,
+"PartyCode": "DEM"
+},
+{
+"Contestant": "REP Ciprian Ivanof",
+"Votes": 25040,
+"TotalVotes": 294954,
+"PartyCode": "REP"
+},
+{
+"Contestant": "Write-in",
+"Votes": 2253,
+"TotalVotes": 294954,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "OVER VOTES",
+"Votes": 305,
+"TotalVotes": 294954,
+"PartyCode": "DEM"
+},
+{
+"Contestant": "UNDER VOTES",
+"Votes": 30355,
+"TotalVotes": 294954,
+"PartyCode": "DEM"
+}
+]
+},
+{
+"ContestNumber": 13,
+"OfficeName": "AT-LARGE MEMBER OF THE STATE BOARD OF EDUCATION",
+"IsRCV": false,
+"ElectionData": [
+{
+"Contestant": "Jacque Patterson",
+"Votes": 229406,
+"TotalVotes": 235683,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "Write-in",
+"Votes": 6277,
+"TotalVotes": 235683,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "OVER VOTES",
+"Votes": 247,
+"TotalVotes": 235683,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "UNDER VOTES",
+"Votes": 90151,
+"TotalVotes": 235683,
+"PartyCode": "NPN"
+}
+]
+},
+{
+"ContestNumber": 14,
+"OfficeName": "WARD TWO MEMBER OF THE STATE BOARD OF EDUCATION",
+"IsRCV": false,
+"ElectionData": [
+{
+"Contestant": "Allister Chang",
+"Votes": 26418,
+"TotalVotes": 26950,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "Write-in",
+"Votes": 532,
+"TotalVotes": 26950,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "OVER VOTES",
+"Votes": 16,
+"TotalVotes": 26950,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "UNDER VOTES",
+"Votes": 10718,
+"TotalVotes": 26950,
+"PartyCode": "NPN"
+}
+]
+},
+{
+"ContestNumber": 15,
+"OfficeName": "WARD FOUR MEMBER OF THE STATE BOARD OF EDUCATION",
+"IsRCV": false,
+"ElectionData": [
+{
+"Contestant": "Frazier L. O'Leary, Jr.",
+"Votes": 15053,
+"TotalVotes": 33702,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "T. Michelle Colson",
+"Votes": 18293,
+"TotalVotes": 33702,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "Write-in",
+"Votes": 356,
+"TotalVotes": 33702,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "OVER VOTES",
+"Votes": 56,
+"TotalVotes": 33702,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "UNDER VOTES",
+"Votes": 8786,
+"TotalVotes": 33702,
+"PartyCode": "NPN"
+}
+]
+},
+{
+"ContestNumber": 16,
+"OfficeName": "WARD SEVEN MEMBER OF THE STATE BOARD OF EDUCATION",
+"IsRCV": false,
+"ElectionData": [
+{
+"Contestant": "Toni Criner",
+"Votes": 6439,
+"TotalVotes": 33093,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "Charles Boston",
+"Votes": 2545,
+"TotalVotes": 33093,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "Eboni-Rose Thompson",
+"Votes": 23743,
+"TotalVotes": 33093,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "Write-in",
+"Votes": 366,
+"TotalVotes": 33093,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "OVER VOTES",
+"Votes": 45,
+"TotalVotes": 33093,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "UNDER VOTES",
+"Votes": 4174,
+"TotalVotes": 33093,
+"PartyCode": "NPN"
+}
+]
+},
+{
+"ContestNumber": 17,
+"OfficeName": "WARD EIGHT MEMBER OF THE STATE BOARD OF EDUCATION",
+"IsRCV": false,
+"ElectionData": [
+{
+"Contestant": "LaJoy Johnson-Law",
+"Votes": 23448,
+"TotalVotes": 23883,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "Write-in",
+"Votes": 435,
+"TotalVotes": 23883,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "OVER VOTES",
+"Votes": 42,
+"TotalVotes": 23883,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "UNDER VOTES",
+"Votes": 5939,
+"TotalVotes": 23883,
+"PartyCode": "NPN"
+}
+]
+},
+{
+"ContestNumber": 363,
+"OfficeName": "INITIATIVE 83",
+"IsRCV": false,
+"ElectionData": [
+{
+"Contestant": "Yes, to approve",
+"Votes": 212332,
+"TotalVotes": 291293,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "No, to reject",
+"Votes": 78961,
+"TotalVotes": 291293,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "OVER VOTES",
+"Votes": 112,
+"TotalVotes": 291293,
+"PartyCode": "NPN"
+},
+{
+"Contestant": "UNDER VOTES",
+"Votes": 34676,
+"TotalVotes": 291293,
+"PartyCode": "NPN"
+}
+]
+}
+]

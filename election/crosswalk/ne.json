@@ -1,0 +1,1031 @@
+{
+ "v": 1,
+ "state": "NE",
+ "family": "resultssw",
+ "built": "2026-10-10",
+ "from": [
+  "ballot_2026.sqlite: races, candidates (general list)",
+  "ballot_local_2026.sqlite: sl_races, sl_candidates (statewide and legislature), sl_places (county names, from the Census Bureau's county file)"
+ ],
+ "rule": "A feed contest is tied to a race by its title (office words, district number, unexpired or special) and, in a primary, its party; a contest that fits no race or more than one is listed, never shown. Names as printed are tied to names as filed by family name and first initial, one fit only.",
+ "counties": {
+  "adams": "31001",
+  "antelope": "31003",
+  "arthur": "31005",
+  "banner": "31007",
+  "blaine": "31009",
+  "boone": "31011",
+  "boxbutte": "31013",
+  "boyd": "31015",
+  "brown": "31017",
+  "buffalo": "31019",
+  "burt": "31021",
+  "butler": "31023",
+  "cass": "31025",
+  "cedar": "31027",
+  "chase": "31029",
+  "cherry": "31031",
+  "cheyenne": "31033",
+  "clay": "31035",
+  "colfax": "31037",
+  "cuming": "31039",
+  "custer": "31041",
+  "dakota": "31043",
+  "dawes": "31045",
+  "dawson": "31047",
+  "deuel": "31049",
+  "dixon": "31051",
+  "dodge": "31053",
+  "douglas": "31055",
+  "dundy": "31057",
+  "fillmore": "31059",
+  "franklin": "31061",
+  "frontier": "31063",
+  "furnas": "31065",
+  "gage": "31067",
+  "garden": "31069",
+  "garfield": "31071",
+  "gosper": "31073",
+  "grant": "31075",
+  "greeley": "31077",
+  "hall": "31079",
+  "hamilton": "31081",
+  "harlan": "31083",
+  "hayes": "31085",
+  "hitchcock": "31087",
+  "holt": "31089",
+  "hooker": "31091",
+  "howard": "31093",
+  "jefferson": "31095",
+  "johnson": "31097",
+  "kearney": "31099",
+  "keith": "31101",
+  "keyapaha": "31103",
+  "kimball": "31105",
+  "knox": "31107",
+  "lancaster": "31109",
+  "lincoln": "31111",
+  "logan": "31113",
+  "loup": "31115",
+  "mcpherson": "31117",
+  "madison": "31119",
+  "merrick": "31121",
+  "morrill": "31123",
+  "nance": "31125",
+  "nemaha": "31127",
+  "nuckolls": "31129",
+  "otoe": "31131",
+  "pawnee": "31133",
+  "perkins": "31135",
+  "phelps": "31137",
+  "pierce": "31139",
+  "platte": "31141",
+  "polk": "31143",
+  "redwillow": "31145",
+  "richardson": "31147",
+  "rock": "31149",
+  "saline": "31151",
+  "sarpy": "31153",
+  "saunders": "31155",
+  "scottsbluff": "31157",
+  "seward": "31159",
+  "sheridan": "31161",
+  "sherman": "31163",
+  "sioux": "31165",
+  "stanton": "31167",
+  "thayer": "31169",
+  "thomas": "31171",
+  "thurston": "31173",
+  "valley": "31175",
+  "washington": "31177",
+  "wayne": "31179",
+  "webster": "31181",
+  "wheeler": "31183",
+  "york": "31185"
+ },
+ "races": [
+  {
+   "id": "2026-NE-H01",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "1",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mike Flood",
+     "Republican"
+    ],
+    [
+     "Chris Backemeyer",
+     "Democratic"
+    ],
+    [
+     "Nik Sandman",
+     "Libertarian"
+    ],
+    [
+     "Dan Hartong",
+     "America First"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-H02",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "2",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brinker Harding",
+     "Republican"
+    ],
+    [
+     "Denise Powell",
+     "Democratic"
+    ],
+    [
+     "Eric Michael Foreman",
+     "Libertarian"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-H03",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "3",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Adrian Smith",
+     "Republican"
+    ],
+    [
+     "Becky Kelly Stille",
+     "Democratic"
+    ],
+    [
+     "David J. Else",
+     "Legal Marijuana NOW"
+    ],
+    [
+     "Macey Budke",
+     "Nebraska Working People"
+    ],
+    [
+     "Mark Cohen",
+     "By Petition"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-S2",
+   "level": "federal",
+   "kind": "S",
+   "office": "U.S. Senate",
+   "district": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Pete Ricketts",
+     "Republican"
+    ],
+    [
+     "Mike Marvin",
+     "Legal Marijuana NOW"
+    ],
+    [
+     "Robin Richards",
+     "Nebraska Working People"
+    ],
+    [
+     "Chuck Conboy",
+     "America First"
+    ],
+    [
+     "Dan Osborn",
+     "By Petition"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-AG",
+   "level": "statewide",
+   "kind": "statewide:attorney_general",
+   "office": "Attorney General",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mike Hilgers",
+     "Republican"
+    ],
+    [
+     "Jocelyn Brasher",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-AUD",
+   "level": "statewide",
+   "kind": "statewide:state_auditor",
+   "office": "Auditor of Public Accounts",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mike Foley",
+     "Republican"
+    ],
+    [
+     "John Knight",
+     "America First"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-GOV",
+   "level": "statewide",
+   "kind": "statewide:governor",
+   "office": "Governor and Lieutenant Governor",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jim Pillen and Joe Kelly",
+     "Republican"
+    ],
+    [
+     "Lynne Walz and Ben Steffen",
+     "Democratic"
+    ],
+    [
+     "Rick Beard and Keenya Barnes",
+     "Legal Marijuana NOW"
+    ],
+    [
+     "Brett Lindstrom and Michael Picard",
+     "America First"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-PSC2",
+   "level": "statewide",
+   "kind": "statewide:public_service_commissioner",
+   "office": "Public Service Commissioner",
+   "district": "2",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dennis McCann",
+     "Republican"
+    ],
+    [
+     "Wendy DeBoer",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-REG1",
+   "level": "statewide",
+   "kind": "statewide:university_board",
+   "office": "Member of the University of Nebraska Board of Regents",
+   "district": "1",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brent Comstock",
+     "Nonpartisan office"
+    ],
+    [
+     "Jeremy Hosein",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-REG2",
+   "level": "statewide",
+   "kind": "statewide:university_board",
+   "office": "Member of the University of Nebraska Board of Regents",
+   "district": "2",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Elizabeth Butler",
+     "Nonpartisan office"
+    ],
+    [
+     "Jill Wolfe",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-REG4",
+   "level": "statewide",
+   "kind": "statewide:university_board",
+   "office": "Member of the University of Nebraska Board of Regents",
+   "district": "4",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Justin Solomon",
+     "Nonpartisan office"
+    ],
+    [
+     "Susanne Shore",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SBOE5",
+   "level": "statewide",
+   "kind": "statewide:state_board_of_education",
+   "office": "Member of the State Board of Education",
+   "district": "5",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Angie Eberspacher",
+     "Nonpartisan office"
+    ],
+    [
+     "Michaela Conway",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SBOE6",
+   "level": "statewide",
+   "kind": "statewide:state_board_of_education",
+   "office": "Member of the State Board of Education",
+   "district": "6",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Grady Erickson",
+     "Nonpartisan office"
+    ],
+    [
+     "Sherry Jones",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SBOE7",
+   "level": "statewide",
+   "kind": "statewide:state_board_of_education",
+   "office": "Member of the State Board of Education",
+   "district": "7",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Elizabeth Tegtmeier",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SBOE8",
+   "level": "statewide",
+   "kind": "statewide:state_board_of_education",
+   "office": "Member of the State Board of Education",
+   "district": "8",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Lou Ann Goding",
+     "Nonpartisan office"
+    ],
+    [
+     "Sherrye Hutcherson",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SOS",
+   "level": "statewide",
+   "kind": "statewide:secretary_of_state",
+   "office": "Secretary of State",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Scott Petersen",
+     "Republican"
+    ],
+    [
+     "Sarah J. Slattery",
+     "Democratic"
+    ],
+    [
+     "Paul Rumbaugh",
+     "Nebraska Working People"
+    ],
+    [
+     "Bob Krist",
+     "America First"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SS10",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "Member of the Legislature",
+   "district": "10",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Cindy Johnson",
+     "Nonpartisan office"
+    ],
+    [
+     "Rebecca Rens",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SS12",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "Member of the Legislature",
+   "district": "12",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Christy Knorr",
+     "Nonpartisan office"
+    ],
+    [
+     "Merv Riepe",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SS14",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "Member of the Legislature",
+   "district": "14",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Bill Bowes",
+     "Nonpartisan office"
+    ],
+    [
+     "SuAnn Witt",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SS16",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "Member of the Legislature",
+   "district": "16",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Cindy Chatt",
+     "Nonpartisan office"
+    ],
+    [
+     "Ted Japp",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SS18",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "Member of the Legislature",
+   "district": "18",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jess Goldoni",
+     "Nonpartisan office"
+    ],
+    [
+     "Taylor Royal",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SS2",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "Member of the Legislature",
+   "district": "2",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Caitlin Knutson",
+     "Nonpartisan office"
+    ],
+    [
+     "Dean Helmick",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SS20",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "Member of the Legislature",
+   "district": "20",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Chris Anderson",
+     "Nonpartisan office"
+    ],
+    [
+     "John Fredrickson",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SS22",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "Member of the Legislature",
+   "district": "22",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dawson Brunswick",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SS24",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "Member of the Legislature",
+   "district": "24",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dan Winter",
+     "Nonpartisan office"
+    ],
+    [
+     "Jana Hughes",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SS26",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "Member of the Legislature",
+   "district": "26",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "George Dungan",
+     "Nonpartisan office"
+    ],
+    [
+     "Tobias Howard",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SS28",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "Member of the Legislature",
+   "district": "28",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Colby L. Woodson",
+     "Nonpartisan office"
+    ],
+    [
+     "Patty Pansing Brooks",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SS30",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "Member of the Legislature",
+   "district": "30",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Cally Ideus",
+     "Nonpartisan office"
+    ],
+    [
+     "Janet M. Bock",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SS32",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "Member of the Legislature",
+   "district": "32",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mark Schoenrock",
+     "Nonpartisan office"
+    ],
+    [
+     "Shay Smith",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SS34",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "Member of the Legislature",
+   "district": "34",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Ben Blodgett",
+     "Nonpartisan office"
+    ],
+    [
+     "Loren Lippincott",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SS36",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "Member of the Legislature",
+   "district": "36",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Darin Tompkins",
+     "Nonpartisan office"
+    ],
+    [
+     "Rick Holdcroft",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SS38",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "Member of the Legislature",
+   "district": "38",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Janell Anderson Ehrke",
+     "Nonpartisan office"
+    ],
+    [
+     "Tim Anderson",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SS4",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "Member of the Legislature",
+   "district": "4",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Cindy Maxwell-Ostdiek",
+     "Nonpartisan office"
+    ],
+    [
+     "R. Brad von Gillern",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SS40",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "Member of the Legislature",
+   "district": "40",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Barry DeKay",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SS41",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "Member of the Legislature",
+   "district": "41",
+   "seat": null,
+   "special": 1,
+   "seats": 1,
+   "names": [
+    [
+     "Jeremy Heneger",
+     "Nonpartisan office"
+    ],
+    [
+     "Joe Johnson",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SS42",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "Member of the Legislature",
+   "district": "42",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mike Jacobson",
+     "Nonpartisan office"
+    ],
+    [
+     "Shaylee S. Scranton",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SS44",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "Member of the Legislature",
+   "district": "44",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Teresa Ibach",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SS46",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "Member of the Legislature",
+   "district": "46",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Danielle Conrad",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SS48",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "Member of the Legislature",
+   "district": "48",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brian Hardin",
+     "Nonpartisan office"
+    ],
+    [
+     "Jessica M. Landers",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SS6",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "Member of the Legislature",
+   "district": "6",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Nate Ostdiek",
+     "Nonpartisan office"
+    ],
+    [
+     "Patrick Leahy",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-SS8",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "Member of the Legislature",
+   "district": "8",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Erin Feichtinger",
+     "Nonpartisan office"
+    ],
+    [
+     "Josh Livingston",
+     "Nonpartisan office"
+    ]
+   ]
+  },
+  {
+   "id": "2026-NE-TREAS",
+   "level": "statewide",
+   "kind": "statewide:state_treasurer",
+   "office": "State Treasurer",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Joey Spellerberg",
+     "Republican"
+    ],
+    [
+     "Daniel Ebers",
+     "Democratic"
+    ]
+   ]
+  }
+ ],
+ "aliases": {},
+ "elections": {},
+ "checked": {
+  "election": "the current election (no id)",
+  "on": "2026-10-10",
+  "tied": {
+   "2026-NE-AG": "For Attorney General",
+   "2026-NE-AUD": "For Auditor of Public Accounts",
+   "2026-NE-GOV": "For Governor and Lt. Governor",
+   "2026-NE-H01": "For Representative in Congress - 2 Year Term",
+   "2026-NE-H02": "For Representative in Congress - 2 Year Term",
+   "2026-NE-H03": "For Representative in Congress - 2 Year Term",
+   "2026-NE-PSC2": "For Public Service Commissioner - 6 Year Term",
+   "2026-NE-REG1": "For University of Nebraska Board of Regents - 6 Year Term",
+   "2026-NE-REG2": "For University of Nebraska Board of Regents - 6 Year Term",
+   "2026-NE-REG4": "For University of Nebraska Board of Regents",
+   "2026-NE-S2": "For United States Senator - 6 Year Term",
+   "2026-NE-SBOE5": "For Member of the State Board of Education",
+   "2026-NE-SBOE6": "For Member of the State Board of Education",
+   "2026-NE-SBOE7": "For Member of the State Board of Education",
+   "2026-NE-SBOE8": "For Member of the State Board of Education",
+   "2026-NE-SOS": "For Secretary of State",
+   "2026-NE-SS10": "For Member of the Legislature",
+   "2026-NE-SS12": "For Member of the Legislature",
+   "2026-NE-SS14": "For Member of the Legislature",
+   "2026-NE-SS16": "For Member of the Legislature",
+   "2026-NE-SS18": "For Member of the Legislature",
+   "2026-NE-SS2": "For Member of the Legislature",
+   "2026-NE-SS20": "For Member of the Legislature",
+   "2026-NE-SS22": "For Member of the Legislature",
+   "2026-NE-SS24": "For Member of the Legislature",
+   "2026-NE-SS26": "For Member of the Legislature",
+   "2026-NE-SS28": "For Member of the Legislature",
+   "2026-NE-SS30": "For Member of the Legislature",
+   "2026-NE-SS32": "For Member of the Legislature",
+   "2026-NE-SS34": "For Member of the Legislature",
+   "2026-NE-SS36": "For Member of the Legislature",
+   "2026-NE-SS38": "For Member of the Legislature",
+   "2026-NE-SS4": "For Member of the Legislature",
+   "2026-NE-SS40": "For Member of the Legislature",
+   "2026-NE-SS41": "For Member of the Legislature - 2 Year Term",
+   "2026-NE-SS42": "For Member of the Legislature",
+   "2026-NE-SS44": "For Member of the Legislature",
+   "2026-NE-SS46": "For Member of the Legislature",
+   "2026-NE-SS48": "For Member of the Legislature",
+   "2026-NE-SS6": "For Member of the Legislature",
+   "2026-NE-SS8": "For Member of the Legislature",
+   "2026-NE-TREAS": "For State Treasurer"
+  },
+  "listed": [],
+  "missing": [],
+  "names_not_tied": [],
+  "note": "Races for Congress and statewide races on the 2026 list that the posted Nov 3 contest list does not carry are 'missing'; printed names with no name as filed are 'names_not_tied' (kept as printed)."
+ },
+ "notes": []
+}

@@ -3,7 +3,7 @@
  "code": "CT",
  "name": "Connecticut",
  "written": "2026-10-10",
- "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts)",
+ "checked": "2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts); 2026-10-10 by N10 (the reader's own requests through election/source.py)",
  "status": "live",
  "status_why": "CTEMS static JSON answered scripts; election 108 (Nov 3) is posted.",
  "approved": true,
@@ -109,17 +109,19 @@
  "never": [],
  "never_why": {},
  "partial_sources": [],
- "rehearsal": "Election 91 (2024 presidential); 111 and 112 (Aug 11, 2026 primaries)",
+ "rehearsal": "80 (Nov 2022 state election, the same offices as 2026), 111 and 112 (Aug 11, 2026 primaries), and the posted 108, kept in election_cache/replay/sources/<code>-<id>/ (kept 2026-10-10 by N10 for rehearsals)",
  "terms": "none seen",
  "scout_blocked": "nothing refused scripts (Cloudflare front, no challenge)",
  "scout_plan": "Live-readable. Poll election/108/Version.json every two to three minutes; when the number changes, fetch stateVotes, townVotes and townStatus for that version (Lookupdata once, keeping only names and parties). Town figures give the map below the state. Rehearse on election 91 (2024) in October. Probate and registrar races come from the same files, so Connecticut's local level is covered the same night.",
  "notes": [
-  "Lookupdata carries an address field 'AD': never read it."
+  "Lookupdata carries an address field 'AD': never read it.",
+  "Reader (N10, 2026-10-10): pcc_ems. check() reads election/<id>/Version.json; fetch() the version's five files. Lookupdata's address and contact fields are never read. A candidate on several party lines is one person, the lines added."
  ],
  "to_do": [],
  "sources": [
   "election/scout/results_pa.json (checked 2026-10-09 (requests one at a time, two seconds or more apart, User-Agent 'congress-catalog/1.0 (personal legislative research; thecivicarchive.github.io)'; Browser pane for pages that refuse scripts))",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
-  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)",
+  "N10's own requests, 2026-10-10, through election/source.py with the kit's User-Agent: the addresses in the reader's notes answered a script"
  ]
 }

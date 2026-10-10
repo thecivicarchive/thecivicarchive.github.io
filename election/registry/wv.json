@@ -76,7 +76,7 @@
  "never": [],
  "never_why": {},
  "partial_sources": [],
- "rehearsal": "126209 (May 12, 2026 primary)",
+ "rehearsal": "126209 (May 12, 2026 primary): replay check 2026-10-10, 90 of 90 races equal the official results",
  "terms": "None stated.",
  "scout_blocked": "Nothing refused scripts. candidates.wvsos.gov omits its intermediate certificate (net.get repairs it).",
  "scout_plan": "Live-readable with the same Clarity reader as South Carolina. Find the Nov 3 Clarity election id on sos.wv.gov's results page in late October; poll current_ver.txt every 2 to 3 minutes and fetch summary.zip on change, detailxml.zip less often.",
@@ -87,6 +87,14 @@
  "sources": [
   "election/scout/results_la.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
-  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)",
+  "N9 reader checks, 2026-10-10: the state's own results service, read through election/source.py"
+ ],
+ "replay_check": {
+  "election": "126209",
+  "checked": "2026-10-10",
+  "result": "90 races equal, 0 differ",
+  "kept": "election_cache/replay/sources/wv-126209/"
+ },
+ "reader_note": "Reader election/readers/clarity.py written 2026-10-10 (N9): self-test on its fixture passes; crosswalk election/crosswalk/wv.json ties feed contests to the ballot databases' race ids."
 }

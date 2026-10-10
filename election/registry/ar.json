@@ -81,7 +81,7 @@
  "never": [],
  "never_why": {},
  "partial_sources": [],
- "rehearsal": "electionID 1846 (2024 general); 7f77a178-af02-40ec-92db-c5cc50882c68 (2026 preferential primary)",
+ "rehearsal": "7f77a178-af02-40ec-92db-c5cc50882c68 (March 3, 2026 preferential primary): replay check 2026-10-10, 36 of 36 races equal the official figures; electionID 1846 (2024 general)",
  "terms": "none seen",
  "scout_blocked": "nothing on the Tally API",
  "scout_plan": "Reuse ballot/lists/ar.py's Tally calls: on Nov 3 read the new election id from the Secretary's results page, then poll GetContestSearchList every few minutes and fetch results only when versionID changes, for the Senate, four House seats, statewide and legislative contests. County contests come from the same API where counties have entered them; check against Pulaski's and Washington County's own postings.",
@@ -94,6 +94,14 @@
  "sources": [
   "election/scout/results_az.json (checked 2026-10-09)",
   "NCSL, 'Election Certification Deadlines' (www.ncsl.org/elections-and-campaigns/certification-deadlines), read 2026-10-10; secondary: a summary of each state's law, not the law itself",
-  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)"
- ]
+  "ARCHITECTURE.md section 7 and John's answers of 2026-10-10 (D2, D3, D9)",
+  "N9 reader checks, 2026-10-10: the state's own results service, read through election/source.py"
+ ],
+ "replay_check": {
+  "election": "7f77a178-af02-40ec-92db-c5cc50882c68",
+  "checked": "2026-10-10",
+  "result": "36 races equal, 0 differ",
+  "kept": "election_cache/replay/sources/ar-7f77a178-af02-40ec-92db-c5cc50882c68/"
+ },
+ "reader_note": "Reader election/readers/tally.py written 2026-10-10 (N9): self-test on its fixture passes; crosswalk election/crosswalk/ar.json ties feed contests to the ballot databases' race ids."
 }

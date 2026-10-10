@@ -1,0 +1,3973 @@
+{
+ "built": "2026-10-10",
+ "checked": [
+  {
+   "by_level": {
+    "federal": 1,
+    "legislature": 125,
+    "statewide": 6
+   },
+   "certified_primary": {
+    "candidates": 0,
+    "contests": 0,
+    "differences": []
+   },
+   "contests_tied": 132,
+   "election": "67a35c79-05a2-4ae3-a77d-97812256188b",
+   "lines_tied": "172 of 307",
+   "notes": [],
+   "nov3": false,
+   "problems": [],
+   "read": "2026-10-10",
+   "store": "ok",
+   "unmatched_by_reason": {
+    "no 2026 race on the ballot lists for this office": 1,
+    "no race for President in 2026": 1
+   }
+  },
+  {
+   "by_level": {
+    "federal": 1,
+    "legislature": 125,
+    "statewide": 6
+   },
+   "certified_primary": {
+    "candidates": 0,
+    "contests": 0,
+    "differences": []
+   },
+   "contests_tied": 132,
+   "election": "68d61e96-1d28-4210-8c1d-8e90512ae105",
+   "lines_not_tied": [],
+   "lines_tied": "319 of 319",
+   "notes": [],
+   "nov3": true,
+   "problems": [],
+   "read": "2026-10-10",
+   "store": "ok",
+   "unmatched": []
+  },
+  {
+   "by_level": {
+    "federal": 3,
+    "legislature": 375,
+    "statewide": 18
+   },
+   "certified_primary": {
+    "candidates": 88,
+    "contests": 31,
+    "differences": []
+   },
+   "contests_tied": 396,
+   "election": "a18f77e0-89f8-4a01-8d97-61a7c75ba200",
+   "lines_tied": "88 of 316",
+   "notes": [],
+   "nov3": false,
+   "problems": [],
+   "read": "2026-10-10",
+   "store": "ok",
+   "unmatched_by_reason": {}
+  }
+ ],
+ "contests": {},
+ "counties": {
+  "addison": "50001",
+  "addison county": "50001",
+  "bennington": "50003",
+  "bennington county": "50003",
+  "caledonia": "50005",
+  "caledonia county": "50005",
+  "chittenden": "50007",
+  "chittenden county": "50007",
+  "essex": "50009",
+  "essex county": "50009",
+  "franklin": "50011",
+  "franklin county": "50011",
+  "grand isle": "50013",
+  "grand isle county": "50013",
+  "lamoille": "50015",
+  "lamoille county": "50015",
+  "orange": "50017",
+  "orange county": "50017",
+  "orleans": "50019",
+  "orleans county": "50019",
+  "rutland": "50021",
+  "rutland county": "50021",
+  "washington": "50023",
+  "washington county": "50023",
+  "windham": "50025",
+  "windham county": "50025",
+  "windsor": "50027",
+  "windsor county": "50027"
+ },
+ "races": {
+  "2026-VT-AG": {
+   "cands": {
+    "general": [
+     [
+      "Charity R. Clark",
+      "Democratic",
+      0
+     ],
+     [
+      "Edwin Howell Kemon",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "attorney_general",
+   "level": "statewide",
+   "office": "Attorney General",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-AUD": {
+   "cands": {
+    "general": [
+     [
+      "Ivar Kronick",
+      "Republican",
+      0
+     ],
+     [
+      "Tim Ashe",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Dan Towle",
+      "Democratic",
+      0
+     ],
+     [
+      "Nicholas Graeter",
+      "Democratic",
+      0
+     ],
+     [
+      "Tim Ashe",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "state_auditor",
+   "level": "statewide",
+   "office": "Auditor of Accounts",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-GOV": {
+   "cands": {
+    "general": [
+     [
+      "Amanda Janoo",
+      "Democratic/Progressive",
+      0
+     ],
+     [
+      "Brian Judd",
+      "Independent",
+      0
+     ],
+     [
+      "Dean Roy",
+      "Freedom and Unity",
+      0
+     ],
+     [
+      "June Goodband",
+      "Peace and Justice",
+      0
+     ],
+     [
+      "Phil Scott",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Aly Richards",
+      "Democratic",
+      0
+     ],
+     [
+      "Amanda Janoo",
+      "Democratic",
+      0
+     ],
+     [
+      "Miles Feller Hall",
+      "Democratic",
+      1
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "governor",
+   "level": "statewide",
+   "office": "Governor",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-H00": {
+   "cands": {
+    "general": [
+     [
+      "Adam Ortiz",
+      "Independent",
+      0
+     ],
+     [
+      "Becca Balint",
+      "Democratic",
+      0
+     ],
+     [
+      "Gerald Malloy",
+      "Republican",
+      0
+     ],
+     [
+      "Phoenix K. Altair",
+      "Independent",
+      0
+     ],
+     [
+      "Ryan P. Walton",
+      "Independent",
+      0
+     ],
+     [
+      "Suzanne \"Suz\" Seymour",
+      "Independent",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Gerald Malloy",
+      "Republican",
+      0
+     ],
+     [
+      "Mark Coester",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "00",
+   "kind": "house",
+   "level": "federal",
+   "office": "U.S. House",
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-LTG": {
+   "cands": {
+    "general": [
+     [
+      "John S. Rodgers",
+      "Republican",
+      0
+     ],
+     [
+      "Molly Gray",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Esther Charlestin",
+      "Democratic",
+      0
+     ],
+     [
+      "Molly Gray",
+      "Democratic",
+      0
+     ],
+     [
+      "Ryan McLaren",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "lieutenant_governor",
+   "level": "statewide",
+   "office": "Lieutenant Governor",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHADDISON-1": {
+   "cands": {
+    "general": [
+     [
+      "Mike Roy",
+      "Democratic",
+      0
+     ],
+     [
+      "Robin Scheu",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Addison-1",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHADDISON-2": {
+   "cands": {
+    "general": [
+     [
+      "Annie Wilson",
+      "Republican",
+      0
+     ],
+     [
+      "Tanya Byker",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Addison-2",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHADDISON-3": {
+   "cands": {
+    "general": [
+     [
+      "Ariel Bolles",
+      "Democratic/Progressive",
+      0
+     ],
+     [
+      "John Stroup",
+      "Democratic",
+      0
+     ],
+     [
+      "Joseph \"Joe\" Baker",
+      "Republican",
+      0
+     ],
+     [
+      "Rob North",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Ariel Bolles",
+      "Democratic",
+      0
+     ],
+     [
+      "John Stroup",
+      "Democratic",
+      0
+     ],
+     [
+      "Michael L. Kane",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Addison-3",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHADDISON-4": {
+   "cands": {
+    "general": [
+     [
+      "Chanin Hill",
+      "Republican",
+      0
+     ],
+     [
+      "Jeanne Albert",
+      "Democratic",
+      0
+     ],
+     [
+      "Karen Lueders",
+      "Democratic",
+      0
+     ],
+     [
+      "Lynn Dike",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Addison-4",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHADDISON-5": {
+   "cands": {
+    "general": [
+     [
+      "Del Thompson",
+      "Republican",
+      0
+     ],
+     [
+      "Jubilee McGill",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Addison-5",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHADDISON-RUTLAND": {
+   "cands": {
+    "general": [
+     [
+      "Jim Casey",
+      "Republican",
+      0
+     ],
+     [
+      "Jonathan Hescock",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Addison-Rutland",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHBENNINGTON-1": {
+   "cands": {
+    "general": [
+     [
+      "Charles Edward Jewett",
+      "Republican",
+      0
+     ],
+     [
+      "Jonathan Cooper",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Bennington-1",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHBENNINGTON-2": {
+   "cands": {
+    "general": [
+     [
+      "Anthony A. Cook",
+      "Republican",
+      0
+     ],
+     [
+      "Timothy R. Corcoran II",
+      "Democratic",
+      0
+     ],
+     [
+      "William \"Will\" Greer",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Leon Johnson",
+      "Democratic",
+      0
+     ],
+     [
+      "Timothy R. Corcoran II",
+      "Democratic",
+      0
+     ],
+     [
+      "William \"Will\" Greer",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Bennington-2",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHBENNINGTON-3": {
+   "cands": {
+    "general": [
+     [
+      "David K. Durfee",
+      "Democratic",
+      0
+     ],
+     [
+      "Victor K. Harwood Jr",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Bennington-3",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHBENNINGTON-4": {
+   "cands": {
+    "general": [
+     [
+      "Alford \"Al\" Clayton",
+      "Republican",
+      0
+     ],
+     [
+      "Michael Fernandez",
+      "Independent",
+      0
+     ],
+     [
+      "Robert Hunter",
+      "Democratic",
+      0
+     ],
+     [
+      "Thomas West",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Bennington-4",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHBENNINGTON-5": {
+   "cands": {
+    "general": [
+     [
+      "Mary A. Morrissey",
+      "Republican",
+      0
+     ],
+     [
+      "Michael Nigro",
+      "Democratic",
+      0
+     ],
+     [
+      "Thomas \"Tom\" Blakely",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Bennington-5",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHBENNINGTON-RUTLAND": {
+   "cands": {
+    "general": [
+     [
+      "Mike Rice",
+      "Democratic",
+      0
+     ],
+     [
+      "Sandra \"Sandy\" Pinsonault",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Bennington-Rutland",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCALEDONIA-1": {
+   "cands": {
+    "general": [
+     [
+      "David Tucker",
+      "Democratic",
+      0
+     ],
+     [
+      "Debra \"Debbie\" Powers",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Caledonia-1",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCALEDONIA-2": {
+   "cands": {
+    "general": [
+     [
+      "Audrey Grant",
+      "Democratic",
+      0
+     ],
+     [
+      "Michael Southworth",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Caledonia-2",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCALEDONIA-3": {
+   "cands": {
+    "general": [
+     [
+      "Beth M. Quimby",
+      "Republican",
+      0
+     ],
+     [
+      "Bill Coleman",
+      "Progressive/Democratic",
+      0
+     ],
+     [
+      "Dennis R. Labounty",
+      "Democratic",
+      0
+     ],
+     [
+      "Erik R. Lavallee",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Beth M. Quimby",
+      "Democratic",
+      1
+     ],
+     [
+      "Bill Coleman",
+      "Democratic",
+      1
+     ],
+     [
+      "Dennis R. Labounty",
+      "Democratic",
+      0
+     ],
+     [
+      "Erik R. Lavallee",
+      "Democratic",
+      1
+     ]
+    ]
+   },
+   "district": "Caledonia-3",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCALEDONIA-ESSEX": {
+   "cands": {
+    "general": [
+     [
+      "Amanda Cochrane",
+      "Democratic",
+      0
+     ],
+     [
+      "Brandolyn Bradley",
+      "Independent",
+      0
+     ],
+     [
+      "Deborah Cordz Dolgin",
+      "Republican",
+      0
+     ],
+     [
+      "Heather Whitemore Young",
+      "Democratic",
+      0
+     ],
+     [
+      "Steven Dolgin",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Caledonia-Essex",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCALEDONIA-WASHINGTON": {
+   "cands": {
+    "general": [
+     [
+      "Eric Bach",
+      "Democratic",
+      0
+     ],
+     [
+      "Greg Burtt",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Caledonia-Washington",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCHITTENDEN-1": {
+   "cands": {
+    "general": [
+     [
+      "Jana Brown",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Chittenden-1",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCHITTENDEN-10": {
+   "cands": {
+    "general": [
+     [
+      "Kate Nugent",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Chittenden-10",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCHITTENDEN-11": {
+   "cands": {
+    "general": [
+     [
+      "Brian Minier",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Chittenden-11",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCHITTENDEN-12": {
+   "cands": {
+    "general": [
+     [
+      "Martin J. Lalonde",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Chittenden-12",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCHITTENDEN-13": {
+   "cands": {
+    "general": [
+     [
+      "Bram Kleppner",
+      "Democratic",
+      0
+     ],
+     [
+      "Karen Paul",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Chittenden-13",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCHITTENDEN-14": {
+   "cands": {
+    "general": [
+     [
+      "Aaliyah Davila",
+      "Republican",
+      0
+     ],
+     [
+      "Adam Franz",
+      "Progressive/Democratic",
+      0
+     ],
+     [
+      "Elizabeth Allen-Pennebaker",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Chittenden-14",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCHITTENDEN-15": {
+   "cands": {
+    "general": [
+     [
+      "Ben Bosley",
+      "Democratic",
+      0
+     ],
+     [
+      "Brian Cina",
+      "Progressive/Democratic",
+      0
+     ],
+     [
+      "Troy Headrick",
+      "Independent",
+      0
+     ]
+    ]
+   },
+   "district": "Chittenden-15",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCHITTENDEN-16": {
+   "cands": {
+    "general": [
+     [
+      "Christopher Haessly",
+      "Independent",
+      0
+     ],
+     [
+      "Jeffrey Peterson",
+      "Progressive/Democratic",
+      0
+     ],
+     [
+      "Trang Do",
+      "Progressive/Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Jeffrey Peterson",
+      "Democratic",
+      0
+     ],
+     [
+      "Lisa Maureen Cannon",
+      "Democratic",
+      1
+     ],
+     [
+      "Trang Do",
+      "Democratic",
+      1
+     ],
+     [
+      "Trav Julius William Fryer",
+      "Democratic",
+      1
+     ]
+    ]
+   },
+   "district": "Chittenden-16",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCHITTENDEN-17": {
+   "cands": {
+    "general": [
+     [
+      "Abbey Duke",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Chittenden-17",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCHITTENDEN-18": {
+   "cands": {
+    "general": [
+     [
+      "Ali Dieng",
+      "Democratic",
+      0
+     ],
+     [
+      "Carol Ode",
+      "Democratic",
+      0
+     ],
+     [
+      "Dave Hartnett",
+      "Independent",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Ali Dieng",
+      "Democratic",
+      0
+     ],
+     [
+      "Amy Bielawski-Branch",
+      "Democratic",
+      0
+     ],
+     [
+      "Carol Ode",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Chittenden-18",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCHITTENDEN-19": {
+   "cands": {
+    "general": [
+     [
+      "Alex R. Thibault",
+      "Republican",
+      0
+     ],
+     [
+      "Sarah \"Sarita\" Austin",
+      "Democratic",
+      0
+     ],
+     [
+      "Spencer Sherman",
+      "Republican",
+      0
+     ],
+     [
+      "Wendy Critchlow",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Chittenden-19",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCHITTENDEN-2": {
+   "cands": {
+    "general": [
+     [
+      "Angela Arsenault",
+      "Democratic",
+      0
+     ],
+     [
+      "Erin Brady",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Chittenden-2",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCHITTENDEN-20": {
+   "cands": {
+    "general": [
+     [
+      "Bill Bezio",
+      "Republican",
+      0
+     ],
+     [
+      "Doug Bishop",
+      "Democratic",
+      0
+     ],
+     [
+      "Doug Wood",
+      "Republican",
+      0
+     ],
+     [
+      "Gayle Pezzo",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Chittenden-20",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCHITTENDEN-21": {
+   "cands": {
+    "general": [
+     [
+      "Daisy Berbeco",
+      "Democratic",
+      0
+     ],
+     [
+      "Matt Gile",
+      "Progressive/Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Al Turkos",
+      "Democratic",
+      0
+     ],
+     [
+      "Daisy Berbeco",
+      "Democratic",
+      0
+     ],
+     [
+      "Matt Gile",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Chittenden-21",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCHITTENDEN-22": {
+   "cands": {
+    "general": [
+     [
+      "Brent Boerger",
+      "Republican",
+      0
+     ],
+     [
+      "Karen Dolan",
+      "Democratic",
+      0
+     ],
+     [
+      "Lori Houghton",
+      "Democratic",
+      0
+     ],
+     [
+      "Seth Adam Manley",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Karen Dolan",
+      "Democratic",
+      0
+     ],
+     [
+      "Lori Houghton",
+      "Democratic",
+      0
+     ],
+     [
+      "Matthew Parker Towle",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Chittenden-22",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCHITTENDEN-23": {
+   "cands": {
+    "general": [
+     [
+      "Erik Post",
+      "Democratic",
+      0
+     ],
+     [
+      "Lynn U. Smith",
+      "Republican",
+      0
+     ],
+     [
+      "Pearl Lucero Beckage",
+      "Republican",
+      0
+     ],
+     [
+      "Rey Garofano",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Chittenden-23",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCHITTENDEN-24": {
+   "cands": {
+    "general": [
+     [
+      "Alyssa Black",
+      "Democratic",
+      0
+     ],
+     [
+      "Stephanie Mack",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Chittenden-24",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCHITTENDEN-25": {
+   "cands": {
+    "general": [
+     [
+      "Brenda Steady",
+      "Republican",
+      0
+     ],
+     [
+      "Julia Andrews",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Chittenden-25",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCHITTENDEN-3": {
+   "cands": {
+    "general": [
+     [
+      "Edye Graning",
+      "Democratic",
+      0
+     ],
+     [
+      "Trevor Squirrell",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Chittenden-3",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCHITTENDEN-4": {
+   "cands": {
+    "general": [
+     [
+      "John Kingston",
+      "Independent",
+      0
+     ],
+     [
+      "Kelsey Pasteris",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Chittenden-4",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCHITTENDEN-5": {
+   "cands": {
+    "general": [
+     [
+      "Chea Waters Evans",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Chittenden-5",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCHITTENDEN-6": {
+   "cands": {
+    "general": [
+     [
+      "Deb Mayfield",
+      "Republican",
+      0
+     ],
+     [
+      "Kate Lalley",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Chittenden-6",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCHITTENDEN-7": {
+   "cands": {
+    "general": [
+     [
+      "Shawn J. Sweeney",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Chittenden-7",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCHITTENDEN-8": {
+   "cands": {
+    "general": [
+     [
+      "Bridget Burkhardt",
+      "Democratic",
+      0
+     ],
+     [
+      "Mitchel Cypes",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Chittenden-8",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCHITTENDEN-9": {
+   "cands": {
+    "general": [
+     [
+      "Emilie Krasnow",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Chittenden-9",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHCHITTENDEN-FRANKLIN": {
+   "cands": {
+    "general": [
+     [
+      "Anthony \"Tony\" Micklus",
+      "Republican",
+      0
+     ],
+     [
+      "Henry A. Bonges III",
+      "Democratic",
+      0
+     ],
+     [
+      "Kumulia \"Kase\" Long",
+      "Republican",
+      0
+     ],
+     [
+      "Natalie Cashen",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Chittenden-Franklin",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHESSEX-CALEDONIA": {
+   "cands": {
+    "general": [
+     [
+      "John Kascenska",
+      "Republican/Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Essex-Caledonia",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHESSEX-ORLEANS": {
+   "cands": {
+    "general": [
+     [
+      "David M. Jacobs",
+      "Republican",
+      0
+     ],
+     [
+      "John \"Woton\" Lally",
+      "Women's Liberation Vegi-Aryan",
+      0
+     ]
+    ]
+   },
+   "district": "Essex-Orleans",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHFRANKLIN-1": {
+   "cands": {
+    "general": [
+     [
+      "Bob Stebbins",
+      "Republican",
+      0
+     ],
+     [
+      "Caroline Bright",
+      "Democratic",
+      0
+     ],
+     [
+      "Julie Filiberti",
+      "Democratic",
+      0
+     ],
+     [
+      "Keith Billado",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Franklin-1",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHFRANKLIN-2": {
+   "cands": {
+    "general": [
+     [
+      "Eileen \"Lynn\" Dickinson",
+      "Republican",
+      0
+     ],
+     [
+      "Pam McCarthy",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Franklin-2",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHFRANKLIN-3": {
+   "cands": {
+    "general": [
+     [
+      "Joseph \"Joe\" Luneau",
+      "Republican",
+      0
+     ],
+     [
+      "Suzanne Kenyon",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Franklin-3",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHFRANKLIN-4": {
+   "cands": {
+    "general": [
+     [
+      "Carmela Ann Mayette",
+      "Democratic",
+      0
+     ],
+     [
+      "Matthew E. Walker",
+      "Republican",
+      0
+     ],
+     [
+      "Tamar Bouchard",
+      "Democratic",
+      0
+     ],
+     [
+      "Thomas \"Tom\" Oliver",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Franklin-4",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHFRANKLIN-5": {
+   "cands": {
+    "general": [
+     [
+      "Lisa A. Hango",
+      "Republican/Democratic",
+      0
+     ],
+     [
+      "Wayne A. Laroche",
+      "Republican/Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Franklin-5",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHFRANKLIN-6": {
+   "cands": {
+    "general": [
+     [
+      "James Gregoire",
+      "Republican/Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Franklin-6",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHFRANKLIN-7": {
+   "cands": {
+    "general": [
+     [
+      "Allen \"Penny\" Demar",
+      "Republican/Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Franklin-7",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHFRANKLIN-8": {
+   "cands": {
+    "general": [
+     [
+      "John \"Jack\" Brigham",
+      "Republican",
+      0
+     ],
+     [
+      "Zach Scheffler",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Franklin-8",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHGRAND-ISLE-CHITTENDEN": {
+   "cands": {
+    "general": [
+     [
+      "Dave Skinner",
+      "Democratic",
+      0
+     ],
+     [
+      "Josie Henry",
+      "Republican",
+      0
+     ],
+     [
+      "Michael R. Morgan",
+      "Republican",
+      0
+     ],
+     [
+      "Sylvia Jensen",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Grand Isle-Chittenden",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHLAMOILLE-1": {
+   "cands": {
+    "general": [
+     [
+      "Jed Lipsky",
+      "Independent",
+      0
+     ]
+    ]
+   },
+   "district": "Lamoille-1",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHLAMOILLE-2": {
+   "cands": {
+    "general": [
+     [
+      "Daniel Noyes",
+      "Democratic",
+      0
+     ],
+     [
+      "James \"Jim\" Lipinski",
+      "Democratic",
+      0
+     ],
+     [
+      "Malcolm \"Mac\" Teale",
+      "Republican",
+      0
+     ],
+     [
+      "Richard J. Bailey",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Lamoille-2",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHLAMOILLE-3": {
+   "cands": {
+    "general": [
+     [
+      "Adam Howard",
+      "Independent",
+      0
+     ],
+     [
+      "Deb Nevil",
+      "Democratic",
+      0
+     ],
+     [
+      "Rebecca Pitre",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Lamoille-3",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHLAMOILLE-WASHINGTON": {
+   "cands": {
+    "general": [
+     [
+      "David Yacovone",
+      "Democratic",
+      0
+     ],
+     [
+      "Jason Thompson",
+      "Republican",
+      0
+     ],
+     [
+      "Saudia Lamont",
+      "Democratic",
+      0
+     ],
+     [
+      "Susanna Guthmann Burnham",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Lamoille-Washington",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHORANGE-1": {
+   "cands": {
+    "general": [
+     [
+      "Gregory Wilson",
+      "Democratic",
+      0
+     ],
+     [
+      "Michael \"Mike\" Tagliavia",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Gregory Wilson",
+      "Democratic",
+      1
+     ],
+     [
+      "Susan Hatch Davis",
+      "Democratic",
+      1
+     ]
+    ]
+   },
+   "district": "Orange-1",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHORANGE-2": {
+   "cands": {
+    "general": [
+     [
+      "Lance V. Mills",
+      "Democratic",
+      0
+     ],
+     [
+      "Nicholas Dilorenzo",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Lance V. Mills",
+      "Democratic",
+      0
+     ],
+     [
+      "Nicholas Dilorenzo",
+      "Democratic",
+      1
+     ]
+    ]
+   },
+   "district": "Orange-2",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHORANGE-3": {
+   "cands": {
+    "general": [
+     [
+      "Fran Covey",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Orange-3",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHORANGE-CALEDONIA": {
+   "cands": {
+    "general": [
+     [
+      "Aiden Boyd Otterman",
+      "Democratic",
+      0
+     ],
+     [
+      "Susan Culp",
+      "Independent",
+      0
+     ],
+     [
+      "Tom Otterman",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Aiden Boyd Otterman",
+      "Democratic",
+      0
+     ],
+     [
+      "James Merriam",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Orange-Caledonia",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHORANGE-WASHINGTON-ADDISON": {
+   "cands": {
+    "general": [
+     [
+      "Emery Mattheis",
+      "Progressive/Democratic",
+      0
+     ],
+     [
+      "Lance Ryan",
+      "Republican",
+      0
+     ],
+     [
+      "Larry Satcowitz",
+      "Democratic",
+      0
+     ],
+     [
+      "Stephen W. Webster",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Emery Mattheis",
+      "Democratic",
+      0
+     ],
+     [
+      "Kevin P. Doering",
+      "Democratic",
+      0
+     ],
+     [
+      "Larry Satcowitz",
+      "Democratic",
+      0
+     ],
+     [
+      "Thomas J. Harty",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Charles W. Russell",
+      "Republican",
+      0
+     ],
+     [
+      "Lance Ryan",
+      "Republican",
+      0
+     ],
+     [
+      "Stephen W. Webster",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Orange-Washington-Addison",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHORLEANS-1": {
+   "cands": {
+    "general": [
+     [
+      "Richard Nelson",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Orleans-1",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHORLEANS-2": {
+   "cands": {
+    "general": [
+     [
+      "Woodman \"Woody\" H. Page",
+      "Republican",
+      0
+     ],
+     [
+      "Xavier Stevens",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Orleans-2",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHORLEANS-3": {
+   "cands": {
+    "general": [
+     [
+      "Kenneth L. Wells",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Orleans-3",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHORLEANS-4": {
+   "cands": {
+    "general": [
+     [
+      "Leanne Harple",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Orleans-4",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHORLEANS-LAMOILLE": {
+   "cands": {
+    "general": [
+     [
+      "Mark Higley",
+      "Republican/Democratic",
+      0
+     ],
+     [
+      "Praneet Menon",
+      "Republican/Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Orleans-Lamoille",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHRUTLAND-1": {
+   "cands": {
+    "general": [
+     [
+      "Patricia A. McCoy",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Rutland-1",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHRUTLAND-10": {
+   "cands": {
+    "general": [
+     [
+      "William P. Canfield",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Rutland-10",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHRUTLAND-11": {
+   "cands": {
+    "general": [
+     [
+      "Valorie Taylor",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Rutland-11",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHRUTLAND-2": {
+   "cands": {
+    "general": [
+     [
+      "David \"Dave\" Bosch",
+      "Republican",
+      0
+     ],
+     [
+      "Marsha Cassel",
+      "Democratic",
+      0
+     ],
+     [
+      "Thomas \"Tom\" Burditt",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Rutland-2",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHRUTLAND-3": {
+   "cands": {
+    "general": [
+     [
+      "Chris Brown",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Rutland-3",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHRUTLAND-4": {
+   "cands": {
+    "general": [
+     [
+      "Christopher Howland",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Rutland-4",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHRUTLAND-5": {
+   "cands": {
+    "general": [
+     [
+      "Eric Maguire",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Rutland-5",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHRUTLAND-6": {
+   "cands": {
+    "general": [
+     [
+      "Chris Siliski",
+      "Democratic",
+      0
+     ],
+     [
+      "Cindy Laskevich",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Rutland-6",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHRUTLAND-7": {
+   "cands": {
+    "general": [
+     [
+      "Chris Keyser",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Rutland-7",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHRUTLAND-8": {
+   "cands": {
+    "general": [
+     [
+      "Alicia Malay",
+      "Republican",
+      0
+     ],
+     [
+      "Genevieve K. Duchesneau",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Rutland-8",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHRUTLAND-9": {
+   "cands": {
+    "general": [
+     [
+      "Aida Nielsen",
+      "Republican",
+      0
+     ],
+     [
+      "Jeff Haylon",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Rutland-9",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHRUTLAND-BENNINGTON": {
+   "cands": {
+    "general": [
+     [
+      "Chris Pritchard",
+      "Republican",
+      0
+     ],
+     [
+      "Jessica Van Oort",
+      "Democratic/Progressive",
+      0
+     ]
+    ]
+   },
+   "district": "Rutland-Bennington",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHRUTLAND-WINDSOR": {
+   "cands": {
+    "general": [
+     [
+      "Kevin C. Winter",
+      "Republican",
+      0
+     ],
+     [
+      "Phoebe Tucker",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Rutland-Windsor",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHWASHINGTON-1": {
+   "cands": {
+    "general": [
+     [
+      "Kenneth W. Goslant",
+      "Republican/Democratic",
+      0
+     ],
+     [
+      "Lucas J. Herring",
+      "Republican/Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Washington-1",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHWASHINGTON-2": {
+   "cands": {
+    "general": [
+     [
+      "Candice White",
+      "Democratic",
+      0
+     ],
+     [
+      "Dara Torre",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Washington-2",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHWASHINGTON-3": {
+   "cands": {
+    "general": [
+     [
+      "Edward \"Teddy\" Waszazak",
+      "Democratic",
+      0
+     ],
+     [
+      "John G. Santorello",
+      "Republican",
+      0
+     ],
+     [
+      "Michael Boutin",
+      "Republican",
+      0
+     ],
+     [
+      "Sonya Spaulding",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Washington-3",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHWASHINGTON-4": {
+   "cands": {
+    "general": [
+     [
+      "Jared Duval",
+      "Democratic/Progressive",
+      0
+     ],
+     [
+      "Kate McCann",
+      "Democratic/Progressive",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Jared Duval",
+      "Democratic",
+      0
+     ],
+     [
+      "Kate McCann",
+      "Democratic",
+      0
+     ],
+     [
+      "Pelin Kohn",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Washington-4",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHWASHINGTON-5": {
+   "cands": {
+    "general": [
+     [
+      "Ela Chapin",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Washington-5",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHWASHINGTON-6": {
+   "cands": {
+    "general": [
+     [
+      "Marc Mihaly",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Washington-6",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHWASHINGTON-CHITTENDEN": {
+   "cands": {
+    "general": [
+     [
+      "Katarina Lisaius",
+      "Democratic",
+      0
+     ],
+     [
+      "Theresa A.M. Wood",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Washington-Chittenden",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHWASHINGTON-ORANGE": {
+   "cands": {
+    "general": [
+     [
+      "David Soucy",
+      "Republican",
+      0
+     ],
+     [
+      "Emily Wheeler-Reynolds",
+      "Democratic",
+      0
+     ],
+     [
+      "Gina Galfetti",
+      "Republican",
+      0
+     ],
+     [
+      "Melissa Battah",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Washington-Orange",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHWINDHAM-1": {
+   "cands": {
+    "general": [
+     [
+      "Nancy L. Gassett",
+      "Republican",
+      0
+     ],
+     [
+      "Zon Eastes",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Windham-1",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHWINDHAM-2": {
+   "cands": {
+    "general": [
+     [
+      "Laura Sibilia",
+      "Independent",
+      0
+     ]
+    ]
+   },
+   "district": "Windham-2",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHWINDHAM-3": {
+   "cands": {
+    "general": [
+     [
+      "Chris Lundberg",
+      "Democratic",
+      0
+     ],
+     [
+      "Michelle Bos-Lun",
+      "Democratic",
+      0
+     ],
+     [
+      "Nicole Amanda Cota",
+      "Republican",
+      0
+     ],
+     [
+      "Ryan M. Coyne",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Chris Lundberg",
+      "Democratic",
+      0
+     ],
+     [
+      "Michelle Bos-Lun",
+      "Democratic",
+      0
+     ],
+     [
+      "Stephen Major",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Nicole Amanda Cota",
+      "Republican",
+      0
+     ],
+     [
+      "Patrick K. Dezafra",
+      "Republican",
+      0
+     ],
+     [
+      "Ryan M. Coyne",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Windham-3",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHWINDHAM-4": {
+   "cands": {
+    "general": [
+     [
+      "Ian G. Diamondstone",
+      "Peace and Justice",
+      0
+     ],
+     [
+      "Lynne Wilkins",
+      "Republican",
+      0
+     ],
+     [
+      "Mike Mrowicki",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Windham-4",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHWINDHAM-5": {
+   "cands": {
+    "general": [
+     [
+      "Emily Long",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Windham-5",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHWINDHAM-6": {
+   "cands": {
+    "general": [
+     [
+      "Emily Carris-Duncan",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Windham-6",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHWINDHAM-7": {
+   "cands": {
+    "general": [
+     [
+      "Aaron Smith",
+      "Republican",
+      0
+     ],
+     [
+      "Emilie Kornheiser",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Windham-7",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHWINDHAM-8": {
+   "cands": {
+    "general": [
+     [
+      "Daniel Quipp",
+      "Democratic",
+      0
+     ],
+     [
+      "William \"Bill\" Harvey",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Daniel Quipp",
+      "Democratic",
+      0
+     ],
+     [
+      "Ken Fay",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Windham-8",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHWINDHAM-9": {
+   "cands": {
+    "general": [
+     [
+      "Ian Goodnow",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Windham-9",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHWINDHAM-WINDSOR-BENNINGTON": {
+   "cands": {
+    "general": [
+     [
+      "Chris Morrow",
+      "Democratic",
+      0
+     ],
+     [
+      "E. Stuart Coleman",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Windham-Windsor-Bennington",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHWINDSOR-1": {
+   "cands": {
+    "general": [
+     [
+      "Dylan Morse",
+      "Democratic",
+      0
+     ],
+     [
+      "John G. Tansey",
+      "Democratic",
+      0
+     ],
+     [
+      "Rich Thomas",
+      "Independent",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Dylan Morse",
+      "Democratic",
+      0
+     ],
+     [
+      "John Bartholomew",
+      "Democratic",
+      0
+     ],
+     [
+      "John G. Tansey",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Windsor-1",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHWINDSOR-2": {
+   "cands": {
+    "general": [
+     [
+      "Mark Yuengling",
+      "Democratic",
+      0
+     ],
+     [
+      "Vl Coffin",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Windsor-2",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHWINDSOR-3": {
+   "cands": {
+    "general": [
+     [
+      "Alice M. Emmons",
+      "Democratic",
+      0
+     ],
+     [
+      "Judith Stern",
+      "Republican",
+      0
+     ],
+     [
+      "Kristi C. Morris",
+      "Democratic",
+      0
+     ],
+     [
+      "Randy A. Gray",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Alice M. Emmons",
+      "Democratic",
+      0
+     ],
+     [
+      "Kristi C. Morris",
+      "Democratic",
+      0
+     ],
+     [
+      "Mike Schmitt",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Windsor-3",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHWINDSOR-4": {
+   "cands": {
+    "general": [
+     [
+      "Justin Schoville",
+      "Peace and Justice",
+      0
+     ],
+     [
+      "Kyle Hansen",
+      "Independent",
+      0
+     ],
+     [
+      "Michael Hoyt",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Windsor-4",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHWINDSOR-5": {
+   "cands": {
+    "general": [
+     [
+      "Charlie Kimbell",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Windsor-5",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHWINDSOR-6": {
+   "cands": {
+    "general": [
+     [
+      "Alanna Ojibway",
+      "Democratic/Progressive",
+      0
+     ],
+     [
+      "James \"Jimmy\" Coleman",
+      "Progressive/Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Windsor-6",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHWINDSOR-ADDISON": {
+   "cands": {
+    "general": [
+     [
+      "Kirk White",
+      "Democratic",
+      0
+     ],
+     [
+      "Michael J. White",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Windsor-Addison",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHWINDSOR-ORANGE-1": {
+   "cands": {
+    "general": [
+     [
+      "Bruce Post",
+      "Republican",
+      0
+     ],
+     [
+      "John K. O'Brien",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Devin G. Brennan",
+      "Democratic",
+      0
+     ],
+     [
+      "John K. O'Brien",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Bruce Post",
+      "Republican",
+      0
+     ],
+     [
+      "Robert A. Dunkle",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Windsor-Orange-1",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHWINDSOR-ORANGE-2": {
+   "cands": {
+    "general": [
+     [
+      "Dee Gish",
+      "Democratic/Progressive",
+      0
+     ],
+     [
+      "Lauren Morando Rhim",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Dee Gish",
+      "Democratic",
+      0
+     ],
+     [
+      "Jim Masland",
+      "Democratic",
+      0
+     ],
+     [
+      "Lauren Morando Rhim",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Windsor-Orange-2",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SHWINDSOR-WINDHAM": {
+   "cands": {
+    "general": [
+     [
+      "Thomas F. Charlton",
+      "Republican",
+      0
+     ],
+     [
+      "William \"Will\" Hoser",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Windsor-Windham",
+   "kind": "state_house",
+   "level": "legislature",
+   "office": "State Representative",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SOS": {
+   "cands": {
+    "general": [
+     [
+      "H. Brooke Paige",
+      "Republican",
+      0
+     ],
+     [
+      "Rachel Shaw",
+      "Progressive",
+      0
+     ],
+     [
+      "Sarah Copeland Hanzas",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "secretary_of_state",
+   "level": "statewide",
+   "office": "Secretary of State",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SSADDISON": {
+   "cands": {
+    "general": [
+     [
+      "Andrew Klein",
+      "Republican",
+      0
+     ],
+     [
+      "Hannah Sessions",
+      "Democratic",
+      0
+     ],
+     [
+      "Ruth Hardy",
+      "Democratic",
+      0
+     ],
+     [
+      "Steven Heffernan",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-REP": [
+     [
+      "Andrea Treadway",
+      "Republican",
+      0
+     ],
+     [
+      "Andrew Klein",
+      "Republican",
+      0
+     ],
+     [
+      "Steven Heffernan",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Addison",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SSBENNINGTON": {
+   "cands": {
+    "general": [
+     [
+      "Josh R. Williams",
+      "Republican",
+      0
+     ],
+     [
+      "Lawrence \"Spike\" Whitmire",
+      "Republican",
+      0
+     ],
+     [
+      "Rachel Shaw",
+      "Progressive",
+      0
+     ],
+     [
+      "Robert F. Plunkett",
+      "Democratic",
+      0
+     ],
+     [
+      "Seth Bongartz",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Amy D. Moore",
+      "Democratic",
+      0
+     ],
+     [
+      "Robert F. Plunkett",
+      "Democratic",
+      0
+     ],
+     [
+      "Seth Bongartz",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Bennington",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SSCALEDONIA": {
+   "cands": {
+    "general": [
+     [
+      "David M. Roth",
+      "Democratic",
+      0
+     ],
+     [
+      "Scott L. Beck",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Caledonia",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SSCHITTENDEN-CENTRAL": {
+   "cands": {
+    "general": [
+     [
+      "Louis \"Louie\" Manno",
+      "Republican",
+      0
+     ],
+     [
+      "Martine Larocque Gulick",
+      "Democratic",
+      0
+     ],
+     [
+      "Nikhil Goyal",
+      "Democratic/Progressive",
+      0
+     ],
+     [
+      "Tanya Vyhovsky",
+      "Progressive/Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Elaine Haney",
+      "Democratic",
+      0
+     ],
+     [
+      "Martine Larocque Gulick",
+      "Democratic",
+      0
+     ],
+     [
+      "Nikhil Goyal",
+      "Democratic",
+      0
+     ],
+     [
+      "Tanya Vyhovsky",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Chittenden Central",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SSCHITTENDEN-NORTH": {
+   "cands": {
+    "general": [
+     [
+      "Ashley R. Bartley",
+      "Republican",
+      0
+     ],
+     [
+      "Irene Wrenner",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Chittenden North",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SSCHITTENDEN-SOUTHEAST": {
+   "cands": {
+    "general": [
+     [
+      "Bruce Roy",
+      "Republican",
+      0
+     ],
+     [
+      "Javen Sears",
+      "Republican",
+      0
+     ],
+     [
+      "Kesha Ram Hinsdale",
+      "Democratic",
+      0
+     ],
+     [
+      "Rohan St Marthe",
+      "Republican",
+      0
+     ],
+     [
+      "Thomas Chittenden",
+      "Democratic",
+      0
+     ],
+     [
+      "Virginia \"Ginny\" Lyons",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Elizabeth Ann Hunt",
+      "Democratic",
+      0
+     ],
+     [
+      "Joanna Grossman",
+      "Democratic",
+      0
+     ],
+     [
+      "Kesha Ram Hinsdale",
+      "Democratic",
+      0
+     ],
+     [
+      "Thomas Chittenden",
+      "Democratic",
+      0
+     ],
+     [
+      "Virginia \"Ginny\" Lyons",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Chittenden Southeast",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SSESSEX": {
+   "cands": {
+    "general": [
+     [
+      "Russ Ingalls",
+      "Republican/Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Essex",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SSFRANKLIN": {
+   "cands": {
+    "general": [
+     [
+      "A. Gregory Rainville",
+      "Democratic",
+      0
+     ],
+     [
+      "Alexander Bobella",
+      "Democratic",
+      0
+     ],
+     [
+      "Randy Brock",
+      "Republican",
+      0
+     ],
+     [
+      "Robert W. Norris",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Franklin",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SSGRAND-ISLE": {
+   "cands": {
+    "general": [
+     [
+      "Kim Gleason",
+      "Democratic",
+      0
+     ],
+     [
+      "Pat Brennan",
+      "Republican",
+      0
+     ]
+    ]
+   },
+   "district": "Grand Isle",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SSLAMOILLE": {
+   "cands": {
+    "general": [
+     [
+      "Richard A. Westman",
+      "Republican/Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Lamoille",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SSORANGE": {
+   "cands": {
+    "general": [
+     [
+      "John K. Benson",
+      "Republican",
+      0
+     ],
+     [
+      "Monique Priestley",
+      "Democratic/Progressive",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Monique Priestley",
+      "Democratic",
+      0
+     ],
+     [
+      "Rose Lucenti",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Orange",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SSORLEANS": {
+   "cands": {
+    "general": [
+     [
+      "John Morley III",
+      "Republican/Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Orleans",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SSRUTLAND": {
+   "cands": {
+    "general": [
+     [
+      "Brian \"Bc\" Collamore",
+      "Republican/Democratic",
+      0
+     ],
+     [
+      "Dave Wolk",
+      "Independent",
+      0
+     ],
+     [
+      "David H. Weeks",
+      "Republican/Democratic",
+      0
+     ],
+     [
+      "Terry K. Williams",
+      "Republican/Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Rutland",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SSWASHINGTON": {
+   "cands": {
+    "general": [
+     [
+      "Andrew Perchlik",
+      "Democratic/Progressive",
+      0
+     ],
+     [
+      "Ann Cummings",
+      "Democratic",
+      0
+     ],
+     [
+      "Anne Watson",
+      "Democratic/Progressive",
+      0
+     ],
+     [
+      "Christopher A. Neddo",
+      "Republican",
+      0
+     ],
+     [
+      "Peter Schmeeckle",
+      "Republican",
+      0
+     ],
+     [
+      "Rob Laclair",
+      "Republican",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Andrew Perchlik",
+      "Democratic",
+      0
+     ],
+     [
+      "Ann Cummings",
+      "Democratic",
+      0
+     ],
+     [
+      "Anne Watson",
+      "Democratic",
+      0
+     ],
+     [
+      "Gabriel Lajeunesse",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Washington",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SSWINDHAM": {
+   "cands": {
+    "general": [
+     [
+      "Dale L. Gassett",
+      "Republican",
+      0
+     ],
+     [
+      "Nader Hashim",
+      "Democratic",
+      0
+     ],
+     [
+      "Rusty E. Sage",
+      "Republican",
+      0
+     ],
+     [
+      "Wendy K. Harrison",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Windham",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-SSWINDSOR": {
+   "cands": {
+    "general": [
+     [
+      "Andrea Murray",
+      "Republican",
+      0
+     ],
+     [
+      "Elizabeth Burrows",
+      "Democratic/Progressive",
+      0
+     ],
+     [
+      "Jack Williams",
+      "Republican",
+      0
+     ],
+     [
+      "Joe Izzo",
+      "Independent",
+      0
+     ],
+     [
+      "Joe Major",
+      "Democratic",
+      0
+     ],
+     [
+      "Jonathan Gleason",
+      "Republican",
+      0
+     ],
+     [
+      "Rebecca White",
+      "Democratic",
+      0
+     ]
+    ],
+    "primary-DEM": [
+     [
+      "Benjamin Brickner",
+      "Democratic",
+      0
+     ],
+     [
+      "Christopher M. Dube",
+      "Democratic",
+      0
+     ],
+     [
+      "Elizabeth Burrows",
+      "Democratic",
+      0
+     ],
+     [
+      "Heather Chase",
+      "Democratic",
+      0
+     ],
+     [
+      "Joe Major",
+      "Democratic",
+      0
+     ],
+     [
+      "Rebecca White",
+      "Democratic",
+      0
+     ]
+    ]
+   },
+   "district": "Windsor",
+   "kind": "state_senate",
+   "level": "legislature",
+   "office": "State Senator",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  },
+  "2026-VT-TREAS": {
+   "cands": {
+    "general": [
+     [
+      "Lynn Lafleur",
+      "Republican",
+      0
+     ],
+     [
+      "Mike Pieciak",
+      "Democratic",
+      0
+     ],
+     [
+      "Zachary Hampl",
+      "Progressive",
+      0
+     ]
+    ]
+   },
+   "district": null,
+   "kind": "state_treasurer",
+   "level": "statewide",
+   "office": "State Treasurer",
+   "partisan": 1,
+   "seat": null,
+   "special": 0
+  }
+ },
+ "rule": "A contest is tied to a race only when exactly one race of the same office and district (and seat) fits. A candidate line is tied to a name as filed only when exactly one fits: the family name and a given name that fits. Everything else is listed with the reason and never shown.",
+ "source": "The ballot databases (Congress, and state and local), read only; the races and the names as filed.",
+ "state": "VT",
+ "v": 1
+}

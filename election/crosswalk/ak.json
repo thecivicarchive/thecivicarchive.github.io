@@ -1,0 +1,2538 @@
+{
+"_about": "Alaska's 2026 races (Congress from ballot_2026.sqlite, state from ballot_local_2026.sqlite, both read only) and what ties a contest title of the Division's results files to each: the office class, the district (a House number or a Senate letter), a retention's judge, and the candidates' names as filed for each 2026 election.",
+"built": "2026-10-10",
+"races": {
+"2026-AK-DCRET-JD3-DARNALL": {
+"cls": "district_court_retention",
+"district": "3",
+"judge": "DARNALL",
+"level": "court",
+"names": {
+"general": [
+[
+"Chris Darnall",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Judge of the District Court (retention vote)"
+},
+"2026-AK-DCRET-JD3-FALLON": {
+"cls": "district_court_retention",
+"district": "3",
+"judge": "FALLON",
+"level": "court",
+"names": {
+"general": [
+[
+"Martin C. Fallon",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Judge of the District Court (retention vote)"
+},
+"2026-AK-DCRET-JD3-TRAINI": {
+"cls": "district_court_retention",
+"district": "3",
+"judge": "TRAINI",
+"level": "court",
+"names": {
+"general": [
+[
+"Shawn D. Traini",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Judge of the District Court (retention vote)"
+},
+"2026-AK-DCRET-JD4-SEEKINS": {
+"cls": "district_court_retention",
+"district": "4",
+"judge": "SEEKINS",
+"level": "court",
+"names": {
+"general": [
+[
+"Benjamin Seekins",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Judge of the District Court (retention vote)"
+},
+"2026-AK-GOV": {
+"cls": "governor",
+"district": null,
+"judge": null,
+"level": "statewide",
+"names": {
+"general": [
+[
+"Dave Bronson",
+"Registered Republican",
+0
+],
+[
+"Jonathan S. \"JKT\" Kreiss-Tomkins",
+"Registered Democrat",
+0
+],
+[
+"James W. \"JP4\" Parkin",
+"Registered Republican",
+1
+],
+[
+"Treg Taylor",
+"Registered Republican",
+0
+],
+[
+"Bernadette M. Wilson",
+"Registered Republican",
+0
+]
+],
+"primary": [
+[
+"Jonathan S. \"JKT\" Kreiss-Tomkins",
+"Registered Democrat",
+0
+],
+[
+"Tom Begich",
+"Registered Democrat",
+0
+],
+[
+"Bernadette M. Wilson",
+"Registered Republican",
+0
+],
+[
+"Dave Bronson",
+"Registered Republican",
+0
+],
+[
+"Treg Taylor",
+"Registered Republican",
+0
+],
+[
+"Click Bishop",
+"Registered Republican",
+0
+],
+[
+"Adam Crum",
+"Registered Republican",
+0
+],
+[
+"Shelley Hughes",
+"Registered Republican",
+0
+],
+[
+"Bill Walker",
+"Nonpartisan",
+0
+],
+[
+"Matt A. Heilala",
+"Registered Republican",
+0
+],
+[
+"Meda DeWitt",
+"Nonpartisan",
+0
+],
+[
+"Edna DeVries",
+"Registered Republican",
+0
+],
+[
+"Lesil McGuire",
+"Registered Republican",
+0
+],
+[
+"Michael Loren Gilbert",
+"Registered Republican",
+0
+],
+[
+"James W. \"JP4\" Parkin",
+"Registered Republican",
+0
+],
+[
+"Destry J. Payne Sr.",
+"Undeclared",
+0
+],
+[
+"Henry F. \"Hank\" Kroll",
+"Registered Republican",
+0
+]
+]
+},
+"office": "Governor and Lieutenant Governor"
+},
+"2026-AK-H00": {
+"cls": "us_house",
+"district": null,
+"judge": null,
+"level": "congress",
+"names": {
+"general": [
+[
+"Nick Begich",
+"Registered Republican",
+0
+],
+[
+"Eric Hafner",
+"Registered Democrat",
+0
+],
+[
+"Bill Hill",
+"Nonpartisan",
+0
+],
+[
+"James C. \"Jim\" McDermott",
+"Registered Libertarian",
+0
+]
+],
+"primary": [
+[
+"Nick Begich",
+"Registered Republican",
+0
+],
+[
+"Bill Hill",
+"Nonpartisan",
+0
+],
+[
+"Matt Schultz",
+"Registered Democrat",
+0
+],
+[
+"Eric Hafner",
+"Registered Democrat",
+0
+],
+[
+"John B. Williams",
+"Registered Democrat",
+0
+],
+[
+"Clay Strickland",
+"Registered Republican",
+0
+],
+[
+"Yaquelin Reynoso",
+"Registered Democrat",
+0
+],
+[
+"James C. \"Jim\" McDermott",
+"Registered Libertarian",
+0
+],
+[
+"Melanie A. Salazar",
+"Nonpartisan",
+0
+],
+[
+"Eddie Goldfarb",
+"Registered Republican",
+0
+],
+[
+"Lady Donna Dutchess",
+"Nonpartisan",
+0
+],
+[
+"Matthew \"Bronco\" Williams",
+"Undeclared",
+0
+],
+[
+"David Richey",
+"Nonpartisan",
+0
+],
+[
+"David R. Ambrose II",
+"Nonpartisan",
+0
+],
+[
+"John E. Foddrill Sr.",
+"Registered Libertarian",
+0
+]
+]
+},
+"office": "U.S. House"
+},
+"2026-AK-S2": {
+"cls": "us_senate",
+"district": null,
+"judge": null,
+"level": "congress",
+"names": {
+"general": [
+[
+"Gerald L. Heikes",
+"Registered Republican",
+0
+],
+[
+"Sidney \"Sid\" Hill",
+"Undeclared",
+1
+],
+[
+"Heather McElwain",
+"Registered Libertarian",
+1
+],
+[
+"Mary Peltola",
+"Registered Democrat",
+0
+],
+[
+"Dan S. Sullivan",
+"Registered Republican",
+0
+],
+[
+"Daniel J. Sullivan Jr.",
+"Registered Republican",
+0
+]
+],
+"primary": [
+[
+"Mary Peltola",
+"Registered Democrat",
+0
+],
+[
+"Dan S. Sullivan",
+"Registered Republican",
+0
+],
+[
+"Daniel J. Sullivan Jr.",
+"Registered Republican",
+0
+],
+[
+"David B. Leslie",
+"Registered Democrat",
+0
+],
+[
+"Gerald L. Heikes",
+"Registered Republican",
+0
+],
+[
+"Carol \"Kitty\" Hafner",
+"Registered Democrat",
+0
+],
+[
+"Heather McElwain",
+"Registered Republican",
+0
+],
+[
+"Dustin Thomas House Darden",
+"Registered Republican",
+0
+],
+[
+"Earl D. \"Skip\" Southworth",
+"Registered Alaskan Party",
+0
+],
+[
+"Scott A. Kohlhaas",
+"Registered Libertarian",
+0
+],
+[
+"Richard B. Mayers",
+"Registered Republican",
+0
+],
+[
+"Reece J. Roberts",
+"Nonpartisan",
+0
+],
+[
+"Sidney \"Sid\" Hill",
+"Undeclared",
+0
+],
+[
+"Fred C. Grauberger",
+"Registered Republican",
+0
+],
+[
+"Richard Grayson",
+"Registered Green",
+0
+],
+[
+"Shirley A. Saucerman",
+"Nonpartisan",
+0
+]
+]
+},
+"office": "U.S. Senate"
+},
+"2026-AK-SCRET-PATE": {
+"cls": "supreme_court_retention",
+"district": null,
+"judge": "PATE",
+"level": "court",
+"names": {
+"general": [
+[
+"Jude Pate",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Justice of the Supreme Court (retention vote)"
+},
+"2026-AK-SH1": {
+"cls": "state_house",
+"district": "1",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jeremy T. Bynum",
+"Registered Republican",
+0
+],
+[
+"Grant EchoHawk",
+"Nonpartisan",
+0
+]
+],
+"primary": [
+[
+"Jeremy T. Bynum",
+"Registered Republican",
+0
+],
+[
+"Grant EchoHawk",
+"Nonpartisan",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH10": {
+"cls": "state_house",
+"district": "10",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Charles M. \"Chuck\" Kopp",
+"Registered Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH11": {
+"cls": "state_house",
+"district": "11",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Julie Coulombe",
+"Registered Republican",
+0
+],
+[
+"Danni M. Hall",
+"Registered Democrat",
+0
+]
+],
+"primary": [
+[
+"Julie Coulombe",
+"Registered Republican",
+0
+],
+[
+"Danni M. Hall",
+"Registered Democrat",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH12": {
+"cls": "state_house",
+"district": "12",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jieun C. \"Jini\" McDonald",
+"Registered Republican",
+0
+],
+[
+"Calvin R. Schrage",
+"Nonpartisan",
+0
+]
+],
+"primary": [
+[
+"Calvin R. Schrage",
+"Nonpartisan",
+0
+],
+[
+"Jieun C. \"Jini\" McDonald",
+"Registered Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH13": {
+"cls": "state_house",
+"district": "13",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Lisa M. Keller",
+"Registered Democrat",
+0
+]
+],
+"primary": [
+[
+"Lisa M. Keller",
+"Registered Democrat",
+0
+],
+[
+"Felix E. Rivera",
+"Registered Democrat",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH14": {
+"cls": "state_house",
+"district": "14",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Alyse S. Galvin",
+"Nonpartisan",
+0
+],
+[
+"Russell O. Wyatt",
+"Undeclared",
+0
+]
+],
+"primary": [
+[
+"Alyse S. Galvin",
+"Nonpartisan",
+0
+],
+[
+"Russell O. Wyatt",
+"Undeclared",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH15": {
+"cls": "state_house",
+"district": "15",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Mia Costello",
+"Registered Republican",
+0
+],
+[
+"Denny Wells",
+"Registered Democrat",
+0
+]
+],
+"primary": [
+[
+"Denny Wells",
+"Registered Democrat",
+0
+],
+[
+"Mia Costello",
+"Registered Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH16": {
+"cls": "state_house",
+"district": "16",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Carolyn Hall",
+"Registered Democrat",
+0
+],
+[
+"Phil Isley",
+"Undeclared",
+0
+],
+[
+"Liz Vazquez",
+"Registered Republican",
+0
+]
+],
+"primary": [
+[
+"Carolyn Hall",
+"Registered Democrat",
+0
+],
+[
+"Liz Vazquez",
+"Registered Republican",
+0
+],
+[
+"Phil Isley",
+"Undeclared",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH17": {
+"cls": "state_house",
+"district": "17",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Daniel L. Bradley",
+"Registered Republican",
+0
+],
+[
+"William Z. \"Zack\" Fields",
+"Registered Democrat",
+0
+]
+],
+"primary": [
+[
+"William Z. \"Zack\" Fields",
+"Registered Democrat",
+0
+],
+[
+"Daniel L. Bradley",
+"Registered Republican",
+0
+],
+[
+"Matthew H. Salisbury",
+"Nonpartisan",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH18": {
+"cls": "state_house",
+"district": "18",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Cliff Groh",
+"Registered Democrat",
+0
+],
+[
+"Dan Sager",
+"Registered Republican",
+0
+]
+],
+"primary": [
+[
+"Cliff Groh",
+"Registered Democrat",
+0
+],
+[
+"Dan Sager",
+"Registered Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH19": {
+"cls": "state_house",
+"district": "19",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Genevieve G. Mina",
+"Registered Democrat",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH2": {
+"cls": "state_house",
+"district": "2",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Alston C. Evans",
+"Undeclared",
+0
+],
+[
+"Rebecca Himschoot",
+"Nonpartisan",
+0
+],
+[
+"Kenny \"Kenny Karl\" Skaflestad",
+"Registered Republican",
+0
+]
+],
+"primary": [
+[
+"Rebecca Himschoot",
+"Nonpartisan",
+0
+],
+[
+"Kenny \"Kenny Karl\" Skaflestad",
+"Registered Republican",
+0
+],
+[
+"Alston C. Evans",
+"Undeclared",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH20": {
+"cls": "state_house",
+"district": "20",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Paul A. Bauer Jr.",
+"Nonpartisan",
+0
+],
+[
+"Andrew T. Gray",
+"Registered Democrat",
+0
+]
+],
+"primary": [
+[
+"Andrew T. Gray",
+"Registered Democrat",
+0
+],
+[
+"Paul A. Bauer Jr.",
+"Nonpartisan",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH21": {
+"cls": "state_house",
+"district": "21",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Donna Mears",
+"Registered Democrat",
+0
+],
+[
+"Aimeé Sims",
+"Registered Republican",
+0
+]
+],
+"primary": [
+[
+"Donna Mears",
+"Registered Democrat",
+0
+],
+[
+"Aimeé Sims",
+"Registered Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH22": {
+"cls": "state_house",
+"district": "22",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Ted J. Eischeid",
+"Registered Democrat",
+0
+],
+[
+"Jose Roel A. Tagle",
+"Registered Republican",
+0
+]
+],
+"primary": [
+[
+"Ted J. Eischeid",
+"Registered Democrat",
+0
+],
+[
+"Jose Roel A. Tagle",
+"Registered Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH23": {
+"cls": "state_house",
+"district": "23",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jamie Allard",
+"Registered Republican",
+0
+],
+[
+"Jim Arlington",
+"Registered Democrat",
+0
+],
+[
+"Lee E. Hammermeister",
+"Registered Democrat",
+0
+],
+[
+"Ruby Jones",
+"Registered Republican",
+0
+]
+],
+"primary": [
+[
+"Jamie Allard",
+"Registered Republican",
+0
+],
+[
+"Jim Arlington",
+"Registered Democrat",
+0
+],
+[
+"Ruby Jones",
+"Registered Republican",
+0
+],
+[
+"Nick Capozzi",
+"Registered Republican",
+0
+],
+[
+"Lee E. Hammermeister",
+"Registered Democrat",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH24": {
+"cls": "state_house",
+"district": "24",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Ken McCarty",
+"Registered Republican",
+0
+],
+[
+"Gina T. Wall",
+"Registered Republican",
+0
+]
+],
+"primary": [
+[
+"Ken McCarty",
+"Registered Republican",
+0
+],
+[
+"Gina T. Wall",
+"Registered Republican",
+0
+],
+[
+"Sharon Jackson",
+"Registered Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH25": {
+"cls": "state_house",
+"district": "25",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Michael Bowles",
+"Registered Republican",
+0
+],
+[
+"DeLena M. Johnson",
+"Registered Republican",
+0
+],
+[
+"Steven L. Merritt",
+"Nonpartisan",
+0
+]
+],
+"primary": [
+[
+"DeLena M. Johnson",
+"Registered Republican",
+0
+],
+[
+"Steven L. Merritt",
+"Nonpartisan",
+0
+],
+[
+"Michael Bowles",
+"Registered Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH26": {
+"cls": "state_house",
+"district": "26",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Steve J. St. Clair",
+"Registered Republican",
+0
+],
+[
+"Jeanne Troshynski",
+"Registered Democrat",
+0
+]
+],
+"primary": [
+[
+"Steve J. St. Clair",
+"Registered Republican",
+0
+],
+[
+"Donna L. Anthony",
+"Registered Republican",
+0
+],
+[
+"Jeanne Troshynski",
+"Registered Democrat",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH27": {
+"cls": "state_house",
+"district": "27",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"David Eastman",
+"Registered Republican",
+0
+],
+[
+"Jubilee L. Underwood",
+"Registered Republican",
+0
+]
+],
+"primary": [
+[
+"Jubilee L. Underwood",
+"Registered Republican",
+0
+],
+[
+"David Eastman",
+"Registered Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH28": {
+"cls": "state_house",
+"district": "28",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Kathleen M. \"Kit\" Kennedy",
+"Registered Democrat",
+0
+],
+[
+"Elexie B. Moore",
+"Registered Republican",
+0
+],
+[
+"Stephen Wright",
+"Registered Republican",
+0
+]
+],
+"primary": [
+[
+"Elexie B. Moore",
+"Registered Republican",
+0
+],
+[
+"Stephen Wright",
+"Registered Republican",
+0
+],
+[
+"Kathleen M. \"Kit\" Kennedy",
+"Registered Democrat",
+0
+],
+[
+"Evan M. Bordenkircher",
+"Registered Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH29": {
+"cls": "state_house",
+"district": "29",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Jessica I. Kusner-Kalarchik",
+"Nonpartisan",
+0
+],
+[
+"Steve Menard",
+"Registered Republican",
+0
+],
+[
+"Gerald \"Garret\" Nelson",
+"Registered Republican",
+0
+],
+[
+"Kimberly Slone",
+"Registered Democrat",
+0
+]
+],
+"primary": [
+[
+"Steve Menard",
+"Registered Republican",
+0
+],
+[
+"Gerald \"Garret\" Nelson",
+"Registered Republican",
+0
+],
+[
+"Kimberly Slone",
+"Registered Democrat",
+0
+],
+[
+"Jessica I. Kusner-Kalarchik",
+"Nonpartisan",
+0
+],
+[
+"Candice Frisby",
+"Registered Libertarian",
+0
+],
+[
+"Amber Hansen",
+"Undeclared",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH3": {
+"cls": "state_house",
+"district": "3",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Annette Kreitzer",
+"Registered Republican",
+0
+],
+[
+"Andrea \"Andi\" Story",
+"Registered Democrat",
+0
+]
+],
+"primary": [
+[
+"Andrea \"Andi\" Story",
+"Registered Democrat",
+0
+],
+[
+"Annette Kreitzer",
+"Registered Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH30": {
+"cls": "state_house",
+"district": "30",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Sandra D. Loomis",
+"Registered Democrat",
+0
+],
+[
+"Doug Massie",
+"Registered Republican",
+0
+],
+[
+"Kevin J. McCabe",
+"Registered Republican",
+0
+]
+],
+"primary": [
+[
+"Kevin J. McCabe",
+"Registered Republican",
+0
+],
+[
+"Sandra D. Loomis",
+"Registered Democrat",
+0
+],
+[
+"Doug Massie",
+"Registered Republican",
+0
+],
+[
+"Doyle E. Holmes",
+"Registered Republican",
+0
+],
+[
+"Mike Alexander",
+"Registered Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH31": {
+"cls": "state_house",
+"district": "31",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Maxine L. Dibert",
+"Registered Democrat",
+0
+],
+[
+"Aimée Moore",
+"Registered Republican",
+0
+],
+[
+"Jonathan Powell-Mark",
+"Registered Libertarian",
+0
+]
+],
+"primary": [
+[
+"Maxine L. Dibert",
+"Registered Democrat",
+0
+],
+[
+"Aimée Moore",
+"Registered Republican",
+0
+],
+[
+"Jonathan Powell-Mark",
+"Registered Libertarian",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH32": {
+"cls": "state_house",
+"district": "32",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Will Stapp",
+"Registered Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH33": {
+"cls": "state_house",
+"district": "33",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Barbara Haney",
+"Registered Republican",
+0
+],
+[
+"Pepper McFarland",
+"Undeclared",
+0
+],
+[
+"Glenn M. \"Mike\" Prax",
+"Registered Republican",
+0
+]
+],
+"primary": [
+[
+"Glenn M. \"Mike\" Prax",
+"Registered Republican",
+0
+],
+[
+"Barbara Haney",
+"Registered Republican",
+0
+],
+[
+"Pepper McFarland",
+"Undeclared",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH34": {
+"cls": "state_house",
+"district": "34",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Joy E. \"Joy Beth\" Cottle",
+"Nonpartisan",
+0
+],
+[
+"Harmony Tomaszewski",
+"Registered Republican",
+0
+]
+],
+"primary": [
+[
+"Joy E. \"Joy Beth\" Cottle",
+"Nonpartisan",
+0
+],
+[
+"Harmony Tomaszewski",
+"Registered Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH35": {
+"cls": "state_house",
+"district": "35",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Ashley E. Carrick",
+"Registered Democrat",
+0
+],
+[
+"Jeffrey L. \"Jeff\" Rentzel",
+"Registered Republican",
+0
+]
+],
+"primary": [
+[
+"Ashley E. Carrick",
+"Registered Democrat",
+0
+],
+[
+"Jeffrey L. \"Jeff\" Rentzel",
+"Registered Republican",
+0
+],
+[
+"Bridger Terra",
+"Nonpartisan",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH36": {
+"cls": "state_house",
+"district": "36",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Crystal Jones",
+"Nonpartisan",
+0
+],
+[
+"Rebecca A. Schwanke",
+"Registered Republican",
+0
+]
+],
+"primary": [
+[
+"Rebecca A. Schwanke",
+"Registered Republican",
+0
+],
+[
+"Crystal Jones",
+"Nonpartisan",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH37": {
+"cls": "state_house",
+"district": "37",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Mark Smith",
+"Nonpartisan",
+0
+],
+[
+"Evelynn M. Trefon",
+"Registered Democrat",
+0
+],
+[
+"Brenda L. Wilson",
+"Registered Republican",
+0
+],
+[
+"Cade J. Woods",
+"Nonpartisan",
+0
+]
+],
+"primary": [
+[
+"Brenda L. Wilson",
+"Registered Republican",
+0
+],
+[
+"Evelynn M. Trefon",
+"Registered Democrat",
+0
+],
+[
+"Mark Smith",
+"Nonpartisan",
+0
+],
+[
+"Dennis Robinson",
+"Registered Democrat",
+0
+],
+[
+"Kimberly \"Kim\" Johnson",
+"Undeclared",
+0
+],
+[
+"Cade J. Woods",
+"Nonpartisan",
+0
+],
+[
+"Peter L. Angasan",
+"Undeclared",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH38": {
+"cls": "state_house",
+"district": "38",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Joseph R. Amik",
+"Nonpartisan",
+0
+],
+[
+"Nellie \"Unangiq\" Jimmie",
+"Registered Democrat",
+0
+],
+[
+"WIlly Keppel",
+"Registered Republican",
+0
+],
+[
+"CJ McCormick",
+"Registered Democrat",
+0
+]
+],
+"primary": [
+[
+"CJ McCormick",
+"Registered Democrat",
+0
+],
+[
+"Nellie \"Unangiq\" Jimmie",
+"Registered Democrat",
+0
+],
+[
+"WIlly Keppel",
+"Registered Republican",
+0
+],
+[
+"Joseph R. Amik",
+"Nonpartisan",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH39": {
+"cls": "state_house",
+"district": "39",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Neal W. \"Quannaq\" Foster",
+"Registered Democrat",
+0
+],
+[
+"Tyler Ivanoff",
+"Nonpartisan",
+0
+],
+[
+"Reynold D. \"Papa Joe\" Okitkun",
+"Nonpartisan",
+0
+]
+],
+"primary": [
+[
+"Neal W. \"Quannaq\" Foster",
+"Registered Democrat",
+0
+],
+[
+"Tyler Ivanoff",
+"Nonpartisan",
+0
+],
+[
+"Reynold D. \"Papa Joe\" Okitkun",
+"Nonpartisan",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH4": {
+"cls": "state_house",
+"district": "4",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Sara Hannan",
+"Registered Democrat",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH40": {
+"cls": "state_house",
+"district": "40",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Saima Chase",
+"Registered Democrat",
+0
+],
+[
+"Robyn Niayuq Burke Frier",
+"Registered Democrat",
+0
+]
+],
+"primary": [
+[
+"Robyn Niayuq Burke Frier",
+"Registered Democrat",
+0
+],
+[
+"Saima Chase",
+"Registered Democrat",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH5": {
+"cls": "state_house",
+"district": "5",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Sheldon R.J. Prout",
+"Registered Republican",
+0
+],
+[
+"Kathy C. Simpler",
+"Nonpartisan",
+0
+]
+],
+"primary": [
+[
+"Kathy C. Simpler",
+"Nonpartisan",
+0
+],
+[
+"Sheldon R.J. Prout",
+"Registered Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH6": {
+"cls": "state_house",
+"district": "6",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Brent Johnson",
+"Nonpartisan",
+0
+],
+[
+"Sarah L. Vance",
+"Registered Republican",
+0
+]
+],
+"primary": [
+[
+"Brent Johnson",
+"Nonpartisan",
+0
+],
+[
+"Sarah L. Vance",
+"Registered Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH7": {
+"cls": "state_house",
+"district": "7",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Justin M. Ruffridge",
+"Registered Republican",
+0
+],
+[
+"Kate Veh",
+"Registered Democrat",
+0
+]
+],
+"primary": [
+[
+"Justin M. Ruffridge",
+"Registered Republican",
+0
+],
+[
+"Kate Veh",
+"Registered Democrat",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH8": {
+"cls": "state_house",
+"district": "8",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"William H. \"Bill\" Elam",
+"Registered Republican",
+0
+],
+[
+"Frank Quinn",
+"Nonpartisan",
+0
+],
+[
+"Nissa Savage",
+"Nonpartisan",
+0
+]
+],
+"primary": [
+[
+"William H. \"Bill\" Elam",
+"Registered Republican",
+0
+],
+[
+"Nissa Savage",
+"Nonpartisan",
+0
+],
+[
+"Frank Quinn",
+"Nonpartisan",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SH9": {
+"cls": "state_house",
+"district": "9",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"John C. Boyle",
+"Registered Republican",
+0
+],
+[
+"Ky Holland",
+"Nonpartisan",
+0
+]
+],
+"primary": [
+[
+"Ky Holland",
+"Nonpartisan",
+0
+],
+[
+"John C. Boyle",
+"Registered Republican",
+0
+]
+]
+},
+"office": "State Representative"
+},
+"2026-AK-SSA": {
+"cls": "state_senate",
+"district": "A",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Bert K. Stedman",
+"Registered Republican",
+0
+]
+]
+},
+"office": "State Senator"
+},
+"2026-AK-SSC": {
+"cls": "state_senate",
+"district": "C",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Carrie L. Harris",
+"Registered Republican",
+0
+],
+[
+"Heath Smith",
+"Registered Republican",
+0
+],
+[
+"Louise B. Stutes",
+"Registered Republican",
+0
+]
+],
+"primary": [
+[
+"Louise B. Stutes",
+"Registered Republican",
+0
+],
+[
+"Heath Smith",
+"Registered Republican",
+0
+],
+[
+"Carrie L. Harris",
+"Registered Republican",
+0
+]
+]
+},
+"office": "State Senator"
+},
+"2026-AK-SSE": {
+"cls": "state_senate",
+"district": "E",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Cathy Giessel",
+"Registered Republican",
+0
+],
+[
+"Gretchen W. Stoddard",
+"Registered Republican",
+0
+],
+[
+"Jason \"Jace\" White",
+"Registered Republican",
+0
+]
+],
+"primary": [
+[
+"Cathy Giessel",
+"Registered Republican",
+0
+],
+[
+"Gretchen W. Stoddard",
+"Registered Republican",
+0
+],
+[
+"Leo B. Schafer",
+"Registered Republican",
+0
+],
+[
+"Jason \"Jace\" White",
+"Registered Republican",
+0
+]
+]
+},
+"office": "State Senator"
+},
+"2026-AK-SSG": {
+"cls": "state_senate",
+"district": "G",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Nicholas Danger",
+"Nonpartisan",
+0
+],
+[
+"Elvi Gray-Jackson",
+"Registered Democrat",
+0
+]
+],
+"primary": [
+[
+"Elvi Gray-Jackson",
+"Registered Democrat",
+0
+],
+[
+"Nicholas Danger",
+"Nonpartisan",
+0
+]
+]
+},
+"office": "State Senator"
+},
+"2026-AK-SSI": {
+"cls": "state_senate",
+"district": "I",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Löki Gale Tobin",
+"Registered Democrat",
+0
+]
+]
+},
+"office": "State Senator"
+},
+"2026-AK-SSK": {
+"cls": "state_senate",
+"district": "K",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Bill Wielechowski",
+"Registered Democrat",
+0
+]
+]
+},
+"office": "State Senator"
+},
+"2026-AK-SSM": {
+"cls": "state_senate",
+"district": "M",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Ryan Berry",
+"Registered Republican",
+0
+],
+[
+"Patricia R. Chesbro",
+"Registered Democrat",
+0
+],
+[
+"Cathy L. Tilton",
+"Registered Republican",
+0
+],
+[
+"Zane Vrvilo",
+"Registered Republican",
+0
+]
+],
+"primary": [
+[
+"Cathy L. Tilton",
+"Registered Republican",
+0
+],
+[
+"Patricia R. Chesbro",
+"Registered Democrat",
+0
+],
+[
+"Ryan Berry",
+"Registered Republican",
+0
+],
+[
+"Zane Vrvilo",
+"Registered Republican",
+0
+]
+]
+},
+"office": "State Senator"
+},
+"2026-AK-SSO": {
+"cls": "state_senate",
+"district": "O",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Peter Bauer",
+"Registered Democrat",
+0
+],
+[
+"George Rauscher",
+"Registered Republican",
+0
+],
+[
+"Ryan W. Sheldon",
+"Registered Republican",
+0
+]
+],
+"primary": [
+[
+"George Rauscher",
+"Registered Republican",
+0
+],
+[
+"Ryan W. Sheldon",
+"Registered Republican",
+0
+],
+[
+"Peter Bauer",
+"Registered Democrat",
+0
+]
+]
+},
+"office": "State Senator"
+},
+"2026-AK-SSQ": {
+"cls": "state_senate",
+"district": "Q",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"William Hunt",
+"Registered Democrat",
+0
+],
+[
+"Frank Tomaszewski",
+"Registered Republican",
+0
+]
+],
+"primary": [
+[
+"Frank Tomaszewski",
+"Registered Republican",
+0
+],
+[
+"William Hunt",
+"Registered Democrat",
+0
+]
+]
+},
+"office": "State Senator"
+},
+"2026-AK-SSS": {
+"cls": "state_senate",
+"district": "S",
+"judge": null,
+"level": "legislature",
+"names": {
+"general": [
+[
+"Darren Morgan Deacon",
+"Registered Republican",
+0
+],
+[
+"Bryce Edgmon",
+"Undeclared",
+0
+],
+[
+"Wassilie P. \"WG\" Guy",
+"Registered Democrat",
+0
+],
+[
+"Richard \"Rick\" Robb",
+"Nonpartisan",
+0
+]
+],
+"primary": [
+[
+"Bryce Edgmon",
+"Undeclared",
+0
+],
+[
+"Darren Morgan Deacon",
+"Registered Republican",
+0
+],
+[
+"Wassilie P. \"WG\" Guy",
+"Registered Democrat",
+0
+],
+[
+"Richard \"Rick\" Robb",
+"Nonpartisan",
+0
+],
+[
+"Wayne A. Morgan",
+"Undeclared",
+0
+]
+]
+},
+"office": "State Senator"
+},
+"2026-AK-SUPRET-JD1-CARPENETI": {
+"cls": "superior_court_retention",
+"district": "1",
+"judge": "CARPENETI",
+"level": "court",
+"names": {
+"general": [
+[
+"Marianna C. Carpeneti",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Judge of the Superior Court (retention vote)"
+},
+"2026-AK-SUPRET-JD1-DOTY": {
+"cls": "superior_court_retention",
+"district": "1",
+"judge": "DOTY",
+"level": "court",
+"names": {
+"general": [
+[
+"Daniel E. Doty",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Judge of the Superior Court (retention vote)"
+},
+"2026-AK-SUPRET-JD1-LYBRAND": {
+"cls": "superior_court_retention",
+"district": "1",
+"judge": "LYBRAND",
+"level": "court",
+"names": {
+"general": [
+[
+"Katherine H. Lybrand",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Judge of the Superior Court (retention vote)"
+},
+"2026-AK-SUPRET-JD2-ROGHAIR": {
+"cls": "superior_court_retention",
+"district": "2",
+"judge": "ROGHAIR",
+"level": "court",
+"names": {
+"general": [
+[
+"David L. Roghair",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Judge of the Superior Court (retention vote)"
+},
+"2026-AK-SUPRET-JD3-HARTZ": {
+"cls": "superior_court_retention",
+"district": "3",
+"judge": "HARTZ",
+"level": "court",
+"names": {
+"general": [
+[
+"Laura Hartz",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Judge of the Superior Court (retention vote)"
+},
+"2026-AK-SUPRET-JD3-LAMOUREUX": {
+"cls": "superior_court_retention",
+"district": "3",
+"judge": "LAMOUREUX",
+"level": "court",
+"names": {
+"general": [
+[
+"Yvonne Lamoureux",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Judge of the Superior Court (retention vote)"
+},
+"2026-AK-SUPRET-JD3-LAWSON": {
+"cls": "superior_court_retention",
+"district": "3",
+"judge": "LAWSON",
+"level": "court",
+"names": {
+"general": [
+[
+"Kelly J. Lawson",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Judge of the Superior Court (retention vote)"
+},
+"2026-AK-SUPRET-JD3-MCKENNA": {
+"cls": "superior_court_retention",
+"district": "3",
+"judge": "MCKENNA",
+"level": "court",
+"names": {
+"general": [
+[
+"Jack McKenna",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Judge of the Superior Court (retention vote)"
+},
+"2026-AK-SUPRET-JD3-NESBETT": {
+"cls": "superior_court_retention",
+"district": "3",
+"judge": "NESBETT",
+"level": "court",
+"names": {
+"general": [
+[
+"David Nesbett",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Judge of the Superior Court (retention vote)"
+},
+"2026-AK-SUPRET-JD3-RANKIN": {
+"cls": "superior_court_retention",
+"district": "3",
+"judge": "RANKIN",
+"level": "court",
+"names": {
+"general": [
+[
+"Christina Rankin",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Judge of the Superior Court (retention vote)"
+},
+"2026-AK-SUPRET-JD3-REIGH": {
+"cls": "superior_court_retention",
+"district": "3",
+"judge": "REIGH",
+"level": "court",
+"names": {
+"general": [
+[
+"Christina L. Reigh \"Tina\"",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Judge of the Superior Court (retention vote)"
+},
+"2026-AK-SUPRET-JD3-WHEELES": {
+"cls": "superior_court_retention",
+"district": "3",
+"judge": "WHEELES",
+"level": "court",
+"names": {
+"general": [
+[
+"Ian Wheeles",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Judge of the Superior Court (retention vote)"
+},
+"2026-AK-SUPRET-JD3-WOODMAN": {
+"cls": "superior_court_retention",
+"district": "3",
+"judge": "WOODMAN",
+"level": "court",
+"names": {
+"general": [
+[
+"Jonathan A. Woodman",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Judge of the Superior Court (retention vote)"
+},
+"2026-AK-SUPRET-JD4-PETERS": {
+"cls": "superior_court_retention",
+"district": "4",
+"judge": "PETERS",
+"level": "court",
+"names": {
+"general": [
+[
+"Nathaniel Peters",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Judge of the Superior Court (retention vote)"
+},
+"2026-AK-SUPRET-JD4-SCHWALM": {
+"cls": "superior_court_retention",
+"district": "4",
+"judge": "SCHWALM",
+"level": "court",
+"names": {
+"general": [
+[
+"Kirk Schwalm",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Judge of the Superior Court (retention vote)"
+},
+"2026-AK-SUPRET-JD4-WELCH": {
+"cls": "superior_court_retention",
+"district": "4",
+"judge": "WELCH",
+"level": "court",
+"names": {
+"general": [
+[
+"Amy Welch",
+"Nonpartisan office",
+0
+]
+]
+},
+"office": "Judge of the Superior Court (retention vote)"
+}
+},
+"state": "AK"
+}

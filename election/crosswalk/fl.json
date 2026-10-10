@@ -1,0 +1,3977 @@
+{
+"_about":"Florida's races on the November 3, 2026 ballot that the Election Night pages read (Congress from ballot_2026.sqlite; the four Cabinet offices, the Legislature and the Supreme Court and District Court of Appeal retention votes from ballot_local_2026.sqlite), each with the key a row of the Division's election-night file is tied by (its race code and district, or the judge's family name on a retention vote) and the candidates as filed. The Division posts the night's file only on the night, so no posted contest list is tied here yet; a race whose key no row carries is shown as not reported.",
+"state":"FL",
+"election":"2026-11-03",
+"built":"2026-10-10",
+"feed":"flelectionfiles.floridados.gov enightfilespublic/20261103_ElecResultsFL.txt (posted on the night)",
+"feed_note":"A candidate with no opponent is not printed on Florida's ballot (section 101.151), so such races never appear in the file.",
+"order":[
+"what the contest is (its kind and district, read from the state's own title)",
+"the candidates' family names"
+],
+"counts":{
+"races":197,
+"by_level":{
+"congress":29,
+"statewide":4,
+"legislature":141,
+"court":23
+},
+"posted_contests":0,
+"posted_tied":0,
+"posted_not_tied":0,
+"posted_out_of_scope":0,
+"races_not_in_posted_list":0,
+"printed_lines_not_tied":0
+},
+"races":{
+"2026-FL-AG":{
+"key":"attorney_general",
+"level":"statewide",
+"kind":"attorney_general",
+"office":"Attorney General",
+"district":null,
+"seat":null,
+"special":0,
+"names":[
+[
+"James Uthmeier",
+"Republican Party of Florida"
+],
+[
+"Jose Javier Rodriguez",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-AGR":{
+"key":"agriculture_commissioner",
+"level":"statewide",
+"kind":"agriculture_commissioner",
+"office":"Commissioner of Agriculture",
+"district":null,
+"seat":null,
+"special":0,
+"names":[
+[
+"Joey Mendoza Atkins",
+"Florida Democratic Party"
+],
+[
+"Kyle KC Gibson",
+"Write-In"
+],
+[
+"Wilton Simpson",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-CFO":{
+"key":"chief_financial_officer",
+"level":"statewide",
+"kind":"chief_financial_officer",
+"office":"Chief Financial Officer",
+"district":null,
+"seat":null,
+"special":0,
+"names":[
+[
+"Annette Taddeo",
+"Florida Democratic Party"
+],
+[
+"Blaise Ingoglia",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-DCA1RET-LEWIS":{
+"key":"court_of_appeals_retention:lewis",
+"level":"court",
+"kind":"court_of_appeals_retention",
+"office":"Judge, First District Court of Appeal (retention vote)",
+"district":"1",
+"seat":null,
+"special":0,
+"names":[
+[
+"Joseph Lewis Jr.",
+"Nonpartisan office"
+]
+]
+},
+"2026-FL-DCA1RET-NORDBY":{
+"key":"court_of_appeals_retention:nordby",
+"level":"court",
+"kind":"court_of_appeals_retention",
+"office":"Judge, First District Court of Appeal (retention vote)",
+"district":"1",
+"seat":null,
+"special":0,
+"names":[
+[
+"Rachel Nordby",
+"Nonpartisan office"
+]
+]
+},
+"2026-FL-DCA1RET-OSTERHAUS":{
+"key":"court_of_appeals_retention:osterhaus",
+"level":"court",
+"kind":"court_of_appeals_retention",
+"office":"Judge, First District Court of Appeal (retention vote)",
+"district":"1",
+"seat":null,
+"special":0,
+"names":[
+[
+"Tim Osterhaus",
+"Nonpartisan office"
+]
+]
+},
+"2026-FL-DCA1RET-ROBERTS":{
+"key":"court_of_appeals_retention:roberts",
+"level":"court",
+"kind":"court_of_appeals_retention",
+"office":"Judge, First District Court of Appeal (retention vote)",
+"district":"1",
+"seat":null,
+"special":0,
+"names":[
+[
+"Clay Roberts",
+"Nonpartisan office"
+]
+]
+},
+"2026-FL-DCA1RET-TREADWELL":{
+"key":"court_of_appeals_retention:treadwell",
+"level":"court",
+"kind":"court_of_appeals_retention",
+"office":"Judge, First District Court of Appeal (retention vote)",
+"district":"1",
+"seat":null,
+"special":0,
+"names":[
+[
+"Raymond Treadwell",
+"Nonpartisan office"
+]
+]
+},
+"2026-FL-DCA2RET-ATKINSON":{
+"key":"court_of_appeals_retention:atkinson",
+"level":"court",
+"kind":"court_of_appeals_retention",
+"office":"Judge, Second District Court of Appeal (retention vote)",
+"district":"2",
+"seat":null,
+"special":0,
+"names":[
+[
+"Drew Atkinson",
+"Nonpartisan office"
+]
+]
+},
+"2026-FL-DCA2RET-SILBERMAN":{
+"key":"court_of_appeals_retention:silberman",
+"level":"court",
+"kind":"court_of_appeals_retention",
+"office":"Judge, Second District Court of Appeal (retention vote)",
+"district":"2",
+"seat":null,
+"special":0,
+"names":[
+[
+"Morris Silberman",
+"Nonpartisan office"
+]
+]
+},
+"2026-FL-DCA2RET-SLEET":{
+"key":"court_of_appeals_retention:sleet",
+"level":"court",
+"kind":"court_of_appeals_retention",
+"office":"Judge, Second District Court of Appeal (retention vote)",
+"district":"2",
+"seat":null,
+"special":0,
+"names":[
+[
+"Daniel H. Sleet",
+"Nonpartisan office"
+]
+]
+},
+"2026-FL-DCA2RET-SMITH":{
+"key":"court_of_appeals_retention:smith",
+"level":"court",
+"kind":"court_of_appeals_retention",
+"office":"Judge, Second District Court of Appeal (retention vote)",
+"district":"2",
+"seat":null,
+"special":0,
+"names":[
+[
+"Andrea Teves Smith",
+"Nonpartisan office"
+]
+]
+},
+"2026-FL-DCA3RET-GOODEN":{
+"key":"court_of_appeals_retention:gooden",
+"level":"court",
+"kind":"court_of_appeals_retention",
+"office":"Judge, Third District Court of Appeal (retention vote)",
+"district":"3",
+"seat":null,
+"special":0,
+"names":[
+[
+"Kansas R. Gooden",
+"Nonpartisan office"
+]
+]
+},
+"2026-FL-DCA3RET-GORDO":{
+"key":"court_of_appeals_retention:gordo",
+"level":"court",
+"kind":"court_of_appeals_retention",
+"office":"Judge, Third District Court of Appeal (retention vote)",
+"district":"3",
+"seat":null,
+"special":0,
+"names":[
+[
+"Monica Gordo",
+"Nonpartisan office"
+]
+]
+},
+"2026-FL-DCA3RET-LOBREE":{
+"key":"court_of_appeals_retention:lobree",
+"level":"court",
+"kind":"court_of_appeals_retention",
+"office":"Judge, Third District Court of Appeal (retention vote)",
+"district":"3",
+"seat":null,
+"special":0,
+"names":[
+[
+"Fleur Jeannine Lobree",
+"Nonpartisan office"
+]
+]
+},
+"2026-FL-DCA3RET-LOGUE":{
+"key":"court_of_appeals_retention:logue",
+"level":"court",
+"kind":"court_of_appeals_retention",
+"office":"Judge, Third District Court of Appeal (retention vote)",
+"district":"3",
+"seat":null,
+"special":0,
+"names":[
+[
+"Thomas Logue",
+"Nonpartisan office"
+]
+]
+},
+"2026-FL-DCA3RET-MILLER":{
+"key":"court_of_appeals_retention:miller",
+"level":"court",
+"kind":"court_of_appeals_retention",
+"office":"Judge, Third District Court of Appeal (retention vote)",
+"district":"3",
+"seat":null,
+"special":0,
+"names":[
+[
+"Bronwyn Catherine Miller",
+"Nonpartisan office"
+]
+]
+},
+"2026-FL-DCA4RET-FORST":{
+"key":"court_of_appeals_retention:forst",
+"level":"court",
+"kind":"court_of_appeals_retention",
+"office":"Judge, Fourth District Court of Appeal (retention vote)",
+"district":"4",
+"seat":null,
+"special":0,
+"names":[
+[
+"Alan O. Forst",
+"Nonpartisan office"
+]
+]
+},
+"2026-FL-DCA4RET-KLINGENSMITH":{
+"key":"court_of_appeals_retention:klingensmith",
+"level":"court",
+"kind":"court_of_appeals_retention",
+"office":"Judge, Fourth District Court of Appeal (retention vote)",
+"district":"4",
+"seat":null,
+"special":0,
+"names":[
+[
+"Mark W. Klingensmith",
+"Nonpartisan office"
+]
+]
+},
+"2026-FL-DCA4RET-LOTT":{
+"key":"court_of_appeals_retention:lott",
+"level":"court",
+"kind":"court_of_appeals_retention",
+"office":"Judge, Fourth District Court of Appeal (retention vote)",
+"district":"4",
+"seat":null,
+"special":0,
+"names":[
+[
+"Johnathan D. Lott",
+"Nonpartisan office"
+]
+]
+},
+"2026-FL-DCA4RET-SHAW":{
+"key":"court_of_appeals_retention:shaw",
+"level":"court",
+"kind":"court_of_appeals_retention",
+"office":"Judge, Fourth District Court of Appeal (retention vote)",
+"district":"4",
+"seat":null,
+"special":0,
+"names":[
+[
+"Shannon K. Shaw",
+"Nonpartisan office"
+]
+]
+},
+"2026-FL-DCA4RET-SHEPHERD":{
+"key":"court_of_appeals_retention:shepherd",
+"level":"court",
+"kind":"court_of_appeals_retention",
+"office":"Judge, Fourth District Court of Appeal (retention vote)",
+"district":"4",
+"seat":null,
+"special":0,
+"names":[
+[
+"Caroline Cahill Shepherd",
+"Nonpartisan office"
+]
+]
+},
+"2026-FL-DCA5RET-HARRIS":{
+"key":"court_of_appeals_retention:harris",
+"level":"court",
+"kind":"court_of_appeals_retention",
+"office":"Judge, Fifth District Court of Appeal (retention vote)",
+"district":"5",
+"seat":null,
+"special":0,
+"names":[
+[
+"John M. Harris",
+"Nonpartisan office"
+]
+]
+},
+"2026-FL-DCA5RET-MAKAR":{
+"key":"court_of_appeals_retention:makar",
+"level":"court",
+"kind":"court_of_appeals_retention",
+"office":"Judge, Fifth District Court of Appeal (retention vote)",
+"district":"5",
+"seat":null,
+"special":0,
+"names":[
+[
+"Scott D. Makar",
+"Nonpartisan office"
+]
+]
+},
+"2026-FL-DCA5RET-WALLIS":{
+"key":"court_of_appeals_retention:wallis",
+"level":"court",
+"kind":"court_of_appeals_retention",
+"office":"Judge, Fifth District Court of Appeal (retention vote)",
+"district":"5",
+"seat":null,
+"special":0,
+"names":[
+[
+"F. Rand Wallis",
+"Nonpartisan office"
+]
+]
+},
+"2026-FL-GOV":{
+"key":"governor",
+"level":"statewide",
+"kind":"governor",
+"office":"Governor",
+"district":null,
+"seat":null,
+"special":0,
+"names":[
+[
+"Byron Donalds",
+"Republican Party of Florida"
+],
+[
+"Charles Burkett",
+"No Party Affiliation (Partisan)"
+],
+[
+"David Jolly",
+"Florida Democratic Party"
+],
+[
+"Dean Ocean Abrams",
+"No Party Affiliation (Partisan)"
+],
+[
+"Erik Morris",
+"Write-In"
+],
+[
+"Frank J. Russo",
+"No Party Affiliation (Partisan)"
+],
+[
+"Jeffrey Peter \"Dr. Jeff\" Datto",
+"No Party Affiliation (Partisan)"
+],
+[
+"Kathy Anderson",
+"Write-In"
+],
+[
+"Moliere Moe Dimanche",
+"No Party Affiliation (Partisan)"
+],
+[
+"Scott Eckhard Jewett",
+"Libertarian Party of Florida"
+]
+]
+},
+"2026-FL-H01":{
+"key":"us_house:1",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"1",
+"seat":null,
+"special":0,
+"names":[
+[
+"Gay Valimont",
+"Florida Democratic Party"
+],
+[
+"Jimmy Patronis",
+"Republican Party of Florida"
+],
+[
+"Tyler L. Davis",
+"No Party Affiliation (Partisan)"
+]
+]
+},
+"2026-FL-H02":{
+"key":"us_house:2",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"2",
+"seat":null,
+"special":0,
+"names":[
+[
+"Amanda Marie Green",
+"Florida Democratic Party"
+],
+[
+"Austin Rogers",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-H03":{
+"key":"us_house:3",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"3",
+"seat":null,
+"special":0,
+"names":[
+[
+"Kat Cammack",
+"Republican Party of Florida"
+],
+[
+"Mike Klein",
+"No Party Affiliation (Partisan)"
+],
+[
+"Seth Harp",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-H04":{
+"key":"us_house:4",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"4",
+"seat":null,
+"special":0,
+"names":[
+[
+"Aaron Bean",
+"Republican Party of Florida"
+],
+[
+"LaShonda L.J. Holloway",
+"Florida Democratic Party"
+],
+[
+"Mike Sell",
+"Florida Forward Party"
+],
+[
+"Todd Schaefer",
+"No Party Affiliation (Partisan)"
+]
+]
+},
+"2026-FL-H05":{
+"key":"us_house:5",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"5",
+"seat":null,
+"special":0,
+"names":[
+[
+"John H. Rutherford",
+"Republican Party of Florida"
+],
+[
+"Rachel Grage",
+"Florida Democratic Party"
+],
+[
+"William Lintag Upham",
+"Write-In"
+]
+]
+},
+"2026-FL-H06":{
+"key":"us_house:6",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"6",
+"seat":null,
+"special":0,
+"names":[
+[
+"Alec Pavlik",
+"Write-In"
+],
+[
+"Andrew Parrott",
+"Libertarian Party of Florida"
+],
+[
+"Eric Yonce",
+"Florida Democratic Party"
+],
+[
+"Randy Fine",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-H07":{
+"key":"us_house:7",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"7",
+"seat":null,
+"special":0,
+"names":[
+[
+"Bale Dalton",
+"Florida Democratic Party"
+],
+[
+"Christopher Dennison",
+"Libertarian Party of Florida"
+],
+[
+"Ryan Elijah",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-H08":{
+"key":"us_house:8",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"8",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jennifer Jenkins",
+"Florida Democratic Party"
+],
+[
+"Mike Haridopolos",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-H09":{
+"key":"us_house:9",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"9",
+"seat":null,
+"special":0,
+"names":[
+[
+"Dan Green",
+"Republican Party of Florida"
+],
+[
+"Darren Soto",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-H10":{
+"key":"us_house:10",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"10",
+"seat":null,
+"special":0,
+"names":[
+[
+"Maxwell Alejandro Frost",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-H11":{
+"key":"us_house:11",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"11",
+"seat":null,
+"special":0,
+"names":[
+[
+"James Pericola",
+"Florida Democratic Party"
+],
+[
+"Joe Strada",
+"Republican Party of Florida"
+],
+[
+"Ralph Groves",
+"Libertarian Party of Florida"
+]
+]
+},
+"2026-FL-H12":{
+"key":"us_house:12",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"12",
+"seat":null,
+"special":0,
+"names":[
+[
+"Branden Scrivener",
+"No Party Affiliation (Partisan)"
+],
+[
+"Gus Michael Bilirakis",
+"Republican Party of Florida"
+],
+[
+"Kimberly Overman",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-H13":{
+"key":"us_house:13",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"13",
+"seat":null,
+"special":0,
+"names":[
+[
+"Anna Paulina Luna",
+"Republican Party of Florida"
+],
+[
+"Leela Gray",
+"Florida Democratic Party"
+],
+[
+"Tony D'Arrigo",
+"No Party Affiliation (Partisan)"
+]
+]
+},
+"2026-FL-H14":{
+"key":"us_house:14",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"14",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brian Lambert",
+"Libertarian Party of Florida"
+],
+[
+"Kathy Castor",
+"Florida Democratic Party"
+],
+[
+"Keith Varian",
+"Write-In"
+],
+[
+"Mike Beltran",
+"Republican Party of Florida"
+],
+[
+"Salomon Hernandez Sr.",
+"Write-In"
+]
+]
+},
+"2026-FL-H15":{
+"key":"us_house:15",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"15",
+"seat":null,
+"special":0,
+"names":[
+[
+"Angie Boone",
+"Write-In"
+],
+[
+"Laurel Lee",
+"Republican Party of Florida"
+],
+[
+"Robert People",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-H16":{
+"key":"us_house:16",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"16",
+"seat":null,
+"special":0,
+"names":[
+[
+"Kelly Kirschner",
+"Florida Democratic Party"
+],
+[
+"Mark Davis",
+"No Party Affiliation (Partisan)"
+],
+[
+"Sydney Gruters",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-H17":{
+"key":"us_house:17",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"17",
+"seat":null,
+"special":0,
+"names":[
+[
+"Greg Steube",
+"Republican Party of Florida"
+],
+[
+"Matthew Montavon",
+"Florida Democratic Party"
+],
+[
+"Michael J. Quirk",
+"No Party Affiliation (Partisan)"
+]
+]
+},
+"2026-FL-H18":{
+"key":"us_house:18",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"18",
+"seat":null,
+"special":0,
+"names":[
+[
+"Curtis Gibson",
+"Florida Democratic Party"
+],
+[
+"Deva Simmons",
+"No Party Affiliation (Partisan)"
+],
+[
+"Scott Franklin",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-H19":{
+"key":"us_house:19",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"19",
+"seat":null,
+"special":0,
+"names":[
+[
+"Alexandra Zakhvatayev",
+"Write-In"
+],
+[
+"Jim Schwartzel",
+"Republican Party of Florida"
+],
+[
+"Seth Haskin",
+"No Party Affiliation (Partisan)"
+],
+[
+"Victor Arias",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-H20":{
+"key":"us_house:20",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"20",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brent Andersen",
+"Republican Party of Florida"
+],
+[
+"Debbie Wasserman Schultz",
+"Florida Democratic Party"
+],
+[
+"Kedner Maxime",
+"Independent Party of Florida"
+]
+]
+},
+"2026-FL-H21":{
+"key":"us_house:21",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"21",
+"seat":null,
+"special":0,
+"names":[
+[
+"Alexander Cooke",
+"No Party Affiliation (Partisan)"
+],
+[
+"Brian Mast",
+"Republican Party of Florida"
+],
+[
+"David Fabrikant",
+"Write-In"
+],
+[
+"James T. Martin",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-H22":{
+"key":"us_house:22",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"22",
+"seat":null,
+"special":0,
+"names":[
+[
+"Casey Askar",
+"Republican Party of Florida"
+],
+[
+"Pia Dandiya",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-H23":{
+"key":"us_house:23",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"23",
+"seat":null,
+"special":0,
+"names":[
+[
+"Deborah Adeimy",
+"Republican Party of Florida"
+],
+[
+"Lois Frankel",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-H24":{
+"key":"us_house:24",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"24",
+"seat":null,
+"special":0,
+"names":[
+[
+"Oliver G. Gilbert III",
+"Florida Democratic Party"
+],
+[
+"Patricia Gonzalez",
+"Write-In"
+],
+[
+"Te Mayonna Brown",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-H25":{
+"key":"us_house:25",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"25",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jared Moskowitz",
+"Florida Democratic Party"
+],
+[
+"Michaelangelo Hamilton",
+"Write-In"
+],
+[
+"Peter Jassenoff",
+"Libertarian Party of Florida"
+],
+[
+"Scott Singer",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-H26":{
+"key":"us_house:26",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"26",
+"seat":null,
+"special":0,
+"names":[
+[
+"Deborah Ann Meidinger Hosey",
+"No Party Affiliation (Partisan)"
+],
+[
+"Mario Diaz-Balart",
+"Republican Party of Florida"
+],
+[
+"Nicole Locklin",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-H27":{
+"key":"us_house:27",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"27",
+"seat":null,
+"special":0,
+"names":[
+[
+"Eliott Rodriguez",
+"Florida Democratic Party"
+],
+[
+"Maria Elvira Salazar",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-H28":{
+"key":"us_house:28",
+"level":"congress",
+"kind":"us_house",
+"office":"U.S. House",
+"district":"28",
+"seat":null,
+"special":0,
+"names":[
+[
+"Carlos A. Gimenez",
+"Republican Party of Florida"
+],
+[
+"Eddy Rojas",
+"No Party Affiliation (Partisan)"
+],
+[
+"Phil Felipe Ehr",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-S3":{
+"key":"us_senate:special",
+"level":"congress",
+"kind":"us_senate",
+"office":"U.S. Senate",
+"district":null,
+"seat":null,
+"special":1,
+"names":[
+[
+"Angie Nixon",
+"Florida Democratic Party"
+],
+[
+"Ashley Moody",
+"Republican Party of Florida"
+],
+[
+"Neil J. Gillespie",
+"No Party Affiliation (Partisan)"
+]
+]
+},
+"2026-FL-SCRET-MUNIZ":{
+"key":"supreme_court_retention:muniz",
+"level":"court",
+"kind":"supreme_court_retention",
+"office":"Justice of the Supreme Court (retention vote)",
+"district":null,
+"seat":null,
+"special":0,
+"names":[
+[
+"Carlos G. Muniz",
+"Nonpartisan office"
+]
+]
+},
+"2026-FL-SH1":{
+"key":"state_house:1",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"1",
+"seat":null,
+"special":0,
+"names":[
+[
+"Francesca Yabraian",
+"Florida Democratic Party"
+],
+[
+"Michelle Salzman",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH10":{
+"key":"state_house:10",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"10",
+"seat":null,
+"special":0,
+"names":[
+[
+"James Hunter Batley",
+"Write-In"
+],
+[
+"Marshall Rawson",
+"Republican Party of Florida"
+],
+[
+"Merrillee Malwitz Jipson",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH100":{
+"key":"state_house:100",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"100",
+"seat":null,
+"special":0,
+"names":[
+[
+"Michael Terence Ferguson",
+"Florida Democratic Party"
+],
+[
+"Yoni Anijar",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH101":{
+"key":"state_house:101",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"101",
+"seat":null,
+"special":0,
+"names":[
+[
+"Hillary Cassel",
+"Republican Party of Florida"
+],
+[
+"Todd Delmay",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH102":{
+"key":"state_house:102",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"102",
+"seat":null,
+"special":0,
+"names":[
+[
+"Mery Lopez-Palma",
+"Republican Party of Florida"
+],
+[
+"Michael Mike Friend",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH103":{
+"key":"state_house:103",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"103",
+"seat":null,
+"special":0,
+"names":[
+[
+"Imtiaz Mohammad",
+"Republican Party of Florida"
+],
+[
+"Robin Bartleman",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH104":{
+"key":"state_house:104",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"104",
+"seat":null,
+"special":0,
+"names":[
+[
+"Felicia Simone Robinson",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH105":{
+"key":"state_house:105",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"105",
+"seat":null,
+"special":0,
+"names":[
+[
+"Marie Woodson",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH106":{
+"key":"state_house:106",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"106",
+"seat":null,
+"special":0,
+"names":[
+[
+"Fabian Basabe",
+"Republican Party of Florida"
+],
+[
+"Lucia Baez-Geller",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH107":{
+"key":"state_house:107",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"107",
+"seat":null,
+"special":0,
+"names":[
+[
+"Wallace Aristide",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH108":{
+"key":"state_house:108",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"108",
+"seat":null,
+"special":0,
+"names":[
+[
+"Daphne Campbell",
+"Florida Democratic Party"
+],
+[
+"Wancito Francius",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH109":{
+"key":"state_house:109",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"109",
+"seat":null,
+"special":0,
+"names":[
+[
+"James Bush III",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH11":{
+"key":"state_house:11",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"11",
+"seat":null,
+"special":0,
+"names":[
+[
+"Sam Garrison",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH110":{
+"key":"state_house:110",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"110",
+"seat":null,
+"special":0,
+"names":[
+[
+"Tom Fabricio",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH111":{
+"key":"state_house:111",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"111",
+"seat":null,
+"special":0,
+"names":[
+[
+"David Borrero",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH112":{
+"key":"state_house:112",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"112",
+"seat":null,
+"special":0,
+"names":[
+[
+"Alex Rizo",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH113":{
+"key":"state_house:113",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"113",
+"seat":null,
+"special":0,
+"names":[
+[
+"Bruno A. Barreiro",
+"Republican Party of Florida"
+],
+[
+"Gloria Romero Roses",
+"Florida Democratic Party"
+],
+[
+"Paola Vazquez del Mercado",
+"Write-In"
+]
+]
+},
+"2026-FL-SH114":{
+"key":"state_house:114",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"114",
+"seat":null,
+"special":0,
+"names":[
+[
+"Demi Busatta",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH115":{
+"key":"state_house:115",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"115",
+"seat":null,
+"special":0,
+"names":[
+[
+"Marcos Reyes",
+"Florida Democratic Party"
+],
+[
+"Omar Blanco",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH116":{
+"key":"state_house:116",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"116",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ashley Perez-Biliskov",
+"Republican Party of Florida"
+],
+[
+"Nicolas Ramos",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH117":{
+"key":"state_house:117",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"117",
+"seat":null,
+"special":0,
+"names":[
+[
+"Kevin Chambliss",
+"Florida Democratic Party"
+],
+[
+"Miguel Granda",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH118":{
+"key":"state_house:118",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"118",
+"seat":null,
+"special":0,
+"names":[
+[
+"Armando A.C. Castillo",
+"Florida Democratic Party"
+],
+[
+"Mike Redondo",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH119":{
+"key":"state_house:119",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"119",
+"seat":null,
+"special":0,
+"names":[
+[
+"Juan Carlos Porras",
+"Republican Party of Florida"
+],
+[
+"Rey Lazaro Sordo",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH12":{
+"key":"state_house:12",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"12",
+"seat":null,
+"special":0,
+"names":[
+[
+"Benjamin Sandlin",
+"Florida Democratic Party"
+],
+[
+"Terrance Freeman",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH120":{
+"key":"state_house:120",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"120",
+"seat":null,
+"special":0,
+"names":[
+[
+"James Vernon \"Jim\" Mooney Jr.",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH13":{
+"key":"state_house:13",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"13",
+"seat":null,
+"special":0,
+"names":[
+[
+"Audrey Gibson",
+"Florida Democratic Party"
+],
+[
+"Brice Gaillard",
+"Write-In"
+]
+]
+},
+"2026-FL-SH14":{
+"key":"state_house:14",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"14",
+"seat":null,
+"special":0,
+"names":[
+[
+"Kimberly Daniels",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH15":{
+"key":"state_house:15",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"15",
+"seat":null,
+"special":0,
+"names":[
+[
+"Chadd Charland",
+"No Party Affiliation (Partisan)"
+],
+[
+"Dean Black",
+"Republican Party of Florida"
+],
+[
+"Lloyd Caulker",
+"Write-In"
+]
+]
+},
+"2026-FL-SH16":{
+"key":"state_house:16",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"16",
+"seat":null,
+"special":0,
+"names":[
+[
+"Kiyan Helen Michael",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH17":{
+"key":"state_house:17",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"17",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jacob Guerrero",
+"Florida Democratic Party"
+],
+[
+"Jessica Baker",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH18":{
+"key":"state_house:18",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"18",
+"seat":null,
+"special":0,
+"names":[
+[
+"Art Stresing",
+"Florida Democratic Party"
+],
+[
+"Kim Kendall",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH19":{
+"key":"state_house:19",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"19",
+"seat":null,
+"special":0,
+"names":[
+[
+"Sam Greco",
+"Republican Party of Florida"
+],
+[
+"Suzanna Pavelle",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH2":{
+"key":"state_house:2",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"2",
+"seat":null,
+"special":0,
+"names":[
+[
+"Johnny Austin Thompson",
+"Florida Democratic Party"
+],
+[
+"Jon Fay",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH20":{
+"key":"state_house:20",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"20",
+"seat":null,
+"special":0,
+"names":[
+[
+"Judson Sapp",
+"Republican Party of Florida"
+],
+[
+"Lee Butler",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH21":{
+"key":"state_house:21",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"21",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jacquelyn Jackie Randall",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH22":{
+"key":"state_house:22",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"22",
+"seat":null,
+"special":0,
+"names":[
+[
+"Amy Trask",
+"Florida Democratic Party"
+],
+[
+"Chad Johnson",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH23":{
+"key":"state_house:23",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"23",
+"seat":null,
+"special":0,
+"names":[
+[
+"J.J. Grow",
+"Republican Party of Florida"
+],
+[
+"Mark Leland Baker",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH24":{
+"key":"state_house:24",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"24",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ryan Chamberlin",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH25":{
+"key":"state_house:25",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"25",
+"seat":null,
+"special":0,
+"names":[
+[
+"Farmer Banks Helfrich",
+"Florida Democratic Party"
+],
+[
+"Taylor Yarkosky",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH26":{
+"key":"state_house:26",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"26",
+"seat":null,
+"special":0,
+"names":[
+[
+"Nan Cobb",
+"Republican Party of Florida"
+],
+[
+"Robyn Elaine Lawrence",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH27":{
+"key":"state_house:27",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"27",
+"seat":null,
+"special":0,
+"names":[
+[
+"Andy Ferrari",
+"Florida Democratic Party"
+],
+[
+"Richard Gentry",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH28":{
+"key":"state_house:28",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"28",
+"seat":null,
+"special":0,
+"names":[
+[
+"Bill Partington",
+"Republican Party of Florida"
+],
+[
+"Joseph Joe Hannoush",
+"Libertarian Party of Florida"
+],
+[
+"Sammy Jackson",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH29":{
+"key":"state_house:29",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"29",
+"seat":null,
+"special":0,
+"names":[
+[
+"Don Kanfer",
+"Florida Democratic Party"
+],
+[
+"Webster Barnaby",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH3":{
+"key":"state_house:3",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"3",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ingrid D. Wadsworth",
+"Florida Democratic Party"
+],
+[
+"Nathan Boyles",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH30":{
+"key":"state_house:30",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"30",
+"seat":null,
+"special":0,
+"names":[
+[
+"Chase Tramont",
+"Republican Party of Florida"
+],
+[
+"Edwin Munoz",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH31":{
+"key":"state_house:31",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"31",
+"seat":null,
+"special":0,
+"names":[
+[
+"Daniel Lewis Cicirelli",
+"Florida Democratic Party"
+],
+[
+"Matt Woodside",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH32":{
+"key":"state_house:32",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"32",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brian Hodgers",
+"Republican Party of Florida"
+],
+[
+"Juan J. Hinojosa",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH33":{
+"key":"state_house:33",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"33",
+"seat":null,
+"special":0,
+"names":[
+[
+"Daniel R. McDow",
+"Florida Democratic Party"
+],
+[
+"Monique Miller",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH34":{
+"key":"state_house:34",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"34",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jordyn Guadalupe Balderas",
+"Florida Democratic Party"
+],
+[
+"Robert Brackett",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH35":{
+"key":"state_house:35",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"35",
+"seat":null,
+"special":0,
+"names":[
+[
+"Eric Gray",
+"Florida Democratic Party"
+],
+[
+"Erika Booth",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH36":{
+"key":"state_house:36",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"36",
+"seat":null,
+"special":0,
+"names":[
+[
+"Darryl Block",
+"Florida Democratic Party"
+],
+[
+"Rachel Plakon",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH37":{
+"key":"state_house:37",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"37",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jane Aman",
+"Florida Democratic Party"
+],
+[
+"Robert Prater",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH38":{
+"key":"state_house:38",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"38",
+"seat":null,
+"special":0,
+"names":[
+[
+"Emily Duda Buckley",
+"Republican Party of Florida"
+],
+[
+"Nik Dean",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH39":{
+"key":"state_house:39",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"39",
+"seat":null,
+"special":0,
+"names":[
+[
+"Doug Bankson",
+"Republican Party of Florida"
+],
+[
+"Jarod Fox",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH4":{
+"key":"state_house:4",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"4",
+"seat":null,
+"special":0,
+"names":[
+[
+"John Peter Emerling",
+"Florida Democratic Party"
+],
+[
+"Patt Maney",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH40":{
+"key":"state_house:40",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"40",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ra'Shon Young",
+"Florida Democratic Party"
+],
+[
+"Tuan Le",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH41":{
+"key":"state_house:41",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"41",
+"seat":null,
+"special":0,
+"names":[
+[
+"Bruce Antone",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH42":{
+"key":"state_house:42",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"42",
+"seat":null,
+"special":0,
+"names":[
+[
+"Bonnie Jackson",
+"Republican Party of Florida"
+],
+[
+"Felipe Sousa Lazaballet",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH43":{
+"key":"state_house:43",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"43",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jorge Malavet",
+"Republican Party of Florida"
+],
+[
+"Samuel Vilchez Santiago",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH44":{
+"key":"state_house:44",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"44",
+"seat":null,
+"special":0,
+"names":[
+[
+"Rita Harris",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH45":{
+"key":"state_house:45",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"45",
+"seat":null,
+"special":0,
+"names":[
+[
+"Erin Huntley",
+"Republican Party of Florida"
+],
+[
+"Leonard Spencer",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH46":{
+"key":"state_house:46",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"46",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ivan A. Rivera",
+"No Party Affiliation (Partisan)"
+],
+[
+"Jose Alvarez",
+"Florida Democratic Party"
+],
+[
+"Michael Cruz",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH47":{
+"key":"state_house:47",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"47",
+"seat":null,
+"special":0,
+"names":[
+[
+"Anthony Nieves",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH48":{
+"key":"state_house:48",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"48",
+"seat":null,
+"special":0,
+"names":[
+[
+"Alethea Pugh",
+"Florida Democratic Party"
+],
+[
+"Jonathan Albert",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH49":{
+"key":"state_house:49",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"49",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jennifer Kincart Jonsson",
+"Republican Party of Florida"
+],
+[
+"Robert Anzalone",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH5":{
+"key":"state_house:5",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"5",
+"seat":null,
+"special":0,
+"names":[
+[
+"Alex Finney",
+"Florida Democratic Party"
+],
+[
+"Shane Abbott",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH50":{
+"key":"state_house:50",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"50",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jarvis Washington",
+"No Party Affiliation (Partisan)"
+],
+[
+"Jennifer Canady",
+"Republican Party of Florida"
+],
+[
+"Ricky Santiago",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH51":{
+"key":"state_house:51",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"51",
+"seat":null,
+"special":0,
+"names":[
+[
+"Hilary Holley",
+"Republican Party of Florida"
+],
+[
+"Octavio E. Hernandez",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH52":{
+"key":"state_house:52",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"52",
+"seat":null,
+"special":0,
+"names":[
+[
+"Pamala Kaye Bivins",
+"Florida Democratic Party"
+],
+[
+"Samantha Scott",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH53":{
+"key":"state_house:53",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"53",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brian Hawkins",
+"Republican Party of Florida"
+],
+[
+"Christopher Anger",
+"Constitution Party of Florida"
+],
+[
+"Tony Claude",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH54":{
+"key":"state_house:54",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"54",
+"seat":null,
+"special":0,
+"names":[
+[
+"Randy Maggard",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH55":{
+"key":"state_house:55",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"55",
+"seat":null,
+"special":0,
+"names":[
+[
+"Walter Price",
+"Republican Party of Florida"
+],
+[
+"Zach Funkhouser",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH56":{
+"key":"state_house:56",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"56",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brad Yeager",
+"Republican Party of Florida"
+],
+[
+"Jose Freites",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH57":{
+"key":"state_house:57",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"57",
+"seat":null,
+"special":0,
+"names":[
+[
+"Adam C. Anderson",
+"Republican Party of Florida"
+],
+[
+"Wendy Hoy",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH58":{
+"key":"state_house:58",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"58",
+"seat":null,
+"special":0,
+"names":[
+[
+"Bryan Beckman",
+"Florida Democratic Party"
+],
+[
+"Kimberly Kim Berfield",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH59":{
+"key":"state_house:59",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"59",
+"seat":null,
+"special":0,
+"names":[
+[
+"Berny Jacques",
+"Republican Party of Florida"
+],
+[
+"Susan Rochelle Leff",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH6":{
+"key":"state_house:6",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"6",
+"seat":null,
+"special":0,
+"names":[
+[
+"Stephanie Lyn Leonard",
+"Florida Democratic Party"
+],
+[
+"Tricia Berry",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH60":{
+"key":"state_house:60",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"60",
+"seat":null,
+"special":0,
+"names":[
+[
+"Lindsay Polega-Quigley",
+"Florida Democratic Party"
+],
+[
+"Melissa Rutland",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH61":{
+"key":"state_house:61",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"61",
+"seat":null,
+"special":0,
+"names":[
+[
+"Linda Chaney",
+"Republican Party of Florida"
+],
+[
+"May Thach",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH62":{
+"key":"state_house:62",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"62",
+"seat":null,
+"special":0,
+"names":[
+[
+"Kyandra Darling",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH63":{
+"key":"state_house:63",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"63",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jacqueline Coffie-Leeks",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH64":{
+"key":"state_house:64",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"64",
+"seat":null,
+"special":0,
+"names":[
+[
+"Dan Weldon",
+"Republican Party of Florida"
+],
+[
+"Luis Salazar",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH65":{
+"key":"state_house:65",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"65",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ben Braver",
+"Florida Democratic Party"
+],
+[
+"Karen Gonzalez Pittman",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH66":{
+"key":"state_house:66",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"66",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jose A. \"Dante\" Sanchez Sanchez",
+"Florida Democratic Party"
+],
+[
+"Traci Koster",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH67":{
+"key":"state_house:67",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"67",
+"seat":null,
+"special":0,
+"names":[
+[
+"Lisette Bonano",
+"Republican Party of Florida"
+],
+[
+"Luis Viera",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH68":{
+"key":"state_house:68",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"68",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ryan Gill",
+"Republican Party of Florida"
+],
+[
+"Tony Smith",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH69":{
+"key":"state_house:69",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"69",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ashley Elizabeth Herrmann",
+"Florida Democratic Party"
+],
+[
+"Daniel Danny Alvarez",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH7":{
+"key":"state_house:7",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"7",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jason Shoaf",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH70":{
+"key":"state_house:70",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"70",
+"seat":null,
+"special":0,
+"names":[
+[
+"Luther Keith Wilkins",
+"Florida Democratic Party"
+],
+[
+"Michael Owen",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH71":{
+"key":"state_house:71",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"71",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jordan Varnadore",
+"Republican Party of Florida"
+],
+[
+"Joseph Hoolihan",
+"No Party Affiliation (Partisan)"
+],
+[
+"Ocean Fitts",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH72":{
+"key":"state_house:72",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"72",
+"seat":null,
+"special":0,
+"names":[
+[
+"Harvey Shifrin",
+"Florida Democratic Party"
+],
+[
+"William Bill Conerly",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH73":{
+"key":"state_house:73",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"73",
+"seat":null,
+"special":0,
+"names":[
+[
+"Fiona McFarland",
+"Republican Party of Florida"
+],
+[
+"Lisa Klein",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH74":{
+"key":"state_house:74",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"74",
+"seat":null,
+"special":0,
+"names":[
+[
+"Nick Pachota",
+"Republican Party of Florida"
+],
+[
+"Ryan Neill",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH75":{
+"key":"state_house:75",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"75",
+"seat":null,
+"special":0,
+"names":[
+[
+"Cynthia L. Butler",
+"Florida Democratic Party"
+],
+[
+"Danny Nix Jr.",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH76":{
+"key":"state_house:76",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"76",
+"seat":null,
+"special":0,
+"names":[
+[
+"Phillip Ray Carter",
+"Florida Democratic Party"
+],
+[
+"Vanessa Oliver",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH77":{
+"key":"state_house:77",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"77",
+"seat":null,
+"special":0,
+"names":[
+[
+"Cornelius Fowler",
+"Florida Democratic Party"
+],
+[
+"Tiffany Esposito",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH78":{
+"key":"state_house:78",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"78",
+"seat":null,
+"special":0,
+"names":[
+[
+"Cindy Banyai",
+"Florida Democratic Party"
+],
+[
+"Susan Frantz",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH79":{
+"key":"state_house:79",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"79",
+"seat":null,
+"special":0,
+"names":[
+[
+"Mike Giallombardo",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH8":{
+"key":"state_house:8",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"8",
+"seat":null,
+"special":0,
+"names":[
+[
+"Gallop P. Franklin",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH80":{
+"key":"state_house:80",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"80",
+"seat":null,
+"special":0,
+"names":[
+[
+"Adam Botana",
+"Republican Party of Florida"
+],
+[
+"William Moskal",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH81":{
+"key":"state_house:81",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"81",
+"seat":null,
+"special":0,
+"names":[
+[
+"Kim Finer",
+"Florida Democratic Party"
+],
+[
+"Yvette Benarroch",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH82":{
+"key":"state_house:82",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"82",
+"seat":null,
+"special":0,
+"names":[
+[
+"Arthur Boyer",
+"Florida Democratic Party"
+],
+[
+"Liesa Priddy",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH83":{
+"key":"state_house:83",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"83",
+"seat":null,
+"special":0,
+"names":[
+[
+"Kaylee Tuck",
+"Republican Party of Florida"
+],
+[
+"Leigh Estes",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH84":{
+"key":"state_house:84",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"84",
+"seat":null,
+"special":0,
+"names":[
+[
+"Dana Trabulsy",
+"Republican Party of Florida"
+],
+[
+"Jennifer Massey",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH85":{
+"key":"state_house:85",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"85",
+"seat":null,
+"special":0,
+"names":[
+[
+"Amr Metwally",
+"MGTOW Party"
+],
+[
+"Anthony Bonna",
+"Republican Party of Florida"
+],
+[
+"Hunter Stone",
+"Write-In"
+],
+[
+"Wayne Richter",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH86":{
+"key":"state_house:86",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"86",
+"seat":null,
+"special":0,
+"names":[
+[
+"Elizabeth Brendel Pandich",
+"Florida Democratic Party"
+],
+[
+"John Snyder",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH87":{
+"key":"state_house:87",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"87",
+"seat":null,
+"special":0,
+"names":[
+[
+"Emily Gregory",
+"Florida Democratic Party"
+],
+[
+"Jon Maples",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH88":{
+"key":"state_house:88",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"88",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jervonte Tae Edmonds",
+"Florida Democratic Party"
+],
+[
+"William Joseph",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH89":{
+"key":"state_house:89",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"89",
+"seat":null,
+"special":0,
+"names":[
+[
+"Cathy Higgins",
+"Republican Party of Florida"
+],
+[
+"Debra Tendrich",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH9":{
+"key":"state_house:9",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"9",
+"seat":null,
+"special":0,
+"names":[
+[
+"Allison Tant",
+"Florida Democratic Party"
+],
+[
+"Tracy Robinson",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH90":{
+"key":"state_house:90",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"90",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ionel Roiban",
+"Republican Party of Florida"
+],
+[
+"Rob Long",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH91":{
+"key":"state_house:91",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"91",
+"seat":null,
+"special":0,
+"names":[
+[
+"Luis Garcia",
+"Florida Democratic Party"
+],
+[
+"Peggy Gossett-Seidman",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH92":{
+"key":"state_house:92",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"92",
+"seat":null,
+"special":0,
+"names":[
+[
+"Kelly Skidmore",
+"Florida Democratic Party"
+],
+[
+"Steve Byers",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH93":{
+"key":"state_house:93",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"93",
+"seat":null,
+"special":0,
+"names":[
+[
+"Anne Gerwig",
+"Republican Party of Florida"
+],
+[
+"August Mangeney",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH94":{
+"key":"state_house:94",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"94",
+"seat":null,
+"special":0,
+"names":[
+[
+"Doug Barrow",
+"No Party Affiliation (Partisan)"
+],
+[
+"Elizabeth Holmes",
+"Florida Democratic Party"
+],
+[
+"Megan Weinberger",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SH95":{
+"key":"state_house:95",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"95",
+"seat":null,
+"special":0,
+"names":[
+[
+"Christine Hunschofsky",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH96":{
+"key":"state_house:96",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"96",
+"seat":null,
+"special":0,
+"names":[
+[
+"Dan Daley",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH97":{
+"key":"state_house:97",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"97",
+"seat":null,
+"special":0,
+"names":[
+[
+"Lisa Dunkley",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH98":{
+"key":"state_house:98",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"98",
+"seat":null,
+"special":0,
+"names":[
+[
+"Mitch Rosenwald",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SH99":{
+"key":"state_house:99",
+"level":"legislature",
+"kind":"state_house",
+"office":"State Representative",
+"district":"99",
+"seat":null,
+"special":0,
+"names":[
+[
+"Daryl Nevroy Campbell",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SS10":{
+"key":"state_senate:10",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"10",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jason Brodeur",
+"Republican Party of Florida"
+],
+[
+"John Lowndes",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SS12":{
+"key":"state_senate:12",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"12",
+"seat":null,
+"special":0,
+"names":[
+[
+"Alfred Reynolds",
+"Florida Democratic Party"
+],
+[
+"Colleen Burton",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SS14":{
+"key":"state_senate:14",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"14",
+"seat":null,
+"special":0,
+"names":[
+[
+"Brian Nathan",
+"Florida Democratic Party"
+],
+[
+"Josie Tomkow",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SS16":{
+"key":"state_senate:16",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"16",
+"seat":null,
+"special":0,
+"names":[
+[
+"Fentrice Driskell",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SS18":{
+"key":"state_senate:18",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"18",
+"seat":null,
+"special":0,
+"names":[
+[
+"Karla Kemp",
+"Florida Democratic Party"
+],
+[
+"Nick DiCeglie",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SS2":{
+"key":"state_senate:2",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"2",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jay Trumbull",
+"Republican Party of Florida"
+],
+[
+"Lauren Donahoo",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SS20":{
+"key":"state_senate:20",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"20",
+"seat":null,
+"special":0,
+"names":[
+[
+"Gerald Baldi",
+"Florida Democratic Party"
+],
+[
+"Jim Boyd",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SS21":{
+"key":"state_senate:21",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"21",
+"seat":null,
+"special":1,
+"names":[
+[
+"Chris Nocco",
+"Republican Party of Florida"
+],
+[
+"Jordan Hensley",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SS22":{
+"key":"state_senate:22",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"22",
+"seat":null,
+"special":0,
+"names":[
+[
+"James Buchanan",
+"Republican Party of Florida"
+],
+[
+"Lew Wasserman",
+"Florida Democratic Party"
+],
+[
+"Martin Hyde",
+"No Party Affiliation (Partisan)"
+]
+]
+},
+"2026-FL-SS24":{
+"key":"state_senate:24",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"24",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jackie Green",
+"Republican Party of Florida"
+],
+[
+"Mack Bernard",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SS26":{
+"key":"state_senate:26",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"26",
+"seat":null,
+"special":0,
+"names":[
+[
+"David Silvers",
+"Florida Democratic Party"
+],
+[
+"Rick Roth",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SS28":{
+"key":"state_senate:28",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"28",
+"seat":null,
+"special":0,
+"names":[
+[
+"David Silverberg",
+"Florida Democratic Party"
+],
+[
+"Lauren Uhlich Melo",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SS30":{
+"key":"state_senate:30",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"30",
+"seat":null,
+"special":0,
+"names":[
+[
+"Hector Rivera",
+"Republican Party of Florida"
+],
+[
+"Lauren Book",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SS32":{
+"key":"state_senate:32",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"32",
+"seat":null,
+"special":0,
+"names":[
+[
+"Crescente Furnaguera",
+"No Party Affiliation (Partisan)"
+],
+[
+"Rosalind Osgood",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SS34":{
+"key":"state_senate:34",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"34",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ashley Viola Gantt",
+"Florida Democratic Party"
+],
+[
+"Elizabeth Jeanty",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SS36":{
+"key":"state_senate:36",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"36",
+"seat":null,
+"special":0,
+"names":[
+[
+"George Lavin",
+"Florida Democratic Party"
+],
+[
+"Ileana Garcia",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SS38":{
+"key":"state_senate:38",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"38",
+"seat":null,
+"special":0,
+"names":[
+[
+"Alexis Maria Calatayud",
+"Republican Party of Florida"
+],
+[
+"Jeffrey Doc Solomon",
+"No Party Affiliation (Partisan)"
+],
+[
+"Richard Lamondin Jr.",
+"Florida Democratic Party"
+]
+]
+},
+"2026-FL-SS4":{
+"key":"state_senate:4",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"4",
+"seat":null,
+"special":0,
+"names":[
+[
+"Clay Yarborough",
+"Republican Party of Florida"
+]
+]
+},
+"2026-FL-SS40":{
+"key":"state_senate:40",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"40",
+"seat":null,
+"special":0,
+"names":[
+[
+"Ana Maria Rodriguez",
+"Republican Party of Florida"
+],
+[
+"Jose Antonio Stoute",
+"Florida Democratic Party"
+],
+[
+"Ramiro Orta",
+"No Party Affiliation (Partisan)"
+]
+]
+},
+"2026-FL-SS6":{
+"key":"state_senate:6",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"6",
+"seat":null,
+"special":0,
+"names":[
+[
+"Jason Bellamy-Fults",
+"Florida Democratic Party"
+],
+[
+"Jennifer Bradley",
+"Republican Party of Florida"
+],
+[
+"Joseph Thornton",
+"American Solidarity Party of Florida"
+]
+]
+},
+"2026-FL-SS8":{
+"key":"state_senate:8",
+"level":"legislature",
+"kind":"state_senate",
+"office":"State Senator",
+"district":"8",
+"seat":null,
+"special":0,
+"names":[
+[
+"Gabriel Jude Wozniak",
+"Libertarian Party of Florida"
+],
+[
+"Jake Johansson",
+"Republican Party of Florida"
+],
+[
+"Judy M. Ngying",
+"Florida Democratic Party"
+]
+]
+}
+},
+"keys":{
+"agriculture_commissioner":"2026-FL-AGR",
+"attorney_general":"2026-FL-AG",
+"chief_financial_officer":"2026-FL-CFO",
+"court_of_appeals_retention:atkinson":"2026-FL-DCA2RET-ATKINSON",
+"court_of_appeals_retention:forst":"2026-FL-DCA4RET-FORST",
+"court_of_appeals_retention:gooden":"2026-FL-DCA3RET-GOODEN",
+"court_of_appeals_retention:gordo":"2026-FL-DCA3RET-GORDO",
+"court_of_appeals_retention:harris":"2026-FL-DCA5RET-HARRIS",
+"court_of_appeals_retention:klingensmith":"2026-FL-DCA4RET-KLINGENSMITH",
+"court_of_appeals_retention:lewis":"2026-FL-DCA1RET-LEWIS",
+"court_of_appeals_retention:lobree":"2026-FL-DCA3RET-LOBREE",
+"court_of_appeals_retention:logue":"2026-FL-DCA3RET-LOGUE",
+"court_of_appeals_retention:lott":"2026-FL-DCA4RET-LOTT",
+"court_of_appeals_retention:makar":"2026-FL-DCA5RET-MAKAR",
+"court_of_appeals_retention:miller":"2026-FL-DCA3RET-MILLER",
+"court_of_appeals_retention:nordby":"2026-FL-DCA1RET-NORDBY",
+"court_of_appeals_retention:osterhaus":"2026-FL-DCA1RET-OSTERHAUS",
+"court_of_appeals_retention:roberts":"2026-FL-DCA1RET-ROBERTS",
+"court_of_appeals_retention:shaw":"2026-FL-DCA4RET-SHAW",
+"court_of_appeals_retention:shepherd":"2026-FL-DCA4RET-SHEPHERD",
+"court_of_appeals_retention:silberman":"2026-FL-DCA2RET-SILBERMAN",
+"court_of_appeals_retention:sleet":"2026-FL-DCA2RET-SLEET",
+"court_of_appeals_retention:smith":"2026-FL-DCA2RET-SMITH",
+"court_of_appeals_retention:treadwell":"2026-FL-DCA1RET-TREADWELL",
+"court_of_appeals_retention:wallis":"2026-FL-DCA5RET-WALLIS",
+"governor":"2026-FL-GOV",
+"state_house:1":"2026-FL-SH1",
+"state_house:10":"2026-FL-SH10",
+"state_house:100":"2026-FL-SH100",
+"state_house:101":"2026-FL-SH101",
+"state_house:102":"2026-FL-SH102",
+"state_house:103":"2026-FL-SH103",
+"state_house:104":"2026-FL-SH104",
+"state_house:105":"2026-FL-SH105",
+"state_house:106":"2026-FL-SH106",
+"state_house:107":"2026-FL-SH107",
+"state_house:108":"2026-FL-SH108",
+"state_house:109":"2026-FL-SH109",
+"state_house:11":"2026-FL-SH11",
+"state_house:110":"2026-FL-SH110",
+"state_house:111":"2026-FL-SH111",
+"state_house:112":"2026-FL-SH112",
+"state_house:113":"2026-FL-SH113",
+"state_house:114":"2026-FL-SH114",
+"state_house:115":"2026-FL-SH115",
+"state_house:116":"2026-FL-SH116",
+"state_house:117":"2026-FL-SH117",
+"state_house:118":"2026-FL-SH118",
+"state_house:119":"2026-FL-SH119",
+"state_house:12":"2026-FL-SH12",
+"state_house:120":"2026-FL-SH120",
+"state_house:13":"2026-FL-SH13",
+"state_house:14":"2026-FL-SH14",
+"state_house:15":"2026-FL-SH15",
+"state_house:16":"2026-FL-SH16",
+"state_house:17":"2026-FL-SH17",
+"state_house:18":"2026-FL-SH18",
+"state_house:19":"2026-FL-SH19",
+"state_house:2":"2026-FL-SH2",
+"state_house:20":"2026-FL-SH20",
+"state_house:21":"2026-FL-SH21",
+"state_house:22":"2026-FL-SH22",
+"state_house:23":"2026-FL-SH23",
+"state_house:24":"2026-FL-SH24",
+"state_house:25":"2026-FL-SH25",
+"state_house:26":"2026-FL-SH26",
+"state_house:27":"2026-FL-SH27",
+"state_house:28":"2026-FL-SH28",
+"state_house:29":"2026-FL-SH29",
+"state_house:3":"2026-FL-SH3",
+"state_house:30":"2026-FL-SH30",
+"state_house:31":"2026-FL-SH31",
+"state_house:32":"2026-FL-SH32",
+"state_house:33":"2026-FL-SH33",
+"state_house:34":"2026-FL-SH34",
+"state_house:35":"2026-FL-SH35",
+"state_house:36":"2026-FL-SH36",
+"state_house:37":"2026-FL-SH37",
+"state_house:38":"2026-FL-SH38",
+"state_house:39":"2026-FL-SH39",
+"state_house:4":"2026-FL-SH4",
+"state_house:40":"2026-FL-SH40",
+"state_house:41":"2026-FL-SH41",
+"state_house:42":"2026-FL-SH42",
+"state_house:43":"2026-FL-SH43",
+"state_house:44":"2026-FL-SH44",
+"state_house:45":"2026-FL-SH45",
+"state_house:46":"2026-FL-SH46",
+"state_house:47":"2026-FL-SH47",
+"state_house:48":"2026-FL-SH48",
+"state_house:49":"2026-FL-SH49",
+"state_house:5":"2026-FL-SH5",
+"state_house:50":"2026-FL-SH50",
+"state_house:51":"2026-FL-SH51",
+"state_house:52":"2026-FL-SH52",
+"state_house:53":"2026-FL-SH53",
+"state_house:54":"2026-FL-SH54",
+"state_house:55":"2026-FL-SH55",
+"state_house:56":"2026-FL-SH56",
+"state_house:57":"2026-FL-SH57",
+"state_house:58":"2026-FL-SH58",
+"state_house:59":"2026-FL-SH59",
+"state_house:6":"2026-FL-SH6",
+"state_house:60":"2026-FL-SH60",
+"state_house:61":"2026-FL-SH61",
+"state_house:62":"2026-FL-SH62",
+"state_house:63":"2026-FL-SH63",
+"state_house:64":"2026-FL-SH64",
+"state_house:65":"2026-FL-SH65",
+"state_house:66":"2026-FL-SH66",
+"state_house:67":"2026-FL-SH67",
+"state_house:68":"2026-FL-SH68",
+"state_house:69":"2026-FL-SH69",
+"state_house:7":"2026-FL-SH7",
+"state_house:70":"2026-FL-SH70",
+"state_house:71":"2026-FL-SH71",
+"state_house:72":"2026-FL-SH72",
+"state_house:73":"2026-FL-SH73",
+"state_house:74":"2026-FL-SH74",
+"state_house:75":"2026-FL-SH75",
+"state_house:76":"2026-FL-SH76",
+"state_house:77":"2026-FL-SH77",
+"state_house:78":"2026-FL-SH78",
+"state_house:79":"2026-FL-SH79",
+"state_house:8":"2026-FL-SH8",
+"state_house:80":"2026-FL-SH80",
+"state_house:81":"2026-FL-SH81",
+"state_house:82":"2026-FL-SH82",
+"state_house:83":"2026-FL-SH83",
+"state_house:84":"2026-FL-SH84",
+"state_house:85":"2026-FL-SH85",
+"state_house:86":"2026-FL-SH86",
+"state_house:87":"2026-FL-SH87",
+"state_house:88":"2026-FL-SH88",
+"state_house:89":"2026-FL-SH89",
+"state_house:9":"2026-FL-SH9",
+"state_house:90":"2026-FL-SH90",
+"state_house:91":"2026-FL-SH91",
+"state_house:92":"2026-FL-SH92",
+"state_house:93":"2026-FL-SH93",
+"state_house:94":"2026-FL-SH94",
+"state_house:95":"2026-FL-SH95",
+"state_house:96":"2026-FL-SH96",
+"state_house:97":"2026-FL-SH97",
+"state_house:98":"2026-FL-SH98",
+"state_house:99":"2026-FL-SH99",
+"state_senate:10":"2026-FL-SS10",
+"state_senate:12":"2026-FL-SS12",
+"state_senate:14":"2026-FL-SS14",
+"state_senate:16":"2026-FL-SS16",
+"state_senate:18":"2026-FL-SS18",
+"state_senate:2":"2026-FL-SS2",
+"state_senate:20":"2026-FL-SS20",
+"state_senate:21":"2026-FL-SS21",
+"state_senate:22":"2026-FL-SS22",
+"state_senate:24":"2026-FL-SS24",
+"state_senate:26":"2026-FL-SS26",
+"state_senate:28":"2026-FL-SS28",
+"state_senate:30":"2026-FL-SS30",
+"state_senate:32":"2026-FL-SS32",
+"state_senate:34":"2026-FL-SS34",
+"state_senate:36":"2026-FL-SS36",
+"state_senate:38":"2026-FL-SS38",
+"state_senate:4":"2026-FL-SS4",
+"state_senate:40":"2026-FL-SS40",
+"state_senate:6":"2026-FL-SS6",
+"state_senate:8":"2026-FL-SS8",
+"supreme_court_retention:muniz":"2026-FL-SCRET-MUNIZ",
+"us_house:1":"2026-FL-H01",
+"us_house:10":"2026-FL-H10",
+"us_house:11":"2026-FL-H11",
+"us_house:12":"2026-FL-H12",
+"us_house:13":"2026-FL-H13",
+"us_house:14":"2026-FL-H14",
+"us_house:15":"2026-FL-H15",
+"us_house:16":"2026-FL-H16",
+"us_house:17":"2026-FL-H17",
+"us_house:18":"2026-FL-H18",
+"us_house:19":"2026-FL-H19",
+"us_house:2":"2026-FL-H02",
+"us_house:20":"2026-FL-H20",
+"us_house:21":"2026-FL-H21",
+"us_house:22":"2026-FL-H22",
+"us_house:23":"2026-FL-H23",
+"us_house:24":"2026-FL-H24",
+"us_house:25":"2026-FL-H25",
+"us_house:26":"2026-FL-H26",
+"us_house:27":"2026-FL-H27",
+"us_house:28":"2026-FL-H28",
+"us_house:3":"2026-FL-H03",
+"us_house:4":"2026-FL-H04",
+"us_house:5":"2026-FL-H05",
+"us_house:6":"2026-FL-H06",
+"us_house:7":"2026-FL-H07",
+"us_house:8":"2026-FL-H08",
+"us_house:9":"2026-FL-H09",
+"us_senate:special":"2026-FL-S3"
+},
+"keys_shared":[],
+"posted":{},
+"posted_not_tied":[],
+"races_not_in_posted_list":[],
+"printed_lines_not_tied":[],
+"posted_out_of_scope":[]
+}

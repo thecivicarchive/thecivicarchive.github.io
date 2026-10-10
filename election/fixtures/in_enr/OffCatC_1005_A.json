@@ -1,0 +1,1783 @@
+{
+"Root": {
+"WriteTime": "2026-09-27T15:48:37.41",
+"StatewideSummary": {
+"Race": [
+{
+"OFFICEID": "9116",
+"SubSortOrder": "United States Representative, (1) District",
+"OFFICE_TITLE": "United States Representative, First District",
+"NumofSeats": "1",
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"NAME_ON_BALLOT": "Frank J. Mrvan",
+"isWinner": "T",
+"POLITICALPARTYID": "1020",
+"PARTY": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL": 42519,
+"CandidateName": "Mrvan, Frank Frank",
+"SORT_ORDER": "10"
+},
+{
+"NAME_ON_BALLOT": "Barb Regnitz",
+"isWinner": "T",
+"POLITICALPARTYID": "1021",
+"PARTY": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL": 13007,
+"CandidateName": "Regnitz, Barb Barbara",
+"SORT_ORDER": "15"
+},
+{
+"NAME_ON_BALLOT": "LaVetta Sparks-Wade",
+"isWinner": "F",
+"POLITICALPARTYID": "1020",
+"PARTY": "D",
+"DISPLAY_COLOR": "#08088A",
+"TOTAL": 10467,
+"CandidateName": "Sparks-Wade, LaVetta LaVetta",
+"SORT_ORDER": "10"
+},
+{
+"NAME_ON_BALLOT": "James Kent (Jim) Schenke",
+"isWinner": "F",
+"POLITICALPARTYID": "1021",
+"PARTY": "R",
+"DISPLAY_COLOR": "#8A0808",
+"TOTAL": 8562,
+"CandidateName": "Schenke, James James",
+"SORT_ORDER": "15"
+},
+{
+"NAME_ON_BALLOT": "Ben Ruiz",
+"isWinner": "F",
+"POLITICALPARTYID": "1021",
+"PARTY": "R",
+"DISPLAY_COLOR": "#610B0B",
+"TOTAL": 6852,
+"CandidateName": "Ruiz, Ben David",
+"SORT_ORDER": "15"
+}
+]
+}
+},
+{
+"OFFICEID": "3354",
+"SubSortOrder": "United States Representative, (2) District",
+"OFFICE_TITLE": "United States Representative, Second District",
+"NumofSeats": "1",
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"NAME_ON_BALLOT": "Rudy Yakym",
+"isWinner": "T",
+"POLITICALPARTYID": "1021",
+"PARTY": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL": 41228,
+"CandidateName": "Yakym, Rudy Rudy",
+"SORT_ORDER": "15"
+},
+{
+"NAME_ON_BALLOT": "Jamee Decio",
+"isWinner": "T",
+"POLITICALPARTYID": "1020",
+"PARTY": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL": 18142,
+"CandidateName": "Decio, Jamee Jamee",
+"SORT_ORDER": "10"
+},
+{
+"NAME_ON_BALLOT": "Shaun Michael Maeyens",
+"isWinner": "F",
+"POLITICALPARTYID": "1020",
+"PARTY": "D",
+"DISPLAY_COLOR": "#08088A",
+"TOTAL": 7027,
+"CandidateName": "Maeyens, Shaun Shaun",
+"SORT_ORDER": "10"
+}
+]
+}
+},
+{
+"OFFICEID": "2238",
+"SubSortOrder": "United States Representative, (3) District",
+"OFFICE_TITLE": "United States Representative, Third District",
+"NumofSeats": "1",
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"NAME_ON_BALLOT": "Marlin A. Stutzman",
+"isWinner": "T",
+"POLITICALPARTYID": "1021",
+"PARTY": "R",
+"DISPLAY_COLOR": "#610B0B",
+"TOTAL": 39730,
+"CandidateName": "Stutzman, Marlin Marlin",
+"SORT_ORDER": "15"
+},
+{
+"NAME_ON_BALLOT": "Kelly Thompson",
+"isWinner": "T",
+"POLITICALPARTYID": "1020",
+"PARTY": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL": 21146,
+"CandidateName": "Thompson, Kelly Kelly",
+"SORT_ORDER": "10"
+},
+{
+"NAME_ON_BALLOT": "Jon M. Kenworthy",
+"isWinner": "F",
+"POLITICALPARTYID": "1021",
+"PARTY": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL": 18543,
+"CandidateName": "Kenworthy, Jon Jon",
+"SORT_ORDER": "15"
+}
+]
+}
+}
+]
+},
+"OfficeCategory": {
+"OFFICECATEGORYID": "1005",
+"OFFICE_CATEGORY_NAME": "US Representative",
+"MAP_NAME": "mapDataIndianaUsHouse2022",
+"Regions": {
+"Region": [
+{
+"MAP_JURISDICTIONID": "4052",
+"MAP_JURISDICTION_TYPEID": "1005",
+"MAP_JURISDICTION_TYPE": "District",
+"MAP_JURISDICTION_NAME": "1",
+"RegionSummary": {
+"Race": {
+"OFFICEID": "9116",
+"SubSortOrder": "United States Representative, (1) District",
+"OFFICE_TITLE": "United States Representative, First District",
+"NumofSeats": "1",
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"NAME_ON_BALLOT": "Frank J. Mrvan",
+"isWinner": "T",
+"POLITICALPARTYID": "1020",
+"PARTY": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL": 42519,
+"CandidateName": "Mrvan, Frank Frank",
+"SORT_ORDER": "10"
+},
+{
+"NAME_ON_BALLOT": "Barb Regnitz",
+"isWinner": "T",
+"POLITICALPARTYID": "1021",
+"PARTY": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL": 13007,
+"CandidateName": "Regnitz, Barb Barbara",
+"SORT_ORDER": "15"
+},
+{
+"NAME_ON_BALLOT": "LaVetta Sparks-Wade",
+"isWinner": "F",
+"POLITICALPARTYID": "1020",
+"PARTY": "D",
+"DISPLAY_COLOR": "#08088A",
+"TOTAL": 10467,
+"CandidateName": "Sparks-Wade, LaVetta LaVetta",
+"SORT_ORDER": "10"
+},
+{
+"NAME_ON_BALLOT": "James Kent (Jim) Schenke",
+"isWinner": "F",
+"POLITICALPARTYID": "1021",
+"PARTY": "R",
+"DISPLAY_COLOR": "#8A0808",
+"TOTAL": 8562,
+"CandidateName": "Schenke, James James",
+"SORT_ORDER": "15"
+},
+{
+"NAME_ON_BALLOT": "Ben Ruiz",
+"isWinner": "F",
+"POLITICALPARTYID": "1021",
+"PARTY": "R",
+"DISPLAY_COLOR": "#610B0B",
+"TOTAL": 6852,
+"CandidateName": "Ruiz, Ben David",
+"SORT_ORDER": "15"
+}
+]
+}
+}
+},
+"Races": {
+"Race": [
+{
+"OFFICEID": "9116",
+"OFFICE_UID": "A7EE9581-39C1-4708-B72C-E88009B70EFE",
+"SubSortOrder": "United States Representative, (1) District",
+"OFFICE_TITLE": "United States Representative, First District",
+"NumofSeats": "1",
+"Jurisdiction": {
+"FIPS": "18089",
+"JURISDICTION_TYPEID": "1006",
+"JURISDICTION_TYPE": "Locality",
+"JURISDICTION_NAME": "Lake"
+},
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"CANDIDATEID": "10466",
+"NAME_ON_BALLOT": "Frank J. Mrvan",
+"isWinner": "1",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL_VOTES": 30732,
+"CandidateName": "Mrvan, Frank Frank",
+"SORT_ORDER": "10"
+},
+{
+"CANDIDATEID": "1931",
+"NAME_ON_BALLOT": "LaVetta Sparks-Wade",
+"isWinner": "0",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#08088A",
+"TOTAL_VOTES": 7511,
+"CandidateName": "Sparks-Wade, LaVetta LaVetta",
+"SORT_ORDER": "10"
+},
+{
+"CANDIDATEID": "5897",
+"NAME_ON_BALLOT": "Barb Regnitz",
+"isWinner": "1",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL_VOTES": 6793,
+"CandidateName": "Regnitz, Barb Barbara",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "4331",
+"NAME_ON_BALLOT": "James Kent (Jim) Schenke",
+"isWinner": "0",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#8A0808",
+"TOTAL_VOTES": 5638,
+"CandidateName": "Schenke, James James",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "3983",
+"NAME_ON_BALLOT": "Ben Ruiz",
+"isWinner": "0",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#610B0B",
+"TOTAL_VOTES": 4440,
+"CandidateName": "Ruiz, Ben David",
+"SORT_ORDER": "15"
+}
+]
+}
+},
+{
+"OFFICEID": "9116",
+"OFFICE_UID": "A7EE9581-39C1-4708-B72C-E88009B70EFE",
+"SubSortOrder": "United States Representative, (1) District",
+"OFFICE_TITLE": "United States Representative, First District",
+"NumofSeats": "1",
+"Jurisdiction": {
+"FIPS": "18127",
+"JURISDICTION_TYPEID": "1006",
+"JURISDICTION_TYPE": "Locality",
+"JURISDICTION_NAME": "Porter"
+},
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"CANDIDATEID": "10466",
+"NAME_ON_BALLOT": "Frank J. Mrvan",
+"isWinner": "1",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL_VOTES": 8566,
+"CandidateName": "Mrvan, Frank Frank",
+"SORT_ORDER": "10"
+},
+{
+"CANDIDATEID": "5897",
+"NAME_ON_BALLOT": "Barb Regnitz",
+"isWinner": "1",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL_VOTES": 4956,
+"CandidateName": "Regnitz, Barb Barbara",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "1931",
+"NAME_ON_BALLOT": "LaVetta Sparks-Wade",
+"isWinner": "0",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#08088A",
+"TOTAL_VOTES": 1870,
+"CandidateName": "Sparks-Wade, LaVetta LaVetta",
+"SORT_ORDER": "10"
+},
+{
+"CANDIDATEID": "4331",
+"NAME_ON_BALLOT": "James Kent (Jim) Schenke",
+"isWinner": "0",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#8A0808",
+"TOTAL_VOTES": 1649,
+"CandidateName": "Schenke, James James",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "3983",
+"NAME_ON_BALLOT": "Ben Ruiz",
+"isWinner": "0",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#610B0B",
+"TOTAL_VOTES": 1483,
+"CandidateName": "Ruiz, Ben David",
+"SORT_ORDER": "15"
+}
+]
+}
+},
+{
+"OFFICEID": "9116",
+"OFFICE_UID": "A7EE9581-39C1-4708-B72C-E88009B70EFE",
+"SubSortOrder": "United States Representative, (1) District",
+"OFFICE_TITLE": "United States Representative, First District",
+"NumofSeats": "1",
+"Jurisdiction": {
+"FIPS": "18091",
+"JURISDICTION_TYPEID": "1006",
+"JURISDICTION_TYPE": "Locality",
+"JURISDICTION_NAME": "LaPorte"
+},
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"CANDIDATEID": "10466",
+"NAME_ON_BALLOT": "Frank J. Mrvan",
+"isWinner": "1",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL_VOTES": 3221,
+"CandidateName": "Mrvan, Frank Frank",
+"SORT_ORDER": "10"
+},
+{
+"CANDIDATEID": "4331",
+"NAME_ON_BALLOT": "James Kent (Jim) Schenke",
+"isWinner": "0",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#8A0808",
+"TOTAL_VOTES": 1275,
+"CandidateName": "Schenke, James James",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "5897",
+"NAME_ON_BALLOT": "Barb Regnitz",
+"isWinner": "1",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL_VOTES": 1258,
+"CandidateName": "Regnitz, Barb Barbara",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "1931",
+"NAME_ON_BALLOT": "LaVetta Sparks-Wade",
+"isWinner": "0",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#08088A",
+"TOTAL_VOTES": 1086,
+"CandidateName": "Sparks-Wade, LaVetta LaVetta",
+"SORT_ORDER": "10"
+},
+{
+"CANDIDATEID": "3983",
+"NAME_ON_BALLOT": "Ben Ruiz",
+"isWinner": "0",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#610B0B",
+"TOTAL_VOTES": 929,
+"CandidateName": "Ruiz, Ben David",
+"SORT_ORDER": "15"
+}
+]
+}
+}
+]
+}
+},
+{
+"MAP_JURISDICTIONID": "7562",
+"MAP_JURISDICTION_TYPEID": "1005",
+"MAP_JURISDICTION_TYPE": "District",
+"MAP_JURISDICTION_NAME": "2",
+"RegionSummary": {
+"Race": {
+"OFFICEID": "3354",
+"SubSortOrder": "United States Representative, (2) District",
+"OFFICE_TITLE": "United States Representative, Second District",
+"NumofSeats": "1",
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"NAME_ON_BALLOT": "Rudy Yakym",
+"isWinner": "T",
+"POLITICALPARTYID": "1021",
+"PARTY": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL": 41228,
+"CandidateName": "Yakym, Rudy Rudy",
+"SORT_ORDER": "15"
+},
+{
+"NAME_ON_BALLOT": "Jamee Decio",
+"isWinner": "T",
+"POLITICALPARTYID": "1020",
+"PARTY": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL": 18142,
+"CandidateName": "Decio, Jamee Jamee",
+"SORT_ORDER": "10"
+},
+{
+"NAME_ON_BALLOT": "Shaun Michael Maeyens",
+"isWinner": "F",
+"POLITICALPARTYID": "1020",
+"PARTY": "D",
+"DISPLAY_COLOR": "#08088A",
+"TOTAL": 7027,
+"CandidateName": "Maeyens, Shaun Shaun",
+"SORT_ORDER": "10"
+}
+]
+}
+}
+},
+"Races": {
+"Race": [
+{
+"OFFICEID": "3354",
+"OFFICE_UID": "AB84BB66-9523-4CDF-9C62-40ED308C71B0",
+"SubSortOrder": "United States Representative, (2) District",
+"OFFICE_TITLE": "United States Representative, Second District",
+"NumofSeats": "1",
+"Jurisdiction": {
+"FIPS": "18103",
+"JURISDICTION_TYPEID": "1006",
+"JURISDICTION_TYPE": "Locality",
+"JURISDICTION_NAME": "Miami"
+},
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"CANDIDATEID": "10211",
+"NAME_ON_BALLOT": "Rudy Yakym",
+"isWinner": "1",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL_VOTES": 2095,
+"CandidateName": "Yakym, Rudy Rudy",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "11142",
+"NAME_ON_BALLOT": "Jamee Decio",
+"isWinner": "1",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL_VOTES": 284,
+"CandidateName": "Decio, Jamee Jamee",
+"SORT_ORDER": "10"
+},
+{
+"CANDIDATEID": "3150",
+"NAME_ON_BALLOT": "Shaun Michael Maeyens",
+"isWinner": "0",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#08088A",
+"TOTAL_VOTES": 240,
+"CandidateName": "Maeyens, Shaun Shaun",
+"SORT_ORDER": "10"
+}
+]
+}
+},
+{
+"OFFICEID": "3354",
+"OFFICE_UID": "AB84BB66-9523-4CDF-9C62-40ED308C71B0",
+"SubSortOrder": "United States Representative, (2) District",
+"OFFICE_TITLE": "United States Representative, Second District",
+"NumofSeats": "1",
+"Jurisdiction": {
+"FIPS": "18149",
+"JURISDICTION_TYPEID": "1006",
+"JURISDICTION_TYPE": "Locality",
+"JURISDICTION_NAME": "Starke"
+},
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"CANDIDATEID": "10211",
+"NAME_ON_BALLOT": "Rudy Yakym",
+"isWinner": "1",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL_VOTES": 1849,
+"CandidateName": "Yakym, Rudy Rudy",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "11142",
+"NAME_ON_BALLOT": "Jamee Decio",
+"isWinner": "1",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL_VOTES": 316,
+"CandidateName": "Decio, Jamee Jamee",
+"SORT_ORDER": "10"
+},
+{
+"CANDIDATEID": "3150",
+"NAME_ON_BALLOT": "Shaun Michael Maeyens",
+"isWinner": "0",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#08088A",
+"TOTAL_VOTES": 262,
+"CandidateName": "Maeyens, Shaun Shaun",
+"SORT_ORDER": "10"
+}
+]
+}
+},
+{
+"OFFICEID": "3354",
+"OFFICE_UID": "AB84BB66-9523-4CDF-9C62-40ED308C71B0",
+"SubSortOrder": "United States Representative, (2) District",
+"OFFICE_TITLE": "United States Representative, Second District",
+"NumofSeats": "1",
+"Jurisdiction": {
+"FIPS": "18141",
+"JURISDICTION_TYPEID": "1006",
+"JURISDICTION_TYPE": "Locality",
+"JURISDICTION_NAME": "St. Joseph"
+},
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"CANDIDATEID": "11142",
+"NAME_ON_BALLOT": "Jamee Decio",
+"isWinner": "1",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL_VOTES": 10389,
+"CandidateName": "Decio, Jamee Jamee",
+"SORT_ORDER": "10"
+},
+{
+"CANDIDATEID": "10211",
+"NAME_ON_BALLOT": "Rudy Yakym",
+"isWinner": "1",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL_VOTES": 10066,
+"CandidateName": "Yakym, Rudy Rudy",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "3150",
+"NAME_ON_BALLOT": "Shaun Michael Maeyens",
+"isWinner": "0",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#08088A",
+"TOTAL_VOTES": 3917,
+"CandidateName": "Maeyens, Shaun Shaun",
+"SORT_ORDER": "10"
+}
+]
+}
+},
+{
+"OFFICEID": "3354",
+"OFFICE_UID": "AB84BB66-9523-4CDF-9C62-40ED308C71B0",
+"SubSortOrder": "United States Representative, (2) District",
+"OFFICE_TITLE": "United States Representative, Second District",
+"NumofSeats": "1",
+"Jurisdiction": {
+"FIPS": "18085",
+"JURISDICTION_TYPEID": "1006",
+"JURISDICTION_TYPE": "Locality",
+"JURISDICTION_NAME": "Kosciusko"
+},
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"CANDIDATEID": "10211",
+"NAME_ON_BALLOT": "Rudy Yakym",
+"isWinner": "1",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL_VOTES": 3389,
+"CandidateName": "Yakym, Rudy Rudy",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "11142",
+"NAME_ON_BALLOT": "Jamee Decio",
+"isWinner": "1",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL_VOTES": 567,
+"CandidateName": "Decio, Jamee Jamee",
+"SORT_ORDER": "10"
+},
+{
+"CANDIDATEID": "3150",
+"NAME_ON_BALLOT": "Shaun Michael Maeyens",
+"isWinner": "0",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#08088A",
+"TOTAL_VOTES": 238,
+"CandidateName": "Maeyens, Shaun Shaun",
+"SORT_ORDER": "10"
+}
+]
+}
+},
+{
+"OFFICEID": "3354",
+"OFFICE_UID": "AB84BB66-9523-4CDF-9C62-40ED308C71B0",
+"SubSortOrder": "United States Representative, (2) District",
+"OFFICE_TITLE": "United States Representative, Second District",
+"NumofSeats": "1",
+"Jurisdiction": {
+"FIPS": "18049",
+"JURISDICTION_TYPEID": "1006",
+"JURISDICTION_TYPE": "Locality",
+"JURISDICTION_NAME": "Fulton"
+},
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"CANDIDATEID": "10211",
+"NAME_ON_BALLOT": "Rudy Yakym",
+"isWinner": "1",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL_VOTES": 1154,
+"CandidateName": "Yakym, Rudy Rudy",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "11142",
+"NAME_ON_BALLOT": "Jamee Decio",
+"isWinner": "1",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL_VOTES": 197,
+"CandidateName": "Decio, Jamee Jamee",
+"SORT_ORDER": "10"
+},
+{
+"CANDIDATEID": "3150",
+"NAME_ON_BALLOT": "Shaun Michael Maeyens",
+"isWinner": "0",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#08088A",
+"TOTAL_VOTES": 144,
+"CandidateName": "Maeyens, Shaun Shaun",
+"SORT_ORDER": "10"
+}
+]
+}
+},
+{
+"OFFICEID": "3354",
+"OFFICE_UID": "AB84BB66-9523-4CDF-9C62-40ED308C71B0",
+"SubSortOrder": "United States Representative, (2) District",
+"OFFICE_TITLE": "United States Representative, Second District",
+"NumofSeats": "1",
+"Jurisdiction": {
+"FIPS": "18091",
+"JURISDICTION_TYPEID": "1006",
+"JURISDICTION_TYPE": "Locality",
+"JURISDICTION_NAME": "LaPorte"
+},
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"CANDIDATEID": "10211",
+"NAME_ON_BALLOT": "Rudy Yakym",
+"isWinner": "1",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL_VOTES": 2068,
+"CandidateName": "Yakym, Rudy Rudy",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "11142",
+"NAME_ON_BALLOT": "Jamee Decio",
+"isWinner": "1",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL_VOTES": 691,
+"CandidateName": "Decio, Jamee Jamee",
+"SORT_ORDER": "10"
+},
+{
+"CANDIDATEID": "3150",
+"NAME_ON_BALLOT": "Shaun Michael Maeyens",
+"isWinner": "0",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#08088A",
+"TOTAL_VOTES": 420,
+"CandidateName": "Maeyens, Shaun Shaun",
+"SORT_ORDER": "10"
+}
+]
+}
+},
+{
+"OFFICEID": "3354",
+"OFFICE_UID": "AB84BB66-9523-4CDF-9C62-40ED308C71B0",
+"SubSortOrder": "United States Representative, (2) District",
+"OFFICE_TITLE": "United States Representative, Second District",
+"NumofSeats": "1",
+"Jurisdiction": {
+"FIPS": "18169",
+"JURISDICTION_TYPEID": "1006",
+"JURISDICTION_TYPE": "Locality",
+"JURISDICTION_NAME": "Wabash"
+},
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"CANDIDATEID": "10211",
+"NAME_ON_BALLOT": "Rudy Yakym",
+"isWinner": "1",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL_VOTES": 2894,
+"CandidateName": "Yakym, Rudy Rudy",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "11142",
+"NAME_ON_BALLOT": "Jamee Decio",
+"isWinner": "1",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL_VOTES": 365,
+"CandidateName": "Decio, Jamee Jamee",
+"SORT_ORDER": "10"
+},
+{
+"CANDIDATEID": "3150",
+"NAME_ON_BALLOT": "Shaun Michael Maeyens",
+"isWinner": "0",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#08088A",
+"TOTAL_VOTES": 229,
+"CandidateName": "Maeyens, Shaun Shaun",
+"SORT_ORDER": "10"
+}
+]
+}
+},
+{
+"OFFICEID": "3354",
+"OFFICE_UID": "AB84BB66-9523-4CDF-9C62-40ED308C71B0",
+"SubSortOrder": "United States Representative, (2) District",
+"OFFICE_TITLE": "United States Representative, Second District",
+"NumofSeats": "1",
+"Jurisdiction": {
+"FIPS": "18131",
+"JURISDICTION_TYPEID": "1006",
+"JURISDICTION_TYPE": "Locality",
+"JURISDICTION_NAME": "Pulaski"
+},
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"CANDIDATEID": "10211",
+"NAME_ON_BALLOT": "Rudy Yakym",
+"isWinner": "1",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL_VOTES": 1470,
+"CandidateName": "Yakym, Rudy Rudy",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "11142",
+"NAME_ON_BALLOT": "Jamee Decio",
+"isWinner": "1",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL_VOTES": 176,
+"CandidateName": "Decio, Jamee Jamee",
+"SORT_ORDER": "10"
+},
+{
+"CANDIDATEID": "3150",
+"NAME_ON_BALLOT": "Shaun Michael Maeyens",
+"isWinner": "0",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#08088A",
+"TOTAL_VOTES": 95,
+"CandidateName": "Maeyens, Shaun Shaun",
+"SORT_ORDER": "10"
+}
+]
+}
+},
+{
+"OFFICEID": "3354",
+"OFFICE_UID": "AB84BB66-9523-4CDF-9C62-40ED308C71B0",
+"SubSortOrder": "United States Representative, (2) District",
+"OFFICE_TITLE": "United States Representative, Second District",
+"NumofSeats": "1",
+"Jurisdiction": {
+"FIPS": "18099",
+"JURISDICTION_TYPEID": "1006",
+"JURISDICTION_TYPE": "Locality",
+"JURISDICTION_NAME": "Marshall"
+},
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"CANDIDATEID": "10211",
+"NAME_ON_BALLOT": "Rudy Yakym",
+"isWinner": "1",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL_VOTES": 2948,
+"CandidateName": "Yakym, Rudy Rudy",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "11142",
+"NAME_ON_BALLOT": "Jamee Decio",
+"isWinner": "1",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL_VOTES": 637,
+"CandidateName": "Decio, Jamee Jamee",
+"SORT_ORDER": "10"
+},
+{
+"CANDIDATEID": "3150",
+"NAME_ON_BALLOT": "Shaun Michael Maeyens",
+"isWinner": "0",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#08088A",
+"TOTAL_VOTES": 317,
+"CandidateName": "Maeyens, Shaun Shaun",
+"SORT_ORDER": "10"
+}
+]
+}
+},
+{
+"OFFICEID": "3354",
+"OFFICE_UID": "AB84BB66-9523-4CDF-9C62-40ED308C71B0",
+"SubSortOrder": "United States Representative, (2) District",
+"OFFICE_TITLE": "United States Representative, Second District",
+"NumofSeats": "1",
+"Jurisdiction": {
+"FIPS": "18039",
+"JURISDICTION_TYPEID": "1006",
+"JURISDICTION_TYPE": "Locality",
+"JURISDICTION_NAME": "Elkhart"
+},
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"CANDIDATEID": "10211",
+"NAME_ON_BALLOT": "Rudy Yakym",
+"isWinner": "1",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL_VOTES": 11792,
+"CandidateName": "Yakym, Rudy Rudy",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "11142",
+"NAME_ON_BALLOT": "Jamee Decio",
+"isWinner": "1",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL_VOTES": 4334,
+"CandidateName": "Decio, Jamee Jamee",
+"SORT_ORDER": "10"
+},
+{
+"CANDIDATEID": "3150",
+"NAME_ON_BALLOT": "Shaun Michael Maeyens",
+"isWinner": "0",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#08088A",
+"TOTAL_VOTES": 1007,
+"CandidateName": "Maeyens, Shaun Shaun",
+"SORT_ORDER": "10"
+}
+]
+}
+},
+{
+"OFFICEID": "3354",
+"OFFICE_UID": "AB84BB66-9523-4CDF-9C62-40ED308C71B0",
+"SubSortOrder": "United States Representative, (2) District",
+"OFFICE_TITLE": "United States Representative, Second District",
+"NumofSeats": "1",
+"Jurisdiction": {
+"FIPS": "18017",
+"JURISDICTION_TYPEID": "1006",
+"JURISDICTION_TYPE": "Locality",
+"JURISDICTION_NAME": "Cass"
+},
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"CANDIDATEID": "10211",
+"NAME_ON_BALLOT": "Rudy Yakym",
+"isWinner": "1",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL_VOTES": 1503,
+"CandidateName": "Yakym, Rudy Rudy",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "11142",
+"NAME_ON_BALLOT": "Jamee Decio",
+"isWinner": "1",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL_VOTES": 186,
+"CandidateName": "Decio, Jamee Jamee",
+"SORT_ORDER": "10"
+},
+{
+"CANDIDATEID": "3150",
+"NAME_ON_BALLOT": "Shaun Michael Maeyens",
+"isWinner": "0",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#08088A",
+"TOTAL_VOTES": 158,
+"CandidateName": "Maeyens, Shaun Shaun",
+"SORT_ORDER": "10"
+}
+]
+}
+}
+]
+}
+},
+{
+"MAP_JURISDICTIONID": "2938",
+"MAP_JURISDICTION_TYPEID": "1005",
+"MAP_JURISDICTION_TYPE": "District",
+"MAP_JURISDICTION_NAME": "3",
+"RegionSummary": {
+"Race": {
+"OFFICEID": "2238",
+"SubSortOrder": "United States Representative, (3) District",
+"OFFICE_TITLE": "United States Representative, Third District",
+"NumofSeats": "1",
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"NAME_ON_BALLOT": "Marlin A. Stutzman",
+"isWinner": "T",
+"POLITICALPARTYID": "1021",
+"PARTY": "R",
+"DISPLAY_COLOR": "#610B0B",
+"TOTAL": 39730,
+"CandidateName": "Stutzman, Marlin Marlin",
+"SORT_ORDER": "15"
+},
+{
+"NAME_ON_BALLOT": "Kelly Thompson",
+"isWinner": "T",
+"POLITICALPARTYID": "1020",
+"PARTY": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL": 21146,
+"CandidateName": "Thompson, Kelly Kelly",
+"SORT_ORDER": "10"
+},
+{
+"NAME_ON_BALLOT": "Jon M. Kenworthy",
+"isWinner": "F",
+"POLITICALPARTYID": "1021",
+"PARTY": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL": 18543,
+"CandidateName": "Kenworthy, Jon Jon",
+"SORT_ORDER": "15"
+}
+]
+}
+}
+},
+"Races": {
+"Race": [
+{
+"OFFICEID": "2238",
+"OFFICE_UID": "55B1C606-A1B9-4C7C-B717-21789D3943C6",
+"SubSortOrder": "United States Representative, (3) District",
+"OFFICE_TITLE": "United States Representative, Third District",
+"NumofSeats": "1",
+"Jurisdiction": {
+"FIPS": "18135",
+"JURISDICTION_TYPEID": "1006",
+"JURISDICTION_TYPE": "Locality",
+"JURISDICTION_NAME": "Randolph"
+},
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"CANDIDATEID": "3167",
+"NAME_ON_BALLOT": "Jon M. Kenworthy",
+"isWinner": "0",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL_VOTES": 1064,
+"CandidateName": "Kenworthy, Jon Jon",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "4353",
+"NAME_ON_BALLOT": "Marlin A. Stutzman",
+"isWinner": "1",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#610B0B",
+"TOTAL_VOTES": 700,
+"CandidateName": "Stutzman, Marlin Marlin",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "7612",
+"NAME_ON_BALLOT": "Kelly Thompson",
+"isWinner": "1",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL_VOTES": 378,
+"CandidateName": "Thompson, Kelly Kelly",
+"SORT_ORDER": "10"
+}
+]
+}
+},
+{
+"OFFICEID": "2238",
+"OFFICE_UID": "55B1C606-A1B9-4C7C-B717-21789D3943C6",
+"SubSortOrder": "United States Representative, (3) District",
+"OFFICE_TITLE": "United States Representative, Third District",
+"NumofSeats": "1",
+"Jurisdiction": {
+"FIPS": "18009",
+"JURISDICTION_TYPEID": "1006",
+"JURISDICTION_TYPE": "Locality",
+"JURISDICTION_NAME": "Blackford"
+},
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"CANDIDATEID": "4353",
+"NAME_ON_BALLOT": "Marlin A. Stutzman",
+"isWinner": "1",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#610B0B",
+"TOTAL_VOTES": 693,
+"CandidateName": "Stutzman, Marlin Marlin",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "3167",
+"NAME_ON_BALLOT": "Jon M. Kenworthy",
+"isWinner": "0",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL_VOTES": 688,
+"CandidateName": "Kenworthy, Jon Jon",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "7612",
+"NAME_ON_BALLOT": "Kelly Thompson",
+"isWinner": "1",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL_VOTES": 296,
+"CandidateName": "Thompson, Kelly Kelly",
+"SORT_ORDER": "10"
+}
+]
+}
+},
+{
+"OFFICEID": "2238",
+"OFFICE_UID": "55B1C606-A1B9-4C7C-B717-21789D3943C6",
+"SubSortOrder": "United States Representative, (3) District",
+"OFFICE_TITLE": "United States Representative, Third District",
+"NumofSeats": "1",
+"Jurisdiction": {
+"FIPS": "18033",
+"JURISDICTION_TYPEID": "1006",
+"JURISDICTION_TYPE": "Locality",
+"JURISDICTION_NAME": "DeKalb"
+},
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"CANDIDATEID": "4353",
+"NAME_ON_BALLOT": "Marlin A. Stutzman",
+"isWinner": "1",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#610B0B",
+"TOTAL_VOTES": 2717,
+"CandidateName": "Stutzman, Marlin Marlin",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "3167",
+"NAME_ON_BALLOT": "Jon M. Kenworthy",
+"isWinner": "0",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL_VOTES": 1049,
+"CandidateName": "Kenworthy, Jon Jon",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "7612",
+"NAME_ON_BALLOT": "Kelly Thompson",
+"isWinner": "1",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL_VOTES": 949,
+"CandidateName": "Thompson, Kelly Kelly",
+"SORT_ORDER": "10"
+}
+]
+}
+},
+{
+"OFFICEID": "2238",
+"OFFICE_UID": "55B1C606-A1B9-4C7C-B717-21789D3943C6",
+"SubSortOrder": "United States Representative, (3) District",
+"OFFICE_TITLE": "United States Representative, Third District",
+"NumofSeats": "1",
+"Jurisdiction": {
+"FIPS": "18151",
+"JURISDICTION_TYPEID": "1006",
+"JURISDICTION_TYPE": "Locality",
+"JURISDICTION_NAME": "Steuben"
+},
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"CANDIDATEID": "4353",
+"NAME_ON_BALLOT": "Marlin A. Stutzman",
+"isWinner": "1",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#610B0B",
+"TOTAL_VOTES": 3201,
+"CandidateName": "Stutzman, Marlin Marlin",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "3167",
+"NAME_ON_BALLOT": "Jon M. Kenworthy",
+"isWinner": "0",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL_VOTES": 1419,
+"CandidateName": "Kenworthy, Jon Jon",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "7612",
+"NAME_ON_BALLOT": "Kelly Thompson",
+"isWinner": "1",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL_VOTES": 719,
+"CandidateName": "Thompson, Kelly Kelly",
+"SORT_ORDER": "10"
+}
+]
+}
+},
+{
+"OFFICEID": "2238",
+"OFFICE_UID": "55B1C606-A1B9-4C7C-B717-21789D3943C6",
+"SubSortOrder": "United States Representative, (3) District",
+"OFFICE_TITLE": "United States Representative, Third District",
+"NumofSeats": "1",
+"Jurisdiction": {
+"FIPS": "18001",
+"JURISDICTION_TYPEID": "1006",
+"JURISDICTION_TYPE": "Locality",
+"JURISDICTION_NAME": "Adams"
+},
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"CANDIDATEID": "4353",
+"NAME_ON_BALLOT": "Marlin A. Stutzman",
+"isWinner": "1",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#610B0B",
+"TOTAL_VOTES": 2441,
+"CandidateName": "Stutzman, Marlin Marlin",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "3167",
+"NAME_ON_BALLOT": "Jon M. Kenworthy",
+"isWinner": "0",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL_VOTES": 978,
+"CandidateName": "Kenworthy, Jon Jon",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "7612",
+"NAME_ON_BALLOT": "Kelly Thompson",
+"isWinner": "1",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL_VOTES": 706,
+"CandidateName": "Thompson, Kelly Kelly",
+"SORT_ORDER": "10"
+}
+]
+}
+},
+{
+"OFFICEID": "2238",
+"OFFICE_UID": "55B1C606-A1B9-4C7C-B717-21789D3943C6",
+"SubSortOrder": "United States Representative, (3) District",
+"OFFICE_TITLE": "United States Representative, Third District",
+"NumofSeats": "1",
+"Jurisdiction": {
+"FIPS": "18085",
+"JURISDICTION_TYPEID": "1006",
+"JURISDICTION_TYPE": "Locality",
+"JURISDICTION_NAME": "Kosciusko"
+},
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"CANDIDATEID": "4353",
+"NAME_ON_BALLOT": "Marlin A. Stutzman",
+"isWinner": "1",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#610B0B",
+"TOTAL_VOTES": 836,
+"CandidateName": "Stutzman, Marlin Marlin",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "3167",
+"NAME_ON_BALLOT": "Jon M. Kenworthy",
+"isWinner": "0",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL_VOTES": 369,
+"CandidateName": "Kenworthy, Jon Jon",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "7612",
+"NAME_ON_BALLOT": "Kelly Thompson",
+"isWinner": "1",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL_VOTES": 289,
+"CandidateName": "Thompson, Kelly Kelly",
+"SORT_ORDER": "10"
+}
+]
+}
+},
+{
+"OFFICEID": "2238",
+"OFFICE_UID": "55B1C606-A1B9-4C7C-B717-21789D3943C6",
+"SubSortOrder": "United States Representative, (3) District",
+"OFFICE_TITLE": "United States Representative, Third District",
+"NumofSeats": "1",
+"Jurisdiction": {
+"FIPS": "18087",
+"JURISDICTION_TYPEID": "1006",
+"JURISDICTION_TYPE": "Locality",
+"JURISDICTION_NAME": "LaGrange"
+},
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"CANDIDATEID": "4353",
+"NAME_ON_BALLOT": "Marlin A. Stutzman",
+"isWinner": "1",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#610B0B",
+"TOTAL_VOTES": 1344,
+"CandidateName": "Stutzman, Marlin Marlin",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "3167",
+"NAME_ON_BALLOT": "Jon M. Kenworthy",
+"isWinner": "0",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL_VOTES": 742,
+"CandidateName": "Kenworthy, Jon Jon",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "7612",
+"NAME_ON_BALLOT": "Kelly Thompson",
+"isWinner": "1",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL_VOTES": 367,
+"CandidateName": "Thompson, Kelly Kelly",
+"SORT_ORDER": "10"
+}
+]
+}
+},
+{
+"OFFICEID": "2238",
+"OFFICE_UID": "55B1C606-A1B9-4C7C-B717-21789D3943C6",
+"SubSortOrder": "United States Representative, (3) District",
+"OFFICE_TITLE": "United States Representative, Third District",
+"NumofSeats": "1",
+"Jurisdiction": {
+"FIPS": "18113",
+"JURISDICTION_TYPEID": "1006",
+"JURISDICTION_TYPE": "Locality",
+"JURISDICTION_NAME": "Noble"
+},
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"CANDIDATEID": "4353",
+"NAME_ON_BALLOT": "Marlin A. Stutzman",
+"isWinner": "1",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#610B0B",
+"TOTAL_VOTES": 2853,
+"CandidateName": "Stutzman, Marlin Marlin",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "3167",
+"NAME_ON_BALLOT": "Jon M. Kenworthy",
+"isWinner": "0",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL_VOTES": 1326,
+"CandidateName": "Kenworthy, Jon Jon",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "7612",
+"NAME_ON_BALLOT": "Kelly Thompson",
+"isWinner": "1",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL_VOTES": 716,
+"CandidateName": "Thompson, Kelly Kelly",
+"SORT_ORDER": "10"
+}
+]
+}
+},
+{
+"OFFICEID": "2238",
+"OFFICE_UID": "55B1C606-A1B9-4C7C-B717-21789D3943C6",
+"SubSortOrder": "United States Representative, (3) District",
+"OFFICE_TITLE": "United States Representative, Third District",
+"NumofSeats": "1",
+"Jurisdiction": {
+"FIPS": "18069",
+"JURISDICTION_TYPEID": "1006",
+"JURISDICTION_TYPE": "Locality",
+"JURISDICTION_NAME": "Huntington"
+},
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"CANDIDATEID": "4353",
+"NAME_ON_BALLOT": "Marlin A. Stutzman",
+"isWinner": "1",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#610B0B",
+"TOTAL_VOTES": 2285,
+"CandidateName": "Stutzman, Marlin Marlin",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "3167",
+"NAME_ON_BALLOT": "Jon M. Kenworthy",
+"isWinner": "0",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL_VOTES": 1209,
+"CandidateName": "Kenworthy, Jon Jon",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "7612",
+"NAME_ON_BALLOT": "Kelly Thompson",
+"isWinner": "1",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL_VOTES": 762,
+"CandidateName": "Thompson, Kelly Kelly",
+"SORT_ORDER": "10"
+}
+]
+}
+},
+{
+"OFFICEID": "2238",
+"OFFICE_UID": "55B1C606-A1B9-4C7C-B717-21789D3943C6",
+"SubSortOrder": "United States Representative, (3) District",
+"OFFICE_TITLE": "United States Representative, Third District",
+"NumofSeats": "1",
+"Jurisdiction": {
+"FIPS": "18179",
+"JURISDICTION_TYPEID": "1006",
+"JURISDICTION_TYPE": "Locality",
+"JURISDICTION_NAME": "Wells"
+},
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"CANDIDATEID": "4353",
+"NAME_ON_BALLOT": "Marlin A. Stutzman",
+"isWinner": "1",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#610B0B",
+"TOTAL_VOTES": 3328,
+"CandidateName": "Stutzman, Marlin Marlin",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "3167",
+"NAME_ON_BALLOT": "Jon M. Kenworthy",
+"isWinner": "0",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL_VOTES": 1301,
+"CandidateName": "Kenworthy, Jon Jon",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "7612",
+"NAME_ON_BALLOT": "Kelly Thompson",
+"isWinner": "1",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL_VOTES": 453,
+"CandidateName": "Thompson, Kelly Kelly",
+"SORT_ORDER": "10"
+}
+]
+}
+},
+{
+"OFFICEID": "2238",
+"OFFICE_UID": "55B1C606-A1B9-4C7C-B717-21789D3943C6",
+"SubSortOrder": "United States Representative, (3) District",
+"OFFICE_TITLE": "United States Representative, Third District",
+"NumofSeats": "1",
+"Jurisdiction": {
+"FIPS": "18075",
+"JURISDICTION_TYPEID": "1006",
+"JURISDICTION_TYPE": "Locality",
+"JURISDICTION_NAME": "Jay"
+},
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"CANDIDATEID": "4353",
+"NAME_ON_BALLOT": "Marlin A. Stutzman",
+"isWinner": "1",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#610B0B",
+"TOTAL_VOTES": 1511,
+"CandidateName": "Stutzman, Marlin Marlin",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "3167",
+"NAME_ON_BALLOT": "Jon M. Kenworthy",
+"isWinner": "0",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL_VOTES": 1099,
+"CandidateName": "Kenworthy, Jon Jon",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "7612",
+"NAME_ON_BALLOT": "Kelly Thompson",
+"isWinner": "1",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL_VOTES": 357,
+"CandidateName": "Thompson, Kelly Kelly",
+"SORT_ORDER": "10"
+}
+]
+}
+},
+{
+"OFFICEID": "2238",
+"OFFICE_UID": "55B1C606-A1B9-4C7C-B717-21789D3943C6",
+"SubSortOrder": "United States Representative, (3) District",
+"OFFICE_TITLE": "United States Representative, Third District",
+"NumofSeats": "1",
+"Jurisdiction": {
+"FIPS": "18183",
+"JURISDICTION_TYPEID": "1006",
+"JURISDICTION_TYPE": "Locality",
+"JURISDICTION_NAME": "Whitley"
+},
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"CANDIDATEID": "4353",
+"NAME_ON_BALLOT": "Marlin A. Stutzman",
+"isWinner": "1",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#610B0B",
+"TOTAL_VOTES": 2172,
+"CandidateName": "Stutzman, Marlin Marlin",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "3167",
+"NAME_ON_BALLOT": "Jon M. Kenworthy",
+"isWinner": "0",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL_VOTES": 866,
+"CandidateName": "Kenworthy, Jon Jon",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "7612",
+"NAME_ON_BALLOT": "Kelly Thompson",
+"isWinner": "1",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL_VOTES": 584,
+"CandidateName": "Thompson, Kelly Kelly",
+"SORT_ORDER": "10"
+}
+]
+}
+},
+{
+"OFFICEID": "2238",
+"OFFICE_UID": "55B1C606-A1B9-4C7C-B717-21789D3943C6",
+"SubSortOrder": "United States Representative, (3) District",
+"OFFICE_TITLE": "United States Representative, Third District",
+"NumofSeats": "1",
+"Jurisdiction": {
+"FIPS": "18003",
+"JURISDICTION_TYPEID": "1006",
+"JURISDICTION_TYPE": "Locality",
+"JURISDICTION_NAME": "Allen"
+},
+"BALLOT_ORDER": "100",
+"Candidates": {
+"Candidate": [
+{
+"CANDIDATEID": "4353",
+"NAME_ON_BALLOT": "Marlin A. Stutzman",
+"isWinner": "1",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#610B0B",
+"TOTAL_VOTES": 15649,
+"CandidateName": "Stutzman, Marlin Marlin",
+"SORT_ORDER": "15"
+},
+{
+"CANDIDATEID": "7612",
+"NAME_ON_BALLOT": "Kelly Thompson",
+"isWinner": "1",
+"POLITICALPARTYID": "1020",
+"PARTY_ABBREV": "D",
+"DISPLAY_COLOR": "#0000CD",
+"TOTAL_VOTES": 14570,
+"CandidateName": "Thompson, Kelly Kelly",
+"SORT_ORDER": "10"
+},
+{
+"CANDIDATEID": "3167",
+"NAME_ON_BALLOT": "Jon M. Kenworthy",
+"isWinner": "0",
+"POLITICALPARTYID": "1021",
+"PARTY_ABBREV": "R",
+"DISPLAY_COLOR": "#DC143C",
+"TOTAL_VOTES": 6433,
+"CandidateName": "Kenworthy, Jon Jon",
+"SORT_ORDER": "15"
+}
+]
+}
+}
+]
+}
+}
+]
+}
+}
+}
+}

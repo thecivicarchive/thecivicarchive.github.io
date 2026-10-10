@@ -1,0 +1,1778 @@
+{
+ "v": 1,
+ "state": "SD",
+ "family": "resultssw",
+ "built": "2026-10-10",
+ "from": [
+  "ballot_2026.sqlite: races, candidates (general list)",
+  "ballot_local_2026.sqlite: sl_races, sl_candidates (statewide and legislature), sl_places (county names, from the Census Bureau's county file)"
+ ],
+ "rule": "A feed contest is tied to a race by its title (office words, district number, unexpired or special) and, in a primary, its party; a contest that fits no race or more than one is listed, never shown. Names as printed are tied to names as filed by family name and first initial, one fit only.",
+ "counties": {
+  "aurora": "46003",
+  "beadle": "46005",
+  "bennett": "46007",
+  "bonhomme": "46009",
+  "brookings": "46011",
+  "brown": "46013",
+  "brule": "46015",
+  "buffalo": "46017",
+  "butte": "46019",
+  "campbell": "46021",
+  "charlesmix": "46023",
+  "clark": "46025",
+  "clay": "46027",
+  "codington": "46029",
+  "corson": "46031",
+  "custer": "46033",
+  "davison": "46035",
+  "day": "46037",
+  "deuel": "46039",
+  "dewey": "46041",
+  "douglas": "46043",
+  "edmunds": "46045",
+  "fallriver": "46047",
+  "faulk": "46049",
+  "grant": "46051",
+  "gregory": "46053",
+  "haakon": "46055",
+  "hamlin": "46057",
+  "hand": "46059",
+  "hanson": "46061",
+  "harding": "46063",
+  "hughes": "46065",
+  "hutchinson": "46067",
+  "hyde": "46069",
+  "jackson": "46071",
+  "jerauld": "46073",
+  "jones": "46075",
+  "kingsbury": "46077",
+  "lake": "46079",
+  "lawrence": "46081",
+  "lincoln": "46083",
+  "lyman": "46085",
+  "mccook": "46087",
+  "mcpherson": "46089",
+  "marshall": "46091",
+  "meade": "46093",
+  "mellette": "46095",
+  "miner": "46097",
+  "minnehaha": "46099",
+  "moody": "46101",
+  "oglalalakota": "46102",
+  "pennington": "46103",
+  "perkins": "46105",
+  "potter": "46107",
+  "roberts": "46109",
+  "sanborn": "46111",
+  "spink": "46115",
+  "stanley": "46117",
+  "sully": "46119",
+  "todd": "46121",
+  "tripp": "46123",
+  "turner": "46125",
+  "union": "46127",
+  "walworth": "46129",
+  "yankton": "46135",
+  "ziebach": "46137"
+ },
+ "races": [
+  {
+   "id": "2026-SD-H00",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Marty Jackley",
+     "Republican"
+    ],
+    [
+     "Nicole \"Nikki\" Gronli",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-S2",
+   "level": "federal",
+   "kind": "S",
+   "office": "U.S. Senate",
+   "district": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mike Rounds",
+     "Republican"
+    ],
+    [
+     "Brian L Bengs",
+     "Independent"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-AG",
+   "level": "statewide",
+   "kind": "statewide:attorney_general",
+   "office": "Attorney General",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Lance Russell",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-AUD",
+   "level": "statewide",
+   "kind": "statewide:state_auditor",
+   "office": "State Auditor",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Catherine Barranco",
+     "Republican"
+    ],
+    [
+     "Tom Cool",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-GOV",
+   "level": "statewide",
+   "kind": "statewide:governor",
+   "office": "Governor and Lieutenant Governor",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Larry Rhoden & Tony Venhuizen",
+     "Republican"
+    ],
+    [
+     "Dan Ahlers & Steven McCleerey",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-PUC",
+   "level": "statewide",
+   "kind": "statewide:public_utilities_commissioner",
+   "office": "Public Utilities Commissioner",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Don Haggar",
+     "Republican"
+    ],
+    [
+     "Frank Kloucek",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH1",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "1",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Daniel Kjos",
+     "Republican"
+    ],
+    [
+     "Nick Fosness",
+     "Republican"
+    ],
+    [
+     "Courtney Gale Enfield",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH10",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "10",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "John Pohlman",
+     "Republican"
+    ],
+    [
+     "Kimberly Petterson",
+     "Republican"
+    ],
+    [
+     "Adam Bair",
+     "Democratic"
+    ],
+    [
+     "Kathleen Brudvig",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH11",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "11",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brian Mulder",
+     "Republican"
+    ],
+    [
+     "Keri K. Weems",
+     "Republican"
+    ],
+    [
+     "Tracey Quint",
+     "Libertarian"
+    ],
+    [
+     "Sonja Mentzer",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH12",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "12",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kerry Loudenslager",
+     "Republican"
+    ],
+    [
+     "Amber Arlint",
+     "Republican"
+    ],
+    [
+     "Stephanie Arne",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH13",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "13",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jack R Kolbeck",
+     "Republican"
+    ],
+    [
+     "John Hughes",
+     "Republican"
+    ],
+    [
+     "Ali Rae Horsted",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH14",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "14",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Tyler Tordsen",
+     "Republican"
+    ],
+    [
+     "Taylor Rae Rehfeldt",
+     "Republican"
+    ],
+    [
+     "Erinn Williams",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH15",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "15",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Andre Zachariahs",
+     "Republican"
+    ],
+    [
+     "Joni Tschetter",
+     "Republican"
+    ],
+    [
+     "Kadyn Wittman",
+     "Democratic"
+    ],
+    [
+     "June CopperStad",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH16",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "16",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Lisa Bogue",
+     "Republican"
+    ],
+    [
+     "John Shubeck",
+     "Republican"
+    ],
+    [
+     "Tim Rhead",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH17",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "17",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Chris Kassin",
+     "Republican"
+    ],
+    [
+     "Troy Redler",
+     "Republican"
+    ],
+    [
+     "Austin Brunick",
+     "Democratic"
+    ],
+    [
+     "Leslie Gerrish",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH18",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "18",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "John R. Marquardt",
+     "Republican"
+    ],
+    [
+     "Mike Stevens",
+     "Republican"
+    ],
+    [
+     "Karen Springer",
+     "Democratic"
+    ],
+    [
+     "Jarod Holcomb",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH19",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "19",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Drew Peterson",
+     "Republican"
+    ],
+    [
+     "Jessica Bahmuller",
+     "Republican"
+    ],
+    [
+     "Heidi Hora",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH2",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "2",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Adam Long",
+     "Republican"
+    ],
+    [
+     "Manuel Luschas",
+     "Republican"
+    ],
+    [
+     "Blake Rife",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH20",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "20",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jeff Bathke",
+     "Republican"
+    ],
+    [
+     "Terry Sabers",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH21",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "21",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jim Halverson",
+     "Republican"
+    ],
+    [
+     "Marty Overweg",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH22",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "22",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Lana Greenfield",
+     "Republican"
+    ],
+    [
+     "Kevin Van Diepen",
+     "Republican"
+    ],
+    [
+     "Cully Williams",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH23",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "23",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dick Werner",
+     "Republican"
+    ],
+    [
+     "Spencer Gosch",
+     "Republican"
+    ],
+    [
+     "Garett Heinz",
+     "Independent"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH24",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "24",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Laurie Gill",
+     "Republican"
+    ],
+    [
+     "Mike Weisgram",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH25",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "25",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Carrie Sanderson",
+     "Republican"
+    ],
+    [
+     "Nick Buchholz",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH26A",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "26A",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Ron Frederick",
+     "Republican"
+    ],
+    [
+     "Eric E. Emery",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH26B",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "26B",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Angi Hanzlik",
+     "Republican"
+    ],
+    [
+     "Lewis J. GrassRope",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH27",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "27",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Liz May",
+     "Republican"
+    ],
+    [
+     "Evangeline Poor Bear",
+     "Independent"
+    ],
+    [
+     "Elizabeth Lone Eagle",
+     "Independent"
+    ],
+    [
+     "Joe Flood",
+     "Independent"
+    ],
+    [
+     "Jay Yohner",
+     "Independent"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH28A",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "28A",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jana Hunt",
+     "Republican"
+    ],
+    [
+     "Chastity \"Chas\" Jewett",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH28B",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "28B",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Travis Ismay",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH29",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "29",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Gary L Cammack",
+     "Republican"
+    ],
+    [
+     "Gary Deering",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH3",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "3",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Spencer Sommers",
+     "Republican"
+    ],
+    [
+     "Timothy Hanigan",
+     "Republican"
+    ],
+    [
+     "Erin Ronayne Rudner",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH30",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "30",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Trish Ladner",
+     "Republican"
+    ],
+    [
+     "Tim R Goodwin",
+     "Republican"
+    ],
+    [
+     "Bret Swanson",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH31",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "31",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Scott Odenbach",
+     "Republican"
+    ],
+    [
+     "Mary J. Fitzgerald",
+     "Republican"
+    ],
+    [
+     "Morgan Plucker",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH32",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "32",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Zachary Martin",
+     "Republican"
+    ],
+    [
+     "Steve Duffy",
+     "Republican"
+    ],
+    [
+     "Nicole Uhre-Balk",
+     "Democratic"
+    ],
+    [
+     "Samuel Hare Sr",
+     "Independent"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH33",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "33",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Phil Jensen",
+     "Republican"
+    ],
+    [
+     "Curt Massie",
+     "Republican"
+    ],
+    [
+     "Kari Hall",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH34",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "34",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Becky J Drury",
+     "Republican"
+    ],
+    [
+     "Mike Derby",
+     "Republican"
+    ],
+    [
+     "Victor Diego Dominquez",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH35",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "35",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jason Fleming",
+     "Republican"
+    ],
+    [
+     "Dale Bartscher",
+     "Republican"
+    ],
+    [
+     "Ken Jeakins",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH4",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "4",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Ryan Kohl",
+     "Republican"
+    ],
+    [
+     "Fred Deutsch",
+     "Republican"
+    ],
+    [
+     "Emelia Enquist",
+     "Democratic"
+    ],
+    [
+     "Samuel Froehlke",
+     "Independent"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH5",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "5",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Byron I. Callies",
+     "Republican"
+    ],
+    [
+     "Matt Roby",
+     "Republican"
+    ],
+    [
+     "Neal Tapio",
+     "Independent"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH6",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "6",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jerry Jongeling",
+     "Republican"
+    ],
+    [
+     "Elliott Neff",
+     "Republican"
+    ],
+    [
+     "Austin Wolf",
+     "Democratic"
+    ],
+    [
+     "Garret M Campbell",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH7",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "7",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mellissa Heermann",
+     "Republican"
+    ],
+    [
+     "Roger DeGroot",
+     "Republican"
+    ],
+    [
+     "Blake Stevens",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH8",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "8",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jon Nelson",
+     "Republican"
+    ],
+    [
+     "Todd Wilkinson",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SH9",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "9",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Tesa Schwans",
+     "Republican"
+    ],
+    [
+     "Megan Tschetter",
+     "Republican"
+    ],
+    [
+     "Amanda Potter",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SOS",
+   "level": "statewide",
+   "kind": "statewide:secretary_of_state",
+   "office": "Secretary of State",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Heather Baxter",
+     "Republican"
+    ],
+    [
+     "Tamara J. Lesnar",
+     "Libertarian"
+    ],
+    [
+     "Terrence Davis",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SPL",
+   "level": "statewide",
+   "kind": "statewide:school_and_public_lands_commissioner",
+   "office": "Commissioner of School and Public Lands",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brock Greenfield",
+     "Republican"
+    ],
+    [
+     "Raeann Mettler",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS1",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "1",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Michael H. Rohl",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS10",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "10",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Michael Dupic",
+     "Republican"
+    ],
+    [
+     "Liz Larson",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS11",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "11",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Chris Karr",
+     "Republican"
+    ],
+    [
+     "Aaron Matson",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS12",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "12",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kari Shanard-Koenders",
+     "Republican"
+    ],
+    [
+     "Joe Zweifel",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS13",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "13",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Sue Peterson",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS14",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "14",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Larry P. Zikmund",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS15",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "15",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brenda Lawrence",
+     "Republican"
+    ],
+    [
+     "Erik Muckey",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS16",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "16",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kevin D. Jensen",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS17",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "17",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Sydney Davis",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS18",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "18",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Lauren Nelson",
+     "Republican"
+    ],
+    [
+     "Kay Swihart",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS19",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "19",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kyle Schoenfish",
+     "Republican"
+    ],
+    [
+     "Russell E. Graeff",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS2",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "2",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "John Sjaarda",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS20",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "20",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Paul Miskimins",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS21",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "21",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mykala Voita",
+     "Republican"
+    ],
+    [
+     "Dan Andersson",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS22",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "22",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brandon R. Wipf",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS23",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "23",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mark Lapka",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS24",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "24",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jim Mehlhaff",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS25",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "25",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Bart Sample",
+     "Republican"
+    ],
+    [
+     "Bryan J. Breitling",
+     "Independent"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS26",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "26",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Rebecca Reimer",
+     "Republican"
+    ],
+    [
+     "Shawn Bordeaux",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS27",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "27",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Anthony Kathol",
+     "Republican"
+    ],
+    [
+     "Celestine Stadnick",
+     "Democratic"
+    ],
+    [
+     "Peri Pourier",
+     "Independent"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS28",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "28",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Sam Marty",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS29",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "29",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "William J. Meirose",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS3",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "3",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Katherine \"Katie\" Washnok",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS30",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "30",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Amber Hulse",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS31",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "31",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Randy Deibert",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS32",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "32",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Helene Duhamel",
+     "Republican"
+    ],
+    [
+     "Jeff Shelton",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS33",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "33",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "David Johnson",
+     "Republican"
+    ],
+    [
+     "Christopher Baumgartner",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS34",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "34",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Taffy Howard",
+     "Republican"
+    ],
+    [
+     "Michael Calabrese",
+     "Democratic"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS35",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "35",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Greg Blanc",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS4",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "4",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Stephanie Sauder",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS5",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "5",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Glen A. Vilhauer",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS6",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "6",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Ernie Otten",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS7",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "7",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Tim Reed",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS8",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "8",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Casey Crabtree",
+     "Republican"
+    ],
+    [
+     "Clint Hoyer",
+     "Independent"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-SS9",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "9",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Joy Hohn",
+     "Republican"
+    ]
+   ]
+  },
+  {
+   "id": "2026-SD-TREAS",
+   "level": "statewide",
+   "kind": "statewide:state_treasurer",
+   "office": "State Treasurer",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Melissa Hull",
+     "Republican"
+    ],
+    [
+     "Margaret Kuipers",
+     "Democratic"
+    ]
+   ]
+  }
+ ],
+ "aliases": {},
+ "elections": {
+  "773": {
+   "kind": "primary",
+   "date": "2026-06-02",
+   "use": "rehearsal and the replay check"
+  },
+  "684": {
+   "kind": "general",
+   "date": "2024-11-05",
+   "use": "rehearsal and the replay check"
+  }
+ },
+ "checked": {},
+ "notes": []
+}

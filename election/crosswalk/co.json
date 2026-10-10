@@ -1,0 +1,2393 @@
+{
+ "v": 1,
+ "state": "CO",
+ "family": "clarity",
+ "built": "2026-10-10",
+ "from": [
+  "ballot_2026.sqlite: races, candidates (general list)",
+  "ballot_local_2026.sqlite: sl_races, sl_candidates (statewide and legislature), sl_places (county names, from the Census Bureau's county file)"
+ ],
+ "rule": "A feed contest is tied to a race by its title (office words, district number, unexpired or special) and, in a primary, its party; a contest that fits no race or more than one is listed, never shown. Names as printed are tied to names as filed by family name and first initial, one fit only.",
+ "counties": {
+  "adams": "08001",
+  "alamosa": "08003",
+  "arapahoe": "08005",
+  "archuleta": "08007",
+  "baca": "08009",
+  "bent": "08011",
+  "boulder": "08013",
+  "broomfield": "08014",
+  "chaffee": "08015",
+  "cheyenne": "08017",
+  "clearcreek": "08019",
+  "conejos": "08021",
+  "costilla": "08023",
+  "crowley": "08025",
+  "custer": "08027",
+  "delta": "08029",
+  "denver": "08031",
+  "dolores": "08033",
+  "douglas": "08035",
+  "eagle": "08037",
+  "elbert": "08039",
+  "elpaso": "08041",
+  "fremont": "08043",
+  "garfield": "08045",
+  "gilpin": "08047",
+  "grand": "08049",
+  "gunnison": "08051",
+  "hinsdale": "08053",
+  "huerfano": "08055",
+  "jackson": "08057",
+  "jefferson": "08059",
+  "kiowa": "08061",
+  "kitcarson": "08063",
+  "lake": "08065",
+  "laplata": "08067",
+  "larimer": "08069",
+  "lasanimas": "08071",
+  "lincoln": "08073",
+  "logan": "08075",
+  "mesa": "08077",
+  "mineral": "08079",
+  "moffat": "08081",
+  "montezuma": "08083",
+  "montrose": "08085",
+  "morgan": "08087",
+  "otero": "08089",
+  "ouray": "08091",
+  "park": "08093",
+  "phillips": "08095",
+  "pitkin": "08097",
+  "prowers": "08099",
+  "pueblo": "08101",
+  "rioblanco": "08103",
+  "riogrande": "08105",
+  "routt": "08107",
+  "saguache": "08109",
+  "sanjuan": "08111",
+  "sanmiguel": "08113",
+  "sedgwick": "08115",
+  "summit": "08117",
+  "teller": "08119",
+  "washington": "08121",
+  "weld": "08123",
+  "yuma": "08125"
+ },
+ "races": [
+  {
+   "id": "2026-CO-H01",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "1",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Melat Kiros",
+     "Democratic Party"
+    ],
+    [
+     "Christy Peterson",
+     "Republican Party"
+    ],
+    [
+     "Critter Milton",
+     "Unity Party"
+    ],
+    [
+     "Chad Humphrey",
+     "Libertarian Party"
+    ],
+    [
+     "Shimon Blau",
+     "Unaffiliated"
+    ],
+    [
+     "John Wren",
+     "Democratic Party"
+    ],
+    [
+     "Kevin StClair",
+     "Democratic Party"
+    ],
+    [
+     "Stephen Replin",
+     "Unaffiliated"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-H02",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "2",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Joe Neguse",
+     "Democratic Party"
+    ],
+    [
+     "Kelley Anne Dennison",
+     "Republican Party"
+    ],
+    [
+     "Gaylon Kent",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-H03",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "3",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dwayne L. Romero",
+     "Democratic Party"
+    ],
+    [
+     "Jeff Hurd",
+     "Republican Party"
+    ],
+    [
+     "Cory Robertson",
+     "Libertarian Party"
+    ],
+    [
+     "Clifton Brown",
+     "Unaffiliated"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-H04",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "4",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Lauren Boebert",
+     "Republican Party"
+    ],
+    [
+     "Eileen Laubacher",
+     "Democratic Party"
+    ],
+    [
+     "Douglas Mangeris",
+     "Libertarian Party"
+    ],
+    [
+     "Luis Galvan",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-H05",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "5",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jeff Crank",
+     "Republican Party"
+    ],
+    [
+     "Jessica Killin",
+     "Democratic Party"
+    ],
+    [
+     "Christopher Mitchell",
+     "American Constitution Party"
+    ],
+    [
+     "Mark \"Marky Jr\" Elworth",
+     "Libertarian Party"
+    ],
+    [
+     "Steven Fuller",
+     "Unaffiliated"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-H06",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "6",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jason Crow",
+     "Democratic Party"
+    ],
+    [
+     "Jason Clark",
+     "Republican Party"
+    ],
+    [
+     "Patty McMahon",
+     "Libertarian Party"
+    ],
+    [
+     "Meredith Ryan",
+     "Unity Party"
+    ],
+    [
+     "Samir Ezzeldin Witta",
+     "Unaffiliated"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-H07",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "7",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Tim Bennett",
+     "Republican Party"
+    ],
+    [
+     "Brittany Pettersen",
+     "Democratic Party"
+    ],
+    [
+     "Susan Hall",
+     "Unity Party"
+    ],
+    [
+     "Lawrence Kyle Clark",
+     "American Constitution Party"
+    ],
+    [
+     "Dan \"Kilo\" Sallis",
+     "Libertarian Party"
+    ],
+    [
+     "Joe Krzeczkowski",
+     "Unaffiliated"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-H08",
+   "level": "federal",
+   "kind": "H",
+   "office": "U.S. House",
+   "district": "8",
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Gabe Evans",
+     "Republican Party"
+    ],
+    [
+     "Manny Rutinel",
+     "Democratic Party"
+    ],
+    [
+     "Dave Wood",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-S2",
+   "level": "federal",
+   "kind": "S",
+   "office": "U.S. Senate",
+   "district": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mark Baisley",
+     "Republican Party"
+    ],
+    [
+     "John Hickenlooper",
+     "Democratic Party"
+    ],
+    [
+     "Bob Chew",
+     "Forward Party"
+    ],
+    [
+     "Christopher Baum",
+     "Approval Voting Party"
+    ],
+    [
+     "Blake Huber",
+     "Libertarian Party"
+    ],
+    [
+     "Adam Withrow",
+     "Unity Party"
+    ],
+    [
+     "Donald Willoughby",
+     "Unaffiliated"
+    ],
+    [
+     "Ryan Apelbaum",
+     "Republican Party"
+    ],
+    [
+     "Will Powers",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-AG",
+   "level": "statewide",
+   "kind": "statewide:attorney_general",
+   "office": "Attorney General",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Michael J. Allen",
+     "Republican Party"
+    ],
+    [
+     "Jena Griswold",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-GOV",
+   "level": "statewide",
+   "kind": "statewide:governor",
+   "office": "Governor and Lieutenant Governor",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Victor Marx",
+     "Republican Party"
+    ],
+    [
+     "Phil Weiser",
+     "Democratic Party"
+    ],
+    [
+     "Stephen T. Hamilton",
+     "American Constitution Party"
+    ],
+    [
+     "Eric Mulder",
+     "Libertarian Party"
+    ],
+    [
+     "Jeff Peckman",
+     "Unity Party"
+    ],
+    [
+     "Erik Underwood",
+     "Approval Voting Party"
+    ],
+    [
+     "Greg Lopez",
+     "Unaffiliated"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-REGENT-CD2",
+   "level": "statewide",
+   "kind": "statewide:university_board",
+   "office": "Regent of the University of Colorado",
+   "district": "2",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Marty Neilson",
+     "Republican Party"
+    ],
+    [
+     "Edie Hooton",
+     "Democratic Party"
+    ],
+    [
+     "Richard Friend",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-REGENT-CD6",
+   "level": "statewide",
+   "kind": "statewide:university_board",
+   "office": "Regent of the University of Colorado",
+   "district": "6",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Veanessa Burbage",
+     "Republican Party"
+    ],
+    [
+     "Ilana Spiegel",
+     "Democratic Party"
+    ],
+    [
+     "Joe Johnson",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-REGENT-CD7",
+   "level": "statewide",
+   "kind": "statewide:university_board",
+   "office": "Regent of the University of Colorado",
+   "district": "7",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Paul Mueller",
+     "Republican Party"
+    ],
+    [
+     "Nolbert Chavez",
+     "Democratic Party"
+    ],
+    [
+     "BetteRose Ryan",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SBE-CD1",
+   "level": "statewide",
+   "kind": "statewide:state_board_of_education",
+   "office": "Member of the State Board of Education",
+   "district": "1",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Lisa Escárcega",
+     "Democratic Party"
+    ],
+    [
+     "Frederick Espinoza",
+     "Republican Party"
+    ],
+    [
+     "Clayton Casciato",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SBE-CD3",
+   "level": "statewide",
+   "kind": "statewide:state_board_of_education",
+   "office": "Member of the State Board of Education",
+   "district": "3",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Sherri M Wright",
+     "Republican Party"
+    ],
+    [
+     "Barb Clementi",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SBE-CD7",
+   "level": "statewide",
+   "kind": "statewide:state_board_of_education",
+   "office": "Member of the State Board of Education",
+   "district": "7",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Karla Esser",
+     "Democratic Party"
+    ],
+    [
+     "Steve Barton",
+     "Republican Party"
+    ],
+    [
+     "Ross Klopf",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH1",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "1",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Javier Mabrey",
+     "Democratic Party"
+    ],
+    [
+     "Joseph Montoya",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH10",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "10",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Junie Joseph",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH11",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "11",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Karen McCormick",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH12",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "12",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Ryan Rhatigan",
+     "Republican Party"
+    ],
+    [
+     "Kyle Brown",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH13",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "13",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Consuelo Redhorse",
+     "Democratic Party"
+    ],
+    [
+     "Miguel Martinez",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH14",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "14",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Ava Flanell",
+     "Republican Party"
+    ],
+    [
+     "Sarah Emery",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH15",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "15",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jeff K. Livingston",
+     "Democratic Party"
+    ],
+    [
+     "Pricella Tiegen",
+     "Republican Party"
+    ],
+    [
+     "Doug Jones",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH16",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "16",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jill Haffley",
+     "Republican Party"
+    ],
+    [
+     "Steph Vigil",
+     "Democratic Party"
+    ],
+    [
+     "John C Hjersman",
+     "Libertarian Party"
+    ],
+    [
+     "Isaac Contreras",
+     "Unaffiliated"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH17",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "17",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Regina English",
+     "Democratic Party"
+    ],
+    [
+     "Laura Martin",
+     "Republican Party"
+    ],
+    [
+     "John Michael Angle",
+     "Libertarian Party"
+    ],
+    [
+     "Sherrea Sterling",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH18",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "18",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Amy T Paschal",
+     "Democratic Party"
+    ],
+    [
+     "Adriana Cuva",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH19",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "19",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dan Woog",
+     "Republican Party"
+    ],
+    [
+     "Jillaire McMillan",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH2",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "2",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Scott Baldermann",
+     "Democratic Party"
+    ],
+    [
+     "Carey Marin",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH20",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "20",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jarvis Caldwell",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH21",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "21",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brenda Miller",
+     "Republican Party"
+    ],
+    [
+     "Michelle Tweed",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH22",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "22",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Michael Pierson",
+     "Democratic Party"
+    ],
+    [
+     "Ken deGraaf",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH23",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "23",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Alexis Hoffkling",
+     "Democratic Party"
+    ],
+    [
+     "Ross Metler",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH24",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "24",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Lisa Feret",
+     "Democratic Party"
+    ],
+    [
+     "Kristopher Johnson",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH25",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "25",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Mark Herzfeld",
+     "Republican Party"
+    ],
+    [
+     "Tammy Story",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH26",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "26",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Meghan Lukens",
+     "Democratic Party"
+    ],
+    [
+     "James Kellogg",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH27",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "27",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Danielle Varda",
+     "Democratic Party"
+    ],
+    [
+     "Eric Bodenstab",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH28",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "28",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "David Rein",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH29",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "29",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kristine Ireland",
+     "Republican Party"
+    ],
+    [
+     "Lori Goldstein",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH3",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "3",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Gena Ozols",
+     "Democratic Party"
+    ],
+    [
+     "Rebecca Winegar",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH30",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "30",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Rebekah Stewart",
+     "Democratic Party"
+    ],
+    [
+     "William Tyler Switzer",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH31",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "31",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Gabriel Cervantes",
+     "Democratic Party"
+    ],
+    [
+     "Ray Roll",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH32",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "32",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Michelle D. Lee",
+     "Republican Party"
+    ],
+    [
+     "Chris VanDijk",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH33",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "33",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kenny Van Nguyen",
+     "Democratic Party"
+    ],
+    [
+     "Nate Jorgensen",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH34",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "34",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Craig Sullivan",
+     "Republican Party"
+    ],
+    [
+     "Jenny Willford",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH35",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "35",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Lorena Garcia",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH36",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "36",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Michael Carter",
+     "Democratic Party"
+    ],
+    [
+     "Paul E. Nelson",
+     "Republican Party"
+    ],
+    [
+     "Andrew Gibson",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH37",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "37",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jill Thompson",
+     "Republican Party"
+    ],
+    [
+     "Chad Clifford",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH38",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "38",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Gretchen Rydin",
+     "Democratic Party"
+    ],
+    [
+     "Tim Martin",
+     "Center Party"
+    ],
+    [
+     "Norm Olsen",
+     "Libertarian Party"
+    ],
+    [
+     "Allison Madrigal",
+     "Unaffiliated"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH39",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "39",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Brandi Bradley",
+     "Republican Party"
+    ],
+    [
+     "Christian Schilder",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH4",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "4",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Ellwood Ervin",
+     "Republican Party"
+    ],
+    [
+     "Cecelia Espenoza",
+     "Democratic Party"
+    ],
+    [
+     "Bill Hare",
+     "Forward Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH40",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "40",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Clinton Porter",
+     "Republican Party"
+    ],
+    [
+     "Naquetta Ricks",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH41",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "41",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jamie Jackson",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH42",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "42",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Sarah Amelia Woodson",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH43",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "43",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Robert \"Bob\" Marshall",
+     "Democratic Party"
+    ],
+    [
+     "Nate Marsh",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH44",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "44",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Anthony Hartsook",
+     "Republican Party"
+    ],
+    [
+     "Richard Bowness",
+     "Democratic Party"
+    ],
+    [
+     "John H Sutton",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH45",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "45",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Michael Clarkson",
+     "Democratic Party"
+    ],
+    [
+     "Max Brooks",
+     "Republican Party"
+    ],
+    [
+     "Caryn Ann Harlos",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH46",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "46",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jonathan Post",
+     "Republican Party"
+    ],
+    [
+     "Tisha Mauro",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH47",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "47",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Vic Meyers",
+     "Democratic Party"
+    ],
+    [
+     "Ty Winter",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH48",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "48",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Carlos Barron",
+     "Republican Party"
+    ],
+    [
+     "Dez Packard",
+     "Democratic Party"
+    ],
+    [
+     "Eric E. Joss",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH49",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "49",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Michael Sheperek",
+     "Republican Party"
+    ],
+    [
+     "Lesley Smith",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH5",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "5",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Justine Sandoval",
+     "Democratic Party"
+    ],
+    [
+     "Johnnie W. Johnson",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH50",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "50",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Ryan Gonzalez",
+     "Republican Party"
+    ],
+    [
+     "Tommy Butler",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH51",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "51",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Amy Parks",
+     "Republican Party"
+    ],
+    [
+     "Jacki Marsh",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH52",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "52",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Yara Zokaie",
+     "Democratic Party"
+    ],
+    [
+     "Steve Yurash",
+     "Center Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH53",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "53",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Daniel Frick",
+     "Republican Party"
+    ],
+    [
+     "Andy Boesenecker",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH54",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "54",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jason Bias",
+     "Republican Party"
+    ],
+    [
+     "Mallory Martin",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH55",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "55",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Rick Taggart",
+     "Republican Party"
+    ],
+    [
+     "Brittni Packard",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH56",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "56",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Chris Richardson",
+     "Republican Party"
+    ],
+    [
+     "Amy L. Lunde",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH57",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "57",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Elizabeth Velasco",
+     "Democratic Party"
+    ],
+    [
+     "Russ Andrews",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH58",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "58",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Larry Don Suckla",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH59",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "59",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Katie Stewart",
+     "Democratic Party"
+    ],
+    [
+     "Naomi Riess",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH6",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "6",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Iris Halpern",
+     "Democratic Party"
+    ],
+    [
+     "Kathleen Angel",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH60",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "60",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kathryn Kester Green",
+     "Democratic Party"
+    ],
+    [
+     "Matt Alexander",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH61",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "61",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Scott Shamblin",
+     "Republican Party"
+    ],
+    [
+     "Eliza Hamrick",
+     "Democratic Party"
+    ],
+    [
+     "Kevin Gulbranson",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH62",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "62",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Matthew Martinez",
+     "Democratic Party"
+    ],
+    [
+     "Steven Rodriguez",
+     "Republican Party"
+    ],
+    [
+     "Donald Luke Vermillion",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH63",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "63",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dusty Johnson",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH64",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "64",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Maureen (Mo) Dower",
+     "Democratic Party"
+    ],
+    [
+     "Scott L. Slaugh",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH65",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "65",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Lori Garcia Sander",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH7",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "7",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jennifer Bacon",
+     "Democratic Party"
+    ],
+    [
+     "Jeff Wilson",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH8",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "8",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Carolyn Barnes",
+     "Republican Party"
+    ],
+    [
+     "Lindsay Gilchrist",
+     "Democratic Party"
+    ],
+    [
+     "Jesse Lashawn Parris",
+     "Unity Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SH9",
+   "level": "legislature",
+   "kind": "SH",
+   "office": "State Representative",
+   "district": "9",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Tom Cowhick",
+     "Republican Party"
+    ],
+    [
+     "Monica VanBuskirk",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SOS",
+   "level": "statewide",
+   "kind": "statewide:secretary_of_state",
+   "office": "Secretary of State",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Amanda Gonzalez",
+     "Democratic Party"
+    ],
+    [
+     "James Wiley",
+     "Republican Party"
+    ],
+    [
+     "Sean Vadney",
+     "Libertarian Party"
+    ],
+    [
+     "Amanda Campbell",
+     "American Constitution Party"
+    ],
+    [
+     "Celeste Landry",
+     "Forward Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SS1",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "1",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jamie Jeffery",
+     "Democratic Party"
+    ],
+    [
+     "Byron Pelton",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SS11",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "11",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Tony Exum Sr",
+     "Democratic Party"
+    ],
+    [
+     "Levon Stilson",
+     "Republican Party"
+    ],
+    [
+     "Janet Turner",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SS15",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "15",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Rob Woodward",
+     "Republican Party"
+    ],
+    [
+     "Janice Marchman",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SS17",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "17",
+   "seat": null,
+   "special": 1,
+   "seats": 1,
+   "names": [
+    [
+     "Katie Wallace",
+     "Democratic Party"
+    ],
+    [
+     "Pat Miller",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SS20",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "20",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Richard (Rich) Mancuso",
+     "Republican Party"
+    ],
+    [
+     "Sheila Lieder",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SS21",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "21",
+   "seat": null,
+   "special": 1,
+   "seats": 1,
+   "names": [
+    [
+     "Frederick Alfred Jr",
+     "Republican Party"
+    ],
+    [
+     "Adrienne Benavidez",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SS22",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "22",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Steve Harkess",
+     "Republican Party"
+    ],
+    [
+     "Monica Irasema Duran",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SS24",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "24",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Kevin Allen",
+     "Republican Party"
+    ],
+    [
+     "Kyle Mullica",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SS25",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "25",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Paul Kohlhoff",
+     "Republican Party"
+    ],
+    [
+     "William Lindstedt",
+     "Democratic Party"
+    ],
+    [
+     "Mark Philip Bromley",
+     "Unaffiliated"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SS27",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "27",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Danielle Lammon",
+     "Republican Party"
+    ],
+    [
+     "Tom Sullivan",
+     "Democratic Party"
+    ],
+    [
+     "Michele Poague",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SS29",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "29",
+   "seat": null,
+   "special": 1,
+   "seats": 1,
+   "names": [
+    [
+     "Iman M. Jodeh",
+     "Democratic Party"
+    ],
+    [
+     "Robert McKenna",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SS3",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "3",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Aaron Gutierrez",
+     "Democratic Party"
+    ],
+    [
+     "Dana Charles",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SS30",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "30",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "John Carson",
+     "Republican Party"
+    ],
+    [
+     "Kevin Leung",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SS31",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "31",
+   "seat": null,
+   "special": 1,
+   "seats": 1,
+   "names": [
+    [
+     "Matt Ball",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SS32",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "32",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Emily Sirota",
+     "Democratic Party"
+    ],
+    [
+     "Sydnnia Wulff",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SS34",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "34",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Chela Garcia Irlando",
+     "Democratic Party"
+    ],
+    [
+     "Jennifer Qualteri",
+     "Republican Party"
+    ],
+    [
+     "Jacob Luria",
+     "Libertarian Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SS35",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "35",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Richard Graf",
+     "Libertarian Party"
+    ],
+    [
+     "Rod Pelton",
+     "Republican Party"
+    ],
+    [
+     "Travis Star Nelson",
+     "Unaffiliated"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SS4",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "4",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Justin Kurth",
+     "Democratic Party"
+    ],
+    [
+     "Teddy Collins",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SS7",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "7",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Janice Rich",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SS8",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "8",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Dylan Roberts",
+     "Democratic Party"
+    ],
+    [
+     "Corey Marshall",
+     "Republican Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-SS9",
+   "level": "legislature",
+   "kind": "SS",
+   "office": "State Senator",
+   "district": "9",
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Terri Carver",
+     "Republican Party"
+    ],
+    [
+     "William Delano Moses III",
+     "Democratic Party"
+    ]
+   ]
+  },
+  {
+   "id": "2026-CO-TREAS",
+   "level": "statewide",
+   "kind": "statewide:state_treasurer",
+   "office": "State Treasurer",
+   "district": null,
+   "seat": null,
+   "special": 0,
+   "seats": 1,
+   "names": [
+    [
+     "Jeff Bridges",
+     "Democratic Party"
+    ],
+    [
+     "Kevin Grantham",
+     "Republican Party"
+    ],
+    [
+     "Jodie Barr",
+     "Libertarian Party"
+    ],
+    [
+     "Marilee Langner Sturgis",
+     "Approval Voting Party"
+    ]
+   ]
+  }
+ ],
+ "aliases": {},
+ "elections": {
+  "126592": {
+   "kind": "primary",
+   "date": "2026-06-30",
+   "use": "rehearsal and the replay check"
+  },
+  "122598": {
+   "kind": "general",
+   "date": "2024-11-05",
+   "use": "rehearsal and the replay check"
+  }
+ },
+ "checked": {},
+ "notes": []
+}
