@@ -1253,7 +1253,9 @@ Sub-agents for this work run at or below Opus 5.5 max (John, 2026-10-09).
 - Code: `election/` (`store.py`; `source.py`, whose gate every request passes: it stops a host that answers with a
   challenge page, a 403 or a 429, and never asks a `*.sos.mn.gov` results host or `cdn1.arizona.vote`; `readers/`, one per
   results-system family; `crosswalk/<code>.json`, a state's contests tied to the ballot databases' race ids, every
-  untied contest listed; `registry/<code>.json`, how each state is read: live, care, hand or link; `feeds/`; `model/`),
+  untied contest listed; `registry/<code>.json`, how each state is read: live, care, hand or link; `feeds/`; `model/`:
+  `forecast.py` before Election Day, `live_model.py` for Minnesota on the night and `night_us.py` for the other states,
+  every run stored by `runs.py` so it can be made again exactly),
   `run_night.py` (the updater, run on John's computer: `check`, `discover`, replays, `Start Election Night.bat`),
   `night_common.py`, `build_night_home.py`, `build_night_state.py`, `build_night_us.py`. Pages go in `site/dev/night/`;
   practice builds (past official figures replayed, labelled "Practice", never published) in `site/practice/`.

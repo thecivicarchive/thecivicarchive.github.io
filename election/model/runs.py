@@ -52,16 +52,30 @@ if HERE not in sys.path:
 from election.model import DB  # noqa: E402
 from election.model import connect as _connect_base  # noqa: E402
 
-RUNS_METHOD = "runs-1.0"
+RUNS_METHOD = "runs-1.1"                  # 1.1 (2026-10-10): the likely margin of the top two and the chance of no majority kept
 KINDS = ("pre", "live", "backtest", "replay")
 PUBLIC_KINDS = ("pre", "live")            # what the pages show; backtests and replays stay on #track
-# kind -> "module:function" taking (frame, seed, draws) and returning {"races": [race output, ...]}
-# "live": the night's model (live_model.py builds the frame, simulate.py draws it; N17). A kept simulate.py imports only
-# runs.py, so a stored live run is redone exactly with the code it was made with.
-SIMULATORS = {"pre": "election.model.forecast:simulate", "live": "election.model.simulate:simulate"}
+# family -> "module:function" taking (frame, seed, draws) and returning {"races": [race output, ...]}. A family is a run's
+# kind, except that the night's runs of the other states (kind "live", method "us-live-...") are their own family:
+# "live": Minnesota's night (live_model.py builds the frame, simulate.py draws it; N17).
+# "live/us": every other state's night (night_us.py builds the frame, simulate_us.py draws it; N17b).
+# A kept simulation file imports only runs.py, so a stored run is redone exactly with the code it was made with.
+SIMULATORS = {"pre": "election.model.forecast:simulate", "live": "election.model.simulate:simulate",
+              "live/us": "election.model.simulate_us:simulate"}
 MODEL_FILES = {"pre": ("forecast.py", "runs.py"), "backtest": ("backtest.py", "forecast.py", "runs.py"),
                "live": ("simulate.py", "live_model.py", "blindspots.py", "runs.py"),
-               "replay": ("blindspots.py", "live_model.py", "simulate.py", "backtest.py", "forecast.py", "runs.py")}
+               "live/us": ("simulate_us.py", "night_us.py", "runs.py"),
+               "replay": ("blindspots.py", "live_model.py", "simulate.py", "backtest.py", "forecast.py", "runs.py"),
+               "replay/us": ("night_us.py", "simulate_us.py", "runs.py")}
+US_NIGHT_PREFIX = "us-live"               # the method versions of the other states' night model
+
+
+def family(kind, method=None):
+    """The simulation family of a run: its kind, or "<kind>/us" for the other states' night model (its live runs and its
+    replays), whose frames are drawn by simulate_us.py."""
+    if kind in ("live", "replay") and str(method or "").startswith(US_NIGHT_PREFIX):
+        return f"{kind}/us"
+    return kind
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS runs (
@@ -107,6 +121,14 @@ CREATE TABLE IF NOT EXISTS race_runs (
     in_sha     TEXT,
     out_sha    TEXT,
     note       TEXT,
+    mg_a       TEXT,                   -- the likely margin of the top two: the favourite's choice key
+    mg_b       TEXT,                   --   and the runner-up's
+    mg_med     REAL,                   --   the favourite's share less the runner-up's: median, 80 and 95 percent ranges
+    mg_lo80    REAL,
+    mg_hi80    REAL,
+    mg_lo95    REAL,
+    mg_hi95    REAL,
+    ro         REAL,                   -- where the law asks for more than half: the chance no candidate passes half
     PRIMARY KEY (run, race)
 );
 CREATE INDEX IF NOT EXISTS race_runs_race ON race_runs (race, run);
@@ -158,10 +180,23 @@ CREATE TABLE IF NOT EXISTS calibration (
 
 # ============================================================================================== the database
 
+ADDED_COLUMNS = (("race_runs", "mg_a", "TEXT"), ("race_runs", "mg_b", "TEXT"), ("race_runs", "mg_med", "REAL"),
+                 ("race_runs", "mg_lo80", "REAL"), ("race_runs", "mg_hi80", "REAL"), ("race_runs", "mg_lo95", "REAL"),
+                 ("race_runs", "mg_hi95", "REAL"), ("race_runs", "ro", "REAL"))
+
+
 def connect(db=DB):
     con = _connect_base(db)
     con.execute("PRAGMA busy_timeout = 30000")
     con.executescript(SCHEMA)
+    # a database made before a column was added gets it (no row is changed: the column is empty for older runs)
+    have = {}
+    for table, col, typ in ADDED_COLUMNS:
+        if table not in have:
+            have[table] = {r[1] for r in con.execute(f"PRAGMA table_info({table})")}
+        if col not in have[table]:
+            con.execute(f"ALTER TABLE {table} ADD COLUMN {col} {typ}")
+            have[table].add(col)
     return con
 
 
@@ -189,7 +224,7 @@ def sha_text(s):
 
 
 def code_files(kind):
-    """{file name: its text} for the model's code files of this kind of run."""
+    """{file name: its text} for the model's code files of this family of run (family())."""
     here = os.path.dirname(os.path.abspath(__file__))
     out = {}
     for name in MODEL_FILES.get(kind, ("forecast.py", "runs.py")):
@@ -201,17 +236,17 @@ def code_files(kind):
 
 
 def code_sha(kind):
-    """SHA-256 of the model's code for this kind of run: the run_blobs key under which that code is kept whole."""
+    """SHA-256 of the model's code for this family of run: the run_blobs key under which that code is kept whole."""
     return sha_text(canonical({"files": code_files(kind)}))
 
 
 def keep_code(con, kind):
-    """Keep the model's code for this kind of run in run_blobs (once per version); returns its SHA-256."""
+    """Keep the model's code for this family of run in run_blobs (once per version); returns its SHA-256."""
     return put_blob(con, {"files": code_files(kind)}, "code")
 
 
 def load_code(con, sha, kind):
-    """The simulation function of a stored code version: its runs.py and forecast.py (or the kind's own files) read
+    """The simulation function of a stored code version: its runs.py and forecast.py (or the family's own files) read
     from run_blobs into fresh modules, the stored forecast.py importing the stored runs.py. None if not kept."""
     import types
     doc = get_blob(con, sha)
@@ -306,13 +341,49 @@ def tenths(x):
     return None if x is None else int(math.floor(x * 1000 + 0.5))
 
 
+def _q(s, qs):
+    n = len(s)
+    out = []
+    for q in qs:
+        pos = q * (n - 1)
+        i = int(math.floor(pos))
+        f = pos - i
+        out.append(s[i] if i + 1 >= n else s[i] * (1 - f) + s[i + 1] * f)
+    return out
+
+
+def margin_of(cands, shares, wins):
+    """The likely margin of the top two from a simulation's draws: {"a": the favourite's key, "b": the runner-up's,
+    "q": [median, 10th, 90th, 2.5th, 97.5th percentile]} of the favourite's share less the runner-up's, draw by draw; the
+    two named by their wins, then their middle share, then their names (the pages' own order). None for fewer than two."""
+    n = len(cands)
+    if n < 2 or not shares or not shares[0]:
+        return None
+    med = [_q(sorted(shares[k]), (0.5,))[0] for k in range(n)]
+    order = sorted(range(n), key=lambda k: (-wins[k], -med[k], cands[k].get("name") or cands[k]["key"]))
+    a, b = order[0], order[1]
+    diff = sorted(x - y for x, y in zip(shares[a], shares[b]))
+    return {"a": cands[a]["key"], "b": cands[b]["key"], "q": _q(diff, (0.5, 0.1, 0.9, 0.025, 0.975))}
+
+
 def out_digest(race):
-    """SHA-256 of a race's outputs as stored (status, seats, expected totals and every candidate's numbers)."""
+    """SHA-256 of a race's outputs as stored (status, seats, expected totals and every candidate's numbers; the likely
+    margin of the top two and the chance of no majority where the run made them)."""
     keep = {k: race.get(k) for k in ("status", "seats", "equal", "units_in", "units_all", "ballots", "share_counted",
                                      "exp", "tested")}
     keep["cands"] = [[c["key"], c.get("chance"), c.get("median"), c.get("lo80"), c.get("hi80"), c.get("lo95"), c.get("hi95")]
                      for c in race.get("cands", [])]
+    for k in ("mg", "ro"):              # only where present, so a run made before they existed keeps its digest
+        if race.get(k) is not None:
+            keep[k] = race[k]
     return sha_text(canonical(keep))
+
+
+def margin_columns(race):
+    """(mg_a, mg_b, mg_med, mg_lo80, mg_hi80, mg_lo95, mg_hi95) of a race's output, or Nones."""
+    mg = race.get("mg") or {}
+    q = list(mg.get("q") or []) + [None] * 5
+    return (mg.get("a"), mg.get("b"), q[0], q[1], q[2], q[3], q[4]) if mg else (None,) * 7
 
 
 # ============================================================================================== recording a run
@@ -324,7 +395,7 @@ def record_run(con, *, run, state, kind, method, seed, draws, started, as_of, fr
     or whose method version differs. Returns {"races": n, "written": n}. `outputs` is the simulation's {"races": [...]},
     each race carrying "in_sha" (the digest of its own inputs)."""
     frame_sha = put_blob(con, frame, "frame")
-    csha = keep_code(con, kind)
+    csha = keep_code(con, family(kind, method))
     fam = PUBLIC_KINDS if kind in PUBLIC_KINDS else (kind,)
     last = {}
     if not write_all:
@@ -348,10 +419,11 @@ def record_run(con, *, run, state, kind, method, seed, draws, started, as_of, fr
             continue
         exp = race.get("exp") or [None, None, None]
         con.execute("INSERT INTO race_runs (run, race, state, status, seats, units_in, units_all, ballots, share_counted, exp_lo, "
-                    "exp_mid, exp_hi, equal, tested, in_sha, out_sha, note) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                    "exp_mid, exp_hi, equal, tested, in_sha, out_sha, note, mg_a, mg_b, mg_med, mg_lo80, mg_hi80, mg_lo95, mg_hi95, ro) "
+                    "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                     (run, race["race"], state.upper(), race["status"], race.get("seats"), race.get("units_in"), race.get("units_all"),
                      race.get("ballots"), race.get("share_counted"), exp[0], exp[1], exp[2], 1 if race.get("equal") else 0,
-                     race.get("tested"), race["in_sha"], out_digest(race), race.get("note")))
+                     race.get("tested"), race["in_sha"], out_digest(race), race.get("note")) + margin_columns(race) + (race.get("ro"),))
         con.executemany("INSERT INTO candidate_runs (run, race, choice, name, chance, median, lo80, hi80, lo95, hi95) "
                         "VALUES (?,?,?,?,?,?,?,?,?,?)",
                         [(run, race["race"], c["key"], c.get("name"), c.get("chance"), c.get("median"), c.get("lo80"), c.get("hi80"),
@@ -416,7 +488,27 @@ FILE_KEY = {
           "(every precinct in, the counties' last absentee ballots perhaps still to come); absent: none of the race's "
           "precincts counted yet",
     "k values": "pre: the forecast before results; live: the election-night model, from the votes counted so far",
+    "mg": "the likely margin of the top two: the first candidate's share less the second's (the first two of \"c\"), "
+          "[median, 80% low, 80% high], in tenths of a percentage point; a range below 0 means the second could finish "
+          "ahead (absent where several are elected or nothing on the record separates the candidates)",
+    "ro": "where the law asks for more than half the votes: the chance that no candidate passes half (a runoff, or the "
+          "legislature decides), as a chance cell",
 }
+
+
+def margin_cell(rec, cands, compact):
+    """A race's "mg" for a page file: the margin of the file's first candidate over its second, [median, 80% low, 80%
+    high] in tenths of a point; None when the run kept no margin or its two are not the file's first two."""
+    if rec.get("mg_med") is None or not rec.get("mg_a") or len(compact) < 2:
+        return None
+    name = {c["choice"]: (c["name"] or c["choice"]) for c in cands}
+    a, b = name.get(rec["mg_a"]), name.get(rec["mg_b"])
+    first, second = compact[0][0], compact[1][0]
+    if (a, b) == (first, second):
+        return [tenths(rec["mg_med"]), tenths(rec["mg_lo80"]), tenths(rec["mg_hi80"])]
+    if (b, a) == (first, second):
+        return [tenths(-rec["mg_med"]), tenths(-rec["mg_hi80"]), tenths(-rec["mg_lo80"])]
+    return None
 
 
 def _tested_codes(texts):
@@ -469,6 +561,11 @@ def page_json(code, db=DB, rehearsal=False):
                 r["eq"] = [chance_cell(c0["chance"]), tenths(c0["median"]), tenths(c0["lo80"]), tenths(c0["hi80"])]
             else:
                 r["c"] = _compact_cands(cands)
+                mg = margin_cell(rec, cands, r["c"]) if (rec["seats"] or 1) == 1 else None
+                if mg:
+                    r["mg"] = mg
+            if rec.get("ro") is not None:
+                r["ro"] = chance_cell(rec["ro"])
             if (rec["seats"] or 1) > 1:
                 r["s"] = rec["seats"]
             if rec["tested"]:
@@ -592,6 +689,12 @@ def night_track(con, code):
     doc = get_blob(con, frame_sha) or {}
     rep = doc.get("report") or {}
     prm = doc.get("params") or {}
+    if str(method or "").startswith(US_NIGHT_PREFIX):
+        # the other states' night model (night_us.replays): each state's past count replayed in the state's own order
+        return {"run": run, "method": method, "t": started, "summary": prm.get("summary"), "what": rep.get("what"),
+                "checkpoints": rep.get("checkpoints"), "all": rep.get("all"), "overall": rep.get("overall"),
+                "states": [dict(v, c=k) for k, v in sorted((rep.get("states") or {}).items())],
+                "untested": rep.get("untested"), "scale": rep.get("scale")}
     return {"run": run, "method": method, "t": started, "summary": prm.get("summary"), "orders": rep.get("orders"),
             "checkpoints": rep.get("checkpoints"),
             "partisan": {"by_order": (rep.get("partisan") or {}).get("by_order"), "simulated": rep.get("partisan_simulated"),
@@ -624,6 +727,11 @@ def _simulator(kind):
     return getattr(importlib.import_module(mod), fn)
 
 
+def redoable(kind, method=None):
+    """Whether runs of this kind and method have a registered simulation (backtests and replays keep reports, not frames)."""
+    return kind in PUBLIC_KINDS and family(kind, method) in SIMULATORS
+
+
 def redo(run_id, db=DB, say=print):
     """Redo a stored run from its stored frame and seed, and compare every stored number. Returns {"exact": bool, ...}."""
     con = connect(db)
@@ -632,7 +740,8 @@ def redo(run_id, db=DB, say=print):
                           "WHERE run = ?", (run_id,)).fetchone()
         if not row:
             return {"exact": False, "why": "no such run"}
-        kind, seed, draws, frame_sha, csha, py, method, written, started, state, reh = row
+        run_kind, seed, draws, frame_sha, csha, py, method, written, started, state, reh = row
+        kind = family(run_kind, method)             # the simulation family: Minnesota's night or the other states'
         notes = []
         digest = out_digest
         if csha == code_sha(kind):
@@ -652,7 +761,7 @@ def redo(run_id, db=DB, say=print):
         if not written:
             # a run whose races' inputs had not changed wrote no rows: its frame must give exactly the inputs of the rows
             # standing at that moment (each race's newest row of the same family, before or at this run)
-            fam = PUBLIC_KINDS if kind in PUBLIC_KINDS else (kind,)
+            fam = PUBLIC_KINDS if run_kind in PUBLIC_KINDS else (run_kind,)
             standing = {}
             q = (f"SELECT rr.race, rr.in_sha FROM race_runs rr JOIN runs r ON r.run = rr.run WHERE rr.state = ? AND r.rehearsal = ? "
                  f"AND r.kind IN ({','.join('?' * len(fam))}) AND (r.started < ? OR (r.started = ? AND r.run <= ?)) ORDER BY r.started, r.run")
@@ -701,6 +810,8 @@ def check_no_extremes(code, db=DB):
     doc = page_json(code, db) or {"r": {}}
     for r in doc["r"].values():
         cells = [r["eq"][0]] if "eq" in r else [c[1] for c in r["c"]]
+        if "ro" in r:
+            cells.append(r["ro"])
         bad_page += sum(1 for cell in cells if bad(cell))
     text = canonical(doc)
     hist = history(code, db)
@@ -828,7 +939,7 @@ def main(argv=None):
         print(f"    unopposed races carry no forecast: {u}")
         ok &= e["holds"] and u["holds"]
         for r in list_runs(a.db, a.state):
-            if r["kind"] in SIMULATORS:
+            if redoable(r["kind"], r["method"]):
                 res = redo(r["run"], a.db)
                 ok &= res["exact"]
         sys.exit(0 if ok else 1)

@@ -71,7 +71,8 @@ part of a race on the list, and normState makes each a contest of its own (xRace
 rehearsal of a primary night, "2026-IA-H01~REP" (or "<race>/primary-REP"), shown with its lines as printed; and one
 county's own count read where the state publishes none (a partial source), "2026-MI-S2@26125", shown as that county's
 part, never as the state's count. now.json marks a state read that way with "pt": "<county>". The US page reads
-us.json through the same poller (NIGHTLIVE.start({get: () => liveGet("us.json")})).
+us.json through the same poller (NIGHTLIVE.start({get: () => liveGet("us.json")})), and asks for it only when the
+snapshot carries it: once some state's entry names its file ("f"), or when now.json says "us": true (liveCarries).
 
 A practice build (site/practice/night-live/) writes into the folder the practice now.json already names and merges its
 own states into that now.json (practice_base, practice_now) and its races for Congress and statewide offices into us.json
@@ -722,7 +723,14 @@ const liveRoot = () => BOOT.live.base + (LIVE.rehearsal ? "rehearsal/" : "");
    figures already shown as they are. liveFetch does both (the first load); liveReady turns the state's file into the
    page's own shape once the page has its races, and is run again by liveCommit for every new snapshot. */
 /* name: a file of the snapshot to read instead of the state's own (the US page reads "us.json"); a snapshot without it
-   (a 404) has no figures for the page yet, which is not an error */
+   (a 404) has no figures for the page yet, which is not an error. us.json is written only once some state's file is
+   (a state with figures: its entry in now.json names its file, "f"), so it is asked for only then, and never on the
+   updates before the first figures; a now.json that says "us": true or false itself is taken at its word. */
+function liveCarries(now, name) {
+  if (name !== "us.json") return true;
+  if (typeof now.us === "boolean") return now.us;
+  return Object.values(now.st || {}).some(s => s && s.f);
+}
 function liveGet(name) {
   const root = liveRoot();
   return fetch(root + "now.json", {cache: "no-store"}).then(r => {
@@ -735,6 +743,7 @@ function liveGet(name) {
     if (!now || typeof now !== "object" || now.v !== 1) throw new Error("now unreadable");
     const s = (now.st || {})[CODE], f = typeof name === "string" && name ? name : s && s.f;
     if (!f || !now.base) return {now, raw: null, why: "nostate"};
+    if (f === name && !liveCarries(now, name)) return {now, raw: null, why: "nofig"};
     if (LIVE.raw && LIVE.seq === now.seq) return {now, same: true};
     const base = root + now.base;
     return fetch(base + f, {cache: "force-cache"}).then(r => r.ok ? r.json() : f === name && r.status === 404 ? null : Promise.reject(new Error("state " + r.status)))

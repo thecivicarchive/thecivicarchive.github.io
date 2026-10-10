@@ -48,7 +48,9 @@ WHAT THE OTHER SECTIONS OFFER (each skipped until its module exists; an import e
   election.feeds.bluesky.start(src=, say=) -> an object with stop()
   election.feeds.measures.page_json(code or "US") -> the feed file of a state, or of the country
   election.feeds.measures.newest() -> {"t": UTC} or None (now.json's "fd")
-  election.model.live_model.run(state=, now=, db=, rehearsal=, say=) after a state's new results (at most once a cycle)
+  election.model.live_model.run(state=, now=, db=, rehearsal=, say=) after Minnesota's new results (at most once a cycle)
+  election.model.night_us.run(state=, now=, db=, rehearsal=, say=) after any other state's new results (at most once a
+        cycle; every state read live, with care or by hand that has a pre-election forecast)
   election.model.forecast.run_pre(now=, say=) once a day before results
   election.model.runs.page_json(code) -> a state's forecasts file; runs.history(code) -> {race id: history doc};
   runs.newest() -> {"t": UTC, "m": method version} or None (now.json's "fc")
@@ -467,6 +469,7 @@ class Night:
         self.started = utcnow()
         self.sections_state = {}
         self._model_queue = set()
+        self._model_lock = threading.Lock()        # the results loop adds to the queue, the sections thread takes it
         self._sec_stop = threading.Event()
         self._sec_thread = None
         self._bluesky = None
@@ -881,7 +884,8 @@ class Night:
         if status == "ok":
             s["changed"] = True
             s["held_at"] = None
-            self._model_queue.add(code)
+            with self._model_lock:
+                self._model_queue.add(code)
             um = reading.get("unmatched") or []
             if um:
                 self.log(f"{code}: {len(um)} contests in the file are listed, not shown: " + "; ".join(f"{u.get('office')} ({u.get('why')})" for u in um[:8]))
@@ -1061,11 +1065,12 @@ class Night:
             self._sec_stop.wait(5)
 
     def sections_tick(self, due=None):
-        """Every section whose time has come, once. Returns what was called."""
+        """Every section whose time has come, once: the forecasts of the states with new results first (so that they are
+        in the next snapshot, whatever the feed's collectors take), then the feed's sections. Returns what was called."""
         due = due if due is not None else {}
         now = self.clock.now()
         before = local(now) < dt.datetime.combine(self.day, dt.time(17))
-        called = []
+        called = self.models_tick(now)
         for name, (modname, fn, every_night, every_before) in SECTIONS.items():
             if due.get(name) and now < due[name]:
                 continue
@@ -1086,25 +1091,46 @@ class Night:
             except Exception as e:  # noqa: BLE001
                 self.sections_state[name] = f"failed at {clock_words(utcnow())} ({e.__class__.__name__})"
                 self.log(f"{name} failed: {e.__class__.__name__}: {str(e)[:200]}")
+        return called
+
+    def models_tick(self, now):
+        """The night's model for every state with new results since the last tick (Minnesota's own model for Minnesota,
+        the other states' for the rest), each at most once a cycle; before results, the day's pre-election forecasts once
+        a day. Each run is timed in the log; one state's failure never stops the others or the results."""
+        called = []
         try:
             lm = optional("election.model.live_model")
+            nu = optional("election.model.night_us")
             fm = optional("election.model.forecast")
         except Exception as e:  # noqa: BLE001
             self.sections_state["forecasts"] = f"did not load ({e.__class__.__name__})"
             return called
-        if lm is None and fm is None:
+        if lm is None and nu is None and fm is None:
             self.sections_state["forecasts"] = "not there yet"
             return called
-        queue, self._model_queue = self._model_queue, set()
+        lock = getattr(self, "_model_lock", None) or threading.Lock()
+        with lock:
+            queue, self._model_queue = self._model_queue, set()
+        t_all = time.monotonic()
         for code in sorted(queue):
-            if lm is not None and hasattr(lm, "run"):
-                try:
-                    lm.run(state=code, now=now, db=self.db_path, rehearsal=self.rehearsal, say=lambda t: self.note(t, console=False))
+            mod = lm if code == "MN" else nu
+            if mod is None or not hasattr(mod, "run"):
+                continue
+            t0 = time.monotonic()
+            try:
+                res = mod.run(state=code, now=now, db=self.db_path, rehearsal=self.rehearsal, say=lambda t: self.note(t, console=False)) or {}
+                secs = time.monotonic() - t0
+                if res.get("skipped"):
+                    self.log(f"model {code}: {res['skipped']} ({secs:.1f} s)")
+                else:
                     self.sections_state["forecasts"] = f"{code} ran at {clock_words(utcnow())}"
+                    self.log(f"model {code}: run {res.get('run')}, {res.get('races')} races, {res.get('written')} with new rows, {secs:.1f} s")
                     called.append(f"model {code}")
-                except Exception as e:  # noqa: BLE001
-                    self.sections_state["forecasts"] = f"{code} failed ({e.__class__.__name__})"
-                    self.log(f"model {code} failed: {e.__class__.__name__}: {str(e)[:200]}")
+            except Exception as e:  # noqa: BLE001
+                self.sections_state["forecasts"] = f"{code} failed ({e.__class__.__name__})"
+                self.log(f"model {code} failed: {e.__class__.__name__}: {str(e)[:200]}")
+        if queue:
+            self.log(f"models: {len(queue)} states in {time.monotonic() - t_all:.1f} s")
         today = local(now).date()
         if not self.summ and self._pre_day != today:
             self._pre_day = today

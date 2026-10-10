@@ -59,7 +59,8 @@ from election.model import DB, load_json, save_json, sha_file  # noqa: E402
 from election.model import data_us as U  # noqa: E402
 from election.model import runs as R  # noqa: E402
 
-METHOD = "us-pre-1.1"          # 1.1 (2026-10-10): several minor names beside one big party take the ordinary minor prior
+METHOD = "us-pre-1.2"          # 1.1 (2026-10-10): several minor names beside one big party take the ordinary minor prior;
+                               # 1.2 (2026-10-10): the likely margin of the top two kept with every race (no number changes)
 BT_METHOD = "us-backtest-1.1"  # 1.1: the same, and the measures also stored under the Minnesota backtest's names
 DRAWS = 2000
 BT_DRAWS = 1000

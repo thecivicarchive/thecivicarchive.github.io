@@ -22,6 +22,7 @@ import argparse
 import datetime as dt
 import html
 import json
+import math
 import os
 import re
 import sqlite3
@@ -123,7 +124,8 @@ def facts(look):
             F["verify"] = {"match": int(m.group(1).replace(",", "")), "of": int(m.group(2).replace(",", "")), "date": when.group(1) if when else "",
                            "senate_ties": ties}
     F.update(night_facts())
-    rub = os.path.join(HERE, "rubric_v1.md")
+    F["night_method"] = night_method_facts(look)
+    rub =os.path.join(HERE, "rubric_v1.md")
     if os.path.exists(rub):
         m = re.search(r"version\s+(\d+\.\d+)", open(rub, encoding="utf-8").readline())
         F["rubric"] = m.group(1) if m else ""
@@ -150,8 +152,13 @@ def night_facts():
                     F["night_dc"] = True
                 else:
                     F["night_live"] += 1
-    for key, name, q in (("night_forecasts", "election_model_2026.sqlite", "SELECT COUNT(DISTINCT race_id) FROM race_runs"),
-                         ("night_outlets", "night_feed_2026.sqlite", "SELECT COUNT(*) FROM outlets")):
+    try:                                    # the one switch for forecasts: no count of them on the door until John's yes
+        from election.model import FORECASTS_PUBLIC as forecasts_public
+    except Exception:
+        forecasts_public = False
+    for key, name, q in ((("night_forecasts", "election_model_2026.sqlite", "SELECT COUNT(DISTINCT rr.race) FROM race_runs rr JOIN runs r ON r.run = rr.run WHERE r.kind IN ('pre', 'live') "
+                          "AND r.rehearsal = 0 AND rr.race LIKE '2026-%' AND rr.status <> 'unopposed'"),) if forecasts_public else ()) + (
+                         ("night_outlets", "night_feed_2026.sqlite", "SELECT COUNT(*) FROM outlets"),):
         db = os.path.join(HERE, name)
         if os.path.exists(db):
             try:
@@ -163,6 +170,81 @@ def night_facts():
             except sqlite3.Error:
                 pass
     return F
+
+
+def night_method_facts(look):
+    """What the Method page's Election Night section counts, each from its own file or database, read only: how each
+    state is read on the night (the registry: live, care, hand, link; DC apart), the news outlets and official accounts
+    the feed reads, the leaderboard's own thresholds, and the forecasts so far, their backtests and whether they may be
+    shown (FORECASTS_PUBLIC). A source that is not there leaves its figure out of the page."""
+    N = {"live": 0, "dc": False, "care": 0, "hand": [], "link": 0, "outlets": 0, "outlet_states": 0, "accounts": 0, "posts": False,
+         "fc_races": 0, "fc_states": 0, "bt_races": 0, "bt_years": [], "orders": 0, "public": False, "m": None,
+         "pages": {k: os.path.exists(os.path.join(look, "night", k, "index.html")) for k in ("us", "feed", "forecasts")}}
+    reg = os.path.join(HERE, "election", "registry")
+    if os.path.isdir(reg):
+        for f in sorted(os.listdir(reg)):
+            if not f.endswith(".json"):
+                continue
+            try:
+                with open(os.path.join(reg, f), encoding="utf-8") as fh:
+                    d = json.load(fh)
+            except (OSError, ValueError):
+                continue
+            st = str(d.get("status") or "").lower()
+            if f == "dc.json":
+                N["dc"] = st == "live"
+            elif st in ("live", "care", "link"):
+                N[st] += 1
+            elif st == "hand":
+                N["hand"].append(str(d.get("name") or f[:2].upper()))
+    db = os.path.join(HERE, "night_feed_2026.sqlite")
+    if os.path.exists(db):
+        try:
+            con = _ro(db)
+            try:
+                if _has(con, "outlets"):
+                    N["outlets"], N["outlet_states"] = con.execute(
+                        "SELECT COUNT(DISTINCT outlet_key), COUNT(DISTINCT CASE WHEN home_state NOT IN ('US', 'DC') THEN home_state END) FROM outlets WHERE active = 1").fetchone()
+                if _has(con, "accounts"):
+                    N["accounts"] = con.execute("SELECT COUNT(*) FROM accounts WHERE active = 1").fetchone()[0] or 0
+            finally:
+                con.close()
+        except sqlite3.Error:
+            pass
+    db = os.path.join(HERE, "election_model_2026.sqlite")
+    if os.path.exists(db):
+        try:
+            con = _ro(db)
+            try:
+                if _has(con, "race_runs"):
+                    N["fc_races"], N["fc_states"] = con.execute("SELECT COUNT(DISTINCT race), COUNT(DISTINCT state) FROM race_runs WHERE status = 'pre'").fetchone()
+                if _has(con, "backtests"):
+                    N["bt_races"] = con.execute("SELECT COUNT(DISTINCT race) FROM backtests WHERE scenario = 'pre'").fetchone()[0] or 0
+                    N["bt_years"] = [y for (y,) in con.execute("SELECT DISTINCT year FROM backtests WHERE scenario = 'pre' ORDER BY year") if y]
+                if _has(con, "calibration"):
+                    N["orders"] = len({s.split(":")[1] for (s,) in con.execute("SELECT DISTINCT scenario FROM calibration WHERE scenario LIKE 'replay:%:%'")})
+            finally:
+                con.close()
+        except sqlite3.Error:
+            pass
+    try:
+        from election.model import FORECASTS_PUBLIC
+        N["public"] = bool(FORECASTS_PUBLIC)
+    except Exception:      # noqa: BLE001  without the switch, nothing is said to be shown
+        N["public"] = False
+    try:
+        from election.feeds import accounts as AC
+        N["posts"] = bool(AC.posts_may_be_shown())
+    except Exception:      # noqa: BLE001
+        N["posts"] = False
+    try:
+        from election.feeds import measures as M
+        N["m"] = {"per": M.PER_100K, "shrink": M.SHRINK, "cap": M.CAP, "items": M.COVER_MIN_ITEMS, "outlets": M.COVER_MIN_OUTLETS,
+                  "mom": M.MOMENTUM_MIN, "breadth": M.BREADTH_MIN, "from": round(M.LIVE_MARGIN_FROM * 100), "rise": round((1 - M.RISING_P) * 100),
+                  "night": M.WINDOW_NIGHT, "before": M.WINDOW_BEFORE // 60, "bwin": M.BREADTH_WINDOW // 60, "boards": len(M.BOARDS)}
+    except Exception:      # noqa: BLE001  the leaderboard's paragraph is left out without its own figures
+        N["m"] = None
+    return N
 
 
 def version_now():
@@ -495,6 +577,98 @@ def home_body(F, places, root="./"):
 
 # ============================== Method ==============================
 
+def _and(items):
+    items = list(items)
+    return items[0] if len(items) == 1 else ", ".join(items[:-1]) + " and " + items[-1] if items else ""
+
+
+def night_section(N):
+    """Election Night on the Method page (ARCHITECTURE.md 1.3, phase 6): where the results come from, what the feed shows
+    and never shows, the leaderboard's four measures, and how forecasts are made and labelled. Every figure from
+    night_method_facts(); a paragraph whose figures are missing is left out rather than written with a zero."""
+    P = N["pages"]
+    go = lambda href, words, have=True: f'<a href="{href}">{words}</a>' if have else words
+    out = [f"""__CHUNK__<h2 id="night">Election Night</h2>
+{para("Election Night shows the count of the November 3 election as each state&rsquo;s election office posts it, a feed of news headlines about the races, and forecasts. The count is a fact. The feed&rsquo;s rankings and the forecasts are Analysis, worked out by stated rules, and each is labelled where it appears.",
+      "Election Night shows the vote count from each state. It also shows news about the races, and forecasts. The count is a fact. The rest is labelled Analysis.")}"""]
+    # where the results come from
+    if N["live"] or N["care"] or N["hand"] or N["link"]:
+        live = (f"In {n(N['live'])} states{' and the District of Columbia' if N['dc'] else ''}, the office publishes a count that a program may read, and the site reads it there"
+                if N["live"] else "")
+        care = f"{nw(N['care'])} more states are read with care, where their systems allow it" if N["care"] else ""
+        first = "; ".join(x for x in (live, care) if x)
+        hand = (f" For {_and(N['hand'])}, a person saves the state&rsquo;s own published results files by hand through the night, because the "
+                f"state&rsquo;s site does not answer programs, and the page gives the time of each save." if N["hand"] else "")
+        std = (f"Results come only from each state&rsquo;s own election office, in the form the office publishes them. {first[:1].upper() + first[1:]}." if first else
+               "Results come only from each state&rsquo;s own election office, in the form the office publishes them.") + hand + \
+            (" Each request names this site honestly, asks for one thing at a time and waits between requests. A site that refuses a request, or "
+             "stops to check for a robot, is not asked again that night, and nothing is done to get around it.")
+        plain = ("The numbers come from each state’s election office. A program reads them for most states."
+                 + (f" For {nw(len(N['hand']))} {'state' if len(N['hand']) == 1 else 'states'}, a person saves the files by hand." if N["hand"] else "")
+                 + " If a site says no, we stop asking.")
+        out.append(f'<h3 id="night-results">Where the results come from</h3>\n{para(std, plain)}')
+    if N["link"]:
+        out.append(para(f"The other {n(N['link'])} states are not read on the night. Some post no statewide count until days later, because their counties or towns report on their own. Some state sites turn programs away, and the site never works around that. For a few, the state&rsquo;s own terms or the site&rsquo;s own choice keep them off the list. Their pages link to the state&rsquo;s own results, and the official totals are added once the state certifies them.",
+                        "Some states are not read on the night. Their pages link to the state’s own results. We add the final totals when the state makes them official."))
+    out.append(para("Every figure carries the time the state posted it, shown in your own time zone. New figures go out about every 10 minutes, so a page runs about 10 to 20 minutes behind the state. Each file is checked as it is read: its parts must add up to the state&rsquo;s own totals, and a file that fails is held while the page keeps the last good figures with their time. Until a state certifies its results, every figure is marked as reported and not final. The page never says a race is projected, called or won, and &ldquo;Elected&rdquo; appears only once the result is certified.",
+                    "Each number shows when the state posted it. The page is about 10 to 20 minutes behind the state. Until the count is official, the page says so. We never say who won before then."))
+    # the feed
+    if N["outlets"]:
+        posts = "" if N["posts"] else " None is shown until the site has a public address where readers can report a post."
+        acc = f" {n(N['accounts'])} such accounts have been checked so far." if N["accounts"] else ""
+        out.append(f'<h3 id="night-feed">What the feed shows, and never shows</h3>\n' + para(
+            f"The feed shows news headlines about the races: the headline, the outlet, the time and a link to the story, never the story itself or a summary of it. They come from {n(N['outlets'])} news outlets&rsquo; own public feeds, in {n(N['outlet_states'])} states and nationally, and from the stories the GDELT Project finds in its files every 15 minutes, credited wherever they appear. Posts can be shown only from newsrooms, election offices and candidates&rsquo; official accounts, each linked from its owner&rsquo;s own website and pointing back to it.{acc}{posts} Everyone else who posts is counted and never shown or named: a post is matched to a race and adds one to that race&rsquo;s count, and who posted is never kept.",
+            "The feed shows news headlines with links. It never copies the story. Posts are shown only from news, election and campaign accounts. Other people’s posts are counted. We never show or keep who wrote them."))
+        out.append("<p>Most candidates post where the site does not read: X needs a paid service, and Facebook, Instagram, Threads, TikTok and Reddit give no open access or need a sign-up. "
+                   + go("night/feed/#how", "How the feed is counted", P["feed"]) + " gives every rule.</p>")
+    # the leaderboard
+    M = N["m"]
+    if M:
+        out.append(f'<h3 id="night-board">The leaderboard&rsquo;s four measures</h3>\n' + para(
+            f"The leaderboard ranks races by the attention they get, using four measures counted from public headlines and posts. Each race is ranked only against races at its own level, on {nw(M['boards'])} boards, so a race for the Senate is never set beside a school board. The window is the last {M['before']} hours before Election Night, then the last {M['night']} minutes. One story counts once however often it is found, a wire story once for each outlet that runs it, and at most {nw(M['cap'])} items from one outlet for one race in a window. The measures are Analysis: they count attention, not importance and not support.",
+            "The leaderboard ranks races by how much news they get. Each race is ranked with races like it. It counts news. It does not say a race matters more, or who people back."))
+        per = n(M["per"])
+        rows = [("Coverage per " + per + " residents",
+                 f"shown = {per} &times; (N + R) &divide; (residents + {n(M['shrink'])})",
+                 f"N is the race&rsquo;s news items in the window and R the average rate of its board, so a small place with two stories does not top the board. The raw figure, {per} &times; N &divide; residents, is printed beside it. Ranked with {nw(M['items'])} or more items from {nw(M['outlets'])} or more outlets. Residents are the Census Bureau&rsquo;s American Community Survey figures, 2020 to 2024, for the race&rsquo;s own area."),
+                ("Attention gap",
+                 "gap = percentile of closeness &minus; percentile of coverage (&minus;100 to +100)",
+                 f"Closeness is one minus the margin between the first two. The margin is the count&rsquo;s, once {M['from']}% of the vote is in{"; before that, the forecast&rsquo;s" if N["public"] else "; before that the race is not ranked"}. A positive gap means a race is closer than its coverage suggests. Retention votes and races with one name a seat are left out."),
+                ("Momentum",
+                 "momentum = (last hour + 1) &divide; (hour before + 1)",
+                 f"News items and people posting, together. Ranked with {nw(M['mom'])} or more in the two hours. Called rising only when the last hour is above the {M['rise']}% upper bound for the hour before."),
+                ("Source breadth",
+                 "effective outlets = exp(&minus;&Sigma; p ln p)",
+                 f"Distinct outlets in {M['bwin']} hours, and the effective number, where p is each outlet&rsquo;s share of the race&rsquo;s items: ten stories with eight from one paper and one each from two others are three outlets but about {math.exp(-(0.8 * math.log(0.8) + 2 * 0.1 * math.log(0.1))):.1f} effective. Ranked with {nw(M['breadth'])} or more items.")]
+        out.append("".join(f'<div class="formula"><p><b>{a}</b><br>{b}</p></div>\n<p>{c}</p>\n' for a, b, c in rows))
+    # forecasts
+    out.append(f'<h3 id="night-forecasts">How forecasts are made</h3>\n' + para(
+        "A forecast is a computer model&rsquo;s estimate, labelled Analysis wherever it appears. Before Election Day it starts from how each precinct voted in past official elections, the year&rsquo;s mood from polls by members of the American Association for Public Opinion Research&rsquo;s Transparency Initiative only, Census figures about places (never about voters), and who holds the seat. On the night it compares each place that has reported with what it expected there, and adjusts its view of the places still to come. Thousands of simulated elections give each candidate a chance of coming first and a likely range for their share of the vote: the middle 80 percent of the simulations, so about one race in five lands outside it.",
+        "A forecast is a computer’s best guess. It uses past votes, polls and facts about places. It gives each candidate a chance to win and a likely share of the vote."))
+    out.append(para("Chances are given in whole percents and are never 0 or 100 before the count is certified: &ldquo;over 99%&rdquo; and &ldquo;under 1%&rdquo; instead. No forecast is made for a race with one name for each seat. Where the record gives no reason to favour anyone, the candidates get the same chance and the page says so. A forecast is never a result and never a call; the official count decides.",
+                    "A chance is never 0 or 100. A race with one name for each seat gets no forecast. A forecast is never a result."))
+    out.append(para("The model watches three blind spots. Count order: places and kinds of ballots are counted in different orders, so the first figures are never treated as typical. Roll-off: many voters skip races lower on the ballot, from a few percent for Congress to half for some judges, and the model expects the same skipping place by place. Ballot position: a name printed first can gain a little, most in races voters know least about.",
+                    "The model looks out for three things. Some votes are counted first. Some voters skip races. A name at the top can get a few more votes."))
+    years = _and([str(y) for y in N["bt_years"]])
+    tested = ""
+    if N["bt_races"] and years:
+        tested = (f" The method was tested on the {years} elections: {n(N['bt_races'])} past races forecast as they would have stood beforehand"
+                  + (f", and past counts replayed in {nw(N['orders'])} different orders of reporting" if N["orders"] else "") + ".")
+    track = go("night/forecasts/#track", "The track record", P["forecasts"])
+    out.append(para(f"Every run of the model is kept with its method version, the fingerprints of its inputs and its random seed, so it can be made again exactly, and each race&rsquo;s trend marks where a new method version begins.{tested} {track} shows how it did, and after November 3 every forecast is scored there against the certified count.",
+                    "Every run of the model is kept. We tested it on past elections. After the vote, we show how well it did."))
+    if N["public"]:
+        shown = f"Forecasts are shown for {n(N['fc_races'])} races in {n(N['fc_states'])} states." if N["fc_races"] else "Forecasts are shown on the forecasts page."
+        out.append(para(shown + " " + go("night/forecasts/#method", "How the forecasts are made", P["forecasts"]) + " gives the method in full.",
+                        "You can see the forecasts on their own page."))
+    else:
+        made = (f" The model has so far made forecasts for {n(N['fc_races'])} races in {n(N['fc_states'])} states; they are not published."
+                if N["fc_races"] else "")
+        out.append(para(f"No forecast is shown yet. Forecasts appear once the model&rsquo;s checks are finished and approved.{made} Until then the forecasts page shows only "
+                        + go("night/forecasts/#method", "the method", P["forecasts"]) + " and the track record.",
+                        "No forecast is shown yet. They will be shown once they are checked and approved."))
+    return "\n".join(out)
+
 def method_body(F):
     v = F["verify"]
     votes_check = ""
@@ -604,6 +778,7 @@ def method_body(F):
     secs.append(f"""__CHUNK__<h2 id="ballot">On The Ballot</h2>
 {para("Who is running comes only from each state's official candidate list, loaded one state at a time. Primary votes are shown only once they are official. Polls come only from members of the American Association for Public Opinion Research's Transparency Initiative, each checked against the pollster's own release. Betting-market prices are labelled as what bettors are paying, not a poll, a forecast or an official record. Advertising is shown from the spenders' own federal filings, with links to the public ad libraries.",
       "Candidates come from official state lists. Polls come only from pollsters who show their methods. Betting prices are labelled as bets.")}""")
+    secs.append(night_section(F["night_method"]))
     secs.append(f"""__CHUNK__<h2 id="refuse">What the site will not do</h2>
 <ul>
 <li>Score or rate any person.</li>
@@ -612,6 +787,7 @@ def method_body(F):
 <li>Describe a member's character, beliefs or politics. A member's page shows the record. The one piece of outside writing is the first paragraph of their Wikipedia article, fenced off and labelled as not an official record.</li>
 <li>Use red or blue for anything but party data.</li>
 <li>Put a real bill number on an illustration.</li>
+<li>Call a race, or say who won, before the state has certified the count.</li>
 </ul>""")
     secs.append(f"""__CHUNK__<h2 id="sources">Sources</h2>
 <ul class="links">
@@ -624,6 +800,8 @@ def method_body(F):
 <li><a href="https://www.census.gov/geographies/mapping-files.html" rel="noopener">Boundary files</a> and counts, the Census Bureau</li>
 <li><a href="https://open.pluralpolicy.com/data/" rel="noopener">Open States</a>, state legislators and committees</li>
 <li>Each state's election office, for its candidate lists and results, and each state's campaign finance agency, for its money. Every state page names its own.</li>
+<li><a href="https://www.gdeltproject.org/" rel="noopener">The GDELT Project</a>, for news stories found on Election Night, each linked to the outlet that published it</li>
+<li><a href="https://aapor.org/standards-and-ethics/transparency-initiative/" rel="noopener">The Transparency Initiative</a>, the American Association for Public Opinion Research: only its members&rsquo; polls are used</li>
 </ul>""")
     secs.append(f"""__CHUNK__<h2 id="corrections">Corrections</h2>
 {para("There is no corrections log yet. When there is one, it will be listed here.", "There is no list of fixes yet.")}""")

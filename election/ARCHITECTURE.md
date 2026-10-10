@@ -157,7 +157,9 @@ Top level:
   `publish.py`, `replay.py`, `awake.py`, `feeds/` (`outlets.py`, `accounts.py`, `keywords.py`, `gdelt.py`, `rss.py`,
   `bluesky.py`, `mastodon.py`, `youtube.py`, `geotag.py`, `measures.py`), `model/` (`data_mn.py`, `census.py`,
   `features.py`, `forecast.py`, `live_model.py`, `simulate.py`, `blindspots.py`, `backtest.py`, `runs.py`,
-  `data_us.py`, `other_states.py`), `tests/`, `fixtures/` (small test files from public results only).
+  `data_us.py`, `other_states.py`, and from batch 6 `night_us.py` with `simulate_us.py`, the night's model for the
+  other states, registered as `runs.SIMULATORS["live/us"]`), `tests/`, `fixtures/` (small test files from public
+  results only).
 
 Databases (ignored by git, as every `.sqlite` is): `election_2026.sqlite`, `night_feed_2026.sqlite`,
 `election_model_2026.sqlite`. Never the ballot or record databases, which Night reads only.

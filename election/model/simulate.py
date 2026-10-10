@@ -146,6 +146,10 @@ def _summarise(e, shares, wins, votes, draws, equal=False):
         out["share_counted"] = round(min(1.0, (e.get("counted") or 0) / q[1]), 6) if q[1] > 0 else 0.0
     else:
         out["share_counted"] = 0.0
+    if not equal and seats == 1:
+        mg = R.margin_of(e["cands"], shares, wins)     # the likely margin of the top two (no draw is added for it)
+        if mg:
+            out["mg"] = mg
     if e.get("note"):
         out["note"] = e["note"]
     return out

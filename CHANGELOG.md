@@ -10,6 +10,12 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.111 — 2026-10-10 — Election Night: forecasts that follow every state's count, and the Method page
+
+- On election night the forecasts for the other states' races for Congress, governor and the statewide offices now move with the count, county by county (precinct by precinct where a state posts precincts), allowing for the order in which each state counts its kinds of ballot and for its own rule for winning (most votes, a majority with a runoff, ranked choice, or the top two). Tested by replaying the 2024 counts of Florida, North Carolina, Pennsylvania, Louisiana and Georgia.
+- Every forecast for a one-seat race now gives the likely margin between the top two, with its range, labelled Analysis.
+- The Method page has an Election Night section: where the results come from, what the feed shows and never shows, how the leaderboard's four measures are worked out, and how the forecasts are made and labelled.
+
 ## v4.0.110 — 2026-10-10 — Election Night: four reviews and their fixes
 
 - Election Night was reviewed four ways (look and access, the privacy and wording rules, how the night's updater copes when something goes wrong, and the numbers) and what they found is fixed.

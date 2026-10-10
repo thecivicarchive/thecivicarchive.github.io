@@ -360,8 +360,10 @@ def blind_spots(code, races, track):
     if code == "MN":
         order = MN_ORDER
     else:
-        import build_night_state as S
-        order = (S.registry_words(code) + " " if S.registry_words(code) else "") + OTHER_ORDER
+        # the state's own way of counting and what the night's model does about it (the model's own words, from the state's
+        # registry note on its count order)
+        from election.model import night_us as NU
+        order = NU.order_words(code, NU.feed_gives_kinds(code)) or OTHER_ORDER
     for s in roll + pos + [order]:
         if N.kit_names(s):
             raise SystemExit(f"build_night_forecasts: a blind-spot sentence names the kit's own files: {N.kit_names(s)}")
@@ -646,6 +648,27 @@ function rowHTML(rid) {
   const u = X.f.sc ? `${Math.max(1, Math.round(X.f.sc * 100))}% counted` : (X.m.pt ? "Partisan" : "Nonpartisan");
   return `<a class="nrow" href="#race=${encodeURIComponent(rid)}"><span class="t">${esc(X.m.title)}${X.m.where ? `<small>${esc(X.m.where)}</small>` : ""}</span><span class="l">${leadHTML(X)}</span><span class="u">${esc(u)}</span></a>`;
 }
+/* the likely margin of the top two (the first two of the forecast's list), in plain words: "mg" is the first's share less
+   the second's, [middle, 80% low, 80% high], in tenths of a point */
+function marginHTML(X) {
+  const mg = X && X.f && X.f.mg; if (!Array.isArray(mg) || mg.length < 3 || X.eq || X.seats > 1 || X.L.length < 2) return "";
+  const A = esc(X.L[0].name), B = esc(X.L[1].name), [m, lo, hi] = mg;
+  const pts = t => { const v = (Math.abs(t) / 10).toFixed(1); return `${v} ${v === "1.0" ? "point" : "points"}`; };
+  const lead = t => t === 0 ? "level" : `${t > 0 ? A : B} ahead by ${pts(t)}`;
+  let words;
+  if (lo >= 0) words = `${lead(m)}; likely ${(lo / 10).toFixed(1)} to ${pts(hi)}`;
+  else if (hi <= 0) words = `${lead(m)}; likely ${(Math.abs(hi) / 10).toFixed(1)} to ${pts(lo)}`;
+  else words = `${lead(m)}; likely anywhere from ${lead(lo)} to ${lead(hi)}`;
+  return `<p class="fmeta" id="fmargin">${ANALYSIS} <b>The likely margin of the top two:</b> ${words}. The middle 80% of the model&rsquo;s simulated elections, like the ranges above.</p>`;
+}
+/* the rule that decides the race, and (where the law asks for more than half the votes) the chance no one passes half */
+function ruleHTML(rid, X, d) {
+  const rules = (d && d.about && d.about.rules) || {}, words = rules[rid] || rules[rid.slice((d.pre || "").length)] || "";
+  const ro = X && X.f && X.f.ro;
+  let o = words ? `<p class="fmeta">${esc(plainW(words))}</p>` : "";
+  if (ro != null && ro !== "") o += `<p class="fmeta">${ANALYSIS} The chance that no candidate passes half the votes: <b>${chanceText(ro)}</b>.</p>`;
+  return o;
+}
 function runLine(d, f) {
   const t = (f && f.t) || d.t, m = (f && f.m) || d.m, k = (f && f.k) || d.k, ab = d.about || {};
   return `<p class="fmeta">Model run ${esc(KINDW[k] || "")}: <b>${esc(fmtTime(t, true))}</b>, method version <b>${esc(m || "")}</b>${ab.draws ? `, ${num(ab.draws)} simulated elections` : ""}.${ab.ran && ab.ran > t && fmtTime(ab.ran, true) !== fmtTime(t, true) && !f ? ` The model last ran ${esc(fmtTime(ab.ran, true))}; races whose inputs had not changed kept their forecast.` : ""}</p>`;
@@ -748,6 +771,7 @@ function racePage(rid) {
       <span class="fig"><b>${chanceText(L.chance)}</b> chance</span><span class="nbar" aria-hidden="true"><i style="width:${chanceNum(L.chance)}%;--c:${L.c}" data-p="${L.p}"></i></span>
       <span class="rg">Likely ${rangeText(L.lo, L.hi)} of the vote; middle estimate ${shareText(L.med)}</span></div>`).join("") + `</div>`;
     o += `<p class="one">${ANALYSIS} Chances are whole percents and never 0 or 100 before the canvass. &ldquo;Likely&rdquo; is the middle 80% of the model&rsquo;s simulated elections: in about one race in five the result falls outside it.</p></div>`;
+    o += marginHTML(X) + ruleHTML(rid, X, d);
     if (f.v) o += `<p class="fmeta">${votersText(f.v)}</p>`;
     const tested = f.x && d.tested && d.tested[f.x];
     if (tested) o += `<p class="fmeta">${/^untested/.test(tested) ? "<b>Not tested.</b> " + esc(capital(plainW(tested.replace(/^untested:\s*/, "")))) + "." : "<b>Tested</b> " + esc(tested.replace(/^tested\s*/, "")) + ". See the track record."}</p>`;
@@ -887,6 +911,7 @@ function track() {
               return `<td>${G ? `${pc0(mv(G, "cover80"))} held<br><small>${pc0(mv(G, "leader_wrong"))} ahead, not first</small>` : "&ndash;"}</td>`; }).join("")}</tr>`).join("") + `</tbody></table></div>`;
         });
       }
+      o += nightHTML(T.night);
       const un = Array.isArray(A.untested) ? A.untested : [];
       if (un.length) o += `<h3 class="fsub">Not tested yet</h3><ul class="inlist">${un.map(u => `<li>${esc(capital(plainW(u)))}</li>`).join("")}</ul>`;
       if (A.position && A.position.finding) o += `<h3 class="fsub">Ballot position</h3><p class="fp">${esc(plainW(A.position.finding))}</p>`;
@@ -896,6 +921,38 @@ function track() {
     $$("select[data-st]").forEach(sel => { const draw = () => { $("#calbox" + sel.dataset.st).innerHTML = calHTML((TRACK[sel.dataset.st].measures.pre || {})[sel.value]); fitLabels($("#calbox" + sel.dataset.st)); }; sel.onchange = draw; draw(); });
   }, () => { if (tok === TOKEN) app.innerHTML = h + `<p class="nempty">The track record could not be loaded. Check your connection and open the page again.</p>`; });
 }
+/* the election-night model replayed on past counts: the other states' (each state's own order), or Minnesota's (four
+   orders); each cell how often the 80% ranges held and how often the candidate ahead at that point did not finish first */
+const SNAME = c => (BOOT.names && BOOT.names[c]) || c;
+function nightHTML(N) {
+  if (!N) return "";
+  const cell = (G, extra) => { if (!G) return "&ndash;";
+    if (G.races === 1) {  /* one race: say what happened to it, not a percent of one */
+      const one = [G.leader_wrong != null ? `the one ahead in the count ${G.leader_wrong ? "did not finish first" : "finished first"}` : "",
+        extra && G.favourite_wrong != null ? `the model&rsquo;s favourite ${G.favourite_wrong ? "did not finish first" : "finished first"}` : ""].filter(Boolean);
+      return `${G.cover80 >= 0.5 ? "held" : "missed"}${one.length ? `<br><small>${one.join("; ")}</small>` : ""}`; }
+    const sm = [G.leader_wrong != null ? `${pc0(G.leader_wrong)} ahead in the count, not first` : "", extra && G.favourite_wrong != null ? `${pc0(G.favourite_wrong)} of the model&rsquo;s favourites, not first` : ""].filter(Boolean);
+    return `${pc0(G.cover80)} held${sm.length ? `<br><small>${sm.join("; ")}</small>` : ""}`; };
+  if (Array.isArray(N.states) && N.states.length) {
+    const cps = (N.checkpoints || [10, 25, 50, 75, 90]).map(String);
+    let o = `<h3 class="fsub">On the night: past counts replayed in each state&rsquo;s own order</h3><p class="fp">${esc(plainW(N.what || ""))} ${N.summary ? esc(capital(plainW(N.summary))) + "." : ""}</p>`;
+    o += `<div class="tblwrap"><table class="ftbl"><caption>Each cell: how often the 80% ranges held; how often the candidate ahead in the count at that point did not finish first; and how often the model&rsquo;s favourite did not.</caption><thead><tr><th scope="col">State</th>${cps.map(p => `<th scope="col">${p}% counted</th>`).join("")}</tr></thead><tbody>` +
+      N.states.map(s => `<tr><td>${esc(SNAME(s.c))}<br><small>${num(s.races)} ${s.races === 1 ? "race" : "races"}</small></td>${cps.map(p => `<td>${cell((s.cells || {})[p], 1)}</td>`).join("")}</tr>`).join("") +
+      (N.all ? `<tr><td><b>All</b></td>${cps.map(p => `<td>${cell(N.all[p], 1)}</td>`).join("")}</tr>` : "") + `</tbody></table></div>`;
+    o += `<details class="nfold"><summary>How each state counts, and how its count was replayed</summary>` + N.states.map(s =>
+      `<p class="fp"><b>${esc(SNAME(s.c))}</b> ${esc(plainW(s.order || ""))}</p><p class="fmeta">${esc(plainW(s.label || ""))}. ${Object.keys(s.type_gaps || {}).length ? "In that count, against each county&rsquo;s whole vote: " + Object.entries(s.type_gaps).map(([k, v]) => `${esc(KINDB[k] || k)} ${v >= 0 ? "+" : "&minus;"}${Math.abs(v).toFixed(1)} points Democratic`).join("; ") + "." : ""}</p>`).join("") + `</details>`;
+    if (Array.isArray(N.untested) && N.untested.length) o += `<details class="nfold"><summary>What these replays could not test</summary><ul class="inlist">${N.untested.map(u => `<li>${esc(capital(plainW(u)))}</li>`).join("")}</ul></details>`;
+    return o;
+  }
+  const P = N.partisan && N.partisan.by_order;
+  if (!P || !Object.keys(P).length) return "";
+  const keys = Object.keys(P), orders = [...new Set(keys.map(k => k.replace(/ \d+%$/, "")))], cps = [...new Set(keys.map(k => +(/(\d+)%$/.exec(k) || [0, 0])[1]))].sort((a, b) => a - b);
+  const OW = {"random": "In a random order", "small-first": "Small precincts first", "metro-last": "Biggest metro counties last", "late-batch": "Late absentee batches held back"};
+  return `<h3 class="fsub">On the night: the night&rsquo;s own model, replayed</h3><p class="fp">${esc(plainW(N.what || ""))} ${N.summary ? esc(capital(plainW(N.summary))) + "." : ""}</p>` +
+    `<div class="tblwrap"><table class="ftbl"><caption>Partisan races. Each cell: how often the 80% ranges held, and how often the candidate ahead in the count at that point did not finish first.</caption><thead><tr><th scope="col">Order counted</th>${cps.map(p => `<th scope="col">${p}% counted</th>`).join("")}</tr></thead><tbody>` +
+    orders.map(ord => `<tr><td>${esc(OW[ord] || capital(ord.replace(/-/g, " ")))}</td>${cps.map(p => `<td>${cell(P[`${ord} ${p}%`])}</td>`).join("")}</tr>`).join("") + `</tbody></table></div>`;
+}
+const KINDB = {early: "early in-person ballots", mail: "mail ballots", election_day: "Election Day ballots", provisional: "provisional ballots", other: "other ballots"};
 function calHTML(G) {
   if (!G) return "";
   const bins = Object.keys(G).filter(k => /^bin\d\d_\d+$/.test(k)).sort();
@@ -914,15 +971,19 @@ function calHTML(G) {
 
 /* ---------- the method ---------- */
 const ABOUTW = {lean: "Past votes", environment: "The year&rsquo;s mood", district: "Districts", nonpartisan: "Nonpartisan races", turnout: "Who votes",
-  position: "Ballot position", not_used: "Not used yet", untested: "Not tested", backtest: "Sized by the backtests"};
+  position: "Ballot position", not_used: "Not used yet", untested: "Not tested", backtest: "Sized by the backtests",
+  night: "On election night", night_now: "Tonight so far", count_order: "Count order", types_now: "Kinds of ballot tonight",
+  turnout_night: "Turnout tonight", night_tested: "Sized by replays", rolloff_night: "Roll-off tonight", position_night: "Ballot position tonight",
+  night_census: "Census figures on the night", early_lead: "How much an early lead means", statewide: "Statewide races", house: "The U.S. House",
+  minor: "Smaller parties"};
 function method() {
   const tok = ++TOKEN;
   let h = crumbs([["#", "Forecasts"], ["", "How the forecasts are made"]]) + hero("Forecasts &middot; Analysis", "How the forecasts are made", "A computer model, run again whenever its inputs change, every run kept.");
   const sec = (id, title, body) => `<section class="fsec" aria-labelledby="${id}"><h2 id="${id}">${title}</h2>${body}</section>`;
   let o = h + aboxHTML();
-  o += sec("mw", "What a forecast says", `<p>For each candidate, the <b>chance</b> of coming first (or, where several are elected, of a seat) and a <b>likely range</b> for their share of the vote: the middle 80% of the model&rsquo;s simulated elections, so about one race in five lands outside it. Chances are whole percents and never 0 or 100 before the canvass: &ldquo;over 99%&rdquo; and &ldquo;under 1%&rdquo; instead.</p><p>No forecast is made for a race with one name for each seat. Where nothing on the record separates the candidates, the model gives them the same chance and says so.</p><p>A forecast is never a result and never a call. The official count decides, and each state&rsquo;s own results are the authority.</p>`);
+  o += sec("mw", "What a forecast says", `<p>For each candidate, the <b>chance</b> of coming first (or, where several are elected, of a seat) and a <b>likely range</b> for their share of the vote: the middle 80% of the model&rsquo;s simulated elections, so about one race in five lands outside it. Where one seat is filled, the <b>likely margin of the top two</b> as well: how far the first is likely to finish ahead of the second, a range that runs below zero when the second could finish ahead. Chances are whole percents and never 0 or 100 before the canvass: &ldquo;over 99%&rdquo; and &ldquo;under 1%&rdquo; instead.</p><p>No forecast is made for a race with one name for each seat. Where nothing on the record separates the candidates, the model gives them the same chance and says so.</p><p>A forecast is never a result and never a call. The official count decides, and each state&rsquo;s own results are the authority.</p>`);
   o += sec("mb", "Before Election Day", `<p>Each precinct&rsquo;s lean in past official results, added up to every district made of whole precincts; the year&rsquo;s mood, from polls by members of AAPOR&rsquo;s Transparency Initiative only; who is expected to vote; a sitting officeholder&rsquo;s edge where the backtests show one; and errors at the statewide, regional, district and precinct level. Nonpartisan races use only the record: who holds the seat, an earlier result, a party&rsquo;s own published endorsement, and where the name is printed. Then thousands of simulated elections give the chances and ranges.</p>`);
-  o += sec("mn", "On election night", `<p>As precincts report, each one is compared with what the model expected there. The differences are spread to the precincts still to come by region and past swing, pulled back toward the earlier forecast while few are in. Absentee ballots a county adds late are their own block, with an unknown lean until they are counted. The model runs again after each new set of official figures, and every run is kept. Early in the count the page says how much of the expected vote is in, and that early figures often move.</p>`);
+  o += sec("mn", "On election night", `<p>As precincts and counties report, each one is compared with what the model expected there. The differences are spread to the places still to come by region and past swing, pulled back toward the earlier forecast while few are in. In Minnesota, absentee ballots a county adds late are their own block, with an unknown lean until they are counted. Where a state&rsquo;s results give Election Day, early and mail ballots apart, each kind of ballot gets its own lean, learned as it is counted, and the ballots of each kind still to come are estimated kind by kind; where they give totals only, the ballots counted first in a county may lean apart from those counted last. Where the law asks for more than half the votes, the page gives the chance that no one passes half; for ranked-choice races it counts first choices on the night and says so. The model runs again after each new set of official figures, and every run is kept. Early in the count the page says how much of the expected vote is in, and that early figures often move.</p>`);
   o += sec("mbs", "Three blind spots", `<div class="fgrid"><div class="fcard"><div class="kick">Count order</div><h3>Which votes come in first</h3><p>Places and kinds of ballots are counted in different orders, so the first figures can lean one way and the last another. The model never treats the first figures as typical.</p></div><div class="fcard"><div class="kick">Roll-off</div><h3>Voters who skip a race</h3><p>Many voters skip races further down the ballot: from a few percent for Congress to half of the voters for some judges. The model expects the same skipping, precinct by precinct, where past results measure it.</p></div><div class="fcard"><div class="kick">Ballot position</div><h3>Whose name is printed first</h3><p>A name printed first can gain a little, most in races voters know least about. Where the state rotates names the edge mostly cancels out; where one name is first everywhere, the model allows for it.</p></div></div>`);
   o += sec("mk", "What it cannot know", `<p>How absentee voters voted until their county adds them; anything that happens late; write-in campaigns; recounts. Census figures describe places, never voters.</p>`);
   o += sec("mv", "Every run kept", `<p>Each run is stored with its method version, the fingerprints of every input, and the random seed it used, so it can be made again exactly. A race gets a new entry only when its inputs change. When a formula changes the method&rsquo;s version goes up, and each race&rsquo;s trend marks where the new version begins. <a href="#track">The track record</a> shows how the method did on past elections.</p>`);
@@ -1113,9 +1174,10 @@ def build(dev_root, version=None, practice=None, say=print):
     for s in none_boot:
         say(f"  {s['c']}: nothing to forecast ({s['total']:,} races left out; the page says why)")
     copy_fonts(out_dir)
+    night_codes = sorted({s.get("c") for doc in tracks.values() for s in ((doc.get("night") or {}).get("states") or []) if s.get("c")})
     boot = {"public": show, "election": GENERAL, "buckets": BUCKETS, "states": states_boot, "none": none_boot, "track": track_boot,
             "trackStates": {}, "live": {"base": live, "dir": ""}, "changelog": changelog,
-            "links": {"night": links["night"], "nass": NASS}}
+            "links": {"night": links["night"], "nass": NASS}, "names": {c: place(c)["name"] for c in night_codes}}
     if practice:
         boot["practice"] = {"label": PRACTICE_LABEL, "now": dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")}
     P = N.parts()

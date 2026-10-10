@@ -1324,7 +1324,7 @@ def check(snapshot, scratch, draws=DRAWS, say=say_default):
             f"{res.get('written')} new rows, {draws:,} draws")
         time.sleep(1.1)
     for r in R.list_runs(mdb, STATE):
-        if r["kind"] in R.SIMULATORS:
+        if R.redoable(r["kind"], r["method"]):
             res = R.redo(r["run"], mdb, say=lambda *a: None)
             ok &= res["exact"]
             say(f"    {'ok ' if res['exact'] else 'BAD'} redo {r['run']} ({r['kind']}): {res.get('compared')} races compared, "

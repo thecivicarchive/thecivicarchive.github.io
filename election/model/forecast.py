@@ -70,7 +70,8 @@ if HERE not in sys.path:
 from election.model import DB, cache_dir, load_json, save_json, sha_file  # noqa: E402
 from election.model import runs as R  # noqa: E402
 
-METHOD = "pre-1.1"          # 1.1 (2026-10-10): several minor names beside one big party take the ordinary minor prior, not "sole"
+METHOD = "pre-1.2"          # 1.1 (2026-10-10): several minor names beside one big party take the ordinary minor prior, not "sole";
+                            # 1.2 (2026-10-10): the likely margin of the top two kept with every race (no number changes)
 DRAWS = 2000
 STATE = "MN"
 ELECTION_DAY = dt.date(2026, 11, 3)
@@ -1090,6 +1091,10 @@ def _summarise(entry, shares, wins, votes, draws, equal=False):
     if votes:
         q = quantiles(votes, (0.1, 0.5, 0.9))
         out["exp"] = [q[0], q[1], q[2]]
+    if not equal and seats == 1:
+        mg = R.margin_of(entry["cands"], shares, wins)  # the likely margin of the top two, from the same draws
+        if mg:
+            out["mg"] = mg
     return out
 
 
