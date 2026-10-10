@@ -21,7 +21,7 @@ bar, drawn from one place:
     S.top_bar(root, current, places)                     # skip link, the top bar, its two menus, the phone menu
     S.panels(root, A, faq_html, inline_access=False)     # Help, Reading & access, the live region
     S.tab_bar(root, current, places)                     # the bottom tab bar on phones
-    S.icon("bills")                                      # one of the five icons, drawn
+    S.icon("bills")                                      # one of the six icons, drawn
 
 `root` is the way from the page to the draft's root ("./" on the front door, "../" one folder down). Nothing here
 fetches anything from another server, and the pages it helps write name none of the kit's own files or programs.
@@ -57,8 +57,11 @@ COMPANIONS = [
 HASHED = re.compile(r"^(shell|icons|dock|guide|rider|tabicons)\.[0-9a-f]{10}\.(js|css)$")
 # The pages that keep their own top bar get the companion and the page guide through shell/rider.js (John, 2026-10-04).
 # Paths from the draft's root; the home, Method and Access pages carry the whole shell, and the cabin, the share pages
-# and the test pages carry nothing.
-RIDE = re.compile(r"^(rooms\.html|us/index\.html|[a-z]{2}/index\.html|ballot/index\.html|ballot/us/index\.html|ballot/states/index\.html|ballot/[a-z]{2}/index\.html)$")
+# and the test pages carry nothing. Election Night's home is on the whole shell; its inner pages (results across the
+# country, each state, the feed, the forecasts) keep their own top bar and carry the rider.
+RIDE = re.compile(r"^(rooms\.html|us/index\.html|[a-z]{2}/index\.html|ballot/index\.html|ballot/us/index\.html|ballot/states/index\.html|ballot/[a-z]{2}/index\.html"
+                  r"|night/(?:us|feed|forecasts|[a-z]{2})/index\.html)$")
+DEEP = ("ballot", "night")      # the spaces whose pages sit two folders down (ride() walks one folder deeper inside them)
 RIDE_TAG = re.compile(r'<script type="module" src="[^"]*shell/rider\.js" data-tca-rider></script>\n?')
 esc = lambda s: html.escape(str(s), quote=True)
 
@@ -370,7 +373,8 @@ def head(A, root, title, desc, version, extra="", og_image=None, url=None):
 
 
 def site_places(dev_root):
-    """What the draft holds, seen from its folders: the federal side, the ballot, every state page, county pages."""
+    """What the draft holds, seen from its folders: the federal side, the ballot, Election Night, every state page,
+    county pages."""
     sys.path.insert(0, HERE)
     try:
         from states.places import PLACES
@@ -381,7 +385,7 @@ def site_places(dev_root):
     states = sorted(((P.get("name") or code.upper(), code) for code, P in PLACES.items() if exists(code, "index.html")), key=lambda t: t[0])
     counties = [(PLACES[c]["name"], f"{c}/counties/") for c in sorted(PLACES) if exists(c, "counties", "index.html")]
     return {"us": exists("us", "index.html"), "ballot": exists("ballot", "index.html"), "ballot_us": exists("ballot", "us", "index.html"),
-            "ballot_states": exists("ballot", "states", "index.html"), "states": states, "counties": counties,
+            "ballot_states": exists("ballot", "states", "index.html"), "night": exists("night", "index.html"), "states": states, "counties": counties,
             "rooms": exists("rooms.html"), "cabin": exists("cabin.html")}
 
 
@@ -402,9 +406,9 @@ SKIP = '<a class="tca-skip" href="#main">Skip to content</a>'
 
 
 def top_bar(root, current=None, places=None, skip=True):
-    """The skip link, the top bar (wordmark, the five sections, Help, Reading & access, Motion, the phone menu's
-    button), the two mega-menus and the phone menu. `current` names the section the page belongs to ("method",
-    "access"); the front door has none, its wordmark is home. A page that puts anything before the top bar (a draft
+    """The skip link, the top bar (wordmark, the six sections, Help, Reading & access, Motion, the phone menu's
+    button), the two mega-menus and the phone menu. `current` names the section the page belongs to ("night",
+    "method", "access"); the front door has none, its wordmark is home. A page that puts anything before the top bar (a draft
     note) writes SKIP first itself and passes skip=False, so the skip link is always the first thing the keyboard reaches."""
     P = places or {"states": [], "counties": [], "rooms": True, "cabin": True, "ballot_states": True}
     bills = f"""<div class="tca-mega" id="tca-mega-bills" hidden>
@@ -439,6 +443,7 @@ def top_bar(root, current=None, places=None, skip=True):
 </div></div>"""
     rows = [("bills", f"{root}us/", "Bills", "Plain Congress: every bill and vote"),
             ("ballot", f"{root}ballot/", "Ballot", "Who is on your November ballot"),
+            ("night", f"{root}night/", "Election Night", "Follow the count, race by race"),
             ("officials", f"{root}#officials" if root != "./" else "#officials", "Officials", "Congress and your statehouse"),
             ("method", f"{root}method/", "Method", "How each page is made"),
             ("access", f"{root}access/", "Access", "Reading and access, and what is not done yet")]
@@ -456,6 +461,7 @@ def top_bar(root, current=None, places=None, skip=True):
 <ul>
 <li><button type="button" aria-expanded="false" aria-controls="tca-mega-bills"{_cur(current, "bills")}>Bills{CHEV}</button>{bills}</li>
 <li><a href="{root}ballot/"{_cur(current, "ballot")}>Ballot</a></li>
+<li><a href="{root}night/"{_cur(current, "night")}>Election Night</a></li>
 <li><button type="button" aria-expanded="false" aria-controls="tca-mega-officials"{_cur(current, "officials")}>Officials{CHEV}</button>{officials}</li>
 <li><a href="{root}method/"{_cur(current, "method")}>Method</a></li>
 <li><a href="{root}access/"{_cur(current, "access")}>Access</a></li>
@@ -477,8 +483,9 @@ def top_bar(root, current=None, places=None, skip=True):
 
 
 def tab_bar(root, current=None):
-    """The bottom tab bar on phones: the same five, in the thumb's reach. Only the section a page is in is marked."""
-    tabs = [("bills", f"{root}us/", "Bills"), ("ballot", f"{root}ballot/", "Ballot"),
+    """The bottom tab bar on phones: the same six, in the thumb's reach (Election Night as "Results"; six tabs keep
+    44-pixel targets at 320 pixels wide). Only the section a page is in is marked."""
+    tabs = [("bills", f"{root}us/", "Bills"), ("ballot", f"{root}ballot/", "Ballot"), ("night", f"{root}night/", "Results"),
             ("officials", "#officials" if root == "./" else f"{root}#officials", "Officials"),
             ("method", f"{root}method/", "Method"), ("access", f"{root}access/", "Access")]
     items = "".join(f'<li><a href="{href}"{_cur(current, key)}>{icon(key)}<span>{label}</span></a></li>' for key, href, label in tabs)
@@ -543,6 +550,7 @@ def access_panel(inline=False):
 
 def help_panel(root, A, faq_html):
     quick = [("bills", f"{root}us/#bills", "Find a bill"), ("ballot", f"{root}ballot/", "See who is on your ballot"),
+             ("night", f"{root}night/", "Follow the count on Election Night"),
              ("officials", "#officials" if root == "./" else f"{root}#officials", "Find who represents you"),
              ("method", f"{root}method/", "See how pages are made")]
     items = "".join(f'<li><a href="{href}">{icon(name)}<span>{esc(label)}</span></a></li>' for name, href, label in quick)
@@ -582,8 +590,8 @@ def ride(dev_root, say=print):
     for dirpath, dirs, files in os.walk(dev_root):
         rel_dir = os.path.relpath(dirpath, dev_root).replace(os.sep, "/")
         depth = 0 if rel_dir == "." else rel_dir.count("/") + 1
-        if (depth == 1 and rel_dir != "ballot") or depth >= 2:
-            dirs[:] = []      # the pages sit at most one folder down, or two inside the ballot (never the share pages below)
+        if (depth == 1 and rel_dir not in DEEP) or depth >= 2:
+            dirs[:] = []      # the pages sit at most one folder down, or two inside the ballot and Election Night (never the share pages below)
         for f in files:
             rel = f if rel_dir == "." else f"{rel_dir}/{f}"
             if not RIDE.match(rel):

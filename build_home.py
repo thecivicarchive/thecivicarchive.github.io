@@ -8,7 +8,8 @@ Shell Spec v1.3 and Companion Field Guide v0.1).
 writes <root>/index.html (the front door), <root>/method/index.html and <root>/access/index.html, all three on the shared
 shell (build_shell.py: the top bar, Reading & access, Help, the companion, the tab bar on phones). The ring of cards
 lives beside them as rooms.html and the cabin as cabin.html; build_door.py writes those and then calls build() here, so
-every build of the front door makes these pages too.
+every build of the front door makes these pages too. Election Night's home (build_night_home.py) is written again
+after them with the shell just built, since it names the shell's hashed files.
 
 Every number on the pages is counted at build time from the records on this computer (read only): the federal
 database, the two ballot databases, each state's database and the site's own folders. The Method page describes the
@@ -121,10 +122,46 @@ def facts(look):
         if m:
             F["verify"] = {"match": int(m.group(1).replace(",", "")), "of": int(m.group(2).replace(",", "")), "date": when.group(1) if when else "",
                            "senate_ties": ties}
+    F.update(night_facts())
     rub = os.path.join(HERE, "rubric_v1.md")
     if os.path.exists(rub):
         m = re.search(r"version\s+(\d+\.\d+)", open(rub, encoding="utf-8").readline())
         F["rubric"] = m.group(1) if m else ""
+    return F
+
+
+def night_facts():
+    """Election Night's door: the states whose own live count is read (DC apart, since it is not a state), the races
+    that carry a forecast, and the news outlets the feed reads. Each from its own file or database, read only; a figure
+    whose source is not there yet stays 0 and is left off the door."""
+    F = {"night_live": 0, "night_dc": False, "night_forecasts": 0, "night_outlets": 0}
+    reg = os.path.join(HERE, "election", "registry")
+    if os.path.isdir(reg):
+        for f in sorted(os.listdir(reg)):
+            if not f.endswith(".json"):
+                continue
+            try:
+                with open(os.path.join(reg, f), encoding="utf-8") as fh:
+                    st = (json.load(fh).get("status") or "").lower()
+            except (OSError, ValueError, AttributeError):
+                continue
+            if st == "live":
+                if f == "dc.json":
+                    F["night_dc"] = True
+                else:
+                    F["night_live"] += 1
+    for key, name, q in (("night_forecasts", "election_model_2026.sqlite", "SELECT COUNT(DISTINCT race_id) FROM race_runs"),
+                         ("night_outlets", "night_feed_2026.sqlite", "SELECT COUNT(*) FROM outlets")):
+        db = os.path.join(HERE, name)
+        if os.path.exists(db):
+            try:
+                con = _ro(db)
+                try:
+                    F[key] = con.execute(q).fetchone()[0] or 0
+                finally:
+                    con.close()
+            except sqlite3.Error:
+                pass
     return F
 
 
@@ -269,7 +306,8 @@ def footer(root, version, generated):
 <div class="grid">
 <div><h2>The Civic Archive</h2><p class="house">Built from public records. No scores or ratings of any person, no advertising of its own, no donors.</p></div>
 <div><h2>Go</h2><ul>
-<li><a href="{root}us/">Plain Congress</a></li><li><a href="{root}ballot/">On The Ballot</a></li><li><a href="{"#officials" if root == "./" else root + "#officials"}">Officials</a></li>
+<li><a href="{root}us/">Plain Congress</a></li><li><a href="{root}ballot/">On The Ballot</a></li><li><a href="{root}night/">Election Night</a></li>
+<li><a href="{"#officials" if root == "./" else root + "#officials"}">Officials</a></li>
 <li><a href="{root}rooms.html">All levels</a></li><li><a href="{root}cabin.html" data-tca-break>Take a break</a></li></ul></div>
 <div><h2>This site</h2><ul>
 <li><a href="{root}method/">Method</a></li><li><a href="{root}method/#sources">Sources</a></li><li><a href="{root}access/">Access</a></li></ul></div>
@@ -338,6 +376,12 @@ def home_body(F, places, root="./"):
              "Every race for Congress on the November 3 ballot, then governors, legislatures, courts and local offices, each from the state's own official candidate list.",
              "Who is running in November, from Congress down to your county. Only from official lists.",
              [(n(F["races"]), "races for Congress"), (n(F["ballot_states"]), "states' lists for Congress"), (n(F["local_states"]), "states' local races")], "Open On The Ballot", when),
+        door("night", "night/", "Election Night", "Follow the count, race by race.",
+             "Official results of the November 3 election as each state&rsquo;s election office posts them, with the time on every number: Minnesota at every level, and every state&rsquo;s races for Congress, governor and the other statewide offices. Forecasts are labelled Analysis, and no race is called.",
+             "See the vote count on election night, race by race. The numbers come from each state. Each one shows when it was posted.",
+             [(n(F["night_live"]) if F["night_live"] else None, "states" + (" and DC" if F["night_dc"] else "") + " read live"),
+              (n(F["night_forecasts"]) if F["night_forecasts"] else None, "races with forecasts"),
+              (n(F["night_outlets"]) if F["night_outlets"] else None, "news outlets in the feed")], "Open Election Night"),
         door("officials", "#officials", "Officials", "Find who represents you.",
              f"The {n(F['members'])} members of Congress and the legislators of all fifty states: their districts, committees and time in office. Campaign money for Congress and for {n(F['money_states'])} states so far.",
              "Find your members of Congress and your state lawmakers. See their districts, and who funds them.",
@@ -357,9 +401,9 @@ def home_body(F, places, root="./"):
 </div>"""
     sec_doors = f"""<section class="tca-sec" id="doors" aria-labelledby="doors-h">
 <div class="tca-wrap">
-<header>__CHUNK__<p class="tca-kick">Where to go</p><h2 id="doors-h">Five ways in</h2>
-{para("Each door opens one part of the record. The same five are in the bar at the top of this page, and at the bottom of your screen on a phone. The record and ballot pages still have their own bar for now.",
-      "Pick a door. The same five doors are in the bar at the top of this page.")}</header>
+<header>__CHUNK__<p class="tca-kick">Where to go</p><h2 id="doors-h">Six ways in</h2>
+{para("Each door opens one part of the record. The same six are in the bar at the top of this page, and at the bottom of your screen on a phone, where Election Night is called Results. The record and ballot pages still have their own bar for now.",
+      "Pick a door. The same six doors are in the bar at the top of this page.")}</header>
 <div class="tca-doors">
 {doors}
 {minor}
@@ -612,13 +656,13 @@ def access_body(F, version, generated):
         "Twelve settings and eight presets, which combine. They are kept on this device and nowhere else.",
         "A device set to reduce motion is honoured on the first visit, before anything is touched.",
         "The fade at the edges of the screen is off under high contrast and reduced motion, replays the same way scrolling up as down, and never dims a section parked in the middle of the screen.",
-        "The five icons are fully drawn even when no script runs, and every one of their moves ends at rest.",
+        "The six icons are fully drawn even when no script runs, and every one of their moves ends at rest.",
         "The chart never puts a number on a bar, has a table version, and adds patterns under the colour-vision palettes, Calm and high contrast. Its colours hold at least 3 to 1 against every background in light, dark and high contrast, and stay apart for three kinds of colour blindness, checked by simulation.",
         "The companion is hidden from screen readers. Its control is a real button named &ldquo;Open help&rdquo;. Off loads nothing. Still draws it once.",
         "The pages reflow to 320 pixels wide without scrolling sideways.",
     ]
     notyet = [
-        "The rest of the site does not have these settings yet: Plain Congress, On The Ballot, the state and county pages, the ring of cards and the cabin. Only light or dark, and motion on or off, carry across today.",
+        "The rest of the site does not have these settings yet: Plain Congress, On The Ballot, Election Night&rsquo;s results pages, the state and county pages, the ring of cards and the cabin. Only light or dark, and motion on or off, carry across today.",
         "No one has yet walked through the site with a screen reader such as VoiceOver or NVDA. Automated checks find only part of what stops people.",
         "Plain-language versions exist only for the main text of the front door, this page and the Method page. Their reading level is checked each time the pages are built.",
         "The pages have not been timed on a four-year-old phone.",
@@ -715,7 +759,22 @@ def build(dev_root, version=None, draft=False, look=None, say=print, test=False,
     say(f"Home: wrote " + ", ".join(f"{k.replace(os.sep, '/')} ({v / 1e3:,.0f} KB)" for k, v in out.items())
         + f"; {len(PLAIN)} plain-language blocks, Flesch-Kincaid grade at most {worst[0]}"
         + (f"; {len(over)} above 7: " + " | ".join(f"{g}: {t[:60]}" for g, t in over) if over else " (all at 7 or below)"))
+    out.update(night_home(dev_root, version, A, say))
     return out
+
+
+def night_home(dev_root, version, A, say=print):
+    """Election Night's home sits on the whole shell too, and names the shell's files by their hashes, which change
+    whenever the shell does: so it is written again here, with the shell just built, every time these pages are. Its
+    own builder keeps everything else about it. A failure there is said loudly and does not stop the front door."""
+    if not os.path.exists(os.path.join(HERE, "build_night_home.py")):
+        return {}
+    try:
+        import build_night_home as NH
+        return NH.build(dev_root, version=version, say=say, A=A) or {}
+    except (Exception, SystemExit) as e:      # noqa: BLE001  the front door is built either way
+        say(f"Home: WARNING: Election Night's home was not rebuilt ({e}); it may name shell files that are gone. Build it on its own to see why.")
+        return {}
 
 
 def main():

@@ -10,6 +10,13 @@ Versions: the last three digits go up with every saved build, the middle number
 when John signs off on a milestone. `Save this version.bat` commits and tags;
 `Go back to a version.bat` restores any saved one.
 
+## v4.0.107 — 2026-10-10 — Election Night: the door and the first pages
+
+- A third space opens beside On The Ballot and Legislation & Legislatures: Election Night, for results only. Its door is on the home page and in the top bar ("Follow the count, race by race."), and on phones it is the "Results" tab.
+- Its home page lists when the polls close in every state, in your own time zone, and sends you to your state's own polling-place lookup.
+- Minnesota's results page is built, with every contest on the November ballot, from Congress down to school boards, on one map shaded by who is ahead, and your own ballot's results when you use your location. Until Election Day it shows a practice run of 2024's official figures, labelled as practice.
+- The figures come only from official sources. Where a state's results site does not allow programs, the page links to the state's own results instead.
+
 ## v4.0.106 — 2026-10-10 — Search and filter a member's votes and bills
 
 - A member's "Every recorded vote" sheet keeps its three quick choices (All, Broke with party, Did not vote) and gains a search box and four fold-out groups of checkboxes, each choice with a live count: how they voted (yes, no, not voting, present; with or against most of their party; votes both parties backed, party-line votes, close votes), what the vote was about (the Bills page's four groups and 22 topics, and whether the bill became law, is still moving or failed), the kind of vote and its outcome (final passage, amendments, procedural motions, cloture, settling the other chamber's changes; passed or failed), and when (the last 30 or 90 days, this year, or dates you choose).

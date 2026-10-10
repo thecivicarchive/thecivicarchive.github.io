@@ -427,7 +427,8 @@ def race_words(r):
             pw = [f"{p} school" for p in pw] + [f"{p} schools" for p in pw] + pw
             m = re.search(r"#\s*0*(\d+)", r["jurisdiction"] or "")
             if m:
-                pw += [f"isd {m.group(1)}", f"isd{m.group(1)}", f"district {m.group(1)}"]
+                # "isd 625", never a bare "district 625": a district number alone reads as any county's or city's
+                pw += [f"isd {m.group(1)}", f"isd{m.group(1)}", f"school district {m.group(1)}"]
     if r["level"] in ("county", "soil_water", "city", "township", "school", "hospital", "other", "court"):
         for cn in r.get("county_names", []):
             if cn:
@@ -699,7 +700,11 @@ def run_checks(con=None, say=print):
     say(f"     {len(nolist)} races have no November list loaded yet (sets carry office, district and place words "
         f"only): {', '.join(sorted({r['state'] for r in nolist}))}")
     noname = sum(1 for kw in have.values() for c in kw["candidates"] if not c["alone"] and c["family_needs"] == "never")
-    check(True, f"{noname} candidates can be placed by no phrase at all (no given name and an unsafe family name)")
+    say(f"     {noname} candidates can be placed by no phrase at all (no given name and an unsafe family name)")
+    generic = [rid for rid, kw in have.items() if kw["level"] == "school"
+               and any(re.fullmatch(r"district \d+", w) for w in kw["specific_words"])]
+    check(not generic, "no school board is told apart by a bare district number"
+          + (f"; not {generic[:3]}" if generic else ""))
     empty = [rid for rid, kw in have.items() if not kw["office_words"]]
     check(not empty, "every set has office words" + (f"; not {empty[:5]}" if empty else ""))
     nores = con.execute("SELECT COUNT(*) FROM name_collisions WHERE rule NOT IN ('specific','never')").fetchone()[0]

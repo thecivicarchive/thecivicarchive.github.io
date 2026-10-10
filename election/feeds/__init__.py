@@ -7,7 +7,12 @@ The plan is election/ARCHITECTURE.md (sections 2.3, 3.3, 4.3 to 4.5). The ground
     keywords.py   what each race is called in a headline: candidates' names, office and district words, places; and the
                   list of names that collide, with the rule used for each
 
-The collectors (gdelt, rss, bluesky, mastodon, youtube), placing (geotag) and the measures come in phase 4.
+The collectors (gdelt, rss, bluesky, mastodon, youtube), placing (geotag) and the measures come in phase 4. GDELT is
+read only from its raw 15-minute files (data.gdeltproject.org/gdeltv2/lastupdate.txt and the zips it names): its
+search API answers this machine 429 and is on source.py's never list.
+
+Posts are counted, never shown, until John gives the site's public contact address (decision D8; see
+accounts.posts_may_be_shown()).
 
 Everything is written to night_feed_2026.sqlite (ignored by git, as every .sqlite is). Nothing about an ordinary
 account is ever written there: no id, handle, text or post id. Only counts.

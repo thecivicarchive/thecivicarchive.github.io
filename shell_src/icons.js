@@ -1,5 +1,5 @@
-/* The Civic Archive: the five icons, defined once (Shell Spec section 8).
-   Bills, Ballot, Officials, Method, Access. Every page that shows one of them takes it from here: the page builder
+/* The Civic Archive: the six icons, defined once (Shell Spec section 8; Election Night added 2026-10-10).
+   Bills, Ballot, Election Night, Officials, Method, Access. Every page that shows one of them takes it from here: the page builder
    reads the registry between the two markers below and writes the drawing into the page (so an icon is fully drawn
    even when no script runs), and fillIcons() fills any empty data-icon slot a page leaves for the script.
    The registry between the markers must stay plain JSON. Every path carries pathLength="1" so the draw-in can run;
@@ -19,6 +19,12 @@ export const ICONS = {
     "tile": "verd",
     "move": "the ballot drops in, the box thunks, a fresh ballot is checked",
     "svg": "<g class=\"i-box\"><path pathLength=\"1\" d=\"M4.4 12.6h15.2v7.4H4.4z\"/><path pathLength=\"1\" d=\"M8.3 15.4h7.4\"/></g><g class=\"i-paper\"><path class=\"i-fill\" pathLength=\"1\" d=\"M8.4 3.8h7.2v8.8H8.4z\"/><path class=\"i-tick\" pathLength=\"1\" d=\"M10.1 8.3l1.5 1.5 2.4-2.7\"/></g>"
+  },
+  "night": {
+    "label": "Election Night",
+    "tile": "brass",
+    "move": "the count comes in bar by bar under a rocking moon",
+    "svg": "<path class=\"i-moon\" pathLength=\"1\" d=\"M6.81 3.92A3.5 3.5 0 1 0 10.61 8.17A2.9 2.9 0 0 1 6.81 3.92z\"/><path class=\"i-fill i-b1\" pathLength=\"1\" d=\"M5.4 19.6V15.6h2.8v4z\"/><path class=\"i-fill i-b2\" pathLength=\"1\" d=\"M10.6 19.6V12.4h2.8v7.2z\"/><path class=\"i-fill i-b3\" pathLength=\"1\" d=\"M15.8 19.6V9.2h2.8v10.4z\"/><path pathLength=\"1\" d=\"M3.6 19.6h16.8\"/>"
   },
   "officials": {
     "label": "Officials",

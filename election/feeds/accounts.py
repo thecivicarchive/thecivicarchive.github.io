@@ -3,6 +3,7 @@
     python -m election.feeds.accounts discover [--limit N] [--only outlets|offices|candidates]
                                           read each official website once, politely, and keep the Bluesky, Mastodon
                                           and YouTube accounts it links AND that point back to it (resumable)
+    python -m election.feeds.accounts discover --retry-refused   read again the sites taken for a challenge page
     python -m election.feeds.accounts check     the checks: every account has two anchors and a date; nothing about
                                                 anyone else is stored; posts stay unshown until the contact address
                                                 exists; exit 1 on failure
@@ -91,7 +92,41 @@ OFFICES = {
     "VA": ("Virginia Department of Elections", "https://www.elections.virginia.gov/"),
     "WA": ("Washington Secretary of State", "https://www.sos.wa.gov/"),
     "WY": ("Wyoming Secretary of State", "https://sos.wyo.gov/"),
+    # Added 2026-10-10: the office's main site, whose host is in ballot_sources or sl_sources (NC, NM, SC, SD, LA) or
+    # is the agency domain of the results page named in its registry file (CA, GA, ND, DC).
+    "CA": ("California Secretary of State", "https://www.sos.ca.gov/"),
+    "DC": ("District of Columbia Board of Elections", "https://www.dcboe.org/"),
+    "GA": ("Georgia Secretary of State", "https://sos.ga.gov/"),
+    "LA": ("Louisiana Secretary of State", "https://www.sos.la.gov/"),
+    "NC": ("North Carolina State Board of Elections", "https://www.ncsbe.gov/"),
+    "ND": ("North Dakota Secretary of State", "https://www.sos.nd.gov/"),
+    "NM": ("New Mexico Secretary of State", "https://www.sos.nm.gov/"),
+    "SC": ("South Carolina Election Commission", "https://scvotes.gov/"),
+    "SD": ("South Dakota Secretary of State", "https://sdsos.gov/"),
 }
+# Not read, and why: AZ, MI, NH, NV, NY, OH, OK, TN, WI (their election sites refuse scripts or sit on a never list);
+# CT, IN, ME, NJ, PA (the office lives inside a portal that speaks for the whole state government); MA, MN, RI, VT, OR,
+# WV (no host of the office's own main site in the kit's tables or registry files, or the host is on a never list).
+
+# Website builders and platforms: a site on one of these domains is on ground many people share, so no account can be
+# tied to its owner by domain (the same rule as a domain shared by two candidates).
+PLATFORMS = {"google.com", "wixsite.com", "wix.com", "squarespace.com", "wordpress.com", "weebly.com", "webflow.io",
+             "godaddysites.com", "square.site", "carrd.co", "nationbuilder.com", "ngpvan.com", "actblue.com",
+             "winred.com", "upballot.com", "blogspot.com", "github.io", "facebook.com", "linktr.ee", "mailchimpsites.com",
+             "myshopify.com", "business.site", "wordpress.org", "medium.com", "substack.com", "mystrikingly.com",
+             "jimdosite.com", "site123.me", "yolasite.com", "webnode.com", "ueniweb.com", "instagram.com", "x.com",
+             "twitter.com", "youtube.com", "bsky.app", "campaignpartner.net", "votervoice.net", "ballotpedia.org"}
+
+
+def owner_domain(url):
+    """The domain an account must point back to. A government host is taken whole (elections.alaska.gov, not
+    alaska.gov: a state portal's other agencies are other owners); anything else by its registered domain."""
+    host = (urlsplit(url).hostname or "").lower().rstrip(".")
+    if host.startswith("www."):
+        host = host[4:]
+    if host.endswith((".gov", ".us", ".mil")):
+        return host
+    return registered_domain(host)
 
 LOCAL_LEVELS = ("statewide", "legislature", "court", "county", "city", "school")
 LOCAL_KINDS_LEFT_OUT = {"county_park", "county_surveyor"}   # small boards inside the county level
@@ -285,12 +320,19 @@ def verify_youtube(src, href, domain):
             break
     if not cid or (m.group(2) and m.group(2) != cid):
         return None, "no channel id"
-    enc = quote(domain, safe="")
-    if not (_names_domain(body, domain) or enc.lower() in body.lower()):
+    # Only what the channel's owner writes about the channel itself: its links (sameAs, the header's link), its own
+    # description. Never the rest of the page, whose video descriptions can name anyone's site.
+    own = " ".join(re.findall(r'"sameAs":\[([^\]]*)\]', body)[:1]
+                   + re.findall(r'"attributionViewModel":\{"text":\{"content":"((?:[^"\\]|\\.)*)"', body)[:1]
+                   + re.findall(r'"channelMetadataRenderer":\{"title":"(?:[^"\\]|\\.)*","description":"((?:[^"\\]|\\.)*)"',
+                                body)[:1]
+                   + re.findall(r'<meta property="og:description" content="([^"]*)"', body)[:1])
+    own = html.unescape(own.replace("\\/", "/").replace("\\u0026", "&"))
+    if not _names_domain(own, domain):
         return None, "does not point back"
     handle = m.group(4) and "@" + unquote(m.group(4))
     return {"platform": "youtube", "account": handle or cid, "platform_id": cid,
-            "proof": f"the channel's own page links or names {domain}",
+            "proof": f"the channel's own links or description name {domain}",
             "feed": f"https://www.youtube.com/feeds/videos.xml?channel_id={cid}"}, ""
 
 
@@ -329,7 +371,7 @@ def _log(line):
         pass
 
 
-def discover(limit=None, only=None, say=print, src=None, recheck=False):
+def discover(limit=None, only=None, say=print, src=None, recheck=False, retry_refused=False):
     from election.source import Refused, Source, SourceError
     src = src or Source(stopped_file=STOPPED, log=_log)
     con = connect()
@@ -338,11 +380,18 @@ def discover(limit=None, only=None, say=print, src=None, recheck=False):
     every = sites(only)
     # A domain behind more than one candidate (a website builder's shared domain, or one site for two races) proves
     # nothing about which of them an account belongs to: such sites are read for counts only.
+    # Such sites, and sites on a website builder's or platform's domain, are not asked at all.
     owners_of = {}
     for s in sites("candidates") if only in (None, "candidates") else []:
-        owners_of.setdefault(registered_domain(urlsplit(s["site"]).hostname or ""), set()).add(s["owner_ref"])
-    shared = {d for d, refs in owners_of.items() if len(refs) > 1}
-    todo = [s for s in every if recheck or s["site"] + "|" + (s["owner_ref"] or "") not in prog]
+        owners_of.setdefault(owner_domain(s["site"]), set()).add(" ".join(s["owner"].lower().split()))
+    shared = {d for d, names in owners_of.items() if len(names) > 1}
+    if retry_refused:
+        # Sites the gate took for a challenge page: worth one more reading once the gate's test is mended and the
+        # night's stop has passed (source.py lifts a stop after 18 hours). A 403 or 429 is never asked again here.
+        todo = [s for s in every if "challenge" in (prog.get(s["site"] + "|" + (s["owner_ref"] or ""), {}).get("note")
+                                                    or "")]
+    else:
+        todo = [s for s in every if recheck or s["site"] + "|" + (s["owner_ref"] or "") not in prog]
     if limit:
         todo = todo[:limit]
     say(f"accounts: {len(todo)} sites to read ({len(prog)} done before)")
@@ -352,24 +401,26 @@ def discover(limit=None, only=None, say=print, src=None, recheck=False):
         key = s["site"] + "|" + (s["owner_ref"] or "")
         rec = {"checked": today, "answer": "", "bluesky": 0, "mastodon": 0, "youtube": 0, "verified": 0, "set_aside": 0,
                "note": ""}
-        domain = registered_domain(urlsplit(s["site"]).hostname or "")
-        try:
-            r = src.get(s["site"], accept="text/html,application/xhtml+xml", small=s["small"], timeout=25,
-                        expect_html=True)
-            if r.refused:
-                rec["answer"], rec["note"] = "refused", r.why
-            elif not r.ok:
-                rec["answer"], rec["note"] = "failed", f"answered {r.status}"
-            else:
-                rec["answer"] = "ok"
-                n_ok += 1
-        except Refused as e:
-            rec["answer"], rec["note"] = "not asked", e.why
-        except SourceError as e:
-            rec["answer"], rec["note"] = "failed", str(e)[:120]
-        if rec["answer"] == "ok" and s["owner_kind"] == "candidate" and domain in shared:
-            rec["note"] = "a domain shared by more than one candidate: no account can be tied to one of them"
+        domain = owner_domain(s["site"])
+        if registered_domain(domain) in PLATFORMS or (s["owner_kind"] == "candidate" and domain in shared):
             rec["answer"] = "shared domain"
+            rec["note"] = ("a website builder's or platform's domain" if registered_domain(domain) in PLATFORMS else
+                           "a domain shared by more than one candidate") + ": no account can be tied to its owner; not asked"
+        else:
+            try:
+                r = src.get(s["site"], accept="text/html,application/xhtml+xml", small=s["small"], timeout=25,
+                            expect_html=True)
+                if r.refused:
+                    rec["answer"], rec["note"] = "refused", r.why
+                elif not r.ok:
+                    rec["answer"], rec["note"] = "failed", f"answered {r.status}"
+                else:
+                    rec["answer"] = "ok"
+                    n_ok += 1
+            except Refused as e:
+                rec["answer"], rec["note"] = "not asked", e.why
+            except SourceError as e:
+                rec["answer"], rec["note"] = "failed", str(e)[:120]
         if rec["answer"] == "ok":
             found = links_on(r.body, (urlsplit(s["site"]).hostname or "").lower())
             for plat, items in found.items():
@@ -435,7 +486,7 @@ def run_checks(con=None, say=print):
           "no account is marked shown while there is no public contact address (D8)")
     domains_ok = 0
     for plat, acct, site, proof in con.execute("SELECT platform, account, site, proof FROM accounts"):
-        d = registered_domain(urlsplit(site).hostname or "")
+        d = owner_domain(site)
         domains_ok += 1 if (d and d in proof) else 0
     check(domains_ok == n, "every proof names the site's own domain")
     if os.path.exists(PROGRESS):
@@ -469,9 +520,21 @@ def main(argv):
     ap.add_argument("cmd", choices=["discover", "check", "summary"])
     ap.add_argument("--limit", type=int)
     ap.add_argument("--only", choices=["outlets", "offices", "candidates"])
+    ap.add_argument("--fresh", action="store_true", help="forget earlier readings and read every site again")
+    ap.add_argument("--retry-refused", action="store_true",
+                    help="read again only the sites the gate took for a challenge page (after its test is mended)")
     a = ap.parse_args(argv)
     if a.cmd == "discover":
-        discover(limit=a.limit, only=a.only, say=lambda s: print(s, flush=True))
+        if a.fresh:
+            con = connect()
+            con.executescript(SCHEMA)
+            with con:
+                con.execute("DELETE FROM accounts")
+                con.execute("DELETE FROM account_sites")
+            con.close()
+            if os.path.exists(PROGRESS):
+                os.remove(PROGRESS)
+        discover(limit=a.limit, only=a.only, say=lambda s: print(s, flush=True), retry_refused=a.retry_refused)
         return 0
     if a.cmd == "check":
         return 0 if run_checks() else 1

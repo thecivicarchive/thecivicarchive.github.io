@@ -15,6 +15,9 @@ if exist "state_mn.sqlite" ".venv\Scripts\python.exe" build_state_dev.py --place
 if errorlevel 1 goto failed
 if exist "ballot_2026.sqlite" ".venv\Scripts\python.exe" build_ballot_dev.py
 if errorlevel 1 goto failed
+rem Election Night's pages (its home is written again with the front door below, which owns the shell)
+if exist "run_night.py" ".venv\Scripts\python.exe" run_night.py build
+if errorlevel 1 goto failed
 if exist "ballot_2026.sqlite" ".venv\Scripts\python.exe" build_door.py --out "site\dev\ballot\index.html" --ballot --draft
 if errorlevel 1 goto failed
 ".venv\Scripts\python.exe" build_door.py --out "site\dev\index.html" --draft
