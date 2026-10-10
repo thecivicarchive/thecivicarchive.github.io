@@ -197,6 +197,55 @@ function BallotMap(el, opt) {
       ctx.fillStyle = col.ink; ctx.fillText(L.text, L.x, L.y);
       if (put.length >= 70) break; }
   }
+  /* ----- what a page that paints figures on the map is handed (Election Night's results). fill(kind, colourOf, alpha, edge)
+     fills every shape of a kind in view, colour by colour: close in, the precincts of the county files in use, each coloured
+     by colourOf(precinct id, its properties) for the kind "precincts", or by its own district of that kind for a district
+     kind (colourOf(district id, the precinct's properties)); far out, the shapes of that layer's own file (precincts have
+     none). colourOf returns a colour, a pattern or nothing (left unfilled); edge, a colour to trace each filled shape's
+     outline in, thinly, so that shapes of one colour stay apart. pattern(colour, kind, back) gives a fill of fine lines
+     ("hatch", "back", "cross", "rows", "cols") or "dots" in that colour over back (or clear), sharp at any pixel density.
+     A page that passes no paint draws exactly as before. ----- */
+  const pats = {};
+  function paintKit(P, col) {
+    const b = P.b, seen = bb => !bb || !(bb[0] > b[2] || bb[2] < b[0] || bb[1] > b[3] || bb[3] < b[1]);
+    return {
+      z: view.z, detail: P.detail, near: P.near, streets, col, dpr, layer, counties: P.detail ? P.cf.map(f => String(f.county)) : [],
+      has: kind => !!LAYER[kind],
+      fill(kind, colourOf, alpha, edge) {
+        const groups = new Map(), add = (c, f, g) => { if (!c) return; let a = groups.get(c); if (!a) groups.set(c, a = []); a.push([f, g]); };
+        if (P.detail && kind !== "school") {
+          for (const f of P.cf) for (const g of f.objects.precincts.geometries) { if (!seen(g.bbox)) continue;
+            if (kind === "precincts") add(colourOf(g.id, g.properties), f, g);
+            else { let v = g.properties[kind]; if (Array.isArray(v)) v = v[0]; if (v != null) add(colourOf(String(v), g.properties), f, g); } }
+        } else if (kind !== "precincts") {
+          const L = LAYER[kind], lf = L ? (files[L.file] || want(L.file)) : null;
+          if (lf) for (const g of lf.objects[kind].geometries) if (seen(g.bbox)) add(colourOf(String(g.id), g.properties || {}), lf, g);
+        }
+        ctx.globalAlpha = alpha == null ? 1 : alpha;
+        for (const [c, list] of groups) { shapes(list); ctx.fillStyle = c; ctx.fill("evenodd"); if (edge) { ctx.globalAlpha = 1; stroke(edge, .8, null, null); ctx.globalAlpha = alpha == null ? 1 : alpha; } }
+        ctx.globalAlpha = 1;
+        return groups.size;
+      },
+      pattern(colour, kind, back) {
+        const k = kind || "hatch", key = [colour, k, back || "", dpr].join("|");
+        if (key in pats) return pats[key];
+        const s = Math.max(5, Math.round(8 * dpr)), c = document.createElement("canvas"), x = c.getContext("2d");
+        c.width = c.height = s;
+        if (back) { x.fillStyle = back; x.fillRect(0, 0, s, s); }
+        x.strokeStyle = x.fillStyle = colour; x.lineWidth = Math.max(1, 1.2 * dpr); x.lineCap = "square";
+        if (k === "dots") { x.beginPath(); x.arc(s / 2, s / 2, Math.max(1, 1.3 * dpr), 0, 2 * Math.PI); x.fill(); }
+        else { x.beginPath();
+          if (k === "hatch" || k === "cross") { x.moveTo(0, s); x.lineTo(s, 0); x.moveTo(-s / 2, s / 2); x.lineTo(s / 2, -s / 2); x.moveTo(s / 2, 1.5 * s); x.lineTo(1.5 * s, s / 2); }
+          if (k === "back" || k === "cross") { x.moveTo(0, 0); x.lineTo(s, s); x.moveTo(s / 2, -s / 2); x.lineTo(1.5 * s, s / 2); x.moveTo(-s / 2, s / 2); x.lineTo(s / 2, 1.5 * s); }
+          if (k === "rows") { x.moveTo(0, s / 2); x.lineTo(s, s / 2); }
+          if (k === "cols") { x.moveTo(s / 2, 0); x.lineTo(s / 2, s); }
+          x.stroke(); }
+        let p = null;
+        try { p = ctx.createPattern(c, "repeat"); if (p && p.setTransform && typeof DOMMatrix === "function") p.setTransform(new DOMMatrix([1 / dpr, 0, 0, 1 / dpr, 0, 0])); } catch (e) { p = null; }
+        return (pats[key] = p);
+      }
+    };
+  }
   function draw() {
     if (dead || !W || !view) return;
     const cs = getComputedStyle(document.documentElement), V = n => cs.getPropertyValue(n).trim();
@@ -210,6 +259,8 @@ function BallotMap(el, opt) {
     const st = files[(LAYER.state || {}).file] || (LAYER.state ? want(LAYER.state.file) : null);
     if (!streets) { ctx.fillStyle = col.bg; ctx.fillRect(0, 0, W, H);
       if (st) { shapes(st.objects.state.geometries.map(g => [st, g])); ctx.fillStyle = col.surface; ctx.fill("evenodd"); } }
+    /* ---------- results paint (Election Night) ---------- */
+    if (opt.paint) opt.paint(paintKit(P, col));
     const cbit = bit("county");
     if (layer !== "county") {      // the counties, faintly, to say where things are
       if (P.detail && cbit) { for (const f of P.cf) { arcs(f, a => f.arcMask[a] & cbit); stroke(col.line, 1, null, null); } }

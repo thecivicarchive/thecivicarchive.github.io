@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vermont: The Civic Archive</title>
 <meta name="description" content="Who represents every district in the Vermont General Assembly, what they work on, from public records.">
-<meta name="version" content="4.0.104">
+<meta name="version" content="4.0.112">
 <link rel="canonical" href="https://thecivicarchive.github.io/dev/vt/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Civic Archive">
@@ -945,6 +945,244 @@ html.motion .avw.kb .av{animation:kburns var(--kbd,13s) ease-in-out infinite alt
 .mv-bill{font-size:12.5px;color:var(--muted);text-decoration:underline;text-underline-offset:2px;white-space:nowrap}.mv-bill:hover{color:var(--ink)}
 @media (max-width:560px){.mvrow{grid-template-columns:1fr}.mv-side{justify-content:flex-start}}
 .know-breaks{margin:10px 0 2px;height:32px}
+/* ---------- member file tabs ---------- */
+/* A member's page below its header is a desk: a rack of folders on the left (the tabs) and one sheet of paper open
+   beside it (the panel). Below 900px the rack is a strip under the link row. The tokens sit on #pg-member so the
+   state pages, which borrow this whole stylesheet, get them on their own member page. The chrome is parchment,
+   verdigris and brass; party colours stay inside the cards. */
+#pg-member{--tab-brass:#C8963A;--tab-brass-ink:#8C6420;--tab-brass-soft:#F3E8D3;--tab-verd:#2F6B5E;--tab-verd-ink:#255A4E;--tab-verd-soft:#E2EDE8;--rack-bg:#F7F2E8;--rack-line:#E6DECB;--pocket-bg:#E4D8BE;--pocket-shadow:inset 0 1px 2px rgba(60,40,10,.12);--tab-bar:#8C6420;--folder-hover:color-mix(in srgb,#C8963A 10%,#F7F2E8);--folder-sel-bg:var(--surface);--folder-sel-border:var(--line-strong);--folder-sel-shadow:var(--shadow-2);--folder-out:translateX(16px);--folder-dip:translateX(12px) translateY(3px);--folder-nudge:translateX(2px);--bar-on:scaleY(1);--bar-off:scaleY(0);--sheet-bg:var(--surface);--sheet-line:var(--line);--sheet-shadow-rest:var(--shadow-1);--sheet-shadow-lift:0 24px 48px -20px rgba(21,23,27,.38),0 2px 6px rgba(21,23,27,.08);--tab-focus:#2F6B5E;--top-h:62px}
+:root[data-theme="dark"] #pg-member{--tab-brass:#C9944A;--tab-brass-ink:#DDB06A;--tab-brass-soft:#2F2618;--tab-verd:#6DBBA8;--tab-verd-ink:#9FE3D6;--tab-verd-soft:#1B302B;--rack-bg:#1C1A17;--rack-line:#2E2A24;--pocket-bg:#26211A;--pocket-shadow:inset 0 1px 2px rgba(0,0,0,.4);--tab-bar:#C9944A;--folder-hover:color-mix(in srgb,#C9944A 14%,#1C1A17);--folder-sel-bg:#262219;--sheet-shadow-rest:none;--sheet-shadow-lift:0 24px 48px -16px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.04);--tab-focus:#7FD0BC}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) #pg-member{--tab-brass:#C9944A;--tab-brass-ink:#DDB06A;--tab-brass-soft:#2F2618;--tab-verd:#6DBBA8;--tab-verd-ink:#9FE3D6;--tab-verd-soft:#1B302B;--rack-bg:#1C1A17;--rack-line:#2E2A24;--pocket-bg:#26211A;--pocket-shadow:inset 0 1px 2px rgba(0,0,0,.4);--tab-bar:#C9944A;--folder-hover:color-mix(in srgb,#C9944A 14%,#1C1A17);--folder-sel-bg:#262219;--sheet-shadow-rest:none;--sheet-shadow-lift:0 24px 48px -16px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.04);--tab-focus:#7FD0BC}}
+#pg-member .wrap{max-width:1420px}
+/* the desk: a crumb line on its own row (state pages), then the rack beside the header and the sheets; the rack starts level
+   with the portrait and stands in the margin John drew */
+.mp-desk{--rail-w:212px;--desk-gap:36px;display:grid;grid-template-columns:var(--rail-w) minmax(0,1fr);grid-template-rows:auto auto 1fr;column-gap:var(--desk-gap);row-gap:0;align-items:start}
+.mp-desk>.crumbs{grid-column:1/-1;grid-row:1;align-self:start;margin:14px 0 4px}
+.mp-desk>.mp-top{grid-column:2;grid-row:2;min-width:0}
+.mp-desk>.rack{grid-column:1;grid-row:2/4;margin-top:14px}
+.mp-desk>.sheets{grid-column:2;grid-row:3;min-width:0}
+/* one folder only (a statewide official with nothing but the office on file): no rack, and the sheet takes the whole desk */
+.mp-desk.single{grid-template-columns:minmax(0,1fr)}
+.mp-desk.single>.crumbs,.mp-desk.single>.mp-top,.mp-desk.single>.sheets{grid-column:1}
+/* the rack: a letter sorter standing on the desk, one pigeonhole per folder; it scrolls inside only when a short window
+   cannot hold it whole (.scrolls, set by the page), so that the pulled-out folder may break its edge */
+.rack{position:sticky;top:calc(var(--top-h) + 16px);align-self:start;z-index:2;background:var(--rack-bg);border:1px solid var(--rack-line);border-radius:18px;padding:12px 10px 14px}
+.rack.scrolls{max-height:calc(100vh - var(--top-h) - 32px);overflow:auto;scrollbar-width:thin}
+.rack-rule{height:3px;background:var(--tab-brass);border-radius:2px;margin:0 2px 10px}
+.rack-kick{margin:0 0 8px 4px;font-size:11px;font-weight:750;letter-spacing:.12em;text-transform:uppercase;color:var(--tab-brass-ink)}
+.rack .tablist{display:flex;flex-direction:column;gap:2px;position:relative}
+.folder{position:relative;display:grid;grid-template-columns:44px minmax(0,1fr);grid-template-rows:auto auto;column-gap:10px;align-items:center;align-content:center;min-height:68px;width:100%;padding:6px 10px 6px 8px;border:1px solid transparent;border-radius:12px;background:transparent;color:var(--ink);text-align:left;font:inherit;cursor:pointer;transition:transform .18s var(--ease),background .18s var(--ease),box-shadow .18s var(--ease),border-color .18s}
+.folder+.folder::after{content:"";position:absolute;left:10px;right:10px;top:-2px;height:1px;background:var(--rack-line);pointer-events:none}
+.folder .bar{position:absolute;left:0;top:10px;bottom:10px;width:3px;border-radius:2px;background:var(--tab-bar);transform:scaleY(0);transform-origin:50% 0;transition:transform .18s var(--ease);pointer-events:none}
+.folder .slot{width:44px;height:44px;border-radius:10px;background:var(--pocket-bg);box-shadow:var(--pocket-shadow);display:grid;place-items:center;grid-row:1/3;position:relative;transition:background .18s,box-shadow .18s}
+.folder .slot svg{width:26px;height:26px;fill:none;stroke:var(--tab-verd);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:opacity .3s}
+.folder .slot svg .b{stroke:var(--tab-brass)}
+.tablist.icons3d .slot svg{opacity:0}
+.folder .lab{grid-column:2;align-self:end;font-size:13.5px;line-height:1.2;font-weight:600;opacity:.88;overflow-wrap:anywhere}
+.folder .sub{grid-column:2;align-self:start;font-size:11.5px;line-height:1.3;font-weight:500;color:var(--muted);margin-top:2px}
+.folder:hover{background:var(--folder-hover);transform:var(--folder-nudge)}
+.folder[aria-selected="true"]{background:var(--folder-sel-bg);border-color:var(--folder-sel-border);transform:var(--folder-out);box-shadow:var(--folder-sel-shadow)}
+.folder[aria-selected="true"]:hover{transform:var(--folder-out)}
+.folder[aria-selected="true"] .bar{transform:var(--bar-on)}
+.folder[aria-selected="true"] .slot{background:var(--tab-brass-soft);box-shadow:none}
+.folder[aria-selected="true"] .lab{opacity:1}
+.folder:focus-visible{outline:3px solid var(--tab-focus);outline-offset:2px}
+.rack-foot{margin-top:14px}
+.speed{border:0;margin:0;padding:0;min-width:0}
+.speed legend{font-size:12.5px;font-weight:600;padding:0;margin:0 0 6px 2px;color:var(--ink)}
+.speed .opts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;border:1px solid var(--line);border-radius:12px;padding:2px;background:var(--bg)}
+.speed label{position:relative;display:block;min-width:0}
+.speed input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer}
+.speed label span{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:44px;border-radius:10px;font-size:13px;font-weight:600;line-height:1.1;cursor:pointer;color:var(--ink);text-align:center;transition:background .18s,color .18s}
+.speed label small{font-size:10.5px;font-weight:500;color:var(--muted);margin-top:2px}
+.speed input:checked+span{background:var(--ink);color:var(--bg)}
+.speed input:checked+span small{color:inherit;opacity:.75}
+.speed input:focus-visible+span{outline:3px solid var(--tab-focus);outline-offset:2px}
+.speed-off{margin:8px 2px 0;font-size:11.5px;line-height:1.4;color:var(--muted)}
+.speed-off[hidden]{display:none}
+.rack-note{margin:10px 2px 0;font-size:11.5px;line-height:1.4;color:var(--muted)}
+.rack-note .rack-access{display:inline-block;padding:15px 6px;margin:-15px -6px;font-weight:600}
+/* the sheets: every panel in the same grid cell, so a move changes transforms only; while a move runs the area is clipped
+   at the header's edge (and free to the left, where the rack covers a sheet going in, and below) */
+.sheets{position:relative;z-index:0;isolation:isolate;display:grid;grid-template-columns:minmax(0,1fr);align-items:start}
+.sheets.moving{perspective:1800px;perspective-origin:-12% 38%;clip-path:inset(-20px -32px -200vh -300px)}
+.sheet{grid-area:1/1;min-width:0;width:100%;min-height:440px;background:var(--sheet-bg);border:1px solid var(--sheet-line);border-radius:18px;padding:20px 24px 24px;box-shadow:var(--sheet-shadow-rest);transform-origin:0 0}
+.sheet[hidden]{display:none}
+.sheet .sheet-h{font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.1;letter-spacing:-.01em;color:var(--ink);margin:0 0 10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;width:max-content;max-width:100%}
+.sheet .sheet-h:focus{outline:none}
+.sheet .sheet-h:focus-visible{outline:2px solid var(--tab-focus);outline-offset:8px;border-radius:6px}
+.sheet-rule{display:block;height:1px;background:var(--sheet-line);margin:0 0 16px;transform-origin:0 50%}
+#pg-member .sheet .know-b{background:var(--bg);border:1px solid var(--line)}
+#pg-member .sheet .know-wiki{background:transparent;border-style:dashed}
+.sheet .know-b h3{margin:0 0 8px;font-size:13px;color:var(--muted);font-weight:600;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.sheet .know-b:last-child{margin-bottom:0}
+.sheet .mny-page{margin-top:18px;background:transparent;border:0;border-top:1px solid var(--line);border-radius:0;padding:20px 0 0}
+#mpmore[hidden]{display:none!important}
+.folder .lab-s{display:none}
+@media (max-width:1179px){
+  #pg-member{--folder-out:translateX(12px);--folder-dip:translateX(9px) translateY(3px)}
+  .mp-desk{--rail-w:148px;--desk-gap:28px}
+  .rack{padding:10px 8px 12px}
+  .sheet{min-height:0}
+  .folder{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;justify-items:center;align-content:center;text-align:center;gap:4px;min-height:72px;padding:8px 6px 9px}
+  .folder .slot{width:36px;height:36px;grid-row:auto}
+  .folder .slot svg{width:22px;height:22px}
+  .folder .sub{display:none}
+  .folder .lab,.folder .lab-s{grid-column:1;align-self:auto;font-size:12px;line-height:1.15;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;opacity:.88}
+  .folder .lab-s+.lab{display:none}
+  .folder[aria-selected="true"] .lab-s{opacity:1}
+  .speed .opts{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:899px){
+  #pg-member{--folder-sel-bg:var(--tab-brass-soft);--folder-sel-border:transparent;--folder-sel-shadow:none;--folder-out:translateY(-3px);--folder-dip:translateY(2px);--folder-nudge:translateY(-1px);--bar-on:scaleX(1);--bar-off:scaleX(0)}
+  .mp-desk{display:flex;flex-direction:column;align-items:stretch}
+  .mp-desk>.rack{display:contents}
+  .rack-rule,.rack-kick{display:none}
+  .rack .tablist{position:sticky;top:var(--top-h);z-index:25;flex-direction:row;gap:4px;overflow-x:auto;scroll-snap-type:x proximity;scroll-padding-inline:20px;-webkit-overflow-scrolling:touch;padding:6px 20px;margin:0 -20px;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line);scrollbar-width:thin}
+  .rack .tablist.more-r{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 44px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 44px),transparent)}
+  .rack .tablist.more-l{-webkit-mask-image:linear-gradient(90deg,transparent,#000 44px);mask-image:linear-gradient(90deg,transparent,#000 44px)}
+  .rack .tablist.more-l.more-r{-webkit-mask-image:linear-gradient(90deg,transparent,#000 44px,#000 calc(100% - 44px),transparent);mask-image:linear-gradient(90deg,transparent,#000 44px,#000 calc(100% - 44px),transparent)}
+  .folder{flex:none;width:88px;min-height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:5px 4px;border-radius:10px;scroll-snap-align:start;scroll-margin-inline:20px}
+  .folder+.folder::after{display:none}
+  .folder .bar{left:8px;right:8px;top:auto;bottom:0;width:auto;height:3px;transform:scaleX(0);transform-origin:50% 50%}
+  .folder .slot{width:30px;height:30px;border-radius:8px;background:transparent;box-shadow:none}
+  .folder .slot svg{width:24px;height:24px}
+  .folder .lab,.folder .lab-s{font-size:11.5px;line-height:1.15;font-weight:600;text-align:center;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;opacity:.88}
+  .folder .lab-s+.lab{display:none}
+  .folder[aria-selected="true"] .lab-s{opacity:1}
+  .folder .sub{display:none}
+  .folder:hover{transform:none}
+  .folder[aria-selected="true"] .slot{background:transparent}
+  .rack-foot{order:10;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:flex-start;margin:16px 0 0;padding:0 0 12px}
+  .speed{flex:1 1 250px;max-width:340px}
+  .speed .opts{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .rack-note{margin:0;flex:1 1 200px}
+  .sheets.moving{perspective:1400px;perspective-origin:50% -10%;clip-path:none}
+  .sheet{min-height:0}
+}
+@media (max-width:899px) and (max-height:560px){.rack .tablist{position:static}}
+@media (max-width:600px){.sheet{padding:16px 16px 18px;border-radius:14px}body[data-page="member"] .cl{display:none}}
+@media (forced-colors: active){.folder{border:1px solid ButtonText}.folder[aria-selected="true"]{outline:2px solid Highlight;outline-offset:-2px}.folder .slot svg,.folder .slot svg .b{stroke:currentColor}.rack-rule,.folder .bar{background:ButtonText}}
+@media print{.rack,.rack-foot{display:none!important}.mp-desk{display:block}.sheets{display:block;clip-path:none}.sheet{display:block!important;transform:none!important;translate:none!important;scale:none!important;box-shadow:none!important;min-height:0;border:0;border-radius:0;padding:0 0 18px;margin:0 0 18px;border-bottom:1px solid #999}.sheet .know-b{break-inside:avoid}.sheet-rule{transform:none!important}}
+/* ---------- end of member file tabs css ---------- */
+/* ---------- member filters css ---------- */
+/* The filter bar over a member's lists (every recorded vote; their own bills): the chips and a search box, a row of
+   fold-out groups of checkboxes with live counts, the filters in use, a summary with sorting and a download. Parchment,
+   ink, verdigris and brass (party colours stay in the rows); every control at least 44px tall; below 640px the groups fold
+   into one Filters button, whose drawer ends in a button that shows the list. The tab tokens it reads sit on #pg-member,
+   with plain fallbacks elsewhere. */
+.mf{--mf-acc:var(--tab-verd,#2F6B5E);--mf-acc-soft:var(--tab-verd-soft,#E2EDE8);--mf-acc-ink:var(--tab-verd-ink,#255A4E);--mf-brass:var(--tab-brass,#C8963A);--mf-brass-soft:var(--tab-brass-soft,#F3E8D3);--mf-brass-ink:var(--tab-brass-ink,#8C6420);--mf-ring:var(--tab-focus,#2F6B5E);--mf-edge:color-mix(in srgb,var(--ink) 50%,transparent);margin-top:12px}
+.mf-bar{display:flex;flex-direction:column;gap:10px;margin:0 0 6px}
+.mf-top{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+.mf .mf-quick{margin:0;flex:0 1 auto;gap:6px}
+.mf .chip{height:auto;min-height:44px;padding:6px 15px;line-height:1.2;max-width:100%;text-align:left}
+.mf .chip .mf-cn{margin-left:5px;font-weight:500;opacity:.7;font-variant-numeric:tabular-nums}
+.mf .chip .mf-cn:empty{display:none}
+.mf-search{flex:1 1 260px;height:44px;min-width:min(100%,220px);background:var(--surface);border-color:var(--mf-edge)}
+.mf-search input{font-size:15px}
+.mf-search input::placeholder{color:var(--muted);opacity:1}
+.mf-groups{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.mf-gbtn,.mf-fold{order:0;position:relative;min-height:44px;padding:0 10px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);font-size:13.5px;font-weight:600;display:inline-flex;align-items:center;gap:5px;cursor:pointer;text-align:left}
+.mf-gbtn:hover,.mf-fold:hover,.mf-gbtn[aria-expanded="true"],.mf-fold[aria-expanded="true"]{border-color:var(--ink)}
+.mf-gbtn::after{content:"";flex:none;width:7px;height:7px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg) translateY(-2px);margin:0 1px;opacity:.6}
+.mf-gbtn[aria-expanded="true"]::after{transform:rotate(-135deg) translateY(-2px)}
+.mf-gn{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 6px;border-radius:999px;background:var(--mf-brass-soft);box-shadow:inset 0 0 0 1px var(--mf-brass);color:var(--ink);font-size:12px;font-weight:700;font-variant-numeric:tabular-nums}
+.mf-gn[hidden]{display:none}
+.mf-panel{order:1;flex:1 1 100%;min-width:0;margin-top:4px;padding:12px 16px 14px;border:1px solid var(--line-strong);border-radius:14px;background:var(--surface)}
+.mf-top .mf-panel{margin-top:2px}
+.mf-panel[hidden]{display:none}
+.mf-sets{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px 22px;align-items:start}
+.mf-set{border:0;margin:0;padding:0;min-width:0}
+.mf-set legend{float:left;width:100%;padding:0;margin:0 0 4px;font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--mf-brass-ink)}
+.mf-set legend+*{clear:left}
+.mf-help{margin:8px 0 0;max-width:62ch;font-size:12.5px;line-height:1.45;color:var(--muted)}
+.mf-set.mf-tree{grid-column:1/-1}
+.mf-set.mf-tree.mf-col{grid-column:auto}
+.mf-tgs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:6px 22px;align-items:start}
+.mf-col .mf-tgs{display:flex;flex-direction:column;align-items:stretch;gap:0}
+.mf-tg[hidden]{display:none}
+.mf-tree>.mf-opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,210px),1fr));column-gap:22px;margin-top:2px}
+.mf-opts{display:flex;flex-direction:column}
+.mf-many>.mf-opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr));column-gap:22px}
+.mf-when>.mf-opts{flex-direction:row;flex-wrap:wrap;column-gap:6px;margin:0 -8px}
+.mf-when>.mf-opts>.mf-opt{margin:0}
+.mf-opt{display:flex;align-items:center;gap:10px;min-height:44px;padding:0 8px;margin:0 -8px;border-radius:10px;font-size:14px;line-height:1.25;cursor:pointer;color:var(--ink)}
+.mf-opt:hover{background:var(--hair)}
+.mf-opt[hidden]{display:none}
+.mf-opt input{flex:none;width:18px;height:18px;margin:0;accent-color:var(--mf-acc);cursor:pointer}
+.mf-opt input:focus-visible{outline:3px solid var(--mf-ring);outline-offset:2px}
+.mf-opt .mf-l{flex:1;min-width:0;overflow-wrap:anywhere}
+.mf-opt .mf-n{flex:none;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.mf-opt.zero .mf-l{color:var(--muted)}
+.mf-tga{font-weight:600}
+.mf-kids{display:flex;flex-direction:column;margin:0 0 4px 8px;padding-left:12px;border-left:1px solid var(--line)}
+.mf-dates{display:flex;flex-wrap:wrap;gap:8px 12px;margin-top:6px;max-width:440px}
+.mf-dates label{display:flex;flex-direction:column;gap:3px;flex:1 1 140px;min-width:0;font-size:12.5px;font-weight:600;color:var(--muted)}
+.mf-dates input{min-height:44px;width:100%;min-width:0;padding:0 10px;border:1px solid var(--mf-edge);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit;font-size:14px}
+.mf-dates input:focus-visible{outline:3px solid var(--mf-ring);outline-offset:1px}
+.mf-fold{display:none}
+.mf-fold svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+.mf-done{display:none}
+.mf-active{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px}
+.mf-active[hidden]{display:none}
+.mf-al{font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-right:2px}
+.mf-chips{display:flex;flex-wrap:wrap;align-items:center;gap:6px;list-style:none;margin:0;padding:0;min-width:0}
+.mf-chip{display:inline-flex;align-items:center;gap:6px;min-height:44px;max-width:100%;padding:4px 10px 4px 14px;border-radius:999px;border:1px solid var(--mf-acc);background:var(--mf-acc-soft);color:var(--mf-acc-ink);font-size:13.5px;font-weight:600;line-height:1.2;text-align:left;cursor:pointer}
+.mf-chip .mf-cw{font-weight:500}
+.mf-chip svg{flex:none;width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round}
+.mf-chip:hover{background:color-mix(in srgb,var(--mf-acc) 18%,var(--mf-acc-soft))}
+.mf-clear{min-height:44px;padding:0 10px;border:0;background:transparent;color:var(--ink);font-size:13.5px;font-weight:600;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.mf-sum{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 14px;padding-top:10px;border-top:1px solid var(--line)}
+.mf-count{margin:0;font-size:14px;font-weight:600;color:var(--ink);min-width:0}
+.mf-count:focus{outline:none}
+.mf-count:focus-visible{outline:3px solid var(--mf-ring);outline-offset:4px;border-radius:4px}
+.mf-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;min-width:0}
+.mf .mf-sort{height:44px;max-width:100%}
+.mf .mf-sort select{align-self:stretch;min-height:42px;min-width:0;text-overflow:ellipsis;margin-right:-30px;padding-right:30px;border-radius:0 999px 999px 0}
+.mf .mf-csv{display:inline-flex;gap:8px;flex:0 1 auto}
+.mf .mf-csv svg{flex:none;width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.mf .mf-csvs{display:none}
+.mf .mf-csv:disabled{opacity:.5;cursor:default}
+#mpbills{gap:8px}
+#mpbills svg{flex:none;width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.mf .mf-tools #mpbills{flex:0 1 auto}
+.mf-subhead{margin:18px 0 0;padding:0 0 6px;font-family:var(--sans);font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--mf-brass-ink);border-bottom:1px solid var(--line)}
+.mf-list>.mf-subhead:first-child{margin-top:4px}
+.mf .mf-more{margin-top:10px}
+.mf .mf-more[hidden]{display:none}
+.mf-empty{margin:12px 0 4px}
+@media (min-width:641px){
+  /* a list with one group of filters keeps its button beside the search box */
+  .mf-top>.mf-groups{display:contents}
+  .mf-dates{flex-wrap:nowrap}
+  /* the open group's button and its panel read as one: a notch from the button into the panel's edge */
+  .mf-gbtn[aria-expanded="true"]::before{content:"";position:absolute;left:50%;bottom:-17px;width:11px;height:11px;margin-left:-6px;box-sizing:border-box;background:var(--surface);border:solid var(--line-strong);border-width:1px 0 0 1px;transform:rotate(45deg);z-index:2;pointer-events:none}
+}
+@media (max-width:640px){
+  .mf-fold{display:flex;width:100%;justify-content:flex-start;border-radius:12px}
+  .mf-fold .mf-gl{flex:1}
+  .mf-groups{display:none;flex-direction:column;align-items:stretch;gap:6px;width:100%}
+  .mf-groups.open{display:flex}
+  .mf-gbtn{width:100%;border-radius:12px;justify-content:flex-start}
+  .mf-gbtn .mf-gl{flex:1}
+  .mf-panel{order:0;margin-top:0;padding:10px 12px 12px}
+  .mf-search{flex-basis:100%}
+  .mf .mf-quick .chip{padding:6px 12px}
+  .mf-sum{flex-direction:column;align-items:stretch}
+  /* Sort and Download share a row (each on its own row below about 300px); the Bills page button takes a row of its own */
+  .mf .mf-tools>*{flex:1 1 120px;min-width:0}
+  .mf .mf-tools>.mf-csv{flex:1 0 auto;white-space:nowrap;padding:6px 12px;gap:6px}
+  .mf .mf-tools>#mpbills{flex:1 1 100%}
+  .mf .mf-sort>span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .mf .mf-csv,.mf .mf-tools #mpbills{justify-content:center}
+  .mf .mf-csvl{display:none}
+  .mf .mf-csvs{display:inline}
+  /* the foot of the open drawer: shows the list, and stays above the tab bar while the drawer is long */
+  .mf .mf-done{display:flex;justify-content:center;width:100%;position:sticky;bottom:calc(74px + env(safe-area-inset-bottom));z-index:3;margin-top:4px;background:var(--mf-acc);border-color:var(--mf-acc);color:var(--bg);font-weight:700;box-shadow:0 8px 20px -8px rgba(21,23,27,.45)}
+}
+@media (forced-colors: active){.mf-gbtn,.mf-fold,.mf-chip,.mf-gn{border:1px solid ButtonText}.mf-opt.zero .mf-l{color:GrayText}.mf .chip[aria-pressed="true"]{forced-color-adjust:none;background:Highlight;color:HighlightText;border-color:Highlight}.mf-gbtn[aria-expanded="true"]::before{display:none}}
+@media print{.mf-top,.mf-groups,.mf-fold,.mf-active .mf-clear,.mf-tools,.mf .mf-more,.mf-done{display:none!important}.mf-chip{border:1px solid #999;min-height:0}}
+/* ---------- end of member filters css ---------- */
 /* a table a reader can sort: click a column, shift-click another to sort within it */
 .gt-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface)}
 .gt{width:100%;border-collapse:collapse;font-size:13.5px;line-height:1.35}
@@ -1285,7 +1523,8 @@ svg.dmap #dlabels text{vector-effect:none}
 .mapside .rep-top{justify-content:flex-start;padding-right:0;margin:10px 0 4px}
 .mapside .inside{font-size:13.5px;color:var(--muted);margin:12px 0 0;line-height:1.5}
 .mapside .inside button{all:unset;cursor:pointer;color:var(--ink);text-decoration:underline;text-underline-offset:2px}
-#mpage .rep-top{justify-content:flex-start;padding-right:0;margin:0 0 18px}
+@media (max-width:899px){.mp-desk>.crumbs{margin:0 0 2px}}
+.sheet>.sheet-coming{margin:14px 2px 0;line-height:1.55}.sheet-coming b{color:var(--ink);font-weight:600}
 .offices{padding:8px 0 26px}
 .offgrid{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));margin-top:22px}
 .offgrid .ymem{background:var(--surface);padding:12px 14px;width:100%}
@@ -1353,7 +1592,7 @@ a.chip{text-decoration:none}
         <div><dd>87–57</dd><dt>House: Democratic to Republican</dt></div>
         <div><dd data-count="125">0</dd><dt>districts on the map</dt></div>
       </dl>
-      <p class="kpifoot">Counted from public records.<br>Updated October 07, 2026.</p>
+      <p class="kpifoot">Counted from public records.<br>Updated October 10, 2026.</p>
     </aside>
     <div class="hero-copy">
       <h1 style="--fit:1.00" aria-label="Vermont, in plain words."><span class="h1a">Vermont,</span> <span class="h1b">in plain words.</span></h1>
@@ -1559,7 +1798,7 @@ a.chip{text-decoration:none}
     <div class="fgrid">
       <div class="rv">
         <a class="brand" href="#top"><svg class="mark" viewBox="0 0 28 28" aria-hidden="true"><path d="M14 3v2.5"/><path d="M6.5 13.5a7.5 7.5 0 0 1 15 0"/><path d="M4 13.5h20"/><path d="M6.5 16.5v6M11.5 16.5v6M16.5 16.5v6M21.5 16.5v6"/><path d="M3 24h22"/></svg><span class="wm"><b>T</b>he <b>C</b>ivic <b>A</b>rchive</span></a>
-        <p>Generated on October 07, 2026: 180 sitting legislators, 125 districts, 150 portraits. Campaign money, then bills and recorded votes, are still to be added. Version 4.0.104.</p>
+        <p>Generated on October 10, 2026: 180 sitting legislators, 125 districts, 150 portraits. Campaign money, then bills and recorded votes, are still to be added. Version 4.0.112.</p>
         <p><a href="../rooms.html">All levels of government</a> &middot; <a href="../us/">The federal side</a></p>
       </div>
       <div class="rv" style="--i:1">
@@ -1633,7 +1872,7 @@ a.chip{text-decoration:none}
 </div>
 
 <script>
-const BOOT = {"version":"4.0.104","generated":"October 07, 2026","base":"https://thecivicarchive.github.io/dev/vt","analytics":"","place":{"code":"VT","name":"Vermont","legislature":"Vermont General Assembly","session":"2025-2026 biennium","upper":{"name":"Senate","title":"Senator","short":"Sen.","seats":30,"term_years":2,"next":2026,"district_name":""},"lower":{"name":"House","full":"House of Representatives","title":"Representative","short":"Rep.","seats":150,"term_years":2,"next":2026,"district_name":""},"nested":false,"zooms":[{"name":"Burlington","box":[-73.32,44.38,-73.08,44.58]}],"money_links":{},"money_agency":{},"money_rule":"","money_credit":""},"stats":{"members":180,"districts":125,"chambers":{"upper":{"name":"Senate","seats":30,"filled":30,"per":1,"varies":[1,3],"beyond":null,"uniform":false,"parties":[["Democratic","D",14],["Republican","R",13],["Democratic/Progressive","D",3]],"vacant":[]},"lower":{"name":"House","seats":150,"filled":150,"per":1,"varies":[1,2],"beyond":null,"uniform":false,"parties":[["Democratic","D",87],["Republican","R",57],["Democratic/Progressive","D",3],["Independent","I",3]],"vacant":[]}},"parties":[["Democratic","D",101],["Republican","R",70],["Democratic/Progressive","D",6],["Independent","I",3]],"money":{},"portraits":150,"wiki":148,"bills":0,"roll_calls":0,"has_money":false,"officials":4,"has_shapes":true,"has_people":true},"kinds":{"pcf":"Political committee or fund","party":"Party unit","cand":"Another candidate's committee","biz":"Business","union":"Union","org":"Other organization","unnamed":"Not named here"},"changelog":[{"version":"4.0.104","date":"2026-10-07","title":"Every shared card in the new look","items":["The cards a shared link shows for a single bill, a single recorded vote, a member of Congress, a state legislator, each state legislature and each race on the ballot are now drawn in the same look as the rest: parchment, the emblem beside the site's name, a brass rule at the head and a verdigris band at the foot. Vote bars and maps keep red and blue for the parties, in the colours the light pages use."]},{"version":"4.0.103","date":"2026-10-07","title":"One emblem for the tab, the bookmark and every shared link","items":["The Civic Archive has an emblem: a civic hall whose columns are books standing on a plinth, under a brass pediment with a seal. The civic building that is also an archive. Its colours are the site's own: verdigris, the patina of civic bronze; brass, the plaque and the label on a spine; and parchment.","It is now the icon in the browser tab and on the bookmark bar on every page, drawn for each size it is shown at, and the icon a phone shows when the site is added to the home screen.","Every page now has a share image in the same look: the emblem on parchment beside the page's own words. The home, Method and Access pages, the ring of cards, the cabin, On The Ballot's door, the Congress ballot page, the states' chooser and each state's own ballot page each have theirs; Plain Congress's card is redrawn to match. A pasted link to any of them shows the card."]},{"version":"4.0.102","date":"2026-10-05","title":"Browse bills by topic, by how the vote went, and by what is new","items":["Topic: four groups and 22 topics (Money & Work, People & Communities, Safety & the World, Land, Energy & Government), each built from the one subject the Library of Congress gives every bill. Pick a group, then a topic; each shows how many bills it holds. New bills the Library has not labelled yet have their own button. Every card now names its topic.","Votes: slide to how much of a chamber voted yes on the final vote to pass the bill, from any share to 50, 60, 70, 80, 90 or 95 percent or more, or every vote (100 percent). Pick the House, the Senate or either. Or find votes where both parties' majorities voted yes, party-line votes (most Democrats one way, most Republicans the other), close votes (10 points or less), and bills passed by voice vote or unanimous consent, where no one's vote is recorded. Every card with a final vote now shows it: the yes and no totals, the share, and each party's count.","What's new: bills newly introduced and sent to committee, newly approved by a committee, or new on the House or Senate floor, in the last 7, 30 or 90 days.","Coming up: bills on the House's posted weekly floor schedule, Senate bills with a cloture motion filed (a vote follows within days), and bills placed on a House or Senate calendar, ready for a vote but not scheduled. Only what the chambers publish; nothing is predicted. Right now the House has posted no schedule since the week of September 14, and the Senate is meeting in brief formal sessions; the page says so.","The record is refreshed through October 1: 16,815 measures and 613 recorded votes, member by member.","The Tax, Work and pay and Disability rating lenses moved into the Topic panel. The companion's guide explains the new filters."]},{"version":"4.0.101","date":"2026-10-04","title":"Your companion is now a guide, on every page","items":["Help now starts with \"On this page\": what the page you are on is, how to use it in a few short steps, and where to go next. It changes as you move: open a bill and it explains the bill's tabs, its path and its rating bars; open the vote map and it explains how to step through votes. Every companion gives the same help.","The companion now comes along everywhere: Plain Congress, every state legislature, On The Ballot for Congress and for each state, the ring of cards and the ballot door. Click or tap it to open the guide. Each guide also lists the whole site and lets you choose your companion, still it or switch it off. With the companion off, a small Help button opens the same guide.","On these pages the companion stands in the bottom corner, above the version label, so it covers none of the page's own buttons.","County and city officials (who holds each county and city office) are now marked \"coming soon\" for every state, on the home page, in the menus and on the ring of cards. Minnesota's early county pages are no longer published. The county and local races on the November ballot are unchanged."]},{"version":"4.0.100","date":"2026-10-04","title":"A new front door, and seven companions","items":["The Civic Archive has a home page. It says in a few lines what the site holds, counts what is on file today, and opens five ways in: Plain Congress, On The Ballot, Officials, Method and Access. The ring of cards is still there under \"All levels\", and the log cabin under \"Take a break\".","A new top bar with two menus, Reading & access and Help, and on a phone a bar of the same five doors at the foot of the screen. The record and ballot pages keep their own bar for now; they move to the new one next.","Reading & access: type, size, spacing, contrast, motion and chart colours, in eight ready-made presets or eleven settings of your own, set once and kept on this device only. The Access page lists plainly what is done for readers with disabilities and what is not done yet.","A Method page: where each fact comes from, how bills are rated and checked, and what the site will not do.","A companion in the corner, if you want one: an Adélie penguin, a black-capped chickadee, a golden retriever, a tabby cat, an eastern gray squirrel, an eastern chipmunk or a garden snail, each drawn in 3D on your own device and sculpted from studies of how the real animal is built and moves. Point at it, with motion on, and it does a short dance made of the animal's own moves. It only opens Help; it never speaks or makes a sound, screen readers skip it, and Off loads nothing. Choose one under Help."]},{"version":"4.0.099","date":"2026-10-03","title":"Arkansas gets the same treatment","items":["Arkansas's ballot page now has the real map: 2,915 precincts from the Arkansas GIS Office, cut where district lines split them, with every district each sits in (county, justice of the peace district, township, city, ward, House, Senate, Congress, judicial district, school district), drag and pinch, zoom to a street, streets from OpenStreetMap only if you switch them on. \"Use my location\" finds your precinct on your own device and shows your exact ballot, down to your own justice of the peace and constable. The same rule now places any county board seat elected by district, in every state.","Arkansas lets a candidate file a title as part of the name printed on the ballot (\"State Senator ...\"); names are shown as printed, and a card's initials skip the title.","Arkansas's candidates for Governor, the other statewide offices, the Legislature, the courts and the Pulaski and Washington county and city races show what the record holds: 79 campaign websites of their own, 51 official government pages, offices held (90, most from government pages), issue headings from their own sites, and a photo where one was plainly the candidate's own portrait on their own campaign site.","How each place voted, from the Secretary of State's official results: President 2024, Governor and Senator 2022, President and Senator 2020, for all 75 counties and 16 judicial districts and the legislative districts whose precincts are whole.","No pollster that publishes its methods has polled an Arkansas state race. The Governor's race has prediction-market prices as a tab. No readable Arkansas party page uses the word \"endorsed\". Polling places stay off the map; the page points to the state's own finder."]}],"photo_ids":["06f7e87d","0ab172d4","0f7b93b3","1526326f","19d6cf01","1cd9cf7f","1f0c898f","207d01c5","2219c217","239a4f3b","24194dba","26b89cd1","28f82298","2bf6abc2","2cb218ea","2f1d3491","2f2db82f","31f6e27d","35504508","36a9b7c9","36d8fa28","39c4dae9","3c832fcc","3d835c85","3fc028e6","424e2c2d","4258ac6c","44bcd67b","482c508a","4cae5971","4d489014","4d7ff594","4da3dea2","4eba2d1e","500ffe66","526f33a9","52b7db57","5321cd58","5342eafc","54baf00b","54f186e0","55538705","5581159f","565d034b","568a47fb","57c62cd8","599c54f9","59b84739","59bc4503","5a58d1ac","5b8b4c48","5d4b135e","5ff8e24a","60ea24d4","610c8e4d","62781794","62b30d56","64ee14bb","658fc95f","65f7d469","67ac8d03","6b0c1c32","6c87b7e7","704de547","70f4c8cf","70fa5e7e","730abe31","73ee356a","7e019459","8210ead4","829926f6","842ac286","84f2c6bd","86633f19","86bf6469","8a7c0a35","8b47b675","8e97e883","90da5348","91dafbcc","91f08063","95cd4184","95e547fd","99b59993","9a4f5d0d","9a5bf877","9ce762cd","9fdba4e0","a039bd2d","a10e8620","a1812863","a366bc32","a424d253","a4282454","a7824782","a7c7d0f6","a7ecda71","aa90c35b","aabafc36","acf44b62","aff4d081","b2d2f2a9","b64a9bcc","b8a71676","b910e00e","b9ffa5dc","ba524e3d","ba794ad6","c028faa3","c34f492a","c3b03c7d","c3b31012","c4aa4da8","c66f104c","c7019f00","ca098cac","cb033790","cd4ceb1c","cffd5316","d0698c2f","d12670e1","d44ada7b","d4ead076","d6092ff2","d626c3d1","d798a240","dda44e05","dec4c236","dfe297f7","e334b770","e3e3144c","e7232e6f","e8028cf6","e9036574","e9419bea","e997532b","ec71009f","ec8b2fa8","eda9290c","ede0cb44","edf5128d","f076a53a","f3e613ff","f490d01d","f5c660c9","f668b31d","f930a207","f9d0a963","fe86164f","fe8a848a"],"has_votes":false,"has_money":false,"has_shapes":true,"has_people":true,"inline":null,"unmapped":{"upper":[],"lower":[]}};
+const BOOT = {"version":"4.0.112","generated":"October 10, 2026","base":"https://thecivicarchive.github.io/dev/vt","analytics":"","place":{"code":"VT","name":"Vermont","legislature":"Vermont General Assembly","session":"2025-2026 biennium","upper":{"name":"Senate","title":"Senator","short":"Sen.","seats":30,"term_years":2,"next":2026,"district_name":""},"lower":{"name":"House","full":"House of Representatives","title":"Representative","short":"Rep.","seats":150,"term_years":2,"next":2026,"district_name":""},"nested":false,"zooms":[{"name":"Burlington","box":[-73.32,44.38,-73.08,44.58]}],"money_links":{},"money_agency":{},"money_rule":"","money_credit":""},"stats":{"members":180,"districts":125,"chambers":{"upper":{"name":"Senate","seats":30,"filled":30,"per":1,"varies":[1,3],"beyond":null,"uniform":false,"parties":[["Democratic","D",14],["Republican","R",13],["Democratic/Progressive","D",3]],"vacant":[]},"lower":{"name":"House","seats":150,"filled":150,"per":1,"varies":[1,2],"beyond":null,"uniform":false,"parties":[["Democratic","D",87],["Republican","R",57],["Democratic/Progressive","D",3],["Independent","I",3]],"vacant":[]}},"parties":[["Democratic","D",101],["Republican","R",70],["Democratic/Progressive","D",6],["Independent","I",3]],"money":{},"portraits":150,"wiki":148,"bills":0,"roll_calls":0,"has_money":false,"officials":4,"has_shapes":true,"has_people":true},"kinds":{"pcf":"Political committee or fund","party":"Party unit","cand":"Another candidate's committee","biz":"Business","union":"Union","org":"Other organization","unnamed":"Not named here"},"changelog":[{"version":"4.0.112","date":"2026-10-10","title":"Election Night: ready for rehearsals","items":["On election night a state whose polls are still open shows as waiting for its first figures, never as a site that is not answering, and no figure is ever shown with a time later than the moment it was read.","Rehearsals of a past election night now run the forecasts as the real night will, kept on this computer, so the whole night can be practised before November 3."]},{"version":"4.0.111","date":"2026-10-10","title":"Election Night: forecasts that follow every state's count, and the Method page","items":["On election night the forecasts for the other states' races for Congress, governor and the statewide offices now move with the count, county by county (precinct by precinct where a state posts precincts), allowing for the order in which each state counts its kinds of ballot and for its own rule for winning (most votes, a majority with a runoff, ranked choice, or the top two). Tested by replaying the 2024 counts of Florida, North Carolina, Pennsylvania, Louisiana and Georgia.","Every forecast for a one-seat race now gives the likely margin between the top two, with its range, labelled Analysis.","The Method page has an Election Night section: where the results come from, what the feed shows and never shows, how the leaderboard's four measures are worked out, and how the forecasts are made and labelled."]},{"version":"4.0.110","date":"2026-10-10","title":"Election Night: four reviews and their fixes","items":["Election Night was reviewed four ways (look and access, the privacy and wording rules, how the night's updater copes when something goes wrong, and the numbers) and what they found is fixed.","Minnesota's results page gains the page guide and the companion. Buttons are full size on phones, the small brass status labels are darker and easier to read, every race page has a heading for screen readers, and the forecast charts keep their labels readable on phones and give each candidate its own marker in the patterned looks.","The District of Columbia appears on the results across the country, with its races for Delegate and Mayor.","Forecasts: the track record shows its real counts and how well the chances held; a race with one major-party candidate and several smaller ones now gets sensible chances; small turnouts round sensibly; each state lists the races left out and why.","On the night, one state's trouble no longer stops the others, a results site that does not answer is given up on after 25 seconds and asked less often, and nothing about forecasts is published while they are not public."]},{"version":"4.0.109","date":"2026-10-10","title":"Election Night: the feed, the forecasts page and forecasts for the other states","items":["The feed is a new Election Night page about news coverage of the races. Each headline names its outlet and links to the story. Posts appear only from newsrooms, election offices and candidates' official accounts, and only once the site has its own contact address; everyone else is counted, never shown. A leaderboard ranks the races by coverage per 100,000 residents, the attention gap (coverage against how close a race is), momentum (the last hour against the hour before) and source breadth (how many outlets). It fills in once the night's updater is running.","The forecasts page gives each race's chances, a likely range of the vote, the trend across every run of the model, its inputs and three blind spots in plain words, with the track record and the method. Forecasts are not public yet: until they are, the page shows only how they are made and how the method did on past elections.","On election night Minnesota's forecasts are run again as each county reports. The other states' Congress, governor and statewide forecasts cover 40 states so far, tested on the 2022 and 2024 elections; seats on lines redrawn for 2026 have no forecast, and each page says why.","Results pages: Michigan is read in part (Oakland County's own figures, labelled as one county's); each state's own word for its places (parish, borough, locality, town, ward); primaries replayed for practice show as their own contests."]},{"version":"4.0.108","date":"2026-10-10","title":"Election Night: every state's results readers, the US map, live updates and Minnesota's first forecasts","items":["Election Night can now read the official results of 25 states and the District of Columbia straight from each state's own results system. Most were tested by replaying a past election against its certified totals (California on its results service's test figures; Nebraska and the District of Columbia not yet). The other states link to their own results pages.","A results page updates itself while it is open: new figures appear in place, a table never re-sorts under your hands, and the page says plainly when updates are paused.","Minnesota's first forecasts are built and tested against the 2022 and 2024 elections: a chance and a likely vote range for every contested race, labelled Analysis, with ballot position, roll-off and the order in which counties count built in. They appear once approved."]},{"version":"4.0.107","date":"2026-10-10","title":"Election Night: the door and the first pages","items":["A third space opens beside On The Ballot and Legislation & Legislatures: Election Night, for results only. Its door is on the home page and in the top bar (\"Follow the count, race by race.\"), and on phones it is the \"Results\" tab.","Its home page lists when the polls close in every state, in your own time zone, and sends you to your state's own polling-place lookup.","Minnesota's results page is built, with every contest on the November ballot, from Congress down to school boards, on one map shaded by who is ahead, and your own ballot's results when you use your location. Before Election Day it is tested on practice figures built from 2024's official results, which are never published.","The figures come only from official sources. Where a state's results site does not allow programs, the page links to the state's own results instead."]}],"photo_ids":["06f7e87d","0ab172d4","0f7b93b3","1526326f","19d6cf01","1cd9cf7f","1f0c898f","207d01c5","2219c217","239a4f3b","24194dba","26b89cd1","28f82298","2bf6abc2","2cb218ea","2f1d3491","2f2db82f","31f6e27d","35504508","36a9b7c9","36d8fa28","39c4dae9","3c832fcc","3d835c85","3fc028e6","424e2c2d","4258ac6c","44bcd67b","482c508a","4cae5971","4d489014","4d7ff594","4da3dea2","4eba2d1e","500ffe66","526f33a9","52b7db57","5321cd58","5342eafc","54baf00b","54f186e0","55538705","5581159f","565d034b","568a47fb","57c62cd8","599c54f9","59b84739","59bc4503","5a58d1ac","5b8b4c48","5d4b135e","5ff8e24a","60ea24d4","610c8e4d","62781794","62b30d56","64ee14bb","658fc95f","65f7d469","67ac8d03","6b0c1c32","6c87b7e7","704de547","70f4c8cf","70fa5e7e","730abe31","73ee356a","7e019459","8210ead4","829926f6","842ac286","84f2c6bd","86633f19","86bf6469","8a7c0a35","8b47b675","8e97e883","90da5348","91dafbcc","91f08063","95cd4184","95e547fd","99b59993","9a4f5d0d","9a5bf877","9ce762cd","9fdba4e0","a039bd2d","a10e8620","a1812863","a366bc32","a424d253","a4282454","a7824782","a7c7d0f6","a7ecda71","aa90c35b","aabafc36","acf44b62","aff4d081","b2d2f2a9","b64a9bcc","b8a71676","b910e00e","b9ffa5dc","ba524e3d","ba794ad6","c028faa3","c34f492a","c3b03c7d","c3b31012","c4aa4da8","c66f104c","c7019f00","ca098cac","cb033790","cd4ceb1c","cffd5316","d0698c2f","d12670e1","d44ada7b","d4ead076","d6092ff2","d626c3d1","d798a240","dda44e05","dec4c236","dfe297f7","e334b770","e3e3144c","e7232e6f","e8028cf6","e9036574","e9419bea","e997532b","ec71009f","ec8b2fa8","eda9290c","ede0cb44","edf5128d","f076a53a","f3e613ff","f490d01d","f5c660c9","f668b31d","f930a207","f9d0a963","fe86164f","fe8a848a"],"has_votes":false,"has_money":false,"has_shapes":true,"has_people":true,"inline":null,"unmapped":{"upper":[],"lower":[]}};
 /* Data arrives when a page needs it, exactly as on the federal side: `need(name)` fetches data/<name>.json once
    and caches the promise. */
 const P = BOOT.place, CH = {Senate: P.upper, House: P.lower || P.upper, Legislature: P.upper};
@@ -2089,6 +2328,286 @@ function peopleWords(){
 }
 
 
+/* ---------- member file tabs: the rack, the sheets and the move ----------
+   A member's page below its header is a desk: a rack of folders (the tabs) and one open sheet (the tab panel).
+   fileTabs(host, {id, name, tabs, start, detail, inline}) draws the rack and the sheets into host (the .mp-desk
+   element that already holds .mp-top, the header and the link row) and returns {select, finish, current, speed, run,
+   destroy}. Each tab is {id, label, short, sub, html, onOpen(detail), onLand(detail), query()}: short is the label the phone
+   strip shows when the full one would not fit in two lines; onOpen runs when its sheet is made visible for a move (a
+   chart inside can measure itself), onLand when the move has ended; query, where a sheet has one, is the view it keeps in
+   the address after "?" (a list's filters), added when its folder is chosen. Choosing a folder puts the
+   open sheet away into its own folder and draws the chosen one out: five seconds (Full), one (Quick) or none
+   (Instant), the choice kept on this device in tca.a11y.v1.sheets; any click, tap or key finishes a move; Motion off
+   and a device asking for less motion make every move instant. The state pages borrow this block; each page provides
+   its own list of tabs, a router rule that opens a tab without rebuilding the page (renderMemberPage's first line),
+   and, over http, shell/tabicons.js for the live 3D icons. window.__sheets is the test hook; __sheets.run(a, b,
+   {paused: true}).seek(ms) holds a move at any moment. */
+const SHEETS_KEY = "tca.a11y.v1", SHEET_MS = {full: 5000, quick: 1000, instant: 0}, TAB_OF = {money: "money", breaks: "votes", missed: "votes", votes: "votes"};
+const tabFor = show => { const w = String(show || "").split("?")[0]; return !w ? "office" : (TAB_OF[w] || w); };      // "votes?pos=N" is the votes sheet with its filters
+const a11yGet = () => { try { const s = JSON.parse(localStorage.getItem(SHEETS_KEY) || "null"); return s && typeof s === "object" ? s : {}; } catch (e) { return {}; } };
+const a11ySet = (k, v) => { try { const s = a11yGet(); s[k] = v; localStorage.setItem(SHEETS_KEY, JSON.stringify(s)); } catch (e) {} };
+const sheetSpeed = () => { const v = a11yGet().sheets; return v === "quick" || v === "instant" ? v : "full"; };
+const reducedMotion = () => { const a = a11yGet(); return document.documentElement.classList.contains("calm") || a.motion === "reduced" || a.calm === "on" || matchMedia("(prefers-reduced-motion: reduce)").matches; };
+const sheetsInstant = () => reducedMotion() || sheetSpeed() === "instant";
+/* a part of the open sheet (the money view, after #member=<id>/money) brought under the top bar, and under the folders where
+   they stand in a strip, a little after the address has finished routing: a followed link fires popstate and then
+   hashchange, and each puts the page back at its top first, which would cancel a scroll begun at once */
+let revealT = 0;
+const revealPart = sel => {
+  clearTimeout(revealT);
+  revealT = setTimeout(() => {
+    const el = $(sel); if (!el || el.hidden || !el.isConnected) return;
+    const bar = $(".top"), strip = matchMedia("(max-width: 899px)").matches ? $("#mprack .tablist") : null;
+    scrollTo({top: Math.max(0, scrollY + el.getBoundingClientRect().top - (bar ? bar.offsetHeight : 62) - (strip ? strip.offsetHeight : 0) - 12), behavior: calm() ? "instant" : "smooth"});
+  }, 80);
+};
+/* the plain icons, one per folder: the same desk things the 3D module sculpts, in the site's line style (verdigris, brass parts in .b) */
+const TAB_ICONS = {
+  office: '<path d="M3.5 18h17v2.5h-17z"/><path class="b" d="M6 9.5l12-1.5v7L6 16.5z"/><path class="b" d="M8.5 12.3l7-.9M8.5 14.5l4.5-.6"/>',
+  committees: '<rect x="8" y="6" width="8" height="12" rx="1" transform="rotate(-14 12 20)"/><rect x="8" y="6" width="8" height="12" rx="1" transform="rotate(14 12 20)"/><rect x="8" y="5" width="8" height="12" rx="1"/><path class="b" d="M10 7.5v-3a2 2 0 0 1 4 0v3"/>',
+  howvotes: '<path class="b" d="M4 16a8 8 0 0 1 16 0"/><path d="M6.3 10.3l.9.9M12 8v1.3M17.7 10.3l-.9.9"/><path d="M12 16l4.2-5.2"/><circle class="b" cx="12" cy="16" r="1.3"/><path d="M4 19.5h16"/>',
+  work: '<path d="M6.5 13.5h9v4.5a2.5 2.5 0 0 1-2.5 2.5h-4A2.5 2.5 0 0 1 6.5 18z"/><path class="b" d="M5.5 13.5h11"/><path d="M11 13.5c.5-5 3.5-8.5 9-10.5-1.2 5.5-4 8.5-9 10.5z"/><path class="b" d="M11 13.5l-1.5 3"/>',
+  money: '<ellipse class="b" cx="11" cy="7.5" rx="6.5" ry="2.4"/><path class="b" d="M4.5 7.5V11c0 1.3 2.9 2.4 6.5 2.4S17.5 12.3 17.5 11V7.5"/><path class="b" d="M4.5 11v3.5c0 1.3 2.9 2.4 6.5 2.4s6.5-1.1 6.5-2.4V11"/><path class="b" d="M4.5 14.5V18c0 1.3 2.9 2.4 6.5 2.4s6.5-1.1 6.5-2.4v-3.5"/>',
+  votes: '<path d="M4 11.5h16V20H4z"/><path d="M4 11.5l2.2-3h11.6l2.2 3"/><path class="b" d="M9 8.5h6"/><path d="M10 8.5V3.8h5v4.7" transform="rotate(8 12.5 6)"/>',
+  wiki: '<path d="M3.5 5.5c3-1 6-.8 8.5 1 2.5-1.8 5.5-2 8.5-1v13c-3-1-6-.8-8.5 1-2.5-1.8-5.5-2-8.5-1z"/><path d="M12 6.5v13"/><path d="M6.5 9.5c1.5-.3 3-.2 4 .2M6.5 12.5c1.5-.3 3-.2 4 .2M13.5 9.7c1-.4 2.5-.5 4-.2M13.5 12.7c1-.4 2.5-.5 4-.2" opacity=".55"/>'
+};
+function fileTabs(host, o){
+  const tabs = o.tabs.filter(Boolean), byId = Object.fromEntries(tabs.map(t => [t.id, t])), front = tabs[0].id, many = tabs.length > 1;
+  const strip = () => matchMedia("(max-width: 899px)").matches, mq = matchMedia("(max-width: 899px)"), rmq = matchMedia("(prefers-reduced-motion: reduce)");
+  const topEl = $(".top"), topH = () => topEl ? topEl.offsetHeight : 62, barEl = $(".tabbar"), barH = () => barEl && getComputedStyle(barEl).display !== "none" ? barEl.offsetHeight : 0;
+  const icon = id => `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${TAB_ICONS[id] || TAB_ICONS.office}</svg>`;
+  const SPEEDS = [["full", "Full", "5 s", "Full, 5 seconds"], ["quick", "Quick", "1 s", "Quick, 1 second"], ["instant", "Instant", "now", "Instant"]];
+  host.classList.toggle("single", !many);
+  host.insertAdjacentHTML("beforeend", (many ? `<div class="rack" id="mprack"><div class="rack-rule" aria-hidden="true"></div><p class="rack-kick" aria-hidden="true">On file</p>
+    <div class="tablist" role="tablist" aria-orientation="vertical" aria-label="Sections of ${esc(o.name)}'s page">${tabs.map(t => `<button class="folder" type="button" role="tab" id="tab-${t.id}" data-tab="${t.id}" aria-selected="false" aria-controls="sheet-${t.id}" tabindex="-1"${t.sub ? ` aria-describedby="tab-${t.id}-sub"` : ""}><i class="bar" aria-hidden="true"></i><span class="slot" aria-hidden="true">${icon(t.id)}</span>${t.short && t.short !== t.label ? `<span class="lab-s">${esc(t.short)}</span>` : ""}<span class="lab">${esc(t.label)}</span>${t.sub ? `<span class="sub" id="tab-${t.id}-sub" aria-hidden="true">${esc(t.sub)}</span>` : ""}</button>`).join("")}</div>
+    <div class="rack-foot"><fieldset class="tca-seg speed" data-setting="sheets"><legend>Sheet speed</legend><div class="opts">${SPEEDS.map(([v, l, s, a]) => `<label><input type="radio" name="sheets" value="${v}" aria-label="${a}"><span>${l}<small>${s}</small></span></label>`).join("")}</div><p class="speed-off" id="speed-off" hidden>Motion is off, so every change is instant. This choice is kept for when Motion is on.</p></fieldset>
+    <p class="rack-note">Any click, tap or key skips the move. Motion off, or reduced motion on your device, makes it instant.${o.inline ? "" : ` <a class="rack-access" href="../access/#settings">Access</a>`}</p></div></div>` : "")
+    + `<div class="sheets" id="mpsheets">${tabs.map(t => `<section class="sheet"${many ? ` role="tabpanel" aria-labelledby="tab-${t.id}"` : ""} id="sheet-${t.id}" data-tab="${t.id}" hidden>${t.html}</section>`).join("")}</div>`);
+  const rack = $(".rack", host), list = rack ? $(".tablist", rack) : null, area = $(".sheets", host), view = host.closest(".page");
+  const sheetOf = id => $("#sheet-" + CSS.escape(id), area), tabOf = id => list ? $("#tab-" + CSS.escape(id), list) : null, headOf = id => $("#sheet-" + CSS.escape(id) + "-h", area);
+  const retag = (el, tag) => { const n = document.createElement(tag); for (const a of el.attributes) n.setAttribute(a.name, a.value); n.innerHTML = el.innerHTML; el.replaceWith(n); return n; };
+  // every sheet starts with its heading (an h2: the page's name is the h1): the front sheet's own, or the first card's promoted to
+  // the sheet; the cards' own headings become h3 so the levels run in order; a heading's tag (Fact, Analysis, From Wikipedia)
+  // is read after the words; the hairline under the heading draws itself as the sheet lands
+  $$(".sheet", area).forEach(s => {
+    let h = $(":scope > .sheet-h", s);
+    if (!h) { const h4 = $(":scope > .know-b:first-child > h4", s); if (h4) { h = document.createElement("h2"); h.className = "sheet-h"; h.innerHTML = h4.innerHTML; h4.remove(); s.prepend(h); } }
+    if (h && h.tagName !== "H2") h = retag(h, "h2");
+    $$(":scope > .know-b > h4", s).forEach(h4 => retag(h4, "h3"));
+    if (!h) return;
+    h.id = s.id + "-h"; h.tabIndex = -1;
+    const tag = $(".tag", h); if (tag) { tag.setAttribute("aria-hidden", "true"); const sr = document.createElement("span"); sr.className = "sr-only"; sr.textContent = ", " + tag.textContent.trim(); h.appendChild(sr); }
+    const r = document.createElement("i"); r.className = "sheet-rule"; r.setAttribute("aria-hidden", "true"); h.after(r);
+  });
+  let cur = null, move = null, icons = null, dead = false;
+  const headText = id => { const h = headOf(id); if (!h) return byId[id].label; const c = h.cloneNode(true), tag = $(".tag", c), tt = tag ? tag.textContent.trim() : ""; $$(".tag, .sr-only", c).forEach(t => t.remove()); const w = c.textContent.trim().replace(/\s+/g, " "); return tt ? tt + ": " + w : w; };
+  let sayEl = $("#mpsay"); if (!sayEl) { sayEl = document.createElement("div"); sayEl.id = "mpsay"; sayEl.className = "sr-only"; sayEl.setAttribute("role", "status"); sayEl.setAttribute("aria-live", "polite"); document.body.appendChild(sayEl); }
+  const say = text => { sayEl.textContent = ""; setTimeout(() => { sayEl.textContent = text; }, 60); };
+  const hidden = () => !!(view && view.hidden);
+  // the bars' heights, for the page (--top-h) and for the browser's own scrolling: a link brought into view by Tab lands
+  // under the sticky top bar and the strip otherwise (scroll-padding), and above the phone tab bar and whatever sits fixed
+  // in the bottom right corner (the What's new tab, the back-to-top button), so a control reached by Tab is never under them
+  const cornerH = () => { let h = 0; $$(".cl:not([hidden]) .cl-tab, .totop").forEach(el => { if (!el.getClientRects().length) return; const r = el.getBoundingClientRect(), t = getComputedStyle(el).transform, ty = t && t !== "none" ? new DOMMatrixReadOnly(t).m42 : 0; if (r.height && r.right > innerWidth - 280) h = Math.max(h, innerHeight - (r.top - ty)); }); return Math.min(Math.ceil(h), Math.round(innerHeight * 0.4)); };      // where each rests when shown (the back-to-top button rises into place)
+  const setTop = () => {
+    host.style.setProperty("--top-h", topH() + "px");
+    const de = document.documentElement.style;
+    if (hidden() || !host.isConnected) { de.scrollPaddingTop = ""; de.scrollPaddingBottom = ""; return; }
+    de.scrollPaddingTop = (topH() + (strip() && list ? list.offsetHeight : 0) + 12) + "px"; de.scrollPaddingBottom = (Math.max(barH(), cornerH()) + 12) + "px";
+    fitRack(); edges();
+  };
+  // the rack scrolls inside only when the window cannot hold it whole, so that the pulled-out folder may break its edge
+  const fitRack = () => { if (!rack || strip()) { if (rack) rack.classList.remove("scrolls"); return; } rack.classList.toggle("scrolls", rack.scrollHeight > innerHeight - topH() - 32); };
+  // the strip fades at an edge that hides more folders
+  const edges = () => { if (!list) return; const on = strip(); list.classList.toggle("more-l", on && list.scrollLeft > 2); list.classList.toggle("more-r", on && list.scrollLeft + list.clientWidth < list.scrollWidth - 2); };
+  const mark = id => { tabs.forEach(t => { const b = tabOf(t.id); if (b) { b.setAttribute("aria-selected", t.id === id ? "true" : "false"); b.tabIndex = t.id === id ? 0 : -1; } }); cur = id; };
+  const place = id => { tabs.forEach(t => { const s = sheetOf(t.id); if (s) s.hidden = t.id !== id; }); mark(id); };
+  const open = (id, opts) => { const t = byId[id]; if (t.onOpen) { try { t.onOpen(opts.detail, {first: !t._opened}); } catch (e) { console.error(e); } } t._opened = true; };
+  const focusHead = id => { const h = headOf(id); if (!h) return false; h.focus({preventScroll: true}); const r = h.getBoundingClientRect(), top = topH() + (strip() && list ? list.offsetHeight : 0); if (r.top < top || r.bottom > innerHeight - barH()) h.scrollIntoView({block: "nearest", behavior: "auto"}); return true; };
+  // the end of a change: focus to the new sheet's heading (unless a key in the rack ended the move, when focus stays on the
+  // folder), the sheet's own landing, and one announcement; nothing is said from a page that is no longer showing
+  const land = (id, opts, user) => {
+    const t = byId[id];
+    if (user && !opts.keepFocus) focusHead(id);
+    if (t.onLand) { try { t.onLand(opts.detail); } catch (e) { console.error(e); } }
+    if (user) say("Now showing: " + headText(id) + ".");
+  };
+  // a sheet that keeps a view of its own (a list's filters) gives query(), and its address carries it after "?"
+  const pushAddr = (id, detail) => { const t = byId[id], q = !detail && t.query ? t.query() : "", part = detail && TAB_OF[detail] === id ? detail : id, h = (o.route || "#member=") + o.id + (part === front ? "" : "/" + part) + (q ? "?" + q : ""); if (location.hash !== h) history.pushState({page: "member", tab: id}, "", h); };
+  const showTab = (b, smooth) => { if (b && strip()) b.scrollIntoView({inline: "nearest", block: "nearest", behavior: smooth && !calm() ? "smooth" : "instant"}); };
+  function instant(from, id, opts){
+    const A = sheetOf(from), B = sheetOf(id);
+    if (B) B.hidden = false; open(id, opts);
+    if (A && A !== B) A.hidden = true;
+    place(id); showTab(tabOf(id), true);
+    land(id, opts, opts.focus !== false && !hidden());
+  }
+  const cssVar = name => (getComputedStyle(area).getPropertyValue(name) || "").trim() || "none";
+  /* The move, as percentages of one storyboard (5000 ms at Full, 1000 at Quick). The open sheet lifts (0 to 6%), travels into
+     the old folder's pigeonhole behind the rack (6 to 34%, the paper staying readable until a third of the way), the old
+     folder dips as it takes it (30 to 38%) and gives up its fill, and the chosen folder, whose brass bar lit at once, pulls
+     out with the fill (34 to 42%); the new sheet emerges from behind the rack (40 to 88%) and settles flat (88 to 100%),
+     its heading's hairline drawing last. Translation, rotation and scale are three animations each, so the scale can keep
+     its own curve; nothing changes layout while it runs. */
+  function start(from, id, opts, paused){
+    const A = sheetOf(from), B = sheetOf(id), FA = tabOf(from), FB = tabOf(id), isStrip = strip(), D = SHEET_MS[sheetSpeed()] || 5000;
+    // the desk's top comes into view first (one plain scroll), so the poses are measured where the reader will look
+    scrollTo({top: scrollY, left: scrollX, behavior: "instant"});                                             // ends any smooth scroll still running (showPage's scroll to the top), so the poses measured next hold
+    const th = topH(), want = th + (isStrip && list ? list.offsetHeight + 12 : 24), r0 = area.getBoundingClientRect();
+    if (r0.top < want - 2) scrollTo({top: Math.max(0, scrollY + r0.top - want), behavior: "instant"});      // "instant", not "auto": the page's own scroll-behavior is smooth, and the poses are measured next
+    showTab(FB, false);
+    B.hidden = false; open(id, opts);
+    const S = area.getBoundingClientRect(), W = S.width || 1;
+    // a folder's slot: where the sheet goes, folder-wide, turned away; beside the header it never rises above the desk's top,
+    // and under the strip it stays behind the strip
+    const slot = F => { if (!F) return {t: "0px -48px", k: ".2"}; const r = F.getBoundingClientRect(), k = Math.min(isStrip ? .2 : .3, Math.max(.06, r.width / W)), y = r.top - S.top + (isStrip ? -2 : 8);
+      return {t: `${(r.left - S.left + 10).toFixed(1)}px ${(isStrip ? y : Math.max(0, y)).toFixed(1)}px`, k: k.toFixed(3)}; };
+    const sA = slot(FA), sB = slot(FB), ROT = isStrip ? "rotateY(-10deg)" : "rotateY(-18deg) rotateZ(-1.5deg)", LIFT_T = "0px -12px", LIFT_R = "rotateX(1.5deg)";
+    const shRest = cssVar("--sheet-shadow-rest"), shLift = cssVar("--sheet-shadow-lift");
+    const selBg = cssVar("--folder-sel-bg"), selBd = cssVar("--folder-sel-border"), selSh = cssVar("--folder-sel-shadow"), out = cssVar("--folder-out"), dip = cssVar("--folder-dip"), nudge = cssVar("--folder-nudge"), barOn = cssVar("--bar-on"), barOff = cssVar("--bar-off");
+    const EASE = "cubic-bezier(.2,.8,.2,1)", HEAVY = "cubic-bezier(.5,0,.25,1)", T = {duration: D, fill: "forwards"}, anims = [];
+    // the folders first, so that the change of aria-selected finds their look already held and starts no transition of its own
+    if (FA) {                                                     // the old folder keeps its fill and its pulled-out pose until it takes the sheet, then dips and sits back flush
+      const rest = {transform: "none", backgroundColor: "transparent", borderColor: "transparent", boxShadow: "none"}, held = {transform: out, backgroundColor: selBg, borderColor: selBd, boxShadow: selSh};
+      anims.push(FA.animate([Object.assign({offset: 0}, held), Object.assign({offset: .30, easing: "ease-out"}, held), Object.assign({offset: .34, easing: "ease-out"}, held, {transform: dip}), Object.assign({offset: .38}, rest), Object.assign({offset: 1}, rest)], T));
+      const bar = $(".bar", FA); if (bar) anims.push(bar.animate([{offset: 0, transform: barOn}, {offset: .30, transform: barOn, easing: EASE}, {offset: .38, transform: barOff}, {offset: 1, transform: barOff}], T));
+    }
+    if (FB) {                                                     // the chosen folder: its brass bar lights and it nudges at once; at the beat it pulls out and takes the fill
+      const rest = {backgroundColor: "transparent", borderColor: "transparent", boxShadow: "none"}, held = {transform: out, backgroundColor: selBg, borderColor: selBd, boxShadow: selSh};
+      anims.push(FB.animate([Object.assign({offset: 0, transform: "none", easing: "ease-out"}, rest), Object.assign({offset: .06, transform: nudge}, rest), Object.assign({offset: .34, transform: nudge, easing: EASE}, rest), Object.assign({offset: .42}, held), Object.assign({offset: 1}, held)], T));
+      const bar = $(".bar", FB); if (bar) anims.push(bar.animate([{offset: 0, transform: barOff, easing: EASE}, {offset: .08, transform: barOn}, {offset: 1, transform: barOn}], T));
+    }
+    mark(id);                                                    // aria-selected flips at once: the choice is made, the paper follows
+    // while it moves, a sheet is the page the reader can see (the part of it below the fold would trail out of a folder)
+    const V = Math.max(320, Math.round(innerHeight - S.top)), clip = el => { el.style.clipPath = `inset(0 0 max(0px, calc(100% - ${V}px)) 0)`; };
+    clip(A); clip(B); A.style.willChange = B.style.willChange = "transform, translate, scale, opacity";
+    A.inert = true;                                              // the sheet going away leaves the reading order at once; the new one is there from the start
+    area.classList.add("moving"); area.setAttribute("aria-busy", "true");
+    const LIFT_E = "cubic-bezier(.3,.7,.3,1)", EMERGE = "cubic-bezier(.4,0,.2,1)";
+    anims.push(A.animate([{offset: 0, translate: "0px 0px", easing: LIFT_E}, {offset: .06, translate: LIFT_T, easing: HEAVY}, {offset: .34, translate: sA.t}, {offset: 1, translate: sA.t}], T));
+    anims.push(A.animate([{offset: 0, transform: "none", easing: LIFT_E}, {offset: .06, transform: LIFT_R, easing: HEAVY}, {offset: .34, transform: ROT}, {offset: 1, transform: ROT}], T));
+    anims.push(A.animate([{offset: 0, scale: "1", easing: LIFT_E}, {offset: .06, scale: "1.01", easing: "cubic-bezier(.4,0,.6,1)"}, {offset: .22, scale: ".55", easing: EMERGE}, {offset: .34, scale: sA.k}, {offset: 1, scale: sA.k}], T));
+    anims.push(A.animate([{offset: 0, boxShadow: shRest, opacity: 1, easing: LIFT_E}, {offset: .06, boxShadow: shLift, opacity: 1}, {offset: .32, boxShadow: shLift, opacity: 1, easing: "linear"}, {offset: .34, boxShadow: shLift, opacity: 0}, {offset: 1, boxShadow: "none", opacity: 0}], T));
+    anims.push(B.animate([{offset: 0, translate: sB.t}, {offset: .40, translate: sB.t, easing: EMERGE}, {offset: .88, translate: LIFT_T, easing: EASE}, {offset: 1, translate: "0px 0px"}], T));
+    anims.push(B.animate([{offset: 0, transform: ROT}, {offset: .40, transform: ROT, easing: EMERGE}, {offset: .88, transform: LIFT_R, easing: EASE}, {offset: 1, transform: "none"}], T));
+    anims.push(B.animate([{offset: 0, scale: sB.k}, {offset: .40, scale: sB.k, easing: "cubic-bezier(.3,0,.3,1)"}, {offset: .62, scale: ".6", easing: EMERGE}, {offset: .88, scale: "1.01", easing: EASE}, {offset: 1, scale: "1"}], T));
+    anims.push(B.animate([{offset: 0, boxShadow: "none", opacity: 0}, {offset: .40, boxShadow: "none", opacity: 0}, {offset: .41, boxShadow: shLift, opacity: 1}, {offset: .88, boxShadow: shLift, opacity: 1, easing: EASE}, {offset: 1, boxShadow: shRest, opacity: 1}], T));
+    const rule = $(".sheet-rule", B);
+    if (rule) anims.push(rule.animate([{offset: 0, transform: "scaleX(0)"}, {offset: .9, transform: "scaleX(0)", easing: EASE}, {offset: .98, transform: "scaleX(1)"}, {offset: 1, transform: "scaleX(1)"}], T));
+    const m = move = {from, to: id, opts, t0: performance.now(), anims, done: false, timer: 0};
+    const cleanup = () => {
+      if (m.done) return; m.done = true; if (move === m) move = null;
+      clearTimeout(m.timer); document.removeEventListener("pointerdown", onSkip, true); document.removeEventListener("keydown", onSkip, true);
+      if (A !== B) A.hidden = true; A.inert = false;
+      m.anims.forEach(a => { try { a.cancel(); } catch (e) {} });
+      A.style.clipPath = B.style.clipPath = ""; A.style.willChange = B.style.willChange = "";
+      area.classList.remove("moving"); area.removeAttribute("aria-busy");
+      place(id); land(id, opts, opts.focus !== false && !hidden());
+    };
+    const onSkip = e => {
+      if (m.done || performance.now() - m.t0 < 150) return;
+      if (e.type === "keydown") {
+        const k = e.key, tag = (e.target && e.target.tagName || "").toLowerCase(); if (["Shift", "Control", "Alt", "Meta", "CapsLock", "NumLock", "ScrollLock", "Dead", "OS", "Fn"].includes(k) || tag === "input" || tag === "textarea" || tag === "select" || (e.target && e.target.isContentEditable)) return;
+        if (list && list.contains(e.target)) m.opts.keepFocus = true;      // a key in the rack ends the move and then does its own work: focus stays on the folder
+      }
+      finish();
+    };
+    m.cleanup = cleanup;
+    if (paused) { anims.forEach(a => a.pause()); return; }
+    anims[0].onfinish = () => { if (move === m) cleanup(); };
+    m.timer = setTimeout(() => { if (move === m) finish(); }, D + 250);
+    document.addEventListener("pointerdown", onSkip, true); document.addEventListener("keydown", onSkip, true);
+  }
+  function finish(){ const m = move; if (!m || m.done) return; m.anims.forEach(a => { try { a.finish(); } catch (e) {} }); m.cleanup(); }
+  function select(id, opts = {}){
+    if (dead) return; if (!byId[id]) id = front;
+    if (move && move.to === id) { if (opts.detail) move.opts.detail = opts.detail; return; }      // the same move asked for twice (a followed link fires popstate and then hashchange): let it run
+    if (move) finish();
+    const from = cur;
+    if (opts.push !== false) pushAddr(id, opts.detail);
+    if (id === from) { if (opts.detail) { open(id, opts); land(id, opts, false); } return; }
+    if (icons) { try { icons.select(id); } catch (e) {} }
+    if (opts.animate === false || sheetsInstant()) instant(from, id, opts); else start(from, id, opts, false);
+  }
+  function run(from, to, opts = {}){
+    if (move) finish();
+    if (!byId[from] || !byId[to] || from === to) return null;
+    if (cur !== from) instant(cur, from, {push: false, focus: false});
+    if (icons) { try { icons.select(to); } catch (e) {} }
+    start(from, to, {push: false, focus: opts.focus === true}, opts.paused !== false);
+    const m = move;
+    return {seek: ms => { if (m && !m.done) m.anims.forEach(a => { a.currentTime = ms; }); return m.anims[0].currentTime; }, play: () => { if (m && !m.done) m.anims.forEach(a => a.play()); },
+      pause: () => { if (m && !m.done) m.anims.forEach(a => a.pause()); }, finish: () => { if (move === m) finish(); }, cancel: () => { if (move === m) finish(); },
+      state: () => ({from, to, done: m.done, ms: m.done ? null : m.anims[0].currentTime, duration: SHEET_MS[sheetSpeed()] || 5000})};
+  }
+  // the rack: arrows, Home and End move focus (both axes, whatever the orientation); Enter and Space choose (a button's own
+  // click); Tab goes on into the open sheet, at its heading. A click that no pointer or key preceded is assistive
+  // technology choosing a folder: that change is made at once, since no key of theirs could cut the move short.
+  let lastInput = 0;
+  if (list) {
+    const touched = () => { lastInput = performance.now(); };
+    list.addEventListener("pointerdown", touched, true); list.addEventListener("keydown", touched, true); list.addEventListener("keyup", touched, true);
+    list.addEventListener("keydown", e => {
+      const bs = $$(".folder", list), i = bs.indexOf(document.activeElement); if (i < 0) return; let j = null;
+      if (e.key === "Tab" && !e.shiftKey && !e.altKey && !e.ctrlKey && !e.metaKey) { if (focusHead(cur)) e.preventDefault(); return; }
+      if (e.key === "ArrowDown" || e.key === "ArrowRight") j = (i + 1) % bs.length; else if (e.key === "ArrowUp" || e.key === "ArrowLeft") j = (i - 1 + bs.length) % bs.length; else if (e.key === "Home") j = 0; else if (e.key === "End") j = bs.length - 1;
+      if (j == null) return;
+      e.preventDefault(); bs.forEach((b, k) => { b.tabIndex = k === j ? 0 : -1; }); bs[j].focus(); showTab(bs[j], false);
+    });
+    list.addEventListener("click", e => { const b = e.target.closest(".folder"); if (b) select(b.dataset.tab, performance.now() - lastInput < 600 ? {push: true} : {push: true, animate: false}); });
+    list.addEventListener("pointerover", e => { const b = e.target.closest(".folder"); if (icons && b && e.pointerType === "mouse") { try { icons.hover(b.dataset.tab); } catch (x) {} } });
+    list.addEventListener("pointerleave", () => { if (icons) { try { icons.hover(null); } catch (x) {} } });
+    list.addEventListener("focusin", e => { const b = e.target.closest(".folder"); if (icons && b) { try { icons.focus(b.dataset.tab); } catch (x) {} } });
+    list.addEventListener("focusout", () => { if (icons) { try { icons.focus(null); } catch (x) {} } });
+    list.addEventListener("scroll", edges, {passive: true});
+  }
+  // the speed control shows the saved choice; with motion off it says so in a line of its own, and the choice is kept
+  const speedUI = () => {
+    if (!rack) return; const v = sheetSpeed(), off = reducedMotion(), fs = $(".speed", rack), note = $("#speed-off", rack);
+    $$('input[name="sheets"]', rack).forEach(i => { i.checked = i.value === v; });
+    fs.classList.toggle("off", off); if (note) note.hidden = !off; if (off) fs.setAttribute("aria-describedby", "speed-off"); else fs.removeAttribute("aria-describedby");
+    fitRack();
+  };
+  const stillSync = () => { if (icons) { try { icons.setStill(reducedMotion() || hidden() || document.hidden); } catch (e) {} } };
+  const onChange = e => { const i = e.target.closest('input[name="sheets"]'); if (!i) return; a11ySet("sheets", i.value); speedUI(); };
+  const onStorage = e => { if (!e.key || e.key === SHEETS_KEY || e.key === "motion") { speedUI(); stillSync(); } };
+  const onMedia = () => { speedUI(); stillSync(); };
+  const orient = () => { if (list) list.setAttribute("aria-orientation", strip() ? "horizontal" : "vertical"); setTop(); };
+  const onSameLink = e => {                                        // a link to this member's own page (the money chip, "See all N of those votes") opens the sheet in place
+    if (dead || !host.isConnected || hidden()) return;             // only while this desk is the page showing: another page's link to this member must route as any link does
+    const pre = o.route || "#member=", a = e.target.closest(`a[href^="${pre}"]`); if (!a || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const mt = (a.getAttribute("href") || "").slice(pre.length).match(/^([^/?#]+)(?:\/([^/?#]+))?$/); if (!mt || decodeURIComponent(mt[1]) !== String(o.id)) return;
+    e.preventDefault(); select(tabFor(mt[2]), {push: true, detail: mt[2]});
+  };
+  if (rack) rack.addEventListener("change", onChange);
+  addEventListener("storage", onStorage); addEventListener("resize", setTop); document.addEventListener("click", onSameLink);
+  mq.addEventListener("change", orient); rmq.addEventListener("change", onMedia); document.addEventListener("visibilitychange", stillSync);
+  const htmlMO = new MutationObserver(onMedia); htmlMO.observe(document.documentElement, {attributes: true, attributeFilter: ["class"]});
+  const viewMO = view ? new MutationObserver(() => { if (view.hidden && move) finish(); stillSync(); setTop(); }) : null; if (viewMO) viewMO.observe(view, {attributes: true, attributeFilter: ["hidden"]});
+  setTop(); orient(); speedUI();
+  // the live 3D icons, over http only, after the rack exists; the plain icons stay whenever the module is missing or says no
+  if (list && !o.inline && /^https?:$/.test(location.protocol) && !matchMedia("(forced-colors: active)").matches) {
+    import(new URL("../shell/tabicons.js", location.href).href).then(mod => mod.mount(list, tabs.map(t => ({id: t.id, slot: $(".slot", tabOf(t.id))})), {still: reducedMotion()}))
+      .then(c => { if (!c) return; if (dead) { try { c.destroy(); } catch (e) {} return; } icons = c; window.__tabicons = c; list.classList.add("icons3d"); try { c.select(cur); } catch (e) {} stillSync(); })
+      .catch(() => {});
+  }
+  const startId = byId[o.start] ? o.start : front;
+  place(startId); open(startId, {detail: o.detail}); land(startId, {detail: o.detail}, false); showTab(tabOf(startId), false);
+  function destroy(){
+    if (dead) return; dead = true; if (move) finish();
+    document.documentElement.style.scrollPaddingTop = ""; document.documentElement.style.scrollPaddingBottom = "";
+    if (rack) rack.removeEventListener("change", onChange);
+    removeEventListener("storage", onStorage); removeEventListener("resize", setTop); document.removeEventListener("click", onSameLink);
+    mq.removeEventListener("change", orient); rmq.removeEventListener("change", onMedia); document.removeEventListener("visibilitychange", stillSync);
+    htmlMO.disconnect(); if (viewMO) viewMO.disconnect();
+    if (icons) { try { icons.destroy(); } catch (e) {} icons = null; if (window.__tabicons) window.__tabicons = null; }
+    if (window.__sheets === api) window.__sheets = null;
+  }
+  const api = {select, finish, destroy, run, current: () => cur, speed: sheetSpeed, tabs: () => tabs.map(t => t.id), moving: () => !!move,
+    state: () => move ? {from: move.from, to: move.to, ms: move.anims[0].currentTime, done: move.done} : null};
+  window.__sheets = api;
+  return api;
+}
+
 /* ===== end of the shared parts ===== */
 
 /* ---------- who someone is, in brief: the card a name opens (this state's own records) ---------- */
@@ -2116,6 +2635,9 @@ const natural = d => { const m = String(d || "").match(/^(\d+)(.*)$/); return m 
 const byDistrict = (a, b) => { const x = natural(a), y = natural(b); return x[0] - y[0] || x[1].localeCompare(y[1], undefined, {numeric: true}); };
 const tone = p => p === "D" ? "var(--dem)" : (p === "R" ? "var(--rep)" : "var(--plum)");
 const chName = ch => (CH[ch] || {}).name || ch;
+/* a chamber and a district in one phrase ("Senate District 5", "House 12A"): the chamber's name is not written twice where the
+   district's own label already begins with it */
+const chDist = (ch, d) => { const n = chName(ch), l = dLabel(KEYOF[ch], d); return l.startsWith(n + " ") ? l : `${n} ${l}`; };
 const seatOf = L => `${(CH[L.ch] || {}).title || "Member"}, ${dLabel(KEYOF[L.ch], L.d)}${L.seat ? ", Seat " + L.seat : ""}`;
 /* which upper-chamber district a lower-chamber district sits inside: worked out from the lines when the page was built */
 const upperOf = l => (DATA.nest || {})[l] || null;
@@ -2155,29 +2677,31 @@ function renderOfficials(){
   }, () => {});
 }
 function openOfficial(id){ history.pushState({page: "member"}, "", "#official=" + id); routeFromHash(false); }
-function renderOfficialPage(id){
+/* A statewide official's page: the same desk as a legislator's, at its own address (#official=<id>, #official=<id>/wiki).
+   The front sheet is the office and the other statewide offices; the Wikipedia paragraph, where there is one, is the
+   only other folder (one folder alone draws no rack). */
+function renderOfficialPage(id, show){
   const token = ++mpSeq, box = $("#mpage"); if (!box) return;
+  if (samePage(box, "official:" + id, show)) return;
   box.innerHTML = `<p class="muted loading">Loading…</p>`;
   Promise.all([membersReady(), needMember(id)]).then(([, Pf]) => {
     if (token !== mpSeq) return;
     const O = (DATA.officials || []).find(o => o.id === id);
     if (!O) { box.innerHTML = `<div class="empty">That office isn't in this record. <a href="#officials">See the statewide offices</a></div>`; return; }
     const mon = d => d ? new Date(d + "T12:00:00").toLocaleDateString("en-US", {month: "long", year: "numeric"}) : "", W = Pf.wiki;
-    const earlier = (O.earlier || []).map(s => `${chName(s.ch)} ${dLabel(KEYOF[s.ch], s.d)}${s.to ? ", until " + s.to : ""}`).join("; ");
+    const earlier = (O.earlier || []).map(s => `${chDist(s.ch, s.d)}${s.to ? ", until " + s.to : ""}`).join("; ");
     const others = (DATA.officials || []).filter(o => o.id !== id);
     pageview("/official/" + id, O.n); document.title = `${O.n}: The Civic Archive`;
-    box.innerHTML = `<p class="crumbs"><a href="#officials">← Statewide offices</a></p><div class="mp-head">${avatar(id, O.p, "xxl")}<div><h1 class="mp-name">${esc(O.n)}</h1><div class="seat"><b>${esc(O.pn)}</b>, ${esc(O.office)} of ${esc(P.name)}</div></div></div>
-      <div class="rep-top">${O.u ? ract("web", "Website", O.u) : ""}${O.ph ? ract("phone", O.ph, "tel:" + O.ph, true) : ""}${O.em ? ract("mail", "Email", "mailto:" + O.em, true) : ""}<button class="ract sharebtn" id="sharemp" type="button">${ico("share")}<span>Share this profile</span></button></div>
-      <div class="mp-grid">
-        <div class="know" id="mpknow"><h3>Get to know ${esc(O.n)}</h3>
-          <div class="know-b"><h4><span class="tag fact">Fact</span> In office</h4><p>${O.since ? `${esc(O.office)} since <b>${esc(mon(O.since))}</b>.` : `Holds the office of ${esc(O.office)}; the roster this page draws on does not record since when.`}${O.until ? ` The term runs to ${esc(mon(O.until))}${O.next ? `, and the office is next on the ballot in <b>November ${esc(String(O.next))}</b>` : ""}.` : ""}${earlier ? ` Earlier, in the legislature: ${esc(earlier)}.` : ""}</p>${O.of ? `<p class="know-line">${ico("pin")}<span>${esc(O.of)}</span></p>` : ""}</div>
-          ${W && W.extract ? `<div class="know-b know-wiki"><h4><span class="tag wiki">From Wikipedia</span> Before this office, and beyond it</h4><p>${esc(W.extract)}</p><p class="know-rule">This is the opening of the Wikipedia article <a href="${esc(W.url)}" target="_blank" rel="noopener">${esc(W.title)}</a>. It is <b>not an official record</b>, and anyone can edit it. Text under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</p></div>` : ""}
-        </div>
-        <div class="mp-side">
-          <div class="know-b"><h4><span class="tag fact">Fact</span> Who funds the campaign</h4><p class="muted">Coming. Campaign money for statewide offices is not loaded yet; it will follow the same rule as everywhere here: organizations are named, people are only ever totals.</p></div>
-          ${others.length ? `<div class="know-b"><h4><span class="tag fact">Fact</span> The other statewide offices</h4>${others.map(offBtn).join("")}</div>` : ""}
-        </div>
-      </div>`;
+    const office = `<div class="know-b"><h4><span class="tag fact">Fact</span> In office</h4><p>${O.since ? `${esc(O.office)} since <b>${esc(mon(O.since))}</b>.` : `Holds the office of ${esc(O.office)}; the roster this page draws on does not record since when.`}${O.until ? ` The term runs to ${esc(mon(O.until))}${O.next ? `, and the office is next on the ballot in <b>November ${esc(String(O.next))}</b>` : ""}.` : ""}${earlier ? ` Earlier, in the legislature: ${esc(earlier)}.` : ""}</p>${O.of ? `<p class="know-line">${ico("pin")}<span>${esc(O.of)}</span></p>` : ""}</div>`;
+    const othersHTML = others.length ? `<div class="know-b"><h4><span class="tag fact">Fact</span> The other statewide offices</h4>${others.map(offBtn).join("")}</div>` : "";
+    const coming = comingRule([["Who funds the campaign", "Coming. Campaign money for statewide offices is not loaded yet; it will follow the same rule as everywhere here: organizations are named, people are only ever totals."]]);
+    const tabs = [
+      {id: "office", label: "Get to know", sub: "Fact", html: `<h2 class="sheet-h">Get to know ${esc(O.n)}</h2>${office}${othersHTML}${coming}`},
+      W && W.extract ? {id: "wiki", label: "From Wikipedia", sub: "Not an official record", html: wikiCard(W, "Before this office, and beyond it")} : null];
+    box.innerHTML = `<div class="mp-desk"><p class="crumbs"><a href="#officials">← Statewide offices</a></p><div class="mp-top"><div class="mp-head">${avatar(id, O.p, "xxl")}<div><h1 class="mp-name">${esc(O.n)}</h1><div class="seat"><b>${esc(O.pn)}</b>, ${esc(O.office)} of ${esc(P.name)}</div></div></div>
+      <div class="rep-top">${O.u ? ract("web", "Website", O.u) : ""}${O.ph ? ract("phone", O.ph, "tel:" + O.ph, true) : ""}${O.em ? ract("mail", "Email", "mailto:" + O.em, true) : ""}<button class="ract sharebtn" id="sharemp" type="button">${ico("share")}<span>Share this profile</span></button></div></div></div>`;
+    box._sheets = fileTabs($(".mp-desk", box), {id, name: O.n, tabs, start: tabFor(show), detail: show, inline: !!BOOT.inline, route: "#official="});
+    box.dataset.member = "official:" + id; box._title = document.title;
     $("#sharemp").addEventListener("click", e => share({title: `${O.n}, ${O.office} of ${P.name}`, text: `${O.n}, ${O.office} of ${P.name}: in office, and the record, from public sources:`, url: `${SHARE_BASE}/m/${id}.html`, kind: "official", key: id}, e.currentTarget));
   }, () => { if (token === mpSeq) box.innerHTML = `<div class="empty">Couldn't load this page. Check your connection and try again.</div>`; });
 }
@@ -2606,31 +3130,57 @@ function renderMoney(id, M, L, show){
 /* ---------- a member's own page ----------
    Who the member is, without characterising anyone: facts from the roster, the committees they sit on, the
    organizations that fund their campaigns, and one fenced paragraph from Wikipedia. Recorded votes join it when
-   the state's bills and roll calls are loaded. */
-function knowHTML(Pf, L, id){
+   the state's bills and roll calls are loaded. The page files each section behind its own folder, as the federal
+   page does (the rack, the sheets and the move are borrowed from it): knowHTML gives the sections apart when asked
+   (opt.parts), and joined, word for word the same, when not. */
+function knowHTML(Pf, L, id, opt){
   const S = Pf.service, C = Pf.committees || [], W = Pf.wiki, last = L.ln || L.n.split(" ").slice(-1)[0];
   const fact = `<span class="tag fact">Fact</span>`;
   const mon = d => d ? new Date(d + "T12:00:00").toLocaleDateString("en-US", {month: "long", year: "numeric"}) : "";
   const years = d => d ? Math.max(0, Math.floor((Date.now() - new Date(d + "T12:00:00")) / 3.15576e10)) : null;
   const plural = (n, w) => `${n.toLocaleString()} ${w}${n === 1 ? "" : "s"}`;
-  let h = "";
+  const h = {office: "", committees: "", money: "", wiki: ""};
   if (S) {
     const span = s => s.from ? `${esc(s.from)} to ${s.to ? esc(s.to) : "now"}` : (s.to ? `until ${esc(s.to)}` : "dates not on file");
     const y = years(S.since), seats = (S.seats || []).map(s => `${esc(dLabel(KEYOF[L.ch], s.d))} (${span(s)})`).join(", then ");
-    const earlier = (S.earlier || []).map(s => `${esc(chName(s.ch))} ${esc(dLabel(KEYOF[s.ch], s.d))}, ${span(s)}`).join("; ");
+    const earlier = (S.earlier || []).map(s => `${esc(chDist(s.ch, s.d))}, ${span(s)}`).join("; ");
     const began = S.since ? `In the ${esc(chName(S.chamber))} since <b>${esc(S.year_only ? S.since.slice(0, 4) : mon(S.since))}</b>${y != null ? `: ${plural(y, "year")}` : ""}.`
       : (S.vague ? `In the ${esc(chName(S.chamber))} since <b>${esc(S.vague)}</b>. The roster this page draws on does not record when this service began.` : `Sits in the ${esc(chName(S.chamber))}. The roster this page draws on does not record when this service began.`);
-    h += `<div class="know-b"><h4>${fact} In office</h4><p>${began}${seats ? ` The district's number changed along the way: ${seats}.` : ""}${earlier ? ` Earlier seats on file: ${earlier}.` : ""}${S.next ? ` The seat is next on the ballot in <b>November ${esc(String(S.next))}</b>.` : ""}</p>${L.of ? `<p class="know-line">${ico("pin")}<span>${esc(L.of)}</span></p>` : ""}</div>`;
+    h.office = `<div class="know-b"><h4>${fact} In office</h4><p>${began}${seats ? ` The district's number changed along the way: ${seats}.` : ""}${earlier ? ` Earlier seats on file: ${earlier}.` : ""}${S.next ? ` The seat is next on the ballot in <b>November ${esc(String(S.next))}</b>.` : ""}</p>${L.of ? `<p class="know-line">${ico("pin")}<span>${esc(L.of)}</span></p>` : ""}</div>`;
   }
-  if (C.length) h += `<div class="know-b"><h4>${fact} Committees</h4><ul class="know-list">${C.map(c => `<li><b>${esc(c.name)}</b>${c.title ? `<span class="role">${esc(c.title)}</span>` : ""}${c.ch && c.ch !== L.ch ? ` <span class="muted">(${esc(chName(c.ch))})</span>` : ""}</li>`).join("")}</ul></div>`;
-  if (Pf.money && Pf.money.cycles && Pf.money.cycles.length) { MONEY[id] = {M: Pf.money}; h += moneyCard(id); }
-  if (W && W.extract) h += `<div class="know-b know-wiki"><h4><span class="tag wiki">From Wikipedia</span> Before the legislature, and beyond it</h4><p>${esc(W.extract)}</p><p class="know-rule">This is the opening of the Wikipedia article <a href="${esc(W.url)}" target="_blank" rel="noopener">${esc(W.title)}</a>. It is <b>not an official record</b>, and anyone can edit it. Text under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</p></div>`;
-  return h;
+  if (C.length) h.committees = `<div class="know-b"><h4>${fact} Committees</h4><ul class="know-list">${C.map(c => `<li><b>${esc(c.name)}</b>${c.title ? `<span class="role">${esc(c.title)}</span>` : ""}${c.ch && c.ch !== L.ch ? ` <span class="muted">(${esc(chName(c.ch))})</span>` : ""}</li>`).join("")}</ul></div>`;
+  if (Pf.money && Pf.money.cycles && Pf.money.cycles.length) { MONEY[id] = {M: Pf.money}; h.money = moneyCard(id); }
+  if (W && W.extract) h.wiki = wikiCard(W, "Before the legislature, and beyond it");
+  return opt && opt.parts ? h : h.office + h.committees + h.money + h.wiki;
+}
+/* the fenced Wikipedia paragraph, for a legislator or a statewide official: the same fence, credit and link everywhere */
+const wikiCard = (W, head) => `<div class="know-b know-wiki"><h4><span class="tag wiki">From Wikipedia</span> ${esc(head)}</h4><p>${esc(W.extract)}</p><p class="know-rule">This is the opening of the Wikipedia article <a href="${esc(W.url)}" target="_blank" rel="noopener">${esc(W.title)}</a>. It is <b>not an official record</b>, and anyone can edit it. Text under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</p></div>`;
+/* Where the record has nothing to file yet (no votes loaded, no campaign money for this state or this office), the
+   section is not a folder: its words stay on the front sheet, one after another, each led by the section's name. */
+const comingRule = notes => notes.length ? `<p class="know-rule sheet-coming">${notes.map(([name, words]) => `<b>${esc(name)}.</b> ${words}`).join(" ")}</p>` : "";
+/* The money sheet: the card, then the whole "Money: who gave, and who spent" view under it, drawn the first time the
+   sheet is opened (the picture measures its box, so it is drawn only on a sheet that is showing) and re-measured on
+   every later opening. Opened by the address #member=<id>/money, the view itself is brought into sight. */
+function moneyTab(id, Pf, L, card){
+  const Mt = ((Pf.money || {}).totals || {}).all; let drawn = false;
+  return {id: "money", label: "Who funds the campaign", short: "Campaign money", sub: `Fact${Mt && Mt.receipts ? ` · ${usdShort(Mt.receipts)}` : ""}`,
+    html: card + `<div class="mny-page" id="mpmoney" hidden></div>`,
+    onOpen: () => { if (!drawn) { drawn = true; renderMoney(id, Pf.money, L, null); } else dispatchEvent(new Event("resize")); },
+    onLand: detail => { if (detail === "money") revealPart("#mpmoney"); }};      // the engine's own: under the top bar, and under the folders where they stand in a strip
 }
 function openMember(id, show){ history.pushState({page: "member"}, "", "#member=" + id + (show ? "/" + show : "")); routeFromHash(false); }
 let mpSeq = 0;
+/* The page already showing this person: open the sheet the address names and never rebuild (a link to the same page,
+   the Back button, a pop-out card's links). Anyone else: put the old desk away first. */
+function samePage(box, key, show){
+  if (box.dataset.member === key && box._sheets) { if (box._title) document.title = box._title; box._sheets.select(tabFor(show), {push: false, detail: show}); return true; }
+  if (box._sheets) { box._sheets.destroy(); box._sheets = null; }
+  delete box.dataset.member;
+  return false;
+}
 function renderMemberPage(id, show){
   const token = ++mpSeq, box = $("#mpage"); if (!box) return;
+  if (samePage(box, id, show)) return;
   box.innerHTML = `<p class="muted loading">Loading…</p>`;
   Promise.all([membersReady(), needMember(id)]).then(([, Pf]) => {
     if (token !== mpSeq) return;
@@ -2640,18 +3190,22 @@ function renderMemberPage(id, show){
     const mates = membersAt(key, L.d).filter(m => m.id !== id), others = mates.concat(other ? [other] : [], insiders), want = seatsIn(key, L.d);
     const why = [want > 1 ? `${dLabel(key, L.d)} elects ${numWord(want)} ${P[key].title.toLowerCase()}s.` : "", other ? `It sits inside ${dLabel("upper", up)}.` : "", insiders.length ? `${P.lower.name} district${lowersOf(L.d).length === 1 ? "" : "s"} ${listWords(lowersOf(L.d))} ${lowersOf(L.d).length === 1 ? "sits" : "sit"} inside ${dLabel("upper", L.d)}.` : ""].filter(Boolean).join(" ");
     pageview("/member/" + id, L.n); document.title = `${L.n}: The Civic Archive`;
-    box.innerHTML = `<p class="crumbs"><a href="#members">← All ${BOOT.stats.members.toLocaleString()} legislators</a></p><div class="mp-head">${avatar(id, L.p, "xxl")}<div><h1 class="mp-name">${esc(L.n)}</h1><div class="seat"><b>${esc(L.pn)}</b>, ${esc((CH[L.ch] || {}).title || "Member")} for ${esc(dLabel(key, L.d))}${L.seat ? " (Seat " + esc(L.seat) + ")" : ""}, ${esc(P.name)}</div></div></div>
-      <div class="rep-top">${L.u ? ract("web", "Website", L.u) : ""}${L.ph ? ract("phone", L.ph, "tel:" + L.ph, true) : ""}${L.em ? ract("mail", "Email", "mailto:" + L.em, true) : ""}${onMap(key, L.d) ? ract("map", dLabel(key, L.d) + " on the map", districtHash(key, L.d), true) : ""}<button class="ract sharebtn" id="sharemp" type="button">${ico("share")}<span>Share this profile</span></button></div>
-      <div class="mp-grid">
-        <div class="know" id="mpknow"><h3>Get to know ${esc(L.n)}</h3>${knowHTML(Pf, L, id) || `<p class="muted">Nothing more on record for this member yet.</p>`}</div>
-        <div class="mp-side">
-          <div class="know-b"><h4><span class="tag fact">Fact</span> Every recorded vote</h4><p class="muted">Coming next. ${esc(P.name)}'s bills and recorded floor votes are the next part to be added; when they arrive, every vote ${esc(L.n)} cast will be listed here, as on the federal side.</p></div>
-          ${BOOT.has_money ? "" : `<div class="know-b"><h4><span class="tag fact">Fact</span> Who funds the campaign</h4><p class="muted">Coming. Every state keeps its own campaign-finance records, so they are added one state at a time; ${esc(P.name)}'s are not loaded yet. <a href="../mn/">See how it looks for Minnesota</a></p></div>`}
-          ${others.length ? `<div class="know-b"><h4><span class="tag fact">Fact</span> The same voters' other legislator${others.length > 1 ? "s" : ""}</h4><p class="muted" style="margin-bottom:6px">${esc(why)}</p>${others.map(m => memBtn(m)).join("")}</div>` : ""}
-        </div>
-      </div>
-      <div class="mny-page" id="mpmoney" hidden></div>`;
-    if (Pf.money && Pf.money.cycles && Pf.money.cycles.length) renderMoney(id, Pf.money, L, show);
+    // the desk: the header and the link row as they were; the front sheet is "Get to know" (In office, and the seat's
+    // other legislators), and every other section is a sheet behind its own folder
+    const parts = knowHTML(Pf, L, id, {parts: true}), C = Pf.committees || [], plural = (n, w) => `${n.toLocaleString()} ${w}${n === 1 ? "" : "s"}`;
+    const nothing = parts.office || parts.committees || parts.money || parts.wiki ? "" : `<p class="muted">Nothing more on record for this member yet.</p>`;
+    const othersHTML = others.length ? `<div class="know-b"><h4><span class="tag fact">Fact</span> The same voters' other legislator${others.length > 1 ? "s" : ""}</h4><p class="muted" style="margin-bottom:6px">${esc(why)}</p>${others.map(m => memBtn(m)).join("")}</div>` : "";
+    const coming = comingRule([["Every recorded vote", `Coming next. ${esc(P.name)}'s bills and recorded floor votes are the next part to be added; when they arrive, every vote ${esc(L.n)} cast will be listed here, as on the federal side.`]]
+      .concat(BOOT.has_money ? [] : [["Who funds the campaign", `Coming. Every state keeps its own campaign-finance records, so they are added one state at a time; ${esc(P.name)}'s are not loaded yet. <a href="../mn/">See how it looks for Minnesota</a>`]]));
+    const tabs = [
+      {id: "office", label: "Get to know", sub: "Fact", html: `<h2 class="sheet-h">Get to know ${esc(L.n)}</h2>${parts.office}${nothing}${othersHTML}${coming}`},
+      parts.committees ? {id: "committees", label: "Committees", sub: `Fact · ${plural(C.length, "seat")}`, html: parts.committees} : null,
+      parts.money ? moneyTab(id, Pf, L, parts.money) : null,
+      parts.wiki ? {id: "wiki", label: "From Wikipedia", sub: "Not an official record", html: parts.wiki} : null];
+    box.innerHTML = `<div class="mp-desk"><p class="crumbs"><a href="#members">← All ${BOOT.stats.members.toLocaleString()} legislators</a></p><div class="mp-top"><div class="mp-head">${avatar(id, L.p, "xxl")}<div><h1 class="mp-name">${esc(L.n)}</h1><div class="seat"><b>${esc(L.pn)}</b>, ${esc((CH[L.ch] || {}).title || "Member")} for ${esc(dLabel(key, L.d))}${L.seat ? " (Seat " + esc(L.seat) + ")" : ""}, ${esc(P.name)}</div></div></div>
+      <div class="rep-top">${L.u ? ract("web", "Website", L.u) : ""}${L.ph ? ract("phone", L.ph, "tel:" + L.ph, true) : ""}${L.em ? ract("mail", "Email", "mailto:" + L.em, true) : ""}${onMap(key, L.d) ? ract("map", dLabel(key, L.d) + " on the map", districtHash(key, L.d), true) : ""}<button class="ract sharebtn" id="sharemp" type="button">${ico("share")}<span>Share this profile</span></button></div></div></div>`;
+    box._sheets = fileTabs($(".mp-desk", box), {id, name: L.n, tabs, start: tabFor(show), detail: show, inline: !!BOOT.inline});
+    box.dataset.member = id; box._title = document.title;
     $("#sharemp").addEventListener("click", e => share({title: `Get to know ${L.n}`, text: `${L.n}, ${seatOf(L)} in the ${P.legislature}: service${BOOT.has_money ? ", committees and who funds the campaign" : " and committees"}, from the public record:`, url: `${SHARE_BASE}/m/${id}.html`, kind: "member", key: id}, e.currentTarget));
   }, () => { if (token === mpSeq) box.innerHTML = `<div class="empty">Couldn't load this member. Check your connection and try again.</div>`; });
 }
@@ -2892,14 +3446,14 @@ function showPage(name, push){
 }
 function routeFromHash(push){
   const h = (location.hash || "").replace(/^#/, "");
-  const mem = h.match(/^member=([A-Za-z0-9_-]+)(?:\/(money))?$/);
+  const mem = h.match(/^member=([A-Za-z0-9_-]+)(?:\/(office|committees|howvotes|work|money|votes|wiki|breaks|missed))?$/);      // a folder this page does not have opens the front sheet
   if (mem) { showPage("member", false); renderMemberPage(mem[1], mem[2]); return; }
   const shp = h.match(/^shape=([SH])-(.+)$/);
   if (shp) { showPage("shapes", false); shapesPage([shp[1] === "S" ? "upper" : "lower", decodeURIComponent(shp[2])]); return; }
   const plp = h.match(/^people=([SH])-(.+)$/);
   if (plp) { showPage("people", false); peoplePage([plp[1] === "S" ? "upper" : "lower", decodeURIComponent(plp[2])]); return; }
-  const off = h.match(/^official=([A-Za-z0-9_-]+)$/);
-  if (off) { showPage("member", false); renderOfficialPage(off[1]); return; }
+  const off = h.match(/^official=([A-Za-z0-9_-]+)(?:\/(office|committees|howvotes|work|money|votes|wiki|breaks|missed))?$/);
+  if (off) { showPage("member", false); renderOfficialPage(off[1], off[2]); return; }
   const dis = h.match(/^district=([SH])-(.+)$/);
   if (dis) { showPage("map", false); mapReady().then(() => { if (window.mapSelect) mapSelect(dis[1] === "S" ? "upper" : "lower", decodeURIComponent(dis[2])); }, () => {}); return; }
   if (h === "yours" || h === "officials" || h === "chambers" || h === "coming" || h === "top" || h === "") { showPage("home", false); if (h && h !== "top") { const t = $("#" + h); if (t) setTimeout(() => t.scrollIntoView({behavior: "auto"}), 30); } return; }

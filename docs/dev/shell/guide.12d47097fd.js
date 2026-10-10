@@ -10,8 +10,8 @@
 
 const E = {
   home: {t: "The home page", a: "What the archive holds today, and the ways in.",
-    s: ["Pick one of the five doors: Plain Congress, On The Ballot, Officials, Method or Access.",
-        "On a phone, the same five sit in the bar at the bottom of the screen.",
+    s: ["Pick one of the six doors: Plain Congress, On The Ballot, Election Night, Officials, Method or Access.",
+        "On a phone, the same six sit in the bar at the bottom of the screen. Election Night is called Results there.",
         "Under Officials, choose your state and press Go to meet your legislators.",
         "Reading & access, at the top, changes text size, type, spacing, contrast and motion. It is kept on this device."],
     n: [["Plain Congress", "us/"], ["On The Ballot", "ballot/"], ["How pages are made", "method/"]]},
@@ -84,8 +84,10 @@ const E = {
         "Open a member for their service, committees, votes and money."],
     n: [["Follow the money", "us/#money"], ["The vote map", "us/#map"]]},
   us_member: {t: "One member", a: "This member's record: service, committees, votes, bills and money.",
-    s: ["Get to know shows terms, committees and what they sponsor, from the record. The site does not describe anyone's views.",
-        "Votes: all of them, the times they broke with their party, and the ones they missed.",
+    s: ["Get to know shows terms and office, from the record. The site does not describe anyone's views.",
+        "The rest is on tabs beside the page (in a row under the links on a phone): Committees, How they vote, What they work on, Who funds the campaign, Every recorded vote and From Wikipedia. Choose one and its sheet comes out.",
+        "Sheet speed, under the tabs and on the Access page, makes the change full, quick or instant. Any click, tap or key skips it. Motion off makes it instant.",
+        "Votes: all of them, the times they broke with their party, and the ones they missed. Search, or open Filters to narrow by how they voted, topic, kind of vote and dates; sort, or download what you see. The address keeps your filters, so you can share them.",
         "Money shows organizations that gave, by election. Spending by outside groups is kept apart: the campaign never received it.",
         "The paragraph from Wikipedia is marked as not an official record. Share this profile copies a link."],
     n: [["Your members", "us/#members"], ["Follow the money", "us/#money"]]},
@@ -119,6 +121,8 @@ const E = {
     n: [["The district map", "#map"]]},
   st_member: {t: "One legislator", a: "This legislator's record: service, committees, and money where it is loaded.",
     s: ["Service and committees come from the state's roster. A year the record does not give is not filled in.",
+        "Get to know is the front sheet. Committees, Who funds the campaign (where loaded) and From Wikipedia are tabs beside the page (in a row under the links on a phone); choose one and its sheet comes out.",
+        "Sheet speed, under the tabs and on the Access page, makes the change full, quick or instant. Any click, tap or key skips it. Motion off makes it instant.",
         "Money names organizations only. People who gave appear only as totals.",
         "The paragraph from Wikipedia is marked as not an official record."],
     n: [["Your legislators", "#members"]]},
@@ -178,12 +182,78 @@ const E = {
     n: [["This state's ballot", "#"]]},
   bx_sources: {t: "Sources and methods", a: "Every source behind this state's ballot page.", s: ["Sources are grouped by kind. Open a group to see each one."],
     n: [["This state's ballot", "#"]]},
+
+  /* Election Night */
+  n_home: {t: "Election Night", a: "Official results of the November 3 election, as each state posts them, with the time on every number.",
+    s: ["Pick a door: Results, The feed or Forecasts, or Minnesota at every level. A door whose page is not ready yet says so.",
+        "When the polls close lists each state's closing time in your own time zone. Find your polling place links to each state's own lookup.",
+        "No race is called here. Until a state certifies its results, the pages say only who is ahead in the count so far.",
+        "Forecasts are a computer model's estimate. They are labelled Analysis, and the official count decides."],
+    n: [["Minnesota", "night/mn/"], ["On The Ballot", "ballot/"]]},
+  nu_home: {t: "Results across the country", a: "The races for Congress, governor and the other statewide offices, as each state's election office posts them.",
+    s: ["Choose a state on the map, or Use my location. Your place is worked out on this device.",
+        "Where a state publishes no live count this site may read, its page links to the state's own results.",
+        "Every number shows the time the state posted it. Nothing is final until the state certifies it."],
+    n: [["Election Night", "night/"]]},
+  nu_state: {t: "One state's results", a: "This state's races for Congress, governor and the other statewide offices, with its count so far.",
+    s: ["Choose a race to open it.",
+        "Each count shows how much has reported and the time the state posted it."],
+    n: [["Results across the country", "night/us/"]]},
+  n_race: {t: "One race", a: "The count for this contest so far, as the state posted it.",
+    s: ["Each candidate's votes so far, and how many precincts or counties have reported.",
+        "Ahead in the count so far is not a result. The official count decides, once the state certifies it.",
+        "On the map, tap a place for its own figures. Back to the whole race returns to the totals.",
+        "Times are shown in your own time zone."],
+    n: [["Election Night", "night/"]]},
+  nx_home: {t: "This state's results", a: "Every contest on this state's ballot, from the statewide races to school boards, as the state's results files give them.",
+    s: ["Statewide, Legislature, Judges, Counties and Your ballot, at the top, open each part.",
+        "The map: pick a race to see who is ahead in the count so far, county by county, and precinct by precinct as you zoom in. Tap a place for its own figures.",
+        "Your ballot: Use my location finds your precinct on this device and shows the contests you vote in. Forget my location clears it.",
+        "The figures are copied from the state's own results. The state's own site is the authority."],
+    n: [["Statewide", "#statewide"], ["Your ballot", "#mine"]]},
+  nx_list: {t: "A list of contests", a: "Every contest of this kind on the ballot, with its count so far.",
+    s: ["Choose a contest to open it.",
+        "The Legislature's map switches between the two chambers.",
+        "Each count shows how many precincts have reported."],
+    n: [["This state's results", "#"]]},
+  nx_counties: {t: "County by county", a: "Every contest in each county, from the county board to the school districts.",
+    s: ["Choose a county, then a contest.",
+        "Each contest shows its count so far and the time of the figures."],
+    n: [["This state's results", "#"]]},
+  nx_mine: {t: "Your ballot's results", a: "The results of the contests on your own ballot.",
+    s: ["Use my location finds your precinct on this device. Only the precinct and its districts are kept, until you tap Forget my location.",
+        "Or pick your county.",
+        "Each contest shows the race's totals and your precinct's own numbers."],
+    n: [["This state's results", "#"]]},
+  n_feed: {t: "The feed", a: "What the news is covering, race by race: headlines with links, posts from official accounts only, and a leaderboard of the attention each race gets.",
+    s: ["Tap a state on Coverage by state, or a race, to see its headlines and its four measures.",
+        "Under The leaderboard, pick a board, then Coverage per 100,000 residents, Attention gap, Momentum or Source breadth. Show opens a row's worked-out figure.",
+        "Each headline names its outlet and links to the story. The site shows headlines, never the article.",
+        "Posts are shown only from newsrooms, election offices and candidates' official accounts. Everyone else is counted, never shown.",
+        "The leaderboard is Analysis, not a measure of importance or of support."],
+    n: [["Results across the country", "night/us/"], ["Forecasts", "night/forecasts/"], ["How it is counted", "night/feed/#how"]]},
+  n_feed_how: {t: "How the feed is counted", a: "The rules for counting headlines and posts, and for placing them on the map.",
+    s: ["One story counts once for each outlet.", "Each item on the map says how sure the placing is, and why."],
+    n: [["The feed", "night/feed/"]]},
+  n_fc: {t: "Forecasts", a: "A computer model's chances for each race, labelled Analysis. Not a result: the official count decides.",
+    s: ["Pick a state under Forecasts by state, or a race in The closest races in the model.",
+        "On a state's page, filter by level, Find a race, a place or a candidate, or choose Closest first.",
+        "A race shows Each candidate's chance, The trend across runs, Three blind spots and The inputs. Where a new version of the method begins, the trend marks it.",
+        "Until forecasts are published, this page shows only How it works and the Track record."],
+    n: [["The track record", "night/forecasts/#track"], ["How it works", "night/forecasts/#method"]]},
+  n_fc_track: {t: "The track record", a: "How earlier forecasts did against the official results.",
+    s: ["Each forecast is scored once the state certifies its results, including how it did as the count went on."],
+    n: [["Forecasts", "night/forecasts/"]]},
+  n_fc_method: {t: "How the forecasts are made", a: "The model's inputs, its method and its version.",
+    s: ["Every input names its source and date.", "When a formula changes, the method's version goes up."],
+    n: [["Forecasts", "night/forecasts/"]]},
   other: {t: "The Civic Archive", a: "The public record, for everyone.", s: ["The links below lead to every part of the site."], n: [["Home", ""]]}
 };
 
 /* the whole site, in the same order as the top bar */
 export const AROUND = [["Home", "", "What the archive holds"], ["Plain Congress", "us/", "Every bill and recorded vote"],
-  ["On The Ballot", "ballot/", "Who is on your November ballot"], ["State legislatures", "rooms.html#states", "Choose a state"],
+  ["On The Ballot", "ballot/", "Who is on your November ballot"], ["Election Night", "night/", "Follow the count, race by race"],
+  ["State legislatures", "rooms.html#states", "Choose a state"],
   ["Method", "method/", "How each page is made"], ["Access", "access/", "Reading and access settings"]];
 
 /* where the reader is: the page's folder below the site's root, and the part of the address after # */
@@ -201,6 +271,12 @@ export function where(rel, hash) {
   if (rel === "ballot/states/") return "bs_home";
   if (/^ballot\/[a-z]{2}\/$/.test(rel)) return ({statewide: "bx_list", legislature: "bx_list", courts: "bx_list", counties: "bx_counties",
     county: "bx_counties", race: "bx_race", sources: "bx_sources"})[k] || "bx_home";
+  if (rel === "night/") return "n_home";
+  if (rel === "night/us/") return ({state: "nu_state", race: "n_race"})[k] || "nu_home";
+  if (rel === "night/feed/") return ({how: "n_feed_how"})[k] || "n_feed";
+  if (rel === "night/forecasts/") return ({track: "n_fc_track", method: "n_fc_method"})[k] || "n_fc";
+  if (/^night\/[a-z]{2}\/$/.test(rel)) return ({statewide: "nx_list", legislature: "nx_list", courts: "nx_list", counties: "nx_counties",
+    county: "nx_counties", race: "n_race", mine: "nx_mine", yours: "nx_mine"})[k] || "nx_home";
   if (/^[a-z]{2}\/$/.test(rel)) return ({map: "st_map", shapes: "st_shapes", shape: "st_shapes", people: "st_people", members: "st_members",
     member: "st_member", sources: "st_sources"})[k] || "st_home";
   return "other";
