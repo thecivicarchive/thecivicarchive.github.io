@@ -1,0 +1,28 @@
+{
+ "name": "My ballot",
+ "short_name": "My ballot",
+ "description": "A ballot you kept on this device, to read with no signal.",
+ "start_url": "./",
+ "scope": "./",
+ "display": "standalone",
+ "background_color": "#F6F1E7",
+ "theme_color": "#2F6B5E",
+ "icons": [
+  {
+   "src": "icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  },
+  {
+   "src": "icon-512-maskable.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "maskable"
+  }
+ ]
+}
