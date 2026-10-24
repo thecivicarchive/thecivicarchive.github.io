@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sit in the polling place: On The Ballot · The Civic Archive</title>
+<meta name="description" content="Sit in a school gym set up as a polling place, as long as you like: the bleachers, a voting booth, the check-in table. Look around, get up and walk, turn the sound on. Drawn on your device; nothing is sent.">
+<meta name="version" content="4.1.030">
+<link rel="icon" href="../../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="../../icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Civic Archive">
+<meta property="og:title" content="Sit in the polling place: On The Ballot · The Civic Archive">
+<meta property="og:description" content="Sit in a school gym set up as a polling place, as long as you like: the bleachers, a voting booth, the check-in table. Look around, get up and walk, turn the sound on. Drawn on your device; nothing is sent.">
+<meta property="og:url" content="https://thecivicarchive.org/ballot/polling-place/">
+<meta property="og:image" content="https://thecivicarchive.org/ballot/og/polling-place.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Civic Archive emblem, a hall of books with a brass pediment, beside the words Sit in the polling place: On The Ballot · The Civic Archive">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sit in the polling place: On The Ballot · The Civic Archive">
+<meta name="twitter:description" content="Sit in a school gym set up as a polling place, as long as you like: the bleachers, a voting booth, the check-in table. Look around, get up and walk, turn the sound on. Drawn on your device; nothing is sent.">
+<meta name="twitter:image" content="https://thecivicarchive.org/ballot/og/polling-place.png">
+<meta name="theme-color" content="#0B0907">
+<meta name="color-scheme" content="dark">
+<script>(function () {
+  var d = document.documentElement, KEY = "tca.a11y.v1";
+  var ALLOW = {
+    depth: ["standard", "detailed", "focus"], lang: ["standard", "plain"], face: ["standard", "dyslexia", "hyperlegible"],
+    scale: ["100", "115", "130", "150", "200"], space: ["standard", "generous"], contrast: ["standard", "high", "dark"],
+    palette: ["standard", "deut", "prot", "trit", "mono"], motion: ["full", "reduced"], calm: ["off", "on"],
+    reveal: ["full", "subtle", "off"], companion: ["on", "still", "off"], sheets: ["full", "quick", "instant"],
+    level: ["3", "1", "2", "4", "5", "6"], focus: ["none", "ballot", "reps", "congress", "state", "results"],
+    language: ["en"]
+  };
+  var PERCH = ["chickadee"];
+  var get = function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } };
+  var mq = function (q) { try { return window.matchMedia(q).matches; } catch (e) { return false; } };
+  var ax = {}, k, saved = null;
+  for (k in ALLOW) ax[k] = ALLOW[k][0];
+  try { saved = JSON.parse(get(KEY) || "null"); } catch (e) { saved = null; }
+  if (saved && typeof saved === "object") {
+    for (k in ALLOW) if (ALLOW[k].indexOf(String(saved[k])) >= 0) ax[k] = String(saved[k]);
+  } else {
+    if (mq("(prefers-reduced-motion: reduce)")) ax.motion = "reduced";
+    if (mq("(prefers-contrast: more)")) ax.contrast = "high";
+  }
+  if (!saved || !saved.level) {
+    try { var mm = JSON.parse(get("tca.meet.v1") || "null"); if (mm && mm.level >= 1 && mm.level <= 6) ax.level = String(mm.level);
+      if (mm && ALLOW.focus.indexOf(String(mm.focus)) >= 0 && (!saved || !saved.focus)) ax.focus = String(mm.focus); } catch (e) {}
+  }
+  var theme = get("theme"), motion = get("motion");
+  if (theme === "dark" && ax.contrast === "standard") ax.contrast = "dark";
+  if (theme === "light" && ax.contrast === "dark") ax.contrast = "standard";
+  if (motion === "off" && ax.calm !== "on") ax.motion = "reduced";
+  if (motion === "on") ax.motion = "full";
+  for (k in ax) d.setAttribute("data-" + k, ax[k]);
+  var I18N = {"base":"/shell/lang/","files":{},"loc":{"en":"en-US"}};
+  if (ax.language !== "en") {
+    d.classList.add("tca-i18n-wait");
+    setTimeout(function () { d.classList.remove("tca-i18n-wait"); }, 2600);
+    var LF = I18N.files[ax.language] || {}, LP = window.__tcaLP = {}, LB = ["core"].concat((d.getAttribute("data-i18n") || "").split(" "));
+    for (var li = 0; li < LB.length; li++) if (LB[li] && LF[LB[li]] && window.fetch) (function (b) {
+      LP[b] = fetch(I18N.base + LF[b], {credentials: "same-origin"}).then(function (r) { return r.ok ? r.json() : null; })["catch"](function () { return null; });
+    })(LB[li]);
+  }
+  var skin = get("tca.companion.skin");
+  d.setAttribute("data-perch", (ax.companion !== "off" && skin && PERCH.indexOf(skin) >= 0) ? "on" : "off");
+  var n = navigator, c = n.connection || {}, lean = false;
+  try { lean = (n.deviceMemory && n.deviceMemory < 4) || (n.hardwareConcurrency && n.hardwareConcurrency <= 4) || !!c.saveData; } catch (e) { lean = false; }
+  d.setAttribute("data-lean", lean ? "on" : "off");
+  try {
+    var arrive = sessionStorage.getItem("tca.night.arrive");
+    if (arrive) {
+      sessionStorage.removeItem("tca.night.arrive");
+      if (/\/night\/(index\.html)?$/.test(location.pathname)) d.setAttribute("data-arrive", arrive === "quick" ? "quick" : arrive === "full" ? "night" : "skip");
+    }
+  } catch (e) {}
+  try {
+    var app = ["standalone", "fullscreen", "minimal-ui", "window-controls-overlay"].some(function (m) { return mq("(display-mode: " + m + ")"); }) || navigator.standalone === true;
+    var appS = JSON.parse(get("tca.app.v1:" + (/^\/dev\//.test(location.pathname) ? "/dev/" : "/")) || "null");
+    if (app) d.setAttribute("data-app", "app"); else if (appS && appS.inst) d.setAttribute("data-app", "installed");
+  } catch (e) {}
+  d.classList.add("js");
+})();</script>
+<style>@font-face{font-family:"Instrument Sans";src:url("../../shell/fonts/InstrumentSans-Variable.ttf") format("truetype");font-weight:400 700;font-display:swap}
+@font-face{font-family:"Instrument Serif";src:url("../../shell/fonts/InstrumentSerif-Regular.ttf") format("truetype");font-display:swap}
+@font-face{font-family:"Lexend";src:url("../../shell/fonts/Lexend-Variable.ttf") format("truetype");font-weight:300 700;font-display:swap}
+@font-face{font-family:"Atkinson Hyperlegible";src:url("../../shell/fonts/AtkinsonHyperlegible-Regular.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Atkinson Hyperlegible";src:url("../../shell/fonts/AtkinsonHyperlegible-Bold.ttf") format("truetype");font-weight:700;font-display:swap}
+:root{--ink:#F3E8D3;--dim:#D2C5AC;--chip:rgba(14,12,9,.6);--chip-2:rgba(28,22,14,.84);--line:rgba(243,232,211,.34);--brass:#C9944A;--brass-ink:#E2BE82;--verd:#5FB3A0;
+--night:#0B0907;--font:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--serif:"Instrument Serif",Georgia,"Times New Roman",serif;color-scheme:dark}
+:root[data-face="dyslexia"]{--font:"Lexend",system-ui,sans-serif}
+:root[data-face="hyperlegible"]{--font:"Atkinson Hyperlegible",system-ui,sans-serif}
+:root[data-scale="115"]{font-size:115%}:root[data-scale="130"]{font-size:130%}:root[data-scale="150"]{font-size:150%}:root[data-scale="200"]{font-size:200%}
+:root[data-space="generous"]{letter-spacing:.02em;word-spacing:.08em}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;height:100%;background:var(--night);color:var(--ink);font-family:var(--font);font-size:1rem;line-height:1.45;overflow:hidden;overscroll-behavior:none;-webkit-font-smoothing:antialiased}
+.pp-sr{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+#gym{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:grab;opacity:0;transition:opacity 1.1s ease;outline:none;-webkit-tap-highlight-color:transparent;user-select:none}
+#gym.on{opacity:1}#gym.dragging{cursor:grabbing}
+#gym:focus-visible{outline:3px solid var(--brass);outline-offset:-4px}
+.top{position:fixed;left:0;right:0;top:0;z-index:5;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;pointer-events:none;
+padding:calc(12px + env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) 0 max(16px,env(safe-area-inset-left))}
+.top>*{pointer-events:auto}
+.top .pp-tools{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.pp-pill{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--chip);color:var(--ink);
+font:600 .95rem/1.1 var(--font);text-decoration:none;cursor:pointer;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:border-color .2s ease,background .2s ease,box-shadow .25s ease}
+.pp-pill:hover{border-color:var(--brass);background:var(--chip-2)}
+.pp-pill:focus-visible{outline:3px solid var(--brass);outline-offset:3px}
+.pp-pill svg{width:20px;height:20px;flex:none}
+.pp-pill[aria-pressed="true"]{border-color:var(--verd);background:rgba(47,107,94,.42)}
+.pp-pill[disabled]{opacity:.5;cursor:default}
+.pp-back{padding:0 18px 0 12px;border:1.5px solid rgba(201,148,74,.88);box-shadow:0 0 18px 1px rgba(201,148,74,.26)}
+.pp-back .pp-ico{width:22px;height:22px;color:#F4EBD4}
+.pp-back b{font-weight:700}
+.pp-back:hover{box-shadow:0 0 28px 4px rgba(201,148,74,.42)}
+.pp-sw{position:relative;width:34px;height:20px;border-radius:999px;background:rgba(243,232,211,.18);border:1px solid var(--line);flex:none}
+.pp-sw::after{content:"";position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:var(--dim);transition:transform .2s ease,background .2s ease}
+.pp-pill[aria-pressed="true"] .pp-sw{background:rgba(95,179,160,.38);border-color:var(--verd)}
+.pp-pill[aria-pressed="true"] .pp-sw::after{transform:translateX(14px);background:#F3E8D3}
+#sound[aria-pressed="false"] .pp-wave{opacity:.35}
+.pp-dock{position:fixed;left:max(16px,env(safe-area-inset-left));bottom:calc(16px + env(safe-area-inset-bottom));z-index:5;display:flex;flex-direction:column;align-items:flex-start;gap:10px;max-width:calc(100% - 150px)}
+.pp-dock .pp-row{display:flex;gap:10px;flex-wrap:wrap}
+.pp-cap{margin:0;font-size:.82rem;color:var(--dim);text-shadow:0 1px 8px rgba(0,0,0,.9);max-width:42em}
+.pp-hint,.pp-note,.pp-loading{position:fixed;left:50%;transform:translateX(-50%);z-index:4;margin:0;text-align:center;border:1px solid var(--line);background:var(--chip);
+-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-radius:14px;padding:10px 16px;max-width:min(560px,calc(100% - 32px));font-size:.95rem}
+.pp-hint{top:calc(72px + env(safe-area-inset-top));transition:opacity .9s ease;pointer-events:none}
+.pp-hint.gone{opacity:0}
+.pp-note{top:calc(72px + env(safe-area-inset-top))}
+.pp-note p{margin:0}.pp-note .pp-pill{margin-top:10px}
+.pp-loading{top:50%;transform:translate(-50%,-50%);color:var(--ink);padding:18px 20px 16px;max-width:min(620px,calc(100% - 32px));background:rgba(14,12,9,.82)}
+.pp-loading h2{font:400 1.5rem/1.15 var(--serif);margin:0 0 4px}
+.pp-loading p{margin:0 0 12px;color:var(--dim);font-size:.9rem}
+.pp-seats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:0;padding:0;list-style:none;text-align:left}
+.pp-seats button{width:100%;min-height:44px;text-align:left;border:1px solid var(--line);background:rgba(243,232,211,.06);color:var(--ink);border-radius:12px;padding:10px 12px;font:600 .92rem/1.2 var(--font);cursor:pointer}
+.pp-seats button small{display:block;font-weight:400;color:var(--dim);font-size:.78rem;margin-top:3px}
+.pp-seats button:hover{border-color:var(--brass);background:rgba(243,232,211,.12)}
+.pp-seats button[aria-pressed="true"]{border-color:var(--verd);background:rgba(47,107,94,.4)}
+.pp-seats button:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
+.pp-wait{margin:12px 0 0;font-size:.85rem;color:var(--dim)}
+.pp-panel{position:fixed;z-index:6;left:max(16px,env(safe-area-inset-left));bottom:calc(76px + env(safe-area-inset-bottom));width:min(440px,calc(100% - 32px));
+max-height:calc(100% - 156px - env(safe-area-inset-top) - env(safe-area-inset-bottom));overflow:auto;overscroll-behavior:contain;background:rgba(14,12,9,.9);
+border:1px solid var(--line);border-radius:18px;padding:16px 18px 14px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 18px 50px -18px rgba(0,0,0,.8)}
+.pp-panel h2{font:400 1.45rem/1.15 var(--serif);margin:0 44px 8px 0;letter-spacing:.005em}
+.pp-panel h2:focus{outline:none}
+.pp-panel dl{margin:0;display:grid;gap:10px}
+.pp-panel dt{font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--brass-ink)}
+.pp-panel dd{margin:2px 0 0;font-size:.92rem;color:var(--ink)}
+.pp-panel p{margin:12px 0 0;font-size:.82rem;color:var(--dim)}
+.pp-panel .pp-seats{margin-top:6px}
+.pp-panel .pp-x{position:absolute;top:8px;right:8px;width:44px;height:44px;border-radius:50%;border:0;background:transparent;color:var(--dim);cursor:pointer;display:grid;place-items:center}
+.pp-panel .pp-x:hover{background:rgba(243,232,211,.1);color:var(--ink)}
+.pp-panel .pp-x:focus-visible{outline:3px solid var(--brass);outline-offset:0}
+.pp-panel .pp-x svg{width:20px;height:20px}
+#stick{position:fixed;right:max(18px,env(safe-area-inset-right));bottom:calc(92px + env(safe-area-inset-bottom));z-index:5;width:118px;height:118px;border-radius:50%;border:1.5px solid var(--line);background:rgba(14,12,9,.4);touch-action:none;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+#stick .pp-knob{position:absolute;left:50%;top:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:rgba(243,232,211,.55);border:1px solid var(--brass);pointer-events:none}
+#stick .pp-lbl{position:absolute;left:0;right:0;bottom:-22px;text-align:center;font-size:.72rem;color:var(--dim);text-shadow:0 1px 6px rgba(0,0,0,.9)}
+.pp-flat{position:fixed;inset:0;z-index:3;display:grid;place-items:center;padding:24px 16px;overflow:auto;background:radial-gradient(120% 90% at 50% 20%,#3A2A16 0%,#15110B 60%,#0B0907 100%)}
+.pp-flat .pp-card{max-width:520px;text-align:center;background:rgba(14,12,9,.78);border:1px solid var(--line);border-radius:18px;padding:22px 22px 18px}
+.pp-flat h2{font:400 1.7rem/1.15 var(--serif);margin:0 0 8px}
+.pp-flat p{margin:0 0 14px;color:var(--dim)}
+.pp-flat .pp-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+/* Beginner and Easy (Meet me where I am): a still picture of the place before anything heavy is fetched */
+.pp-flat .pp-still{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:12px;border:1px solid var(--line);margin:0 0 14px}
+.pp-flat .pp-still[hidden]{display:none}
+body.pp-wait .pp-dock{display:none}
+dialog.pp-credits{max-width:min(640px,calc(100% - 32px));max-height:calc(100% - 48px);border:1px solid var(--line);border-radius:18px;background:#12100C;color:var(--ink);padding:20px 22px;font-size:.92rem}
+dialog.pp-credits::backdrop{background:rgba(0,0,0,.6)}
+dialog.pp-credits h2{font:400 1.5rem/1.15 var(--serif);margin:0 0 6px}
+dialog.pp-credits>p{margin:6px 0;color:var(--dim)}
+dialog.pp-credits ul{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+dialog.pp-credits li{border-top:1px solid rgba(243,232,211,.16);padding-top:10px}
+dialog.pp-credits small{display:block;color:var(--dim);margin-top:2px}
+dialog.pp-credits a{color:var(--brass-ink)}
+dialog.pp-credits a:focus-visible,dialog.pp-credits button:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
+dialog.pp-credits form{margin:16px 0 0;text-align:right}
+#fade{position:fixed;inset:0;z-index:20;background:var(--night);opacity:0;pointer-events:none;transition:opacity .42s ease}
+body.leaving #fade{opacity:1}
+:root[data-contrast="high"]{--chip:#000;--chip-2:#000;--line:#fff;--dim:#fff;--ink:#fff}
+:root[data-contrast="high"] .pp-pill,:root[data-contrast="high"] .pp-panel,:root[data-contrast="high"] .pp-hint,:root[data-contrast="high"] .pp-note,:root[data-contrast="high"] .pp-loading{border-width:2px;box-shadow:none;background:#000}
+@media (max-width:560px){.pp-pill{padding:0 13px}.pp-back{padding:0 14px 0 10px}.pp-dock .pp-row{flex-direction:column;align-items:flex-start}.pp-cap{display:none}
+.pp-hint,.pp-note{top:calc(124px + env(safe-area-inset-top))}#stick{right:max(100px,calc(82px + env(safe-area-inset-right)));bottom:calc(112px + env(safe-area-inset-bottom))}
+.pp-panel{bottom:calc(130px + env(safe-area-inset-bottom));max-height:calc(100% - 212px - env(safe-area-inset-top) - env(safe-area-inset-bottom))}.pp-seats{grid-template-columns:1fr 1fr}}
+@media (min-width:561px) and (max-width:760px){.pp-cap{display:none}}
+@media (max-width:360px){.top{gap:6px}.pp-pill{gap:6px;padding:0 11px}.pp-back{padding:0 12px 0 8px}.pp-back .pp-ico{display:none}.pp-seats{grid-template-columns:1fr}}
+.pp-pill span{white-space:nowrap}
+@media (prefers-reduced-motion:reduce){#gym,.pp-hint,#fade,.pp-pill{transition:none}}
+@media (forced-colors:active){.pp-pill,.pp-panel,.pp-hint,.pp-note,.pp-loading,.pp-flat .pp-card,.pp-seats button{border:2px solid CanvasText;background:Canvas;color:CanvasText;forced-color-adjust:none;box-shadow:none}
+.pp-back .pp-ico{color:CanvasText}.pp-sw{border-color:CanvasText}#gym:focus-visible{outline-color:Highlight}#stick{border-color:CanvasText}}
+@media print{#gym,.top,.pp-dock,.pp-hint,#stick{display:none}}</style>
+<link rel="manifest" href="../../manifest.webmanifest" data-tca-manifest>
+<meta name="apple-mobile-web-app-title" content="Civic Archive" data-tca-manifest>
+</head>
+<body>
+<header class="top">
+<a class="pp-pill pp-back" id="back" href="../"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="pp-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="5" y="3" width="14" height="18" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 9.5l2.2 2.2 4.6-4.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 15h8M8 18h5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span><b>On The Ballot</b></span></a>
+<div class="pp-tools">
+<button class="pp-pill" id="sound" type="button" aria-pressed="false" disabled><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z" fill="currentColor"/><path class="pp-wave" d="M15 9a4 4 0 0 1 0 6M17.5 6.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Sound</span></button>
+<button class="pp-pill" id="motion" type="button" aria-pressed="true"><span class="pp-sw" aria-hidden="true"></span><span>Motion</span></button>
+</div>
+</header>
+<canvas id="gym" tabindex="0" role="img" aria-label="A school gymnasium set up as a polling place in the last light of the day: voting booths in a row, a check-in table with poll books, flags, the ballot scanner on its box, and the bleachers pulled out. Drag, or use the arrow keys, to look around."></canvas>
+<div id="stick" data-stick hidden aria-hidden="true"><div class="pp-knob"></div><div class="pp-lbl">walk</div></div>
+<main id="main">
+<h1 class="pp-sr">Sit in the polling place</h1>
+<div class="pp-loading" id="loading"><h2>Where will you sit?</h2><p>Stepping into the gym&hellip; pick a seat while it loads. You can move any time.</p>
+<ul class="pp-seats" id="seats"><li><button type="button" data-seat="bleachers" aria-pressed="false">The bleachers<small>the third row, across the floor from the booths</small></button></li><li><button type="button" data-seat="booth" aria-pressed="false">A voting booth<small>standing inside the middle booth, your ballot on its shelf</small></button></li><li><button type="button" data-seat="table" aria-pressed="false">The check-in table<small>a poll worker&#x27;s chair, the poll books in front of you</small></button></li><li><button type="button" data-seat="judge" aria-pressed="false">The chair by the scanner<small>the election judge&#x27;s chair, facing the doors</small></button></li><li><button type="button" data-seat="doors" aria-pressed="false">Just inside the doors<small>on your feet, the whole gym in front of you</small></button></li></ul><p class="pp-wait" id="wait" role="status" aria-live="polite"></p></div>
+<p class="pp-hint" id="hint" hidden></p>
+<div class="pp-note" id="note" hidden><p id="note-t"></p></div>
+<section class="pp-flat" id="flat" hidden aria-labelledby="flat-h"><div class="pp-card"><h2 id="flat-h">The polling place</h2><p id="flat-t"></p>
+<img class="pp-still" id="flat-still" data-src="still.jpg?v=617e538f44" alt="A still picture of the polling place: a school gym in the late sun, five voting booths in a row under high windows, two flags behind them." width="960" height="540" hidden>
+<div class="pp-row"><button class="pp-pill" id="flat-go" type="button" hidden>Show the polling place</button><a class="pp-pill" href="../">On The Ballot</a><button class="pp-pill" id="flat-credits" type="button" aria-haspopup="dialog" hidden>Credits</button></div></div></section>
+<div class="pp-dock">
+<p class="pp-cap" id="cap" aria-hidden="true"></p>
+<div class="pp-row"><button class="pp-pill" id="walk-b" type="button" disabled>Get up and walk</button>
+<button class="pp-pill" id="seat-b" type="button" aria-expanded="false" aria-controls="seatpanel" disabled>Choose a seat</button>
+<button class="pp-pill" id="about-b" type="button" aria-expanded="false" aria-controls="about">About this place</button>
+<button class="pp-pill" id="credits-b" type="button" aria-haspopup="dialog">Credits</button>
+<button type="button" class="pp-pill" data-share data-share-url="https://thecivicarchive.org/ballot/polling-place/" data-share-title="The polling place: The Civic Archive" data-share-text="A place to sit: a school gym set up as a polling place, drawn in 3D. On The Ballot, The Civic Archive"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg><span>Share</span></button></div>
+</div>
+<section class="pp-panel" id="seatpanel" aria-labelledby="seatpanel-h" hidden>
+<button class="pp-x" type="button" aria-label="Close Choose a seat"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+<h2 id="seatpanel-h" tabindex="-1">Choose a seat</h2>
+<ul class="pp-seats" id="seats2"><li><button type="button" data-seat="bleachers" aria-pressed="false">The bleachers<small>the third row, across the floor from the booths</small></button></li><li><button type="button" data-seat="booth" aria-pressed="false">A voting booth<small>standing inside the middle booth, your ballot on its shelf</small></button></li><li><button type="button" data-seat="table" aria-pressed="false">The check-in table<small>a poll worker&#x27;s chair, the poll books in front of you</small></button></li><li><button type="button" data-seat="judge" aria-pressed="false">The chair by the scanner<small>the election judge&#x27;s chair, facing the doors</small></button></li><li><button type="button" data-seat="doors" aria-pressed="false">Just inside the doors<small>on your feet, the whole gym in front of you</small></button></li></ul>
+</section>
+<section class="pp-panel" id="about" aria-labelledby="about-h" hidden>
+<button class="pp-x" type="button" aria-label="Close About this place"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+<h2 id="about-h" tabindex="-1">About this place</h2>
+<dl id="about-dl"></dl>
+<p>The room is not a real place: it is drawn for this site, with no people in it. The ballot is generic, and the scanner and its box carry no maker&rsquo;s name. Nothing about you is sent anywhere. Version 4.1.030.</p>
+</section>
+<p class="pp-sr" id="say" role="status" aria-live="polite"></p>
+</main>
+<dialog class="pp-credits" id="credits" aria-labelledby="credits-h">
+<h2 id="credits-h">Credits for the polling place</h2>
+<p>Every work the gym is drawn from, with its licence and where it came from. Everything else (the hall, the booths, the check-in table and its poll books, the signs, the ballot box and scanner, and the ballot) is drawn for the scene. The sound is made on your device, from no recording.</p>
+<ul><li><b>The gym floor&#x27;s maple strips</b>: <a href="https://ambientcg.com/view?id=WoodFloor047" rel="noopener" target="_blank">Wood Floor 047</a>, ambientCG (Lennart Demes).<small>CC0 1.0. Changed here: the colour and normal maps re-saved at 1,024 pixels and the roughness map at 512 in grey; the scene lays the strips lengthwise at 2.4 by 0.98 metres, tints them to a finished maple&#x27;s amber, and paints the court&#x27;s lines and its green stain over them; for the place the colour and normal maps are kept at 2,048 and the roughness map at 1,024.</small></li><li><b>The paint on the block walls</b>: <a href="https://ambientcg.com/view?id=PaintedPlaster017" rel="noopener" target="_blank">Painted Plaster 017</a>, ambientCG (Lennart Demes).<small>CC0 1.0. Changed here: the colour and normal maps re-saved at 512 pixels; the scene draws the concrete blocks themselves (400 by 200 mm, in running bond, with tooled joints) and takes from this only the paint&#x27;s texture and its slight unevenness; for the place the colour and normal maps are kept at 1,024.</small></li><li><b>The weave of the flags&#x27; cloth, and the ballot paper&#x27;s tooth</b>: <a href="https://ambientcg.com/view?id=Fabric036" rel="noopener" target="_blank">Fabric 036</a>, ambientCG (Lennart Demes).<small>CC0 1.0. Changed here: the normal map alone, re-saved at 512 pixels.</small></li><li><b>The chairs at the check-in table and beside the scanner</b>: <a href="https://polyhaven.com/a/SchoolChair_01" rel="noopener" target="_blank">School Chair 01</a>, Ethan Place (Poly Haven).<small>CC0 1.0. Changed here: packed into one binary glTF file with its textures at 512 pixels; the seat shell&#x27;s navy recoloured a charcoal grey.</small></li><li><b>The clock on the gym wall</b>: <a href="https://polyhaven.com/a/wall_clock" rel="noopener" target="_blank">Wall Clock</a>, PierreB3D (Poly Haven).<small>CC0 1.0. Changed here: packed into one binary glTF file with its textures at 512 pixels; its glass made a plain clear pane (its own glass texture is no longer used); the maker&#x27;s name printed on its face painted out (in its colour, normal and roughness maps), so the face shows only its numerals and marks; the scene sets the hands to 5:24 and puts a wire guard over it, as gym clocks have.</small></li><li><b>The sky outside the windows (the place only)</b>: <a href="https://polyhaven.com/a/qwantani_dusk_2_puresky" rel="noopener" target="_blank">Qwantani Dusk 2 (pure sky)</a>, Greg Zaal, photography; Jarod Guest, processing (Poly Haven).<small>CC0 1.0. Changed here: the 2K HDR tonemapped here at a low exposure with a filmic curve and saved at 2,048 by 1,024 and 1,024 by 512; the scene turns it so its sun stands where the room&#x27;s sun does and darkens it through the blue hour.</small></li><li><b>The bin by the far doors (the place only)</b>: <a href="https://polyhaven.com/a/metal_trash_can" rel="noopener" target="_blank">Metal Trash Can</a>, GurJas Studios (Poly Haven).<small>CC0 1.0. Changed here: packed into one binary glTF file with its textures at 1,024 pixels; the rusted variant&#x27;s parts left out.</small></li><li><b>The clipboard on the check-in table (the place only)</b>: <a href="https://polyhaven.com/a/clipboard" rel="noopener" target="_blank">Clipboard</a>, ProgrammerOnCoffee (Poly Haven).<small>CC0 1.0. Changed here: packed into one binary glTF file with its textures at 1,024 pixels; the maker&#x27;s mark on its board painted out.</small></li><li><b>The poll books on the check-in table (the place only)</b>: <a href="https://polyhaven.com/a/binder_notebook" rel="noopener" target="_blank">Binder Notebook</a>, DaDrood (Poly Haven).<small>CC0 1.0. Changed here: packed into one binary glTF file with its textures at 1,024 pixels; the maker&#x27;s mark on its cover painted out; shown open.</small></li><li><b>The broom in the far corner (the place only)</b>: <a href="https://polyhaven.com/a/plastic_broom" rel="noopener" target="_blank">Plastic Broom</a>, L (Poly Haven).<small>CC0 1.0. Changed here: packed into one binary glTF file with its textures at 1,024 pixels; the maker&#x27;s name on its handle painted out.</small></li><li><b>The flags</b>: <a href="https://www.archives.gov/federal-register/codification/executive-order/10834.html" rel="noopener" target="_blank">Executive Order 10834, on the flag of the United States</a>, drawn in code for this scene, after the order (National Archives).<small>the flag&#x27;s design and the order are public; not subject to copyright. Changed here: a three by five foot indoor flag, its union seven thirteenths of the hoist and two fifths of the fly as the order sets out, fifty stars in nine rows, in the flag&#x27;s own red, white and blue, with a gold fringe as indoor flags have.</small></li><li><b>Drawing it</b>: <a href="https://threejs.org/" rel="noopener" target="_blank">three.js r169</a>, the three.js authors.<small>MIT licence.</small></li></ul>
+<form method="dialog"><button class="pp-pill" type="submit">Close</button></form>
+</dialog>
+<div id="fade" aria-hidden="true"></div>
+<noscript><style>#gym,.pp-loading,.pp-dock,#stick{display:none}html,body{overflow:auto}</style><section class="pp-flat"><div class="pp-card"><h2>The polling place</h2>
+<p>This page draws the polling place with script, which is off in this browser.</p><div class="pp-row"><a class="pp-pill" href="../">On The Ballot</a></div></div></section></noscript>
+<script type="module">
+const SCENE = "../../pollingplace/crossing.bb06726be0.js", SETS = {"desktop":{"floor_diff":"tex/floor2k_diff.c71571b21a.jpg","floor_nor":"tex/floor2k_nor.2417d69128.jpg","floor_rough":"tex/floor2k_rough.b007ff2944.jpg","wall_diff":"tex/wall2k_diff.e75f056e68.jpg","wall_nor":"tex/wall2k_nor.68af16e477.jpg","sky":"tex/sky2k.27cbf59908.jpg","bin":"tex/bin.d26f5cab31.glb","clipboard":"tex/clipboard.3efdeee53f.glb","binder":"tex/binder.3c820024b7.glb","broom":"tex/broom.2b0a343d43.glb"},"phone":{"sky":"tex/sky1k.ef83bc3663.jpg","bin":"tex/bin.d26f5cab31.glb","clipboard":"tex/clipboard.3efdeee53f.glb","binder":"tex/binder.3c820024b7.glb","broom":"tex/broom.2b0a343d43.glb"}}, WEIGHT = {"desktop": 5.9, "phone": 4.6}, SKY_SUN = 0.6104;
+const D = document, H = D.documentElement, $ = s => D.querySelector(s), $$ = s => [...D.querySelectorAll(s)];
+const store = {get(k){ try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v){ try { localStorage.setItem(k, v); } catch (e) {} }};
+const session = {get(k){ try { return sessionStorage.getItem(k); } catch (e) { return null; } }, drop(k){ try { sessionStorage.removeItem(k); } catch (e) {} }, set(k, v){ try { sessionStorage.setItem(k, v); } catch (e) {} }};
+const reduceOS = (() => { try { return matchMedia("(prefers-reduced-motion: reduce)"); } catch (e) { return {matches: false}; } })();
+const saved = () => { try { const s = JSON.parse(store.get("tca.a11y.v1") || "null"); return s && typeof s === "object" ? s : {}; } catch (e) { return {}; } };
+const calmOn = () => saved().calm === "on" || H.getAttribute("data-calm") === "on";
+/* motion, as every page of the site reads it: the device's own wish and Calm always win; then this page's switch (the
+   site's older "motion" choice); then the Reading & access setting */
+function motionOn(){ if (reduceOS.matches || calmOn()) return false; const m = store.get("motion"); if (m === "off") return false; if (m === "on") return true; return saved().motion !== "reduced"; }
+function leanNow(){ const v = H.getAttribute("data-lean"); if (v) return v === "on"; try { const n = navigator; return !!((n.deviceMemory && n.deviceMemory < 4) || (n.hardwareConcurrency && n.hardwareConcurrency <= 4)); } catch (e) { return false; } }
+function saveData(){ try { return !!(navigator.connection && navigator.connection.saveData); } catch (e) { return false; } }
+function canDraw(){ try { const c = D.createElement("canvas"), g = window.WebGL2RenderingContext && c.getContext("webgl2"); if (!g) return false; const ok = !!(g.getExtension("EXT_color_buffer_float") || g.getExtension("EXT_color_buffer_half_float")); const x = g.getExtension("WEBGL_lose_context"); if (x) x.loseContext(); return ok; } catch (e) { return false; } }
+const touch = (() => { try { return matchMedia("(pointer: coarse)").matches; } catch (e) { return false; } })();
+/* a phone, or a lean device, gets the lighter set of files; a computer the full one */
+const phone = () => leanNow() || (touch && Math.min(innerWidth, innerHeight) < 700);
+const setNow = () => phone() ? SETS.phone : SETS.desktop;
+const weightNow = () => phone() ? WEIGHT.phone : WEIGHT.desktop;
+/* the view the crossing handed over (this tab only, used once, and only if it is fresh) */
+function handed(){
+  let o = null; try { o = JSON.parse(session.get("tca.ballot.stay") || "null"); } catch (e) { o = null; }
+  session.drop("tca.ballot.stay");
+  return o && typeof o === "object" && isFinite(o.at) && Math.abs(Date.now() - o.at) < 120000 ? o : null;
+}
+const say = t => { const s = $("#say"); s.textContent = ""; setTimeout(() => { s.textContent = t; }, 80); };
+let canvas = $("#gym"), used = false, ctl = null, mod = null, from = handed(), byKey = false, hintT = 0, wantSeat = store.get("tca.gym.seat") || "bleachers";
+const SEATN = {}; for (const b of $$("#seats button")) SEATN[b.dataset.seat] = b.textContent.split("\n")[0].trim();
+/* a canvas whose drawing was lost is replaced by a fresh one before the next try */
+function freshCanvas(){ const c = canvas.cloneNode(false); c.classList.remove("on", "dragging"); canvas.replaceWith(c); canvas = c; }
+const COMPASS = ["the far wall", "the far wall and the bleachers", "the bleachers", "the doors and the bleachers", "the doors", "the doors and the windows", "the windows", "the far wall and the windows"];
+const degs = a => `${Math.abs(Math.round(a))} degree${Math.abs(Math.round(a)) === 1 ? "" : "s"}`;
+const way = f => { const k = Math.round((((f.yaw % 360) + 360) % 360) / 45) % 8; const p = f.pitch; return `toward ${COMPASS[k]}${Math.abs(p) > 12 ? `, ${degs(p)} ${p > 0 ? "up" : "down"}` : ""}`; };
+
+/* ---------- the seats ---------- */
+function markSeat(id){ for (const b of $$(".pp-seats button")) b.setAttribute("aria-pressed", b.dataset.seat === id ? "true" : "false"); }
+function pickSeat(id, fromPanel){
+  wantSeat = id; store.set("tca.gym.seat", id); markSeat(id);
+  if (ctl) { ctl.sit(id); if (fromPanel) seatPanel(false); say(`${SEATN[id] || "Your seat"}. Drag, or use the arrow keys, to look around.`); }
+}
+for (const b of $$(".pp-seats button")) b.addEventListener("click", () => pickSeat(b.dataset.seat, b.closest("#seatpanel")));
+markSeat(wantSeat);
+const sp = $("#seatpanel"), sb = $("#seat-b");
+function seatPanel(open){
+  sp.hidden = !open; sb.setAttribute("aria-expanded", open ? "true" : "false");
+  if (open) { $("#about").hidden = true; $("#about-b").setAttribute("aria-expanded", "false"); try { $("#seatpanel-h").focus({preventScroll: true}); } catch (e) {} }
+  else { try { sb.focus({preventScroll: true}); } catch (e) {} }
+}
+sb.addEventListener("click", () => seatPanel(sp.hidden));
+sp.querySelector(".pp-x").addEventListener("click", () => seatPanel(false));
+/* getting up and sitting down */
+const wb = $("#walk-b");
+function modeWords(){
+  if (!ctl) return;
+  const walking = ctl.mode === "walk";
+  wb.textContent = walking ? "Sit down" : "Get up and walk";
+  $("#stick").hidden = !(walking && touch);
+  const cap = $("#cap");
+  cap.textContent = walking ? (touch ? "On your feet. Drag to look; the control at the right walks." : "On your feet. W A S D or the arrow keys walk; drag to look.")
+    : (ctl.seat ? `${ctl.seat.name}: ${ctl.seat.where}.` : "");
+}
+wb.addEventListener("click", () => {
+  if (!ctl) return;
+  if (ctl.mode === "walk") { seatPanel(true); say("Choose a seat to sit down."); return; }
+  ctl.stand(); modeWords(); hint(true);
+  say(touch ? "You are on your feet. Drag to look around; the control at the bottom right walks. Sit down puts you back in a seat." : "You are on your feet. W A S D or the arrow keys walk; drag to look around. Sit down puts you back in a seat.");
+});
+
+/* ---------- the words about the place ---------- */
+function clockWords(F, mins){
+  const total = F.sun ? Math.round(F.sun.alt0 / F.sun.sinks) : 25, left = Math.max(0, total - mins);
+  return left > 1 ? `The sun is low in the west and sinking; it sets in about ${Math.round(left)} minutes of sitting here, and the light goes with it.` : "The sun has set; the blue hour is deepening outside the windows.";
+}
+function fillAbout(F){
+  const dl = $("#about-dl"); dl.textContent = "";
+  const add = (t, d, id) => { const dt = D.createElement("dt"), dd = D.createElement("dd"); dt.textContent = t; dd.textContent = d; if (id) dd.id = id; dl.append(dt, dd); };
+  const mins = ctl ? ctl.minutes : 0;
+  add("Where you are", "A school gymnasium set up as a polling place on Election Day, in the last half hour of sun. Voting booths stand in a row across from the bleachers; the check-in table with its poll books is by the windows; the ballot scanner waits on its box in the middle of the floor. Nobody else is here.");
+  add("The time", `The clock on the far wall says ${F.clock}. ${clockWords(F, mins)}`);
+  add("The light", "The sun comes low through the high west windows in long shafts, dust turning in them, and lands on the far wall; it climbs the wall as the sun sinks. The hall's lamps are on, and the gym floor's finish mirrors them.");
+  add("The sound", "Off until you turn it on. Then: the air handling's hum and the lamps' faint buzz in a hard, echoing room; the clock's tick on the far wall; the scanner's fan; a flag's rope tapping its pole in the wind outside the west windows; the murmur of the line waiting in the hall beyond the far doors, and now and then one of those doors; and your own steps when you walk. All of it is made on this device; nothing is recorded, and no words are in it.");
+  add("Which way you face", "", "facing"); facing();
+  $("#cap").textContent = ""; modeWords();
+}
+function facing(){ const el = $("#facing"); if (el && ctl) { const f = ctl.facing(); el.textContent = `You face ${way(f)}.`; } }
+
+/* ---------- the room ---------- */
+function flat(text, retry, label){
+  $("#loading").hidden = true; $("#flat-t").textContent = text; const b = $("#flat-go"); b.hidden = !retry; if (label) b.textContent = label;
+  $("#flat").hidden = false; canvas.hidden = true; $("#hint").hidden = true; $("#note").hidden = true; $("#stick").hidden = true;
+  for (const el of [$("#sound"), wb, sb]) el.disabled = true;
+  $("#flat-still").hidden = true; $("#flat-credits").hidden = true; D.body.classList.remove("pp-wait"); waiting = false;
+}
+/* Beginner and Easy (Meet me where I am): the scene is optional, so it waits for the reader to ask; a still picture stands
+   in for it. From Medium up the place opens as it always has. */
+const level = () => { const v = +H.getAttribute("data-level"); return v >= 1 && v <= 6 ? v : 3; };
+let waiting = false;
+function waitHere(){
+  flat(`An optional 3D place to sit. Nothing here is needed for your ballot. Stepping inside loads about ${weightNow()} megabytes.`, true, "Step inside");
+  const im = $("#flat-still"); if (im.dataset.src) { if (!im.getAttribute("src")) im.src = im.dataset.src; im.hidden = false; }
+  $("#flat-credits").hidden = false; D.body.classList.add("pp-wait"); waiting = true;
+}
+$("#flat-credits").addEventListener("click", () => { const d = $("#credits"); if (d.showModal) d.showModal(); else d.setAttribute("open", ""); });
+H.addEventListener("tca:axes", () => { if (waiting && level() >= 3) begin(); });      /* the level raised here, while waiting: the place opens as at Medium */
+function hint(walking){
+  if (!motionOn()) return;
+  const h = $("#hint");
+  h.textContent = walking ? (touch ? "Drag to look around. The control at the bottom right walks you." : "Drag to look around. W A S D or the arrow keys walk you.")
+    : (touch ? "Drag with a finger to look around. Get up and walk is at the bottom." : "Drag, or use the arrow keys, to look around. Get up and walk is at the bottom.");
+  h.hidden = false; h.classList.remove("gone"); clearTimeout(hintT); hintT = setTimeout(() => h.classList.add("gone"), 9000);
+}
+function stillNote(){
+  const n = $("#note"), on = motionOn();
+  n.hidden = on || !ctl;
+  if (on) return;
+  const why = reduceOS.matches ? "Your device asks for less motion" : calmOn() ? "Calm is on" : "Motion is off";
+  $("#note-t").textContent = `${why}, so this is one still picture: the flags hold still, no dust turns in the light and the sun does not sink. You can still look around` + (touch ? " by dragging," : " by dragging or with the arrow keys,") + " and choose another seat."
+    + (reduceOS.matches ? " That is set in your device's own settings." : calmOn() ? " Calm is set on the Access page." : " Turn Motion on, at the top, to let the room move.");
+}
+async function begin(){
+  waiting = false; D.body.classList.remove("pp-wait");
+  if (ctl) { ctl.stop(); ctl = null; }
+  if (used) freshCanvas();
+  $("#flat").hidden = true; canvas.hidden = false; $("#loading").hidden = false; $("#wait").textContent = "";
+  if (!canDraw()) { flat("This device cannot draw the polling place in 3D, so there is nothing to show here. On The Ballot is one tap away."); return; }
+  try {
+    mod = mod || await import(SCENE);
+    const [A, more] = await Promise.all([mod.prepare({warm: false}), mod.loadMore(setNow())]);
+    used = true;
+    const came = !!from;      // the view the way in's Stay here handed over: the reader arrives on their feet
+    ctl = mod.watch(canvas, {assets: A, more, still: !motionOn(), lean: leanNow(), from, seat: wantSeat, skySunU: SKY_SUN, stick: $("#stick"),
+      keysOK: e => !(e.target && e.target.closest && e.target.closest("#tca-help, dialog, input, select, textarea, [contenteditable], #about, #seatpanel")),
+      onReady: F => { fillAbout(F); $("#loading").hidden = true; canvas.classList.add("on"); for (const el of [$("#sound"), wb, sb]) el.disabled = false; hint(ctl.mode === "walk"); stillNote(); modeWords();
+        session.set("tca.ballot.crossed", "1");      /* sitting here counts as having seen the way in, this visit */
+        if (came) say("You are standing in the gym where the way in left you. " + (touch ? "Drag to look around; the control at the bottom right walks." : "W A S D or the arrow keys walk; drag to look around.") + " Choose a seat, at the bottom, to sit down."); },
+      onInput: kind => { byKey = kind === "key"; $("#hint").classList.add("gone"); },
+      onLook: () => { facing(); if (byKey) { say(`Facing ${way(ctl.facing())}.`); } },
+      onSeat: () => { modeWords(); facing(); },
+      onStick: (x, y) => { const k = $("#stick .pp-knob"); if (k) k.style.transform = `translate(${x * 30}px, ${-y * 30}px)`; },
+      onLost: () => { ctl = null; flat("The polling place stopped drawing on this device.", true, "Try again"); }});
+  } catch (e) { ctl = null; }
+  from = null;
+  if (!ctl) { flat("The polling place could not be drawn here.", true, "Try again"); return; }
+  $("#wait").textContent = "Almost there: the room is being lit.";
+  window.__gym = ctl;      /* for checking a frame where frames are not drawn */
+}
+$("#flat-go").addEventListener("click", () => begin());
+
+/* Sound: off until asked; the button says which it is */
+const snd = $("#sound");
+snd.addEventListener("click", () => {
+  if (!ctl) return;
+  const on = snd.getAttribute("aria-pressed") !== "true";
+  if (on) { if (!ctl.sound.on()) { say("This browser cannot play the room's sound."); return; } } else ctl.sound.off();
+  snd.setAttribute("aria-pressed", on ? "true" : "false"); snd.querySelector("span:last-child").textContent = on ? "Sound on" : "Sound";
+  say(on ? "Sound is on: the gym's hum, the clock, the scanner, a flag's rope outside, the line murmuring in the hall, and your steps." : "Sound is off.");
+});
+
+/* Motion: this page's own switch, as on the pages that keep their own top bar */
+const mb = $("#motion");
+function syncMotion(){ mb.setAttribute("aria-pressed", motionOn() ? "true" : "false"); H.classList.toggle("calm", !motionOn()); stillNote(); modeWords(); }
+mb.addEventListener("click", () => {
+  if (reduceOS.matches) { say("Your device asks for less motion, so the room stays still. That is set in the device's own settings."); return; }
+  if (calmOn()) { say("Calm is on, so the room stays still. Calm is set on the Access page."); return; }
+  const on = !motionOn(); store.set("motion", on ? "on" : "off");
+  if (ctl) ctl.setStill(!on);
+  syncMotion(); if (on) hint(ctl && ctl.mode === "walk");
+  say(on ? "Motion is on. The flags stir, the dust turns and the sun sinks." : "Motion is off. The room is one still picture.");
+});
+syncMotion();
+
+/* About this place, and Credits */
+const ab = $("#about-b"), panel = $("#about");
+function about(open){
+  if (open && ctl) fillAbout(ctl.facts);
+  panel.hidden = !open; ab.setAttribute("aria-expanded", open ? "true" : "false");
+  if (open) { seatPanel(false); facing(); try { $("#about-h").focus({preventScroll: true}); } catch (e) {} } else { try { ab.focus({preventScroll: true}); } catch (e) {} }
+}
+ab.addEventListener("click", () => about(panel.hidden));
+panel.querySelector(".pp-x").addEventListener("click", () => about(false));
+addEventListener("keydown", e => { if (e.key === "Escape" && !D.querySelector("dialog[open]")) { if (!panel.hidden) about(false); else if (!sp.hidden) seatPanel(false); } });
+const dlg = $("#credits");
+$("#credits-b").addEventListener("click", () => { if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", ""); });
+
+/* On The Ballot, one tap away: the room fades, and the door comes up softly */
+$("#back").addEventListener("click", e => {
+  if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  const href = e.currentTarget.href, moving = motionOn();
+  session.set("tca.ballot.arrive", moving ? "full" : "quick");
+  if (!moving) return;
+  e.preventDefault(); D.body.classList.add("leaving"); setTimeout(() => { location.href = href; }, 430);
+});
+addEventListener("pageshow", e => { if (e.persisted) D.body.classList.remove("leaving"); });
+
+/* nothing is fetched until the page is opened; a device saving data is asked first, unless it came here from the crossing */
+if (level() <= 2 && !from) waitHere();
+else if (saveData() && !from) flat(`You asked this device to save data, so the polling place is not loaded yet. It is about ${weightNow()} megabytes.`, true, "Show the polling place");
+else begin();
+</script>
+<script type="module" src="../../shell/rider.js" data-tca-rider></script>
+</body>
+</html>

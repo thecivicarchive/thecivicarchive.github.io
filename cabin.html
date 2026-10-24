@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Civic Archive: the cabin</title>
+<meta name="description" content="Sit a while in a log cabin in the Rockies, at your own hour and season: by the fire, in the rocking chair by the glass, or up at the loft rail. Two glowing posters are the doors: On The Ballot, and Legislation and Legislatures.">
+<meta name="version" content="4.1.030">
+<link rel="icon" href="./favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Civic Archive">
+<meta property="og:title" content="The Civic Archive: the cabin">
+<meta property="og:description" content="Sit a while in a log cabin in the Rockies, at your own hour and season, and pick a door: On The Ballot, or Legislation and Legislatures.">
+<meta property="og:url" content="https://thecivicarchive.org/cabin.html">
+<meta property="og:image" content="https://thecivicarchive.org/og/home.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Civic Archive emblem, a hall of books with a brass pediment, beside the words The Civic Archive: the cabin">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Civic Archive: the cabin">
+<meta name="twitter:description" content="Sit a while in a log cabin in the Rockies, at your own hour and season, and pick a door: On The Ballot, or Legislation and Legislatures.">
+<meta name="twitter:image" content="https://thecivicarchive.org/og/home.png">
+<meta name="theme-color" content="#0B0907">
+<meta name="color-scheme" content="dark">
+<script>(function () {
+  var d = document.documentElement, KEY = "tca.a11y.v1";
+  var ALLOW = {
+    depth: ["standard", "detailed", "focus"], lang: ["standard", "plain"], face: ["standard", "dyslexia", "hyperlegible"],
+    scale: ["100", "115", "130", "150", "200"], space: ["standard", "generous"], contrast: ["standard", "high", "dark"],
+    palette: ["standard", "deut", "prot", "trit", "mono"], motion: ["full", "reduced"], calm: ["off", "on"],
+    reveal: ["full", "subtle", "off"], companion: ["on", "still", "off"], sheets: ["full", "quick", "instant"],
+    level: ["3", "1", "2", "4", "5", "6"], focus: ["none", "ballot", "reps", "congress", "state", "results"],
+    language: ["en"]
+  };
+  var PERCH = ["chickadee"];
+  var get = function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } };
+  var mq = function (q) { try { return window.matchMedia(q).matches; } catch (e) { return false; } };
+  var ax = {}, k, saved = null;
+  for (k in ALLOW) ax[k] = ALLOW[k][0];
+  try { saved = JSON.parse(get(KEY) || "null"); } catch (e) { saved = null; }
+  if (saved && typeof saved === "object") {
+    for (k in ALLOW) if (ALLOW[k].indexOf(String(saved[k])) >= 0) ax[k] = String(saved[k]);
+  } else {
+    if (mq("(prefers-reduced-motion: reduce)")) ax.motion = "reduced";
+    if (mq("(prefers-contrast: more)")) ax.contrast = "high";
+  }
+  if (!saved || !saved.level) {
+    try { var mm = JSON.parse(get("tca.meet.v1") || "null"); if (mm && mm.level >= 1 && mm.level <= 6) ax.level = String(mm.level);
+      if (mm && ALLOW.focus.indexOf(String(mm.focus)) >= 0 && (!saved || !saved.focus)) ax.focus = String(mm.focus); } catch (e) {}
+  }
+  var theme = get("theme"), motion = get("motion");
+  if (theme === "dark" && ax.contrast === "standard") ax.contrast = "dark";
+  if (theme === "light" && ax.contrast === "dark") ax.contrast = "standard";
+  if (motion === "off" && ax.calm !== "on") ax.motion = "reduced";
+  if (motion === "on") ax.motion = "full";
+  for (k in ax) d.setAttribute("data-" + k, ax[k]);
+  var I18N = {"base":"/shell/lang/","files":{},"loc":{"en":"en-US"}};
+  if (ax.language !== "en") {
+    d.classList.add("tca-i18n-wait");
+    setTimeout(function () { d.classList.remove("tca-i18n-wait"); }, 2600);
+    var LF = I18N.files[ax.language] || {}, LP = window.__tcaLP = {}, LB = ["core"].concat((d.getAttribute("data-i18n") || "").split(" "));
+    for (var li = 0; li < LB.length; li++) if (LB[li] && LF[LB[li]] && window.fetch) (function (b) {
+      LP[b] = fetch(I18N.base + LF[b], {credentials: "same-origin"}).then(function (r) { return r.ok ? r.json() : null; })["catch"](function () { return null; });
+    })(LB[li]);
+  }
+  var skin = get("tca.companion.skin");
+  d.setAttribute("data-perch", (ax.companion !== "off" && skin && PERCH.indexOf(skin) >= 0) ? "on" : "off");
+  var n = navigator, c = n.connection || {}, lean = false;
+  try { lean = (n.deviceMemory && n.deviceMemory < 4) || (n.hardwareConcurrency && n.hardwareConcurrency <= 4) || !!c.saveData; } catch (e) { lean = false; }
+  d.setAttribute("data-lean", lean ? "on" : "off");
+  try {
+    var arrive = sessionStorage.getItem("tca.night.arrive");
+    if (arrive) {
+      sessionStorage.removeItem("tca.night.arrive");
+      if (/\/night\/(index\.html)?$/.test(location.pathname)) d.setAttribute("data-arrive", arrive === "quick" ? "quick" : arrive === "full" ? "night" : "skip");
+    }
+  } catch (e) {}
+  try {
+    var app = ["standalone", "fullscreen", "minimal-ui", "window-controls-overlay"].some(function (m) { return mq("(display-mode: " + m + ")"); }) || navigator.standalone === true;
+    var appS = JSON.parse(get("tca.app.v1:" + (/^\/dev\//.test(location.pathname) ? "/dev/" : "/")) || "null");
+    if (app) d.setAttribute("data-app", "app"); else if (appS && appS.inst) d.setAttribute("data-app", "installed");
+  } catch (e) {}
+  d.classList.add("js");
+})();</script>
+<style>@font-face{font-family:"Instrument Sans";font-style:normal;font-weight:400 700;font-display:swap;src:url(./shell/fonts/InstrumentSans-Variable.ttf) format("truetype")}@font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url(./shell/fonts/InstrumentSerif-Regular.ttf) format("truetype")}@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(./shell/fonts/InstrumentSerif-Italic.ttf) format("truetype")}</style><style>@font-face{font-family:"Lexend";src:url("./shell/fonts/Lexend-Variable.ttf") format("truetype");font-weight:300 700;font-display:swap}@font-face{font-family:"Atkinson Hyperlegible";src:url("./shell/fonts/AtkinsonHyperlegible-Regular.ttf") format("truetype");font-weight:400;font-display:swap}@font-face{font-family:"Atkinson Hyperlegible";src:url("./shell/fonts/AtkinsonHyperlegible-Bold.ttf") format("truetype");font-weight:700;font-display:swap}</style>
+<style>:root{--ink:#F3E8D3;--dim:#D2C5AC;--chip:rgba(14,12,9,.62);--chip-2:rgba(28,22,14,.86);--line:rgba(243,232,211,.34);--brass:#C9944A;--brass-ink:#E2BE82;--verd:#5FB3A0;--gold:#f0c060;
+--night:#0B0907;--font:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--serif:"Instrument Serif",Georgia,"Times New Roman",serif;color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;height:100%;background:var(--night);color:var(--ink);font-family:var(--font);font-size:1rem;line-height:1.45;overflow:hidden;overscroll-behavior:none;-webkit-font-smoothing:antialiased}
+.cb-sr{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+#room{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:grab;opacity:0;transition:opacity 1.2s ease;outline:none;-webkit-tap-highlight-color:transparent;user-select:none}
+#room.on{opacity:1}#room.dragging{cursor:grabbing}
+#room:focus-visible{outline:3px solid var(--brass);outline-offset:-4px}
+.top{position:fixed;left:0;right:0;top:0;z-index:5;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;pointer-events:none;padding:calc(12px + env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) 0 max(16px,env(safe-area-inset-left))}
+.top>*{pointer-events:auto}
+.brand{text-decoration:none;color:var(--ink);text-shadow:0 1px 10px rgba(0,0,0,.8);max-width:min(60vw,420px)}
+.brand b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(22px,2.6vw,32px);line-height:1.05}
+.brand span{display:block;font-size:13.5px;color:var(--dim);margin-top:3px}
+.cb-tools{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+.cb-pill{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--chip);color:var(--ink);font:600 .95rem/1.1 var(--font);text-decoration:none;cursor:pointer;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:border-color .2s ease,background .2s ease,box-shadow .25s ease}
+.cb-pill:hover{border-color:var(--brass);background:var(--chip-2)}
+.cb-pill:focus-visible{outline:3px solid var(--brass);outline-offset:3px}
+.cb-pill svg{width:20px;height:20px;flex:none}
+.cb-pill[aria-pressed="true"]{border-color:var(--verd);background:rgba(47,107,94,.42)}
+.cb-pill[disabled]{opacity:.5;cursor:default}
+.cb-pill span{white-space:nowrap}
+.cb-sw{position:relative;width:34px;height:20px;border-radius:999px;background:rgba(243,232,211,.18);border:1px solid var(--line);flex:none}
+.cb-sw::after{content:"";position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:var(--dim);transition:transform .2s ease,background .2s ease}
+.cb-pill[aria-pressed="true"] .cb-sw{background:rgba(95,179,160,.38);border-color:var(--verd)}
+.cb-pill[aria-pressed="true"] .cb-sw::after{transform:translateX(14px);background:#F3E8D3}
+#sound[aria-pressed="false"] .cb-wave{opacity:.35}
+.wip{font-size:12px;color:var(--dim);background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:6px 12px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.wip a{color:var(--ink)}
+.cb-dock{position:fixed;left:max(16px,env(safe-area-inset-left));bottom:calc(92px + env(safe-area-inset-bottom));z-index:5;display:flex;flex-direction:column;align-items:flex-start;gap:8px;max-width:calc(100% - 32px)}
+.cb-dock .cb-row{display:flex;gap:8px;flex-wrap:wrap;width:100%}
+.cb-cap{margin:0;font-size:.82rem;color:var(--dim);text-shadow:0 1px 8px rgba(0,0,0,.9);max-width:42em}
+.cb-hint,.cb-note,.cb-loading{position:fixed;left:50%;transform:translateX(-50%);z-index:4;margin:0;text-align:center;border:1px solid var(--line);background:var(--chip);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-radius:14px;padding:10px 16px;max-width:min(560px,calc(100% - 32px));font-size:.95rem}
+.cb-hint{top:calc(84px + env(safe-area-inset-top));transition:opacity .9s ease;pointer-events:none}
+.cb-hint.gone{opacity:0}
+.cb-note{top:calc(84px + env(safe-area-inset-top))}
+.cb-note p{margin:0}
+.cb-loading{top:50%;transform:translate(-50%,-50%);color:var(--ink);padding:18px 20px 16px;max-width:min(640px,calc(100% - 32px));background:rgba(14,12,9,.84)}
+.cb-loading h2{font:400 1.5rem/1.15 var(--serif);margin:0 0 4px}
+.cb-loading p{margin:0 0 12px;color:var(--dim);font-size:.9rem}
+.cb-seats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:0;padding:0;list-style:none;text-align:left}
+.cb-seats button{width:100%;min-height:44px;text-align:left;border:1px solid var(--line);background:rgba(243,232,211,.06);color:var(--ink);border-radius:12px;padding:10px 12px;font:600 .92rem/1.2 var(--font);cursor:pointer}
+.cb-seats button small{display:block;font-weight:400;color:var(--dim);font-size:.78rem;margin-top:3px}
+.cb-seats button:hover{border-color:var(--brass);background:rgba(243,232,211,.12)}
+.cb-seats button[aria-pressed="true"]{border-color:var(--verd);background:rgba(47,107,94,.4)}
+.cb-seats button:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
+.cb-bar{height:4px;border-radius:2px;background:rgba(243,232,211,.18);margin:12px 0 2px;overflow:hidden}
+.cb-bar i{display:block;height:100%;width:0;background:var(--brass);transition:width .3s ease}
+.cb-wait{margin:8px 0 0;font-size:.85rem;color:var(--dim)}
+.cb-panel{position:fixed;z-index:6;left:max(16px,env(safe-area-inset-left));bottom:calc(150px + env(safe-area-inset-bottom));width:min(440px,calc(100% - 32px));max-height:calc(100% - 230px - env(safe-area-inset-top) - env(safe-area-inset-bottom));overflow:auto;overscroll-behavior:contain;background:rgba(14,12,9,.9);border:1px solid var(--line);border-radius:18px;padding:16px 18px 14px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 18px 50px -18px rgba(0,0,0,.8)}
+.cb-panel h2{font:400 1.45rem/1.15 var(--serif);margin:0 44px 8px 0}
+.cb-panel h2:focus{outline:none}
+.cb-panel dl{margin:0;display:grid;gap:10px}
+.cb-panel dt{font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--brass-ink)}
+.cb-panel dd{margin:2px 0 0;font-size:.92rem;color:var(--ink)}
+.cb-panel p{margin:12px 0 0;font-size:.82rem;color:var(--dim)}
+.cb-panel .cb-seats{margin-top:6px}
+.cb-panel .cb-x{position:absolute;top:8px;right:8px;width:44px;height:44px;border-radius:50%;border:0;background:transparent;color:var(--dim);cursor:pointer;display:grid;place-items:center}
+.cb-panel .cb-x:hover{background:rgba(243,232,211,.1);color:var(--ink)}
+.cb-panel .cb-x:focus-visible{outline:3px solid var(--brass);outline-offset:0}
+.cb-panel .cb-x svg{width:20px;height:20px}
+#stick{position:fixed;right:max(18px,env(safe-area-inset-right));bottom:calc(150px + env(safe-area-inset-bottom));z-index:5;width:118px;height:118px;border-radius:50%;border:1.5px solid var(--line);background:rgba(14,12,9,.4);touch-action:none;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+#stick .cb-knob{position:absolute;left:50%;top:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:rgba(243,232,211,.55);border:1px solid var(--brass);pointer-events:none}
+#stick .cb-lbl{position:absolute;left:0;right:0;bottom:-22px;text-align:center;font-size:.72rem;color:var(--dim);text-shadow:0 1px 6px rgba(0,0,0,.9)}
+/* the doors, as signs that glow like the posters they stand for (John, 2026-10-01: bolder, stylish, glowing) */
+.ways{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:3;display:flex;gap:10px;justify-content:center;align-items:stretch;flex-wrap:wrap;width:max-content;max-width:calc(100% - 24px)}
+.ways a{display:flex;flex-direction:column;justify-content:center;text-decoration:none;color:var(--ink);background:var(--chip);border:1px solid var(--line);border-radius:14px;padding:9px 16px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:border-color .2s ease,background .2s ease,box-shadow .2s ease}
+.ways a b{font-size:15px;font-weight:650}.ways a span{font-size:12.5px;color:var(--dim)}
+.ways a:hover,.ways a:focus-visible,.ways a.hot{border-color:var(--gold);background:rgba(40,28,14,.86);box-shadow:0 0 0 1px var(--gold),0 0 22px rgba(240,192,96,.35);outline:none}
+.ways a[data-i],.ways a.back,.ways a.deck{--glow:240,192,96;position:relative;padding:13px 22px 13px 20px;border:1.5px solid rgba(var(--glow),.85);border-radius:16px;background:linear-gradient(180deg,rgba(58,39,18,.9),rgba(22,15,9,.92));box-shadow:0 0 0 1px rgba(var(--glow),.25),0 0 26px rgba(var(--glow),.42),inset 0 0 20px rgba(var(--glow),.14);animation:sign 2.6s ease-in-out infinite;transition:transform .18s ease,border-color .2s ease,box-shadow .2s ease}
+/* the signs glow in the site's own colours only: brass for the record, verdigris for the ballot, parchment for the way back, brass on night-black for the deck (never red or blue) */
+.ways a[data-look="ballot"]{--glow:95,179,160;animation-delay:-1.3s;background:linear-gradient(180deg,rgba(24,52,46,.9),rgba(10,20,17,.92))}
+.ways a.deck{--glow:226,190,130;animation-delay:-2s;background:linear-gradient(180deg,rgba(30,24,16,.9),rgba(10,9,8,.95))}
+.ways a.back{--glow:255,226,170;animation-delay:-.6s;max-width:min(340px,100%)}
+.ways a[data-i] b,.ways a.back b,.ways a.deck b{font-family:var(--serif);font-size:20px;font-weight:700;letter-spacing:.01em;color:#fff6de;text-shadow:0 0 14px rgba(var(--glow),.75)}
+.ways a[data-i] b::after,.ways a.deck b::after{content:"\00a0\203A";color:rgb(var(--glow))}
+.ways a.back b::before{content:"\2039\00a0";color:rgb(var(--glow))}
+.ways a[data-i] span,.ways a.back span,.ways a.deck span{font-size:13px;color:#eadcbd}
+.ways a.back span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ways a[data-i]:hover,.ways a[data-i]:focus-visible,.ways a[data-i].hot,.ways a.back:hover,.ways a.back:focus-visible,.ways a.back.hot,.ways a.deck:hover,.ways a.deck:focus-visible,.ways a.deck.hot{transform:translateY(-3px) scale(1.035);border-color:rgb(var(--glow));background:linear-gradient(180deg,rgba(74,50,22,.94),rgba(30,20,11,.94));box-shadow:0 0 0 2px rgba(var(--glow),.9),0 0 44px rgba(var(--glow),.75),inset 0 0 26px rgba(var(--glow),.25);animation:none}
+.ways a[data-look="ballot"]:hover,.ways a[data-look="ballot"]:focus-visible,.ways a[data-look="ballot"].hot{background:linear-gradient(180deg,rgba(32,70,62,.94),rgba(14,28,24,.94))}
+.ways a.deck:hover,.ways a.deck:focus-visible,.ways a.deck.hot{background:linear-gradient(180deg,rgba(44,34,22,.94),rgba(14,12,9,.95))}
+@keyframes sign{0%,100%{box-shadow:0 0 0 1px rgba(var(--glow),.25),0 0 22px rgba(var(--glow),.34),inset 0 0 18px rgba(var(--glow),.12)}50%{box-shadow:0 0 0 1px rgba(var(--glow),.55),0 0 40px rgba(var(--glow),.62),inset 0 0 24px rgba(var(--glow),.2)}}
+/* Calm, Motion off and the device's own wish: the signs hold still (the room is one still picture then) */
+html.calm .ways a,:root[data-calm="on"] .ways a,:root[data-motion="reduced"] .ways a{animation:none}
+.ways a.plain{padding:9px 14px;font-size:13.5px;color:var(--dim);align-self:center}
+.cb-flat{position:fixed;inset:0;z-index:3;display:grid;place-items:center;padding:24px 16px;overflow:auto;background:radial-gradient(120% 90% at 50% 20%,#3A2A16 0%,#15110B 60%,#0B0907 100%)}
+.cb-flat .cb-card{max-width:560px;text-align:center;background:rgba(14,12,9,.78);border:1px solid var(--line);border-radius:18px;padding:22px 22px 18px}
+.cb-flat h2{font:400 1.7rem/1.15 var(--serif);margin:0 0 8px}
+.cb-flat p{margin:0 0 14px;color:var(--dim)}
+.cb-flat .cb-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+dialog.credits{max-width:min(640px,calc(100% - 32px));max-height:calc(100% - 48px);border:1px solid var(--line);border-radius:18px;background:#12100C;color:var(--ink);padding:20px 22px;font-size:.92rem}
+dialog.credits::backdrop{background:rgba(0,0,0,.6)}
+dialog.credits h2{font:400 1.5rem/1.15 var(--serif);margin:0 0 6px}
+dialog.credits>p{margin:6px 0;color:var(--dim)}
+dialog.credits ul{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+dialog.credits li{border-top:1px solid rgba(243,232,211,.16);padding-top:8px}
+dialog.credits a{color:var(--brass-ink)}
+dialog.credits a:focus-visible,dialog.credits button:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
+dialog.credits form{margin:16px 0 0;text-align:right}
+#fade{position:fixed;inset:0;z-index:20;background:var(--night);opacity:0;pointer-events:none;transition:opacity .45s ease}
+body.leaving #fade{opacity:1}
+/* the still page: no 3D on this device */
+body.flat{overflow:auto;background:radial-gradient(1200px 700px at 50% 0%,#3a2916 0%,#1a120b 70%)}
+body.flat #room,body.flat .cb-hint,body.flat .cb-loading,body.flat .cb-dock,body.flat #stick,body.flat .cb-tools button{display:none}
+body.flat .top{position:static;flex-direction:column;align-items:center;padding-top:10vh}
+body.flat .brand{max-width:none;text-align:center}
+body.flat .brand b{font-size:clamp(34px,7vw,64px)}
+body.flat .ways{position:static;transform:none;margin:5vh auto 0;flex-direction:column;width:min(520px,calc(100% - 32px))}
+body.flat .ways a{padding:18px 20px}body.flat .ways a b{font-size:19px}
+body.flat .flatnote{display:block}
+/* Beginner and Easy (Meet me where I am): the room waits for the reader to ask; a still picture, the plain line and the
+doors as a plain list, the page flowing like the still page */
+body.cb-wait{overflow:auto;background:radial-gradient(1200px 700px at 50% 0%,#3a2916 0%,#1a120b 70%)}
+body.cb-wait #room,body.cb-wait .cb-hint,body.cb-wait .cb-loading,body.cb-wait .cb-dock,body.cb-wait #stick,body.cb-wait .cb-tools button{display:none}
+body.cb-wait .top{position:static}
+body.cb-wait .cb-flat{position:static;inset:auto;background:none;padding:8px 16px 0;overflow:visible}
+body.cb-wait .ways{position:static;transform:none;margin:18px auto 32px;flex-direction:column;width:min(560px,calc(100% - 32px))}
+body.cb-wait .ways a{padding:16px 20px}body.cb-wait .ways a span{display:block}
+.cb-flat .cb-still{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:12px;border:1px solid var(--line);margin:0 0 14px}
+.cb-flat .cb-still[hidden]{display:none}
+.flatnote{display:none;text-align:center;color:var(--dim);font-size:14px;margin:18px auto 0;max-width:520px;padding:0 20px}
+/* the reader's Reading & access settings, as the shell's head script puts them on <html> before the first frame */
+:root[data-face="dyslexia"]{--font:"Lexend",system-ui,sans-serif}
+:root[data-face="hyperlegible"]{--font:"Atkinson Hyperlegible",system-ui,sans-serif}
+:root[data-scale="115"]{font-size:115%}:root[data-scale="130"]{font-size:130%}:root[data-scale="150"]{font-size:150%}:root[data-scale="200"]{font-size:200%}
+:root[data-space="generous"]{letter-spacing:.02em;word-spacing:.08em}
+:root[data-contrast="high"]{--chip:#000;--chip-2:#000;--line:#fff;--dim:#fff;--ink:#fff}
+:root[data-contrast="high"] .cb-pill,:root[data-contrast="high"] .cb-panel,:root[data-contrast="high"] .cb-hint,:root[data-contrast="high"] .cb-note,:root[data-contrast="high"] .cb-loading,:root[data-contrast="high"] .ways a,:root[data-contrast="high"] #stick{border-width:2px;box-shadow:none;background:#000}
+@media (max-width:640px){.ways{width:calc(100% - 24px);flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;padding:4px 2px 6px;scrollbar-width:none}.ways::-webkit-scrollbar{display:none}.ways a{flex:none}.ways a span{display:none}.ways a,.ways a[data-i],.ways a.back,.ways a.deck{padding:11px 14px}.ways a[data-i] b,.ways a.back b,.ways a.deck b{font-size:16px}body.flat .ways a.back span{display:block}
+.top{flex-wrap:wrap}.cb-tools{width:100%;justify-content:flex-start}.wip{display:none}.cb-pill{padding:0 13px;min-height:40px}.cb-cap{display:none}.cb-dock{width:calc(100% - 32px);bottom:calc(84px + env(safe-area-inset-bottom))}.cb-dock .cb-row{gap:6px}.brand b{font-size:20px}.brand span{display:none}
+.cb-hint,.cb-note{top:calc(76px + env(safe-area-inset-top))}#stick{right:max(16px,env(safe-area-inset-right));bottom:calc(150px + env(safe-area-inset-bottom))}.cb-panel{bottom:calc(140px + env(safe-area-inset-bottom));max-height:calc(100% - 220px - env(safe-area-inset-top) - env(safe-area-inset-bottom))}.cb-seats{grid-template-columns:1fr 1fr}}
+@media (max-width:360px){.cb-pill{gap:6px;padding:0 11px}.cb-seats{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.ways a[data-i],.ways a.back,.ways a.deck{animation:none}#room,.cb-hint,#fade,.cb-pill{transition:none}}
+@media (forced-colors:active){.cb-pill,.cb-panel,.cb-hint,.cb-note,.cb-loading,.cb-flat .cb-card,.cb-seats button,.ways a{border:2px solid CanvasText;background:Canvas;color:CanvasText;forced-color-adjust:none;box-shadow:none;animation:none}.cb-sw{border-color:CanvasText}#room:focus-visible{outline-color:Highlight}#stick{border-color:CanvasText}}
+@media print{#room,.top,.cb-dock,.cb-hint,#stick{display:none}}</style>
+<link rel="manifest" href="manifest.webmanifest" data-tca-manifest>
+<meta name="apple-mobile-web-app-title" content="Civic Archive" data-tca-manifest>
+</head>
+<body>
+<header class="top">
+<a class="brand" href="./"><b>The Civic Archive</b><span>The public record, and who is on your ballot</span></a>
+<div class="cb-tools">
+<button class="cb-pill" id="sound" type="button" aria-pressed="false" disabled><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z" fill="currentColor"/><path class="cb-wave" d="M15 9a4 4 0 0 1 0 6M17.5 6.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Sound</span></button>
+<button class="cb-pill" id="motion" type="button" aria-pressed="true"><span class="cb-sw" aria-hidden="true"></span><span>Motion</span></button>
+</div>
+</header>
+<canvas id="room" tabindex="0" role="img" aria-label="A log great room in the Rockies: round-log walls and rafters under a vaulted roof, a stacked-stone fireplace with a fire burning, leather and upholstered seating on a red rug, a loft up a steep stair, and a gable wall of glass on the mountains. Two glowing posters on the far wall are the doors to the site: On The Ballot, and Legislation and Legislatures. The same two doors are links at the foot of this page, with a door out onto the deck. When you came here from a page of this site, the plank door behind you glows and leads back to it."></canvas>
+<div id="stick" data-stick hidden aria-hidden="true"><div class="cb-knob"></div><div class="cb-lbl">walk</div></div>
+<main id="main">
+<h1 class="cb-sr">The cabin</h1>
+<div class="cb-loading" id="loading"><h2>Where will you sit?</h2><p>Stepping into the cabin&hellip; pick a seat while it loads. You can move any time.</p>
+<ul class="cb-seats" id="seats"><li><button type="button" data-seat="sofa" aria-pressed="false">The leather sofa<small>Facing the fire across the rug, the glass wall and the mountains at your left</small></button></li><li><button type="button" data-seat="armchair" aria-pressed="false">The armchair by the fire<small>A bergère at the hearth&#x27;s side, the fire at your right hand</small></button></li><li><button type="button" data-seat="rocker" aria-pressed="false">The rocking chair<small>By the glass, rocking gently, the mountains beside you and the whole room ahead</small></button></li><li><button type="button" data-seat="loft" aria-pressed="false">The loft railing<small>Up the stair, standing at the rail, looking down over the room to the glass and the peaks</small></button></li></ul><div class="cb-bar" aria-hidden="true"><i id="loading-i"></i></div><p class="cb-wait" id="wait" role="status" aria-live="polite"></p></div>
+<p class="cb-hint" id="hint" hidden></p>
+<div class="cb-note" id="note" hidden><p id="note-t"></p></div>
+<section class="cb-flat" id="flat" hidden aria-labelledby="flat-h"><div class="cb-card"><h2 id="flat-h">The cabin</h2><p id="flat-t"></p>
+<img class="cb-still" id="flat-still" data-src="cabin_assets/still.jpg?v=1b7c9eb8cc" alt="A still picture of the cabin: a fire burning in a stacked-stone fireplace under a log mantel with a clock, a vase and a row of books, log walls either side, two armchairs and a low table on a patterned rug." width="960" height="540" hidden>
+<div class="cb-row"><button class="cb-pill" id="flat-go" type="button" hidden>Enter the cabin</button><a class="cb-pill" href="rooms.html">Plain view: the doors</a><button class="cb-pill" id="flat-credits" type="button" aria-haspopup="dialog" hidden>Credits</button></div></div></section>
+<p class="flatnote">This device is showing the plain page. The doors are below.</p>
+<div class="cb-dock">
+<p class="cb-cap" id="cap" aria-hidden="true"></p>
+<div class="cb-row"><button class="cb-pill" id="walk-b" type="button" disabled>Get up and walk</button>
+<button class="cb-pill" id="seat-b" type="button" aria-expanded="false" aria-controls="seatpanel" disabled>Choose a seat</button>
+<button class="cb-pill" id="about-b" type="button" aria-expanded="false" aria-controls="about">About this place</button>
+<button class="cb-pill" id="credits-b" type="button" aria-haspopup="dialog">Credits</button>
+<button type="button" class="cb-pill" data-share data-share-url="https://thecivicarchive.org/cabin.html" data-share-title="The cabin: The Civic Archive" data-share-text="A place to sit: a log cabin in the Rockies, drawn in 3D, with a door to each part of The Civic Archive."><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg><span>Share</span></button></div>
+</div>
+<nav class="ways" aria-label="The doors">
+  <a data-i="0" data-look="ballot" href="ballot/"><b>On The Ballot</b><span>Meet everyone asking for your vote</span></a>
+  <a data-i="1" data-look="record" href="rooms.html"><b>Legislation &amp; Legislatures</b><span>See what they did with the last one</span></a>
+  <a class="deck" id="deck" href="night/sky/"><b>Step out onto the deck</b><span>The night sky over the Rockies</span></a>
+  <a class="back" id="back" href="rooms.html" hidden><b>Back to where you were</b><span id="backt"></span></a>
+  <a class="plain" href="rooms.html" title="The same doors as a ring of cards, with no room to walk around">Plain view</a>
+</nav>
+<section class="cb-panel" id="seatpanel" aria-labelledby="seatpanel-h" hidden>
+<button class="cb-x" type="button" aria-label="Close Choose a seat"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+<h2 id="seatpanel-h" tabindex="-1">Choose a seat</h2>
+<ul class="cb-seats" id="seats2"><li><button type="button" data-seat="sofa" aria-pressed="false">The leather sofa<small>Facing the fire across the rug, the glass wall and the mountains at your left</small></button></li><li><button type="button" data-seat="armchair" aria-pressed="false">The armchair by the fire<small>A bergère at the hearth&#x27;s side, the fire at your right hand</small></button></li><li><button type="button" data-seat="rocker" aria-pressed="false">The rocking chair<small>By the glass, rocking gently, the mountains beside you and the whole room ahead</small></button></li><li><button type="button" data-seat="loft" aria-pressed="false">The loft railing<small>Up the stair, standing at the rail, looking down over the room to the glass and the peaks</small></button></li></ul>
+</section>
+<section class="cb-panel" id="about" aria-labelledby="about-h" hidden>
+<button class="cb-x" type="button" aria-label="Close About this place"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+<h2 id="about-h" tabindex="-1">About this place</h2>
+<dl id="about-dl"></dl>
+<p>The cabin is not a real place: it is drawn for this site, with nobody in it. The hour, the season and the weather come from your device&rsquo;s own clock, and nothing about you is sent anywhere. Version 4.1.030.</p>
+</section>
+<p class="cb-sr" id="say" role="status" aria-live="polite"></p>
+</main>
+<dialog class="credits" id="credits" aria-labelledby="credits-h">
+<h2 id="credits-h">What the room is made of</h2>
+<p>The materials, furniture and photographs in this room are free works, kept with the site and credited here. The logs, the roof, the stone, the stair, the loft, the curtains, the fire and the clock&rsquo;s hands are drawn for the scene. The sound is made on your device, from no recording.</p>
+<ul><li><a href="https://polyhaven.com/a/coated_pine_02" rel="noopener" target="_blank">Coated Pine 02</a> (material) by Charlotte Baglioni, Jenelle van Heerden, CC0 1.0; the 1k maps re-encoded for every device; the 2k maps re-encoded for a computer&#x27;s set</li>
+<li><a href="https://polyhaven.com/a/wood_floor_worn" rel="noopener" target="_blank">Wood Floor Worn</a> (material) by Dimitrios Savva, CC0 1.0; the 1k maps re-encoded for every device; the 2k maps re-encoded for a computer&#x27;s set</li>
+<li><a href="https://polyhaven.com/a/roof_planks" rel="noopener" target="_blank">Roof Planks</a> (material) by Rob Tuytel, CC0 1.0</li>
+<li><a href="https://polyhaven.com/a/stacked_stone_wall" rel="noopener" target="_blank">Stacked Stone Wall</a> (material) by Dimitrios Savva, CC0 1.0; the 1k maps re-encoded for every device; the 2k maps re-encoded for a computer&#x27;s set</li>
+<li><a href="https://polyhaven.com/a/pine_bark" rel="noopener" target="_blank">Pine Bark</a> (material) by Dimitrios Savva, CC0 1.0</li>
+<li><a href="https://polyhaven.com/a/wood_planks_grey" rel="noopener" target="_blank">Wood Planks Grey</a> (material) by Rob Tuytel, CC0 1.0</li>
+<li><a href="https://polyhaven.com/a/fabric_pattern_07" rel="noopener" target="_blank">Fabric Pattern 07</a> (material) by Rob Tuytel, CC0 1.0</li>
+<li><a href="https://polyhaven.com/a/brown_leather" rel="noopener" target="_blank">Brown Leather</a> (material) by Rob Tuytel, CC0 1.0</li>
+<li><a href="https://polyhaven.com/a/sofa_02" rel="noopener" target="_blank">Sofa 02</a> (model) by Kirill Sannikov, CC0 1.0</li>
+<li><a href="https://polyhaven.com/a/ArmChair_01" rel="noopener" target="_blank">Arm Chair 01</a> (model) by Kirill Sannikov, CC0 1.0</li>
+<li><a href="https://polyhaven.com/a/Rockingchair_01" rel="noopener" target="_blank">Rockingchair 01</a> (model) by Jorge Camacho, CC0 1.0</li>
+<li><a href="https://polyhaven.com/a/small_wooden_table_01" rel="noopener" target="_blank">Small Wooden Table 01</a> (model) by Ulan Cabanilla, CC0 1.0</li>
+<li><a href="https://polyhaven.com/a/side_table_tall_01" rel="noopener" target="_blank">Side Table Tall 01</a> (model) by James Ray Cock, CC0 1.0</li>
+<li><a href="https://polyhaven.com/a/lantern_chandelier_01" rel="noopener" target="_blank">Lantern Chandelier 01</a> (model) by Kirill Sannikov, CC0 1.0</li>
+<li><a href="https://polyhaven.com/a/throw_pillows_01" rel="noopener" target="_blank">Throw Pillows 01</a> (model) by Serhii Khromov, CC0 1.0</li>
+<li><a href="https://polyhaven.com/a/antique_ceramic_vase_01" rel="noopener" target="_blank">Antique Ceramic Vase 01</a> (model) by James Ray Cock, CC0 1.0</li>
+<li><a href="https://ambientcg.com/view?id=Carpet015" rel="noopener" target="_blank">Carpet015</a> (material) by ambientCG (Lennart Demes), CC0 1.0</li>
+<li><a href="https://polyhaven.com/a/mantel_clock_01" rel="noopener" target="_blank">Mantel Clock 01</a> (model) by Yann Kervran (Rigging), Rico Cilliers (Modeling &amp; Texturing), CC0 1.0; textures re-encoded to fit the room&#x27;s budget, and a half-size set written for phones</li>
+<li><a href="https://polyhaven.com/a/book_encyclopedia_set_01" rel="noopener" target="_blank">Book Encyclopedia Set 01</a> (model) by John Malcolm, CC0 1.0; textures re-encoded to fit the room&#x27;s budget, and a half-size set written for phones</li>
+<li><a href="https://polyhaven.com/a/wicker_basket_01" rel="noopener" target="_blank">Wicker Basket 01</a> (model) by Kuutti Siitonen, CC0 1.0; textures re-encoded to fit the room&#x27;s budget, and a half-size set written for phones</li>
+<li><a href="https://polyhaven.com/a/Lantern_01" rel="noopener" target="_blank">Lantern 01</a> (model) by Rajil Jose Macatangay, CC0 1.0; textures re-encoded to fit the room&#x27;s budget, and a half-size set written for phones</li>
+<li><a href="https://polyhaven.com/a/hatchet" rel="noopener" target="_blank">Hatchet</a> (model) by James Ray Cock (Texturing), Ulan Cabanilla (modeling), CC0 1.0; textures re-encoded to fit the room&#x27;s budget, and a half-size set written for phones</li>
+<li><a href="https://polyhaven.com/a/wooden_bowl_01" rel="noopener" target="_blank">Wooden Bowl 01</a> (model) by Oliver Harries, CC0 1.0; textures re-encoded to fit the room&#x27;s budget, and a half-size set written for phones</li>
+<li><a href="https://polyhaven.com/a/potted_plant_02" rel="noopener" target="_blank">Potted Plant 02</a> (model) by Rico Cilliers, CC0 1.0; textures re-encoded to fit the room&#x27;s budget, and a half-size set written for phones</li>
+<li><a href="https://www.nps.gov/npgallery/AssetDetail/1c48e5d1-155d-451f-6726-9c766e642070" rel="noopener" target="_blank">Moraine Park at sunrise, Rocky Mountain National Park</a> (photograph, NPS photo (CH)), public domain</li>
+<li><a href="https://www.nps.gov/npgallery/AssetDetail/26de00a8-155d-451f-6746-1edd475b1428" rel="noopener" target="_blank">Beaver Ponds and the Never Summer Mountains, Rocky Mountain National Park</a> (photograph, NPS photo (CH)), public domain</li>
+<li><a href="https://www.nps.gov/npgallery/AssetDetail/21b60af6-155d-451f-670d-5d92dba479e8" rel="noopener" target="_blank">Longs Peak and Mount Meeker, the Twin Guides, Rocky Mountain National Park</a> (photograph, NPS photo), public domain</li>
+<li><a href="https://www.nps.gov/npgallery/AssetDetail/21c056db-155d-451f-671f-d6c2167e882c" rel="noopener" target="_blank">Moraine Park in March, Rocky Mountain National Park</a> (photograph, NPS photo (CH)), public domain</li>
+<li><a href="https://www.nps.gov/npgallery/AssetDetail/1c209368-155d-451f-672f-3136f9a6a857" rel="noopener" target="_blank">Copeland Mountain above Copeland Lake in winter, Rocky Mountain National Park</a> (photograph, NPS photo), public domain</li>
+<li><a href="https://www.nps.gov/npgallery/AssetDetail/035b3918-1dd8-b71b-0b25-1c76a4dc59e2" rel="noopener" target="_blank">Hallett Peak reflected in Dream Lake, Rocky Mountain National Park</a> (photograph, NPS photo), public domain</li>
+<li><a href="https://www.nps.gov/npgallery/AssetDetail/2176e261-155d-451f-67e5-ce94fff90c63" rel="noopener" target="_blank">Longs Peak above the forest, Rocky Mountain National Park</a> (photograph, NPS photo), public domain</li>
+<li><a href="https://www.nps.gov/npgallery/AssetDetail/21b9b700-155d-451f-6723-9fae603f7baa" rel="noopener" target="_blank">Fresh snow on Longs Peak, Rocky Mountain National Park</a> (photograph, NPS photo), public domain</li>
+<li><a href="https://www.nps.gov/npgallery/AssetDetail/21a4822e-155d-451f-67bf-b0a36b198dfd" rel="noopener" target="_blank">Sunset on the snowy Continental Divide, Rocky Mountain National Park</a> (photograph, NPS photo (CH)), public domain</li>
+<li><a href="https://www.nps.gov/npgallery/AssetDetail/219ef2d7-155d-451f-675d-0a9b3498d759" rel="noopener" target="_blank">Sunrise from the top of Longs Peak, Rocky Mountain National Park</a> (photograph, NPS photo (CH)), public domain</li>
+<li><a href="https://www.nps.gov/npgallery/AssetDetail/27268c13-155d-451f-6754-2f5076230714" rel="noopener" target="_blank">Poudre Lake at dusk in September, Rocky Mountain National Park</a> (photograph, NPS photo), public domain</li>
+<li><a href="https://threejs.org/" rel="noopener" target="_blank">three.js</a> r169 draws the room (MIT licence)</li></ul>
+<form method="dialog"><button class="cb-pill" type="submit">Close</button></form>
+</dialog>
+<div id="fade" aria-hidden="true"></div>
+<script type="module">
+const POSTERS = [{"url": "ballot/", "look": "ballot", "kicker": "On The Ballot", "head": "Meet everyone asking for your vote.", "sub": "Every race, from Congress to your county, straight from the official lists.", "cta": "Step in", "foot": "November 3, 2026"}, {"url": "rooms.html", "look": "record", "kicker": "Legislation & Legislatures", "head": "See what they did with the last one.", "sub": "Every bill, every vote, every member. Congress and all fifty statehouses, on the record.", "cta": "Open the record", "foot": "Congress and the fifty states"}], VIEWS = {"morning": [{"file": "moraine_park_sunrise.jpg", "season": "winter", "horizon": 0.6, "caption": "Moraine Park at sunrise, Rocky Mountain National Park", "credit": "NPS photo (CH)", "title": "Moraine Park Sunrise", "source": "https://www.nps.gov/npgallery/AssetDetail/1c48e5d1-155d-451f-6726-9c766e642070", "w": 2048, "h": 1536, "constraint": "Public domain", "date": "1/25/2008 8:49:25 AM"}, {"file": "beaver_pond.jpg", "season": "summer", "horizon": 0.52, "caption": "Beaver Ponds and the Never Summer Mountains, Rocky Mountain National Park", "credit": "NPS photo (CH)", "title": "Beaver Pond", "source": "https://www.nps.gov/npgallery/AssetDetail/26de00a8-155d-451f-6746-1edd475b1428", "w": 2048, "h": 1536, "constraint": "Public domain", "date": "8/4/2012 8:58:30 AM"}, {"file": "twin_guides.jpg", "season": "autumn", "horizon": 0.62, "caption": "Longs Peak and Mount Meeker, the Twin Guides, Rocky Mountain National Park", "credit": "NPS photo", "title": "Twin Guides", "source": "https://www.nps.gov/npgallery/AssetDetail/21b60af6-155d-451f-670d-5d92dba479e8", "w": 2048, "h": 1362, "constraint": "Public domain", "date": "4/16/2007 8:16:19 AM"}, {"file": "moraine_park_march.jpg", "season": "spring", "horizon": 0.6, "caption": "Moraine Park in March, Rocky Mountain National Park", "credit": "NPS photo (CH)", "title": "Moraine Park", "source": "https://www.nps.gov/npgallery/AssetDetail/21c056db-155d-451f-671f-d6c2167e882c", "w": 2048, "h": 1151, "constraint": "Public domain", "date": "3/10/2013 12:08:25 PM"}], "afternoon": [{"file": "wild_basin_winter.jpg", "season": "winter", "horizon": 0.62, "caption": "Copeland Mountain above Copeland Lake in winter, Rocky Mountain National Park", "credit": "NPS photo", "title": "Wild Basin in Winter", "source": "https://www.nps.gov/npgallery/AssetDetail/1c209368-155d-451f-672f-3136f9a6a857", "w": 2048, "h": 1362, "constraint": "Public domain", "date": "11/18/2010 9:26:36 AM"}, {"file": "hallett_dream_lake.jpg", "season": "summer", "horizon": 0.56, "caption": "Hallett Peak reflected in Dream Lake, Rocky Mountain National Park", "credit": "NPS photo", "title": "Hallett Peak reflected in Dream Lake", "source": "https://www.nps.gov/npgallery/AssetDetail/035b3918-1dd8-b71b-0b25-1c76a4dc59e2", "w": 2048, "h": 1360, "constraint": "Public domain", "date": null}, {"file": "longs_peak.jpg", "season": "autumn", "horizon": 0.7, "caption": "Longs Peak above the forest, Rocky Mountain National Park", "credit": "NPS photo", "title": "Longs Peak", "source": "https://www.nps.gov/npgallery/AssetDetail/2176e261-155d-451f-67e5-ce94fff90c63", "w": 2048, "h": 1362, "constraint": "Public domain", "date": "4/16/2007 8:24:10 AM"}, {"file": "white_capped_longs.jpg", "season": "spring", "horizon": 0.64, "caption": "Fresh snow on Longs Peak, Rocky Mountain National Park", "credit": "NPS photo", "title": "White-capped Longs Peak", "source": "https://www.nps.gov/npgallery/AssetDetail/21b9b700-155d-451f-6723-9fae603f7baa", "w": 2048, "h": 1362, "constraint": "Public domain", "date": "3/13/2007 8:54:01 AM"}], "dusk": [{"file": "snow_on_the_divide.jpg", "season": "winter", "horizon": 0.6, "caption": "Sunset on the snowy Continental Divide, Rocky Mountain National Park", "credit": "NPS photo (CH)", "title": "Snow on the Divide", "source": "https://www.nps.gov/npgallery/AssetDetail/21a4822e-155d-451f-67bf-b0a36b198dfd", "w": 2048, "h": 1536, "constraint": "Public domain", "date": "5/13/2012 7:48:36 PM"}, {"file": "longs_summit_sunrise.jpg", "season": "summer", "horizon": 0.52, "caption": "Sunrise from the top of Longs Peak, Rocky Mountain National Park", "credit": "NPS photo (CH)", "title": "Sunrise from the top of Longs Peak", "source": "https://www.nps.gov/npgallery/AssetDetail/219ef2d7-155d-451f-675d-0a9b3498d759", "w": 2048, "h": 1536, "constraint": "Public domain", "date": "8/14/2011 6:19:31 AM"}, {"file": "poudre_lake_dusk.jpg", "season": "autumn", "horizon": 0.55, "caption": "Poudre Lake at dusk in September, Rocky Mountain National Park", "credit": "NPS photo", "title": "Poudre Lake", "source": "https://www.nps.gov/npgallery/AssetDetail/27268c13-155d-451f-6754-2f5076230714", "w": 2048, "h": 1536, "constraint": "Public domain", "date": "9/9/2012 7:22:59 AM"}, {"file": "snow_on_the_divide.jpg", "season": "spring", "horizon": 0.6, "caption": "Sunset on the snowy Continental Divide, Rocky Mountain National Park", "credit": "NPS photo (CH)", "title": "Snow on the Divide", "source": "https://www.nps.gov/npgallery/AssetDetail/21a4822e-155d-451f-67bf-b0a36b198dfd", "w": 2048, "h": 1536, "constraint": "Public domain", "date": "5/13/2012 7:48:36 PM"}], "night": [{"file": "poudre_lake_dusk.jpg", "season": "any", "horizon": 0.55, "caption": "Poudre Lake at dusk in September, Rocky Mountain National Park (a twilight photograph, darkened for night)", "credit": "NPS photo", "title": "Poudre Lake", "source": "https://www.nps.gov/npgallery/AssetDetail/27268c13-155d-451f-6754-2f5076230714", "w": 2048, "h": 1536, "constraint": "Public domain", "date": "9/9/2012 7:22:59 AM"}]}, WEIGHT = {"desktop": 22, "phone": 8}, ROOM = "./cabin3d.js?v=825b4bc456", DECK = "night/sky/";
+const D = document, H = D.documentElement, $ = s => D.querySelector(s), $$ = s => [...D.querySelectorAll(s)], q = new URLSearchParams(location.search);
+const store = {get(k){ try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v){ try { localStorage.setItem(k, v); } catch (e) {} }};
+const reduceOS = (() => { try { return matchMedia("(prefers-reduced-motion: reduce)"); } catch (e) { return {matches: false}; } })();
+const saved = () => { try { const s = JSON.parse(store.get("tca.a11y.v1") || "null"); return s && typeof s === "object" ? s : {}; } catch (e) { return {}; } };
+const calmOn = () => saved().calm === "on" || H.getAttribute("data-calm") === "on";
+/* motion, as every page of the site reads it: the device's own wish and Calm always win; then this page's switch (the
+   site's older "motion" choice); then the Reading & access setting */
+function motionOn(){ if (reduceOS.matches || calmOn()) return false; const m = store.get("motion"); if (m === "off") return false; if (m === "on") return true; return saved().motion !== "reduced"; }
+function leanNow(){ const v = H.getAttribute("data-lean"); if (v) return v === "on"; try { const n = navigator; return !!((n.deviceMemory && n.deviceMemory < 4) || (n.hardwareConcurrency && n.hardwareConcurrency <= 4)); } catch (e) { return false; } }
+function saveData(){ try { return !!(navigator.connection && navigator.connection.saveData); } catch (e) { return false; } }
+function canDraw(){ try { const c = D.createElement("canvas"), g = window.WebGL2RenderingContext && c.getContext("webgl2"); if (!g) return false; const x = g.getExtension("WEBGL_lose_context"); if (x) x.loseContext(); return true; } catch (e) { return false; } }
+const touch = (() => { try { return matchMedia("(pointer: coarse)").matches; } catch (e) { return false; } })();
+/* the lighter set of files and drawing: a lean device, or any touch screen (a tablet included); the same test decides the
+   room's own path and the size the page quotes, so they never disagree */
+const phone = () => leanNow() || touch;
+const weightNow = () => phone() ? WEIGHT.phone : WEIGHT.desktop;
+const say = t => { const s = $("#say"); s.textContent = ""; setTimeout(() => { s.textContent = t; }, 80); };
+let canvas = $("#room"), used = false, room = null, mod = null, leaving = false, byKey = false, hintT = 0, view = null, wantSeat = store.get("tca.cabin.seat") || "sofa";
+{ const m = /(?:^|[#&])seat=(sofa|armchair|rocker|loft)/.exec(location.hash); if (m) wantSeat = m[1]; }
+const SEATN = {}, SEATW = {}; for (const b of $$("#seats button")) { SEATN[b.dataset.seat] = b.firstChild.textContent.trim(); SEATW[b.dataset.seat] = b.querySelector("small").textContent; }
+const ways = $$(".ways a[data-i]"), backA = $("#back"), deckA = $("#deck"), fade = $("#fade");
+/* the way back: a page of this site kept its own address before its "Take a break" link was followed. Only an address
+   on this same site, under this page's own folder, is ever followed; anything else is ignored. */
+function wayBack(){
+  try { const o = JSON.parse(sessionStorage.getItem("break") || "null"); if (!o || typeof o.u !== "string") return null;
+    const u = new URL(o.u, location.href), root = new URL("./", location.href), self = p => p.replace(/index\.html$/, "");
+    if (!/^https?:$/.test(u.protocol) || u.origin !== location.origin || u.username || u.password || !u.pathname.startsWith(root.pathname) || self(u.pathname) === self(location.pathname)) return null;
+    return {url: u.href, title: typeof o.t === "string" ? o.t.replace(/\s+/g, " ").trim().slice(0, 90) : ""};
+  } catch (e) { return null; }
+}
+const prior = wayBack();
+if (prior) { backA.href = prior.url; $("#backt").textContent = prior.title || "The page you came from"; backA.hidden = false; }
+const forget = () => { try { sessionStorage.removeItem("break"); } catch (e) {} };
+function leave(url){ if (leaving) return; leaving = true; if (!motionOn()) { location.href = url; return; } D.body.classList.add("leaving"); setTimeout(() => { location.href = url; }, 430); }
+function goPrior(){ if (!prior || leaving) return; forget(); leave(prior.url); }
+/* a door's timer (the walk up to it, then the page leaves) is dropped when the page is put away: a reader who comes Back
+   from the deck or the page they came from must not be sent through the door again by a timer that was still waiting */
+let doorT = 0;
+const doorLater = (fn, ms) => { clearTimeout(doorT); doorT = setTimeout(() => { doorT = 0; if (!D.hidden) fn(); }, ms); };
+addEventListener("pagehide", () => { clearTimeout(doorT); doorT = 0; });
+addEventListener("pageshow", e => { clearTimeout(doorT); doorT = 0; leaving = false; D.body.classList.remove("leaving"); if (e.persisted && room) room.setStill(!motionOn()); });
+function freshCanvas(){ const c = canvas.cloneNode(false); c.classList.remove("on", "dragging"); canvas.replaceWith(c); canvas = c; }
+/* which way the visitor faces, for the About panel and screen readers */
+const COMPASS = ["the glass wall and the mountains", "the posters and the glass", "the fireplace", "the loft and the stair", "the back wall and the loft", "the stair", "the left wall", "the rocking chair and the glass"];
+function way(f){ let a = ((-f.yaw) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI); const k = Math.round(a / (Math.PI / 4)) % 8; const deg = Math.round(f.pitch * 180 / Math.PI); return `toward ${COMPASS[k]}${Math.abs(deg) > 12 ? `, ${Math.abs(deg)} degrees ${deg > 0 ? "up" : "down"}` : ""}`; }
+
+/* ---------- the seats ---------- */
+function markSeat(id){ for (const b of $$(".cb-seats button")) b.setAttribute("aria-pressed", b.dataset.seat === id ? "true" : "false"); }
+function pickSeat(id, fromPanel){
+  wantSeat = id; store.set("tca.cabin.seat", id); markSeat(id);
+  if (room) { room.seat(id); if (fromPanel) seatPanel(false); say(`${SEATN[id] || "Your seat"}: ${SEATW[id] || ""}`); }
+}
+for (const b of $$(".cb-seats button")) b.addEventListener("click", () => pickSeat(b.dataset.seat, !!b.closest("#seatpanel")));
+markSeat(wantSeat);
+const sp = $("#seatpanel"), sb = $("#seat-b");
+function seatPanel(open){
+  sp.hidden = !open; sb.setAttribute("aria-expanded", open ? "true" : "false");
+  if (open) { about(false, true); try { $("#seatpanel-h").focus({preventScroll: true}); } catch (e) {} } else { try { sb.focus({preventScroll: true}); } catch (e) {} }
+}
+sb.addEventListener("click", () => seatPanel(sp.hidden));
+sp.querySelector(".cb-x").addEventListener("click", () => seatPanel(false));
+const wb = $("#walk-b");
+function syncState(){
+  if (!room) return;
+  const st = room.state(), seated = st.mode === "seated";
+  markSeat(seated ? st.seat : "");
+  wb.textContent = seated ? "Get up and walk" : "Sit down";
+  $("#stick").hidden = !(touch && !seated);
+  $("#cap").textContent = seated ? `${SEATN[st.seat] || ""}: ${SEATW[st.seat] || ""}.` : (touch ? `On your feet${st.level === "loft" ? ", in the loft" : st.level === "ramp" ? ", on the stair" : ""}. Drag to look; the control at the right walks.` : `On your feet${st.level === "loft" ? ", in the loft" : st.level === "ramp" ? ", on the stair" : ""}. W A S D or the arrow keys walk; drag to look.`);
+}
+wb.addEventListener("click", () => {
+  if (!room) return;
+  if (!room.sitting()) { room.sit(); syncState(); const st = room.state(); say(`Sitting down: ${SEATN[st.seat || st.near] || "the nearest seat"}. Choose a seat, at the bottom, picks another.`); return; }      /* the nearest seat, as the deck does */
+  room.stand(); syncState(); hint(true);
+  say(touch ? "You are on your feet. Drag to look around; the control at the bottom right walks. Sit down puts you back in a seat." : "You are on your feet. W A S D or the arrow keys walk, and the stair climbs to the loft; drag to look around. Sit down puts you back in a seat.");
+});
+
+/* ---------- the words about the place ---------- */
+const HOURW = {morning: "morning", afternoon: "afternoon", dusk: "dusk", night: "night"};
+function fillAbout(){
+  const dl = $("#about-dl"); dl.textContent = "";
+  const add = (t, d, id) => { const dt = D.createElement("dt"), dd = D.createElement("dd"); dt.textContent = t; dd.textContent = d; if (id) dd.id = id; dl.append(dt, dd); };
+  const st = room ? room.state() : {when: "", season: "", weather: "clear"};
+  add("Where you are", "A log great room in the Rocky Mountains: round-log walls and rafters under a vaulted roof, a stacked-stone chimney breast with a fire burning, leather and upholstered seating on a red rug, a loft up a steep stair, and a gable wall of glass on the peaks. Nobody else is here.");
+  add("The hour", `By your device's clock it is ${HOURW[st.when] || st.when} in ${st.season}${st.weather === "rain" ? ", and an afternoon shower is passing over" : ""}. ${st.when === "night" ? "The lamps and the fire light the room." : st.when === "dusk" ? "The last light is going; the lamps are lit and the fire is up." : "Daylight comes through the glass in shafts, with dust turning in them."} The clock on the mantel keeps your time.`
+    + (view ? ` Outside is a National Park Service photograph${view.caption ? `: ${view.caption}` : ""}${view.shown ? "" : ` (shown for ${view.season}; there is no ${view.wanted} picture yet)`}.` : ""));
+  add("The sound", "Off until you turn it on. Then: the fire's roar, hiss and crackle, a log settling now and then, the clock's tick on the mantel, the wind at the glass and in the chimney, rain on the roof when it rains, and your own steps on the boards, the rug and the stair. All of it is made on this device; nothing is recorded, and no words are in it.");
+  add("Which way you face", "", "facing"); facing();
+}
+function facing(){ const el = $("#facing"); if (el && room) el.textContent = `You face ${way(room.facing())}.`; }
+
+/* ---------- the room ---------- */
+function flat(text, retry, label){
+  $("#loading").hidden = true; $("#flat-t").textContent = text; const b = $("#flat-go"); b.hidden = !retry; if (label) b.textContent = label;
+  $("#flat").hidden = false; canvas.hidden = true; $("#hint").hidden = true; $("#note").hidden = true; $("#stick").hidden = true;
+  for (const el of [$("#sound"), wb, sb]) el.disabled = true;
+  $("#flat-still").hidden = true; $("#flat-credits").hidden = true; D.body.classList.remove("cb-wait"); waiting = false;
+}
+/* Beginner and Easy (Meet me where I am): the room is optional, so it waits for the reader to ask; a still picture stands
+   in for it and the doors are a plain list. From Medium up the cabin opens as it always has. */
+const level = () => { const v = +H.getAttribute("data-level"); return v >= 1 && v <= 6 ? v : 3; };
+let waiting = false;
+function waitHere(){
+  flat(`An optional 3D place to sit. Nothing here is needed for your ballot or the record: the doors below go straight there. Stepping inside loads about ${weightNow()} megabytes.`, true, "Step inside");
+  const im = $("#flat-still"); if (im.dataset.src) { if (!im.getAttribute("src")) im.src = im.dataset.src; im.hidden = false; }
+  $("#flat-credits").hidden = false; D.body.classList.add("cb-wait"); waiting = true;
+}
+$("#flat-credits").addEventListener("click", () => { const d = $("#credits"); if (d.showModal) d.showModal(); else d.setAttribute("open", ""); });
+function hint(walking){
+  if (!motionOn()) return;
+  const h = $("#hint");
+  h.textContent = walking ? (touch ? "Drag to look around. The control at the bottom right walks you; the stair climbs to the loft." : "Drag to look around. W A S D or the arrow keys walk you; the stair climbs to the loft.")
+    : (touch ? "Drag with a finger to look around. Get up and walk is at the bottom; the glowing posters are doors." : "Drag, or use the arrow keys, to look around. Get up and walk is at the bottom; the glowing posters are doors: click one to go in.");
+  h.hidden = false; h.classList.remove("gone"); clearTimeout(hintT); hintT = setTimeout(() => h.classList.add("gone"), 9000);
+}
+function stillNote(){
+  const n = $("#note"), on = motionOn();
+  n.hidden = on || !room;
+  if (on) return;
+  const why = reduceOS.matches ? "Your device asks for less motion" : calmOn() ? "Calm is on" : "Motion is off";
+  $("#note-t").textContent = `${why}, so this is one still picture: the fire holds, the curtains hang still and no dust turns in the light. You can still look around` + (touch ? " by dragging," : " by dragging or with the arrow keys,") + " and choose another seat."
+    + (reduceOS.matches ? " That is set in your device's own settings." : calmOn() ? " Calm is set on the Access page." : " Turn Motion on, at the top, to let the room move.");
+}
+function progress(d, t){ $("#loading-i").style.width = `${Math.min(100, Math.round(100 * d / Math.max(t, 1)))}%`; $("#wait").textContent = `Setting the room up… ${d} of ${t} files, about ${weightNow()} MB in all.`; }
+async function begin(){
+  if (room) { room.dispose(); room = null; }
+  if (used) freshCanvas();
+  waiting = false; D.body.classList.remove("cb-wait");
+  $("#flat").hidden = true; canvas.hidden = false; $("#loading").hidden = false; $("#wait").textContent = "";
+  if (!canDraw()) { flat("This device cannot draw the cabin in 3D, so the doors are here instead."); D.body.classList.add("flat"); return; }
+  try {
+    mod = mod || await import(ROOM);
+    used = true;
+    room = mod.start(canvas, {back: !!prior, posters: POSTERS, views: VIEWS, assets: "cabin_assets/", when: q.get("time") || undefined, season: q.get("season") || undefined, weather: q.get("weather") || undefined,
+      seat: wantSeat, still: !motionOn(), lite: q.has("lite") ? q.get("lite") !== "0" : phone(), stick: $("#stick"),
+      keysOK: e => !(e.target && e.target.closest && e.target.closest("#tca-help, dialog, input, select, textarea, [contenteditable], #about, #seatpanel")),
+      onHover: i => { ways.forEach((a, k) => a.classList.toggle("hot", k === i)); backA.classList.toggle("hot", i === 2); deckA.classList.toggle("hot", i === 3); },
+      onLeave: url => { forget(); leave(url); },
+      onBack: () => goPrior(),
+      onDeck: () => leave(DECK),
+      onMove: () => { syncState(); facing(); },
+      onInput: kind => { byKey = kind === "key"; $("#hint").classList.add("gone"); },
+      onStick: (x, y) => { const k = $("#stick .cb-knob"); if (k) k.style.transform = `translate(${x * 30}px, ${-y * 30}px)`; },
+      onProgress: progress,
+      onReady: () => { $("#loading").hidden = true; canvas.classList.add("on"); for (const el of [$("#sound"), wb, sb]) el.disabled = false; syncState(); fillAbout(); hint(!room.sitting()); stillNote();
+        say(`${SEATN[wantSeat] || "The cabin"}. Drag, or use the arrow keys, to look around.`); setTimeout(() => { if (!$("#loading").hidden) $("#loading").hidden = true; }, 100); },
+      onView: v => { view = v; if (room && room.ready) fillAbout(); },
+      onLost: () => { room = null; flat("The cabin stopped drawing on this device.", true, "Try again"); }});
+  } catch (e) { room = null; }
+  if (!room) { flat("The cabin could not be drawn here. The doors are below.", true, "Try again"); return; }
+  window.__cabin = room;
+  setTimeout(() => { if (room && !room.ready) $("#wait").textContent = "Still setting the room up: a slow connection, perhaps. The doors at the foot of the page work now."; }, 45000);
+}
+$("#flat-go").addEventListener("click", () => begin());
+
+/* Sound: off until asked; the button says which it is */
+const snd = $("#sound");
+snd.addEventListener("click", () => {
+  if (!room) return;
+  const on = snd.getAttribute("aria-pressed") !== "true";
+  if (on) { if (!room.setSound(true)) { say("This browser cannot play the room's sound."); return; } } else room.setSound(false);
+  snd.setAttribute("aria-pressed", on ? "true" : "false"); snd.querySelector("span:last-child").textContent = on ? "Sound on" : "Sound";
+  say(on ? "Sound is on: the fire, the clock, the wind at the glass, and your steps." : "Sound is off.");
+});
+/* Motion: this page's own switch, as on the pages that keep their own top bar */
+const mb = $("#motion");
+function syncMotion(){ mb.setAttribute("aria-pressed", motionOn() ? "true" : "false"); H.classList.toggle("calm", !motionOn()); stillNote(); }
+mb.addEventListener("click", () => {
+  if (reduceOS.matches) { say("Your device asks for less motion, so the room stays still. That is set in the device's own settings."); return; }
+  if (calmOn()) { say("Calm is on, so the room stays still. Calm is set on the Access page."); return; }
+  const on = !motionOn(); store.set("motion", on ? "on" : "off");
+  if (room) room.setStill(!on);
+  syncMotion(); if (on) hint(room && !room.sitting());
+  say(on ? "Motion is on. The fire burns, the curtains stir and the dust turns." : "Motion is off. The room is one still picture.");
+});
+syncMotion();
+/* About this place, and Credits */
+const ab = $("#about-b"), panel = $("#about");
+function about(open, quiet){
+  if (open) fillAbout();
+  panel.hidden = !open; ab.setAttribute("aria-expanded", open ? "true" : "false");
+  if (open) { seatPanel(false); } else if (!quiet) { try { ab.focus({preventScroll: true}); } catch (e) {} }
+  if (open) { try { $("#about-h").focus({preventScroll: true}); } catch (e) {} }
+}
+ab.addEventListener("click", () => about(panel.hidden));
+panel.querySelector(".cb-x").addEventListener("click", () => about(false));
+addEventListener("keydown", e => { if (e.key === "Escape" && !D.querySelector("dialog[open]")) { if (!panel.hidden) about(false); else if (!sp.hidden) seatPanel(false); } });
+const dlg = $("#credits");
+$("#credits-b").addEventListener("click", () => { if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", ""); });
+/* the doors: a sign at the foot of the page walks the visitor up to its poster, the deck door or the way back; a plain
+   click with a modifier, or with Motion off, is an ordinary link */
+const plain = e => e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey;
+ways.forEach((a, i) => { a.addEventListener("focus", () => room && room.look(i)); a.addEventListener("click", e => { if (plain(e) || !room || !motionOn()) return; e.preventDefault(); room.go(i); }); });
+deckA.addEventListener("focus", () => room && room.look(3));
+deckA.addEventListener("click", e => { if (plain(e) || !room || !motionOn()) { if (!plain(e) && motionOn()) { e.preventDefault(); leave(DECK); } return; } e.preventDefault(); room.goDeck(); doorLater(() => leave(DECK), 2600); });
+backA.addEventListener("focus", () => room && room.look(2));
+backA.addEventListener("click", e => { if (!prior) { e.preventDefault(); return; } forget(); if (plain(e) || !room || !motionOn()) return; e.preventDefault(); room.goBack(); doorLater(goPrior, 2600); });      /* the timer: a page that is not being drawn still gets there */
+/* nothing is fetched until the page is opened; a device saving data is asked first */
+if (level() <= 2) waitHere();
+else if (saveData()) flat(`You asked this device to save data, so the cabin is not loaded yet. It is about ${weightNow()} megabytes.`, true, "Enter the cabin");
+else begin();
+</script>
+<noscript><style>#room,.cb-hint,.cb-loading,.cb-dock,#stick,.cb-tools button{display:none}html,body{overflow:auto}body{background:radial-gradient(1200px 700px at 50% 0%,#3a2916 0%,#1a120b 70%)}.top{position:static;flex-direction:column;align-items:center;padding-top:10vh}.ways{position:static;transform:none;margin:5vh auto 0;flex-direction:column;width:min(520px,calc(100% - 32px))}.flatnote{display:block}</style></noscript>
+<script type="module" src="shell/share.d8fe07329b.js" data-tca-share-only></script>
+<script type="module" src="shell/app.9ad954b356.js" data-tca-app-only></script>
+</body>
+</html>

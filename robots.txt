@@ -1,0 +1,6 @@
+# The Civic Archive: every page of the site may be read and indexed; the draft and the raw live figures are not.
+User-agent: *
+Allow: /
+Disallow: /dev/
+Disallow: /night-live/
+Sitemap: https://thecivicarchive.org/sitemap.xml
