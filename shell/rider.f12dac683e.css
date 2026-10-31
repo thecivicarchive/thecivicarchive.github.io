@@ -1,0 +1,265 @@
+/* The Civic Archive: the companion and the page guide on pages that keep their own top bar (rider.js). The dock's rules
+   are the shell's own (shell.css, "the companion's dock"); everything here is scoped to the three things the rider adds,
+   so the page's own styles are never touched. Colours follow the page's own light and dark switch (data-theme). */
+.tca-dock,.tca-bubble,.tca-rp{
+  --surface:#FFFDF8;--surface-2:#EFEBE1;--ink:#1A1C20;--ink-2:#545961;--line:#DDD7CA;--line-strong:#B9B2A3;--ctl:#857D6E;--clear:transparent;--dock-halo:transparent;
+  --brass:#A8762E;--brass-ink:#7A5418;--verd:#2F6B5E;--verd-ink:#2F6B5E;--verd-soft:#E2EDE8;--focus:#2F6B5E;--focus-w:3px;--on-ink:#FFFDF8;
+  --shadow-2:0 18px 50px -18px rgba(26,28,32,.35),0 2px 6px rgba(26,28,32,.08);
+  --font-ui:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --fs-xs:calc(.78rem * var(--tca-fs,1));--fs-s:calc(.875rem * var(--tca-fs,1));--fs-m:calc(1rem * var(--tca-fs,1));--fs-xl:calc(1.3rem * var(--tca-fs,1));--lh-ui:1.3;--hit:44px;--radius-s:10px;--radius-m:16px;--radius-l:24px;
+  --dock-w:96px;--dock-h:108px;--bar-edge:var(--bar-bottom,0px);--dur-3:320ms;--ease:cubic-bezier(.2,.8,.2,1)
+}
+:root[data-theme="dark"] .tca-dock,:root[data-theme="dark"] .tca-bubble,:root[data-theme="dark"] .tca-rp{
+  --surface:#1A1D21;--surface-2:#22262B;--ink:#EDEAE3;--ink-2:#A9ADB4;--line:#2C3036;--line-strong:#474C55;--ctl:#747A86;--dock-halo:rgba(237,234,227,.13);
+  --brass:#D2A15A;--brass-ink:#D9AE6B;--verd:#5FB3A0;--verd-ink:#7CC4B2;--verd-soft:#1D3530;--focus:#7CC4B2;--on-ink:#121417;
+  --shadow-2:0 18px 50px -18px rgba(0,0,0,.7),0 2px 6px rgba(0,0,0,.4)
+}
+@media (max-width:700px){.tca-dock,.tca-bubble,.tca-rp{--dock-w:84px;--dock-h:96px}}
+@media (prefers-reduced-motion:reduce){.tca-dock{--dur-3:0s}}
+
+/* ---------- the dock (as in shell.css) ---------- */
+.tca-dock{position:fixed;z-index:56;right:max(10px,env(safe-area-inset-right));bottom:calc(var(--tab-h,0px) + 10px);width:var(--dock-w);height:var(--dock-h);pointer-events:none;
+  transition:transform var(--dur-3) var(--ease)}
+.tca-dock.ducked{transform:translateX(62%)}
+.tca-dock::before{content:"";position:absolute;inset:4% 0 0;border-radius:50% 50% 42% 42%;background:radial-gradient(closest-side,var(--dock-halo),var(--clear));pointer-events:none}
+/* these pages' own top bars have their controls at the right, where a perch under the shell's bar would sit: here the
+   chickadee keeps its branch in the corner, like the others, and covers nothing */
+.tca-dock[data-rest="perch"]{right:max(4px,env(safe-area-inset-right))}
+.tca-dock .branch{position:absolute;right:-6px;bottom:2px;width:calc(var(--dock-w) + 6px);height:22px;pointer-events:none}
+.tca-dock .branch path{fill:none;stroke:var(--brass);stroke-linecap:round;stroke-linejoin:round}
+.tca-dockbtn{all:unset;box-sizing:border-box;position:absolute;inset:0;cursor:pointer;pointer-events:auto;border-radius:var(--radius-l);-webkit-tap-highlight-color:var(--clear);z-index:3}
+.tca-dockbtn:focus-visible{outline:var(--focus-w) solid var(--focus);outline-offset:2px}
+.tca-dock .tca-dockart{position:absolute;left:50%;bottom:calc(var(--dock-h) * -0.14);width:calc(var(--dock-w) * 2.1);height:calc(var(--dock-h) * 1.56);transform:translateX(-50%);
+  pointer-events:none;display:block;z-index:2}
+.tca-dock .tca-dockshade{position:absolute;left:50%;bottom:1%;width:74%;height:15%;transform:translateX(-50%);border-radius:50%;pointer-events:none;z-index:1;
+  background:radial-gradient(ellipse at center,rgba(24,18,12,.42),rgba(24,18,12,.16) 48%,rgba(24,18,12,0) 74%);filter:blur(3px);opacity:.9;will-change:transform,opacity}
+:root[data-theme="dark"] .tca-dock .tca-dockshade{background:radial-gradient(ellipse at center,rgba(0,0,0,.6),rgba(0,0,0,.22) 48%,rgba(0,0,0,0) 74%)}
+@media (prefers-reduced-motion:reduce){.tca-dock .tca-dockshade{filter:none}}
+.tca-bubble{position:fixed;z-index:56;right:max(14px,env(safe-area-inset-right));bottom:calc(var(--tab-h,0px) + 14px);width:56px;height:56px;border-radius:50%;border:1px solid var(--verd);background:var(--surface);color:var(--verd-ink);
+  display:grid;place-items:center;cursor:pointer;box-shadow:var(--shadow-2);padding:0;margin:0}
+.tca-bubble:hover{background:var(--verd-soft)}
+.tca-bubble:focus-visible{outline:var(--focus-w) solid var(--focus);outline-offset:3px}
+.tca-bubble svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+@media print{.tca-dock,.tca-bubble,.tca-rp{display:none!important}}
+
+/* ---------- Help: the page guide ---------- */
+.tca-rp{position:fixed;z-index:70;right:max(12px,env(safe-area-inset-right));bottom:calc(var(--tab-h,0px) + var(--dock-h) + 22px);width:min(420px,calc(100vw - 24px));
+  max-height:calc(100vh - var(--bar-edge) - var(--tab-h,0px) - var(--dock-h) - 40px);overflow:auto;overscroll-behavior:contain;box-sizing:border-box;
+  background:var(--surface);color:var(--ink);border:1px solid var(--line-strong);border-radius:var(--radius-l);box-shadow:var(--shadow-2);padding:22px 22px 18px;
+  font-family:var(--font-ui);font-size:var(--fs-m);line-height:var(--lh-ui);text-align:left}
+.tca-rp[hidden]{display:none}
+@media (max-height:520px){.tca-rp{top:8px;bottom:8px;max-height:none}}
+@media (max-width:700px){.tca-rp{left:8px;right:8px;width:auto}}
+.tca-rp *{box-sizing:border-box}
+.tca-rp h2{font-family:var(--font-ui);font-size:var(--fs-xl);font-weight:650;margin:0 0 4px;color:var(--ink);letter-spacing:0}
+.tca-rp h2:focus{outline:none}
+.tca-rp h3{font-family:var(--font-ui);font-size:var(--fs-xs);font-weight:750;letter-spacing:.12em;text-transform:uppercase;color:var(--brass-ink);margin:18px 0 8px}
+.tca-rp p{margin:0 0 8px;color:var(--ink-2);font-size:var(--fs-s)}
+.tca-rp a{color:var(--verd-ink);text-decoration:underline;text-underline-offset:2px}
+.tca-rp a:focus-visible,.tca-rp button:focus-visible{outline:var(--focus-w) solid var(--focus);outline-offset:2px}
+.tca-rp .x{all:unset;box-sizing:border-box;cursor:pointer;float:right;width:var(--hit);height:var(--hit);margin:-12px -12px 0 8px;border-radius:50%;display:grid;place-items:center;color:var(--ink-2)}
+.tca-rp .x:hover{background:var(--surface-2);color:var(--ink)}
+.tca-rp .x svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+.tca-rp .tca-g-t{color:var(--ink);font-size:var(--fs-m);margin-bottom:8px}
+.tca-rp .tca-g-t b{font-weight:700}
+.tca-rp .tca-g-s{margin:0 0 10px;padding-left:1.3em;color:var(--ink);font-size:var(--fs-s)}
+.tca-rp .tca-g-s li{margin:0 0 6px;padding-left:2px}
+.tca-rp .tca-g-n{font-size:var(--fs-s)}
+.tca-rp-around{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,170px),1fr));gap:6px}
+.tca-rp-around a{display:flex;flex-direction:column;justify-content:center;min-height:52px;padding:6px 10px;border-radius:var(--radius-m);border:1px solid var(--line);
+  background:var(--surface);color:var(--ink);text-decoration:none;font-size:var(--fs-s)}
+.tca-rp-around a:hover{background:var(--surface-2)}
+.tca-rp-around small{color:var(--ink-2);font-size:var(--fs-xs);font-weight:400}
+.tca-rp-note{font-size:var(--fs-xs)!important;margin-top:8px!important}
+.tca-rp-mm{margin:10px 0 4px!important}
+.tca-rp-mm button{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:10px;width:100%;min-height:52px;padding:8px 14px;border-radius:var(--radius-m);
+  border:1px solid var(--verd);background:var(--verd-soft);color:var(--ink);font-family:var(--font-ui);font-size:var(--fs-s);font-weight:700;line-height:1.25}
+.tca-rp-mm button:hover{border-width:2px;padding:7px 13px}
+.tca-rp-mm button svg{width:22px;height:22px;flex:none;stroke:var(--verd-ink);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tca-rp-mm button small{display:block;font-weight:400;font-size:var(--fs-xs);color:var(--ink-2)}
+.tca-rp-seg{border:0;margin:0 0 10px;padding:0;min-width:0}
+.tca-rp-seg legend{font-weight:700;font-size:var(--fs-s);padding:0;margin-bottom:6px;color:var(--ink)}
+.tca-rp-seg .opts{display:flex;flex-wrap:wrap;gap:6px}
+.tca-rp-seg label{position:relative;display:inline-flex;margin:0}
+.tca-rp-seg input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.tca-rp-seg label span{display:inline-flex;align-items:center;min-height:var(--hit);padding:0 14px;border-radius:999px;border:1px solid var(--ctl);background:var(--surface);color:var(--ink);font-size:var(--fs-s);font-weight:600;cursor:pointer}
+.tca-rp-seg input:checked+span{background:var(--ink);color:var(--on-ink);border-color:var(--ink)}
+.tca-rp-seg input:focus-visible+span{outline:var(--focus-w) solid var(--focus);outline-offset:3px}
+.tca-rp-seg .hint{display:block;color:var(--ink-2);font-size:var(--fs-xs);margin-top:4px}
+.tca-rp-picks{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,130px),1fr));gap:6px}
+.tca-rp-picks button{all:unset;box-sizing:border-box;cursor:pointer;display:grid;gap:1px;width:100%;min-height:52px;padding:8px 12px;border-radius:var(--radius-m);border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.tca-rp-picks button b{font-size:var(--fs-s)}
+.tca-rp-picks button i{font-size:var(--fs-xs);color:var(--ink-2)}
+.tca-rp-picks button[aria-pressed="true"]{border-color:var(--verd);background:var(--verd-soft)}
+.tca-rp-picks button:disabled{cursor:not-allowed;opacity:.6}
+
+/* ============================== Meet me where I am, and the reading settings, on these pages ==============================
+   (John, 2026-10-19) The head script the build puts on these pages writes the reader's choices onto <html> before the first
+   frame; these rules make them work here, through the pages' own tokens (--sans, --serif, --bg, --ink, --muted, --line,
+   --accent ...), never by editing the pages' own styles. Text size is done by that script (font sizes given in pixels are
+   multiplied by --tca-fs), so the maps keep their geometry. */
+@font-face{font-family:"Lexend";font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/Lexend-Variable.ttf) format("truetype")}
+@font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/AtkinsonHyperlegible-Regular.ttf) format("truetype")}
+@font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/AtkinsonHyperlegible-Bold.ttf) format("truetype")}
+@font-face{font-family:"Atkinson Hyperlegible";font-style:italic;font-weight:400;font-display:swap;src:url(fonts/AtkinsonHyperlegible-Italic.ttf) format("truetype")}
+@font-face{font-family:"Atkinson Hyperlegible";font-style:italic;font-weight:700;font-display:swap;src:url(fonts/AtkinsonHyperlegible-BoldItalic.ttf) format("truetype")}
+/* how much each page shows: the same contract as the shell's (shell.css) */
+:root[data-level="1"] :is([data-lv="2"],[data-lv="3"],[data-lv="4"],[data-lv="5"],[data-lv="6"]),
+:root[data-level="2"] :is([data-lv="3"],[data-lv="4"],[data-lv="5"],[data-lv="6"]),
+:root[data-level="3"] :is([data-lv="4"],[data-lv="5"],[data-lv="6"]),
+:root[data-level="4"] :is([data-lv="5"],[data-lv="6"]),
+:root[data-level="5"] [data-lv="6"],
+:root:not([data-level]) :is([data-lv="4"],[data-lv="5"],[data-lv="6"]),
+:root:is([data-level="2"],[data-level="3"],[data-level="4"],[data-level="5"],[data-level="6"]) [data-lv-max="1"],
+:root:is([data-level="3"],[data-level="4"],[data-level="5"],[data-level="6"]) [data-lv-max="2"],
+:root:is([data-level="4"],[data-level="5"],[data-level="6"]) [data-lv-max="3"],
+:root:is([data-level="5"],[data-level="6"]) [data-lv-max="4"],
+:root[data-level="6"] [data-lv-max="5"],
+:root:not([data-level]) :is([data-lv-max="1"],[data-lv-max="2"]),
+:root:is([data-level="2"],[data-level="3"],[data-level="4"],[data-level="5"],[data-level="6"]) [data-lv-more="2"],
+:root:is([data-level="3"],[data-level="4"],[data-level="5"],[data-level="6"]) [data-lv-more="3"],
+:root:is([data-level="4"],[data-level="5"],[data-level="6"]) [data-lv-more="4"],
+:root:is([data-level="5"],[data-level="6"]) [data-lv-more="5"],
+:root[data-level="6"] [data-lv-more="6"],
+:root:not([data-level]) :is([data-lv-more="2"],[data-lv-more="3"]){display:none!important}
+.tca-lv-more{--lvm-ink:#2F6B5E;--lvm-soft:#E2EDE8;--lvm-line:#2F6B5E;--lvm-focus:#2F6B5E;
+  all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:.55em;min-height:44px;max-width:100%;padding:6px 18px 6px 14px;margin:12px 0;
+  border-radius:999px;border:1px dashed var(--lvm-line);background:var(--lvm-soft);color:var(--lvm-ink);font-family:var(--font-ui,var(--sans,"Instrument Sans",system-ui,sans-serif));
+  font-size:calc(14px * var(--tca-fs,1));font-weight:650;line-height:1.25;text-align:left}
+.tca-lv-more::before{content:"+";font-size:1.25em;font-weight:700;line-height:1}
+/* on a phone it stays clear of the bottom right corner, where the companion and the version label stand */
+@media (max-width:700px){.tca-lv-more{max-width:calc(100% - 80px)}}
+.tca-lv-more:hover{border-style:solid}
+.tca-lv-more:focus-visible{outline:3px solid var(--lvm-focus);outline-offset:3px}
+:root:is([data-theme="dark"],[data-contrast="dark"]) .tca-lv-more{--lvm-ink:#7CC4B2;--lvm-soft:#1D3530;--lvm-line:#7CC4B2;--lvm-focus:#7CC4B2}
+:root[data-contrast="high"] .tca-lv-more{--lvm-ink:#000;--lvm-soft:#fff;--lvm-line:#000;--lvm-focus:#000;border:2px solid #000}
+.tca-sr-rider{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+/* typeface: an easier one, for the body and the headings alike, as on the shell's pages */
+:root[data-face="hyperlegible"]{--sans:"Atkinson Hyperlegible",Verdana,system-ui,sans-serif;--serif:"Atkinson Hyperlegible",Verdana,system-ui,sans-serif;--font-ui:"Atkinson Hyperlegible",Verdana,system-ui,sans-serif}
+:root[data-face="dyslexia"]{--sans:"Lexend",Verdana,Tahoma,system-ui,sans-serif;--serif:"Lexend",Verdana,Tahoma,system-ui,sans-serif;--font-ui:"Lexend",Verdana,Tahoma,system-ui,sans-serif}
+:root:is([data-face="hyperlegible"],[data-face="dyslexia"]) :is(h1,h2,h3){letter-spacing:0}
+/* the wordmark in the top bar is the site's name, drawn as designed: it keeps its own type, and the bar keeps its fit */
+/* and the display headlines (h1) keep theirs too: they are set large, some turn over word by word on one line, and the
+   wider letters would push them past a phone's edge */
+:root:is([data-face="hyperlegible"],[data-face="dyslexia"]) :is(header.top .brand,h1){--sans:"Instrument Sans",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;--serif:"Instrument Serif",Georgia,"Times New Roman",serif}
+:root[data-face="hyperlegible"] :is(.tca-dock,.tca-bubble,.tca-rp){--font-ui:"Atkinson Hyperlegible",Verdana,system-ui,sans-serif}
+:root[data-face="dyslexia"] :is(.tca-dock,.tca-bubble,.tca-rp){--font-ui:"Lexend",Verdana,Tahoma,system-ui,sans-serif}
+:root[data-face="dyslexia"] body{word-spacing:.08em;letter-spacing:.01em}
+/* spacing */
+:root[data-space="generous"] body{line-height:1.8;word-spacing:.04em}
+/* higher contrast: black on white, as on the shell's pages and Election Night's (which keep their own: data-tca-own); the
+   parties' colours deepened, never changed */
+:root[data-contrast="high"]:not([data-tca-own]){--bg:#FFFFFF;--surface:#FFFFFF;--ink:#000000;--muted:#1F1F1F;--line:#000000;--line-strong:#000000;--hair:#000000;
+  --accent:#000000;--accent-ink:#000000;--accent-soft:#FFFFFF;--accent-line:#000000;--teal:#000000;--teal-ink:#000000;--teal-soft:#FFFFFF;
+  --amber-ink:#4A3200;--gold:#000000;--paper:#FFFFFF;--paper-ink:#000000;
+  --dem:#1238B8;--rep:#A51E16;--pL:#7A5600;--pG:#1F6B38;--pI:#4E4390;--pO:#4A5058;--pW:#5A606A;--plum:#5A3A9E;
+  --shadow-1:none;--shadow-2:0 0 0 1px #000000;--shadow-3:0 0 0 2px #000000;color-scheme:light}
+:root[data-contrast="high"]:not([data-tca-own]) body{background:#FFFFFF;color:#000000}
+/* plain links take the colour of the words around them: black on the page, light inside the panels that stay dark (the
+   vote map); a link drawn as a button keeps its own fill and words (the page's tokens make those black and white) */
+:where(:root[data-contrast="high"]:not([data-tca-own])) a{color:inherit;text-decoration-thickness:2px}
+:root[data-contrast="high"]:not([data-tca-own]) .top{background:#FFFFFF;border-bottom:2px solid #000000;-webkit-backdrop-filter:none;backdrop-filter:none}
+:root[data-contrast="high"]:not([data-tca-own]) :focus-visible{outline:3px solid #000000;outline-offset:3px}
+/* Calm: nothing moves by itself (the page's own Motion switch still turns its living pictures on and off) */
+:root[data-calm="on"] *,:root[data-calm="on"] *::before,:root[data-calm="on"] *::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+:root[data-contrast="high"] :is(.tca-dock,.tca-bubble,.tca-rp){--surface:#FFFFFF;--surface-2:#F2F2F2;--ink:#000000;--ink-2:#1F1F1F;--line:#000000;--line-strong:#000000;--ctl:#000000;
+  --brass:#000000;--brass-ink:#000000;--verd:#000000;--verd-ink:#000000;--verd-soft:#FFFFFF;--focus:#000000;--on-ink:#FFFFFF;--shadow-2:0 0 0 2px #000000}
+/* another language: the page waits, hidden, until the rider's words are in place (as on the shell's pages; 2.6 seconds at most) */
+html.tca-i18n-wait body{opacity:0}
+
+/* The Civic Archive: sharing (share.js). The standard Share button (.tca-share), the small menu it opens (.tca-sharebox)
+   and the "Link copied" line (.tca-sharesay). The build puts this file inside the shell's and the rider's stylesheets, so
+   a button is right from the first frame; share.js loads it on its own only on a page with neither. Scoped to those three,
+   so no page's own styles are touched. Colours follow both switches the site has: data-contrast (the shell's pages) and
+   data-theme (the others). Brass, verdigris, parchment and ink only: red and blue are kept for party data. */
+:root{--tca-share:1}
+.tca-share,.tca-sharebox,.tca-sharesay{
+  --s-surface:#FFFDF8;--s-surface-2:#EFEBE1;--s-ink:#1A1C20;--s-ink-2:#545961;--s-line:#DDD7CA;--s-line-strong:#B9B2A3;
+  --s-brass:#A8762E;--s-brass-ink:#7A5418;--s-verd:#2F6B5E;--s-verd-soft:#E2EDE8;--s-focus:#2F6B5E;--s-on:#FFFDF8;
+  --s-shadow:0 18px 50px -18px rgba(26,28,32,.35),0 2px 6px rgba(26,28,32,.08);
+  --s-font:var(--font-ui,"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif);
+  --s-fs:calc(.9375rem * var(--tca-fs,1));--s-fs-s:calc(.8125rem * var(--tca-fs,1));--s-gap:1
+}
+:root:is([data-contrast="dark"],[data-theme="dark"]) :is(.tca-share,.tca-sharebox,.tca-sharesay){
+  --s-surface:#1A1D21;--s-surface-2:#22262B;--s-ink:#EDEAE3;--s-ink-2:#A9ADB4;--s-line:#2C3036;--s-line-strong:#474C55;
+  --s-brass:#C9944A;--s-brass-ink:#DDB06A;--s-verd:#6DBBA8;--s-verd-soft:#1B302B;--s-focus:#7FD0BC;--s-on:#121417;
+  --s-shadow:0 22px 60px -20px rgba(0,0,0,.8),0 2px 8px rgba(0,0,0,.4)
+}
+:root[data-contrast="high"] :is(.tca-share,.tca-sharebox,.tca-sharesay){
+  --s-surface:#FFFFFF;--s-surface-2:#F2F2F2;--s-ink:#000000;--s-ink-2:#1F1F1F;--s-line:#000000;--s-line-strong:#000000;
+  --s-brass:#000000;--s-brass-ink:#000000;--s-verd:#000000;--s-verd-soft:#FFFFFF;--s-focus:#000000;--s-on:#FFFFFF;--s-shadow:0 0 0 2px #000000
+}
+:root[data-space="generous"] :is(.tca-share,.tca-sharebox){--s-gap:1.3}
+.tca-share svg,.tca-sharebox svg{stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* ---------- the standard button: a share icon and the word Share, 44 pixels high ---------- */
+.tca-share{position:relative;-webkit-appearance:none;appearance:none;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:44px;min-width:44px;margin:0;padding:0 18px;border-radius:999px;border:1px solid var(--s-line-strong);background:var(--s-surface);color:var(--s-ink);
+  font-family:var(--s-font);font-weight:650;font-size:var(--s-fs);line-height:1.2;letter-spacing:0;text-decoration:none;white-space:nowrap;vertical-align:middle;
+  -webkit-tap-highlight-color:transparent}
+.tca-share svg{width:18px;height:18px}
+.tca-share:hover{border-color:var(--s-ink)}
+.tca-share:focus-visible{outline:3px solid var(--s-focus);outline-offset:3px}
+.tca-share[aria-expanded="true"]{background:var(--s-surface-2);border-color:var(--s-ink)}
+:root[data-contrast="high"] .tca-share{border-width:2px}
+/* a quiet one, inside a row of links or a card's corner */
+.tca-share.quiet{border-color:transparent;background:transparent;padding:0 12px}
+.tca-share.quiet:hover{background:var(--s-surface-2)}
+/* only the icon (the word stays for screen readers) */
+.tca-share.icon-only{padding:0;width:44px}
+.tca-share.icon-only span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- the menu ---------- */
+.tca-sharebox{position:fixed;z-index:96;left:8px;top:8px;width:min(330px,calc(100vw - 16px));max-height:calc(100vh - 16px);overflow:auto;overscroll-behavior:contain;
+  box-sizing:border-box;padding:calc(14px * var(--s-gap)) 14px 12px;background:var(--s-surface);color:var(--s-ink);border:1px solid var(--s-line-strong);border-radius:18px;
+  box-shadow:var(--s-shadow);font-family:var(--s-font);font-size:var(--s-fs);line-height:1.35;text-align:left}
+.tca-sharebox[hidden]{display:none!important}
+.tca-sharebox *{box-sizing:border-box}
+:root[data-contrast="high"] .tca-sharebox{border-width:2px}
+.tca-sharebox.sheet{left:8px!important;right:8px!important;top:auto!important;bottom:calc(8px + env(safe-area-inset-bottom,0px))!important;width:auto;
+  max-height:calc(100vh - 24px);border-radius:20px}
+.tca-sharebox .x{-webkit-appearance:none;appearance:none;border:0;background:none;color:var(--s-ink-2);cursor:pointer;float:right;width:44px;height:44px;margin:-10px -8px 0 6px;
+  border-radius:50%;display:grid;place-items:center;padding:0}
+.tca-sharebox .x:hover{background:var(--s-surface-2);color:var(--s-ink)}
+.tca-sharebox .x svg{width:20px;height:20px;stroke-width:2}
+.tca-sh-h{margin:2px 0 2px;font-weight:700;font-size:calc(1.05rem * var(--tca-fs,1));color:var(--s-ink)}
+.tca-sh-h:focus{outline:none}
+.tca-sh-h:focus-visible{outline:3px solid var(--s-focus);outline-offset:2px;border-radius:4px}
+.tca-sh-what{margin:0 0 8px;color:var(--s-ink-2);font-size:var(--s-fs-s);overflow-wrap:anywhere}
+.tca-sh-list{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:2px}
+.tca-sh-list li{margin:0;padding:0;min-width:0}
+/* two columns, Copy link across both: the list stays short enough to sit beside its button */
+.tca-sh-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tca-sh-list li:first-child{grid-column:1/-1}
+/* one column where the words are larger, so no name breaks in two */
+:root:is([data-scale="130"],[data-scale="150"],[data-scale="200"]) .tca-sh-list{grid-template-columns:minmax(0,1fr)}
+.tca-sh-item{-webkit-appearance:none;appearance:none;display:flex;align-items:center;gap:12px;width:100%;min-height:44px;padding:0 12px;border:0;border-radius:12px;
+  background:none;color:var(--s-ink);font:inherit;font-weight:600;text-align:left;text-decoration:none;cursor:pointer}
+.tca-sh-item svg{width:20px;height:20px;color:var(--s-ink-2)}
+.tca-sh-item:hover{background:var(--s-surface-2)}
+.tca-sh-item:focus{outline:none}
+.tca-sh-item:focus-visible{outline:3px solid var(--s-focus);outline-offset:-3px;background:var(--s-verd-soft)}
+.tca-share-copy{border:1px solid var(--s-line);margin-bottom:4px}
+.tca-share-copy svg{color:var(--s-verd)}
+.tca-sh-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.tca-sh-fine{margin:10px 2px 0;color:var(--s-ink-2);font-size:var(--s-fs-s)}
+.tca-sh-warn{margin:6px 0 12px;color:var(--s-ink);padding-left:12px;border-left:4px solid var(--s-brass)}
+.tca-sh-row{display:flex;flex-wrap:wrap;gap:8px;margin:0}
+.tca-sh-go,.tca-sh-no{-webkit-appearance:none;appearance:none;display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;font:inherit;font-weight:650;cursor:pointer}
+.tca-sh-go{background:var(--s-verd);color:var(--s-on);border:1px solid var(--s-verd)}
+.tca-sh-go:hover{filter:brightness(1.08)}
+.tca-sh-no{background:var(--s-surface);color:var(--s-ink);border:1px solid var(--s-line-strong)}
+.tca-sh-no:hover{background:var(--s-surface-2)}
+.tca-sh-go:focus-visible,.tca-sh-no:focus-visible,.tca-sharebox .x:focus-visible{outline:3px solid var(--s-focus);outline-offset:2px}
+:root[data-contrast="high"] .tca-sh-go{outline:2px solid #000;outline-offset:-2px}
+.tca-sh-url{display:block;width:100%;min-height:44px;padding:8px 10px;border:1px solid var(--s-line-strong);border-radius:10px;background:var(--s-surface-2);color:var(--s-ink);font:inherit}
+
+/* ---------- "Link copied" ---------- */
+.tca-sharesay{position:fixed;z-index:97;left:50%;bottom:calc(24px + var(--tab-h,0px) + env(safe-area-inset-bottom,0px));transform:translate(-50%,8px);max-width:calc(100vw - 32px);
+  padding:10px 16px;border-radius:999px;background:var(--s-ink);color:var(--s-surface);font-family:var(--s-font);font-size:var(--s-fs);font-weight:600;
+  box-shadow:var(--s-shadow);opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease}
+.tca-sharesay:empty{display:none}
+.tca-sharesay.on{opacity:1;transform:translate(-50%,0)}
+:root:is([data-motion="reduced"],[data-calm="on"]) .tca-sharesay{transition:none}
+@media (prefers-reduced-motion:reduce){.tca-sharesay{transition:none}}
+@media print{.tca-share,.tca-sharebox,.tca-sharesay{display:none!important}}

@@ -1,0 +1,115 @@
+/* The Civic Archive: Meet me where I am (levels.js). The chooser (how much, what for, how it reads), the compact panel and
+   its button on pages with their own top bar, and the one card on a first visit. Scoped to those, so no page's own styles
+   are touched. Colours follow both switches the site has: data-contrast (the shell's pages) and data-theme (the others).
+   Brass, verdigris, parchment and ink only: red and blue are kept for party data. Type sizes follow the reader's text size
+   on both kinds of page (rem on the shell's pages; --tca-fs on the others, whose type is set in pixels). */
+.tca-lvx,.tca-mmbtn{
+  --l-surface:#FFFDF8;--l-surface-2:#EFEBE1;--l-ink:#1A1C20;--l-ink-2:#545961;--l-line:#DDD7CA;--l-line-strong:#B9B2A3;--l-ctl:#857D6E;
+  --l-brass:#A8762E;--l-brass-ink:#7A5418;--l-verd:#2F6B5E;--l-verd-ink:#2F6B5E;--l-verd-soft:#E2EDE8;--l-focus:#2F6B5E;--l-on:#FFFDF8;
+  --l-shadow:0 18px 50px -18px rgba(26,28,32,.35),0 2px 6px rgba(26,28,32,.08);
+  --l-font:var(--font-ui,"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif);
+  --l-fs:var(--tca-fs,1)
+}
+:root:is([data-contrast="dark"],[data-theme="dark"]):not([data-contrast="high"]) :is(.tca-lvx,.tca-mmbtn){
+  --l-surface:#1A1D21;--l-surface-2:#22262B;--l-ink:#EDEAE3;--l-ink-2:#A9ADB4;--l-line:#2C3036;--l-line-strong:#474C55;--l-ctl:#747A86;
+  --l-brass:#C9944A;--l-brass-ink:#DDB06A;--l-verd:#6DBBA8;--l-verd-ink:#7CC4B2;--l-verd-soft:#1B302B;--l-focus:#7FD0BC;--l-on:#121417;
+  --l-shadow:0 22px 60px -20px rgba(0,0,0,.8),0 2px 8px rgba(0,0,0,.4)
+}
+:root[data-contrast="high"] :is(.tca-lvx,.tca-mmbtn){
+  --l-surface:#FFFFFF;--l-surface-2:#F2F2F2;--l-ink:#000000;--l-ink-2:#1F1F1F;--l-line:#000000;--l-line-strong:#000000;--l-ctl:#000000;
+  --l-brass:#000000;--l-brass-ink:#000000;--l-verd:#000000;--l-verd-ink:#000000;--l-verd-soft:#FFFFFF;--l-focus:#000000;--l-on:#FFFFFF;--l-shadow:0 0 0 2px #000000
+}
+.tca-lvx,.tca-lvx *{box-sizing:border-box}
+.tca-lvx button{font-family:var(--l-font);-webkit-tap-highlight-color:transparent}
+.tca-lvx :is(a,button,input):focus-visible{outline:3px solid var(--l-focus);outline-offset:2px}
+
+/* ---------- the chooser ---------- */
+.tca-mm{display:grid;gap:16px;font-family:var(--l-font);color:var(--l-ink);text-align:left}
+.tca-mm .mm-row{display:grid;gap:8px;min-width:0}
+.tca-mm .mm-lab{margin:0;font-family:var(--l-font);font-weight:700;font-size:calc(1rem * var(--l-fs));color:var(--l-ink);line-height:1.3}
+.tca-mm .mm-levels{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+.tca-mm button{min-height:44px;margin:0;padding:8px 10px;border:1px solid var(--l-ctl);border-radius:12px;background:var(--l-surface);color:var(--l-ink);
+  font-size:calc(.875rem * var(--l-fs));line-height:1.2;font-weight:600;cursor:pointer;text-align:center}
+.tca-mm button:hover{background:var(--l-surface-2)}
+.tca-mm button[aria-pressed="true"]{background:var(--l-verd);border-color:var(--l-verd);color:var(--l-on);font-weight:700}
+.tca-mm .mm-levels button span{display:block;font-size:.82em;font-weight:400;opacity:.88;margin-top:2px}
+/* another language's longer words break inside the six level buttons rather than run past them (English is laid out as before) */
+:root:not([data-language="en"]) .tca-mm .mm-levels button{min-width:0;overflow-wrap:anywhere;hyphens:auto}
+.tca-mm .mm-chips{display:flex;flex-wrap:wrap;gap:6px}
+.tca-mm .mm-chips button{border-radius:999px;padding:8px 14px}
+.tca-mm input[type=range]{width:100%;min-height:44px;margin:0;accent-color:var(--l-verd);cursor:pointer}
+.tca-mm .mm-hint{margin:0;font-size:calc(.875rem * var(--l-fs));color:var(--l-ink-2);line-height:1.4;min-height:2.8em}
+.tca-mm .mm-hint b{color:var(--l-ink)}
+.tca-mm .mm-go{margin:0;font-size:calc(.9375rem * var(--l-fs))}
+.tca-mm a{color:var(--l-verd-ink);text-decoration:underline;text-underline-offset:2px;font-weight:600}
+.tca-mm .mm-small{margin:0;font-size:calc(.8125rem * var(--l-fs));color:var(--l-ink-2);line-height:1.4}
+.tca-mm .mm-promise{display:flex;flex-wrap:wrap;gap:4px 16px;margin:0;padding:0;list-style:none;font-size:calc(.8125rem * var(--l-fs));font-weight:700;color:var(--l-verd-ink)}
+:root[data-contrast="high"] .tca-mm button[aria-pressed="true"]{box-shadow:inset 0 0 0 2px #fff,0 0 0 2px #000}
+@media (max-width:620px){.tca-mm .mm-levels{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* ---------- the compact panel and its button, on pages with their own top bar ---------- */
+.tca-mmbtn{position:relative;cursor:pointer;font-family:inherit;margin:0;flex:none;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+button.tca-mmbtn{-webkit-appearance:none;appearance:none}
+.tca-mmbtn::after{content:"";position:absolute;left:50%;top:50%;width:max(100%,44px);height:max(100%,44px);transform:translate(-50%,-50%)}
+.tca-mmbtn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.tca-mmbtn .tca-mm-lab{margin-left:6px}
+.tca-mmbtn:focus-visible{outline:3px solid var(--l-focus);outline-offset:2px}
+@media (max-width:1399px){
+  .tca-mmbtn{padding-left:0!important;padding-right:0!important;width:38px;justify-content:center}
+  .tca-mmbtn .tca-mm-lab{position:absolute;width:1px;height:1px;overflow:clip;clip:rect(0 0 0 0);white-space:nowrap;margin:0}
+}
+.tca-mmpanel{position:fixed;z-index:71;top:calc(var(--bar-bottom,64px) + 8px);right:max(12px,env(safe-area-inset-right));width:min(560px,calc(100vw - 24px));
+  max-height:calc(100vh - var(--bar-bottom,64px) - 20px);overflow:auto;overscroll-behavior:contain;padding:22px 22px 18px;
+  background:var(--l-surface);color:var(--l-ink);border:1px solid var(--l-line-strong);border-radius:24px;box-shadow:var(--l-shadow);
+  font-family:var(--l-font);font-size:calc(1rem * var(--l-fs));line-height:1.35;text-align:left}
+.tca-mmpanel[hidden]{display:none}
+:root[data-contrast="high"] .tca-mmpanel{border-width:2px}
+@media (max-width:700px){.tca-mmpanel{top:auto;bottom:8px;left:8px;right:8px;width:auto;max-height:calc(100vh - 72px)}}
+@media (max-height:520px){.tca-mmpanel{top:8px;bottom:8px;max-height:none}}
+.tca-mmpanel h2{font-family:var(--l-font);font-size:calc(1.3rem * var(--l-fs));font-weight:650;margin:0 0 4px;color:var(--l-ink);letter-spacing:0;line-height:1.2}
+.tca-mmpanel h2:focus{outline:none}
+.tca-mmpanel .lead{margin:0 0 14px;color:var(--l-ink-2);font-size:calc(.9375rem * var(--l-fs))}
+.tca-mmpanel .x{all:unset;box-sizing:border-box;cursor:pointer;float:right;width:44px;height:44px;margin:-12px -12px 0 8px;border-radius:50%;display:grid;place-items:center;color:var(--l-ink-2)}
+.tca-mmpanel .x:hover{background:var(--l-surface-2);color:var(--l-ink)}
+.tca-mmpanel .x svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+
+/* ---------- the one card, on a first visit: never a dialog, never in the way ---------- */
+.tca-lvcard{position:fixed;z-index:55;left:max(12px,env(safe-area-inset-left));bottom:calc(var(--tab-h,0px) + 12px);
+  width:min(560px,calc(100vw - var(--dock-w,96px) - 48px));padding:14px 16px;display:grid;gap:10px;
+  background:var(--l-surface);color:var(--l-ink);border:1px solid var(--l-line-strong);border-left:4px solid var(--l-verd);border-radius:16px;box-shadow:var(--l-shadow);
+  font-family:var(--l-font);font-size:calc(.9375rem * var(--l-fs));line-height:1.35}
+.tca-lvcard[hidden]{display:none}
+.tca-lvcard p{margin:0}
+.tca-lvcard .hd{display:flex;align-items:flex-start;gap:10px}
+.tca-lvcard .hd p{flex:1;min-width:0}
+.tca-lvcard .tca-lvgrid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+.tca-lvcard button{min-height:44px;margin:0;padding:6px 8px;border:1px solid var(--l-ctl);border-radius:12px;background:var(--l-surface);color:var(--l-ink);
+  font-size:calc(.875rem * var(--l-fs));font-weight:600;line-height:1.2;cursor:pointer}
+.tca-lvcard .tca-lvgrid button small{display:block;margin-top:2px;font-size:.8em;font-weight:400;color:var(--l-ink-2);line-height:1.15}
+.tca-lvcard button:hover{background:var(--l-surface-2)}
+.tca-lvcard button[aria-pressed="true"]{background:var(--l-verd-soft);border-color:var(--l-verd)}
+.tca-lvcard .no{flex:none;border-radius:999px;padding:6px 14px}
+/* a phone: low down, just above the page's own bottom bar, beside the companion, compact */
+@media (max-width:700px){
+  .tca-lvcard{left:8px;right:calc(var(--dock-w,84px) + 12px);width:auto;bottom:calc(var(--tab-h,0px) + 8px);padding:10px 12px;gap:8px;font-size:calc(.875rem * var(--l-fs))}
+  .tca-lvcard .hd p span{display:none}
+  .tca-lvcard .tca-lvgrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
+  .tca-lvcard .tca-lvgrid button{padding:5px 4px;font-size:calc(.8125rem * var(--l-fs))}
+  .tca-lvcard .no{min-height:40px;padding:4px 12px}
+}
+@media (max-width:360px){.tca-lvcard{right:8px;bottom:calc(var(--tab-h,0px) + var(--dock-h,96px) + 12px)}}
+.tca-lvcard.rise{animation:tca-lv-rise .32s cubic-bezier(.2,.8,.2,1) both}
+@keyframes tca-lv-rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.tca-lvcard.rise{animation:none}}
+@media print{.tca-lvcard,.tca-mmpanel,.tca-mmbtn{display:none!important}}
+/* where a page's own top bar has no room for it (a phone, on the record pages), the button waits in the bottom left corner */
+.tca-mmbtn.float{position:fixed;z-index:56;left:max(12px,env(safe-area-inset-left));bottom:calc(var(--tab-h,0px) + 14px);width:52px;height:52px;margin:0;padding:0!important;
+  display:grid;place-items:center;border-radius:50%;border:1px solid var(--l-verd);background:var(--l-surface);color:var(--l-verd-ink);box-shadow:var(--l-shadow)}
+.tca-mmbtn.float:hover{background:var(--l-verd-soft)}
+.tca-mmbtn.float svg{width:24px;height:24px}
+.tca-mmbtn.float .tca-mm-lab{position:absolute;width:1px;height:1px;overflow:clip;clip:rect(0 0 0 0);white-space:nowrap;margin:0}
+:root[data-contrast="high"] .tca-mmbtn.float{border-width:2px}
+/* it waits out of sight over the opening screen (Help carries the same button there), and shows when the keyboard reaches it */
+.tca-mmbtn.float{transition:opacity .2s ease,transform .2s ease}
+.tca-mmbtn.float.away:not(:focus-visible){opacity:0;pointer-events:none;transform:translateY(10px)}
+@media (prefers-reduced-motion:reduce){.tca-mmbtn.float{transition:none}}

@@ -1,0 +1,89 @@
+/* The Civic Archive as an app: the "Get the app" button on pages with their own top bar, the small panel it opens, the
+   one note on a reader's second visit, and the app's part of Help. Scoped to those four, so no page's own styles are
+   touched. Colours follow both switches the site has: data-contrast (the shell's pages) and data-theme (the others).
+   Brass, verdigris, parchment and ink only: red and blue are kept for party data. */
+.tca-apppanel,.tca-appnote,.tca-apphelp,.tca-appbtn{
+  --a-surface:#FFFDF8;--a-surface-2:#EFEBE1;--a-ink:#1A1C20;--a-ink-2:#545961;--a-line:#DDD7CA;--a-line-strong:#B9B2A3;
+  --a-brass:#A8762E;--a-brass-ink:#7A5418;--a-brass-soft:#F3E8D3;--a-verd:#2F6B5E;--a-verd-soft:#E2EDE8;--a-focus:#2F6B5E;--a-on:#FFFDF8;
+  --a-shadow:0 18px 50px -18px rgba(26,28,32,.35),0 2px 6px rgba(26,28,32,.08);
+  --a-font:var(--font-ui,"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif);
+  --a-lh:var(--lh-ui,1.35)
+}
+:root:is([data-contrast="dark"],[data-theme="dark"]) :is(.tca-apppanel,.tca-appnote,.tca-apphelp,.tca-appbtn){
+  --a-surface:#1A1D21;--a-surface-2:#22262B;--a-ink:#EDEAE3;--a-ink-2:#A9ADB4;--a-line:#2C3036;--a-line-strong:#474C55;
+  --a-brass:#C9944A;--a-brass-ink:#DDB06A;--a-brass-soft:#2F2618;--a-verd:#6DBBA8;--a-verd-soft:#1B302B;--a-focus:#7FD0BC;--a-on:#121417;
+  --a-shadow:0 22px 60px -20px rgba(0,0,0,.8),0 2px 8px rgba(0,0,0,.4)
+}
+:root[data-contrast="high"] :is(.tca-apppanel,.tca-appnote,.tca-apphelp,.tca-appbtn){
+  --a-surface:#FFFFFF;--a-surface-2:#F2F2F2;--a-ink:#000000;--a-ink-2:#1F1F1F;--a-line:#000000;--a-line-strong:#000000;
+  --a-brass:#000000;--a-brass-ink:#000000;--a-brass-soft:#FFFFFF;--a-verd:#000000;--a-verd-soft:#FFFFFF;--a-focus:#000000;--a-on:#FFFFFF;--a-shadow:0 0 0 2px #000000
+}
+.tca-apppanel *,.tca-appnote *{box-sizing:border-box}
+.tca-apppanel svg,.tca-appnote svg,.tca-apphelp svg,.tca-appbtn svg{stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* ---------- the button, on pages that keep their own top bar: it wears the class of the page's own Motion button, so it
+   matches that bar in light and dark; this adds the icon, the 44-pixel reach and the folding label ---------- */
+.tca-appbtn{position:relative;cursor:pointer;font-family:inherit;margin:0;flex:none;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+button.tca-appbtn{-webkit-appearance:none;appearance:none}
+.tca-appbtn[hidden]{display:none!important}
+.tca-appbtn::after{content:"";position:absolute;left:50%;top:50%;width:max(100%,44px);height:max(100%,44px);transform:translate(-50%,-50%)}
+.tca-appbtn svg{width:18px;height:18px}
+.tca-appbtn .tca-app-lab{margin-left:6px}
+.tca-appbtn:focus-visible{outline:3px solid var(--a-focus);outline-offset:2px}
+@media (max-width:700px){
+  .tca-appbtn{padding-left:0!important;padding-right:0!important;width:38px;justify-content:center}
+  .tca-appbtn .tca-app-lab{position:absolute;width:1px;height:1px;overflow:clip;clip:rect(0 0 0 0);white-space:nowrap;margin:0}
+}
+
+/* ---------- the panel ---------- */
+.tca-apppanel{position:fixed;z-index:71;top:calc(var(--bar-bottom,64px) + 8px);right:max(12px,env(safe-area-inset-right));width:min(430px,calc(100vw - 24px));
+  max-height:calc(100vh - var(--bar-bottom,64px) - 20px);overflow:auto;overscroll-behavior:contain;padding:22px 22px 18px;
+  background:var(--a-surface);color:var(--a-ink);border:1px solid var(--a-line-strong);border-radius:24px;box-shadow:var(--a-shadow);
+  font-family:var(--a-font);font-size:1rem;line-height:var(--a-lh);text-align:left}
+.tca-apppanel[hidden]{display:none}
+:root[data-contrast="high"] .tca-apppanel{border-width:2px}
+@media (max-width:700px){.tca-apppanel{top:auto;bottom:calc(var(--tab-h,0px) + 8px);left:8px;right:8px;width:auto;max-height:calc(100vh - var(--tab-h,0px) - 72px)}}
+@media (max-height:520px){.tca-apppanel{top:8px;bottom:8px;max-height:none}}
+.tca-apppanel h2{font-family:var(--a-font);font-size:1.3rem;font-weight:650;margin:0 0 6px;color:var(--a-ink);letter-spacing:0;line-height:1.2}
+.tca-apppanel h2:focus{outline:none}
+.tca-apppanel h3{font-family:var(--a-font);font-size:.78rem;font-weight:750;letter-spacing:.12em;text-transform:uppercase;color:var(--a-brass-ink);margin:16px 0 6px}
+.tca-apppanel p{margin:0 0 10px;color:var(--a-ink-2);font-size:.9375rem}
+.tca-apppanel p.lead{color:var(--a-ink)}
+.tca-apppanel ol{margin:0 0 10px;padding-left:1.4em;font-size:.9375rem}
+.tca-apppanel li{margin:0 0 8px;padding-left:2px}
+.tca-apppanel a{color:var(--a-verd);text-decoration:underline;text-underline-offset:2px}
+.tca-apppanel a:focus-visible,.tca-apppanel button:focus-visible,.tca-appnote button:focus-visible,.tca-apphelp a:focus-visible,.tca-apphelp button:focus-visible{outline:3px solid var(--a-focus);outline-offset:2px}
+.tca-apppanel .x{all:unset;box-sizing:border-box;cursor:pointer;float:right;width:44px;height:44px;margin:-12px -12px 0 8px;border-radius:50%;display:grid;place-items:center;color:var(--a-ink-2)}
+.tca-apppanel .x:hover{background:var(--a-surface-2);color:var(--a-ink)}
+.tca-apppanel .x svg{width:20px;height:20px;stroke-width:2}
+.tca-app-ico{display:inline-grid;place-items:center;vertical-align:-6px;width:26px;height:26px;margin:0 2px;border:1px solid var(--a-line-strong);border-radius:7px;background:var(--a-surface-2);color:var(--a-ink)}
+.tca-app-ico svg{width:17px;height:17px}
+.tca-app-go,.tca-appnote .go,.tca-apphelp .go{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;
+  background:var(--a-verd);color:var(--a-on);font-family:var(--a-font);font-weight:650;font-size:.9375rem}
+.tca-app-go:hover,.tca-appnote .go:hover,.tca-apphelp .go:hover{filter:brightness(1.08)}
+.tca-appnote .no{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--a-line-strong);
+  color:var(--a-ink);font-family:var(--a-font);font-weight:600;font-size:.9375rem;background:var(--a-surface)}
+.tca-appnote .no:hover{background:var(--a-surface-2)}
+:root[data-contrast="high"] :is(.tca-app-go,.tca-appnote .go,.tca-apphelp .go){outline:2px solid #000;outline-offset:-2px}
+.tca-app-said{font-weight:600;color:var(--a-ink)!important}
+.tca-app-fine{font-size:.8125rem!important}
+
+/* ---------- the one note, on a reader's second visit ---------- */
+.tca-appnote{position:fixed;z-index:55;left:max(12px,env(safe-area-inset-left));bottom:calc(var(--tab-h,0px) + 12px);right:auto;
+  width:min(520px,calc(100vw - var(--dock-w,96px) - 48px));padding:14px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;
+  background:var(--a-surface);color:var(--a-ink);border:1px solid var(--a-line-strong);border-left:4px solid var(--a-brass);border-radius:16px;box-shadow:var(--a-shadow);
+  font-family:var(--a-font);font-size:.9375rem;line-height:var(--a-lh)}
+.tca-appnote[hidden]{display:none}
+.tca-appnote p{margin:0;flex:1 1 220px}
+.tca-appnote .row{display:flex;flex-wrap:wrap;gap:8px}
+@media (max-width:700px){.tca-appnote{left:8px;right:8px;width:auto;bottom:calc(var(--tab-h,0px) + var(--dock-h,96px) + 14px)}}
+.tca-appnote.rise{animation:tca-app-rise .32s cubic-bezier(.2,.8,.2,1) both}
+@keyframes tca-app-rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.tca-appnote.rise{animation:none}}
+@media print{.tca-apppanel,.tca-appnote,.tca-appbtn{display:none!important}}
+
+/* ---------- the app's part of Help ---------- */
+.tca-apphelp p{margin:0 0 8px;font-size:.875rem}
+.tca-apphelp .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:6px}
+.tca-apphelp a{color:var(--a-verd)}
+.tca-app-go svg,.tca-appnote .go svg,.tca-apphelp .go svg{width:18px;height:18px}

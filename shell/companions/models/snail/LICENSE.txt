@@ -1,0 +1,21 @@
+shell.glb: a photogrammetry scan of a land-snail shell, by TinyWorlds.
+
+Work:     "Snail 3D Model" (file snail_tinyworlds_0.zip: haus1_3k_smooth_UV.fbx with BaseColor, Normal and
+          OcclusionRoughnessMetallic textures), posted 21 April 2017
+Author:   TinyWorlds
+Source:   https://opengameart.org/content/snail-3d-model
+Licence:  CC0 1.0 Universal (Public Domain Dedication), as stated on the source page ("CC0").
+          https://creativecommons.org/publicdomain/zero/1.0/
+
+To the extent possible under law, the author has waived all copyright and related or neighbouring rights to this
+work. No attribution is required by the licence; this site credits the author anyway (shell_src/companions/credits.json
+and the page's credits).
+
+What was changed here (2026-10-03, The Civic Archive): the ASCII FBX 6.1 mesh was converted to a glTF 2.0 binary with
+the same 3,088 vertices and 6,069 triangles; it was turned into a frame of its own (coiling axis +Y, apex up, the
+aperture facing +Z and down, the origin on the axis) and stretched 1.175x along the coiling axis to a garden snail's
+proportions; the scan's colour map was left out (the companion paints its colour in a shader) and the 4096 px normal
+and occlusion/roughness/metallic maps were shrunk to 1024 px and 512 px and re-encoded as JPEG; the aperture's and the
+apex's positions were written into the file's extras. No other change. The original download's SHA-256 is
+544e647c39d761f3b9601530ca65557da2c67e7c6e0f6d4a4b708881db768cbd; this file's is
+a2562310cf287b9cd6151bd41299bad83d96f7c2930e945c70b72c206081bb19.

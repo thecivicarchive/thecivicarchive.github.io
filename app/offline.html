@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>You're offline: The Civic Archive</title>
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="light dark">
+<script>try{var d=document.documentElement,a=JSON.parse(localStorage.getItem("tca.a11y.v1")||"null")||{},t=localStorage.getItem("theme");d.setAttribute("data-contrast",a.contrast==="high"?"high":(a.contrast==="dark"||t==="dark")?"dark":"standard");if(a.scale)d.style.fontSize=(+a.scale||100)+"%"}catch(e){}</script>
+<style>
+/* the offline page: the site's paper, ink, verdigris and brass, drawn with nothing fetched */
+:root{--bg:#F6F3EC;--surface:#FFFDF8;--ink:#1A1C20;--ink-2:#545961;--line:#DDD7CA;--verd:#2F6B5E;--brass:#A8762E;--focus:#2F6B5E;color-scheme:light}
+:root[data-contrast="dark"]{--bg:#121417;--surface:#1A1D21;--ink:#EDEAE3;--ink-2:#A9ADB4;--line:#2C3036;--verd:#6DBBA8;--brass:#C9944A;--focus:#7FD0BC;color-scheme:dark}
+:root[data-contrast="high"]{--bg:#FFFFFF;--surface:#FFFFFF;--ink:#000000;--ink-2:#1A1A1A;--line:#000000;--verd:#0B4A3E;--brass:#5E400F;--focus:#000000}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:1rem/1.55 "Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;overflow-x:hidden}
+main{max-width:720px;margin:0 auto;padding:40px 16px 56px}
+.mark{width:44px;height:44px;stroke:var(--brass);fill:none;stroke-width:1.8;stroke-linecap:round}
+.mark .b{stroke:var(--verd)}
+h1{font:400 clamp(2rem,1.4rem + 3vw,3rem)/1.08 "Instrument Serif",Georgia,"Times New Roman",serif;margin:14px 0 8px}
+p{margin:0 0 12px;max-width:62ch}
+.lede{color:var(--ink-2);font-size:1.0625rem}
+h2{font-size:.78rem;font-weight:750;letter-spacing:.12em;text-transform:uppercase;color:var(--brass);margin:28px 0 10px}
+ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+li a{display:flex;flex-direction:column;justify-content:center;min-height:52px;padding:8px 14px;border:1px solid var(--line);border-radius:16px;background:var(--surface);color:var(--ink);text-decoration:none}
+li a:hover{border-color:var(--verd)}
+li small{color:var(--ink-2);font-size:.82rem;overflow-wrap:anywhere}
+a:focus-visible,button:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+button{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;background:var(--ink);color:var(--bg);font-weight:600}
+.none{color:var(--ink-2)}
+:root[data-contrast="high"] li a{border-width:2px}
+</style>
+<link rel="manifest" href="../manifest.webmanifest" data-tca-manifest>
+<meta name="apple-mobile-web-app-title" content="Civic Archive" data-tca-manifest>
+</head>
+<body>
+<main id="main">
+<svg class="mark" viewBox="0 0 28 28" aria-hidden="true" focusable="false"><path class="b" d="M14 3v2.5"/><path class="b" d="M6.5 13.5a7.5 7.5 0 0 1 15 0"/><path d="M4 13.5h20"/><path d="M6.5 16.5v6M11.5 16.5v6M16.5 16.5v6M21.5 16.5v6"/><path d="M3 24h22"/></svg>
+<h1>You&rsquo;re offline.</h1>
+<p class="lede">Pages you&rsquo;ve opened are still here. This page needs a connection, because it has not been opened on this device before.</p>
+<p><button type="button" id="again">Try again</button></p>
+<h2 id="kept-h">Kept on this device</h2>
+<ul id="kept" aria-labelledby="kept-h"><li class="none">Looking&hellip;</li></ul>
+<p class="none" style="margin-top:22px">Election Night&rsquo;s figures always come from the network, so they show again when you are back online. Nothing on this page is sent anywhere.</p>
+</main>
+<script>
+(function () {
+  var S = "__TCA_SCOPE__", scope = S.indexOf("http") === 0 ? S : new URL("../", location.href).href;
+  var box = document.getElementById("kept");
+  document.getElementById("again").addEventListener("click", function () { location.reload(); });
+  addEventListener("online", function () { location.reload(); });
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return {"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]; }); };
+  var item = function (u, name) { return '<li><a href="' + esc(u) + '"><b>' + esc(name) + '</b><small>' + esc(u.replace(/^https?:\/\/[^/]+/, "")) + "</small></a></li>"; };
+  function rows() {
+    return new Promise(function (ok) {
+      try {
+        var q = indexedDB.open("tca-app-live", 1);
+        q.onupgradeneeded = function () { q.result.createObjectStore("kept", {keyPath: "u"}); };
+        q.onerror = function () { ok([]); };
+        q.onsuccess = function () {
+          try { var g = q.result.transaction("kept").objectStore("kept").getAll(); g.onsuccess = function () { ok(g.result || []); q.result.close(); }; g.onerror = function () { ok([]); }; }
+          catch (e) { ok([]); }
+        };
+      } catch (e) { ok([]); }
+    });
+  }
+  /* the two parts of the site with workers of their own: Plain Congress and the kept ballot */
+  function own(path) { try { return caches.match(new URL(path, scope).href).then(function (r) { return !!r; }, function () { return false; }); } catch (e) { return Promise.resolve(false); } }
+  Promise.all([rows(), own("us/index.html"), own("ballot/kept/")]).then(function (r) {
+    var us = new URL("us/", scope).href, kept = new URL("ballot/kept/", scope).href;
+    var pages = r[0].filter(function (x) { return x.p && x.u.indexOf("/app/offline.html") < 0 && !(r[1] && x.u.indexOf(us) === 0) && x.u.indexOf(kept) !== 0; })
+      .sort(function (a, b) { return b.t - a.t; });
+    var out = [];
+    if (r[2]) out.push(item(new URL("ballot/kept/", scope).href, "My ballot, kept on this device"));
+    if (r[1]) out.push(item(new URL("us/", scope).href, "Plain Congress"));
+    pages.forEach(function (x) { out.push(item(x.u, x.n || x.u)); });
+    box.innerHTML = out.length ? out.join("") : '<li class="none">Nothing is kept yet. Pages you open with a connection are kept here for next time.</li>';
+  });
+})();
+</script>
+</body>
+</html>
