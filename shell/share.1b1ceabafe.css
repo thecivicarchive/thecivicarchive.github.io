@@ -1,0 +1,96 @@
+/* The Civic Archive: sharing (share.js). The standard Share button (.tca-share), the small menu it opens (.tca-sharebox)
+   and the "Link copied" line (.tca-sharesay). The build puts this file inside the shell's and the rider's stylesheets, so
+   a button is right from the first frame; share.js loads it on its own only on a page with neither. Scoped to those three,
+   so no page's own styles are touched. Colours follow both switches the site has: data-contrast (the shell's pages) and
+   data-theme (the others). Brass, verdigris, parchment and ink only: red and blue are kept for party data. */
+:root{--tca-share:1}
+.tca-share,.tca-sharebox,.tca-sharesay{
+  --s-surface:#FFFDF8;--s-surface-2:#EFEBE1;--s-ink:#1A1C20;--s-ink-2:#545961;--s-line:#DDD7CA;--s-line-strong:#B9B2A3;
+  --s-brass:#A8762E;--s-brass-ink:#7A5418;--s-verd:#2F6B5E;--s-verd-soft:#E2EDE8;--s-focus:#2F6B5E;--s-on:#FFFDF8;
+  --s-shadow:0 18px 50px -18px rgba(26,28,32,.35),0 2px 6px rgba(26,28,32,.08);
+  --s-font:var(--font-ui,"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif);
+  --s-fs:calc(.9375rem * var(--tca-fs,1));--s-fs-s:calc(.8125rem * var(--tca-fs,1));--s-gap:1
+}
+:root:is([data-contrast="dark"],[data-theme="dark"]) :is(.tca-share,.tca-sharebox,.tca-sharesay){
+  --s-surface:#1A1D21;--s-surface-2:#22262B;--s-ink:#EDEAE3;--s-ink-2:#A9ADB4;--s-line:#2C3036;--s-line-strong:#474C55;
+  --s-brass:#C9944A;--s-brass-ink:#DDB06A;--s-verd:#6DBBA8;--s-verd-soft:#1B302B;--s-focus:#7FD0BC;--s-on:#121417;
+  --s-shadow:0 22px 60px -20px rgba(0,0,0,.8),0 2px 8px rgba(0,0,0,.4)
+}
+:root[data-contrast="high"] :is(.tca-share,.tca-sharebox,.tca-sharesay){
+  --s-surface:#FFFFFF;--s-surface-2:#F2F2F2;--s-ink:#000000;--s-ink-2:#1F1F1F;--s-line:#000000;--s-line-strong:#000000;
+  --s-brass:#000000;--s-brass-ink:#000000;--s-verd:#000000;--s-verd-soft:#FFFFFF;--s-focus:#000000;--s-on:#FFFFFF;--s-shadow:0 0 0 2px #000000
+}
+:root[data-space="generous"] :is(.tca-share,.tca-sharebox){--s-gap:1.3}
+.tca-share svg,.tca-sharebox svg{stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* ---------- the standard button: a share icon and the word Share, 44 pixels high ---------- */
+.tca-share{position:relative;-webkit-appearance:none;appearance:none;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:44px;min-width:44px;margin:0;padding:0 18px;border-radius:999px;border:1px solid var(--s-line-strong);background:var(--s-surface);color:var(--s-ink);
+  font-family:var(--s-font);font-weight:650;font-size:var(--s-fs);line-height:1.2;letter-spacing:0;text-decoration:none;white-space:nowrap;vertical-align:middle;
+  -webkit-tap-highlight-color:transparent}
+.tca-share svg{width:18px;height:18px}
+.tca-share:hover{border-color:var(--s-ink)}
+.tca-share:focus-visible{outline:3px solid var(--s-focus);outline-offset:3px}
+.tca-share[aria-expanded="true"]{background:var(--s-surface-2);border-color:var(--s-ink)}
+:root[data-contrast="high"] .tca-share{border-width:2px}
+/* a quiet one, inside a row of links or a card's corner */
+.tca-share.quiet{border-color:transparent;background:transparent;padding:0 12px}
+.tca-share.quiet:hover{background:var(--s-surface-2)}
+/* only the icon (the word stays for screen readers) */
+.tca-share.icon-only{padding:0;width:44px}
+.tca-share.icon-only span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- the menu ---------- */
+.tca-sharebox{position:fixed;z-index:96;left:8px;top:8px;width:min(330px,calc(100vw - 16px));max-height:calc(100vh - 16px);overflow:auto;overscroll-behavior:contain;
+  box-sizing:border-box;padding:calc(14px * var(--s-gap)) 14px 12px;background:var(--s-surface);color:var(--s-ink);border:1px solid var(--s-line-strong);border-radius:18px;
+  box-shadow:var(--s-shadow);font-family:var(--s-font);font-size:var(--s-fs);line-height:1.35;text-align:left}
+.tca-sharebox[hidden]{display:none!important}
+.tca-sharebox *{box-sizing:border-box}
+:root[data-contrast="high"] .tca-sharebox{border-width:2px}
+.tca-sharebox.sheet{left:8px!important;right:8px!important;top:auto!important;bottom:calc(8px + env(safe-area-inset-bottom,0px))!important;width:auto;
+  max-height:calc(100vh - 24px);border-radius:20px}
+.tca-sharebox .x{-webkit-appearance:none;appearance:none;border:0;background:none;color:var(--s-ink-2);cursor:pointer;float:right;width:44px;height:44px;margin:-10px -8px 0 6px;
+  border-radius:50%;display:grid;place-items:center;padding:0}
+.tca-sharebox .x:hover{background:var(--s-surface-2);color:var(--s-ink)}
+.tca-sharebox .x svg{width:20px;height:20px;stroke-width:2}
+.tca-sh-h{margin:2px 0 2px;font-weight:700;font-size:calc(1.05rem * var(--tca-fs,1));color:var(--s-ink)}
+.tca-sh-h:focus{outline:none}
+.tca-sh-h:focus-visible{outline:3px solid var(--s-focus);outline-offset:2px;border-radius:4px}
+.tca-sh-what{margin:0 0 8px;color:var(--s-ink-2);font-size:var(--s-fs-s);overflow-wrap:anywhere}
+.tca-sh-list{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:2px}
+.tca-sh-list li{margin:0;padding:0;min-width:0}
+/* two columns, Copy link across both: the list stays short enough to sit beside its button */
+.tca-sh-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tca-sh-list li:first-child{grid-column:1/-1}
+/* one column where the words are larger, so no name breaks in two */
+:root:is([data-scale="130"],[data-scale="150"],[data-scale="200"]) .tca-sh-list{grid-template-columns:minmax(0,1fr)}
+.tca-sh-item{-webkit-appearance:none;appearance:none;display:flex;align-items:center;gap:12px;width:100%;min-height:44px;padding:0 12px;border:0;border-radius:12px;
+  background:none;color:var(--s-ink);font:inherit;font-weight:600;text-align:left;text-decoration:none;cursor:pointer}
+.tca-sh-item svg{width:20px;height:20px;color:var(--s-ink-2)}
+.tca-sh-item:hover{background:var(--s-surface-2)}
+.tca-sh-item:focus{outline:none}
+.tca-sh-item:focus-visible{outline:3px solid var(--s-focus);outline-offset:-3px;background:var(--s-verd-soft)}
+.tca-share-copy{border:1px solid var(--s-line);margin-bottom:4px}
+.tca-share-copy svg{color:var(--s-verd)}
+.tca-sh-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.tca-sh-fine{margin:10px 2px 0;color:var(--s-ink-2);font-size:var(--s-fs-s)}
+.tca-sh-warn{margin:6px 0 12px;color:var(--s-ink);padding-left:12px;border-left:4px solid var(--s-brass)}
+.tca-sh-row{display:flex;flex-wrap:wrap;gap:8px;margin:0}
+.tca-sh-go,.tca-sh-no{-webkit-appearance:none;appearance:none;display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;font:inherit;font-weight:650;cursor:pointer}
+.tca-sh-go{background:var(--s-verd);color:var(--s-on);border:1px solid var(--s-verd)}
+.tca-sh-go:hover{filter:brightness(1.08)}
+.tca-sh-no{background:var(--s-surface);color:var(--s-ink);border:1px solid var(--s-line-strong)}
+.tca-sh-no:hover{background:var(--s-surface-2)}
+.tca-sh-go:focus-visible,.tca-sh-no:focus-visible,.tca-sharebox .x:focus-visible{outline:3px solid var(--s-focus);outline-offset:2px}
+:root[data-contrast="high"] .tca-sh-go{outline:2px solid #000;outline-offset:-2px}
+.tca-sh-url{display:block;width:100%;min-height:44px;padding:8px 10px;border:1px solid var(--s-line-strong);border-radius:10px;background:var(--s-surface-2);color:var(--s-ink);font:inherit}
+
+/* ---------- "Link copied" ---------- */
+.tca-sharesay{position:fixed;z-index:97;left:50%;bottom:calc(24px + var(--tab-h,0px) + env(safe-area-inset-bottom,0px));transform:translate(-50%,8px);max-width:calc(100vw - 32px);
+  padding:10px 16px;border-radius:999px;background:var(--s-ink);color:var(--s-surface);font-family:var(--s-font);font-size:var(--s-fs);font-weight:600;
+  box-shadow:var(--s-shadow);opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease}
+.tca-sharesay:empty{display:none}
+.tca-sharesay.on{opacity:1;transform:translate(-50%,0)}
+:root:is([data-motion="reduced"],[data-calm="on"]) .tca-sharesay{transition:none}
+@media (prefers-reduced-motion:reduce){.tca-sharesay{transition:none}}
+@media print{.tca-share,.tca-sharebox,.tca-sharesay{display:none!important}}
