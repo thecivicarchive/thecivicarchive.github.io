@@ -1,0 +1,171 @@
+{
+ "about": "Into the notebook: the crossing that plays the first time a reader follows a notebook link from a layout page of the sandbox (John, 2026-11-10). Every work it is drawn from, with its author, licence and source page, each licence read on the source's own licence page on 2026-11-10 (Poly Haven: all assets CC0, polyhaven.com/license; ambientCG: all assets under the CC0 1.0 Universal licence, docs.ambientcg.com/license). Nothing here needs an account to download. Everything else (the notebook itself, its boards and spine, the brass corners, the ribbon, the pages and their words, the desks, the lamps, the pen and the shelves of books behind) is built in code for the scene. The page on top carries the words of the link the reader followed and the notebook's own section headings; no figures are invented. The files were fetched once with this site's honest User-Agent, one at a time, and shrunk here.",
+ "works": [
+  {
+   "what": "The notebook's leather",
+   "title": "Brown Leather",
+   "author": "Rob Tuytel (Poly Haven)",
+   "licence": "CC0 1.0",
+   "source": "https://polyhaven.com/a/brown_leather",
+   "licence_pages": [
+    "https://polyhaven.com/license"
+   ],
+   "file": "brown_leather_albedo_1k.jpg, brown_leather_nor_gl_1k.jpg, brown_leather_rough_1k.jpg",
+   "changed": "re-saved at 1,024 pixels (a computer) and 512 (a phone); the scene tiles the hide at a finer grain than the upholstery it was photographed from, tints it a deep brown, darkens its edges and presses the title into it in brass foil (drawn here, with the normal map tilted at the letters' edges)",
+   "kept": [
+    {
+     "file": "leather_diff.jpg",
+     "bytes": 197750,
+     "sha256": "b305170486ff5e73f0de25db2ee5d7e0fdc9c7556c2ef50308df02e891703179"
+    },
+    {
+     "file": "leather_nor.jpg",
+     "bytes": 406067,
+     "sha256": "0066ef432304ea6b5676f94cbd572cc2aad3e1d97026e3ea9f255750a5371651"
+    },
+    {
+     "file": "leather_rough.jpg",
+     "bytes": 398044,
+     "sha256": "acedccb38cb64ac76ee7697f556e8145e3ffb6c7e493045ba31fa2dfc643cea8"
+    },
+    {
+     "file": "leather_diff_s.jpg",
+     "bytes": 43072,
+     "sha256": "2185db315044a6d7434fa22ede3874b83dc7062d9ea24acd293ec43703d327d1"
+    },
+    {
+     "file": "leather_nor_s.jpg",
+     "bytes": 91329,
+     "sha256": "0d95a20a0c48cdc8a91afa0a7783b2df8f7bf489a37d73ce3afa55a1c18d7311"
+    },
+    {
+     "file": "leather_rough_s.jpg",
+     "bytes": 103961,
+     "sha256": "18e1070bd0853aa8c06d082b135508e527de680f949ae9ce6c6800437e5120bc"
+    }
+   ]
+  },
+  {
+   "what": "The desk's varnished wood",
+   "title": "Wood Table 001",
+   "author": "Dimitrios Savva (photography), Rico Cilliers (Poly Haven)",
+   "licence": "CC0 1.0",
+   "source": "https://polyhaven.com/a/wood_table_001",
+   "licence_pages": [
+    "https://polyhaven.com/license"
+   ],
+   "file": "wood_table_001_diff_1k.jpg, wood_table_001_nor_gl_1k.jpg, wood_table_001_rough_1k.jpg",
+   "changed": "re-saved at 1,024 and 512 pixels; the scene lays the grain along the desks' length, under a thin clear coat for the varnish",
+   "kept": [
+    {
+     "file": "wood_diff.jpg",
+     "bytes": 200225,
+     "sha256": "0012b8dbed86b83cb6e9a148ec2d094373f10a59f7039cf09427f71f676e251d"
+    },
+    {
+     "file": "wood_nor.jpg",
+     "bytes": 45859,
+     "sha256": "674add63f3a70b95f0a48ccc999baf37244cdb532172f5a57b1c4fbef082d20a"
+    },
+    {
+     "file": "wood_rough.jpg",
+     "bytes": 210027,
+     "sha256": "0cee0390761caf27404a27e753ec2741bd8ea1c64cd82468bcb85d2db27f0670"
+    },
+    {
+     "file": "wood_diff_s.jpg",
+     "bytes": 42827,
+     "sha256": "50a51d4ab20bac51268e3ff79a8a5d96e1baa43ec1a1a31d6d359da7490bceca"
+    },
+    {
+     "file": "wood_nor_s.jpg",
+     "bytes": 7112,
+     "sha256": "246c16c3e7229759f85c7a43ed0d38e5c19250487633ba550bd62fe8bd2ce9b7"
+    },
+    {
+     "file": "wood_rough_s.jpg",
+     "bytes": 43182,
+     "sha256": "2964d7718027d88fa86c73f63ef34b37e3325341d5c405a66cdffb98c883d33f"
+    }
+   ]
+  },
+  {
+   "what": "The paper of the pages and the endpapers: its fibre, its tooth and its sheen",
+   "title": "Paper 001",
+   "author": "ambientCG (Lennart Demes)",
+   "licence": "CC0 1.0",
+   "source": "https://ambientcg.com/view?id=Paper001",
+   "licence_pages": [
+    "https://docs.ambientcg.com/license/"
+   ],
+   "file": "Paper001_1K-JPG.zip (Color, NormalGL, Roughness)",
+   "changed": "the colour map kept as grey at 1,024 and 512 pixels and tinted cream on the device, where the ruled lines, the margin, the words and a ghost of the next page's words are drawn over it; the normal map at 1,024 and 512; the roughness map at 512",
+   "kept": [
+    {
+     "file": "paper_diff.jpg",
+     "bytes": 47787,
+     "sha256": "6554d6e065b0770c4a1e5e49eded8224cac2ffa9ba0697ecfaffa60bde767c19"
+    },
+    {
+     "file": "paper_nor.jpg",
+     "bytes": 249445,
+     "sha256": "b1b51e0c037e4b3710d9fc224a530f9f5fea41a5ee2340ece6a92f910ecd2a38"
+    },
+    {
+     "file": "paper_rough.jpg",
+     "bytes": 55627,
+     "sha256": "19f22c39cc6126cfe60545b39e7ebddab0296a3f1465b08a3576bc9cd0ab178a"
+    },
+    {
+     "file": "paper_diff_s.jpg",
+     "bytes": 16923,
+     "sha256": "0bbb2f346ce81a07149b6b490669231ee02153e5af5ddc13c460710981dc7e72"
+    },
+    {
+     "file": "paper_nor_s.jpg",
+     "bytes": 71738,
+     "sha256": "9bbed236e180e17e186779bc8ce46b6a88737befd3099808684b0614c9aadbff"
+    }
+   ]
+  },
+  {
+   "what": "The room's light: reflections in the brass, the varnish and the leather, the fill on the pages, and the room glimpsed out of focus behind the desk",
+   "title": "Combination Room",
+   "author": "Sergej Majboroda (Poly Haven)",
+   "licence": "CC0 1.0",
+   "source": "https://polyhaven.com/a/combination_room",
+   "licence_pages": [
+    "https://polyhaven.com/license"
+   ],
+   "file": "combination_room_1k.hdr",
+   "changed": "the 1,024 by 512 high-range panorama box-filtered to 512 by 256 (a computer) and 256 by 128 (a phone) and written back as a flat Radiance picture; the scene turns it so its window stands behind the desk, prefilters it on the device for reflections, and shows it blurred as the room beyond the shelves",
+   "kept": [
+    {
+     "file": "env.hdr",
+     "bytes": 524337,
+     "sha256": "8adc3e6320023bca528f1cbe4c2c37bd5ff212a029897f3867132f7294e74383"
+    },
+    {
+     "file": "env_s.hdr",
+     "bytes": 131121,
+     "sha256": "b2161549c38afc9747150be79d04eed1e309d283cac20a0f9a3fb3431b2f0537"
+    }
+   ]
+  },
+  {
+   "what": "The type on the pages and the cover",
+   "title": "Instrument Serif and Instrument Sans",
+   "author": "Rodrigo Fuenzalida and Jordan Egstad (Instrument)",
+   "licence": "SIL Open Font License 1.1 (the site's own copy, shell/fonts/)",
+   "source": "https://github.com/Instrument/instrument-serif",
+   "file": "nothing of its own: the scene draws with the page's fonts where they are loaded, else with the device's serif"
+  },
+  {
+   "what": "Drawing it",
+   "title": "three.js r169",
+   "author": "the three.js authors",
+   "licence": "MIT licence (the copy kept here, three.module.min.js)",
+   "source": "https://threejs.org/"
+  }
+ ]
+}

@@ -1,0 +1,54 @@
+# The Civic Archive is a public record, made for people.
+# Search engines may read and index it; the draft (/dev/) and the raw live figures (/night-live/) are left out.
+# AI crawlers that collect pages for training, and AI search indexes, may not read any of it.
+# An AI assistant may read a page that a person has asked it about.
+
+# AI training crawlers
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
+User-agent: Meta-ExternalAgent
+User-agent: FacebookBot
+User-agent: Bytespider
+User-agent: Amazonbot
+User-agent: cohere-ai
+User-agent: cohere-training-data-crawler
+User-agent: Diffbot
+User-agent: AI2Bot
+User-agent: Ai2Bot-Dolma
+User-agent: Omgilibot
+User-agent: Webzio-Extended
+User-agent: ImagesiftBot
+User-agent: Timpibot
+User-agent: PanguBot
+Disallow: /
+
+# AI search indexes
+User-agent: OAI-SearchBot
+User-agent: Claude-SearchBot
+User-agent: PerplexityBot
+User-agent: DuckAssistBot
+User-agent: YouBot
+Disallow: /
+
+# AI assistants fetching a page because a person asked
+User-agent: ChatGPT-User
+User-agent: Claude-User
+User-agent: Perplexity-User
+User-agent: MistralAI-User
+User-agent: Meta-ExternalFetcher
+Disallow: /dev/
+Disallow: /night-live/
+Allow: /
+
+# Everyone else, search engines and link previews included
+User-agent: *
+Content-Signal: search=yes, ai-train=no
+Disallow: /dev/
+Disallow: /night-live/
+Allow: /
+
+Sitemap: https://thecivicarchive.org/sitemap.xml
