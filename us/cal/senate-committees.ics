@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//The Civic Archive//Congress coming up//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Congress: Senate committee markups
+X-WR-TIMEZONE:America/New_York
+REFRESH-INTERVAL;VALUE=DURATION:PT3H
+X-PUBLISHED-TTL:PT3H
+BEGIN:VEVENT
+UID:sc-338849@thecivicarchive.org
+DTSTAMP:20261121T034147Z
+SEQUENCE:0
+DTSTART:20261124T151500Z
+DTEND:20261124T161500Z
+SUMMARY:Committee on Judiciary business meeting: S. 5289
+DESCRIPTION:Business meeting\nTimes can change\; the chamber's own schedule
+  is the authority.\nPosted by the chamber: https://www.senate.gov/committe
+ es/hearings_meetings.htm\nFrom The Civic Archive: https://thecivicarchive.
+ org/us/#coming
+LOCATION:SH-216
+URL:https://www.senate.gov/committees/hearings_meetings.htm
+STATUS:CANCELLED
+END:VEVENT
+END:VCALENDAR
