@@ -1,0 +1,28 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//The Civic Archive//Congress coming up//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Congress: House committee markups
+X-WR-TIMEZONE:America/New_York
+REFRESH-INTERVAL;VALUE=DURATION:PT3H
+X-PUBLISHED-TTL:PT3H
+BEGIN:VEVENT
+UID:hc-118863@thecivicarchive.org
+DTSTAMP:20261125T201844Z
+SEQUENCE:0
+DTSTART:20261130T210000Z
+DTEND:20261130T220000Z
+SUMMARY:Committee on Rules meeting: H.R. 2347\, H.R. 11142\, H.R. 3495\, H.
+ R. 5267
+DESCRIPTION:Senate amendment to H.R. 2347 – Bipartisan American Affordabi
+ lity and Jobs Act of 2026\; H.R. 11142 – Stop Insider Trading Act\; H.R.
+  3495 – Direct Seller and Real Estate Agent Harmonization Act\; H.R. 526
+ 7 – American Franchise Act\nTimes can change\; the chamber's own schedul
+ e is the authority.\nPosted by the chamber: https://docs.house.gov/Committ
+ ee/Calendar/ByEvent.aspx?EventID=118863\nFrom The Civic Archive: https://t
+ hecivicarchive.org/us/#coming
+LOCATION:H-313 CAPITOL
+URL:https://docs.house.gov/Committee/Calendar/ByEvent.aspx?EventID=118863
+END:VEVENT
+END:VCALENDAR

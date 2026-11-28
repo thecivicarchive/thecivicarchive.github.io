@@ -1,0 +1,86 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//The Civic Archive//Congress coming up//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Congress: everything coming up
+X-WR-TIMEZONE:America/New_York
+REFRESH-INTERVAL;VALUE=DURATION:PT3H
+X-PUBLISHED-TTL:PT3H
+BEGIN:VEVENT
+UID:sf-2026-11-30@thecivicarchive.org
+DTSTAMP:20261127T184201Z
+SEQUENCE:0
+DTSTART:20261130T200000Z
+DTEND:20261130T210000Z
+SUMMARY:The Senate meets
+DESCRIPTION:The Senate meets\nTimes can change\; the chamber's own schedule
+  is the authority.\nPosted by the chamber: https://www.senate.gov/legislat
+ ive/schedule/floor_schedule.htm\nFrom The Civic Archive: https://thecivica
+ rchive.org/us/#coming
+URL:https://www.senate.gov/legislative/schedule/floor_schedule.htm
+END:VEVENT
+BEGIN:VEVENT
+UID:hc-118863@thecivicarchive.org
+DTSTAMP:20261127T184201Z
+SEQUENCE:0
+DTSTART:20261130T210000Z
+DTEND:20261130T220000Z
+SUMMARY:Committee on Rules meeting: H.R. 2347\, H.R. 11142\, H.R. 3495\, H.
+ R. 5267
+DESCRIPTION:Senate amendment to H.R. 2347 – Bipartisan American Affordabi
+ lity and Jobs Act of 2026\; H.R. 11142 – Stop Insider Trading Act\; H.R.
+  3495 – Direct Seller and Real Estate Agent Harmonization Act\; H.R. 526
+ 7 – American Franchise Act\nTimes can change\; the chamber's own schedul
+ e is the authority.\nPosted by the chamber: https://docs.house.gov/Committ
+ ee/Calendar/ByEvent.aspx?EventID=118863\nFrom The Civic Archive: https://t
+ hecivicarchive.org/us/#coming
+LOCATION:H-313 CAPITOL
+URL:https://docs.house.gov/Committee/Calendar/ByEvent.aspx?EventID=118863
+END:VEVENT
+BEGIN:VEVENT
+UID:sc-338905@thecivicarchive.org
+DTSTAMP:20261127T184201Z
+SEQUENCE:0
+DTSTART:20261201T151500Z
+DTEND:20261201T161500Z
+SUMMARY:Committee on Judiciary business meeting: S. 5289
+DESCRIPTION:Business meeting\nTimes can change\; the chamber's own schedule
+  is the authority.\nPosted by the chamber: https://www.senate.gov/committe
+ es/hearings_meetings.htm\nFrom The Civic Archive: https://thecivicarchive.
+ org/us/#coming
+LOCATION:SH-216
+URL:https://www.senate.gov/committees/hearings_meetings.htm
+END:VEVENT
+BEGIN:VEVENT
+UID:sc-338902@thecivicarchive.org
+DTSTAMP:20261127T184201Z
+SEQUENCE:0
+DTSTART:20261201T153000Z
+DTEND:20261201T163000Z
+SUMMARY:Committee on Homeland Security and Governmental Affairs business me
+ eting: S. 5239
+DESCRIPTION:Business meeting\nTimes can change\; the chamber's own schedule
+  is the authority.\nPosted by the chamber: https://www.senate.gov/committe
+ es/hearings_meetings.htm\nFrom The Civic Archive: https://thecivicarchive.
+ org/us/#coming
+LOCATION:SD-342
+URL:https://www.senate.gov/committees/hearings_meetings.htm
+END:VEVENT
+BEGIN:VEVENT
+UID:sc-338909@thecivicarchive.org
+DTSTAMP:20261127T184201Z
+SEQUENCE:0
+DTSTART:20261201T160000Z
+DTEND:20261201T170000Z
+SUMMARY:Committee on Energy and Natural Resources business meeting: H.R. 16
+ 82\, H.R. 2317\, H.R. 2709\, H.R. 900\, S. 462\, S. 791\, S. 1005\, S. 119
+ 5\, S. 2644\, S. 2968\, S. 3409\, S. 3501\, S. 3542\, S. 4103\, S. 4200\, 
+DESCRIPTION:Business meeting\nTimes can change\; the chamber's own schedule
+  is the authority.\nPosted by the chamber: https://www.senate.gov/committe
+ es/hearings_meetings.htm\nFrom The Civic Archive: https://thecivicarchive.
+ org/us/#coming
+LOCATION:SD-366
+URL:https://www.senate.gov/committees/hearings_meetings.htm
+END:VEVENT
+END:VCALENDAR

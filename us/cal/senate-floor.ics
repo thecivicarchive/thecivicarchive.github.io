@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//The Civic Archive//Congress coming up//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Congress: the Senate floor
+X-WR-TIMEZONE:America/New_York
+REFRESH-INTERVAL;VALUE=DURATION:PT3H
+X-PUBLISHED-TTL:PT3H
+BEGIN:VEVENT
+UID:sf-2026-11-30@thecivicarchive.org
+DTSTAMP:20261127T184201Z
+SEQUENCE:0
+DTSTART:20261130T200000Z
+DTEND:20261130T210000Z
+SUMMARY:The Senate meets
+DESCRIPTION:The Senate meets\nTimes can change\; the chamber's own schedule
+  is the authority.\nPosted by the chamber: https://www.senate.gov/legislat
+ ive/schedule/floor_schedule.htm\nFrom The Civic Archive: https://thecivica
+ rchive.org/us/#coming
+URL:https://www.senate.gov/legislative/schedule/floor_schedule.htm
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,121 @@
+/* The Civic Archive: Congress as it moves (congress.js): the banner across the top of a page, Notify me, and a reminder's
+   notice. Fetched only when something is shown. Scoped to what it draws, with tokens of its own, so it looks the same on
+   the shell's pages and on the pages that keep their own top bar; it follows both kinds of dark (data-contrast on the
+   shell's pages, data-theme on the others) and high contrast. Chrome colours only: ink, parchment, verdigris and brass;
+   never red or blue (those are for party figures). */
+.tca-cg,.tca-cgdlg,.tca-cgnote{
+  --cg-bg:#22343A;--cg-ink:#FFFDF8;--cg-line:rgba(255,253,248,.6);--cg-hover:rgba(255,253,248,.14);--cg-tag-bg:#F3E8D3;--cg-tag-ink:#5E400F;
+  --cg-edge:#2F6B5E;--cg-focus:#F3E8D3;
+  --dl-surface:#FFFDF8;--dl-ink:#1A1C20;--dl-ink2:#545961;--dl-line:#DDD7CA;--dl-edge:#B9B2A3;--dl-link:#2F6B5E;--dl-time:#7A5418;--dl-focus:#2F6B5E;
+  --dl-warn:#F3E8D3;--dl-warn-ink:#5E400F;--dl-scrim:rgba(26,28,32,.45);
+  --cg-font:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --cg-fs:calc(.92rem * var(--tca-fs,1))
+}
+:root[data-face="dyslexia"] :is(.tca-cg,.tca-cgdlg,.tca-cgnote){--cg-font:"Lexend",Verdana,Tahoma,system-ui,sans-serif}
+:root[data-face="hyperlegible"] :is(.tca-cg,.tca-cgdlg,.tca-cgnote){--cg-font:"Atkinson Hyperlegible",Verdana,system-ui,sans-serif}
+:root:is([data-theme="dark"],[data-contrast="dark"]) :is(.tca-cg,.tca-cgdlg,.tca-cgnote){
+  --cg-bg:#16232A;--cg-ink:#EDEAE3;--cg-line:rgba(237,234,227,.5);--cg-hover:rgba(237,234,227,.1);--cg-tag-bg:#2F2618;--cg-tag-ink:#E8C988;
+  --cg-edge:#6DBBA8;--cg-focus:#7FD0BC;
+  --dl-surface:#1A1D21;--dl-ink:#EDEAE3;--dl-ink2:#A9ADB4;--dl-line:#2C3036;--dl-edge:#474C55;--dl-link:#6DBBA8;--dl-time:#DDB06A;--dl-focus:#7FD0BC;
+  --dl-warn:#2F2618;--dl-warn-ink:#E8C988;--dl-scrim:rgba(0,0,0,.6)
+}
+:root[data-contrast="high"] :is(.tca-cg,.tca-cgdlg,.tca-cgnote){
+  --cg-bg:#FFFFFF;--cg-ink:#000000;--cg-line:#000000;--cg-hover:#F2F2F2;--cg-tag-bg:#000000;--cg-tag-ink:#FFFFFF;--cg-edge:#000000;--cg-focus:#000000;
+  --dl-surface:#FFFFFF;--dl-ink:#000000;--dl-ink2:#1F1F1F;--dl-line:#000000;--dl-edge:#000000;--dl-link:#000000;--dl-time:#000000;--dl-focus:#000000;
+  --dl-warn:#FFFFFF;--dl-warn-ink:#000000;--dl-scrim:rgba(0,0,0,.6)
+}
+
+/* ---------- the banner ---------- */
+.tca-cg{position:relative;z-index:60;display:block;margin:0;padding:0;width:auto;max-width:none;background:var(--cg-bg);color:var(--cg-ink);border:0;
+  border-bottom:3px solid var(--cg-edge);border-radius:0;box-shadow:none;font-family:var(--cg-font);font-size:var(--cg-fs);font-weight:400;line-height:1.4;text-align:left;
+  letter-spacing:normal;word-spacing:normal;text-transform:none;overflow:clip}
+.tca-cg *{box-sizing:border-box}
+.tca-cg-in{max-width:1240px;margin:0 auto;padding:6px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 14px}
+.tca-cg-tag{flex:none;display:inline-flex;align-items:center;gap:6px;background:var(--cg-tag-bg);color:var(--cg-tag-ink);border-radius:999px;padding:3px 10px 3px 8px;
+  font-size:.78em;font-weight:700;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.tca-cg-tag svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tca-cg p.tca-cg-msg{flex:1 1 360px;min-width:0;max-width:none;margin:0;padding:6px 0;font-size:1em;color:inherit;overflow-wrap:anywhere}
+.tca-cg-msg time{font-weight:700;margin-right:.15em;white-space:nowrap}
+.tca-cg-msg a,.tca-cg-msg span{color:inherit}
+.tca-cg-msg b{font-weight:700}
+.tca-cg-e{display:inline-block;margin-right:.35em;font-style:normal;font-weight:400;text-decoration:none}
+.tca-cg-msg a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.tca-cg-msg a:hover{text-decoration-thickness:2px}
+.tca-cg-mine{font-weight:600}
+.tca-cg-tools{flex:none;display:flex;align-items:center;gap:6px;margin-left:auto}
+.tca-cg-b{appearance:none;-webkit-appearance:none;margin:0;font:inherit;font-size:.88em;font-weight:650;color:inherit;background:transparent;border:1px solid var(--cg-line);
+  border-radius:999px;min-height:44px;padding:4px 14px;cursor:pointer;white-space:nowrap;display:inline-flex;align-items:center;text-decoration:none}
+.tca-cg-b:hover,.tca-cg-x:hover{background:var(--cg-hover)}
+.tca-cg-b[hidden]{display:none}
+.tca-cg-x{appearance:none;-webkit-appearance:none;margin:0 -6px 0 0;padding:0;width:44px;height:44px;border:0;border-radius:50%;background:transparent;color:inherit;
+  display:grid;place-items:center;cursor:pointer}
+.tca-cg-x svg,.tca-cgnote button svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.tca-cg a:focus-visible,.tca-cg button:focus-visible{outline:3px solid var(--cg-focus);outline-offset:2px}
+.tca-cg-sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+/* a measure becoming law: the brass band */
+.tca-cg.law{--cg-bg:#7A5418;--cg-line:rgba(255,253,248,.72);--cg-hover:rgba(255,253,248,.16);--cg-tag-bg:#FFFDF8;--cg-edge:#D9AE6B}
+:root:is([data-theme="dark"],[data-contrast="dark"]) .tca-cg.law{--cg-bg:#3A2C14;--cg-ink:#F4EBDA;--cg-tag-bg:#DDB06A;--cg-tag-ink:#1A1408;--cg-edge:#DDB06A}
+:root[data-contrast="high"] .tca-cg.law{--cg-bg:#000000;--cg-ink:#FFFFFF;--cg-line:#FFFFFF;--cg-hover:#222222;--cg-tag-bg:#FFFFFF;--cg-tag-ink:#000000;--cg-focus:#FFFFFF}
+/* a new alert rises into place (readable at every moment); never with Motion off, Calm or reduced motion */
+.tca-cg.slide .tca-cg-msg{animation:tca-cg-rise .34s cubic-bezier(.2,.8,.2,1)}
+@keyframes tca-cg-rise{from{transform:translateY(.5em)}to{transform:none}}
+@media (prefers-reduced-motion:reduce){.tca-cg.slide .tca-cg-msg{animation:none}}
+:root:is([data-motion="reduced"],[data-calm="on"],.calm) .tca-cg.slide .tca-cg-msg{animation:none}
+@media (max-width:700px){
+  .tca-cg{--cg-fs:calc(.875rem * var(--tca-fs,1))}
+  .tca-cg-s,.tca-cg-mine{display:none}      /* the headline alone on a phone: the whole story is a tap away */
+  .tca-cg-in{padding:6px 16px 8px;gap:2px 8px}
+  .tca-cg p.tca-cg-msg{flex-basis:100%;order:2;padding:2px 0 4px}
+  .tca-cg-tag{order:1}
+  .tca-cg-tools{order:1;margin-left:auto}
+  .tca-cg-b{padding:4px 12px}
+}
+.tca-cg-b[data-cg="notify"] .tca-cg-e{margin-right:.3em}
+@media (max-width:520px){
+  .tca-cg-b[data-cg="notify"]{padding:4px 10px}
+  .tca-cg-b[data-cg="notify"] .tca-cg-e{margin:0}
+  .tca-cg-b[data-cg="notify"] .tca-cg-bt{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+}
+
+/* ---------- Notify me ---------- */
+.tca-cgdlg{width:min(620px,calc(100vw - 32px));max-height:min(86vh,760px);margin:auto;padding:0;border:1px solid var(--dl-edge);border-radius:16px;
+  background:var(--dl-surface);color:var(--dl-ink);font-family:var(--cg-font);font-size:calc(1rem * var(--tca-fs,1));line-height:1.45;text-align:left;
+  box-shadow:0 22px 60px -20px rgba(0,0,0,.55),0 2px 8px rgba(0,0,0,.18);overflow:hidden}
+.tca-cgdlg[open]{display:flex}
+.tca-cgdlg::backdrop{background:var(--dl-scrim)}
+.tca-cgdlg *{box-sizing:border-box}
+.tca-cgdlg-in{position:relative;display:flex;flex-direction:column;width:100%;max-height:inherit;min-height:0;padding:20px 22px 14px;overflow:auto;overscroll-behavior:contain}
+.tca-cgdlg h2{font-family:var(--cg-font);font-size:1.3em;font-weight:650;line-height:1.2;margin:0 48px 8px 0;color:var(--dl-ink);letter-spacing:0}
+.tca-cgdlg h2:focus{outline:none}
+.tca-cgdlg-e{display:inline-block;margin-right:.35em;font-weight:400;font-style:normal}
+.tca-cgdlg p.tca-cgdlg-note{margin:0 0 10px;padding:0;border:0;background:none;color:var(--dl-ink2);font-size:.9em}
+.tca-cgdlg p.tca-cgdlg-warn{margin:0 0 10px;padding:8px 12px;border:0;border-radius:10px;background:var(--dl-warn);color:var(--dl-warn-ink);font-size:.9em;font-weight:600}
+.tca-cgdlg-sw,.tca-cgdlg-r{display:inline-flex;align-items:center;gap:8px;min-height:44px;cursor:pointer;font-size:.95em}
+.tca-cgdlg-sw{font-weight:700;font-size:1em;margin:0 0 6px}
+.tca-cgdlg-fs{margin:0 0 10px;padding:4px 12px 8px;border:1px solid var(--dl-line);border-radius:12px;min-width:0}
+.tca-cgdlg-fs legend{padding:0 6px;font-weight:700;font-size:.92em}
+.tca-cgdlg-r{display:flex;align-items:flex-start;padding:8px 0;min-height:0}
+.tca-cgdlg-r input{margin-top:1px!important}
+.tca-cgdlg-r small{display:block;color:var(--dl-ink2);font-size:.88em;font-weight:400}
+.tca-cgdlg input[type="checkbox"],.tca-cgdlg input[type="radio"]{width:20px;height:20px;margin:0;flex:none;accent-color:var(--dl-link)}
+.tca-cgdlg p.tca-cgdlg-acts{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:4px 0 0;padding:0}
+.tca-cgdlg-b{appearance:none;-webkit-appearance:none;margin:0;font:inherit;font-size:.9em;font-weight:650;color:var(--dl-ink);background:transparent;
+  border:1px solid var(--dl-edge);border-radius:999px;min-height:44px;padding:4px 14px;cursor:pointer;display:inline-flex;align-items:center;white-space:nowrap;text-decoration:none}
+.tca-cgdlg-b:hover{background:var(--dl-line)}
+.tca-cgdlg .tca-cgdlg-x{position:absolute;top:10px;right:10px;appearance:none;-webkit-appearance:none;margin:0;padding:0;width:44px;height:44px;border:0;border-radius:50%;
+  background:transparent;color:var(--dl-ink2);display:grid;place-items:center;cursor:pointer}
+.tca-cgdlg .tca-cgdlg-x svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.tca-cgdlg .tca-cgdlg-x:hover{background:var(--dl-line)}
+.tca-cgdlg a:focus-visible,.tca-cgdlg button:focus-visible,.tca-cgdlg input:focus-visible{outline:3px solid var(--dl-focus);outline-offset:2px}
+@media (max-width:700px){.tca-cgdlg{width:calc(100vw - 32px)}.tca-cgdlg-in{padding:18px 16px 12px}}
+
+/* ---------- a reminder's notice, when notifications are not allowed ---------- */
+.tca-cgnote{position:fixed;left:16px;right:16px;bottom:16px;z-index:90;max-width:560px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;
+  padding:12px 12px 12px 16px;border-radius:14px;border:1px solid var(--dl-edge);border-left:4px solid var(--dl-time);background:var(--dl-surface);color:var(--dl-ink);
+  font-family:var(--cg-font);font-size:calc(.95rem * var(--tca-fs,1));line-height:1.4;box-shadow:0 16px 40px -16px rgba(0,0,0,.45)}
+.tca-cgnote p{flex:1 1 260px;margin:0}
+.tca-cgnote a{color:var(--dl-link);font-weight:650}
+.tca-cgnote button{appearance:none;-webkit-appearance:none;margin:0;padding:0;width:44px;height:44px;border:0;border-radius:50%;background:transparent;color:var(--dl-ink2);
+  display:grid;place-items:center;cursor:pointer}
+.tca-cgnote a:focus-visible,.tca-cgnote button:focus-visible{outline:3px solid var(--dl-focus);outline-offset:2px}
+@media print{.tca-cg,.tca-cgdlg,.tca-cgnote{display:none!important}}

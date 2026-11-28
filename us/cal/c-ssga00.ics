@@ -1,0 +1,26 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//The Civic Archive//Congress coming up//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Congress: Committee on Homeland Security and Governmental Affa
+ irs
+X-WR-TIMEZONE:America/New_York
+REFRESH-INTERVAL;VALUE=DURATION:PT3H
+X-PUBLISHED-TTL:PT3H
+BEGIN:VEVENT
+UID:sc-338902@thecivicarchive.org
+DTSTAMP:20261125T034147Z
+SEQUENCE:0
+DTSTART:20261201T153000Z
+DTEND:20261201T163000Z
+SUMMARY:Committee on Homeland Security and Governmental Affairs business me
+ eting: S. 5239
+DESCRIPTION:Business meeting\nTimes can change\; the chamber's own schedule
+  is the authority.\nPosted by the chamber: https://www.senate.gov/committe
+ es/hearings_meetings.htm\nFrom The Civic Archive: https://thecivicarchive.
+ org/us/#coming
+LOCATION:SD-342
+URL:https://www.senate.gov/committees/hearings_meetings.htm
+END:VEVENT
+END:VCALENDAR

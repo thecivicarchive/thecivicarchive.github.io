@@ -1,0 +1,55 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//The Civic Archive//Congress coming up//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Congress: Senate committee markups
+X-WR-TIMEZONE:America/New_York
+REFRESH-INTERVAL;VALUE=DURATION:PT3H
+X-PUBLISHED-TTL:PT3H
+BEGIN:VEVENT
+UID:sc-338905@thecivicarchive.org
+DTSTAMP:20261126T021150Z
+SEQUENCE:0
+DTSTART:20261201T151500Z
+DTEND:20261201T161500Z
+SUMMARY:Committee on Judiciary business meeting: S. 5289
+DESCRIPTION:Business meeting\nTimes can change\; the chamber's own schedule
+  is the authority.\nPosted by the chamber: https://www.senate.gov/committe
+ es/hearings_meetings.htm\nFrom The Civic Archive: https://thecivicarchive.
+ org/us/#coming
+LOCATION:SH-216
+URL:https://www.senate.gov/committees/hearings_meetings.htm
+END:VEVENT
+BEGIN:VEVENT
+UID:sc-338902@thecivicarchive.org
+DTSTAMP:20261126T021150Z
+SEQUENCE:0
+DTSTART:20261201T153000Z
+DTEND:20261201T163000Z
+SUMMARY:Committee on Homeland Security and Governmental Affairs business me
+ eting: S. 5239
+DESCRIPTION:Business meeting\nTimes can change\; the chamber's own schedule
+  is the authority.\nPosted by the chamber: https://www.senate.gov/committe
+ es/hearings_meetings.htm\nFrom The Civic Archive: https://thecivicarchive.
+ org/us/#coming
+LOCATION:SD-342
+URL:https://www.senate.gov/committees/hearings_meetings.htm
+END:VEVENT
+BEGIN:VEVENT
+UID:sc-338909@thecivicarchive.org
+DTSTAMP:20261126T021150Z
+SEQUENCE:0
+DTSTART:20261201T160000Z
+DTEND:20261201T170000Z
+SUMMARY:Committee on Energy and Natural Resources business meeting: H.R. 16
+ 82\, H.R. 2317\, H.R. 2709\, H.R. 900\, S. 462\, S. 791\, S. 1005\, S. 119
+ 5\, S. 2644\, S. 2968\, S. 3409\, S. 3501\, S. 3542\, S. 4103\, S. 4200\, 
+DESCRIPTION:Business meeting\nTimes can change\; the chamber's own schedule
+  is the authority.\nPosted by the chamber: https://www.senate.gov/committe
+ es/hearings_meetings.htm\nFrom The Civic Archive: https://thecivicarchive.
+ org/us/#coming
+LOCATION:SD-366
+URL:https://www.senate.gov/committees/hearings_meetings.htm
+END:VEVENT
+END:VCALENDAR
